@@ -1,6 +1,6 @@
 # Escopo e aceite do primeiro MVP local
 
-Proposta de fatia verificável, não autorização para iniciar nem redefinição do produto final. Sem código implementado. Dependências: F1–F3 do ROADMAP, guias de arte e configuração experimental.
+Fatia local implementada em F1–F3; aceite abaixo exige evidência própria, sem redefinir o produto final. Dependências: F1–F3 do ROADMAP, guias de arte e configuração experimental.
 
 ## Conteúdo incluído
 
@@ -34,4 +34,23 @@ Não comprova anticheat, escalabilidade, equilíbrio da economia final ou aptid�
 
 ## Evidência parcial de F2
 
-Navegação visual, input, safe areas/alvos, save e recortes têm evidência no relatório F2. Isso cobre partes de M02/M03/M10/M12/M13; não marca esses critérios completos quando dependem de combate, recursos ou recuperação de progresso ainda inexistentes. O aceite do MVP continua futuro.
+Navegação visual, input, safe areas/alvos, save e recortes têm evidência no relatório F2. Isso cobre partes de M02/M03/M10/M12/M13; não marca esses critérios completos quando dependem de combate, recursos ou recuperação de progresso ainda inexistentes. Na entrega F2, o aceite do MVP ainda era futuro; a evidência F3 abaixo atualiza esse estado.
+
+## Evidência F3
+
+| Critérios | Evidência executada / situação |
+|---|---|
+|M01 | npm run check: hashes, typecheck,31 testes e builds cliente/servidor |
+|M02/M03 | Teste de sessão50 ciclos preserva agenda/ID; smokes dev/produção50 ciclos e34 texturas/37 objetos estáveis |
+|M04 |10 toques=10 ferro; input fora da Mina e sob modal bloqueado no navegador |
+|M05 | Compras exatas/rejeição sem mutação nos testes; melhoria real+reload no navegador |
+|M06 | Carvão desbloqueia e produz0,1/s no1;12.347 passos1ms equivalem ao intervalo único, remainder preservado |
+|M07 | Teste de9 mortes/3 ondas/transições; primeira onda não conclui andar |
+|M08/M09 | Boss único10/20, deadline vence empate, derrota/timeout pausa no anterior; retry/treino manual e vitória com Mina ativa |
+|M10 | Snapshot de gameplay, migração real1→2, backup/quarentena/versão futura e CAS concorrente testados; browser reload mantém nível/tela |
+|M11 |24h limitadas a8h, watermark/reload impede segundo crédito; relógio regressivo zero, ausência sem luta e boss pode expirar |
+|M12/M13 | Smokes320/360/390/768 e844×390 horizontal, HUD/alvos/scroll, nove animações, captura revisada, erro de asset bloqueia minério |
+|M14 | Aceito no ambiente registrado: 30min reais (1800914ms),1784 ciclos,127 listeners/34 texturas/37 objetos estáveis, heap apósGC5.91–6.64MiB e média rAF por minuto59.95–60.02 após aquecimento; JSON/CPU/navegador em STAGE_03_REPORT |
+|M15 |31 testes e resultados de simulação em BALANCE/STAGE_03_REPORT; limitações registradas |
+
+A versão local não valida antiabuso/ledger do online. Ouro/jade, itens, pets e receitas permanecemF4. Layout/ritmo ainda devem receber playtest humano. Medição headless por software não substitui Android/WebGL em aparelho.

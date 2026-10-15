@@ -1,0 +1,121 @@
+{
+  "configVersion": "local-loop-1",
+  "runs": [
+    {
+      "clicksPerSecond": 0,
+      "durationLimitSeconds": 7200,
+      "milestones": {
+        "firstUpgrade": null,
+        "coal": null,
+        "boss10": null,
+        "complete": null
+      },
+      "retries": 168,
+      "training": 0,
+      "floor": 4,
+      "highest": 3,
+      "phase": "fighting",
+      "upgrades": {
+        "attack": 0,
+        "vitality": 0,
+        "click": 0,
+        "coal": 0
+      },
+      "balances": {
+        "coin": "4815000",
+        "iron": "0",
+        "coal": "0",
+        "gold": "0",
+        "jade": "0",
+        "ruby": "0"
+      }
+    },
+    {
+      "clicksPerSecond": 1,
+      "durationLimitSeconds": 7200,
+      "milestones": {
+        "firstUpgrade": 20,
+        "coal": 144,
+        "boss10": 344,
+        "complete": 2286
+      },
+      "retries": 29,
+      "training": 15,
+      "floor": 20,
+      "highest": 20,
+      "phase": "complete",
+      "upgrades": {
+        "attack": 19,
+        "vitality": 22,
+        "click": 2,
+        "coal": 1
+      },
+      "balances": {
+        "coin": "4051000",
+        "iron": "128000",
+        "coal": "214200",
+        "gold": "0",
+        "jade": "0",
+        "ruby": "0"
+      }
+    },
+    {
+      "clicksPerSecond": 3,
+      "durationLimitSeconds": 7200,
+      "milestones": {
+        "firstUpgrade": 15,
+        "coal": 80,
+        "boss10": 308,
+        "complete": 1118
+      },
+      "retries": 5,
+      "training": 7,
+      "floor": 20,
+      "highest": 20,
+      "phase": "complete",
+      "upgrades": {
+        "attack": 20,
+        "vitality": 22,
+        "click": 2,
+        "coal": 1
+      },
+      "balances": {
+        "coin": "69000",
+        "iron": "2491000",
+        "coal": "103800",
+        "gold": "0",
+        "jade": "0",
+        "ruby": "0"
+      }
+    },
+    {
+      "clicksPerSecond": 5,
+      "durationLimitSeconds": 7200,
+      "milestones": {
+        "firstUpgrade": 15,
+        "coal": 80,
+        "boss10": 308,
+        "complete": 1118
+      },
+      "retries": 5,
+      "training": 7,
+      "floor": 20,
+      "highest": 20,
+      "phase": "complete",
+      "upgrades": {
+        "attack": 20,
+        "vitality": 22,
+        "click": 2,
+        "coal": 1
+      },
+      "balances": {
+        "coin": "69000",
+        "iron": "8819000",
+        "coal": "103800",
+        "gold": "0",
+        "jade": "0",
+        "ruby": "0"
+      }
+    }
+  ]
+}

@@ -24,3 +24,9 @@ Bloqueio atual de execução: pedido explícito para aguardar após documentar. 
 ## Evidência após F2
 
 R02: subset Character/Skeleton/Hud/Normal BG tem recortes, pivôs e capturas revisados, inclusive correção do chão na morte do herói; demais famílias continuam sem aprovação completa. R06:50 ciclos mantêm texturas/objetos e input isolado no smoke. R08: bundle curado~1,45MB, sem o acervo integral. R01 permanece aberto: nenhuma licença foi liberada. Teste em aparelho permanece futuro; essas evidências não substituem verificação econômica F3/online F5. A pausa histórica R14 não impede a fase explicitamente autorizada.
+
+## F3 — riscos reavaliados
+
+Softlock de Coin em boss20 foi reproduzido e mitigado com treino manual no19; não há farm/retry automático de boss. Fórmulas permitem concluir20 nos perfis simulados, mas começo mais rápido que hipótese e cliques contínuos não representam playtest humano. Curvas de1.000/loot/pets exigem novo trabalhoF4.
+
+Clock local é adulterável; high-water/cap8h evitam regressão/acúmulo acidental, não anticheat. Snapshot/CAS protege duplicação persistida e concorrência, mas crash pode perder até último autosave; não existe ledger servidor. Deadline de boss continua em ausência/pausa. Licenças e perfil real Android/WebGL seguem sem comprovação.

@@ -1,6 +1,6 @@
 # Arquitetura proposta
 
-Estado: fundação F1 implementada; desenho de gameplay/online permanece planejado. Cliente, servidor de diagnóstico, contratos, sessão e save local existem. Versões resolvidas e evidências em DEVELOPMENT/ADR-005; nenhuma infraestrutura externa provisionada.
+Estado:F1–F3 implementadas no modo local; online permanece planejado. Cliente, servidor de diagnóstico, contratos, sessão, loop e save local existem. Versões resolvidas e evidências em DEVELOPMENT/ADR-005; nenhuma infraestrutura externa provisionada.
 
 ## Componentes e limites
 
@@ -70,3 +70,11 @@ Build do cliente distribuível em hospedagem estática/CDN; API e workers em ser
 ## Implementação visual F2
 
 Uma cena Phaser mantém grupos exclusivos para Batalha/Mina/Produção; somente o grupo ativo é visível/animado. DOM fornece HUD, páginas e dialogs acessíveis. O renderer não muta saldos e não controla persistência. A sessão mantém lifecycle e screen; menus temporários não alteram schema. Pool de seis sprites de impacto evita criar objetos por clique. Subset curado pequeno carregado uma vez; expansão de packs requer carregamento por demanda antes de aumentar escopo.
+
+## Implementação de domínio F3
+
+packages/shared/src/loop.ts contém regras puras de agenda/recursos/compras/treino; o compartilhamento de código não transfere autoridade ao cliente online. LocalSession injeta relógio, aplica comandos sobre draft, valida e emite snapshot. Tick100ms só avança instantes de evento relevantes; não precisa resolver milissegundo por milissegundo. Atraso>5s é ausência, não combate acelerado.
+
+Renderer recebe snapshots e compara HP/counters/attempt para idle/ataque/Run/morte; reduz movimento, modais e grupos ocultos não controlam o domínio. Ausência suspende ataques/transições, com exceção do prazo wall do boss, conciliado sem grants; minas integram taxa emBigInt/remainder. Pausa manual obedece à mesma regra de deadline, sem afetar minas.
+
+Schema2 migra a versão publicada1 após validar checksum original. Save agrupa estado econômico e watermark no mesmo payload e transação IndexedDB; CAS protege gerações entre abas. Identidade de encontro é attempt, índice estável para alvo. Morte e saldo são gravados juntos, não há event log sem limite nem promessa de idempotência de rede. A implementação de ledger/outbox/autenticação permaneceF5.

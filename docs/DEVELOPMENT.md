@@ -1,6 +1,6 @@
-# Desenvolvimento — fundação F1 e prévia visual F2
+# Desenvolvimento — MVP local F1–F3
 
-Implementação em 15/10/2026. Este é um ambiente interno de prévia visual interativa; o loop econômico/jogável ainda não existe. Não foram contratados serviços, configuradas contas ou publicados aplicativos.
+Implementação em 15/10/2026. MVP local jogável, com 20 andares, ferro/cliques/melhorias/carvão e save/offline. Não foram contratados serviços, configuradas contas ou publicados aplicativos.
 
 ## Ambiente e comandos
 
@@ -26,19 +26,21 @@ Comandos separados: `npm run typecheck`, `npm test`, `npm run build`. Typecheck 
 
 Copiar `.env.example` para `.env` local somente se precisar alterar padrões. Servidor lê `.env` da raiz via flag nativa do Node; Vite usa envDir da raiz. HOST padrão 127.0.0.1, PORT 3000, LOG_LEVEL info. VITE_GAME_MODE=local é o único modo implementado; outro valor bloqueia boot e não troca silenciosamente para local. Nunca colocar segredo em variável VITE_: ela pode ir para o navegador. `.env` e builds/node_modules estão ignorados.
 
-## O que a prévia F2 faz
+## O que a F3 faz
 
-HUD e telas Batalha/Mina/Produção com sprites reais; páginas de Mochila/Loja ainda sem sistemas e menu Mais com perfil/salvamento/recursos. Ataques/derrota e impactos de mineração são demonstrações, sem reduzir HP ou conceder recursos. Texto de prévia identifica esse limite. Até419px a barra mostra Batalha/Mina/Produção/Mais; Mochila/Loja continuam acessíveis por Mais. Escape retorna das páginas auxiliares e fecha modais.
+HUD/telas Batalha/Mina/Produção com sprites; batalha automática3×3, bosses10/20, prazo30s, transição3s/Run, pausa/retry/treino manual. Ferro por clique, força/vitalidade/picareta e carvão em Produção; taxas/custos/vida na UI. Tutorial curto retomável. Mais mantém perfil/salvamento/recursos; Mochila/Loja ainda sem sistemas. Até419px são quatro atalhos e os demais ficam em Mais; Escape fecha/retorna.
 
 Save IndexedDB versionado com SHA-256 para corrupção acidental, geração concorrente, cópia anterior e quarentena na recuperação explícita. Save futuro/config incompatível bloqueia gravação. Corrupção não apaga silenciosamente o arquivo; se houver backup, só restaura ao clicar no botão. Dois escritores da mesma geração não podem confirmar juntos; aba obsoleta precisa recarregar. SHA-256 não é anticheat. Armazenamento indisponível é mostrado como sessão temporária.
 
-Schema1 é a primeira versão real; não havia save anterior publicado. Não foi inventada migração fictícia: versões desconhecidas são preservadas/rejeitadas até existir transformação aprovada/testada. Futuras migrações precisarão de fixture de schema real. Não transportar save local para conta online.
+Schema2/local-loop-1 migra a versão real1/foundation-1 após validar checksum original. Preserva perfil, saldos, tela, activeMs e geração; inicia a torre no1 porque não havia combate anterior. Novo save inclui HP/cooldowns/ondas/timer, níveis, tutorial, remainder e watermark. Minas conciliadas até 8h uma vez; boss pode expirar ausente, sem vitória/clique/drop offline. Pause manual não suspende prazo de boss. Stall visível>5s segue ausência. Não transportar save local para conta online.
+
+Autosave15s, boot/retomada/compras/ações de batalha e tentativa em ocultação/pagehide; fechamento abrupto pode perder ações do último intervalo. Resumo offline já está creditado. Em conflito de aba, recarregar; não há import/export ou ferramenta para apagar save silenciosamente.
 
 ## Testes e CI
 
 Vitest: contratos de saldo/comando, navegação/lifecycle, cópia de estado, save/backup/corrupção/versão futura/concorrência e servidor HTTP/configuração. fake-indexeddb só é dependência de teste; verificação não substitui testes em navegadores reais. Workflow `.github/workflows/check.yml` instala com npm ci e executa npm run check; execução remota não é presumida só por versionar YAML.
 
-Consulte [relatório da etapa](STAGE_01_REPORT.md), [arquitetura](ARCHITECTURE.md) e [AI_STATE](../AI_STATE.md). Próximo trabalho é integração visual F2; não confundir a tela interna desta fundação com o layout final do RPG.
+Consulte [relatório da etapa](STAGE_03_REPORT.md), [arquitetura](ARCHITECTURE.md) e [AI_STATE](../AI_STATE.md). Próximo trabalho funcional é F4; não confundir local com servidor autoritativo.
 
 ## Smoke de navegador (opcional)
 
@@ -53,4 +55,16 @@ Playwright é dependência apenas de desenvolvimento. O smoke sobe Vite local na
 
 `npm run check` também executa `npm run check:assets`, validando os hashes do registro curado. Derivados PNG em apps/client/src/assets/derived já estão versionados; gerar build não requer Pillow. Para alterar recortes, usar `python scripts/prepare-visual-assets.py` (Pillow), revisar imagens e o JSON docs/art/Runtime_Asset_Manifest.json. Nenhum original deve ser sobrescrito.
 
-`npm run test:browser:preview` compila e verifica também o build estático. O smoke cobre agora oito animações, conclusão de derrota,50 ciclos sem crescimento de objetos/texturas, bloqueio de input, saldos zero, menus/foco, erro de asset e fallback estreito. Capturas opcionais com AKAI_SCREENSHOT_DIR. As rotas e saldos continuam locais; nenhuma compra ou automação real está disponível.
+`npm run test:browser:preview` compila e verifica também o build estático. O smoke cobre nove animações, morte real,50 ciclos sem crescimento de objetos/texturas, mineração, compras/carvão, offline/reload, timer/treino de boss e conclusão com Mina ativa, input/modal, foco e larguras. Capturas opcionais com AKAI_SCREENSHOT_DIR. As rotas e saldos continuam locais; melhorias de moeda virtual e carvão locais estão ativos; loja premium continua indisponível.
+
+## Economia e sessão prolongada
+
+```sh
+npm run simulate:loop
+# Grava evidência determinística após build shared:
+node scripts/simulate-loop.mjs --write
+# Soak de 30min do build estático (Chromium instalado):
+npm run test:soak
+```
+
+Simulação testa políticas ativas1/3/5 cliques/s e perfil sem clique; falha se um perfil ativo não alcançar20. Números não representam playtest humano. Soak serve Vite preview na5184, mede heap após GC, listeners/DOM, objetos/texturas e média rAF por minuto, com compras/mineração/navegação. Saída docs/phase3-browser-soak.json. AKAI_SOAK_MINUTES altera a duração para diagnóstico; somente30min atendeM14. Soak não roda no job CI de 10min; CI executa checks, simulação e smokes dev/produção. Sem runtime/dependência de teste embarcada no produto.

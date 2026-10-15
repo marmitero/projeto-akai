@@ -44,3 +44,9 @@ HUD e primeira cena primeiro; demais assets sob demanda. Mostrar progresso/erro 
 ## Implementação F2 e limites observados
 
 HUD persistente e destinos implementados visualmente; fallback até419px deixa Mochila/Loja em Mais. Todos os alvos do menu≥44px nas larguras testadas. O conteúdo rola acima da HUD. Modais nativos bloqueiam input e devolvem foco; Escape fecha modal ou retorna de Mochila/Loja à última atividade. Scroll de cada página é preservado enquanto navega. Não há timer/HP/recompensas falsos: cena de teste, minas inativas e loja indisponível estão identificados. O retrato ainda usa iniciais, sem desenho de rei presumido. Redução de movimento é opção da sessão, com padrão do sistema ao abrir. Ver STAGE_02_REPORT para evidência e capturas.
+
+## UI jogável F3
+
+Topo exibe Coins e acesso aos recursos; Batalha mostra andar/onda, vida por ator, prazo de boss, falha e melhorias de força/vitalidade com custos. Pausar/Retomar controla ataques, não minas nem prazo de boss. Falha não força navegação: aviso global informa estado; Batalha oferece retry e treino manual no anterior quando elegível. Treino/retry recolocam conteúdo no topo para ver o encontro.
+
+Mina concede1+n ferro por toque, anuncia saldo e mostra melhoria de picareta. Produção mostra nível/taxa/custo de carvão; sem botão de coleta. Ouro/jade continuam bloqueados e Mochila/Loja declaram indisponibilidade. Tutorial curto acompanha flags persistidas sem bloquear destinos. Retomada mostra carvão já aplicado e período limitado8h; o resumo não concede nada. Frações de recurso são exibidas até3 casas sem usar float no saldo. Modais bloqueiam input mas não param renda/combate; para parar batalha há controle explícito.

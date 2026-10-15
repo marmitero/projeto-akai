@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "stage": "F2 visual preview; no economy",
+  "stage": "F3 local loop",
   "originals": [
     {
       "path": "sprites/Backgrounds/Normal BG/Background Castle .png",
@@ -158,6 +158,103 @@
     }
   ],
   "derivatives": [
+    {
+      "key": "hero-run",
+      "output": "apps/client/src/assets/derived/hero-run.png",
+      "sha256": "a0f8b09a867e91d70599950d5e86c60462c06d0f9d0db5a6b5608316299e3d9a",
+      "width": 1280,
+      "height": 128,
+      "sources": [
+        {
+          "path": "sprites/Character/Run/Run-Sheet.png",
+          "sha256": "0c682cf92056f596746571af574df119cafdb079bcd247fbdd9553ff53a90f7f"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 8,
+      "pivot": [
+        80,
+        112
+      ],
+      "sourceFrame": [
+        80,
+        80
+      ],
+      "sourcePivots": [
+        [
+          40,
+          68
+        ],
+        [
+          40,
+          68
+        ],
+        [
+          40,
+          68
+        ],
+        [
+          40,
+          68
+        ],
+        [
+          40,
+          68
+        ],
+        [
+          40,
+          68
+        ],
+        [
+          40,
+          68
+        ],
+        [
+          40,
+          68
+        ]
+      ],
+      "frameOffsets": [
+        [
+          40,
+          44
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          40,
+          44
+        ]
+      ],
+      "fps": 10,
+      "margin": 0,
+      "spacing": 0,
+      "direction": "right"
+    },
     {
       "key": "hero-idle",
       "output": "apps/client/src/assets/derived/hero-idle.png",

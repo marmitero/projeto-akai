@@ -1,41 +1,171 @@
-import { CONFIG_VERSION, LocalSnapshotSchema, ScreenSchema, type LocalSnapshot, type Screen } from '@akai/shared';
-export interface Clock { now(): number }
+import {
+  CONFIG_VERSION,
+  LocalSnapshotSchema,
+  ScreenSchema,
+  newLoopState,
+  advanceCombat,
+  reconcileBossAbsence,
+  produce,
+  mineIron,
+  buyUpgrade,
+  retryBattle,
+  trainBattle,
+  LOOP,
+  type Upgrade,
+  type LocalSnapshot,
+  type Screen,
+} from "@akai/shared";
+export interface Clock {
+  now(): number;
+}
 export const systemClock: Clock = { now: () => Date.now() };
 export function createLocalSnapshot(now: number): LocalSnapshot {
-  return LocalSnapshotSchema.parse({ schemaVersion: 1, configVersion: CONFIG_VERSION, mode: 'local', generation: 0, savedAt: now,
-    profile: { id: 'local-test', name: 'Perfil local de teste' }, screen: 'battle', activeMs: 0,
-    balances: { coin: '0', iron: '0', coal: '0', gold: '0', jade: '0', ruby: '0' } });
+  return LocalSnapshotSchema.parse({
+    ...newLoopState(),
+    schemaVersion: 2,
+    configVersion: CONFIG_VERSION,
+    mode: "local",
+    generation: 0,
+    savedAt: now,
+    lastReconciledAt: now,
+    profile: { id: "local-test", name: "Perfil local de teste" },
+    screen: "battle",
+    activeMs: 0,
+    balances: {
+      coin: "0",
+      iron: "0",
+      coal: "0",
+      gold: "0",
+      jade: "0",
+      ruby: "0",
+    },
+  });
 }
-// Owns local domain lifetime; screens never own timers, balances or storage.
 export class LocalSession {
   private state: LocalSnapshot;
-  private lastTick: number;
   private suspended = false;
   private listeners = new Set<(state: LocalSnapshot) => void>();
-  constructor(private readonly clock: Clock, snapshot = createLocalSnapshot(clock.now())) {
+  offline = { ms: 0, coal: "0" };
+  constructor(
+    private readonly clock: Clock,
+    snapshot = createLocalSnapshot(clock.now()),
+  ) {
     this.state = LocalSnapshotSchema.parse(structuredClone(snapshot));
-    this.lastTick = clock.now();
+    this.reconcileAbsence();
   }
-  getSnapshot(): LocalSnapshot { return structuredClone(this.state); }
+  private now(): number {
+    const n = this.clock.now();
+    if (!Number.isSafeInteger(n) || n < 0) throw Error("INVALID_CLOCK");
+    return n;
+  }
+  getSnapshot(): LocalSnapshot {
+    return structuredClone(this.state);
+  }
   subscribe(listener: (state: LocalSnapshot) => void): () => void {
-    this.listeners.add(listener); listener(this.getSnapshot());
-    return () => { this.listeners.delete(listener); };
+    this.listeners.add(listener);
+    listener(this.getSnapshot());
+    return () => {
+      this.listeners.delete(listener);
+    };
   }
-  private emit(): void { for (const listener of this.listeners) listener(this.getSnapshot()); }
-  selectScreen(screen: Screen): void { this.state.screen = ScreenSchema.parse(screen); this.emit(); }
+  private emit(): void {
+    for (const listener of this.listeners) listener(this.getSnapshot());
+  }
+  selectScreen(screen: Screen): void {
+    this.tick();
+    this.state.screen = ScreenSchema.parse(screen);
+    this.emit();
+  }
   tick(): void {
-    const now = this.clock.now();
-    if (!Number.isSafeInteger(now) || now < 0) throw new Error('INVALID_CLOCK');
-    // Keep a high-water mark on backwards clock movement. No absence or resource grants in F1.
-    const delta = Math.max(0, now - this.lastTick);
-    this.lastTick = Math.max(this.lastTick, now);
-    if (!this.suspended && delta > 0) {
-      this.state.activeMs = Math.min(Number.MAX_SAFE_INTEGER, this.state.activeMs + delta);
-      this.emit();
+    if (this.suspended) return;
+    const now = this.now(),
+      delta = Math.max(0, now - this.state.lastReconciledAt);
+    if (!delta) return;
+    const draft = this.getSnapshot();
+    // Long foreground stalls are treated as absence, never an offline battle catch-up.
+    if (delta > 5000) {
+      reconcileBossAbsence(draft, delta);
+      const ms = Math.min(delta, LOOP.offlineMs);
+      this.offline = { ms, coal: String(produce(draft, ms)) };
+    } else {
+      produce(draft, delta);
+      advanceCombat(draft, delta);
+      draft.activeMs += delta;
     }
+    draft.lastReconciledAt = Math.max(now, draft.lastReconciledAt);
+    this.state = LocalSnapshotSchema.parse(draft);
+    this.emit();
   }
-  suspend(): void { this.tick(); this.suspended = true; }
-  resume(): void { this.lastTick = this.clock.now(); this.suspended = false; }
-  acknowledgeSave(generation: number): void { this.state.generation = generation; }
-  dispose(): void { this.listeners.clear(); }
+  private reconcileAbsence(): void {
+    const now = this.now(),
+      draft = this.getSnapshot(),
+      ms = Math.min(Math.max(0, now - draft.lastReconciledAt), LOOP.offlineMs);
+    reconcileBossAbsence(draft, Math.max(0, now - draft.lastReconciledAt));
+    this.offline = { ms, coal: String(produce(draft, ms)) };
+    draft.lastReconciledAt = Math.max(now, draft.lastReconciledAt);
+    this.state = LocalSnapshotSchema.parse(draft);
+  }
+  mine(): boolean {
+    this.tick();
+    if (this.suspended || this.state.screen !== "mine") return false;
+    const d = this.getSnapshot();
+    mineIron(d);
+    this.state = LocalSnapshotSchema.parse(d);
+    this.emit();
+    return true;
+  }
+  buy(kind: Upgrade): boolean {
+    this.tick();
+    if (this.suspended) return false;
+    const d = this.getSnapshot();
+    if (!buyUpgrade(d, kind)) return false;
+    this.state = LocalSnapshotSchema.parse(d);
+    this.emit();
+    return true;
+  }
+  retry(): boolean {
+    this.tick();
+    if (this.suspended) return false;
+    const d = this.getSnapshot();
+    if (!retryBattle(d)) return false;
+    this.state = LocalSnapshotSchema.parse(d);
+    this.emit();
+    return true;
+  }
+  train(): boolean {
+    this.tick();
+    if (this.suspended) return false;
+    const d = this.getSnapshot();
+    if (!trainBattle(d)) return false;
+    this.state = LocalSnapshotSchema.parse(d);
+    this.emit();
+    return true;
+  }
+  togglePause(): void {
+    this.tick();
+    if (
+      this.suspended ||
+      this.state.battle.phase === "failed" ||
+      this.state.battle.phase === "complete"
+    )
+      return;
+    this.state.battle.paused = !this.state.battle.paused;
+    this.emit();
+  }
+  suspend(): void {
+    this.tick();
+    this.suspended = true;
+  }
+  resume(): void {
+    if (!this.suspended) return;
+    this.reconcileAbsence();
+    this.suspended = false;
+    this.emit();
+  }
+  acknowledgeSave(generation: number): void {
+    this.state.generation = generation;
+  }
+  dispose(): void {
+    this.listeners.clear();
+  }
 }

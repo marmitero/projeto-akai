@@ -1,8 +1,8 @@
 # Rastreabilidade de requisitos
 
-Cada linha mapeia a intenção do Master Prompt a regra, fase e evidência de aceite. F1 implementa contratos, sessão, save e servidor de diagnóstico; os requisitos de gameplay/online da tabela continuam não implementados. Evidência executada da fundação em STAGE_01_REPORT; a tabela não deve ser usada como prova de gameplay.
+Cada linha mapeia a intenção do Master Prompt a regra, fase e evidência de aceite. F1–F3 implementam fundação, apresentação e loop local20 andares. Evidência atual em STAGE_03_REPORT/MVP_ACCEPTANCE; linhas online/RPG ainda não representam implementação.
 
-| ID | Requisito | Especificação | Fase | Evidência planejada |
+| ID | Requisito | Especificação | Fase | Evidência / gate |
 |---|---|---|---|---|
 | NAV-01 | Três telas/HUD persistente | UI_UX, ADR-002 | F2 | M02/M03/M12 |
 | ART-01 | Sprites reais, inventário e preservação | Asset_Manifest, Asset_Usage_Guide, Visual_Catalog | F0/F2 | Hashes + prévias + pivôs aprovados |
@@ -27,6 +27,8 @@ Cada linha mapeia a intenção do Master Prompt a regra, fase e evidência de ac
 | AND-01 | Android desacoplado | ARCHITECTURE, RELEASE_CHECKLIST | F9 | Dispositivos/ciclo/SDKs verificados |
 | OPS-01 | Observabilidade/backup/debug | OPERATIONS, SECURITY | F5/Release | Restore/alertas/permissões |
 | QA-01 | Testes, desempenho e pronto | TEST_PLAN, PERFORMANCE, MVP_ACCEPTANCE | Todas | Comando/ambiente/resultado reais |
-| PAUSE-01 | Documentar e aguardar | Constituição, AI_STATE | Atual | Sem código novo nem serviços provisionados |
+| PAUSE-01 | Documentar e aguardar | Constituição, AI_STATE | Histórico | Pausa documental superada por autorizações F1/F2/F3; sem serviços provisionados |
 
 Nomes na coluna Especificação correspondem ao índice em README. Pendência numérica/funcional não pode ser fechada por um teste que apenas reproduza um placeholder; resolver regra e depois validar o comportamento.
+
+F3: CBT-01 até20 (1.000 segueF4), CBT-02, MIN-01, PRD-01 somente carvão e OFF-01 local implementados/testados. NAV-01/ART-01 têm subset e capturas reais; ART-02 permanece pendente de licença. Segurança online/mercado/social/premium/Android não foram antecipados.

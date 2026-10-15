@@ -1,6 +1,6 @@
 # Balanceamento experimental e fórmulas
 
-**Tudo numérico nesta página, exceto regras fixas do prompt, é proposta de configuração para testes locais. Não houve simulação nem playtest.** Configuração futura deve ser versionada e carregada por dados, nunca espalhada na UI.
+**Parâmetros adotados experimentalmente na F3 como local-loop-1. Simulação determinística executada; sem playtest humano nem equilíbrio comercial comprovado.** Configuração futura deve ser versionada e carregada por dados, nunca espalhada na UI.
 
 ## Regras fixas
 
@@ -43,6 +43,23 @@ Quando implementado, comparar produção segmentada com produção em um interva
 
 ## Plano de simulação e métricas de aceite
 
-Executar sementes reproduzíveis, salvar versão e resultados para perfis ativo lento/moderado/intenso e idle. Medir tempo até primeira melhoria, carvão, andar10/20, falhas por boss, estoque e gastos. Hipóteses de ritmo propostas: primeiro upgrade em 30–120s; carvão em 3–10min de jogo ativo; primeiro boss exige ao menos uma decisão de fortalecimento e não deve travar sem explicação. São hipóteses a avaliar, não resultados nem garantias.
+Executar sementes reproduzíveis, salvar versão e resultados para perfis ativo lento/moderado/intenso e idle. Medir tempo até primeira melhoria, carvão, andar 10/20, falhas por boss, estoque e gastos. Hipóteses de ritmo propostas: primeiro upgrade em 30–120s; carvão em 3–10min de jogo ativo; primeiro boss exige ao menos uma decisão de fortalecimento e não deve travar sem explicação. São hipóteses a avaliar, não resultados nem garantias.
 
 Comparar dano esperado/segundo = danoPorAtaque×1000/intervalo e tempo de abate aproximado = HP/DPS, depois usar simulação real para ondas e mortes. Avaliar compra alternativa, jogador que guarda recursos, ausência longa e jogador sem anúncios. Antes de F5 exigir nenhuma transição impossível, valores não negativos, ausência de overflow e grants únicos; antes de F8 medir impacto de bônus permanentes/PvP. Alterações documentam antes/depois e configVersion.
+
+## Resultado F3 — simulação reproduzível
+
+`npm run simulate:loop`; para salvar JSON: `node scripts/simulate-loop.mjs --write` após build shared. Script e [resultado](phase3-balance-results.json) usam política explícita de compras/treino, sem grants de teste. Horizonte7200s. Cliques constantes1/3/5 por segundo são perfis de stress, não previsão de esforço humano.
+
+| Cliques/s | Primeira melhoria | Carvão | Boss10 | Torre20 | Treinos manuais |
+|---|---|---|---|---|---|
+|0 | — | — | — | — |0 |
+|1 |20s |144s |344s |2286s |15 |
+|3 |15s |80s |308s |1118s |7 |
+|5 |15s |80s |308s |1118s |7 |
+
+A política do perfil 0 ainda aperta retry comum; não representa jogador totalmente ausente. Sem ferro não compra melhorias, parando na parede do andar 4. Perfis ativos concluem com treino manual; sem essa saída,3/5 ficaram sem Coin no boss20. Resultado anterior motivou ADR-007, não alteração silenciosa dos custos.
+
+Hipóteses iniciais de primeira melhoria30–120s/carvão3–10min não foram atingidas: o começo ficou mais rápido (15–20s/80–144s). Mantidas fórmulas para esta fatia, com resultado registrado; F4 deve playtestar antes de rebalancear. Tempo total envolve cliques contínuos e política informada; usuário pode demorar mais. Nenhuma semente aleatória é necessária porque crítico é0 e não há drops aleatórios na F3.
+
+Soak de domínio1800s:um intervalo e18.000 passos100ms produzem os mesmos recursos/progresso/remainder; teste não substitui medição de renderização. Deadline vence empate, cura entre andares e pausa manual/boss wall deadline conforme ADR-007.

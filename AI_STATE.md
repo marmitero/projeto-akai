@@ -1,35 +1,35 @@
 # AI_STATE — continuidade do Projeto Akai
 
-Atualizado: 15/10/2026. **F2: PROTÓTIPO VISUAL CONCLUÍDO NO ESCOPO DA ETAPA. F3 (loop jogável) ainda não iniciada.**
+Atualizado:15/10/2026. **F3 — LOOP LOCAL CONCLUÍDO E VALIDADO NO ESCOPO DA ETAPA. F4 não iniciada.**
 
-## Pedido e regras de trabalho
+## Pedido e regras
 
-Usuário autorizou a Fase2 após a fundação. Em todo encerramento: atualizar este arquivo, ROADMAP e documentos afetados; listar feito, completude/faltas, decisões autônomas, pendências que exigem validação e próximo passo. Resolver escolhas técnicas/reversíveis sem consultar; reservar ao usuário gastos relevantes, mudanças profundas e atos exclusivos do titular.
+Usuário autorizou Fase 3 após F2. Encerrar atualizando estado/roadmap/documentos; listar feito, completude/faltas, decisões, validações pendentes e próximo passo. Agente decide assuntos técnicos/reversíveis, sem gastos relevantes nem mudança profunda. Não iniciar F4 sem instrução nova. Fonte de implementação F2 remota: `2abdc637d2607af72c7641e1c4ca4f81681d765a` (CI38738933626 passou).
 
-## Base e implementação real
+## O que existe
 
-Base desta etapa: `2f34ad1d7768a299322e0269811cf9392df77bc3`. F1 preservada: npm workspaces, shared Zod, cliente/servidor independentes, save IndexedDB versionado/backup/concorrência e 14 testes. O CI remoto da F1 foi posteriormente consultado e terminou com sucesso (run38733018634).
+F1/F2 preservadas: npm workspaces, Phaser/Vite, Fastify diagnóstico, Zod, três telas e HUD, IndexedDB com SHA/backup/quarentena/CAS. F3 conecta apresentação ao motor determinístico em packages/shared/src/loop.ts e sessão local100ms. Nenhuma recompensa depende de callback de animação.
 
-F2: telas Batalha/Mina/Produção separadas, HUD persistente com seis destinos quando há espaço e fallback para quatro até419px, Mochila/Loja em Mais. Mochila/Loja possuem páginas próprias e indicam indisponibilidade dos sistemas. Mais oferece perfil/salvamento e opção de reduzir movimento; Recursos mostra saldos. Dialog nativo bloqueia input; Escape/foco/scroll de tela tratados.
+Andares1–20; comuns3×3, bosses10/20 com um alvo/30s; alvo frontal, agenda por cooldown e desempate deadline→herói→inimigos vivos. Coin por morte única no snapshot; transição3s/Run; cura entre andares/tentativas, não entre ondas. Falha comum pausa no mesmo andar; boss retorna ao anterior e exige retry manual. Treino manual9/19 após boss elimina trava de Coin e volta a pausar após uma execução, sem auto-retry. Pausa/retomada manual; prazo de boss continua correndo pausado e ausente.
 
-Renderização Phaser com floresta em camadas, herói e três esqueletos laterais. Oito animações: idle/ataque/morte de herói e esqueleto, tocha e poeira. Derivados têm célula/pivô comum160×128 com âncora80,112 para os atores, sem alterar originais. Mina usa nó de ferro e pool limitado de seis impactos; Produção mostra carvão/ouro/jade inativos e requisitos. Renderer é uma cena com grupos separados por atividade; a sessão local continua fora dele.
+Ferro1/clique inicial, melhorias de clique/força/vitalidade e carvão: desbloqueio100 ferro+50Coins,0,1×nível/s, níveis até 100 experimentais. Frações preservadas com BigInt/remainder. UI mostra vida, ondas, timer, custos, níveis, taxa, tutorial retomável, falha em outra tela e resumo de ausência já creditada. Batalha/minas continuam entre telas, modais só bloqueiam input/apresentação. Mochila/Loja continuam claramente indisponíveis; ouro/jade/pets/loot/XP/receitas/Ruby não foram antecipados.
 
-**Não há combate real, vida, ondas, drops, ganhos de clique, upgrades, produção, offline econômico ou boss implementados.** Ataques/derrota/impactos são demonstrações identificadas na interface. Recursos não são concedidos. Servidor continua só diagnóstico e 503 para gameplay; sem auth/banco/pagamento online.
+Schema2/config local-loop-1; migração real de schema 1/foundation-1 valida SHA original antes de transformar, preserva saldos/perfil/tela/geração e inicia combate no1. Save de progresso/upgrades/cooldowns/HP; minas offline até 8h por watermark, crédito único persistido, zero combate/drop/clique offline. Timeout de boss pode ocorrer na ausência. Relógio regressivo e stall>5s tratados. Autosave15s, boot/retomada/ações econômicas/ocultação; encerramento abrupto pode perder último intervalo. Save futuro/corrupto continua preservado; concorrência não sobrescreve outra aba.
 
-## Assets e guias
+Servidor continua diagnóstico/503 para gameplay. Perfil local nunca é conta online. Sem contratação, auth, banco, pagamento, anúncio ou deploy público.
 
-Registro curado: [Runtime_Asset_Manifest](docs/art/Runtime_Asset_Manifest.json), 21 derivados e22 originais diretos, rastreando49 originais únicos/70 arquivos com hashes. `npm run check:assets` confere integridade/dimensões/grades. Script Pillow opcional regenera derivados; npm build não depende de Python. Acervo integral e manifesto da auditoria permanecem preservados. Licenças de todos os packs continuam pendentes. Capturas da composição em [STAGE_02_REPORT](docs/STAGE_02_REPORT.md) e guias de arte atualizados.
+## Arte
 
-## Validação
+22 derivados e22 originais diretos,50 originais únicos/72 arquivos/fontes verificados (263.199 bytes de autoria). Novo heroRun80×80×8, derivado160×128 pivot80,112 com origem40,68. Skeleton ampliado2,8× como Guardião Ossudo nos dois bosses; não alegar pack exclusivo. Nove animações;34 texturas/37 objetos. Originais e auditoria integral preservados; todas as licenças continuam não comprovadas.
 
-npm run check: hashes, TypeScript,14 testes e builds. Smoke em desenvolvimento e build estático, Chromium headless153:50 ciclos sem aumento de33 texturas/37 objetos, oito animações e conclusão de morte, save/reload, mina oculta/modal sem input, redução de movimento, menus/foco, larguras320/360/390/768, botões≥44px e scroll sem esconder a última mina. Falha de asset e modo online indisponível tratados; zero pageerrors/404 no fluxo normal e zero grants. Medição não equivale a profiling Android/WebGL; CI F2 só será confirmada por run efetivo após publicação.
+## Evidências atuais
 
-## Decisões e limites
+31 testes de contratos/domínio/sessão/save/HTTP, typecheck e builds passam. Simulação1/3/5 cliques/s com política explícita conclui a torre; resultados em docs/phase3-balance-results.json. Primeira melhoria15–20s; carvão80–144s; torre1118–2286s de tempo simulado. Cliques contínuos são stress comparativo, não expectativa humana. Modelo sem clique não progride além da parede de fortalecimento.
 
-Subset medieval pixel art, fundo Normal, esqueletos e tema roxo/dourado do pack Hud; sem retrato inventado (iniciais na moldura), Coin com rótulo e Ruby com gema328. Recorte/padding não destrutivos, nearest-neighbor, GPU/canvas com proporção384:300. Preload único do subset pequeno é escolha da prévia; carregar packs maiores sob demanda nas expansões, sem levar1,25GB ao cliente. Bundle atual ~1,45MB em disco, avisos de Phaser/Zod já conhecidos. Preferência de movimento vale na sessão; padrão acompanha configuração do sistema ao abrir.
+Smokes dev/produção:50 ciclos, input oculto/modal, movimento reduzido, tamanhos320/360/390/768 e844×390 horizontal e844×390 horizontal, save/reload, compra/carvão/offline, boss timeout/treino, conclusão com outra tela ativa, morte e erro de asset. Capturas revisadas. Soak real: 30min reais (1800914ms),1784 ciclos,127 listeners/34 texturas/37 objetos estáveis, heap apósGC5.91–6.64MiB e média rAF por minuto59.95–60.02 após aquecimento; dados em docs/phase3-browser-soak.json. CI própria: resultado autoritativo no [workflow do GitHub](https://github.com/marmitero/projeto-akai/actions/workflows/check.yml), conferir o run do commit publicado. Teste puro30min/18.000 passos equivale ao intervalo único, mas não substitui benchmark real.
 
-Sem gasto, contratação ou mudança de pilar. F1 e F2 concluídas nos respectivos escopos; F0 continua parcial em licença/aprovação integral de arte. Validação externa do usuário não é necessária agora. Licenças/contas/custos reais permanecem gates futuros.
+## Decisões, pendências e próximo passo
 
-## Próximo passo recomendado
+ADR-007 registra motor/tempo/cura, unidade mínima, migração, treino e arte de boss. Fórmulas de BALANCE adotadas como experimento local, sem alteração financeira. Sem validação obrigatória do usuário nesta fase; licenças/proveniência e Android/WebGL em aparelho permanecem gates futuros. Playtest humano de ritmo/legibilidade recomendado, sem converter em bloqueio arbitrário.
 
-F3: domínio local de combate (3×3, bosses10/20 e retry), ferro por clique, upgrades, carvão e save/offline de minas. Configs experimentais precisam de simulação; evoluir save real1 com migração testada quando mudar schema. Conectar eventos do domínio à apresentação; não usar loop de animação como motor econômico. Manter meta de1.000 andares, primeira fatia20 e cap offline experimental8h.
+Próximo: F4 de progressão RPG, começando por dados/curvas, inventário/equipamentos/raridades e fabricação, depois pets/ouro/jade. Meta1.000 preservada; não extrapolar exponenciais além20 sem análise. Ler STAGE_03_REPORT/ADR-007 antes de alterar; dados de simulação não provam economia online segura.

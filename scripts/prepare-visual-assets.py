@@ -19,10 +19,10 @@ def hero(action,fw,n,fh=80):
  source=f'sprites/Character/{action}/{action}-Sheet.png'
  im=Image.open(ROOT/source).convert('RGBA');out=Image.new('RGBA',(160*n,128))
  # Dead has different floor contacts than Idle/Attack; measured, explicit landmarks.
- origins=[48,50,48,48,48,48,48,53] if action=='Dead' else [64]*n
+ origins=[48,50,48,48,48,48,48,53] if action=='Dead' else [68 if action=='Run' else 64]*n
  for i in range(n):out.alpha_composite(im.crop((i*fw,0,(i+1)*fw,fh)),(i*160+80-fw//2,112-origins[i]))
  export('hero-'+action.lower(),out,[source],frameWidth=160,frameHeight=128,frames=n,pivot=[80,112],sourceFrame=[fw,fh],sourcePivots=[[fw//2,y] for y in origins],frameOffsets=[[80-fw//2,112-y] for y in origins],fps=10,margin=0,spacing=0,direction='right')
-hero('Idle',64,4);hero('Attack-01',96,8);hero('Dead',80,8,64)
+hero('Run',80,8);hero('Idle',64,4);hero('Attack-01',96,8);hero('Dead',80,8,64)
 for action,n,prefix in [('idle',4,'idle-'),('attack',8,'attack-A'),('dead',4,'dead-')]:
  sources=[f'sprites/Enemies/Skeleton/PNG/{prefix}{i}.png' for i in range(1,n+1)]
  out=Image.new('RGBA',(160*n,128))
@@ -44,5 +44,5 @@ originals=[]
 for source in sorted(set(re.findall(r"[\"']\.\./\.\./\.\./\.\./(sprites/[^\"']+)[\"']",(ROOT/'apps/client/src/assets/catalog.ts').read_text()))):
  im=Image.open(ROOT/source)
  originals.append(dict(path=source,sha256=sha(ROOT/source),width=im.width,height=im.height,licenseStatus='unverified'))
-(ROOT/'docs/art/Runtime_Asset_Manifest.json').write_text(json.dumps(dict(version=1,stage='F2 visual preview; no economy',originals=originals,derivatives=entries),ensure_ascii=False,indent=2)+'\n')
+(ROOT/'docs/art/Runtime_Asset_Manifest.json').write_text(json.dumps(dict(version=1,stage='F3 local loop',originals=originals,derivatives=entries),ensure_ascii=False,indent=2)+'\n')
 print('Exported',len(entries),'derivatives; originals unchanged')

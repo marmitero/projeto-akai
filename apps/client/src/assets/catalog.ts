@@ -1,5 +1,6 @@
 // Vite only bundles this curated subset; never preload the full audit inventory.
 export const assets = {
+  heroRun: new URL("./derived/hero-run.png", import.meta.url).href,
   heroDead: new URL("./derived/hero-dead.png", import.meta.url).href,
   skeletonDead: new URL("./derived/skeleton-dead.png", import.meta.url).href,
   heroIdle: new URL("./derived/hero-idle.png", import.meta.url).href,

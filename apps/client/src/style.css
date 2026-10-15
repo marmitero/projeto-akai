@@ -626,3 +626,73 @@ summary {
   font-family: system-ui, sans-serif;
   font-size: 11px;
 }
+/* Local loop readouts use DOM controls over sprite scenery. */
+.notice,
+.tutorial {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  padding: 12px;
+  margin: 0 0 12px;
+}
+.notice {
+  background: #243c36;
+  border-radius: 6px;
+  color: #d1f6de;
+}
+#action-status {
+  font-size: 0.8rem;
+  color: #efd79e;
+  margin: 0 0 8px;
+}
+#action-status:empty {
+  display: none;
+}
+.combat-readout {
+  padding: 12px;
+  margin: 10px 0;
+}
+.combat-readout label {
+  display: block;
+  font-size: 0.75rem;
+  margin: 6px 0;
+}
+progress {
+  display: block;
+  width: 100%;
+  height: 12px;
+  accent-color: #83b880;
+}
+#enemy-health progress {
+  accent-color: #c37a7a;
+}
+.upgrade-list {
+  display: grid;
+  gap: 10px;
+  margin: 10px 0;
+}
+.upgrade-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+}
+.upgrade-card > div {
+  min-width: 0;
+  flex: 1;
+}
+.upgrade-card h3 {
+  margin: 0;
+  font-size: 0.88rem;
+}
+.upgrade-card p {
+  margin: 5px 0;
+  font-size: 0.75rem;
+}
+.upgrade-card button,
+#retry-battle {
+  min-height: 44px;
+  padding: 8px 12px;
+}
+.cost {
+  color: #d0ba8e;
+}

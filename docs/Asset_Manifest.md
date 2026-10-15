@@ -87,3 +87,7 @@ O inventário integral está paginado abaixo para continuar legível no GitHub. 
 - [Mine: 1–4](art/inventory/Mine_01.md)
 - [Misc: 1–140](art/inventory/Misc_01.md)
 - [Tiles: 1–3](art/inventory/Tiles_01.md)
+
+## Runtime F3
+
+Registro curado atualizado:22 derivados/22 originais diretos,50 originais únicos ao incluir fontes e72 arquivos/fontes verificados. Run acrescentado sem modificar o acervo. Boss reutiliza Skeleton validado. O inventário integral deste documento não é lista de preload. Ver [registro runtime](art/Runtime_Asset_Manifest.json) e [relatório F3](STAGE_03_REPORT.md).

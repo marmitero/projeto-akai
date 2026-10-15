@@ -1,6 +1,6 @@
 # Game Design Document — Projeto Akai
 
-Baseline de design v1, 15/10/2026. Regras do Master Prompt preservadas; detalhes novos identificados como propostas. Fundação e prévia visual implementadas (F1/F2); regras de gameplay/economia seguem especificação para F3 e posteriores.
+Baseline de design v1, 15/10/2026. Regras do Master Prompt preservadas; detalhes novos identificados como propostas. Fundação, apresentação e loop local1–20 implementados (F1–F3); sistemas RPG/online posteriores permanecem especificação.
 
 ## Experiência e loop
 
@@ -15,7 +15,7 @@ O jogador acompanha Batalha, alterna para Mina para obter ferro, compra melhoria
 3. Ataques seguem cooldown, atributos e efeitos. Cada morte emite recompensa única.
 4. Após a terceira onda, marcar andar e avançar com caminhada/transição de cerca de três segundos. A transição ocorre entre ondas/andares conforme configuração visual, sem duplicar recompensas.
 5. Andares 10, 20 etc. têm uma única onda e um boss. Vida esgotada ou tempo do boss encerrado resulta em falha; empate no instante limite usa ordem determinística documentada em BALANCE.
-6. Falha de boss retorna ao andar anterior e desliga autoavanço. Proposta: permanecer em estado pausado sem refarm automático; botão Tentar novamente inicia uma nova tentativa autorizada.
+6. Falha de boss retorna ao andar anterior e desliga autoavanço. Implementado: permanecer pausado sem refarm automático; Tentar novamente inicia nova tentativa. Treinar no andar anterior repete uma execução comum9/19 e volta a pausar, fornecendo Coins sem iniciar boss automaticamente (ADR-007).
 
 Andares comuns não expiram. Proposta para morte em andar comum: pausar, mostrar causa e permitir reiniciar esse andar sem cobrar moeda; recompensas de inimigos efetivamente derrotados ficam, mas cada nova execução recebe IDs novos. Política precisa de teste contra exploração antes do online. Não há perda de item permanente planejada. Meta final: 1.000 definições de andares por dados; reuso artístico por bioma e dificuldade, sem mil packs exclusivos.
 
@@ -59,7 +59,7 @@ Rankings: força, maior andar, saldo Coin, dano global, último golpe, guilda, p
 
 Anúncios exclusivamente voluntários: 120s de autoclick a 3/s, ou 120s de dano 2×, ou recompensa de batalha 2×, ou coins conforme progresso. Cooldowns e acúmulo precisam de definição; em local apenas debug rotulado. Loja premium prevê ruby (Punhado/Saco/Pote/Baú), cosméticos, bônus e pacotes; preços não aprovados. Não transformar teste local em compra real.
 
-Offline inicial proposto: produção de minas até oito horas; sem combate, cliques ou autoplay offline no MVP. Bônus temporários só contam durante intervalo válido. Online usa tempo confiável e saldo de servidor; save local nunca importa recursos para conta online. Ver ADR-003.
+Offline local implementado experimentalmente: produção de minas até oito horas; sem combate, cliques ou autoplay offline no MVP. Bônus temporários só contam durante intervalo válido. Online usa tempo confiável e saldo de servidor; save local nunca importa recursos para conta online. Ver ADR-003.
 
 ## Interface, áudio e acessibilidade
 
@@ -68,3 +68,7 @@ Batalha, Mina, Produção, Mochila, Loja e Mais; uma tela ativa, HUD persistente
 ## Marcos de conteúdo
 
 Primeira fatia proposta: andares 1–20, dois encontros de boss, clicker e carvão. Equipamentos/mascotes/ouro/jade no incremento RPG; todo o conteúdo de 1.000 andares só será aceito após validação de curvas e dados. Nenhum sistema futuro foi removido; dependências e aceite estão no ROADMAP.
+
+## Entrega jogável F3
+
+Herói com força/vitalidade/clique melhoráveis, carvão e tutorial; níveis experimentais até100, cura entre andares/tentativas e prazo de boss também durante pausa/ausência. Primeiro conteúdo20 andares e Guardião Ossudo da família Skeleton nos10/20, Run de transição e morte real. BALANCE registra simulação, sem inferir diversão/equilíbrio final. Equipamentos/pets/XP/fabricação/ouro/jade estão reservados aF4. Não há perda de itens, cobrança, premium ou luta offline.

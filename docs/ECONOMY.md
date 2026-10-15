@@ -1,6 +1,6 @@
 # Economia e regras de transação
 
-Regras do produto e propostas de implementação v1. Nenhuma economia está em execução. Números de teste em BALANCE não são balanceamento comercial aprovado.
+Regras do produto e propostas de implementação v1. Economia local F3 em execução; sem economia online. Números de teste em BALANCE não são balanceamento comercial aprovado.
 
 ## Fontes e sumidouros
 
@@ -17,7 +17,7 @@ Não converter Coin em ouro por compartilharem cor. Ferro fundido é material de
 
 ## Representação e arredondamento
 
-Proposta: 1.000 unidades mínimas = 1 unidade exibida, para permitir carvão fracionário sem float. Saldo persistido é inteiro não negativo; UI pode abreviar, mas detalhe mostra valor real. Clique inicial de 1 ferro credita 1.000 unidades mínimas. Recursos indivisíveis como item/equipamento têm contagem inteira própria e não usam milésimos.
+Implementado na F3:1.000 unidades mínimas = 1 unidade exibida, para permitir carvão fracionário sem float. Saldo persistido é inteiro não negativo; UI pode abreviar, mas detalhe mostra valor real. Clique inicial de 1 ferro credita 1.000 unidades mínimas. Recursos indivisíveis como item/equipamento têm contagem inteira própria e não usam milésimos.
 
 Custos de upgrade arredondados para cima em unidades inteiras de recurso; ganhos de produção acumulam remainder para que frequência de reconciliação não mude a renda. Multiplicadores representados por razões ou basis points; aplicar ordem fixa documentada. Overflow/limite excedido rejeita antes do commit. API nunca aceita saldo final do cliente.
 
@@ -50,3 +50,9 @@ Ver ADR-003: MVP acumula apenas minas, cap experimental de 8h, sem vitória/anda
 Medir fontes e gastos por recurso/dia/coorte, tempo entre upgrades, tempo até carvão/primeiro boss, estoque mediano e p95, retenção e discrepâncias ledger↔saldo. Nada disso foi medido ainda. Simular jogadores ativos a 1/3/5 cliques por segundo e retornos em 1h/8h/24h, sem supor clique contínuo humano.
 
 Rebalancear cria configVersion nova com data efetiva e plano para saves/instâncias. Não recalcular compra passada, não editar ledger retroativamente nem reduzir saldo sem operação compensatória explícita e auditada. Critérios de experimento e fórmulas em BALANCE; probabilidades em DROP_TABLES.
+
+## Implementação F3
+
+Config local-loop-1 usa as fórmulas de BALANCE, níveis 0–100, ferro/Coin nos custos, saldo BigInt em strings e acumulador de carvão com denominador1000. Grant local ocorre na mudança HP>0→0 e é persistido junto ao cadáver/checkpoint; não foi criado ledger online. Força altera dano futuro; vitalidade aumenta HP atual/máximo em 15; cura inteira ao iniciar andar/tentativa/treino, sem cura entre ondas.
+
+Produção continua entre telas; ocultação/fechamento concilia até 8h uma vez por watermark. Sem simular vitórias offline. Boss preserva prazo de expiração. Treino manual do andar anterior após falha de boss elimina softlock de Coin identificado em simulação, concede recompensas normais e para novamente antes do boss. Custos/política em ADR-007; o botão de resumo offline não concede nada porque não há coleta manual. Ouro/jade/Ruby e receitas continuam futuros.

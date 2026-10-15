@@ -41,3 +41,13 @@ F1 define comandos reais de lint/typecheck/test/build e os documenta; atualmente
 ## Evidência F2
 
 14 testes unitários/regressão da F1 continuam passando; verificação de assets e smoke ampliado em dev e build estático foram executados. Oito animações e conclusão de morte,50 ciclos, input oculto/modal bloqueado, foco/Escape, alvos/scroll, save/reload e falha de asset validados. Esses testes não provam vida, ondas, produção ou segurança online, que não existem ainda. CI configurada para repetir check e ambos os smokes; confirmar run antes de declarar resultado remoto.
+
+## Execução F3
+
+31 testes Vitest em 5 arquivos: agenda/3×3/boss/deadline/pausa/treino, grants e compras exatas, produção fracionária,30min de domínio/18.000 passos, sessão/ausência/regresso, migração1→2 com fixture/checksum e backup/CAS, contratos/servidor. npm run check também valida72 arquivos/fontes do subset, typecheck e builds.
+
+Smokes dev e build estático em Chromium153 headless:50 ciclos, mineração inicial10 ferros, invisível/modal bloqueados, movimento reduzido, compra e carvão após reload,8h de crédito e reload sem duplicar, timeout/treino de boss, conclusão enquanto Mina ativa, morte, menus/foco/safe areas e erro de asset. Fixtures de cenários são injetadas como saves válidos no teste; nenhum debug/API de grant é embarcado. Simulação de economia1/3/5 cliques/s deve concluir20; executada também pelaCI.
+
+Soak real30min via npm run test:soak no build preview: mineração/compras/navegação, heap após GC, DOM/listeners, objetos/texturas e média de rAF por minuto. Relatório só comprova a duração/ambiente registrados, não aptidão Android. Não usar o teste puro acelerado como prova de 30min reais de render. Licenças e playtest humano seguem outros gates.
+
+Resultado executado da sessão prolongada F3: 30min reais (1800914ms),1784 ciclos,127 listeners/34 texturas/37 objetos estáveis, heap apósGC5.91–6.64MiB e média rAF por minuto59.95–60.02 após aquecimento; zero pageerrors. CPU/navegador/ambiente em STAGE_03_REPORT e amostras no JSON.

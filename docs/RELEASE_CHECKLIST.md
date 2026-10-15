@@ -49,3 +49,7 @@ F1 possui builds/testes e smoke conforme STAGE_01_REPORT. Isso não marca os che
 ## Evidência visual F2
 
 Telas, HUD, oito animações, input e build estático testados conforme STAGE_02_REPORT. Loja, mineração/produção econômicas e combate continuam pendentes para MVP; licenças/Android/online continuam pendentes para lançamento. Nenhuma publicação comercial realizada.
+
+## Situação F3 (não é release público)
+
+Loop local1–20, carvão/offline, migração real/save e regressões testados; CI própria só confirmar por run efetivo. Não ativados auth/banco/loja premium/anúncios/online. Licenças de sprites, teste de aparelho, playtest humano e demais gates desta checklist continuam necessários antes da distribuição. ConcluirF3 não autoriza marcar checklist comercial completa.

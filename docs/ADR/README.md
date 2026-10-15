@@ -12,3 +12,5 @@ Ao alterar decisão, criar sucessor ou histórico explícito; atualizar GDD/API/
 - [ADR-005 — Tooling e baseline executável](0005-foundation-tooling.md)
 
 - [ADR-006 — Subset visual e navegação](0006-visual-subset.md)
+
+- [ADR-007 — Loop local e recuperação de progressão](0007-local-loop.md).

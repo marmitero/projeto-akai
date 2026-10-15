@@ -12,7 +12,7 @@
 | D06 | 20 andares na primeira fatia; 1.000 na meta de produto | Proposto como estratégia incremental | F3 |
 | D07 | Offline só minas no MVP; cap experimental 8h | Proposto em ADR-003 | F3 |
 | D08 | Inimigos simultâneos; alvo frontal; morte comum pausa | Proposto | F3 |
-| D09 | Raridades, slots, afixos e curvas de BALANCE/DROP_TABLES | Provisório; sem simulações executadas | F4 |
+| D09 | Raridades, slots, afixos e curvas de BALANCE/DROP_TABLES | Curvas locais simuladas; RPG provisório | F4 |
 | D10 | Nível de conta: XP/curva; recrutamento; habilidades automáticas | Escopo previsto, conteúdo/fórmulas pendentes | F4 |
 | D11 | Regras de posição PvP concorrente, empate e troféus | Proposta parcial; não ativar sem especificação final | F6 |
 | D12 | Guilda 20 no nível1, +2 por nível até 38; bônus de presença/cap | Capacidade proposta; bônus pendente | F6 |
@@ -30,7 +30,7 @@ Mudança de decisão aprovada exige motivo e atualização dos documentos envolv
 
 ## Delegação e triagem atualizadas
 
-As regras de autonomia da Constituição foram aprovadas explicitamente pelo usuário. “Proposto” não significa automaticamente “aguarda o usuário”: o agente pode adotar decisões não financeiras/reversíveis, registrá-las e validá-las tecnicamente. A etapa atual é revisão de pendências, não início de F1.
+As regras de autonomia da Constituição foram aprovadas explicitamente pelo usuário. “Proposto” não significa automaticamente “aguarda o usuário”: o agente pode adotar decisões não financeiras/reversíveis, registrá-las e validá-las tecnicamente. A triagem inicial era revisão de pendências, anterior à implementação de F1–F3.
 
 | Pendência | Quem resolve | Quando é necessária |
 |---|---|---|
@@ -46,7 +46,7 @@ As regras de autonomia da Constituição foram aprovadas explicitamente pelo usu
 | D19: infraestrutura | Agente escolhe tecnicamente; usuário decide contratação/custo relevante e realiza atos exclusivos do titular | F5/lançamento |
 | D20: privacidade/moderação/público | Agente prepara solução; usuário realiza declarações/aceites que dependam do responsável legal | Antes do online público |
 
-Não há pendência de design que obrigue consulta ao usuário antes de começar desenvolvimento local. Recortes/pivôs, compatibilidade e versões são tarefas técnicas do agente. Licenças seguem não verificadas e condicionam distribuição; não presumir uso comercial autorizado. Início de código continua não executado nesta revisão.
+Não há pendência de design que obrigue consulta ao usuário antes de começar desenvolvimento local. Recortes/pivôs, compatibilidade e versões são tarefas técnicas do agente. Licenças seguem não verificadas e condicionam distribuição; não presumir uso comercial autorizado. Esse registro de triagem antecede as entregas de código F1–F3 abaixo.
 
 ## Decisões da F1 — 15/10/2026
 
@@ -55,3 +55,9 @@ Stack/versões e npm workspaces adotados em ADR-005; Fastify escolhido, sem cont
 ## Decisões da F2 — delegação técnica
 
 Adotado subset medieval pixel art (Character, Skeleton, Normal BG, nós e Hud), derivados com pivô comum e hashes, uma cena com grupos por tela e UI DOM, fallback de quatro botões até419px, iniciais em vez de retrato não confirmado e moeda Coin textual. Preload apenas do subset pequeno e compartilhado, com packs maiores por demanda nas expansões. Ataque/derrota/impacto são prévias sem efeito econômico; loja/minas futuras ficam explicitamente indisponíveis. Nenhuma contratação, preço ou regra fundamental alterada. Licenças e teste em aparelho continuam pendentes; não exigem decisão do usuário nesta etapa.
+
+## Decisões da F3
+
+D06/D07/D08 adotadas e testadas localmente:20 andares, cap minas8h, inimigos simultâneos/alvo frontal, falha comum pausada. D22: motor agenda/cura entre andares/pausa manual, deadline do boss corre ausente/pausado e stall>5s tratado como ausência. D23: treino manual9/19 após boss, volta a pausar ao concluir, para evitar softlock de Coin observado em simulação. D24: configuração local-loop-1 com fórmulas de BALANCE e níveis até100, unidade mínima/remainder, schema2 e migração real1→2. D25: boss Guardião Ossudo usa Skeleton2,8× e Run do herói é derivado rastreável, sem misturar rigs vetoriais.
+
+Tudo sob delegação, sem gasto ou alteração de pilar. Primeiras melhorias/carvão mais rápidas que hipóteses iniciais; registrado para playtest, sem fingir balanceamento final. F4 define dados RPG/curvas, F5 segurança econômica online. Nenhuma decisão obrigatória do titular agora.

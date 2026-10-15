@@ -687,3 +687,9 @@ Subset integrado: ver [relatório](STAGE_02_REPORT.md) e [guia](art/RUNTIME_ASSE
 ![Mina](art/previews/F2_Mine.png)
 
 ![Produção](art/previews/F2_Production.png)
+
+## F3 — apresentação ligada ao gameplay
+
+Nove animações, incluindo Run. Guardião Ossudo usa a família Skeleton em2,8×, sem alegar pack exclusivo; nos10/20 há só um alvo. HP, golpes e mortes refletem domínio real. Capturas e limites em [STAGE_03_REPORT](STAGE_03_REPORT.md); recortes/pivôs em [RUNTIME_ASSETS](art/RUNTIME_ASSETS.md). A auditoria integral continua preservada; licença não foi resolvida nesta integração.
+
+Capturas jogáveis: [Batalha](art/previews/F3_Battle.png), [Mina](art/previews/F3_Mine.png), [Produção](art/previews/F3_Production.png) e [Torre concluída](art/previews/F3_Complete.png).

@@ -1,6 +1,6 @@
 # ADR-003 — Save versionado e ausência
 
-Data: 15/10/2026. Estado: **proposto**, revisar/validar em F1/F3; cap não é regra definitiva do usuário. Não implementado.
+Data: 15/10/2026. Estado: **adotado experimentalmente e implementado em F1/F3**; cap não é regra definitiva do usuário. Detalhamento em ADR-007.
 
 ## Contexto
 

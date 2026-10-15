@@ -4,6 +4,13 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawn } from "node:child_process";
 import { mkdir } from "node:fs/promises";
+import { createHash } from "node:crypto";
+import {
+  LocalSnapshotSchema,
+  newLoopState,
+  CONFIG_VERSION,
+  startEncounter,
+} from "../packages/shared/dist/index.js";
 import assert from "node:assert/strict";
 const preview = process.argv.includes("--preview");
 const root = fileURLToPath(new URL("../", import.meta.url));
@@ -86,22 +93,23 @@ try {
   await page.locator("#game canvas").waitFor();
   assert.equal(
     await page.locator("#game").getAttribute("data-animation-count"),
-    "8",
+    "9",
   );
   const textures = await page
     .locator("#game")
     .getAttribute("data-texture-count");
   const objects = await page.locator("#game").getAttribute("data-object-count");
-  await capture(page, "battle-390");
-  await page
-    .getByRole("button", { name: "Testar animação de derrota", exact: true })
-    .click();
+  await page.locator("#pause-battle").click();
+  const pausedHp = await page.locator("#game").getAttribute("data-hero-hp");
+  await page.waitForTimeout(1100);
   assert.equal(
-    await page.locator("#game").getAttribute("data-defeat-preview"),
-    "1",
+    await page.locator("#game").getAttribute("data-hero-hp"),
+    pausedHp,
   );
-  await page.locator("#game[data-defeat-complete=true]").waitFor();
-  await capture(page, "defeat-390");
+  await page
+    .getByRole("button", { name: "Retomar batalha", exact: true })
+    .click();
+  await capture(page, "battle-390");
   const navigate = async (name) => {
     const direct = page
       .locator(".bottom-hud")
@@ -118,17 +126,23 @@ try {
   await navigate("Mina");
   await capture(page, "mine-390");
   await page
-    .getByRole("button", { name: "Testar impacto no minério", exact: true })
+    .getByRole("button", { name: "Minerar ferro", exact: true })
     .click();
   assert.equal(
     await page.locator("#game").getAttribute("data-impact-count"),
     "1",
   );
+  for (let i = 0; i < 9; i++) await page.locator("#mine-target").click();
+  assert.equal(
+    await page.locator("[data-pane=mine] [data-balance=iron]").textContent(),
+    "10",
+  );
+
   await navigate("Batalha");
   await page.locator("#mine-target").evaluate((button) => button.click());
   assert.equal(
     await page.locator("#game").getAttribute("data-impact-count"),
-    "1",
+    "10",
   );
   for (let n = 0; n < 50; n++) {
     await navigate("Mina");
@@ -143,6 +157,7 @@ try {
     await page.locator("#game").getAttribute("data-object-count"),
     objects,
   );
+  assert.ok(await page.locator("#game").getAttribute("data-encounter"));
   await navigate("Produção");
   assert.equal(
     await page
@@ -160,7 +175,7 @@ try {
   await page.locator("#mine-target").evaluate((button) => button.click());
   assert.equal(
     await page.locator("#game").getAttribute("data-impact-count"),
-    "1",
+    "10",
   );
   await page
     .getByRole("checkbox", { name: "Reduzir movimento e efeitos" })
@@ -191,7 +206,7 @@ try {
     await page
       .locator("#dialog-resources dd")
       .allTextContents()
-      .then((v) => v.every((x) => x === "0")),
+      .then((v) => v[1] === "10" && v.slice(2).every((x) => x === "0")),
     true,
   );
   await page.keyboard.press("Escape");
@@ -200,6 +215,7 @@ try {
     [360, 800],
     [390, 844],
     [768, 900],
+    [844, 390],
   ]) {
     await page.setViewportSize({ width, height });
     for (const name of ["Batalha", "Mina", "Produção"]) {
@@ -256,6 +272,134 @@ try {
     el.scrollTop = 0;
   });
   await capture(page, "production-full-390");
+  // Controlled real saves exercise hard-to-reach states; no test API is shipped in the app.
+  async function seed(snapshot) {
+    const payload = LocalSnapshotSchema.parse(snapshot),
+      raw = JSON.stringify({
+        formatVersion: 1,
+        payload,
+        checksum: createHash("sha256")
+          .update(JSON.stringify(payload))
+          .digest("hex"),
+      });
+    await page.evaluate(async (raw) => {
+      const db = await new Promise((resolve, reject) => {
+        const r = indexedDB.open("akai-local", 1);
+        r.onsuccess = () => resolve(r.result);
+        r.onerror = () => reject(r.error);
+      });
+      await new Promise((resolve, reject) => {
+        const tx = db.transaction("snapshots", "readwrite");
+        tx.objectStore("snapshots").put(raw, "current");
+        tx.oncomplete = resolve;
+        tx.onabort = reject;
+      });
+      db.close();
+    }, raw);
+    await page.reload();
+    await page.locator("#game[data-load-status=ready]").waitFor();
+  }
+  const fixture = () =>
+    LocalSnapshotSchema.parse({
+      ...newLoopState(),
+      schemaVersion: 2,
+      configVersion: CONFIG_VERSION,
+      mode: "local",
+      generation: 0,
+      savedAt: Date.now(),
+      lastReconciledAt: Date.now(),
+      profile: { id: "local-test", name: "Smoke" },
+      screen: "mine",
+      activeMs: 0,
+      balances: {
+        coin: "1000000",
+        iron: "1000000",
+        coal: "0",
+        gold: "0",
+        jade: "0",
+        ruby: "0",
+      },
+    });
+  await seed(fixture());
+  await page.locator("[data-upgrade=click]").click();
+  assert.equal(await page.locator("#click-gain").textContent(), "2 / toque");
+  await navigate("Produção");
+  await page.locator("[data-upgrade=coal]").click();
+  await page.waitForTimeout(1100);
+  await navigate("Mais");
+  await page.locator("#save").click();
+  await page
+    .getByText("Perfil salvo neste navegador.", { exact: true })
+    .waitFor();
+  await page.reload();
+  await page.locator("#game[data-load-status=ready]").waitFor();
+  await navigate("Produção");
+  await page.getByText("Nível 1 · 0,1 /s", { exact: true }).waitFor();
+  const offline = fixture();
+  offline.upgrades.coal = 1;
+  offline.lastReconciledAt = Date.now() - 24 * 3600000;
+  await seed(offline);
+  await page
+    .locator("#offline-summary")
+    .filter({ hasText: "+2.880 carvão" })
+    .waitFor();
+  await navigate("Mais");
+  await page.locator("#save").click();
+  await page
+    .getByText("Perfil salvo neste navegador.", { exact: true })
+    .waitFor();
+  await page.reload();
+  await page.locator("#game[data-load-status=ready]").waitFor();
+  const coalAfterReload = await page
+    .locator("[data-balance=coal]")
+    .textContent();
+  assert.ok(
+    Number(coalAfterReload.replaceAll(".", "").replace(",", ".")) >= 2880 &&
+      Number(coalAfterReload.replaceAll(".", "").replace(",", ".")) < 2881,
+  );
+  // Automatic boot save atomically persisted the offline watermark; a reload cannot receive8h again.
+  await navigate("Mais");
+  await page.locator("#save").click();
+  await page
+    .getByText("Perfil salvo neste navegador.", { exact: true })
+    .waitFor();
+  await page.keyboard.press("Escape");
+  const boss = fixture();
+  boss.screen = "battle";
+  startEncounter(boss, 10);
+  boss.battle.deadline = 1000;
+  boss.battle.heroNextAt = 1000;
+  boss.battle.enemies[0].hp = 1;
+  await seed(boss);
+  await page.locator("#retry-battle:visible").waitFor();
+  await page.getByText("Tempo do boss esgotado.", { exact: false }).waitFor();
+  const stopped = await page.locator("#game").getAttribute("data-encounter");
+  await navigate("Mina");
+  await page.waitForTimeout(1200);
+  assert.equal(
+    await page.locator("#game").getAttribute("data-encounter"),
+    stopped,
+  );
+  await navigate("Batalha");
+  await page.locator("#train-battle").click();
+  await page.getByText("Treino iniciado.", { exact: false }).waitFor();
+  await capture(page, "training-390");
+  const win = fixture();
+  win.upgrades.attack = 100;
+  startEncounter(win, 20);
+  win.battle.enemies[0].hp = 1;
+  win.screen = "mine";
+  await seed(win);
+  await page.waitForTimeout(4200);
+  await navigate("Batalha");
+  await page.getByText("Torre local concluída!", { exact: false }).waitFor();
+  await capture(page, "complete-390");
+  const lose = fixture();
+  lose.screen = "battle";
+  lose.battle.heroHp = 1;
+  await seed(lose);
+  await page.locator("#game[data-defeat-complete=true]").waitFor();
+  await capture(page, "defeat-390");
   assert.deepEqual(failures, []);
   assert.deepEqual(errors, []);
   // A missing required image must display an error and keep the node disabled.
@@ -288,9 +432,14 @@ try {
       hiddenInputBlocked: true,
       modalInputBlocked: true,
       reducedMotion: true,
-      widths: [320, 360, 390, 768],
+      widths: [320, 360, 390, 768, 844],
+      landscape: true,
       menus: true,
-      zeroResourceGrants: true,
+      realMiningGrants: true,
+      upgradesAndCoal: true,
+      offlineCapAndSingleCredit: true,
+      bossTimeoutAndTraining: true,
+      towerCompletedFromMine: true,
       missingAssetHandled: true,
       onlineFailsClosed: true,
       pageErrors: errors,

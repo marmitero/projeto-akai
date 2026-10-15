@@ -1,9 +1,9 @@
 import Phaser from "phaser";
-import type { Screen } from "@akai/shared";
+import type { Screen, LocalSnapshot } from "@akai/shared";
 import { assets, type AssetKey } from "../assets/catalog.js";
 export interface VisualGame {
   hitMine(): boolean;
-  previewDefeat(): boolean;
+  setBattle(state: LocalSnapshot): void;
   setOverlay(open: boolean): void;
   setReducedMotion(reduced: boolean): void;
   destroy(): void;
@@ -24,15 +24,16 @@ export function createGame(
     overlay = false,
     reducedMotion = false;
   const failed = new Set<string>();
+  let battleState: LocalSnapshot | undefined;
   class VisualScene extends Phaser.Scene {
     private groups = new Map<Screen, Phaser.GameObjects.Container>();
     private hero!: Phaser.GameObjects.Sprite;
     private enemies: Phaser.GameObjects.Sprite[] = [];
     private torches: Phaser.GameObjects.Sprite[] = [];
     private impacts: Phaser.GameObjects.Sprite[] = [];
-    private attackAt = 0;
+    private lastBattle: LocalSnapshot["battle"] | undefined;
     private count = 0;
-    private defeatUntil = 0;
+
     constructor() {
       super("akai-visual");
     }
@@ -41,6 +42,7 @@ export function createGame(
         failed.add(file.key);
       });
       for (const key of [
+        "heroRun",
         "heroIdle",
         "heroDead",
         "skeletonDead",
@@ -86,6 +88,7 @@ export function createGame(
         return;
       }
       for (const [key, texture, frames, fps] of [
+        ["hero-run", "heroRun", 8, 10],
         ["hero-idle", "heroIdle", 4, 10],
         ["hero-dead", "heroDead", 8, 10],
         ["enemy-dead", "skeletonDead", 4, 10],
@@ -102,7 +105,10 @@ export function createGame(
             end: frames - 1,
           }),
           frameRate: fps,
-          repeat: key.endsWith("idle") || key === "torch-loop" ? -1 : 0,
+          repeat:
+            key.endsWith("idle") || key === "hero-run" || key === "torch-loop"
+              ? -1
+              : 0,
         });
       this.groups.set("battle", this.add.container());
       this.groups.set("mine", this.add.container());
@@ -110,6 +116,7 @@ export function createGame(
       this.buildBattle();
       this.buildMine();
       this.buildProduction();
+      this.syncBattle();
       this.applyState();
       parent.dataset["loadStatus"] = "ready";
       parent.dataset["textureCount"] = String(
@@ -117,6 +124,7 @@ export function createGame(
       );
       parent.dataset["animationCount"] = String(
         [
+          "hero-run",
           "hero-idle",
           "hero-dead",
           "enemy-dead",
@@ -262,7 +270,11 @@ export function createGame(
         ),
       );
       for (const [key, group] of this.groups) group.setVisible(key === screen);
-      const paused = overlay || document.hidden || reducedMotion;
+      const paused =
+        overlay ||
+        document.hidden ||
+        reducedMotion ||
+        (screen === "battle" && battleState?.battle.paused);
       for (const sprite of [this.hero, ...this.enemies, ...this.torches]) {
         const relevant =
           sprite === this.hero || this.enemies.includes(sprite)
@@ -288,50 +300,85 @@ export function createGame(
       if (free) free.setActive(true).setVisible(true).play("dust-impact");
       return true;
     }
-    defeat(): boolean {
-      if (
-        !this.hero ||
-        screen !== "battle" ||
-        overlay ||
-        document.hidden ||
-        failed.size
-      )
-        return false;
-      this.defeatUntil = this.time.now + 2400;
-      parent.dataset["defeatComplete"] = "false";
-      this.hero.play("hero-dead");
-      for (const enemy of this.enemies) enemy.play("enemy-dead");
-      if (reducedMotion) {
-        parent.dataset["defeatComplete"] = "true";
-        this.hero.anims.stop();
-        this.hero.setTexture("heroDead", 7);
-        for (const enemy of this.enemies) {
-          enemy.anims.stop();
-          enemy.setTexture("skeletonDead", 3);
-        }
-      }
-      parent.dataset["defeatPreview"] = String(
-        Number(parent.dataset["defeatPreview"] ?? 0) + 1,
+    syncBattle(): void {
+      if (!this.hero || !battleState) return;
+      const b = battleState.battle,
+        prev = this.lastBattle,
+        fresh = prev?.attempt !== b.attempt;
+      parent.dataset["encounter"] = `${b.attempt}:${b.floor}:${b.wave}`;
+      parent.dataset["combatPhase"] = b.phase;
+      const boss = b.enemies.length === 1;
+      this.hero.x =
+        b.phase === "transition" && b.heroHp > 0
+          ? 83 + 30 * (1 - Math.max(0, b.transitionAt - b.time) / 3000)
+          : 83;
+      const animate = (
+        sprite: Phaser.GameObjects.Sprite,
+        dead: boolean,
+        wasDead: boolean,
+        attack: boolean,
+        enemy: boolean,
+      ): void => {
+        const prefix = enemy ? "enemy" : "hero";
+        if (dead) {
+          if (
+            !wasDead &&
+            !fresh &&
+            !reducedMotion &&
+            screen === "battle" &&
+            !overlay &&
+            !document.hidden
+          )
+            sprite.play(`${prefix}-dead`);
+          else if (
+            sprite.anims.currentAnim?.key !== `${prefix}-dead` ||
+            reducedMotion ||
+            screen !== "battle" ||
+            overlay ||
+            document.hidden
+          ) {
+            sprite.anims.stop();
+            sprite.setTexture(
+              enemy ? "skeletonDead" : "heroDead",
+              enemy ? 3 : 7,
+            );
+          }
+        } else if (fresh || wasDead) sprite.play(`${prefix}-idle`);
+        else if (!enemy && b.phase === "transition")
+          sprite.play("hero-run", true);
+        else if (attack && !reducedMotion) sprite.play(`${prefix}-attack`);
+        else if (
+          !enemy &&
+          prev?.phase === "transition" &&
+          b.phase !== "transition"
+        )
+          sprite.play("hero-idle");
+      };
+      animate(
+        this.hero,
+        b.heroHp === 0,
+        prev?.heroHp === 0,
+        b.heroStrikes !== prev?.heroStrikes,
+        false,
       );
-      return true;
-    }
-    update(time: number): void {
-      if (!this.hero || overlay || document.hidden || screen !== "battle")
-        return;
-      if (this.defeatUntil > time) return;
-      if (this.defeatUntil) {
-        this.defeatUntil = 0;
-        this.hero.play("hero-idle");
-        this.enemies.forEach((enemy) => enemy.play("enemy-idle"));
-        this.applyState();
-        this.attackAt = time + 1200;
-      }
-      if (reducedMotion) return;
-      if (time >= this.attackAt) {
-        this.attackAt = time + 2400;
-        this.hero.play("hero-attack");
-        this.enemies[0]?.play("enemy-attack");
-      }
+      this.enemies.forEach((sprite, i) => {
+        const e = b.enemies[i],
+          old = prev?.enemies[i];
+        sprite
+          .setVisible(!!e)
+          .setScale(boss ? 2.8 : [1.55, 1.5, 1.45][i]!)
+          .setX(boss ? 282 : [242, 296, 344][i]!);
+        if (e)
+          animate(
+            sprite,
+            e.hp === 0,
+            old?.hp === 0,
+            e.strikes !== old?.strikes,
+            true,
+          );
+      });
+      this.lastBattle = structuredClone(b);
+      this.applyState();
     }
   }
   const visibility = (): void => scene?.applyState();
@@ -357,8 +404,9 @@ export function createGame(
     hitMine() {
       return scene?.hit() ?? false;
     },
-    previewDefeat() {
-      return scene?.defeat() ?? false;
+    setBattle(state) {
+      battleState = state;
+      scene?.syncBattle();
     },
     setOverlay(open) {
       overlay = open;

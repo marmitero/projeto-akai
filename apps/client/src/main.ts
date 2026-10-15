@@ -1,4 +1,5 @@
 import "./style.css";
+import { heroStats, upgradeCost, type Upgrade } from "@akai/shared";
 import {
   LocalSession,
   createLocalSnapshot,
@@ -37,7 +38,7 @@ async function boot(): Promise<void> {
       snapshot = result.snapshot;
       status.textContent = "Perfil local carregado.";
     } else if (result.status === "empty")
-      status.textContent = "Novo perfil local. Nenhum recurso concedido.";
+      status.textContent = "Novo perfil local. Sua jornada começou.";
     else if (result.status === "backup-available") {
       snapshot = result.snapshot;
       writable = false;
@@ -81,7 +82,10 @@ async function boot(): Promise<void> {
     const info = routeLabels[next];
     document.querySelector("#page-title")!.textContent = info.title;
     document.querySelector("#page-kicker")!.textContent = info.kicker;
-    document.querySelector("#page-badge")!.textContent = info.badge;
+    document.querySelector("#page-badge")!.textContent =
+      next === "battle"
+        ? `Andar ${session.getSnapshot().battle.floor} / 20`
+        : info.badge;
     document.querySelector("#scene-caption")!.textContent = info.caption;
     document.querySelector("#visual-description")!.textContent =
       info.description;
@@ -103,14 +107,133 @@ async function boot(): Promise<void> {
     if (gameplay) visual.setScreen(next);
     content.scrollTop = scroll.get(next) ?? 0;
   }
+  const formatAmount = (value: string): string => {
+    const n = BigInt(value);
+    return `${(n / 1000n).toLocaleString("pt-BR")}${
+      n % 1000n
+        ? "," +
+          String(n % 1000n)
+            .padStart(3, "0")
+            .replace(/0+$/, "")
+        : ""
+    }`;
+  };
+  const text = (id: string, value: string): void => {
+    const e = document.getElementById(id)!;
+    if (e.textContent !== value) e.textContent = value;
+  };
+  let lastAnnouncement = "";
   const unsubscribe = session.subscribe((state) => {
+    visual.setBattle(state);
+    const b = state.battle,
+      stats = heroStats(state),
+      boss = b.enemies.length === 1;
+    stage.dataset["heroHp"] = String(b.heroHp);
+    text("hero-stats", `ATQ ${stats.attack} · Vida ${stats.hp}`);
+    text("hero-hp", `${b.heroHp} / ${stats.hp}`);
+    const bar = document.querySelector<HTMLProgressElement>("#hero-health")!;
+    bar.max = stats.hp;
+    bar.value = b.heroHp;
+    const enemyKey = b.enemies.map((e) => `${e.hp}/${e.maxHp}`).join(",");
+    const enemyList = document.querySelector<HTMLElement>("#enemy-health")!;
+    if (enemyList.dataset["hp"] !== enemyKey) {
+      enemyList.dataset["hp"] = enemyKey;
+      enemyList.innerHTML = b.enemies
+        .map(
+          (e, i) =>
+            `<label>${boss ? "Guardião Ossudo" : `Esqueleto ${i + 1}`} · ${e.hp}/${e.maxHp}<progress max="${e.maxHp}" value="${e.hp}"></progress></label>`,
+        )
+        .join("");
+    }
+    text(
+      "enemy-name",
+      boss
+        ? "Guardião Ossudo"
+        : `${b.enemies.filter((e) => e.hp > 0).length} esqueletos vivos`,
+    );
+    text(
+      "battle-status",
+      b.phase === "failed"
+        ? `${b.failure === "trained" ? "Treino concluído." : b.failure === "timeout" ? "Tempo do boss esgotado." : "Seu guerreiro foi derrotado."} ${b.retryFloor % 10 === 0 ? `Andar atual ${b.floor}. ` : ""}Melhore seu guerreiro e tente o andar ${b.retryFloor} novamente.`
+        : b.phase === "complete"
+          ? "Torre local concluída! Você venceu os 20 andares. A expansão continua na próxima fase."
+          : b.paused
+            ? `Batalha pausada. ${boss ? Math.max(0, Math.ceil((b.deadline - b.time) / 1000)) + "s restantes no boss." : "Mineração e produção continuam."}`
+            : b.phase === "transition"
+              ? "Vitória! Seguindo para o próximo encontro…"
+              : `Andar ${b.floor} ${b.training ? "· Treino " : ""}· ${boss ? "Boss" : `Onda ${b.wave}/3`} · ${boss ? `${Math.max(0, Math.ceil((b.deadline - b.time) / 1000))}s restantes` : "Combate automático"}`,
+    );
+    document.querySelector<HTMLButtonElement>("#retry-battle")!.hidden =
+      b.phase !== "failed";
+    document.querySelector<HTMLButtonElement>("#train-battle")!.hidden =
+      b.phase !== "failed" || b.retryFloor % 10 !== 0;
+    if (route === "battle") text("page-badge", `Andar ${b.floor} / 20`);
+    const announcement =
+      b.phase === "failed"
+        ? `Batalha pausada. Tente novamente o andar ${b.retryFloor}.`
+        : b.phase === "complete"
+          ? "Torre local concluída."
+          : "";
+    if (!announcement) lastAnnouncement = "";
+    if (announcement && announcement !== lastAnnouncement) {
+      text("action-status", announcement);
+      lastAnnouncement = announcement;
+    }
+    const pause = document.querySelector<HTMLButtonElement>("#pause-battle")!;
+    pause.hidden = b.phase === "failed" || b.phase === "complete";
+    pause.textContent = b.paused ? "Retomar batalha" : "Pausar batalha";
+    text("click-gain", `${1 + state.upgrades.click} / toque`);
+    text(
+      "coal-production",
+      state.upgrades.coal
+        ? `Nível ${state.upgrades.coal} · ${(state.upgrades.coal / 10).toLocaleString("pt-BR")} /s`
+        : "Bloqueada · 0/s",
+    );
+    for (const button of document.querySelectorAll<HTMLButtonElement>(
+      "[data-upgrade]",
+    )) {
+      const kind = button.dataset["upgrade"] as Upgrade,
+        cost = upgradeCost(state, kind);
+      const level = document.getElementById(`level-${kind}`);
+      if (level) level.textContent = `Nível ${state.upgrades[kind]}`;
+      text(
+        `cost-${kind}`,
+        cost
+          ? `${cost.iron.toLocaleString("pt-BR")} ferro + ${cost.coin.toLocaleString("pt-BR")} Coins`
+          : "Nível máximo",
+      );
+      button.disabled =
+        !cost ||
+        BigInt(state.balances.iron) < BigInt(cost.iron) * 1000n ||
+        BigInt(state.balances.coin) < BigInt(cost.coin) * 1000n;
+      button.textContent =
+        kind === "coal" && !state.upgrades.coal ? "Desbloquear" : "Melhorar";
+    }
+    text(
+      "tutorial",
+      !state.tutorial.victory
+        ? "Primeiro passo: acompanhe sua primeira vitória. Você já pode visitar a Mina."
+        : !state.tutorial.mined
+          ? "Próximo passo: vá à Mina e toque no ferro."
+          : !state.tutorial.upgraded
+            ? "Use ferro e Coins para melhorar a força do guerreiro."
+            : !state.upgrades.coal
+              ? "Desbloqueie o carvão em Produção: 100 ferro + 50 Coins."
+              : state.battle.highest < 10
+                ? "Seu reino produz carvão! Fortaleça o guerreiro para o boss do andar 10."
+                : "Continue fortalecendo o guerreiro até conquistar o andar 20.",
+    );
+    const offline = document.getElementById("offline-summary")!;
+    if (BigInt(session.offline.coal) > 0n) {
+      offline.hidden = false;
+      offline.textContent = `Retomada: +${formatAmount(session.offline.coal)} carvão por ${Math.round(session.offline.ms / 1000)}s de ausência (limite 8h). Já creditado; não é necessário coletar.`;
+    }
+
     for (const output of document.querySelectorAll<HTMLElement>(
       "[data-balance]",
     )) {
       const key = output.dataset["balance"] as keyof typeof state.balances;
-      output.textContent = (BigInt(state.balances[key]) / 1000n).toLocaleString(
-        "pt-BR",
-      );
+      output.textContent = formatAmount(state.balances[key]);
     }
     if (route === "battle" || route === "mine" || route === "production") {
       if (route !== state.screen) renderRoute(state.screen);
@@ -124,8 +247,9 @@ async function boot(): Promise<void> {
     saving = true;
     saveButton.disabled = true;
     try {
+      session.tick();
       const current = session.getSnapshot();
-      current.savedAt = Date.now();
+      current.savedAt = current.lastReconciledAt;
       session.acknowledgeSave(await repository.save(current));
       status.textContent = "Perfil salvo neste navegador.";
     } catch (error) {
@@ -216,13 +340,55 @@ async function boot(): Promise<void> {
       navigate(button.dataset["shortcut"] as "bag" | "shop");
     });
   listen(mineTarget, "click", () => {
-    if (visualReady && route === "mine" && !dialog.open && visual.hitMine())
-      document.querySelector("#mining-feedback")!.textContent =
-        "Impacto visual. Nenhum ferro recebido nesta prévia.";
+    if (
+      visualReady &&
+      route === "mine" &&
+      !dialog.open &&
+      !document.hidden &&
+      visual.hitMine() &&
+      session.mine()
+    )
+      text(
+        "mining-feedback",
+        `Ferro recebido. Saldo: ${formatAmount(session.getSnapshot().balances.iron)}.`,
+      );
   });
-  listen(document.querySelector("#preview-defeat")!, "click", () => {
-    if (visualReady && route === "battle" && !dialog.open)
-      visual.previewDefeat();
+  for (const button of document.querySelectorAll<HTMLButtonElement>(
+    "[data-upgrade]",
+  ))
+    listen(button, "click", () => {
+      if (dialog.open || document.hidden) return;
+      const kind = button.dataset["upgrade"] as Upgrade;
+      text(
+        "action-status",
+        session.buy(kind)
+          ? "Melhoria adquirida."
+          : "Recursos insuficientes ou nível máximo.",
+      );
+      void persist();
+    });
+  listen(document.querySelector("#retry-battle")!, "click", () => {
+    if (!dialog.open && session.retry()) {
+      text("action-status", "Nova tentativa iniciada.");
+      content.scrollTop = 0;
+      void persist();
+    }
+  });
+  listen(document.querySelector("#train-battle")!, "click", () => {
+    if (!dialog.open && session.train()) {
+      text(
+        "action-status",
+        "Treino iniciado. O boss aguardará uma tentativa manual.",
+      );
+      content.scrollTop = 0;
+      void persist();
+    }
+  });
+  listen(document.querySelector("#pause-battle")!, "click", () => {
+    if (!dialog.open) {
+      session.togglePause();
+      void persist();
+    }
   });
   const reduced = document.querySelector<HTMLInputElement>("#reduce-motion")!;
   reduced.checked = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -242,7 +408,7 @@ async function boot(): Promise<void> {
         recoverButton.disabled = false;
       });
   });
-  const tick = window.setInterval(() => session.tick(), 1000);
+  const tick = window.setInterval(() => session.tick(), 100);
   const autosave = window.setInterval(() => {
     void persist();
   }, 15_000);
@@ -250,9 +416,20 @@ async function boot(): Promise<void> {
     if (document.hidden) {
       session.suspend();
       void persist();
-    } else session.resume();
+    } else {
+      session.resume();
+      void persist();
+    }
   });
   if (document.hidden) session.suspend();
+  void persist();
+  listen(window, "pagehide", () => {
+    session.suspend();
+    void persist();
+  });
+  listen(window, "pageshow", () => {
+    session.resume();
+  });
   import.meta.hot?.dispose(() => {
     clearInterval(tick);
     clearInterval(autosave);
@@ -266,6 +443,6 @@ async function boot(): Promise<void> {
 void boot().catch(() => {
   assetStatus.hidden = false;
   assetStatus.textContent =
-    "Falha ao iniciar a prévia local. Recarregue para tentar novamente.";
+    "Falha ao iniciar o jogo local. Recarregue para tentar novamente.";
   saveButton.disabled = true;
 });

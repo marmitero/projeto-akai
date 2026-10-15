@@ -21,7 +21,9 @@
     "check": "npm run check:assets && npm run typecheck && npm test && npm run build",
     "test:browser": "npm run build:shared && node scripts/smoke-browser.mjs",
     "check:assets": "node scripts/check-visual-assets.mjs",
-    "test:browser:preview": "npm run build && node scripts/smoke-browser.mjs --preview"
+    "test:browser:preview": "npm run build && node scripts/smoke-browser.mjs --preview",
+    "simulate:loop": "npm run build:shared && node scripts/simulate-loop.mjs",
+    "test:soak": "npm run build && node scripts/soak-browser.mjs"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

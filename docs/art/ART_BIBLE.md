@@ -37,3 +37,7 @@ Lacunas: retrato de rei, identidade de mascotes, Coin definitivo, áudio/fontes 
 ## Subset aprovado tecnicamente na F2
 
 Character/Skeleton laterais, Normal BG e Hud roxo/dourado integrados e revisados nas composições do STAGE_02_REPORT. Pivôs/recortes de apenas esse subset em RUNTIME_ASSETS/Runtime_Asset_Manifest. Isso não aprova outros packs ou resolve licenças; retrato, Coin definitivo e profiling real continuam abertos.
+
+## Composição F3
+
+Guardião Ossudo10/20 é Skeleton ampliado2,8×, com idle/ataque/morte e rótulo de boss, não um pack exclusivo. HeroRun rastreado na mesma escala/pivot do guerreiro para transição3s. Vida/custos/progresso são DOM, mantendo tipografia legível e cenários feitos de sprites. Evitar efeitos que atrasem a confirmação de estado; morte fora da tela usa pose final. Sem áudio novo ou licença comprovada nesta fase.

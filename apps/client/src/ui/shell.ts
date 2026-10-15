@@ -3,35 +3,40 @@ import type { Screen } from "@akai/shared";
 export type Route = Screen | "bag" | "shop";
 const icon = (key: keyof typeof assets, className = ""): string =>
   `<img class="sprite ${className}" src="${assets[key]}" alt="" draggable="false">`;
+function upgradeCard(kind: string, title: string): string {
+  return `<article class="upgrade-card panel"><div><h3>${title}</h3><p id="level-${kind}" class="muted"></p><p id="cost-${kind}" class="cost"></p></div><button data-upgrade="${kind}" disabled>Melhorar</button></article>`;
+}
 export function createShell(root: HTMLElement): void {
   installAssetStyles(root);
   root.innerHTML = `<div class="game-shell">
-  <header class="top-hud panel"><div class="identity"><div class="portrait" aria-label="Retrato do rei ainda não disponível"><span>AK</span></div><div><p class="eyebrow">PROJETO AKAI</p><strong>Reino em ascensão</strong><small>Perfil local de teste</small></div></div><button class="icon-button" id="resources" aria-label="Ver recursos">${icon("iron")}<span data-balance="iron">0</span></button></header>
-  <div class="preview-strip"><span class="preview-mark">PRÉVIA VISUAL</span><span>Fase 2 · sem ganhos de recursos</span></div>
+  <header class="top-hud panel"><div class="identity"><div class="portrait" aria-label="Retrato do rei ainda não disponível"><span>AK</span></div><div><p class="eyebrow">PROJETO AKAI</p><strong>Reino em ascensão</strong><small>Local · <span data-balance="coin">0</span> Coins</small></div></div><button class="icon-button" id="resources" aria-label="Ver recursos">${icon("iron")}<span data-balance="iron">0</span></button></header>
+  <div class="preview-strip"><span class="preview-mark">MVP LOCAL</span><span>Fase 3 · progresso salvo neste navegador</span></div>
   <main id="content" class="content" tabindex="-1">
-    <header class="page-heading"><div><p id="page-kicker" class="eyebrow">A TORRE</p><h1 id="page-title">Batalha</h1></div><span id="page-badge" class="badge">Andar de teste</span></header>
+    <p id="offline-summary" class="notice" role="status" hidden></p><p id="tutorial" class="tutorial panel"></p><p id="action-status" role="status" aria-live="polite"></p><header class="page-heading"><div><p id="page-kicker" class="eyebrow">A TORRE</p><h1 id="page-title">Batalha</h1></div><span id="page-badge" class="badge">Andar 1</span></header>
     <section id="visual-area" aria-label="Cenário da atividade selecionada">
-      <div class="stage-frame"><div id="game" role="img" aria-label="Prévia lateral de guerreiro e esqueletos"></div>
+      <div class="stage-frame"><div id="game" role="img" aria-label="Combate lateral automático"></div>
         <div id="asset-status" class="loading-message" role="status">Preparando o cenário…</div>
-        <button id="mine-target" class="mine-target" aria-label="Testar impacto no minério" hidden disabled><span class="sr-only">Feedback visual, sem receber ferro</span></button>
+        <button id="mine-target" class="mine-target" aria-label="Minerar ferro" hidden disabled><span class="sr-only">Toque para receber ferro</span></button>
         <span id="scene-caption" class="scene-caption">Floresta do reino</span>
       </div>
-      <p id="visual-description" class="sr-only">Animação demonstrativa. Não há combate ou recompensas nesta fase.</p>
+      <p id="visual-description" class="sr-only">Batalha automática com vida, ondas e recompensas.</p>
     </section>
-    <section data-pane="battle" class="activity-details" aria-label="Prévia de batalha">
-      <div class="encounter panel"><div>${icon("sword")}<span>Guerreiro<span class="muted">Aliado</span></span></div><span class="versus">VS</span><div><span>Esqueletos<span class="muted">3 inimigos</span></span></div></div>
-      <div class="section-title"><h2>O próximo desafio</h2><span class="badge">Em preparação</span></div>
-      <p class="body-copy">O guerreiro ataca por conta própria. Esta é uma prévia das animações; ondas, vida e recompensas entram na próxima fase.</p><button id="preview-defeat" class="preview-button">Testar animação de derrota</button>
+    <section data-pane="battle" class="activity-details" aria-label="Batalha automática">
+      <div class="encounter panel"><div>${icon("sword")}<span>Guerreiro<span id="hero-stats" class="muted"></span></span></div><span class="versus">VS</span><div><span id="enemy-name">Esqueletos</span></div></div>
+      <div class="combat-readout panel"><label>Vida do guerreiro <span id="hero-hp"></span><progress id="hero-health" max="100" value="100"></progress></label><div id="enemy-health"></div></div>
+      <p id="battle-status" class="body-copy" role="status"></p><div class="battle-actions"><button id="pause-battle">Pausar batalha</button><button id="retry-battle" hidden>Tentar novamente</button><button id="train-battle" hidden>Treinar no andar anterior</button></div>
+      <h2>Fortaleça seu guerreiro</h2><div class="upgrade-list">${upgradeCard("attack", "Força do guerreiro")}${upgradeCard("vitality", "Vitalidade")}</div>
+
     </section>
     <section data-pane="mine" class="activity-details" aria-label="Mineração de ferro" hidden>
-      <div class="mine-summary panel">${icon("iron")}<div><span class="muted">Seu ferro</span><strong data-balance="iron">0</strong></div><span class="badge">Impacto visual</span></div>
-      <h2>Um toque, uma faísca.</h2><p class="body-copy">Toque no minério para testar o impacto. O ferro e as melhorias serão ativados na próxima fase.</p>
+      <div class="mine-summary panel">${icon("iron")}<div><span class="muted">Seu ferro</span><strong data-balance="iron">0</strong></div><span id="click-gain" class="badge">1 / toque</span></div>
+      <h2>Ferro para o seu reino.</h2><p class="body-copy">Toque no minério. A batalha continua enquanto você minera.</p><div class="upgrade-list">${upgradeCard("click", "Poder da picareta")}</div>
       <p id="mining-feedback" class="sr-only" role="status" aria-live="polite"></p>
     </section>
     <section data-pane="production" class="activity-details" aria-label="Minas automáticas" hidden>
-      <p class="body-copy">Minas que trabalharão pelo seu reino. Produção ainda inativa nesta prévia.</p>
+      <p class="body-copy">Carvão produzido automaticamente, inclusive por até 8 horas de ausência. Ouro e jade chegam na próxima fase.</p>
       <div class="mines-list">
-        <article class="mine-card panel">${icon("coalNode")}<div><h2>Mina de carvão</h2><p>Desbloqueio com ferro e coins</p><span class="muted">Nível — · Produção 0/s</span></div><button disabled aria-label="Mina de carvão indisponível">Em breve</button></article>
+        <article class="mine-card panel">${icon("coalNode")}<div><h2>Mina de carvão</h2><p id="coal-production">Bloqueada · 0/s</p><span id="cost-coal" class="muted"></span></div><button data-upgrade="coal" disabled>Desbloquear</button></article>
         <article class="mine-card panel">${icon("goldNode")}<div><h2>Mina de ouro</h2><p>Requer mina de carvão nível 50</p><span class="muted">Nível — · Produção 0/s</span></div><button disabled aria-label="Mina de ouro indisponível">Bloqueada</button></article>
         <article class="mine-card panel">${icon("jadeNode")}<div><h2>Mina de jade</h2><p>Progressão avançada do reino</p><span class="muted">Nível — · Produção 0/s</span></div><button disabled aria-label="Mina de jade indisponível">Bloqueada</button></article>
       </div>
@@ -54,7 +59,7 @@ export function createShell(root: HTMLElement): void {
     <div class="save-actions"><button id="save" disabled>Salvar perfil local</button><button id="recover" hidden>Restaurar cópia anterior</button></div>
     <p id="save-status" role="status" aria-live="polite">Abrindo salvamento…</p>
     <details><summary>Outros destinos do reino</summary><p>Mascotes, habilidades, eventos, mercado, arena, guildas e rankings serão integrados nas fases seguintes.</p></details></div>
-    <div id="dialog-resources" hidden><p class="body-copy">Saldos locais. Nenhum recurso é gerado nesta prévia.</p><dl class="resources-list">${(
+    <div id="dialog-resources" hidden><p class="body-copy">Saldos do perfil local. Ruby, ouro e jade ainda não são gerados.</p><dl class="resources-list">${(
       [
         ["coin", "Coins", null],
         ["iron", "Ferro", "iron"],
@@ -85,25 +90,23 @@ export const routeLabels: Record<
   battle: {
     title: "Batalha",
     kicker: "A TORRE",
-    badge: "Cenário de teste",
+    badge: "Andar 1",
     caption: "Floresta do reino",
-    description:
-      "Guerreiro e três esqueletos em prévia de ataque lateral, sem vida ou recompensas simuladas.",
+    description: "Batalha automática do guerreiro contra os inimigos da torre.",
   },
   mine: {
     title: "Mina",
     kicker: "NAS PROFUNDEZAS",
     badge: "Ferro",
     caption: "Veio de ferro",
-    description:
-      "Caverna com nó de ferro e tochas. Toque no minério para testar o impacto visual, sem ganho de recurso.",
+    description: "Caverna de ferro. Toque no minério para receber ferro.",
   },
   production: {
     title: "Produção",
     kicker: "RIQUEZAS DO REINO",
     badge: "Minas automáticas",
     caption: "Carvão · Ouro · Jade",
-    description: "Nós de carvão, ouro e jade. As minas ainda estão inativas.",
+    description: "Produção automática de carvão. Ouro e jade ainda bloqueados.",
   },
   bag: {
     title: "Mochila",

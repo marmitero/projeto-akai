@@ -36,3 +36,7 @@ Depois do snapshot inicial foram criados apps/client, apps/server e packages/sha
 ## Atualização F2
 
 Cliente contém agora catálogo curado, derivados e renderer com oito animações, HUD e telas. Há script de regeneração opcional e verificador Node de integridade. O acervo sprites e inventário original não foram reescritos. Logs/relatórios e capturas em STAGE_02_REPORT; servidor de gameplay continua indisponível.
+
+## Estado após F3
+
+Loop local real em packages/shared/src/loop.ts, conectado a LocalSession/UI/Phaser;20 andares, bosses10/20, cliques/upgrades/carvão, tutorial, migração1→2 e offline de minas.31 testes e simulação reproduzível; smokes dev/produção. Servidor permanece diagnóstico, sem banco/auth/economia online. Arte nova apenas derivadoRun, boss reutiliza Skeleton validado; nenhum original removido/alterado. Relatório STAGE_03_REPORT e AI_STATE prevalecem sobre inventário histórico do estágio inicial.

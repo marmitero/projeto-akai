@@ -163,3 +163,7 @@ O script regenera o inventário técnico, as páginas e as prévias; este guia e
 ## Atualização de integração F2
 
 [Guia runtime](art/RUNTIME_ASSETS.md), [registro de hashes/recortes](art/Runtime_Asset_Manifest.json) e [capturas](STAGE_02_REPORT.md) descrevem o que efetivamente foi aplicado. Só esse subset tem recortes/pivôs e composições de runtime validados. Licenças e o restante dos frames/packs permanecem pendentes.
+
+## Integração jogável F3
+
+heroRun foi acrescentado ao subset,80×80×8 de origem, alinhado por pivot40,68 e derivado160×128/pivot80,112. Guardião Ossudo reutiliza Skeleton2,8×, único alvo10/20, sem inventar sprites exclusivos. Renderer segue HP/strikes/attempt/phase do domínio; mortes ocultas chegam à pose final. Nove animações;34 texturas/37 objetos, manifesto atualizado com22 derivados e50 originais únicos. Não disparar grants em animationcomplete; morte/clique/produção são confirmados pelo domínio. Ver [guia runtime](art/RUNTIME_ASSETS.md) e [relatório F3](STAGE_03_REPORT.md).

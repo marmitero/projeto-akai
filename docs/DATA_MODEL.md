@@ -1,6 +1,6 @@
 # Modelo de dados proposto
 
-Estado lógico v1; PostgreSQL online continua sem provisão. IndexedDB local schema1 implementado na F1 com backup, hash e geração concorrente; não existe schema antigo publicado para migrar. Versões desconhecidas são rejeitadas/preservadas, sem migração fictícia. Nomes são conceituais; schema físico definitivo será criado com migrações testadas na fase apropriada.
+Estado lógico v1; PostgreSQL online continua sem provisão. IndexedDB schema 2 na F3, com migração testada da versão real1/foundation-1, backup, hash e geração concorrente. Versões desconhecidas são rejeitadas/preservadas, sem migração fictícia. Nomes são conceituais; schema físico definitivo será criado com migrações testadas na fase apropriada.
 
 ## Convenções e invariantes
 
@@ -62,3 +62,19 @@ Proposta inicial: eventos detalhados de batalha 7 dias e logs operacionais 30 di
 ## Continuidade do save na F2
 
 Schema1 e config foundation-1 preservados: seleção das três atividades e perfil/saldos locais continuam compatíveis. Páginas auxiliares/scroll/efeitos são apresentação efêmera; não foi criada migração fictícia. O novo registro de assets é catálogo de autoria/runtime, não banco de itens do jogador. Gameplay F3 exigirá campos próprios e, se mudar schema, migração da versão real1 com fixture.
+
+## Save local implementado na F3
+
+Envelope formatVersion1, payload schemaVersion2/configVersion local-loop-1 e checksum SHA256. Preserva campos reais da F1 e acrescenta:
+
+| Campo | Significado/unidade |
+|---|---|
+|lastReconciledAt | high-water de relógio wall-clock em ms; crédito offline e avanço da marca no mesmo snapshot |
+|coalRemainder | numerador0..999, denominador1000 de milésimo |
+|upgrades | attack/vitality/click/coal, níveis 0..100 |
+|tutorial | victory/mined/upgraded persistidos, sem estado de UI gráfica |
+|battle | time de simulação, floor/highest/wave/attempt, phase/failure, paused/training/retryFloor |
+|battle atores | heroHp/heroNextAt/heroStrikes; enemies hp/maxHp/nextAt/strikes |
+|battle agenda | deadline e transitionAt em ms da linha de simulação; prazo reduzido também por ausência/pausa de boss |
+
+Migração verifica SHA do objeto original antes de reorganizar propriedades; inicia somente os campos de domínio que não existiam. Geração é preservada e o próximo write mantém a versão antiga como previous. Backup pode ser migrado e restaurado. Sem lista ilimitada de grants: mortos não geram novamente e attempt+índice distingue execuções. Isso é checkpoint local, não ledger/anticheat online. Detalhes/testes em ADR-007.
