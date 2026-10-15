@@ -1,6 +1,6 @@
 # Game Design Document — Projeto Akai
 
-Baseline de design v1, 15/10/2026. Regras do Master Prompt preservadas; detalhes novos identificados como propostas. Fundação, apresentação e loop local1–20 implementados (F1–F3); sistemas RPG/online posteriores permanecem especificação.
+Baseline de design v1, 15/10/2026. Regras do Master Prompt preservadas; detalhes novos identificados como propostas. Fundação, apresentação e loop local1–20 implementados (F1–F3); F4 RPG implementada localmente; online/social/premium permanecem especificação.
 
 ## Experiência e loop
 
@@ -31,13 +31,13 @@ Coin vem de batalha e paga melhorias/desbloqueios. Ferro sustenta guerreiro, equ
 
 ## Equipamentos e loot
 
-Armas: espada, adaga, machado, maça, duas mãos, lança, arco; defesa/vestes: escudo, peitoral, chapéu, luvas, botas; acessórios: colar e anel. Proposta de slots: uma arma, um escudo quando compatível, peitoral, cabeça, mãos, pés, colar e dois anéis. Duas mãos bloqueia escudo. É especificação proposta, não regra já aprovada pelo usuário.
+Armas: espada, adaga, machado, maça, duas mãos, lança, arco; defesa/vestes: escudo, peitoral, chapéu, luvas, botas; acessórios: colar e anel. Proposta de slots: uma arma, um escudo quando compatível, peitoral, cabeça, mãos, pés, colar e dois anéis. Duas mãos bloqueia escudo. Modelo adotado localmente na F4 sob delegação, com testes; não implica mercado online disponível.
 
 Itens têm definição, instância única, nível/requisito, raridade, atributos e eventual vínculo/negociabilidade. Ícone não é roupa do rig. Raridades propostas: comum, incomum, raro, épico, lendário; afetam atributos e quantidade de afixos, não só borda. Drops raros em comuns e melhores em bosses; nenhum inimigo entrega equipamento garantido. Detalhes e probabilidades provisórias em DROP_TABLES.
 
 ## Mascotes, habilidades e fabricação
 
-Mascotes têm sprite validado, nível, raridade, passivos e custos; proposta inicial de um mascote ativo para controlar complexidade. Sem identidade artística aprovada. Habilidades são melhorias/passivos ou ações automáticas do guerreiro; não introduzir combate manual por omissão de especificação. Cada habilidade precisa de gatilho, alvo, cooldown, duração, empilhamento e dispel antes de implementar. Conteúdo futuro, fora do primeiro loop local. Fabricação deve debitar ingredientes e criar resultado atomicamente; sem receita aprovada, botão permanece ausente.
+Mascotes têm sprite validado, nível, raridade, passivos e custos; proposta inicial de um mascote ativo para controlar complexidade. F4 usa Musgo, Slime green do acervo, como companheiro domesticado, com critérios no ADR-008. Habilidades são melhorias/passivos ou ações automáticas do guerreiro; não introduzir combate manual por omissão de especificação. Cada habilidade precisa de gatilho, alvo, cooldown, duração, empilhamento e dispel antes de implementar. Mascote e tônicos implementados na F4; habilidades avançadas permanecem expansão. Fabricação deve debitar ingredientes e criar resultado atomicamente; sem receita aprovada, botão permanece ausente.
 
 ## Eventos e retenção
 
@@ -72,3 +72,9 @@ Primeira fatia proposta: andares 1–20, dois encontros de boss, clicker e carv�
 ## Entrega jogável F3
 
 Herói com força/vitalidade/clique melhoráveis, carvão e tutorial; níveis experimentais até100, cura entre andares/tentativas e prazo de boss também durante pausa/ausência. Primeiro conteúdo20 andares e Guardião Ossudo da família Skeleton nos10/20, Run de transição e morte real. BALANCE registra simulação, sem inferir diversão/equilíbrio final. Equipamentos/pets/XP/fabricação/ouro/jade estão reservados aF4. Não há perda de itens, cobrança, premium ou luta offline.
+
+## Entrega F4
+
+14 categorias/9 slots,5 raridades, afixos, drops raros, inventário120, Forja/ferro fundido/aprimoramento/reciclagem, dois tônicos, Musgo evoluível e minas ouro/jade integrados. XP do rei e guerreiro separados; equipamento/pet não cura ao trocar. Catálogo1–1.000 com curvas polinomiais após20, mesmo bioma/família lateral; cenário exclusivo/rig por item não foi inventado. Regras/custos/limites em RPG_SYSTEMS, evidência em STAGE_04_REPORT.
+
+A simulação de percurso completo com atributos finais prova agenda/limites, não ritmo natural até1.000. XP novo tornou primeiros20 mais rápidos que F3; os resultados antigos foram preservados e o config versionado. Sem anúncio, Ruby, loot offline ou preço real para progredir. Migração mantém progresso e recursos existentes.

@@ -41,3 +41,7 @@ Arquivos de exemplo contêm nomes de variáveis, sem valores reais. Chave públi
 Chat/guilda exigem denúncia, rate limit, silenciar/bloquear, trilha administrativa e recurso conforme política futura. Brasão aceita matriz limitada, não upload livre. Ações administrativas têm ator, motivo, data e antes/depois. Acesso a suporte não dá acesso indiscriminado a recibos/PII.
 
 Incidente: conter feature afetada por flag confiável, preservar evidência restrita, revogar chaves se necessário, reconciliar economia, restaurar somente com plano de reprocessamento idempotente e registrar postmortem. Ver OPERATIONS. Pen tests/testes de abuso só se aplicam quando existirem ambientes autorizados; nenhum foi executado nesta entrega.
+
+## Estado implementado na F4
+
+RPG local usa drafts validados, limites de inventário/nível/saldo, referências únicas de equipamento e migração com SHA do payload original. SHA detecta corrupção acidental; não autentica um save contra edição deliberada. RNG xorshift32 e relógio do dispositivo são exclusivamente locais e previsíveis/manipuláveis. Servidor continua sem grants online. Nunca importar itens, XP, buffs, pet ou saldo desse save como autoridade de conta. F5 deverá validar comandos, custos, cooldowns, loot e produção no servidor, com RNG apropriado, idempotência e transações/ledger. Nenhuma proteção de antiabuso online foi declarada concluída na F4.

@@ -17,7 +17,7 @@ const runs = [];
 for (const cps of [0, 1, 3, 5]) {
   const s = LocalSnapshotSchema.parse({
     ...newLoopState(),
-    schemaVersion: 2,
+    schemaVersion: 3,
     configVersion: CONFIG_VERSION,
     mode: "local",
     generation: 0,
@@ -79,7 +79,7 @@ for (const cps of [0, 1, 3, 5]) {
         training++;
       }
     }
-    if (s.battle.phase === "complete") {
+    if (s.battle.highest >= 20) {
       milestones.complete = t;
       break;
     }
@@ -98,9 +98,7 @@ for (const cps of [0, 1, 3, 5]) {
   });
 }
 assert.ok(
-  runs
-    .filter((r) => r.clicksPerSecond > 0)
-    .every((r) => r.phase === "complete"),
+  runs.filter((r) => r.clicksPerSecond > 0).every((r) => r.highest >= 20),
   "active profiles must have a reachable completion",
 );
 console.log(
@@ -117,6 +115,6 @@ console.log(
 );
 if (process.argv.includes("--write"))
   await writeFile(
-    new URL("../docs/phase3-balance-results.json", import.meta.url),
+    new URL("../docs/phase4-loop-results.json", import.meta.url),
     JSON.stringify({ configVersion: CONFIG_VERSION, runs }, null, 2) + "\n",
   );

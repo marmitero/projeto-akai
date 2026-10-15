@@ -15,7 +15,7 @@ import {
 const create = () =>
   LocalSnapshotSchema.parse({
     ...newLoopState(),
-    schemaVersion: 2,
+    schemaVersion: 3,
     configVersion: CONFIG_VERSION,
     mode: "local",
     generation: 0,
@@ -98,12 +98,12 @@ describe("deterministic local combat", () => {
     const s = create();
     s.screen = "mine";
     s.upgrades.attack = 100;
-    startEncounter(s, 20);
+    startEncounter(s, 1000);
     s.battle.enemies[0]!.hp = 1;
     advanceCombat(s, 1000);
     const balance = s.balances.coin;
     expect(BigInt(balance)).toBeGreaterThan(0n);
-    expect(s.battle.highest).toBe(20);
+    expect(s.battle.highest).toBe(1000);
     advanceCombat(s, 100000);
     expect(s.battle.phase).toBe("complete");
     expect(s.balances.coin).toBe(balance);
@@ -154,11 +154,11 @@ describe("integer economy transactions", () => {
     for (let i = 0; i < 12347; i++) produce(s, 1);
     expect(s).toEqual(one);
     expect(s.balances.coal).toBe("1234");
-    expect(s.coalRemainder).toBe(700);
+    expect(s.coalRemainder).toBe(28000000);
   });
   it("max levels reject, fractional and overflow balances fail safely", () => {
     const s = create();
-    s.upgrades.attack = 100;
+    s.upgrades.attack = 1000;
     expect(upgradeCost(s, "attack")).toBeUndefined();
     expect(buyUpgrade(s, "attack")).toBe(false);
     s.balances.iron = "9".repeat(38);
@@ -211,7 +211,7 @@ describe("30 minute deterministic soak", () => {
       produce(segmented, 100);
     }
     expect(segmented).toEqual(s);
-    expect(s.battle.phase).toBe("complete");
+    expect(s.battle.highest).toBeGreaterThanOrEqual(20);
     expect(s.balances.coal).toBe("540000");
   });
 });

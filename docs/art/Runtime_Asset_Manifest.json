@@ -1,7 +1,21 @@
 {
   "version": 1,
-  "stage": "F3 local loop",
+  "stage": "F4 local RPG",
   "originals": [
+    {
+      "path": "sprites/Acessories/Pendants/Icon251.png",
+      "sha256": "d73099f62fbd336d7a58332c6b543af16efb905147aeb0489939ac7085de3833",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Acessories/Rings/Icon241.png",
+      "sha256": "20e9ff4002b08b27dbdbd340213ed8b91de2a6e17a768fa0ef5d7d0ded40b013",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
     {
       "path": "sprites/Backgrounds/Normal BG/Background Castle .png",
       "sha256": "7d64f4baaf9c367c412cbd06e1586dfd54795b1308a39bf1e77098099a9f84c0",
@@ -42,6 +56,83 @@
       "sha256": "c835fd9e62fe6f501c8f88da718e99b1395fe9d50cd6c4db92adf0af7875b11b",
       "width": 1024,
       "height": 346,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Equipments/2 hands/Icon92.png",
+      "sha256": "780a4529afb1cd112e53ae127f1b4ce31c077be6912b7323dc805f353f87eb28",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Equipments/Armors/Icon181.png",
+      "sha256": "3fe0afcfe37aef7dcb29a345b357d924c7540542b5ef7cb8b4e8d2e85299981f",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Equipments/Arrows/Icon101.png",
+      "sha256": "7b0813ea0aa1ddb2dc187852da90405b68f84bb6e84c43a7e5d97f61ba357a09",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Equipments/Axes/Icon28.png",
+      "sha256": "bc05703399aa514c059dc4946feeae574fd40eb52a210df8f705dbf8932acddd",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Equipments/Boots/Icon221.png",
+      "sha256": "53856d2e82a388b12827c29076bf4141866ead36a26e5557c7a1df0ff4fc66a8",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Equipments/Daggers/Icon81.png",
+      "sha256": "6911ad133c696492e7992f11c7849afab849b255d10b7e4d48bfc67867be1c41",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Equipments/Gloves/Icon201.png",
+      "sha256": "c5b3053d98be0864ec41acaaa5daa9440f34d2606a130dbc2aafbdbb015a6aef",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Equipments/Hats/Icon161.png",
+      "sha256": "63cb04a82d2056dab6a7320726afd1336b1bf655140a7c957295390201c49dc6",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Equipments/Maces/Icon21.png",
+      "sha256": "62ba2afa27bd2883450a7685c80d55125cb1cd610f407ed636cd530c5203d61b",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Equipments/Shields/Icon141.png",
+      "sha256": "41a2b37f5ee7c394a476595adfa3b71100ef7b2734052f80698fdbe09a16604c",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Equipments/Spears/Icon61.png",
+      "sha256": "40ecde474a361986eb881147f52fcb9c1c12c9e2b9a775721a288491d6eb40f8",
+      "width": 32,
+      "height": 32,
       "licenseStatus": "unverified"
     },
     {
@@ -131,6 +222,20 @@
     {
       "path": "sprites/Misc/Enchantment/Icon328.png",
       "sha256": "f9d7a4e28ac5746d11411cb2d523bf7e44c90e43618b34fc5e1149d285f23b80",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Misc/Potions/Icon301.png",
+      "sha256": "5fee517ef9c0012190c554e4041335f55f0614572513ffc1d440a33fba41a7c3",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Misc/Potions/Icon302.png",
+      "sha256": "bab67a23e1458dcb8bd2bdeced8ade67dace1a634ce65096e1ce637ba728137c",
       "width": 32,
       "height": 32,
       "licenseStatus": "unverified"
@@ -857,6 +962,58 @@
       "crop": [
         0,
         0,
+        32,
+        32
+      ],
+      "flipY": false,
+      "scale": 1
+    },
+    {
+      "key": "pet-slime-idle",
+      "output": "apps/client/src/assets/derived/pet-slime-idle.png",
+      "sha256": "33458a3c35504ed0bd78adb7548bec3b0037a373f2fe0117ae6ac1126ac45f43",
+      "width": 160,
+      "height": 32,
+      "sources": [
+        {
+          "path": "sprites/Enemies/Slime/Slime green.png",
+          "sha256": "a5c0bed5ce1db197053347f9f043ba7044a632840b3c078924f1adb0122191a1"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "crop": [
+        0,
+        0,
+        160,
+        32
+      ],
+      "flipY": false,
+      "scale": 1,
+      "frameWidth": 32,
+      "frameHeight": 32,
+      "frames": 5,
+      "fps": 8,
+      "pivot": [
+        16,
+        32
+      ]
+    },
+    {
+      "key": "pet-slime-portrait",
+      "output": "apps/client/src/assets/derived/pet-slime-portrait.png",
+      "sha256": "20f4f3fa0fd1f83c6dc05686b2b5843871e9560102282e2caa2d98a47d138522",
+      "width": 32,
+      "height": 16,
+      "sources": [
+        {
+          "path": "sprites/Enemies/Slime/Slime green.png",
+          "sha256": "a5c0bed5ce1db197053347f9f043ba7044a632840b3c078924f1adb0122191a1"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "crop": [
+        0,
+        16,
         32,
         32
       ],

@@ -167,3 +167,9 @@ O script regenera o inventário técnico, as páginas e as prévias; este guia e
 ## Integração jogável F3
 
 heroRun foi acrescentado ao subset,80×80×8 de origem, alinhado por pivot40,68 e derivado160×128/pivot80,112. Guardião Ossudo reutiliza Skeleton2,8×, único alvo10/20, sem inventar sprites exclusivos. Renderer segue HP/strikes/attempt/phase do domínio; mortes ocultas chegam à pose final. Nove animações;34 texturas/37 objetos, manifesto atualizado com22 derivados e50 originais únicos. Não disparar grants em animationcomplete; morte/clique/produção são confirmados pelo domínio. Ver [guia runtime](art/RUNTIME_ASSETS.md) e [relatório F3](STAGE_03_REPORT.md).
+
+## Uso implementado na F4
+
+Mochila/Forja exibem os ícones integrais por definição, com nomes/raridade/nível/atributos em DOM. Instâncias de anel usam o mesmo desenho mas IDs distintos; duas mãos e arco excluem escudo pelo domínio. Trocar equipamento altera estatísticas, não a roupa/arma da sheet Character. Raridade não recolore o original nem depende só da cor. Não substituir ícone por emoji ou recortar a tira inteira como se fosse uma peça.
+
+Tônicos usam Potions301/302 com rótulos explícitos, duração e custo. Musgo usa um recorte de cinco quadros 32×32/8FPS para idle e retrato independente de 32×16; não inferir outras ações do pack nem reutilizar pivô do herói. Pausar animação não pausa economia. Mapa exato e recortes: [RUNTIME_ASSETS](art/RUNTIME_ASSETS.md#extensão-f4--equipamentos-tônicos-e-musgo). Ver [RPG_SYSTEMS](RPG_SYSTEMS.md) para o significado mecânico e [capturas F4](STAGE_04_REPORT.md#capturas) para aplicação composta.

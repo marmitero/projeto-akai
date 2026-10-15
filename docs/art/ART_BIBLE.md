@@ -41,3 +41,7 @@ Character/Skeleton laterais, Normal BG e Hud roxo/dourado integrados e revisados
 ## Composição F3
 
 Guardião Ossudo10/20 é Skeleton ampliado2,8×, com idle/ataque/morte e rótulo de boss, não um pack exclusivo. HeroRun rastreado na mesma escala/pivot do guerreiro para transição3s. Vida/custos/progresso são DOM, mantendo tipografia legível e cenários feitos de sprites. Evitar efeitos que atrasem a confirmação de estado; morte fora da tela usa pose final. Sem áudio novo ou licença comprovada nesta fase.
+
+## Composição F4
+
+Mochila/Forja/Companheiro mantêm painéis e botões roxo/dourado, texto DOM e alvos de toque. Equipamentos mostram ícones de suas famílias reais, sem prometer troca de rig. Raridade usa nome e cor; nenhuma recoloração do original. Musgo é o Slime verde aliado em escala menor, ao lado do herói; idle de cinco quadros e retrato próprio. Um companheiro ativo, sem novos packs inventados. As definições até andar 1.000 reutilizam floresta/Skeleton, com rótulos de progressão. Capturas: [relatório F4](../STAGE_04_REPORT.md).

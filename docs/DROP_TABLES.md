@@ -1,6 +1,6 @@
 # Drops, raridades e recompensas
 
-Especificação v1; tabelas abaixo são candidatas locais da F4, **não implementadas nem aprovadas por simulação**. O MVP F3 pode usar somente Coin fixo por morte, sem simular equipamento pronto. Online sempre sorteia no servidor.
+Especificação v1; tabelas abaixo são candidatas locais da F4, **adotadas experimentalmente e implementadas na F4 local**. F3 histórica usava Coin; F4 local agora resolve equipamentos raros com RNG persistido. Online sempre sorteia no servidor.
 
 ## Ordem de resolução e unicidade
 
@@ -36,4 +36,12 @@ Definição de item exige atributos-base e faixa de nível; afixos elegíveis po
 
 ## Testes estatísticos planejados
 
-Verificar pesos não negativos e soma exata por tabela; probabilidades em inteiros de resolução suficiente. Testes determinísticos nos limites do RNG e testes amostrais com intervalo de confiança/binomial e tolerância pré-definida, sem exigir porcentagem exata em amostra pequena. Para evento de probabilidade 0,02%, 10 mil tentativas dão expectativa de apenas dois sucessos, insuficiente para validação estreita; usar análise e amostras compatíveis. Seeds de teste não entram no online público. Nenhum sorteio ou teste estatístico foi executado nesta entrega.
+Verificar pesos não negativos e soma exata por tabela; probabilidades em inteiros de resolução suficiente. Testes determinísticos nos limites do RNG e testes amostrais com intervalo de confiança/binomial e tolerância pré-definida, sem exigir porcentagem exata em amostra pequena. Para evento de probabilidade 0,02%, 10 mil tentativas dão expectativa de apenas dois sucessos, insuficiente para validação estreita; usar análise e amostras compatíveis. Seeds de teste não entram no online público. Estatística F4 executada conforme seção abaixo.
+
+## Resultado e implementação F4
+
+200.000 mortes simuladas por fonte com seed reproduzível:1.038 drops comuns(0,519%, alvo0,5%) e19.875 no boss10(9,9375%, alvo10%). Bins condicionais de boss10 enumerados sobre10.000 rolls:5.000/3.200/1.500/280/20. Tolerância conservadora nos testes:800–1.200 comuns e19.000–21.000 bosses; não exigir porcentagem exata em amostra finita. Fonte/resultado em scripts/simulate-rpg.mjs e phase4-rpg-results.json.
+
+Raridade muda multiplicador e0–4 afixos únicos; atributos-base têm variação90–110%. Nível de drop=ceil(andar/10), limitado100. Categorias14 uniformes. Boss posterior transfere10BP por dezena de comum para raro, até10pp; chance total chega19,9% no1000. Sem ruby/material/pet direto, pity ou luck pago.
+
+RNG local xorshift32/seed de desenvolvimento é persistido com próximo ID; morte já confirmada não é rerrolada ao carregar. Não é autoridade nem aleatoriedade segura online. Timeout não concede vitória/drop. Inventário120 inclui equipados; excedente vira ferro atomicamente. Instâncias guardam atributos/afixos, aprimoramento não rerrola. Baús, raids/global e RNG servidor continuam fases futuras.

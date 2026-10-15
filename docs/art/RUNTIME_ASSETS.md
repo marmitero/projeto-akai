@@ -43,3 +43,32 @@ Até419px, a barra mantém Batalha/Mina/Produção/Mais e inclui Mochila/Loja no
 Uma cena/grupos para as três atividades, somente grupo ativo visível; animações de grupo oculto e de modais são pausadas. Sessão/save fora do renderer. Morte/ataque são apresentação do domínio F3; não basear economia em callback de frame. Schema2 do domínio não contém objetos gráficos.
 
 O pequeno subset compartilhado é carregado uma vez (~1,45MB no build total com Phaser). Não expandir esse preload para todos os packs: adicionar carregamento por demanda antes de crescer conteúdo. 34 texturas e37 objetos do renderer estáveis após50 ciclos nesta implementação; isso não mede VRAM real nem garante FPS Android. Licenças de originais e derivados continuam pendentes, conforme [ASSET_LICENSES](ASSET_LICENSES.md).
+
+## Extensão F4 — equipamentos, tônicos e Musgo
+
+O registro atual substitui as contagens F2/F3 acima: **37 originais diretos + 24 derivados; 66 originais únicos, 90 arquivos verificados e 278.153 bytes de autoria/derivados**. O build mantém o subset curado; o acervo integral não é carregado. Renderer: 35 texturas, 38 objetos, 10 animações. Schema de domínio atual é 3, sem objetos gráficos.
+
+| Papel / key | Fonte relativa a sprites/ | Uso |
+|---|---|---|
+| Espada / sword | Equipments/Swords/Icon1.png | Reutilizada da F2; arma de uma mão |
+| Adaga / itemDagger | Equipments/Daggers/Icon81.png | Arma de uma mão |
+| Machado / itemAxe | Equipments/Axes/Icon28.png | Arma de uma mão |
+| Maça / itemMace | Equipments/Maces/Icon21.png | Arma de uma mão |
+| Arma de duas mãos / itemGreatsword | Equipments/2 hands/Icon92.png | Exclui escudo; nome genérico evita presumir desenho específico |
+| Lança / itemSpear | Equipments/Spears/Icon61.png | Slot weapon conforme definição do domínio |
+| Arco / itemBow | Equipments/Arrows/Icon101.png | O diretório chama Arrows, mas o ícone selecionado representa o arco; exclui escudo |
+| Escudo / itemShield | Equipments/Shields/Icon141.png | Slot shield |
+| Veste / itemArmor | Equipments/Armors/Icon181.png | Slot chest; veste vermelha do aprendiz |
+| Chapéu / itemHat | Equipments/Hats/Icon161.png | Slot head |
+| Luvas / itemGloves | Equipments/Gloves/Icon201.png | Slot hands |
+| Botas / itemBoots | Equipments/Boots/Icon221.png | Slot feet |
+| Colar / itemPendant | Acessories/Pendants/Icon251.png | Slot neck |
+| Anel / itemRing | Acessories/Rings/Icon241.png | Dois slots, instâncias distintas |
+| Tônico de combate / attackTonic | Misc/Potions/Icon301.png | +20% ataque, 60s; rótulo explica efeito |
+| Tônico das minas / productionTonic | Misc/Potions/Icon302.png | +25% produção, 300s |
+
+Ícones são imagens inteiras, sem corte por raridade; cores de raridade e atributos vêm do domínio e do texto. Não inferir atributo pelo tom do PNG. Não sobrepor ícones ao herói: não existe rig de roupas por peça nesta etapa. Ferro fundido usa identificação textual de material; não rebatizar o ícone de ouro como Coin.
+
+Musgo deriva de `Enemies/Slime/Slime green.png`. O manifesto é a autoridade do caminho/hash. A sheet verde mede 256×96; idle usa apenas os cinco primeiros quadros 32×32 da primeira linha, retângulo [0,0,160,32], pivot [16,32], 8FPS em loop. O retrato usa [0,16,32,32] em coordenadas esquerda/topo/direita/base, produzindo 32×16; não é uma célula de 32×32 nem atlas inteiro. Sem recoloração.
+
+No renderer o companheiro fica em (137,242), escala 1,5, um sprite reutilizado. Só aparece ativo; pausa com o grupo/modal e fica estático em movimento reduzido. É um companheiro domesticado, não um alvo que concede loot. Raridade incomum e passivos são escolhas de jogo, não metadados do pack. Capturas e fórmulas: [relatório F4](../STAGE_04_REPORT.md) e [sistemas RPG](../RPG_SYSTEMS.md).

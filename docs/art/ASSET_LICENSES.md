@@ -37,3 +37,7 @@ Inventário dos arquivos efetivamente empacotados cruza com registro de licença
 Os21 derivados em apps/client/src/assets/derived e capturas da prévia mantêm a pendência das fontes. Mapeamento de origem/hash/transformação em Runtime_Asset_Manifest. Integração técnica de arte não muda status para verified_allowed. Nenhuma distribuição comercial do aplicativo realizada.
 
 F3: Run deriva de Character/Run/Run-Sheet.png e mantém status não comprovado, como os demais. Boss reutiliza a família Skeleton já registrada, sem licença nova presumida. Nenhum uso comercial liberado por derivação ou por existir no repositório.
+
+## Seleção técnica F4
+
+Dois derivados Slime (idle/retrato) e 15 ícones originais adicionais de Equipments/Acessories/Misc/Potions mantêm status **unverified**. Agora são 24 derivados e 37 originais diretos; fontes únicas/recortes/hashes constam do manifesto runtime. Escolher Musgo, nomes e regras de item não comprova autoria/licença dos pixels. Nenhuma liberação comercial inferida.

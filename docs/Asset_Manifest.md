@@ -91,3 +91,9 @@ O inventário integral está paginado abaixo para continuar legível no GitHub. 
 ## Runtime F3
 
 Registro curado atualizado:22 derivados/22 originais diretos,50 originais únicos ao incluir fontes e72 arquivos/fontes verificados. Run acrescentado sem modificar o acervo. Boss reutiliza Skeleton validado. O inventário integral deste documento não é lista de preload. Ver [registro runtime](art/Runtime_Asset_Manifest.json) e [relatório F3](STAGE_03_REPORT.md).
+
+## Integração F4 (15/10/2026)
+
+Inventário integral e IDs de auditoria permanecem preservados. A seleção de produção local agora tem 37 originais diretos e 24 derivados; 66 originais únicos/90 arquivos verificados, 278.153 bytes de autoria. Dois novos derivados são idle e retrato de Slime verde; 15 novos originais atendem equipamentos e tônicos. Espada já estava selecionada.
+
+O mapa literal key→fonte→papel, células, pivôs e restrições está em [RUNTIME_ASSETS](art/RUNTIME_ASSETS.md#extensão-f4--equipamentos-tônicos-e-musgo); hashes/retângulos em [Runtime_Asset_Manifest.json](art/Runtime_Asset_Manifest.json). Não confundir 14 definições de equipamento com 14 rigs animados. Licenças continuam unverified.

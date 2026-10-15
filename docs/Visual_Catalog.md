@@ -693,3 +693,17 @@ Subset integrado: ver [relatório](STAGE_02_REPORT.md) e [guia](art/RUNTIME_ASSE
 Nove animações, incluindo Run. Guardião Ossudo usa a família Skeleton em2,8×, sem alegar pack exclusivo; nos10/20 há só um alvo. HP, golpes e mortes refletem domínio real. Capturas e limites em [STAGE_03_REPORT](STAGE_03_REPORT.md); recortes/pivôs em [RUNTIME_ASSETS](art/RUNTIME_ASSETS.md). A auditoria integral continua preservada; licença não foi resolvida nesta integração.
 
 Capturas jogáveis: [Batalha](art/previews/F3_Battle.png), [Mina](art/previews/F3_Mine.png), [Produção](art/previews/F3_Production.png) e [Torre concluída](art/previews/F3_Complete.png).
+
+## Composições implementadas — F4
+
+As capturas abaixo usam recursos/XP altos de uma fixture de teste; não representam o estado inicial ou ritmo orgânico. Preservam os originais auditados e não comprovam licenças.
+
+| Composição | Captura | Evidência visual |
+|---|---|---|
+| Equipamento | [Mochila](art/previews/F4_Equipment.png) | Slots, atributos, ícones e raridade com texto |
+| Forja | [Forja](art/previews/F4_Forge.png) | Reciclagem/fabricação, ferro fundido e tônicos do pack |
+| Companheiro | [Musgo](art/previews/F4_Pet.png) | Retrato verde, nível/passivos e ativação |
+| Produção | [Minas](art/previews/F4_Production.png) | Carvão/ouro/jade com custos e requisitos |
+| Batalha | [Musgo em cena](art/previews/F4_Battle.png) | Composição lateral existente e slime aliado |
+
+Seleção exata, orientação, pivôs e limites em [RUNTIME_ASSETS](art/RUNTIME_ASSETS.md#extensão-f4--equipamentos-tônicos-e-musgo). 1.000 definições de andares reutilizam o cenário/atores atuais; não são 1.000 artes exclusivas.

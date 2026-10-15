@@ -30,3 +30,9 @@ R02: subset Character/Skeleton/Hud/Normal BG tem recortes, pivôs e capturas rev
 Softlock de Coin em boss20 foi reproduzido e mitigado com treino manual no19; não há farm/retry automático de boss. Fórmulas permitem concluir20 nos perfis simulados, mas começo mais rápido que hipótese e cliques contínuos não representam playtest humano. Curvas de1.000/loot/pets exigem novo trabalhoF4.
 
 Clock local é adulterável; high-water/cap8h evitam regressão/acúmulo acidental, não anticheat. Snapshot/CAS protege duplicação persistida e concorrência, mas crash pode perder até último autosave; não existe ledger servidor. Deadline de boss continua em ausência/pausa. Licenças e perfil real Android/WebGL seguem sem comprovação.
+
+## Reavaliação F4
+
+XP novo acelera a fatia20; simulação registrada não prova diversão/retensão.1.000 definições/fixture final não comprovam a jornada orgânica nem variedade artística exclusiva. Caps/curvas polinomiais evitam extrapolação exponencial não analisada.
+
+Inventário limitado120 e overflow controlado evitam histórico de loot crescente; transações e referências equipadas testadas. RNG local é previsível/adulterável, sem importação online. F5 precisa autoridade, ledger, idempotência e RNG confiável. Sem pagamento/Ruby/serviço novo. Licenças e hardware real continuam gates, sem liberação comercial presumida.

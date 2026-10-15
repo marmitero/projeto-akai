@@ -1,6 +1,6 @@
 # Documentação do Projeto Akai
 
-Baseline de planejamento — 15/10/2026. **F1–F3 implementadas; loop local1–20, cliques/upgrades/carvão e save/offline disponíveis.** Leia [AI_STATE](../AI_STATE.md) antes de trabalhar. O usuário autorizou a próxima etapa em 15/10/2026. Comandos reais em [DEVELOPMENT](DEVELOPMENT.md); evidências atuais em [STAGE_03_REPORT](STAGE_03_REPORT.md).
+Baseline de planejamento — 15/10/2026. **F1–F4 implementadas localmente; RPG, inventário/Forja/pet/minas e catálogo1.000. Validação final F4 em relatório próprio.** Leia [AI_STATE](../AI_STATE.md) antes de trabalhar. O usuário autorizou a próxima etapa em 15/10/2026. Comandos reais em [DEVELOPMENT](DEVELOPMENT.md); evidências atuais em [STAGE_03_REPORT](STAGE_03_REPORT.md).
 
 ## Ordem de leitura
 
@@ -27,7 +27,7 @@ AI_STATE é canônico na raiz; não criar cópias AI_State/AI_STATE em docs com 
 
 “Regra aprovada” reproduz Master Prompt/pedido explícito; “proposto” detalha uma escolha a validar; “experimental” identifica parâmetros locais sujeitos a playtest; “implementado” exige código/teste e evidência — combate/economia local já têm evidência de F3; online/social/premium continuam futuros. Documentos online/social/premium especificam preparação e gates, não serviços disponíveis.
 
-Documentos de online/social/premium descrevem desenho futuro; contratos e save locais têm implementação conforme DATA_MODEL. F1–F3 foram executadas em seus escopos; F4–F10 continuam futuras. O acervo foi inventariado tecnicamente; licenças e mapeamento visual de todos os frames não estão concluídos. Não confundir esses tipos de conclusão.
+Documentos de online/social/premium descrevem desenho futuro; contratos e save locais têm implementação conforme DATA_MODEL. F1–F4 foram executadas em seus escopos; F5–F10 continuam futuras. O acervo foi inventariado tecnicamente; licenças e mapeamento visual de todos os frames não estão concluídos. Não confundir esses tipos de conclusão.
 
 ## Manutenção
 
@@ -40,3 +40,5 @@ Entrega visual atual: [STAGE_02_REPORT](STAGE_02_REPORT.md), [guia de recortes r
 F2: [relatório com capturas](STAGE_02_REPORT.md) e [guia de integração real](art/RUNTIME_ASSETS.md).
 
 F3: [relatório jogável](STAGE_03_REPORT.md), [ADR-007](ADR/0007-local-loop.md), [simulação](phase3-balance-results.json) e guia de execução atualizado.
+
+F4:[sistemas RPG](RPG_SYSTEMS.md),[ADR-008](ADR/0008-local-rpg.md),[validação F3](STAGE_03_VALIDATION.md),[relatório F4](STAGE_04_REPORT.md) e[simulações](phase4-rpg-results.json).

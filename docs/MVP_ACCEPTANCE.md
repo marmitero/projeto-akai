@@ -54,3 +54,9 @@ Navegação visual, input, safe areas/alvos, save e recortes têm evidência no 
 |M15 |31 testes e resultados de simulação em BALANCE/STAGE_03_REPORT; limitações registradas |
 
 A versão local não valida antiabuso/ledger do online. Ouro/jade, itens, pets e receitas permanecemF4. Layout/ritmo ainda devem receber playtest humano. Medição headless por software não substitui Android/WebGL em aparelho.
+
+## Incremento F4 — aceite local adicional
+
+MVP1–20/F3 permanece evidência histórica. F4 exige:categorias/slots/raridade reais, transações/Forja, capacidade/overflow, pet/minas avançadas e expiração precisa, migração2→3 e referências válidas,1.000 definições numericamente seguras e interface navegável.45 testes, smokes e simulações registrados em STAGE_04_REPORT. Soak próprio em execução antes do fechamento.
+
+Não aceita automaticamente equilíbrio orgânico de1.000, rig/aparência por item, mais biomas/pets, áudio, autoridade online ou licença comercial. Limites não removem essas metas futuras. F5 continua não iniciada.

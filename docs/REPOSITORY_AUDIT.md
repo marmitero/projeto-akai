@@ -40,3 +40,7 @@ Cliente contém agora catálogo curado, derivados e renderer com oito animaçõe
 ## Estado após F3
 
 Loop local real em packages/shared/src/loop.ts, conectado a LocalSession/UI/Phaser;20 andares, bosses10/20, cliques/upgrades/carvão, tutorial, migração1→2 e offline de minas.31 testes e simulação reproduzível; smokes dev/produção. Servidor permanece diagnóstico, sem banco/auth/economia online. Arte nova apenas derivadoRun, boss reutiliza Skeleton validado; nenhum original removido/alterado. Relatório STAGE_03_REPORT e AI_STATE prevalecem sobre inventário histórico do estágio inicial.
+
+## Estado F4
+
+content/rpg/rpg-schema adicionados ao shared; Mochila/Forja/Musgo e ouro/jade funcionais, schema3 migrando1/2.45 testes e duas simulações, subset90 arquivos/fontes/24 derivados. Catálogo1.000 com atributos limitados, sem1.000 mapas exclusivos. Todo sprites/ original e dados históricos da F3 preservados. Servidor ainda diagnóstico; F5 não iniciada. Ver STAGE_04_REPORT.

@@ -1,6 +1,6 @@
 # Economia e regras de transação
 
-Regras do produto e propostas de implementação v1. Economia local F3 em execução; sem economia online. Números de teste em BALANCE não são balanceamento comercial aprovado.
+Regras do produto e propostas de implementação v1. Economia local F3/F4 em execução; sem economia online. Números de teste em BALANCE não são balanceamento comercial aprovado.
 
 ## Fontes e sumidouros
 
@@ -9,8 +9,8 @@ Regras do produto e propostas de implementação v1. Economia local F3 em execu�
 | Coin | Vitória de inimigos e recompensas explícitas | Upgrades, perks, desbloqueios e mercado | Sim |
 | Ferro | Mineração manual; autoclick autorizado em fase futura | Guerreiro, equipamentos, mascotes, minas, fabricação | Sim |
 | Carvão | Mina automática | Equipamentos e ferro fundido | Produção sim; receitas futuras |
-| Ouro | Mina automática; carvão nível 50 como requisito | Equipamento/mascote avançado e minas | F4 |
-| Jade | Mina automática avançada | Equipamento/mascote/receitas de nível alto | F4 |
+| Ouro | Mina automática; carvão nível 50 como requisito | Equipamento/mascote avançado e minas | Implementado F4 |
+| Jade | Mina automática avançada | Equipamento/mascote/receitas de nível alto | Implementado F4 |
 | Ruby | Compra validada e eventos/recompensas explícitas | Produtos premium/configurados | F8; sem saldo premium real no local |
 
 Não converter Coin em ouro por compartilharem cor. Ferro fundido é material de fabricação futuro, não sétima moeda já implementada. Sem receita aprovada não há razão para criar conversão automática entre materiais.
@@ -56,3 +56,11 @@ Rebalancear cria configVersion nova com data efetiva e plano para saves/instânc
 Config local-loop-1 usa as fórmulas de BALANCE, níveis 0–100, ferro/Coin nos custos, saldo BigInt em strings e acumulador de carvão com denominador1000. Grant local ocorre na mudança HP>0→0 e é persistido junto ao cadáver/checkpoint; não foi criado ledger online. Força altera dano futuro; vitalidade aumenta HP atual/máximo em 15; cura inteira ao iniciar andar/tentativa/treino, sem cura entre ondas.
 
 Produção continua entre telas; ocultação/fechamento concilia até 8h uma vez por watermark. Sem simular vitórias offline. Boss preserva prazo de expiração. Treino manual do andar anterior após falha de boss elimina softlock de Coin identificado em simulação, concede recompensas normais e para novamente antes do boss. Custos/política em ADR-007; o botão de resumo offline não concede nada porque não há coleta manual. Ouro/jade/Ruby e receitas continuam futuros.
+
+## Implementação F4
+
+Custos experimentais adotados pelo agente em RPG_SYSTEMS: Forja, ferro fundido, aprimoramento, tônicos, Musgo e minas ouro/jade. Todos quantity1, pré-requisitos e saldos verificados juntos no draft. Ruby não é fonte nem sumidouro desses sistemas. Ferro fundido é material em rpg.castIron, separado das seis moedas/recursos principais. Nenhum preço ou serviço pago foi definido.
+
+Ouro exige carvão50; jade paga ferro/ouro/carvão/Coin. Passivos de equipamento/Musgo e tônico de produção integram somente o prazo válido. Resto por mina usa denominador40.000.000; migração do resto F3 multiplica40.000, sem perder fração. Ganhos manuais arredondam para baixo na unidade mínima; atributos aprimorados para cima.
+
+Inventário cheio converte drop em10×nível ferros, sem fila ilimitada; não pode fabricar cheio nem reciclar equipado. Aprimorar não rerrola atributos e reciclar não devolve seus custos. Equipe/desequipe não cura. XP muda poder e circulação de Coin; simulações locais versionadas não substituem monitoramento/ledger da F5 nem playtest comercial.

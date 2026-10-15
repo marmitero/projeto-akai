@@ -23,7 +23,8 @@
     "check:assets": "node scripts/check-visual-assets.mjs",
     "test:browser:preview": "npm run build && node scripts/smoke-browser.mjs --preview",
     "simulate:loop": "npm run build:shared && node scripts/simulate-loop.mjs",
-    "test:soak": "npm run build && node scripts/soak-browser.mjs"
+    "test:soak": "npm run build && node scripts/soak-browser.mjs",
+    "simulate:rpg": "npm run build:shared && node scripts/simulate-rpg.mjs"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

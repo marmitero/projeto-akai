@@ -53,3 +53,7 @@ Telas, HUD, oito animações, input e build estático testados conforme STAGE_02
 ## Situação F3 (não é release público)
 
 Loop local1–20, carvão/offline, migração real/save e regressões testados; CI própria só confirmar por run efetivo. Não ativados auth/banco/loja premium/anúncios/online. Licenças de sprites, teste de aparelho, playtest humano e demais gates desta checklist continuam necessários antes da distribuição. ConcluirF3 não autoriza marcar checklist comercial completa.
+
+## Situação F4 — não é release público
+
+RPG local implementado/testado, catálogo1.000 e migrações/simulações; confirmar CI do commit publicado. Sem auth/banco/ledger/premium/anúncios. Licenças, jornada orgânica/playtest e aparelhos continuam necessários antes de distribuição. Não marcar checklist comercial pronta pela existência de equipamento/loja/guia ou simulação com fixture final.

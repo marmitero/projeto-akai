@@ -1,29 +1,36 @@
 import type { LocalSnapshot } from "./index.js";
+import { CONTENT, levelFromXp, floorDefinition } from "./content.js";
+import { gearStats, awardRpgDeath, addResource } from "./rpg.js";
 export const LOOP = {
-  version: "local-loop-1",
-  floors: 20,
+  version: "local-rpg-1",
+  floors: CONTENT.maxFloor,
   transitionMs: 3000,
   bossMs: 30000,
   offlineMs: 8 * 60 * 60 * 1000,
-  maxLevel: 100,
+  maxLevel: CONTENT.maxUpgrade,
 } as const;
 export type Upgrade = "attack" | "vitality" | "click" | "coal";
-export const heroStats = (s: LocalSnapshot) => ({
-  hp: 100 + 15 * s.upgrades.vitality,
-  attack: 6 + 2 * s.upgrades.attack,
-});
-export function floorStats(floor: number) {
-  const hp = Math.ceil(18 * 1.12 ** (floor - 1)),
-    attack = Math.ceil(2 * 1.1 ** (floor - 1)),
-    coin = Math.ceil(3 * 1.1 ** (floor - 1));
-  const boss = floor % 10 === 0;
+export const heroStats = (s: LocalSnapshot, wallAt = s.lastReconciledAt) => {
+  const gear = gearStats(s),
+    level = levelFromXp(s.rpg.heroXp),
+    petHp = s.rpg.petActive ? s.rpg.petLevel * 5 : 0;
   return {
-    boss,
-    hp: hp * (boss ? 8 : 1),
-    attack: attack * (boss ? 2 : 1),
-    coin: coin * (boss ? 15 : 1),
-    interval: boss ? 1800 : 2000,
+    hp: 100 + 15 * s.upgrades.vitality + gear.hp + 10 * (level - 1) + petHp,
+    attack: Math.floor(
+      ((6 + 2 * s.upgrades.attack + gear.attack + 2 * (level - 1)) *
+        (s.rpg.attackBuffUntil > wallAt ? 120 : 100)) /
+        100,
+    ),
+    defense: gear.defense,
   };
+};
+export const floorStats = floorDefinition;
+function curve(base: number, growth: number, n: number, anchor = 20): number {
+  return n <= anchor
+    ? Math.ceil(base * growth ** n)
+    : Math.ceil(
+        Math.ceil(base * growth ** anchor) * (1 + (n - anchor) / 10) ** 2,
+      );
 }
 export function upgradeCost(
   s: LocalSnapshot,
@@ -32,37 +39,53 @@ export function upgradeCost(
   const n = s.upgrades[kind];
   if (n >= LOOP.maxLevel) return undefined;
   if (kind === "attack")
-    return { iron: Math.ceil(20 * 1.2 ** n), coin: Math.ceil(10 * 1.18 ** n) };
+    return { iron: curve(20, 1.2, n), coin: curve(10, 1.18, n) };
   if (kind === "vitality")
-    return { iron: Math.ceil(15 * 1.18 ** n), coin: Math.ceil(8 * 1.18 ** n) };
+    return { iron: curve(15, 1.18, n), coin: curve(8, 1.18, n) };
   if (kind === "click")
-    return { iron: Math.ceil(25 * 1.22 ** n), coin: Math.ceil(10 * 1.25 ** n) };
+    return { iron: curve(25, 1.22, n), coin: curve(10, 1.25, n) };
   return n === 0
     ? { iron: 100, coin: 50 }
     : {
-        iron: Math.ceil(75 * 1.15 ** (n - 1)),
-        coin: Math.ceil(30 * 1.15 ** (n - 1)),
+        iron: curve(75, 1.15, n - 1, 49),
+        coin: curve(30, 1.15, n - 1, 49),
       };
-}
-const MAX_AMOUNT = 10n ** 38n - 1n;
-function credit(
-  s: LocalSnapshot,
-  resource: "coin" | "iron" | "coal",
-  amount: bigint,
-): void {
-  const next = BigInt(s.balances[resource]) + amount;
-  if (next < 0n || next > MAX_AMOUNT) throw Error("BALANCE_LIMIT");
-  s.balances[resource] = String(next);
 }
 export function produce(s: LocalSnapshot, ms: number): bigint {
   if (!Number.isSafeInteger(ms) || ms < 0) throw Error("INVALID_DELTA");
-  // Numerator in thousandths*ms; denominator1000, remainder always0..999.
-  const total =
-    BigInt(s.upgrades.coal * 100) * BigInt(ms) + BigInt(s.coalRemainder);
-  const amount = total / 1000n;
-  s.coalRemainder = Number(total % 1000n);
-  credit(s, "coal", amount);
-  return amount;
+  const bp =
+    10000 +
+    gearStats(s).productionBp +
+    (s.rpg.petActive ? s.rpg.petLevel * 200 : 0);
+  const boosted = Math.min(
+    ms,
+    Math.max(0, s.rpg.productionBuffUntil - s.lastReconciledAt),
+  );
+  const weighted = BigInt(bp) * (BigInt(ms) * 4n + BigInt(boosted));
+  let coal = 0n;
+  for (const [key, rate] of [
+    ["coal", s.upgrades.coal * 100],
+    ["gold", s.rpg.goldLevel * 20],
+    ["jade", s.rpg.jadeLevel * 5],
+  ] as const) {
+    const remainder =
+      key === "coal"
+        ? s.coalRemainder
+        : key === "gold"
+          ? s.rpg.goldRemainder
+          : s.rpg.jadeRemainder;
+    // Exact rational denominator:1000ms *10000 basis points *4 (tonic25%).
+    const numerator = BigInt(rate) * weighted + BigInt(remainder),
+      amount = numerator / 40000000n,
+      rest = Number(numerator % 40000000n);
+    addResource(s, key, amount);
+    if (key === "coal") {
+      s.coalRemainder = rest;
+      coal = amount;
+    } else if (key === "gold") s.rpg.goldRemainder = rest;
+    else s.rpg.jadeRemainder = rest;
+  }
+  return coal;
 }
 export function startEncounter(
   s: LocalSnapshot,
@@ -96,10 +119,15 @@ function fail(s: LocalSnapshot, cause: "defeat" | "timeout"): void {
   b.training = false;
   if (floorStats(b.floor).boss) b.floor--;
 }
-export function advanceCombat(s: LocalSnapshot, delta: number): void {
+export function advanceCombat(
+  s: LocalSnapshot,
+  delta: number,
+  wallStart = s.lastReconciledAt,
+): void {
   if (!Number.isSafeInteger(delta) || delta < 0) throw Error("INVALID_DELTA");
   const b = s.battle,
-    end = b.time + delta;
+    end = b.time + delta,
+    origin = b.time;
   if (b.paused) {
     reconcileBossAbsence(s, delta);
     return;
@@ -151,9 +179,13 @@ export function advanceCombat(s: LocalSnapshot, delta: number): void {
       b.heroStrikes++;
       const target = b.enemies.find((e) => e.hp > 0);
       if (target) {
-        target.hp = Math.max(0, target.hp - heroStats(s).attack);
+        target.hp = Math.max(
+          0,
+          target.hp - heroStats(s, wallStart + b.time - origin).attack,
+        );
         if (target.hp === 0) {
-          credit(s, "coin", BigInt(floorStats(b.floor).coin) * 1000n);
+          addResource(s, "coin", BigInt(floorStats(b.floor).coin) * 1000n);
+          awardRpgDeath(s, b.floor, floorStats(b.floor).boss);
           s.tutorial.victory = true;
         }
       }
@@ -162,7 +194,17 @@ export function advanceCombat(s: LocalSnapshot, delta: number): void {
       if (enemy.hp > 0 && enemy.nextAt === next) {
         enemy.nextAt += floorStats(b.floor).interval;
         enemy.strikes++;
-        b.heroHp = Math.max(0, b.heroHp - floorStats(b.floor).attack);
+        b.heroHp = Math.max(
+          0,
+          b.heroHp -
+            Math.max(
+              1,
+              Math.floor(
+                (floorStats(b.floor).attack * 100) /
+                  (100 + heroStats(s).defense),
+              ),
+            ),
+        );
         if (b.heroHp === 0) {
           fail(s, "defeat");
           break;
@@ -179,8 +221,10 @@ export function advanceCombat(s: LocalSnapshot, delta: number): void {
   }
   b.time = end;
 }
+export const ironPerClick = (s: LocalSnapshot) =>
+  (BigInt(1 + s.upgrades.click) * BigInt(10000 + gearStats(s).miningBp)) / 10n;
 export function mineIron(s: LocalSnapshot): void {
-  credit(s, "iron", BigInt(1 + s.upgrades.click) * 1000n);
+  addResource(s, "iron", ironPerClick(s));
   s.tutorial.mined = true;
 }
 export function buyUpgrade(s: LocalSnapshot, kind: Upgrade): boolean {
@@ -194,7 +238,7 @@ export function buyUpgrade(s: LocalSnapshot, kind: Upgrade): boolean {
   s.balances.iron = String(BigInt(s.balances.iron) - BigInt(cost.iron) * 1000n);
   s.balances.coin = String(BigInt(s.balances.coin) - BigInt(cost.coin) * 1000n);
   s.upgrades[kind]++;
-  if (kind === "vitality") s.battle.heroHp += 15;
+  if (kind === "vitality" && s.battle.heroHp > 0) s.battle.heroHp += 15;
   s.tutorial.upgraded = true;
   return true;
 }

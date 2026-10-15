@@ -78,3 +78,11 @@ Envelope formatVersion1, payload schemaVersion2/configVersion local-loop-1 e che
 |battle agenda | deadline e transitionAt em ms da linha de simulação; prazo reduzido também por ausência/pausa de boss |
 
 Migração verifica SHA do objeto original antes de reorganizar propriedades; inicia somente os campos de domínio que não existiam. Geração é preservada e o próximo write mantém a versão antiga como previous. Backup pode ser migrado e restaurado. Sem lista ilimitada de grants: mortos não geram novamente e attempt+índice distingue execuções. Isso é checkpoint local, não ledger/anticheat online. Detalhes/testes em ADR-007.
+
+## Save local F4 — schema3
+
+Config local-rpg-1. Acrescenta rpg:inventory/equipped/RNG/nextItemId, heroXp/accountXp, goldLevel/jadeLevel, remainders por mina, castIron, petLevel/petActive, deadlines dos dois tônicos e último aviso de loot limitado. Não salva DOM/Phaser nem histórico crescente de recompensas. Inventário120 com IDs únicos e referências equipadas válidas; payload máximo500KB.
+
+Slots9, dois anéis distintos e duas mãos incompatível com escudo são validados no load. Instâncias guardam definição/raridade/nível/aprimoramento/atributos/afixos; nenhum ID de PNG vira identidade do item. Remainder da produção passa a0..39.999.999, denominador40.000.000; schema2 antigo0..999 converte×40.000.
+
+Migração confere SHA antes de reorganizar propriedades. Schema2 ativo mantém HP/agenda/ondas/recursos; torre20 completa inicia21 com cura de transição normal. Sem XP/loot retroativos. Schema1 inicia os domínios que não existiam. Geração/backup/CAS/quarentena preservados; futuro bloqueado. Isso não implementa ledger ou anticheat online.

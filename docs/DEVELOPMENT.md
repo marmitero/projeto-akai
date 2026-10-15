@@ -1,4 +1,4 @@
-# Desenvolvimento — MVP local F1–F3
+# Desenvolvimento — MVP local F1–F4
 
 Implementação em 15/10/2026. MVP local jogável, com 20 andares, ferro/cliques/melhorias/carvão e save/offline. Não foram contratados serviços, configuradas contas ou publicados aplicativos.
 
@@ -40,7 +40,7 @@ Autosave15s, boot/retomada/compras/ações de batalha e tentativa em ocultação
 
 Vitest: contratos de saldo/comando, navegação/lifecycle, cópia de estado, save/backup/corrupção/versão futura/concorrência e servidor HTTP/configuração. fake-indexeddb só é dependência de teste; verificação não substitui testes em navegadores reais. Workflow `.github/workflows/check.yml` instala com npm ci e executa npm run check; execução remota não é presumida só por versionar YAML.
 
-Consulte [relatório da etapa](STAGE_03_REPORT.md), [arquitetura](ARCHITECTURE.md) e [AI_STATE](../AI_STATE.md). Próximo trabalho funcional é F4; não confundir local com servidor autoritativo.
+Consulte [relatório da etapa](STAGE_03_REPORT.md), [arquitetura](ARCHITECTURE.md) e [AI_STATE](../AI_STATE.md). Próximo trabalho funcional é F5; não confundir local com servidor autoritativo.
 
 ## Smoke de navegador (opcional)
 
@@ -68,3 +68,21 @@ npm run test:soak
 ```
 
 Simulação testa políticas ativas1/3/5 cliques/s e perfil sem clique; falha se um perfil ativo não alcançar20. Números não representam playtest humano. Soak serve Vite preview na5184, mede heap após GC, listeners/DOM, objetos/texturas e média rAF por minuto, com compras/mineração/navegação. Saída docs/phase3-browser-soak.json. AKAI_SOAK_MINUTES altera a duração para diagnóstico; somente30min atendeM14. Soak não roda no job CI de 10min; CI executa checks, simulação e smokes dev/produção. Sem runtime/dependência de teste embarcada no produto.
+
+## F4 — execução e manutenção atuais
+
+Mochila oferece Equipamento/Forja/Companheiro; Produção desbloqueia ouro/jade. UI exibe custos/requisitos e aceita transações locais reais. Loja premium continua indisponível. Regras em RPG_SYSTEMS e estado em AI_STATE; schema3 migra1/2 sem apagar recursos. Novo config local-rpg-1, sem XP/loot retroativos. Payload/itens/referências limitados e validados.
+
+```sh
+npm run check
+npm run simulate:loop
+npm run simulate:rpg
+node scripts/simulate-loop.mjs --write
+node scripts/simulate-rpg.mjs --write
+npm run test:browser:preview
+npm run test:soak
+```
+
+Escritas das simulações agora vão para phase4-loop-results.json/phase4-rpg-results.json, preservando F3 histórica. Soak usa preview5185 e grava phase4-browser-soak.json:fixture rica/120 peças, compra/equipamento/reciclagem/tônicos/minas/navegação por30min. Não representa renda ou ritmo orgânico. Listeners nativos podem oscilar; critério após aquecimento é sem acúmulo(max≤base+2 e final≤base+1), além de texturas/objetos constantes e heap sem crescimento sustentado. AKAI_SOAK_MINUTES permite diagnóstico; não chamar sessão curta de30min.
+
+CI executa checks+duas simulações+smokes dev/produção, não o soak de30min no job10min. Servidor continua503 para gameplay. Nenhum endpoint/test hook de grant é embarcado. Fontes originais intocadas; recortes/hash no manifesto runtime. Licenças, rig por equipamento e benchmark físico continuam limites explícitos.

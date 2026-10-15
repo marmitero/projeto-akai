@@ -11,10 +11,10 @@ def export(name, image, sources, **meta):
  p=OUT/(name+'.png');image.save(p)
  entries.append(dict(key=name,output=str(p.relative_to(ROOT)),sha256=sha(p),width=image.width,height=image.height,
  sources=[dict(path=s,sha256=sha(ROOT/s)) for s in sources],licenseStatus='unverified',**meta))
-def crop(name,source,rect,flip=False):
+def crop(name,source,rect,flip=False,**meta):
  image=Image.open(ROOT/source).convert('RGBA').crop(rect)
  if flip:image=image.transpose(Image.Transpose.FLIP_TOP_BOTTOM)
- export(name,image,[source],crop=list(rect),flipY=flip,scale=1)
+ export(name,image,[source],crop=list(rect),flipY=flip,scale=1,**meta)
 def hero(action,fw,n,fh=80):
  source=f'sprites/Character/{action}/{action}-Sheet.png'
  im=Image.open(ROOT/source).convert('RGBA');out=Image.new('RGBA',(160*n,128))
@@ -32,6 +32,8 @@ for name,src,rect in [
  ('nav-normal','20250420manaTabD-Sheet.png',(0,0,96,32)),('nav-active','20250420manaTabD-Sheet.png',(96,0,192,32)),('nav-pressed','20250420manaTabD-Sheet.png',(192,0,288,32)),('nav-disabled','20250420manaTabD-Sheet.png',(288,0,384,32)),
  ('button-normal','20250421manaSoulButtonB-Sheet.png',(0,0,96,22)),('button-active','20250421manaSoulButtonB-Sheet.png',(192,0,288,22)),
  ('options','20250425optionsButton-Sheet.png',(0,0,32,32)),('close','20250425closeButton-Sheet.png',(0,0,32,32)),('slot','20250423emptyFrame-Sheet.png',(0,0,32,32))]:crop(name,'sprites/Hud/'+src,rect)
+crop('pet-slime-idle','sprites/Enemies/Slime/Slime green.png',(0,0,160,32),frameWidth=32,frameHeight=32,frames=5,fps=8,pivot=[16,32])
+crop('pet-slime-portrait','sprites/Enemies/Slime/Slime green.png',(0,16,32,32))
 crop('grass','sprites/Tiles/Floor Tiles1.png',(32,0,64,32))
 crop('rock-top','sprites/Tiles/Floor Tiles1.png',(32,64,64,96),True)
 crop('rock-fill','sprites/Tiles/Floor Tiles1.png',(32,32,64,64))
@@ -44,5 +46,5 @@ originals=[]
 for source in sorted(set(re.findall(r"[\"']\.\./\.\./\.\./\.\./(sprites/[^\"']+)[\"']",(ROOT/'apps/client/src/assets/catalog.ts').read_text()))):
  im=Image.open(ROOT/source)
  originals.append(dict(path=source,sha256=sha(ROOT/source),width=im.width,height=im.height,licenseStatus='unverified'))
-(ROOT/'docs/art/Runtime_Asset_Manifest.json').write_text(json.dumps(dict(version=1,stage='F3 local loop',originals=originals,derivatives=entries),ensure_ascii=False,indent=2)+'\n')
+(ROOT/'docs/art/Runtime_Asset_Manifest.json').write_text(json.dumps(dict(version=1,stage='F4 local RPG',originals=originals,derivatives=entries),ensure_ascii=False,indent=2)+'\n')
 print('Exported',len(entries),'derivatives; originals unchanged')

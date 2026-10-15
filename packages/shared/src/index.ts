@@ -1,7 +1,9 @@
 import { z } from "zod";
+import { RpgSchema, newRpgState } from "./rpg-schema.js";
+import { ITEMS, SLOT_IDS } from "./content.js";
 
 export const PROTOCOL_VERSION = 1 as const;
-export const CONFIG_VERSION = "local-loop-1" as const;
+export const CONFIG_VERSION = "local-rpg-1" as const;
 export const ScreenSchema = z.enum(["battle", "mine", "production"]);
 export type Screen = z.infer<typeof ScreenSchema>;
 // Amounts are integer thousandths; no JS Number is used to represent balances.
@@ -35,11 +37,11 @@ export const LegacySnapshotSchema = z
     configVersion: z.literal("foundation-1"),
   })
   .strict();
-export const LocalSnapshotSchema = z
+export const Legacy2SnapshotSchema = z
   .object({
     ...base,
     schemaVersion: z.literal(2),
-    configVersion: z.literal(CONFIG_VERSION),
+    configVersion: z.literal("local-loop-1"),
     lastReconciledAt: safeInteger,
     coalRemainder: z.number().int().min(0).max(999),
     upgrades: z
@@ -91,9 +93,54 @@ export const LocalSnapshotSchema = z
       .strict(),
   })
   .strict();
+export const LocalSnapshotSchema = Legacy2SnapshotSchema.extend({
+  schemaVersion: z.literal(3),
+  configVersion: z.literal(CONFIG_VERSION),
+  coalRemainder: safeInteger.max(39999999),
+  upgrades: z
+    .object({
+      attack: safeInteger.max(1000),
+      vitality: safeInteger.max(1000),
+      click: safeInteger.max(1000),
+      coal: safeInteger.max(1000),
+    })
+    .strict(),
+  battle: Legacy2SnapshotSchema.shape.battle.extend({
+    floor: safeInteger.min(1).max(1000),
+    highest: safeInteger.max(1000),
+    retryFloor: safeInteger.min(1).max(1000),
+  }),
+  rpg: RpgSchema,
+}).superRefine((s, ctx) => {
+  const ids = s.rpg.inventory.map((i) => i.id),
+    used = Object.values(s.rpg.equipped).filter((x) => x !== null);
+  if (
+    new Set(ids).size !== ids.length ||
+    new Set(used).size !== used.length ||
+    ids.some((id) => Number(id.slice(5)) >= s.rpg.nextItemId)
+  )
+    ctx.addIssue({ code: "custom", message: "Invalid item identity" });
+  for (const slot of SLOT_IDS) {
+    const id = s.rpg.equipped[slot];
+    if (!id) continue;
+    const item = s.rpg.inventory.find((i) => i.id === id);
+    if (
+      !item ||
+      !(
+        ITEMS[item.definitionId].slot === slot ||
+        (item.definitionId === "ring" && slot === "ring2")
+      )
+    )
+      ctx.addIssue({ code: "custom", message: "Invalid equipment reference" });
+  }
+  const weapon = s.rpg.inventory.find((i) => i.id === s.rpg.equipped.weapon);
+  if (weapon && ITEMS[weapon.definitionId].twoHanded && s.rpg.equipped.shield)
+    ctx.addIssue({ code: "custom", message: "Two handed conflict" });
+});
 export type LocalSnapshot = z.infer<typeof LocalSnapshotSchema>;
 export function newLoopState() {
   return {
+    rpg: newRpgState(),
     lastReconciledAt: 0,
     coalRemainder: 0,
     upgrades: { attack: 0, vitality: 0, click: 0, coal: 0 },
@@ -152,3 +199,7 @@ export const ApiErrorSchema = z
       .strict(),
   })
   .strict();
+
+export * from "./content.js";
+export * from "./rpg-schema.js";
+export * from "./rpg.js";

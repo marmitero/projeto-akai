@@ -51,3 +51,11 @@ Smokes dev e build estático em Chromium153 headless:50 ciclos, mineração inic
 Soak real30min via npm run test:soak no build preview: mineração/compras/navegação, heap após GC, DOM/listeners, objetos/texturas e média de rAF por minuto. Relatório só comprova a duração/ambiente registrados, não aptidão Android. Não usar o teste puro acelerado como prova de 30min reais de render. Licenças e playtest humano seguem outros gates.
 
 Resultado executado da sessão prolongada F3: 30min reais (1800914ms),1784 ciclos,127 listeners/34 texturas/37 objetos estáveis, heap apósGC5.91–6.64MiB e média rAF por minuto59.95–60.02 após aquecimento; zero pageerrors. CPU/navegador/ambiente em STAGE_03_REPORT e amostras no JSON.
+
+## F4 — critérios e execução
+
+45 testes:31 regressões adaptadas ao schema3/escopo atual,12 casos RPG e2 migrações reais2→3. Equipamento único/slots/duas mãos/anéis, transações/rejeições/capacidade/reciclagem, atributo aprimorado sem reroll, morte persistida, RNG/bins/estatística, ouro/carvão50/jade/Musgo, buffs com expiração exata e percurso numérico1.000. Vitalidade com HP0 permanece derrotada.
+
+Smokes dev/produção: fabricar/equipar/aprimorar, Forja/ferro fundido/tônico, adoção, ouro bloqueado49/liberado50, jade, save/reload e tabs por teclado, além dos fluxos F3. Setup por snapshots válidos, sem grant de debug no jogo. Capturas inspecionadas.
+
+Soak F4 separado do arquivo F3,30min reais no build preview5185,120 peças/reciclagem/recompra e navegação repetidas. Medir heap apósGC, DOM/listeners, texturas/objetos e média rAF; critério de listeners tolera oscilação nativa limitada e rejeita crescimento. Não é benchmark de aparelho nem playtest orgânico. JSON/ambiente/limitações em STAGE_04_REPORT.

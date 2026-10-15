@@ -1,5 +1,8 @@
 import {
   CONFIG_VERSION,
+  applyRpgCommand,
+  heroStats,
+  type RpgCommand,
   LocalSnapshotSchema,
   ScreenSchema,
   newLoopState,
@@ -22,7 +25,7 @@ export const systemClock: Clock = { now: () => Date.now() };
 export function createLocalSnapshot(now: number): LocalSnapshot {
   return LocalSnapshotSchema.parse({
     ...newLoopState(),
-    schemaVersion: 2,
+    schemaVersion: 3,
     configVersion: CONFIG_VERSION,
     mode: "local",
     generation: 0,
@@ -45,7 +48,7 @@ export class LocalSession {
   private state: LocalSnapshot;
   private suspended = false;
   private listeners = new Set<(state: LocalSnapshot) => void>();
-  offline = { ms: 0, coal: "0" };
+  offline = { ms: 0, coal: "0", gold: "0", jade: "0" };
   constructor(
     private readonly clock: Clock,
     snapshot = createLocalSnapshot(clock.now()),
@@ -86,7 +89,14 @@ export class LocalSession {
     if (delta > 5000) {
       reconcileBossAbsence(draft, delta);
       const ms = Math.min(delta, LOOP.offlineMs);
-      this.offline = { ms, coal: String(produce(draft, ms)) };
+      const goldBefore = BigInt(draft.balances.gold),
+        jadeBefore = BigInt(draft.balances.jade);
+      this.offline = {
+        ms,
+        coal: String(produce(draft, ms)),
+        gold: String(BigInt(draft.balances.gold) - goldBefore),
+        jade: String(BigInt(draft.balances.jade) - jadeBefore),
+      };
     } else {
       produce(draft, delta);
       advanceCombat(draft, delta);
@@ -101,7 +111,14 @@ export class LocalSession {
       draft = this.getSnapshot(),
       ms = Math.min(Math.max(0, now - draft.lastReconciledAt), LOOP.offlineMs);
     reconcileBossAbsence(draft, Math.max(0, now - draft.lastReconciledAt));
-    this.offline = { ms, coal: String(produce(draft, ms)) };
+    const goldBefore = BigInt(draft.balances.gold),
+      jadeBefore = BigInt(draft.balances.jade);
+    this.offline = {
+      ms,
+      coal: String(produce(draft, ms)),
+      gold: String(BigInt(draft.balances.gold) - goldBefore),
+      jade: String(BigInt(draft.balances.jade) - jadeBefore),
+    };
     draft.lastReconciledAt = Math.max(now, draft.lastReconciledAt);
     this.state = LocalSnapshotSchema.parse(draft);
   }
@@ -138,6 +155,16 @@ export class LocalSession {
     const d = this.getSnapshot();
     if (!trainBattle(d)) return false;
     this.state = LocalSnapshotSchema.parse(d);
+    this.emit();
+    return true;
+  }
+  rpgCommand(command: RpgCommand): boolean {
+    this.tick();
+    if (this.suspended) return false;
+    const draft = this.getSnapshot();
+    if (!applyRpgCommand(draft, command)) return false;
+    draft.battle.heroHp = Math.min(draft.battle.heroHp, heroStats(draft).hp);
+    this.state = LocalSnapshotSchema.parse(draft);
     this.emit();
     return true;
   }

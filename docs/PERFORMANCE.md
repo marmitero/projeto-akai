@@ -22,3 +22,9 @@ Objetos de FX reutilizáveis, texto de dano agregado, HUD atualizada por evento 
 Build cliente~1,47MB em disco incluindo Phaser; subset72 arquivos/fontes verificados/263.199 bytes de autoria (não bytes transferidos). Smokes dev/produção50 ciclos mantêm34 texturas/37 objetos. Soak real concluído: 30min reais (1800914ms),1784 ciclos,127 listeners/34 texturas/37 objetos estáveis, heap apósGC5.91–6.64MiB e média rAF por minuto59.95–60.02 após aquecimento; relatório phase3-browser-soak.json e ambiente em STAGE_03_REPORT. Não converter FPS de headless/software em garantia Android/WebGL; aparelho/latência de input/p95 ainda pendentes.
 
 Produção offline tem custo constante por configuração vigente;8h não viram28.800 passos. Testes provam produção segmentada igual a intervalo único. Combate por agenda e limite20 evitam extrapolação numérica; níveis experimentais até100. Pool6 de poeira independe de cliques econômicos.
+
+## F4 — inventário limitado e pressão RPG
+
+35 texturas/38 objetos e10 animações no renderer, incluindo Musgo.90 arquivos/fontes verificados/278.153 bytes de autoria, não bytes de rede. Inventário120, handlers delegados, cache de lista e atualização de custos sem remontar toda Forja por tick. Catálogo1.000 e dados de item não carregam o acervo completo.
+
+Soak real30min próprio em execução, com120 peças e fabricação/equipamento/reciclagem/minas/tônicos/navegação. É fixture de pressão, não ritmo humano; guardar JSON de heap/DOM/listeners/rAF e ambiente. Variação nativa de listeners não é vazamento; testar acúmulo, não igualdade em todo instante. UI final também recebe smoke/inspeção. Benchmark Android/WebGL e latência de input p95 continuam pendentes.

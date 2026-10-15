@@ -93,7 +93,7 @@ try {
   await page.locator("#game canvas").waitFor();
   assert.equal(
     await page.locator("#game").getAttribute("data-animation-count"),
-    "9",
+    "10",
   );
   const textures = await page
     .locator("#game")
@@ -302,7 +302,7 @@ try {
   const fixture = () =>
     LocalSnapshotSchema.parse({
       ...newLoopState(),
-      schemaVersion: 2,
+      schemaVersion: 3,
       configVersion: CONFIG_VERSION,
       mode: "local",
       generation: 0,
@@ -364,6 +364,89 @@ try {
     .getByText("Perfil salvo neste navegador.", { exact: true })
     .waitFor();
   await page.keyboard.press("Escape");
+  // F4 end-to-end: no runtime debug API; all setup uses valid persisted test snapshots.
+  const rpg = fixture();
+  rpg.battle.paused = true;
+  rpg.battle.highest = 20;
+  rpg.rpg.heroXp = 40000;
+  rpg.rpg.castIron = "100000";
+  rpg.upgrades.coal = 49;
+  for (const key of ["coin", "iron", "coal", "gold", "jade"])
+    rpg.balances[key] = "1000000000000";
+  await seed(rpg);
+  await navigate("Mochila");
+  await page.locator("[data-rpg-tab=forge]").click();
+  await page.locator("[data-rpg-action=craft][data-definition=sword]").click();
+  await page.locator("[data-rpg-tab=equipment]").click();
+  assert.equal(await page.locator("[data-item]").count(), 1);
+  await page.locator("[data-rpg-action=equip][data-slot=weapon]").click();
+  await page.locator("[data-item]").filter({ hasText: "Equipado" }).waitFor();
+  await page.locator("[data-rpg-action=enhance]").click();
+  await page.locator("[data-item]").filter({ hasText: "+1" }).waitFor();
+  await capture(page, "rpg-equipment-390");
+  await page.locator("[data-rpg-tab=forge]").click();
+  await page.locator("[data-rpg-action=smelt]").click();
+  await page.locator("[data-rpg-action=attackTonic]").click();
+  assert.equal(
+    await page.locator("[data-rpg-action=attackTonic]").isDisabled(),
+    true,
+  );
+  await capture(page, "rpg-forge-390");
+  await page.locator("[data-rpg-tab=pet]").click();
+  await page.locator("[data-rpg-action=adoptPet]").click();
+  await page
+    .locator("#pet-stats")
+    .filter({ hasText: "Nível 1 · Ativo" })
+    .waitFor();
+  await capture(page, "rpg-pet-390");
+  await navigate("Produção");
+  assert.equal(await page.locator("[data-rpg-action=gold]").isDisabled(), true);
+  await page.locator("[data-upgrade=coal]").click();
+  await page.locator("[data-rpg-action=gold]").click();
+  await page
+    .locator("#gold-production")
+    .filter({ hasText: "Nível 1" })
+    .waitFor();
+  await page.locator("[data-rpg-action=jade]").click();
+  await page
+    .locator("#jade-production")
+    .filter({ hasText: "Nível 1" })
+    .waitFor();
+  await capture(page, "rpg-mines-390");
+  await navigate("Batalha");
+  await capture(page, "rpg-companion-battle-390");
+  await navigate("Mais");
+  await page.locator("#save").click();
+  await page.waitForFunction(() => !document.querySelector("#save").disabled);
+  await page.reload();
+  await page.locator("#game[data-load-status=ready]").waitFor();
+  await navigate("Mochila");
+  assert.equal(await page.locator("[data-item]").count(), 1);
+  await page
+    .locator("[data-item]")
+    .filter({ hasText: "Equipado" })
+    .filter({ hasText: "+1" })
+    .waitFor();
+  await page.locator("[data-rpg-tab=pet]").click();
+  await page
+    .locator("#pet-stats")
+    .filter({ hasText: "Nível 1 · Ativo" })
+    .waitFor();
+  // Roving tabs and horizontal viewport must remain usable with the full RPG controls.
+  await page.locator("[data-rpg-tab=equipment]").focus();
+  await page.keyboard.press("ArrowRight");
+  assert.equal(
+    await page.locator("[data-rpg-tab=forge]").getAttribute("aria-selected"),
+    "true",
+  );
+  await page.setViewportSize({ width: 320, height: 640 });
+  assert.equal(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth > innerWidth,
+    ),
+    false,
+  );
+  await page.setViewportSize({ width: 390, height: 960 });
   const boss = fixture();
   boss.screen = "battle";
   startEncounter(boss, 10);
@@ -386,7 +469,7 @@ try {
   await capture(page, "training-390");
   const win = fixture();
   win.upgrades.attack = 100;
-  startEncounter(win, 20);
+  startEncounter(win, 1000);
   win.battle.enemies[0].hp = 1;
   win.screen = "mine";
   await seed(win);
@@ -437,6 +520,7 @@ try {
       menus: true,
       realMiningGrants: true,
       upgradesAndCoal: true,
+      rpgCraftEquipEnhancePetMinesAndReload: true,
       offlineCapAndSingleCredit: true,
       bossTimeoutAndTraining: true,
       towerCompletedFromMine: true,

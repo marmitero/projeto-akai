@@ -27,6 +27,7 @@ export function createGame(
   let battleState: LocalSnapshot | undefined;
   class VisualScene extends Phaser.Scene {
     private groups = new Map<Screen, Phaser.GameObjects.Container>();
+    private pet!: Phaser.GameObjects.Sprite;
     private hero!: Phaser.GameObjects.Sprite;
     private enemies: Phaser.GameObjects.Sprite[] = [];
     private torches: Phaser.GameObjects.Sprite[] = [];
@@ -54,6 +55,10 @@ export function createGame(
           frameWidth: 160,
           frameHeight: 128,
         });
+      this.load.spritesheet("petIdle", assets.petIdle, {
+        frameWidth: 32,
+        frameHeight: 32,
+      });
       this.load.spritesheet("torch", assets.torch, {
         frameWidth: 32,
         frameHeight: 32,
@@ -88,6 +93,7 @@ export function createGame(
         return;
       }
       for (const [key, texture, frames, fps] of [
+        ["pet-idle", "petIdle", 5, 8],
         ["hero-run", "heroRun", 8, 10],
         ["hero-idle", "heroIdle", 4, 10],
         ["hero-dead", "heroDead", 8, 10],
@@ -124,6 +130,7 @@ export function createGame(
       );
       parent.dataset["animationCount"] = String(
         [
+          "pet-idle",
           "hero-run",
           "hero-idle",
           "hero-dead",
@@ -193,6 +200,13 @@ export function createGame(
         this.image("battle", WIDTH / 2, 120, key, 240 / 346);
       this.floor("battle", "grass", 238);
       this.hero = this.actor(83, 2, false);
+      this.pet = this.add
+        .sprite(137, 242, "petIdle")
+        .setOrigin(0.5, 1)
+        .setScale(1.5)
+        .play("pet-idle")
+        .setVisible(false);
+      this.groups.get("battle")!.add(this.pet);
       this.enemies = [
         this.actor(242, 1.55, true),
         this.actor(296, 1.5, true),
@@ -275,9 +289,16 @@ export function createGame(
         document.hidden ||
         reducedMotion ||
         (screen === "battle" && battleState?.battle.paused);
-      for (const sprite of [this.hero, ...this.enemies, ...this.torches]) {
+      for (const sprite of [
+        this.hero,
+        this.pet,
+        ...this.enemies,
+        ...this.torches,
+      ]) {
         const relevant =
-          sprite === this.hero || this.enemies.includes(sprite)
+          sprite === this.hero ||
+          sprite === this.pet ||
+          this.enemies.includes(sprite)
             ? screen === "battle"
             : (screen === "mine" || screen === "production") &&
               sprite.parentContainer?.visible;
@@ -302,6 +323,9 @@ export function createGame(
     }
     syncBattle(): void {
       if (!this.hero || !battleState) return;
+      this.pet.setVisible(
+        battleState.rpg.petActive && battleState.rpg.petLevel > 0,
+      );
       const b = battleState.battle,
         prev = this.lastBattle,
         fresh = prev?.attempt !== b.attempt;

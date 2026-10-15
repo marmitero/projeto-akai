@@ -9,8 +9,8 @@ function upgradeCard(kind: string, title: string): string {
 export function createShell(root: HTMLElement): void {
   installAssetStyles(root);
   root.innerHTML = `<div class="game-shell">
-  <header class="top-hud panel"><div class="identity"><div class="portrait" aria-label="Retrato do rei ainda não disponível"><span>AK</span></div><div><p class="eyebrow">PROJETO AKAI</p><strong>Reino em ascensão</strong><small>Local · <span data-balance="coin">0</span> Coins</small></div></div><button class="icon-button" id="resources" aria-label="Ver recursos">${icon("iron")}<span data-balance="iron">0</span></button></header>
-  <div class="preview-strip"><span class="preview-mark">MVP LOCAL</span><span>Fase 3 · progresso salvo neste navegador</span></div>
+  <header class="top-hud panel"><div class="identity"><div class="portrait" aria-label="Retrato do rei ainda não disponível"><span>AK</span></div><div><p class="eyebrow">PROJETO AKAI</p><strong>Reino em ascensão</strong><small>Local · <span data-balance="coin" data-compact>0</span> Coins</small></div></div><button class="icon-button" id="resources" aria-label="Ver recursos">${icon("iron")}<span data-balance="iron" data-compact>0</span></button></header>
+  <div class="preview-strip"><span class="preview-mark">MVP LOCAL</span><span>Fase 4 · progresso salvo neste navegador</span></div>
   <main id="content" class="content" tabindex="-1">
     <p id="offline-summary" class="notice" role="status" hidden></p><p id="tutorial" class="tutorial panel"></p><p id="action-status" role="status" aria-live="polite"></p><header class="page-heading"><div><p id="page-kicker" class="eyebrow">A TORRE</p><h1 id="page-title">Batalha</h1></div><span id="page-badge" class="badge">Andar 1</span></header>
     <section id="visual-area" aria-label="Cenário da atividade selecionada">
@@ -34,14 +34,14 @@ export function createShell(root: HTMLElement): void {
       <p id="mining-feedback" class="sr-only" role="status" aria-live="polite"></p>
     </section>
     <section data-pane="production" class="activity-details" aria-label="Minas automáticas" hidden>
-      <p class="body-copy">Carvão produzido automaticamente, inclusive por até 8 horas de ausência. Ouro e jade chegam na próxima fase.</p>
+      <p class="body-copy">Carvão produzido automaticamente, inclusive por até 8 horas de ausência. Ouro requer carvão nível 50. Todos os minérios mantêm seus bônus durante o prazo válido.</p>
       <div class="mines-list">
         <article class="mine-card panel">${icon("coalNode")}<div><h2>Mina de carvão</h2><p id="coal-production">Bloqueada · 0/s</p><span id="cost-coal" class="muted"></span></div><button data-upgrade="coal" disabled>Desbloquear</button></article>
-        <article class="mine-card panel">${icon("goldNode")}<div><h2>Mina de ouro</h2><p>Requer mina de carvão nível 50</p><span class="muted">Nível — · Produção 0/s</span></div><button disabled aria-label="Mina de ouro indisponível">Bloqueada</button></article>
-        <article class="mine-card panel">${icon("jadeNode")}<div><h2>Mina de jade</h2><p>Progressão avançada do reino</p><span class="muted">Nível — · Produção 0/s</span></div><button disabled aria-label="Mina de jade indisponível">Bloqueada</button></article>
+        <article class="mine-card panel">${icon("goldNode")}<div><h2>Mina de ouro</h2><p id="gold-production">Bloqueada · 0/s</p><span id="cost-gold" class="muted"></span></div><button data-rpg-action="gold" disabled>Desbloquear</button></article>
+        <article class="mine-card panel">${icon("jadeNode")}<div><h2>Mina de jade</h2><p id="jade-production">Bloqueada · 0/s</p><span id="cost-jade" class="muted"></span></div><button data-rpg-action="jade" disabled>Desbloquear</button></article>
       </div>
     </section>
-    <section data-pane="bag" class="extra-page" hidden><div class="empty-state panel">${icon("bag", "large-icon")}<h2>Sua jornada está começando</h2><p>Os equipamentos serão integrados na fase de progressão RPG. Nenhum item foi concedido nesta prévia.</p><div class="empty-slots" aria-hidden="true">${Array.from({ length: 6 }, () => icon("slot")).join("")}</div></div></section>
+    <section data-pane="bag" class="extra-page" hidden><div id="rpg-root"></div></section>
     <section data-pane="shop" class="extra-page" hidden><div class="empty-state panel">${icon("shop", "large-icon")}<h2>O mercador ainda está a caminho</h2><p>A loja está indisponível nesta fase. Não há produtos, preços ou compras ativas.</p></div></section>
   </main>
   <nav class="bottom-hud" aria-label="Menu principal">
@@ -54,12 +54,12 @@ export function createShell(root: HTMLElement): void {
   </nav>
   <dialog id="menu-dialog" aria-labelledby="dialog-title"><div class="dialog-panel panel"><div class="dialog-heading"><h2 id="dialog-title">Seu reino</h2><button id="close-dialog" class="close-button" aria-label="Fechar menu">${icon("close")}</button></div>
     <div id="dialog-menu"><div class="shortcut-row"><button data-shortcut="bag">${icon("bag")}Mochila</button><button data-shortcut="shop">${icon("shop")}Loja</button></div>
-    <h3>Perfil local de teste</h3><p class="body-copy">O retrato do rei ainda não foi definido. Seu perfil local é salvo somente neste navegador.</p>
+    <h3 id="profile-heading">Perfil local de teste</h3><p class="body-copy">O retrato do rei ainda não foi definido. Seu perfil local é salvo somente neste navegador.</p>
     <label class="motion-setting"><input id="reduce-motion" type="checkbox"> Reduzir movimento e efeitos</label>
     <div class="save-actions"><button id="save" disabled>Salvar perfil local</button><button id="recover" hidden>Restaurar cópia anterior</button></div>
     <p id="save-status" role="status" aria-live="polite">Abrindo salvamento…</p>
-    <details><summary>Outros destinos do reino</summary><p>Mascotes, habilidades, eventos, mercado, arena, guildas e rankings serão integrados nas fases seguintes.</p></details></div>
-    <div id="dialog-resources" hidden><p class="body-copy">Saldos do perfil local. Ruby, ouro e jade ainda não são gerados.</p><dl class="resources-list">${(
+    <details><summary>Outros destinos do reino</summary><p>Habilidades avançadas, eventos, mercado, arena, guildas e rankings serão integrados nas fases seguintes.</p></details></div>
+    <div id="dialog-resources" hidden><p class="body-copy">Saldos do perfil local. Ouro e jade são gerados pelas minas desbloqueadas. Ruby permanece indisponível.</p><dl class="resources-list">${(
       [
         ["coin", "Coins", null],
         ["iron", "Ferro", "iron"],
@@ -111,7 +111,7 @@ export const routeLabels: Record<
   bag: {
     title: "Mochila",
     kicker: "SEU EQUIPAMENTO",
-    badge: "Em preparação",
+    badge: "Equipamento e Forja",
     caption: "",
     description: "",
   },

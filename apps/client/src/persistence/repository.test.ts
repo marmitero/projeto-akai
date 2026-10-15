@@ -100,7 +100,7 @@ describe("versioned atomic local snapshots", () => {
       decodeSave('{"formatVersion":0,"payload":{}}'),
     ).rejects.toThrow(CorruptSaveError);
     await expect(
-      decodeSave(raw.replace("local-loop-1", "other-configuration")),
+      decodeSave(raw.replace("local-rpg-1", "other-configuration")),
     ).rejects.toThrow(UnsupportedSaveError);
   });
 });
@@ -135,8 +135,8 @@ describe("real schema1 migration", () => {
     const raw = JSON.stringify({ formatVersion: 1, payload: old, checksum });
     const migrated = await decodeSave(raw);
     expect(migrated).toMatchObject({
-      schemaVersion: 2,
-      configVersion: "local-loop-1",
+      schemaVersion: 3,
+      configVersion: "local-rpg-1",
       generation: 3,
       screen: "mine",
       lastReconciledAt: 1234,
@@ -152,9 +152,73 @@ describe("real schema1 migration", () => {
     expect(await repo.save(migrated)).toBe(4);
     await writeRaw(factory, "current", "broken");
     expect(await repo.restoreBackup()).toMatchObject({
-      schemaVersion: 2,
+      schemaVersion: 3,
       generation: 3,
     });
     repo.close();
+  });
+});
+
+describe("real schema2 RPG migration", () => {
+  it("preserves active combat/upgrades/resources, converts fractional remainder and initializes no retroactive loot", async () => {
+    const { Legacy2SnapshotSchema, newLoopState } =
+      await import("@akai/shared");
+    const now = createLocalSnapshot(1000);
+    const { rpg: _, ...base } = now;
+    const old = Legacy2SnapshotSchema.parse({
+      ...base,
+      schemaVersion: 2,
+      configVersion: "local-loop-1",
+      coalRemainder: 777,
+      upgrades: { attack: 5, vitality: 4, click: 3, coal: 2 },
+      battle: { ...newLoopState().battle, heroHp: 42 },
+    });
+    const hash = await crypto.subtle.digest(
+      "SHA-256",
+      new TextEncoder().encode(JSON.stringify(old)),
+    );
+    const checksum = [...new Uint8Array(hash)]
+      .map((n) => n.toString(16).padStart(2, "0"))
+      .join("");
+    const migrated = await decodeSave(
+      JSON.stringify({ formatVersion: 1, payload: old, checksum }),
+    );
+    expect(migrated.schemaVersion).toBe(3);
+    expect(migrated.battle).toEqual(old.battle);
+    expect(migrated.upgrades).toEqual(old.upgrades);
+    expect(migrated.coalRemainder).toBe(31080000);
+    expect(migrated.rpg.inventory).toHaveLength(0);
+    expect(migrated.rpg.heroXp).toBe(0);
+    expect(await decodeSave(await encodeSave(migrated))).toEqual(migrated);
+  });
+  it("continues a completed phase3 tower at21 while retaining its completion record", async () => {
+    const { Legacy2SnapshotSchema, newLoopState } =
+      await import("@akai/shared");
+    const { rpg: _, ...base } = createLocalSnapshot(1000);
+    const old = Legacy2SnapshotSchema.parse({
+      ...base,
+      schemaVersion: 2,
+      configVersion: "local-loop-1",
+      battle: {
+        ...newLoopState().battle,
+        floor: 20,
+        highest: 20,
+        phase: "complete",
+      },
+    });
+    const hash = await crypto.subtle.digest(
+      "SHA-256",
+      new TextEncoder().encode(JSON.stringify(old)),
+    );
+    const checksum = [...new Uint8Array(hash)]
+      .map((n) => n.toString(16).padStart(2, "0"))
+      .join("");
+    expect(
+      (
+        await decodeSave(
+          JSON.stringify({ formatVersion: 1, payload: old, checksum }),
+        )
+      ).battle,
+    ).toMatchObject({ floor: 21, highest: 20, phase: "fighting" });
   });
 });

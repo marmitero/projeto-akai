@@ -50,3 +50,9 @@ HUD persistente e destinos implementados visualmente; fallback até419px deixa M
 Topo exibe Coins e acesso aos recursos; Batalha mostra andar/onda, vida por ator, prazo de boss, falha e melhorias de força/vitalidade com custos. Pausar/Retomar controla ataques, não minas nem prazo de boss. Falha não força navegação: aviso global informa estado; Batalha oferece retry e treino manual no anterior quando elegível. Treino/retry recolocam conteúdo no topo para ver o encontro.
 
 Mina concede1+n ferro por toque, anuncia saldo e mostra melhoria de picareta. Produção mostra nível/taxa/custo de carvão; sem botão de coleta. Ouro/jade continuam bloqueados e Mochila/Loja declaram indisponibilidade. Tutorial curto acompanha flags persistidas sem bloquear destinos. Retomada mostra carvão já aplicado e período limitado8h; o resumo não concede nada. Frações de recurso são exibidas até3 casas sem usar float no saldo. Modais bloqueiam input mas não param renda/combate; para parar batalha há controle explícito.
+
+## UI RPG F4
+
+Mochila funcional em três tabs:Equipamento(filtro/slots/ações),Forja(peça/nível/ingredientes/material/tônicos) eCompanheiro(Musgo/passivos/custos/estado). Tabs com controles de teclado; transações com estado de insuficiência/limite/requisito, sem recriar listeners por item. Dois anéis distintos e duas mãos/escudo explícitos. Lista mostra atributos-base e+n; resumo mostra atributos finais.
+
+Ouro/jade têm custo, taxa incluindo bônus e requisito real; minério não virou botão de clique manual. Totais grandes abreviados apenas na HUD, detalhes exatos no dialogRecursos. Resumo offline só aparece em ausências≥1s, crédito também é conciliado em intervalos menores. Nove-slice do pack HUD reaproveitado nos controles RPG; spriteMusgo e ícones reais. Perfil separa rei/guerreiro, sem conta online simulada. Loja premium ainda indisponível.

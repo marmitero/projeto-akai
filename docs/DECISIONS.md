@@ -61,3 +61,9 @@ Adotado subset medieval pixel art (Character, Skeleton, Normal BG, nós e Hud), 
 D06/D07/D08 adotadas e testadas localmente:20 andares, cap minas8h, inimigos simultâneos/alvo frontal, falha comum pausada. D22: motor agenda/cura entre andares/pausa manual, deadline do boss corre ausente/pausado e stall>5s tratado como ausência. D23: treino manual9/19 após boss, volta a pausar ao concluir, para evitar softlock de Coin observado em simulação. D24: configuração local-loop-1 com fórmulas de BALANCE e níveis até100, unidade mínima/remainder, schema2 e migração real1→2. D25: boss Guardião Ossudo usa Skeleton2,8× e Run do herói é derivado rastreável, sem misturar rigs vetoriais.
 
 Tudo sob delegação, sem gasto ou alteração de pilar. Primeiras melhorias/carvão mais rápidas que hipóteses iniciais; registrado para playtest, sem fingir balanceamento final. F4 define dados RPG/curvas, F5 segurança econômica online. Nenhuma decisão obrigatória do titular agora.
+
+## Decisões F4 — delegação de implementação
+
+D26:curvas polinomiais depois20,1.000 definições/mesmo bioma e família; caps locais, sem declarar1.000 mapas ou balanceamento comercial. D27:14 categorias/9 slots,5 raridades/afixos, inventário120, overflow de drop em ferro e Forja comum para evitar dependência exclusiva de RNG. D28:Musgo como slime domesticado do próprio acervo, um ativo e passivos explícitos. D29:tônicos de duração wall-clock, sem stack do mesmo tipo, minas ouro/jade com custos experimentais e requisito carvão50 preservado. D30:schema3/migrações reais, XP separado do rei/guerreiro, sem recompensa retroativa nem cura por equipamento.
+
+Fonte e consequência em ADR-008/RPG_SYSTEMS. Sem gasto, contratação ou preço real. O ritmo inicial acelerado foi medido e registrado, não tratado como aprovação de equilíbrio. F5 permanece sem implementação/serviços e não inicia nesta etapa.

@@ -16,6 +16,7 @@ jobs:
             docs
             .github
             sprites/Character
+            sprites/Enemies/Slime
             sprites/Enemies/Skeleton
             sprites/Tiles
             sprites/Assets
@@ -24,8 +25,10 @@ jobs:
             sprites/Mine
             sprites/Materials
             sprites/Misc/Tools
+            sprites/Misc/Potions
             sprites/Misc/Enchantment
-            sprites/Equipments/Swords
+            sprites/Acessories
+            sprites/Equipments
             sprites/Backgrounds/Normal BG
       - uses: actions/setup-node@v4
         with:
@@ -34,6 +37,7 @@ jobs:
       - run: npm ci
       - run: npm run check
       - run: node scripts/simulate-loop.mjs
+      - run: node scripts/simulate-rpg.mjs
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser
       - run: node scripts/smoke-browser.mjs --preview

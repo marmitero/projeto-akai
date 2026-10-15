@@ -1,6 +1,10 @@
 import {
   LocalSnapshotSchema,
   LegacySnapshotSchema,
+  Legacy2SnapshotSchema,
+  newRpgState,
+  startEncounter,
+  heroStats,
   newLoopState,
   CONFIG_VERSION,
   type LocalSnapshot,
@@ -9,7 +13,11 @@ import { z } from "zod";
 const EnvelopeSchema = z
   .object({
     formatVersion: z.literal(1),
-    payload: z.union([LocalSnapshotSchema, LegacySnapshotSchema]),
+    payload: z.union([
+      LocalSnapshotSchema,
+      Legacy2SnapshotSchema,
+      LegacySnapshotSchema,
+    ]),
     checksum: z.string().regex(/^[a-f0-9]{64}$/),
   })
   .strict();
@@ -41,7 +49,7 @@ export async function encodeSave(snapshot: LocalSnapshot): Promise<string> {
   });
 }
 export async function decodeSave(raw: unknown): Promise<LocalSnapshot> {
-  if (typeof raw !== "string" || raw.length > 100_000)
+  if (typeof raw !== "string" || raw.length > 500_000)
     throw new CorruptSaveError();
   let value: unknown;
   try {
@@ -56,12 +64,16 @@ export async function decodeSave(raw: unknown): Promise<LocalSnapshot> {
       throw new UnsupportedSaveError();
     if (payload && typeof payload === "object") {
       const p = payload as Record<string, unknown>;
-      if (typeof p["schemaVersion"] === "number" && p["schemaVersion"] > 2)
+      if (typeof p["schemaVersion"] === "number" && p["schemaVersion"] > 3)
         throw new UnsupportedSaveError();
       if (
         typeof p["configVersion"] === "string" &&
         p["configVersion"] !==
-          (p["schemaVersion"] === 1 ? "foundation-1" : CONFIG_VERSION)
+          (p["schemaVersion"] === 1
+            ? "foundation-1"
+            : p["schemaVersion"] === 2
+              ? "local-loop-1"
+              : CONFIG_VERSION)
       )
         throw new UnsupportedSaveError();
     }
@@ -79,9 +91,26 @@ export async function decodeSave(raw: unknown): Promise<LocalSnapshot> {
     return LocalSnapshotSchema.parse({
       ...payload,
       ...newLoopState(),
-      schemaVersion: 2,
+      schemaVersion: 3,
       configVersion: CONFIG_VERSION,
       lastReconciledAt: payload.savedAt,
     });
+  if (payload.schemaVersion === 2) {
+    const migrated = LocalSnapshotSchema.parse({
+      ...payload,
+      schemaVersion: 3,
+      configVersion: CONFIG_VERSION,
+      coalRemainder: payload.coalRemainder * 40000,
+      rpg: newRpgState(),
+    });
+    if (
+      migrated.battle.phase === "complete" &&
+      migrated.battle.highest === 20
+    ) {
+      migrated.battle.heroHp = heroStats(migrated).hp;
+      startEncounter(migrated, 21);
+    }
+    return migrated;
+  }
   return payload;
 }

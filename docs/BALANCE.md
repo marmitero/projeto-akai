@@ -1,6 +1,6 @@
 # Balanceamento experimental e fórmulas
 
-**Parâmetros adotados experimentalmente na F3 como local-loop-1. Simulação determinística executada; sem playtest humano nem equilíbrio comercial comprovado.** Configuração futura deve ser versionada e carregada por dados, nunca espalhada na UI.
+**F3 histórica:local-loop-1; F4 atual:local-rpg-1 com XP/itens e curvas limitadas em RPG_SYSTEMS. Simulação determinística executada; sem playtest humano nem equilíbrio comercial comprovado.** Configuração futura deve ser versionada e carregada por dados, nunca espalhada na UI.
 
 ## Regras fixas
 
@@ -63,3 +63,11 @@ A política do perfil 0 ainda aperta retry comum; não representa jogador totalm
 Hipóteses iniciais de primeira melhoria30–120s/carvão3–10min não foram atingidas: o começo ficou mais rápido (15–20s/80–144s). Mantidas fórmulas para esta fatia, com resultado registrado; F4 deve playtestar antes de rebalancear. Tempo total envolve cliques contínuos e política informada; usuário pode demorar mais. Nenhuma semente aleatória é necessária porque crítico é0 e não há drops aleatórios na F3.
 
 Soak de domínio1800s:um intervalo e18.000 passos100ms produzem os mesmos recursos/progresso/remainder; teste não substitui medição de renderização. Deadline vence empate, cura entre andares e pausa manual/boss wall deadline conforme ADR-007.
+
+## F4 — resultado versionado
+
+Fórmulas completas em RPG_SYSTEMS e content.ts. Inimigos1–20 preservados; XP/equipamentos mudam o poder, portanto números de F3 acima são históricos. A mesma política1/3/5 cliques/s agora vence20 em575/538/538s; primeiro upgrade20/15/15s, carvão144/69/69s, boss10 em269/262/262s. Sem cliques, a política ainda aperta retries comuns e chega ao19 por XP; não representa ausência offline. Dados em phase4-loop-results.json.
+
+Não afirmar que o ritmo está equilibrado: XP acelerou a primeira fatia, que precisa de playtest humano. Até1.000 usam curvas polinomiais ancoradas, níveis e custos limitados. Fixture de nível/XP final e arma lendária+20 percorreu todos os encontros até1000, sem overflow, com8.388 golpes; prova numérica/agenda, não percurso orgânico nem tempo comercial prometido. Resultado em phase4-rpg-results.json.
+
+Custos de adoção/minas/tônicos/Forja adotados sem usar Ruby, versionados e testados por pré-condição/transação. Eventos sociais, anúncios, buffs pagos, XP premium e probabilidades de baús continuam desativados. Mudança posterior deve criar novo config/migração quando necessário, sem debitar retroativamente compras antigas.

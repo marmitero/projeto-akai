@@ -1,6 +1,6 @@
 # Roadmap e gates de entrega
 
-Baseline v1 — 15/10/2026. Sem estimativas de calendário: duração depende da integração artística e validação do loop. Estado atual: F1/F2 concluídas; F3 concluída no escopo local; F4 é a próxima etapa funcional. As linhas de estado e entregas datadas prevalecem sobre registros históricos abaixo.
+Baseline v1 — 15/10/2026. Sem estimativas de calendário: duração depende da integração artística e validação do loop. Estado atual: F1/F2 concluídas; F3 concluída no escopo local; F4 implementada, em validação final; F5 é a próxima etapa. As linhas de estado e entregas datadas prevalecem sobre registros históricos abaixo.
 
 | Fase | Entrega e dependências | Critério de saída | Estado |
 |---|---|---|---|
@@ -8,7 +8,7 @@ Baseline v1 — 15/10/2026. Sem estimativas de calendário: duração depende da
 | 1 — Fundação | Após liberação para implementar; cliente e servidor independentes, TS estrito, contratos, fixtures, saves e configuração | Build/testes executáveis, perfil local rotulado, isolamento online/local, sem segredos | Concluída no escopo de fundação; ver STAGE_01_REPORT |
 | 2 — Vertical visual | F1 + recortes/pivôs de herói/inimigo/HUD/mina | Três telas navegáveis com sprites, input isolado, estado compartilhado e safe areas | Concluída no escopo visual; ver STAGE_02_REPORT |
 | 3 — Loop local | F2 + configuração inicial validável | Andares 1–20, bosses 10/20, clique, carvão, upgrades, salvar/carregar e offline conforme MVP_ACCEPTANCE | Concluída no escopo local; ver STAGE_03_REPORT |
-| 4 — Progressão RPG | F3 + aceitação de mecânicas propostas | Equipamentos, raridades, drops, mascotes, ouro/jade, fabricação, buffs, dados escaláveis até 1.000 andares | Não iniciada |
+| 4 — Progressão RPG | F3 + aceitação de mecânicas propostas | Equipamentos, raridades, drops, mascotes, ouro/jade, fabricação, buffs, dados escaláveis até 1.000 andares | Implementada; validação em STAGE_04_REPORT |
 | 5 — Online autoritativo | Fundação do servidor F1 + domínio estabilizado | Auth, persistência, ledger, reconexão, simulação confiável, testes de concorrência/abuso | Não iniciada |
 | 6 — Comunidade | F5 + decisões sociais resolvidas | Chat/moderação, guildas/brasões, PvP, rankings/temporadas, boss global e eventos idempotentes | Não iniciada |
 | 7 — Mercado | F4/F5 + definições de negociação | Reserva, compra/oferta atômicas, taxas, expiração/relistagem e auditoria verificadas | Não iniciada |
@@ -59,3 +59,9 @@ Fase 3 continua não iniciada. Próximas tarefas F3-01/02/03: motor local determ
 F3-01/02/03 concluídos:20 andares,3×3, bosses10/20 com prazo/pausa/retry, treino manual no anterior, upgrades/cliques/carvão, tutorial, schema 2 com migração real1→2, save e minas offline até 8h. Economia em BigInt/remainder, motor independente das telas e da animação. Fórmulas experimentais e simulação reproduzível; sprites de Run e boss da família Skeleton integrados. Ver [STAGE_03_REPORT](STAGE_03_REPORT.md) e [ADR-007](ADR/0007-local-loop.md).
 
 Validação concluída:31 testes/builds, smokes dev/produção incluindo horizontal e 30min reais (1800914ms),1784 ciclos,127 listeners/34 texturas/37 objetos estáveis, heap apósGC5.91–6.64MiB e média rAF por minuto59.95–60.02 após aquecimento. Relatório e JSON preservam evidência; CI do commit no [workflow do GitHub](https://github.com/marmitero/projeto-akai/actions/workflows/check.yml). Licenças e aparelhos continuam gates próprios, sem presumir liberação comercial. F4 não iniciada. Próxima fatia: dados escaláveis e progressão RPG (inventário/equipamentos/raridades/receitas, pets e ouro/jade).
+
+## Entrega F4 — progressão RPG local
+
+F3 revalidada conforme [STAGE_03_VALIDATION](STAGE_03_VALIDATION.md). F4-01 catálogo/curvas1.000 e XP, F4-02 itens/raridades/slots/drops, F4-03 Forja/aprimoramento/tônicos, F4-04 Musgo/ouro/jade e F4-05 migração2→3/UI integrados.45 testes, smokes e simulações em [STAGE_04_REPORT](STAGE_04_REPORT.md); soak30min em execução. Regras completas em [RPG_SYSTEMS](RPG_SYSTEMS.md)/[ADR-008](ADR/0008-local-rpg.md).
+
+Catálogo1.000 é reutilização de bioma/família com atributos limitados, não1.000 mapas exclusivos nem balanceamento comercial. Equipamentos alteram atributos e ícones, sem vestir outro rig. Números de XP/recursos são experimentais. F5 não iniciada; próxima entrega é autoridade online, auth, ledger, persistência e reconexão, sem tratar save local como saldo confiável. Licenças/aparelhos seguem gates próprios.

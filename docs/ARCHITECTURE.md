@@ -1,6 +1,6 @@
 # Arquitetura proposta
 
-Estado:F1–F3 implementadas no modo local; online permanece planejado. Cliente, servidor de diagnóstico, contratos, sessão, loop e save local existem. Versões resolvidas e evidências em DEVELOPMENT/ADR-005; nenhuma infraestrutura externa provisionada.
+Estado:F1–F4 implementadas no modo local; online permanece planejado. Cliente, servidor de diagnóstico, contratos, sessão, loop e save local existem. Versões resolvidas e evidências em DEVELOPMENT/ADR-005; nenhuma infraestrutura externa provisionada.
 
 ## Componentes e limites
 
@@ -78,3 +78,9 @@ packages/shared/src/loop.ts contém regras puras de agenda/recursos/compras/trei
 Renderer recebe snapshots e compara HP/counters/attempt para idle/ataque/Run/morte; reduz movimento, modais e grupos ocultos não controlam o domínio. Ausência suspende ataques/transições, com exceção do prazo wall do boss, conciliado sem grants; minas integram taxa emBigInt/remainder. Pausa manual obedece à mesma regra de deadline, sem afetar minas.
 
 Schema2 migra a versão publicada1 após validar checksum original. Save agrupa estado econômico e watermark no mesmo payload e transação IndexedDB; CAS protege gerações entre abas. Identidade de encontro é attempt, índice estável para alvo. Morte e saldo são gravados juntos, não há event log sem limite nem promessa de idempotência de rede. A implementação de ledger/outbox/autenticação permaneceF5.
+
+## Domínio RPG F4
+
+content.ts define IDs/curvas/raridades/categorias, rpg-schema.ts valida estado/comandos, rpg.ts resolve itens/transações/XP/drops e loop.ts aplica combate/minas. LocalSession aplica comandos tipados a drafts, valida e confirma estado inteiro. Produção integra buffs por intervalos com BigInt/remainder; renderer não participa de grants.
+
+UI RPG tem estrutura estática e um handler delegado; não cria listeners por item ou por visita. Lista é refeita só quando inventário/equipados/filtro mudam; custos/botões se atualizam sem reconstruir toda a Forja a cada tick. Filtro/tabs são apresentação; itens, XP, pet e buffs são persistidos. Um sprite Musgo é reutilizado,10 animações/35 texturas/38 objetos. F5 deverá fornecer autoridade de servidor; reutilizar regra pura não torna saldo local confiável.

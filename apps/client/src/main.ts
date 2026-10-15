@@ -1,5 +1,12 @@
 import "./style.css";
-import { heroStats, upgradeCost, type Upgrade } from "@akai/shared";
+import {
+  heroStats,
+  upgradeCost,
+  LOOP,
+  levelFromXp,
+  ironPerClick,
+  type Upgrade,
+} from "@akai/shared";
 import {
   LocalSession,
   createLocalSnapshot,
@@ -7,6 +14,7 @@ import {
 } from "./local/session.js";
 import { SaveRepository, SaveConflictError } from "./persistence/repository.js";
 import { createGame } from "./game/create-game.js";
+import { createRpgUI } from "./ui/rpg.js";
 import { createShell, routeLabels, type Route } from "./ui/shell.js";
 const root = document.querySelector<HTMLElement>("#app");
 if (!root) throw new Error("APP_ROOT_MISSING");
@@ -84,7 +92,7 @@ async function boot(): Promise<void> {
     document.querySelector("#page-kicker")!.textContent = info.kicker;
     document.querySelector("#page-badge")!.textContent =
       next === "battle"
-        ? `Andar ${session.getSnapshot().battle.floor} / 20`
+        ? `Andar ${session.getSnapshot().battle.floor} / ${LOOP.floors}`
         : info.badge;
     document.querySelector("#scene-caption")!.textContent = info.caption;
     document.querySelector("#visual-description")!.textContent =
@@ -118,18 +126,67 @@ async function boot(): Promise<void> {
         : ""
     }`;
   };
+  const compactAmount = (value: string): string => {
+    const n = BigInt(value) / 1000n;
+    if (n < 1000n) return formatAmount(value);
+    if (n >= 1000000000000000n) {
+      const t = String(n);
+      return t[0] + "," + t.slice(1, 3) + "e" + (t.length - 1);
+    }
+    for (const [unit, label] of [
+      [1000000000000n, "tri"],
+      [1000000000n, "bi"],
+      [1000000n, "mi"],
+      [1000n, "mil"],
+    ] as const)
+      if (n >= unit) {
+        const tenth = (n * 10n) / unit;
+        return `${tenth / 10n}${tenth % 10n ? "," + String(tenth % 10n) : ""} ${label}`;
+      }
+    return formatAmount(value);
+  };
   const text = (id: string, value: string): void => {
     const e = document.getElementById(id)!;
     if (e.textContent !== value) e.textContent = value;
   };
   let lastAnnouncement = "";
+  const rpgUI = createRpgUI(root!, (command) => {
+    if (
+      dialog.open ||
+      document.hidden ||
+      !(route === "bag" || route === "production")
+    )
+      return false;
+    const ok = session.rpgCommand(command);
+    text(
+      "action-status",
+      ok
+        ? "Ação concluída."
+        : "Ação indisponível: confira recursos, nível, slots e requisitos.",
+    );
+    if (ok) void persist();
+    return ok;
+  });
+  let lootSerial = snapshot.rpg.lootSerial;
   const unsubscribe = session.subscribe((state) => {
     visual.setBattle(state);
+    rpgUI.render(state);
+    text(
+      "profile-heading",
+      `Perfil local · Rei nível ${levelFromXp(state.rpg.accountXp)}`,
+    );
+    if (state.rpg.lootSerial !== lootSerial) {
+      lootSerial = state.rpg.lootSerial;
+      text("action-status", state.rpg.lastLoot);
+    }
     const b = state.battle,
       stats = heroStats(state),
       boss = b.enemies.length === 1;
     stage.dataset["heroHp"] = String(b.heroHp);
-    text("hero-stats", `ATQ ${stats.attack} · Vida ${stats.hp}`);
+    text(
+      "hero-stats",
+      `Nv. ${levelFromXp(state.rpg.heroXp)} · ATQ ${stats.attack} · Vida ${stats.hp} · DEF ${stats.defense}`,
+    );
     text("hero-hp", `${b.heroHp} / ${stats.hp}`);
     const bar = document.querySelector<HTMLProgressElement>("#hero-health")!;
     bar.max = stats.hp;
@@ -156,7 +213,7 @@ async function boot(): Promise<void> {
       b.phase === "failed"
         ? `${b.failure === "trained" ? "Treino concluído." : b.failure === "timeout" ? "Tempo do boss esgotado." : "Seu guerreiro foi derrotado."} ${b.retryFloor % 10 === 0 ? `Andar atual ${b.floor}. ` : ""}Melhore seu guerreiro e tente o andar ${b.retryFloor} novamente.`
         : b.phase === "complete"
-          ? "Torre local concluída! Você venceu os 20 andares. A expansão continua na próxima fase."
+          ? "Torre local concluída! Você venceu os 1.000 andares."
           : b.paused
             ? `Batalha pausada. ${boss ? Math.max(0, Math.ceil((b.deadline - b.time) / 1000)) + "s restantes no boss." : "Mineração e produção continuam."}`
             : b.phase === "transition"
@@ -167,7 +224,8 @@ async function boot(): Promise<void> {
       b.phase !== "failed";
     document.querySelector<HTMLButtonElement>("#train-battle")!.hidden =
       b.phase !== "failed" || b.retryFloor % 10 !== 0;
-    if (route === "battle") text("page-badge", `Andar ${b.floor} / 20`);
+    if (route === "battle")
+      text("page-badge", `Andar ${b.floor} / ${LOOP.floors}`);
     const announcement =
       b.phase === "failed"
         ? `Batalha pausada. Tente novamente o andar ${b.retryFloor}.`
@@ -182,13 +240,7 @@ async function boot(): Promise<void> {
     const pause = document.querySelector<HTMLButtonElement>("#pause-battle")!;
     pause.hidden = b.phase === "failed" || b.phase === "complete";
     pause.textContent = b.paused ? "Retomar batalha" : "Pausar batalha";
-    text("click-gain", `${1 + state.upgrades.click} / toque`);
-    text(
-      "coal-production",
-      state.upgrades.coal
-        ? `Nível ${state.upgrades.coal} · ${(state.upgrades.coal / 10).toLocaleString("pt-BR")} /s`
-        : "Bloqueada · 0/s",
-    );
+    text("click-gain", `${formatAmount(String(ironPerClick(state)))} / toque`);
     for (const button of document.querySelectorAll<HTMLButtonElement>(
       "[data-upgrade]",
     )) {
@@ -221,19 +273,26 @@ async function boot(): Promise<void> {
               ? "Desbloqueie o carvão em Produção: 100 ferro + 50 Coins."
               : state.battle.highest < 10
                 ? "Seu reino produz carvão! Fortaleça o guerreiro para o boss do andar 10."
-                : "Continue fortalecendo o guerreiro até conquistar o andar 20.",
+                : "Conquiste novos andares e evolua o equipamento na Mochila.",
     );
     const offline = document.getElementById("offline-summary")!;
-    if (BigInt(session.offline.coal) > 0n) {
-      offline.hidden = false;
-      offline.textContent = `Retomada: +${formatAmount(session.offline.coal)} carvão por ${Math.round(session.offline.ms / 1000)}s de ausência (limite 8h). Já creditado; não é necessário coletar.`;
+    const showOffline =
+      session.offline.ms >= 1000 &&
+      [session.offline.coal, session.offline.gold, session.offline.jade].some(
+        (v) => BigInt(v) > 0n,
+      );
+    offline.hidden = !showOffline;
+    if (showOffline) {
+      offline.textContent = `Retomada: +${formatAmount(session.offline.coal)} carvão, +${formatAmount(session.offline.gold)} ouro e +${formatAmount(session.offline.jade)} jade por ${Math.round(session.offline.ms / 1000)}s de ausência (limite 8h). Já creditado; não é necessário coletar.`;
     }
 
     for (const output of document.querySelectorAll<HTMLElement>(
       "[data-balance]",
     )) {
       const key = output.dataset["balance"] as keyof typeof state.balances;
-      output.textContent = formatAmount(state.balances[key]);
+      output.textContent = output.hasAttribute("data-compact")
+        ? compactAmount(state.balances[key])
+        : formatAmount(state.balances[key]);
     }
     if (route === "battle" || route === "mine" || route === "production") {
       if (route !== state.screen) renderRoute(state.screen);
@@ -436,6 +495,7 @@ async function boot(): Promise<void> {
     removers.forEach((remove) => remove());
     unsubscribe();
     session.dispose();
+    rpgUI.destroy();
     repository?.close();
     visual.destroy();
   });
