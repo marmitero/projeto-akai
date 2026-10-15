@@ -23,7 +23,7 @@ Cliente `VITE_GAME_MODE=online` usa OnlineSession e snapshots via WebSocket; nã
 
 ## Validação e limites
 
-Baseline F4 revalidada:45testes/hashes/typecheck/builds. F5:66testes no PostgreSQL local (20 de integração +1JWT além45anteriores), smokes online dev/produção com convidado/clique/cookie/reload/resposta perdida/restart/recuperação/revogação/logout; smokes locais dev/produção com50ciclos e fluxos F4. Evidências finais em STAGE_05_REPORT e phase5-browser-*.json. CI será conferida no commit publicado; não presumir sucesso até consulta.
+Baseline F4 revalidada:45testes/hashes/typecheck/builds. F5:66testes no PostgreSQL local (20 de integração +1JWT além45anteriores), smokes online dev/produção com convidado/clique/cookie/reload/resposta perdida/restart/recuperação/revogação/logout; smokes locais dev/produção com50ciclos e fluxos F4. Evidências finais em STAGE_05_REPORT e phase5-browser-*.json. CI [38792734890](https://github.com/marmitero/projeto-akai/actions/runs/38792734890) concluída com sucesso no commit364384b3313ddbc99b44d569b6c77d6424e2baa5: PostgreSQL16, testes/builds/simulações e smokes locais/online em desenvolvimento/produção.
 
 Não houve novo soak30min nesta fase; históricos F3/F4 não são execução nova. Google real/staging externo/escala/backups gerenciados/aparelho físico não foram testados. Licenças/playtest humano continuam abertos. Hospedagem/credenciaisOAuth/políticas públicas somente quando for ativar esse ambiente, com decisão financeira concreta preparada.
 
@@ -33,8 +33,4 @@ Ler ONLINE.md, API.md, ADR-009, STAGE_05_REPORT e testes antes de editar. Próxi
 
 ## Estado de publicação F5
 
-Envio direto à main bloqueado pela revisão automática por falta de autorização específica para publicação na branch padrão. A branch remota feat/phase5-authoritative-online foi criada na base F4, mas o upload da implementação também foi rejeitado pela revisão automática por exigir autorização explícita de publicação, inclusive na branch de revisão. Não há PR nem CI da F5 publicados. Aguardar autorização de publicação e integração com o commit local concreto já revisado. Não contornar o bloqueio via outro canal para alterar main. Etapa técnica concluída; integração à main é pendência separada.
-
-## Autorização de publicação — 15/10/2026
-
-Usuário autorizou explicitamente publicar e integrar a implementação F5 à main. Bloqueio anterior superado por autorização; publicação e conferência da CI em andamento. F6 não autorizada nesta mensagem e não iniciada.
+Usuário autorizou explicitamente publicação e integração à main em15/10/2026, resolvendo o bloqueio anterior. Implementação publicada na main no commit364384b3313ddbc99b44d569b6c77d6424e2baa5; árvore remota2d8eda31cfa54c219af3473e41dae9a8e6dc88f3 idêntica ao conteúdo local revisado. CI38792734890 success. Este fechamento altera apenas documentação de estado; não há pendência de publicação da implementação. F6 não iniciada. Nenhum deploy público, gasto ou cadastroOAuth foi realizado.

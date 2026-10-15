@@ -9,7 +9,7 @@ Baseline v1 — 15/10/2026. Sem estimativas de calendário: duração depende da
 | 2 — Vertical visual | F1 + recortes/pivôs de herói/inimigo/HUD/mina | Três telas navegáveis com sprites, input isolado, estado compartilhado e safe areas | Concluída no escopo visual; ver STAGE_02_REPORT |
 | 3 — Loop local | F2 + configuração inicial validável | Andares 1–20, bosses 10/20, clique, carvão, upgrades, salvar/carregar e offline conforme MVP_ACCEPTANCE | Concluída no escopo local; ver STAGE_03_REPORT |
 | 4 — Progressão RPG | F3 + aceitação de mecânicas propostas | Equipamentos, raridades, drops, mascotes, ouro/jade, fabricação, buffs, dados escaláveis até 1.000 andares | Concluída no escopo local; ver STAGE_04_REPORT |
-| 5 — Online autoritativo | Fundação do servidor F1 + domínio estabilizado | Auth, persistência, ledger, reconexão, simulação confiável, testes de concorrência/abuso | Técnica local concluída; publicação autorizada e CI em conferência, ver STAGE_05_REPORT |
+| 5 — Online autoritativo | Fundação do servidor F1 + domínio estabilizado | Auth, persistência, ledger, reconexão, simulação confiável, testes de concorrência/abuso | Concluída e publicada; CI aprovada, ver STAGE_05_REPORT |
 | 6 — Comunidade | F5 + decisões sociais resolvidas | Chat/moderação, guildas/brasões, PvP, rankings/temporadas, boss global e eventos idempotentes | Não iniciada |
 | 7 — Mercado | F4/F5 + definições de negociação | Reserva, compra/oferta atômicas, taxas, expiração/relistagem e auditoria verificadas | Não iniciada |
 | 8 — Monetização | F5 + economia simulada + contas de provedores | Compras/anúncios em sandbox validados e reconciliados, sem grants duplicados | Não iniciada |
@@ -77,6 +77,4 @@ Autorizada pelo usuário após F4. F5-01 identidade de convidado/cookie/recupera
 
 Não foi contratado ou publicado serviço externo. Google real depende de client ID/origins do titular; código/provas e validações criptográficas são testáveis sem esse cadastro. Staging público exige HTTPS/WSS, banco com backup/permissões, observabilidade/retencão e gates de privacidade/licenças. Essas dependências não são declaradas concluídas pela suíte local. Próxima fase técnica: F6, comunidade, após reler suas regras e sem ativar gastos ou políticas públicas unilateralmente.
 
-Publicação F5: revisão automática bloqueou envio direto à main e upload para branch de revisão; código/documentos estão no commit local revisado. Aguardar autorização explícita para publicar e conferir CI. Nenhum PR foi criado, e F6 não começou.
-
-Autorização posterior F5: usuário autorizou publicação e integração à main em15/10/2026. Bloqueio de autorização resolvido; conferir publicação/CI antes de encerrar. F6 não iniciada.
+Publicação F5 concluída após autorização explícita do usuário em15/10/2026: implementação364384b na main, [CI38792734890](https://github.com/marmitero/projeto-akai/actions/runs/38792734890) success com PostgreSQL16 e smokes locais/online. Bloqueio anterior resolvido, sem pendência de autorização agora. F6 não iniciada; hospedagem pública/Google real e demais gates continuam separados.

@@ -1,6 +1,6 @@
 # Relatório Fase 5 — online autoritativo
 
-15/10/2026. **Concluída no escopo de desenvolvimento; publicação/CI registradas ao final.** Base F4: `eaaeb9d283bd57a046cd0cabd2dd282aaa891e3b`. Escopo desta entrega: ambiente de desenvolvimento reproduzível, sem contratar hospedagem, provisionar contas ou publicar um serviço de jogadores.
+15/10/2026. **Concluída e publicada na main, com CI aprovada no escopo de desenvolvimento.** Base F4: `eaaeb9d283bd57a046cd0cabd2dd282aaa891e3b`. Escopo desta entrega: ambiente de desenvolvimento reproduzível, sem contratar hospedagem, provisionar contas ou publicar um serviço de jogadores.
 
 ## O que foi feito
 
@@ -43,10 +43,8 @@ Nenhuma decisão obrigatória do usuário para concluir a entrega técnica de de
 
 Próxima fase técnica recomendada: **F6 — comunidade**, com especificação de chat/moderação, guildas, PvP/rankings/eventos conforme roadmap; não iniciada nesta entrega. A ativação pública pode ser preparada em paralelo, sem contratar serviços sem autorização.
 
-## Publicação para revisão
+## Publicação e CI
 
-O envio direto à `main` foi bloqueado pela revisão automática, que exigiu autorização específica para alterar a branch padrão. A alternativa de publicar a implementação em branch separada também foi bloqueada pela revisão automática, exigindo autorização explícita para upload do conteúdo. A branch feat/phase5-authoritative-online foi criada na base F4, mas não contém a implementação F5; não há PR ou CI remota da F5. Publicação e integração à main dependem dessa autorização. O commit local completo é o resultado revisável. Isso não altera as evidências locais nem autoriza iniciar F6. A CI remota ainda não pôde executar; testes locais não são apresentados como CI.
+O bloqueio anterior de publicação foi resolvido pela autorização explícita do usuário em15/10/2026. Implementação integrada à main em [364384b](https://github.com/marmitero/projeto-akai/commit/364384b3313ddbc99b44d569b6c77d6424e2baa5). Árvore remota2d8eda31cfa54c219af3473e41dae9a8e6dc88f3 conferida como idêntica ao conteúdo revisado localmente.
 
-## Autorização posterior
-
-Em 15/10/2026 o usuário autorizou explicitamente a publicação e integração à main. A pendência de autorização acima é histórica e foi resolvida; publicação e CI estão sendo conferidas.
+[CI38792734890](https://github.com/marmitero/projeto-akai/actions/runs/38792734890): success, com PostgreSQL16 real, npm ci, testes/typecheck/builds/hashes, duas simulações e smokes de navegador local/online em desenvolvimento/produção. Esta atualização final registra os resultados e não modifica a implementação validada. Não há validação obrigatória do usuário agora; gates de ativação pública acima permanecem abertos. F6 não iniciada.
