@@ -19,7 +19,7 @@ Não presuma que algo está implementado porque existe um arquivo com nome suges
 
 1. O jogo será 2D, mobile-first, prioritariamente vertical, com suporte a navegadores desktop e mobile.
 2. A experiência deverá lembrar um jogo mobile de fantasia medieval, não um dashboard administrativo.
-3. A tela principal será dividida em três áreas de gameplay: combate RPG na parte superior, mineração por clique no meio e automações de recursos na parte inferior.
+3. O gameplay terá três telas independentes — Batalha, Mina e Produção — acessíveis por uma HUD inferior persistente, junto de Mochila, Loja e Mais. Apenas uma tela principal estará visível por vez; combate e produção continuam independentemente da tela aberta.
 4. O combate será automático. O jogador progride indiretamente por meio de melhorias, equipamentos, mascotes, habilidades e recursos.
 5. O ferro será o recurso central do início do jogo, obtido principalmente por cliques.
 6. As automações reduzirão gradualmente a dependência de cliques constantes.
@@ -75,10 +75,11 @@ Inspecione as seguintes famílias de assets:
 - `sprites/Backgrounds/`: fundos de cenários.
 - `sprites/Character/`: protagonista e personagens utilizáveis.
 - `sprites/Effects/`: efeitos de ataque, dano, buffs, debuffs e habilidades.
-- `sprites/Equipment/`: espadas, maças, machados, armas de duas mãos, peitorais, chapéus, luvas, botas, lanças, escudos, arcos e adagas.
+- `sprites/Equipments/`: espadas, maças, machados, armas de duas mãos, peitorais, chapéus, luvas, botas, lanças, escudos, arcos e adagas.
 - `sprites/Acessories/`: colares e anéis.
 - `sprites/Misc/`: poções, loot, encantamentos, runas e ferramentas.
 - `sprites/Assets/`: decoração dos cenários.
+- `sprites/Hud/`: molduras, abas, botões, barras e cursores; verificar recortes e estados antes de usar.
 - `sprites/Enemies/`: inimigos e suas variações.
 - `sprites/Boss/`: chefes.
 - `sprites/Mine/`: nós de mineração.
@@ -113,7 +114,7 @@ Não recorte ou reexporte os arquivos originais destrutivamente. Crie derivados 
 
 ## 3.3. Manifest oficial
 
-Crie `docs/art/ASSET_MANIFEST.md` e um índice legível por máquina, preferencialmente JSON, contendo os assets identificados e suas características.
+Mantenha `docs/Asset_Manifest.md`, `docs/Asset_Usage_Guide.md`, `docs/Visual_Catalog.md` e o índice técnico `docs/art/asset_inventory.json`. Esses arquivos são as referências canônicas da auditoria; não crie outro manifesto com nome ou capitalização diferente. Regenere o inventário com `python docs/tools/audit_assets.py` e revise os guias quando os assets mudarem. Não confunda varredura técnica completa com aprovação de todos os frames, licenças ou recortes.
 
 Cada entrada deverá possuir, conforme aplicável:
 
@@ -361,7 +362,10 @@ Crie:
 
 - `docs/UI_UX.md`
 - `docs/art/ART_BIBLE.md`
-- `docs/art/ASSET_MANIFEST.md`
+- `docs/Asset_Manifest.md`
+- `docs/Asset_Usage_Guide.md`
+- `docs/Visual_Catalog.md`
+- `docs/art/asset_inventory.json`
 - `docs/art/ASSET_LICENSES.md`
 
 ## 4.11. Qualidade e lançamento
@@ -553,72 +557,47 @@ Não crie uma página convencional com cabeçalho, cards de dashboard, menu late
 
 O jogador deve sentir que está jogando um RPG mobile.
 
-## 7.1. Divisão principal em três áreas
+## 7.1. Três telas independentes e HUD inferior persistente
 
-### Área superior — combate RPG
+Substitua integralmente o antigo layout empilhado de combate em cima, clicker no meio e automações embaixo. Não reproduza esse arranjo nem no desktop. A tela ativa ocupa a área útil entre a HUD superior compacta e a navegação inferior.
 
-Exibe:
+A HUD superior exibe identidade/retrato do rei e saldos essenciais, com acesso ao detalhamento dos recursos. A HUD inferior permanece visível em Batalha, Mina, Produção, Mochila e Loja, respeitando a safe area. Ordem: **Batalha | Mina | Produção | Mochila | Loja | Mais**. Use ícones reais e rótulos curtos; em dispositivos estreitos use uma faixa de seis alvos de pelo menos 44×44 CSS px, sem comprimir o texto. Em larguras insuficientes, mantenha Batalha, Mina e Produção fixos e agrupe Mochila/Loja em Mais, preservando acesso em um toque adicional.
 
-- Cenário atual.
-- Herói.
-- Inimigos.
-- Boss quando aplicável.
-- Barras de vida.
-- Dano visual.
-- Efeitos de ataque.
-- Animações de vitória e derrota.
-- Identificação do andar.
-- Temporizador apenas nos combates que possuírem limite.
-- Indicadores de recompensas e progressão.
+Batalha é a tela inicial. Mochila e Loja abrem telas dedicadas; Mais reúne Perfil, Equipamentos quando não estiverem na Mochila, Mascotes, Habilidades, Eventos, Mercado, Arena, Guilda, Rankings e Configurações conforme forem implementados/desbloqueados. Não apresente sistemas futuros como funcionais. A Loja do jogo e o Mercado entre jogadores continuam sendo sistemas distintos.
 
-A batalha será apresentada em perspectiva lateral 2D.
+Use `sprites/Hud/` para molduras, abas, barras e estados dos botões após mapear recortes. A espada de `Equipments` pode identificar Batalha; uma ferramenta visualmente verificada de `Misc/Tools` pode identificar Mina; o nó de carvão pode identificar Produção. Use `sprites/Misc/Tools/Icon290.png` (mochila) para Mochila e `sprites/Misc/Tools/Icon291.png` (maleta/baú) como símbolo proposto da Loja, sempre com rótulos. `sprites/Misc/Tools/Icon292.png` é uma picareta verificada para Mina. Esses usos são escolhas de interface baseadas na inspeção visual, não novas regras econômicas. A escolha final de ícones está em `Asset_Usage_Guide.md` e `Visual_Catalog.md`.
 
-O herói deverá atacar automaticamente, e os inimigos deverão reagir conforme suas regras de combate.
+**Produção** é o nome de navegação para as automações. O acervo oferece nós de carvão, ouro e jade e ícones de materiais, não uma família confirmada de máquinas industriais. Represente esta tela como gestão de minas automáticas, preservando o tema medieval e as regras econômicas existentes.
 
-### Área intermediária — clicker de ferro
+### Batalha
 
-Será o centro da interação inicial.
+Exibe cenário lateral 2D, herói, inimigos/boss, barras de vida, dano, efeitos de ataque, vitória/derrota, andar, ondas, recompensas e progresso. O temporizador aparece somente nos desafios com limite. Herói ataca automaticamente; oferecer pausar/retomar progressão e tentar novamente após derrota em boss. Não misture a cena de mineração nem a lista de minas automáticas neste viewport.
 
-Exibe:
+### Mina
 
-- Cena da mineração.
-- Nó de minério.
-- Contador de ferro.
-- Ganho por clique.
-- Efeitos de impacto.
-- Partículas de mineração.
-- Indicadores de bônus.
-- Melhorias de clique.
-- Evolução do nível de mineração.
+Tela dedicada ao clicker de ferro. Exibe chão da mina, `ironNode.png` ampliado com nearest-neighbor, contador de ferro, ganho por clique, bônus, nível de mineração e melhorias. Toque no nó gera impacto/partículas imediatos; no online, crédito depende do servidor. Não habilite cliques de mineração na tela de Produção nem credite outro minério apenas por selecionar seu desenho. Carvão, ouro e jade continuam sendo recursos de produção automática conforme as seções 11 e 12.
 
-Ao tocar no nó de ferro, o cliente apresenta imediatamente o feedback visual. No modo online, a recompensa somente será confirmada após validação do servidor.
+### Produção
 
-A interface deverá responder bem a toques rápidos sem bloquear a interação.
+Tela dedicada às minas automáticas de carvão, ouro e jade. Exibe nós correspondentes, recurso/s, nível, custo, melhoria, bloqueios e requisitos reais. Mostrar estados bloqueado, disponível, produzindo, compra pendente, saldo insuficiente e erro. Ouro continua exigindo carvão nível 50. Não crie nova automação de ferro ou nova receita apenas porque existe um sprite. Use uma lista ou seleção interna de minas, com área rolável acima da HUD; nenhum conteúdo deverá ficar escondido sob os botões.
 
-### Área inferior — automações
+### Ciclo de vida e estado compartilhado
 
-Apresenta as minas e automações desbloqueadas.
-
-Deverá permitir:
-
-- Ver produção por segundo.
-- Consultar nível.
-- Ver custo de evolução.
-- Comprar melhorias.
-- Consultar requisitos de desbloqueio.
-- Acompanhar a produção.
-- Identificar recursos insuficientes.
-- Alternar entre as minas quando o espaço visual for limitado.
-
-Utilize abas, painéis compactos, listas de máquinas ou uma combinação de componentes que mantenha a hierarquia visual.
-
-Não permita que a interface fique tão comprimida que os sprites e números se tornem ilegíveis.
+- Separar simulação de apresentação. Combate, produção, temporizadores, buffs e desbloqueios pertencem ao estado de domínio, não ao ciclo de vida da cena visual.
+- Ao navegar, suspender apenas renderização, partículas e áudio da cena oculta. Não reiniciar batalhas, ganhos, RNG, ondas, cooldowns ou assinaturas de rede.
+- Mineração manual só recebe input com Mina ativa e sem modal sobre o alvo. Autoclick autorizado continua conforme sua duração e regras, independentemente da tela ativa.
+- No online, servidor mantém resultados e produção; ao voltar, cliente sincroniza snapshot e eventos confirmados sem reemitir recompensas. No local, usar serviço de simulação compartilhado e reconciliar tempo conforme política offline, sem criar timers duplicados por visita.
+- Trocar de aba interna não é desconexão e não concede recompensa offline. Background do navegador/Android segue a política explícita de pausa e reconciliação; não depender de timers visuais funcionando em segundo plano.
+- Derrota de boss fora da Batalha mantém progressão pausada e coloca indicador discreto em Batalha. Tentativa só recomeça por ação explícita; não forçar navegação nem iniciar nova tentativa automaticamente.
+- Notificar recompensas/eventos sem cobrir o nó de mineração ou a navegação. Usar indicadores discretos e acessíveis; não interromper a tela atual.
+- Preservar seleção de mina, rolagem e filtros ao navegar. Somente a tela ativa captura toques; overlays bloqueiam o input abaixo e têm retorno claro à tela anterior.
+- Carregar o núcleo da HUD e a tela inicial; carregar demais packs por demanda, reutilizando texturas e liberando efeitos transitórios. Não carregar todo o acervo em memória.
 
 ## 7.2. Responsividade
 
 O layout vertical é a prioridade. No desktop, mantenha a composição vertical centralizada em uma área de jogo de proporção apropriada, usando o espaço extra sem transformar o jogo em um dashboard.
 
-O modo desktop poderá oferecer painéis complementares, desde que não prejudique a experiência mobile.
+O modo desktop poderá oferecer informações complementares da tela ativa, mantendo uma única atividade principal visível e a mesma navegação inferior; não recombinar as três telas em um painel empilhado.
 
 Implemente:
 
@@ -638,11 +617,11 @@ O jogo deverá continuar funcional em navegadores modernos de desktop e mobile.
 
 O ciclo principal deverá ser:
 
-1. O jogador observa a batalha automática.
+1. O jogador observa a batalha automática na tela Batalha.
 2. O herói derrota inimigos e ganha coins.
-3. O jogador minera ferro por clique.
+3. O jogador alterna para Mina e minera ferro por clique enquanto a batalha continua.
 4. O jogador compra melhorias com os recursos disponíveis.
-5. Minas e sistemas automatizados começam a produzir recursos adicionais.
+5. Na tela Produção, o jogador desbloqueia e melhora minas automáticas, que produzem recursos adicionais mesmo em outras telas.
 6. Os recursos fortalecem o herói, seus equipamentos e mascotes.
 7. O jogador avança por andares cada vez mais difíceis.
 8. Bosses impõem verificações periódicas de força e estratégia.
@@ -1566,6 +1545,12 @@ Cobertura mínima dos fluxos críticos:
 - As permissões de guilda são respeitadas.
 - A geração de brasões respeita limites.
 - Rankings não aceitam valores enviados pelo cliente.
+- Navegar Batalha → Mina → Produção → Batalha preserva andar, onda, vida, cooldowns e produção.
+- Visitar uma tela repetidamente não duplica timers, listeners, cliques, mensagens ou recompensas.
+- A cena oculta não recebe input; overlays bloqueiam mineração.
+- Derrota em boss fora da Batalha sinaliza o estado e exige nova tentativa manual.
+- A HUD e o conteúdo respeitam safe areas e os controles continuam acessíveis em telas estreitas.
+- Reabrir o app reconcilia o tempo apenas uma vez; navegar internamente não concede produção offline.
 - A reconexão recupera o estado válido.
 - O sistema suporta falhas de rede sem duplicar transações.
 
@@ -1606,7 +1591,7 @@ Entrega: cliente e servidor executáveis de forma independente.
 
 ## Fase 2 — Protótipo visual jogável
 
-- Construir o layout vertical.
+- Construir o layout vertical com Batalha, Mina e Produção independentes e HUD inferior persistente.
 - Integrar o protagonista.
 - Integrar inimigos.
 - Criar a cena de combate.
@@ -1614,9 +1599,9 @@ Entrega: cliente e servidor executáveis de forma independente.
 - Integrar os nós e ícones de recursos.
 - Criar feedback de clique.
 - Implementar uma primeira animação de combate.
-- Validar redimensionamento.
+- Validar redimensionamento, safe areas, navegação, preservação de estado e bloqueio de input das cenas ocultas.
 
-Entrega: uma tela de jogo visualmente convincente, ainda com economia limitada.
+Entrega: três telas de gameplay visualmente convincentes, navegáveis pela HUD inferior, ainda com economia limitada. Trocas de tela preservam simulação e estado.
 
 ## Fase 3 — Loop principal
 
