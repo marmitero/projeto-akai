@@ -57,6 +57,6 @@ A versão local não valida antiabuso/ledger do online. Ouro/jade, itens, pets e
 
 ## Incremento F4 — aceite local adicional
 
-MVP1–20/F3 permanece evidência histórica. F4 exige:categorias/slots/raridade reais, transações/Forja, capacidade/overflow, pet/minas avançadas e expiração precisa, migração2→3 e referências válidas,1.000 definições numericamente seguras e interface navegável.45 testes, smokes e simulações registrados em STAGE_04_REPORT. Soak próprio em execução antes do fechamento.
+MVP1–20/F3 permanece evidência histórica. F4 exige:categorias/slots/raridade reais, transações/Forja, capacidade/overflow, pet/minas avançadas e expiração precisa, migração2→3 e referências válidas,1.000 definições numericamente seguras e interface navegável.45 testes, smokes e simulações registrados em STAGE_04_REPORT. Soak próprio concluído: 30min reais (1801134ms), 1238 ciclos; 35 texturas/38 objetos constantes, 136–140 listeners sem acúmulo e heap após GC 7.06–8.33MiB após aquecimento. Média rAF por minuto 36.75–48.25 no stress de inventário cheio; zero pageerrors. Evidência em phase4-browser-soak.json. O aceite é local e limitado ao ambiente registrado.
 
 Não aceita automaticamente equilíbrio orgânico de1.000, rig/aparência por item, mais biomas/pets, áudio, autoridade online ou licença comercial. Limites não removem essas metas futuras. F5 continua não iniciada.

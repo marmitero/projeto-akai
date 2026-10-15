@@ -71,3 +71,18 @@ Fórmulas completas em RPG_SYSTEMS e content.ts. Inimigos1–20 preservados; XP/
 Não afirmar que o ritmo está equilibrado: XP acelerou a primeira fatia, que precisa de playtest humano. Até1.000 usam curvas polinomiais ancoradas, níveis e custos limitados. Fixture de nível/XP final e arma lendária+20 percorreu todos os encontros até1000, sem overflow, com8.388 golpes; prova numérica/agenda, não percurso orgânico nem tempo comercial prometido. Resultado em phase4-rpg-results.json.
 
 Custos de adoção/minas/tônicos/Forja adotados sem usar Ruby, versionados e testados por pré-condição/transação. Eventos sociais, anúncios, buffs pagos, XP premium e probabilidades de baús continuam desativados. Mudança posterior deve criar novo config/migração quando necessário, sem debitar retroativamente compras antigas.
+
+### Protocolo de playtest pendente
+
+Executar com perfil novo, sem fixtures/grants, registrando configVersion, tempo ativo/ausente, cliques observados, compras, XP, drops e tentativas de boss. Comparar sessões curtas com pausas naturais; cliques contínuos de simulação não substituem esse comportamento.
+
+| Cenário | Registrar / verificar |
+|---|---|
+| Começo até20 | Primeira melhoria, carvão, boss10/20; clareza de retry/treino e aceleração causada pelo XP |
+| Primeira Forja | Tempo até fabricar/equipar/aprimorar, ingredientes e diferença de poder percebida |
+| Faixas21–100/101–500/501–1000 | Paredes de dano/vida, custo versus renda, patamar de peça/nível e necessidade de repetição |
+| Ouro/jade/Musgo | Acesso a carvão50, custo de oportunidade, primeiro ganho útil e utilidade dos passivos |
+| Tônicos e ausência | Compreensão da duração/custo, expiração fora do app e resumo do crédito |
+| Mochila cheia | Filtro/equipados/reciclagem, mensagem de conversão em ferro e conforto em tela pequena |
+
+Registrar bloqueadores e tempos observados antes de propor metas/ajustes por faixa. A aprovação desse playtest e o equilíbrio comercial não foram presumidos nesta entrega. Ajustes rotineiros podem ser decididos pelo agente sob a governança vigente; cobrar do usuário somente decisões com impacto financeiro relevante ou mudança profunda de escopo.

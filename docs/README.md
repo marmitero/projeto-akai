@@ -1,6 +1,6 @@
 # Documentação do Projeto Akai
 
-Baseline de planejamento — 15/10/2026. **F1–F4 implementadas localmente; RPG, inventário/Forja/pet/minas e catálogo1.000. Validação final F4 em relatório próprio.** Leia [AI_STATE](../AI_STATE.md) antes de trabalhar. O usuário autorizou a próxima etapa em 15/10/2026. Comandos reais em [DEVELOPMENT](DEVELOPMENT.md); evidências atuais em [STAGE_03_REPORT](STAGE_03_REPORT.md).
+Baseline de planejamento — 15/10/2026. **F1–F4 implementadas localmente; RPG, inventário/Forja/pet/minas e catálogo1.000. F4 validada no escopo local; evidências em relatório próprio.** Leia [AI_STATE](../AI_STATE.md) antes de trabalhar. O usuário autorizou a próxima etapa em 15/10/2026. Comandos reais em [DEVELOPMENT](DEVELOPMENT.md); evidências atuais em [STAGE_04_REPORT](STAGE_04_REPORT.md).
 
 ## Ordem de leitura
 

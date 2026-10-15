@@ -1,6 +1,6 @@
 # Relatório da Fase4 — progressão RPG local
 
-15/10/2026. Base: `54c615a02357df3a122b8f6da17b43fcc55e66f0`. F3 revalidada; F4 implementada, em validação final. F5 não iniciada.
+15/10/2026. Base: `54c615a02357df3a122b8f6da17b43fcc55e66f0`. F3 revalidada; F4 concluída no escopo local. F5 não iniciada.
 
 ## O que foi feito
 
@@ -26,10 +26,10 @@ Relatório específico [STAGE_03_VALIDATION](STAGE_03_VALIDATION.md). Commit pub
 |Minas/buffs | Ouro exige carvão50; jade paga ingredientes; Musgo altera taxas;10.000 passos1ms equivalem ao intervalo único atravessando expiração |
 |Save | Migração2 ativa preserva batalha/recursos/níveis e resto×40.000;1→3/backup/corrupção/futuro/CAS; torre20 completa retoma21 |
 |Smokes dev/produção | Ambos passaram no código final; fluxos RPG completos, sem erros de página ou respostas de assets ausentes |
-|Sessão prolongada | Soak real30min em execução, Mochila cheia e ações repetidas; registrar somente ao terminar |
-|CI | Pipeline executa checks, duas simulações e smokes; resultado do commit publicado no [workflow](https://github.com/marmitero/projeto-akai/actions/workflows/check.yml) |
+|Sessão prolongada | 30min reais (1801134ms), 1238 ciclos; 35 texturas/38 objetos constantes, 136–140 listeners sem acúmulo e heap após GC 7.06–8.33MiB após aquecimento. Média rAF por minuto 36.75–48.25 no stress de inventário cheio; zero pageerrors. [Amostras/ambiente](phase4-browser-soak.json) |
+|CI | [CI38765678454](https://github.com/marmitero/projeto-akai/actions/runs/38765678454) success no commit de implementação 7d17b40: checks, duas simulações e smokes dev/produção passaram |
 
-Os smokes incluem50 ciclos,35 texturas/38 objetos,10 animações, mineração/input oculto/modal, movimento reduzido, menus/foco/tabs/scroll,320/360/390/768 e844×390 horizontal; fabricar/equipar/aprimorar/Musgo/ouro/jade/save/reload, boss deadline/treino, conclusão com Mina ativa, morte e asset ausente. Setup de estados difíceis usa snapshots locais válidos no teste, sem endpoint de grant no produto.
+Resultados dos smokes locais em [phase4-browser-smoke.json](phase4-browser-smoke.json). Os smokes incluem50 ciclos,35 texturas/38 objetos,10 animações, mineração/input oculto/modal, movimento reduzido, menus/foco/tabs/scroll,320/360/390/768 e844×390 horizontal; fabricar/equipar/aprimorar/Musgo/ouro/jade/save/reload, boss deadline/treino, conclusão com Mina ativa, morte e asset ausente. Setup de estados difíceis usa snapshots locais válidos no teste, sem endpoint de grant no produto.
 
 ## Simulações
 
@@ -49,7 +49,7 @@ Catálogo/curvas limitadas, caps locais, slots/afixos, overflow em ferro, Forja 
 
 ## Completude e pendências
 
-F4 funcionalmente implementada; encerrar a validação prolongada antes de concluir o relatório. Sem decisão obrigatória do usuário agora. Licenças/proveniência, playtest humano de ritmo e Android/WebGL em aparelho continuam antes da distribuição. Medição headless/software não comprova FPS de celular. Avisos conhecidos de chunk Phaser/Zod não impedem builds.
+F4 completa no escopo local autorizado; validação prolongada, smokes, simulações e CI da implementação concluídos. Sem decisão obrigatória do usuário agora. Licenças/proveniência, playtest humano de ritmo e Android/WebGL em aparelho continuam antes da distribuição. Medição headless/software não comprova FPS de celular. Avisos conhecidos de chunk Phaser/Zod não impedem builds.
 
 Limites explícitos: um bioma/família e um companheiro; aparência corporal-base não muda com ícones equipados; habilidades avançadas/recrutamento/mais pets e conteúdo artístico são expansões. Sem auth/banco/ledger/RNG servidor, marketplace, premium ou Ruby novos. Local não vira saldo online.
 

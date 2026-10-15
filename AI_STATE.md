@@ -1,6 +1,6 @@
 # AI_STATE — Projeto Akai
 
-15/10/2026. **F3 revalidada; F4 implementada, em validação final. F5 não iniciada.** Base remota desta etapa: `54c615a02357df3a122b8f6da17b43fcc55e66f0`.
+15/10/2026. **F3 revalidada; F4 concluída no escopo local. F5 não iniciada.** Base remota desta etapa: `54c615a02357df3a122b8f6da17b43fcc55e66f0`.
 
 ## Trabalho autorizado e governança
 
@@ -30,7 +30,7 @@ Vitalidade corrigida: só acrescenta HP atual se vivo; não ressuscita uma tenta
 
 ## Evidências atuais
 
-45 testes em6 arquivos, typecheck, hashes e builds passaram; smokes dev/produção passaram no código final. Catálogo1.000 validado; fixture de atributos finais atravessou toda a torre sem overflow. Sorteios200.000 por fonte:0,519% comum e9,9375% boss10, com bins de raridade exatos. Simulação1/3/5 cliques/s chega ao20 em575/538/538s com XP novo, sem afirmar ritmo humano. F3 histórica não foi sobrescrita. Soak real30min da F4 em execução; só afirmar conclusão após relatório próprio.
+45 testes em6 arquivos, typecheck, hashes e builds passaram; smokes dev/produção passaram no código final. Catálogo1.000 validado; fixture de atributos finais atravessou toda a torre sem overflow. Sorteios200.000 por fonte:0,519% comum e9,9375% boss10, com bins de raridade exatos. Simulação1/3/5 cliques/s chega ao20 em575/538/538s com XP novo, sem afirmar ritmo humano. F3 histórica não foi sobrescrita. 30min reais (1801134ms), 1238 ciclos; 35 texturas/38 objetos constantes, 136–140 listeners sem acúmulo e heap após GC 7.06–8.33MiB após aquecimento. Média rAF por minuto 36.75–48.25 no stress de inventário cheio; zero pageerrors. JSON em docs/phase4-browser-soak.json. [CI38765678454](https://github.com/marmitero/projeto-akai/actions/runs/38765678454) success no commit de implementação 7d17b40.
 
 Assets:24 derivados,37 originais diretos,66 originais únicos/90 arquivos/fontes verificados,278.153 bytes de autoria. Dois recortes Slime e15 ícones originais novos no catálogo; originais preservados, licenças não comprovadas.10 animações,35 texturas/38 objetos. Capturas finais e dados no relatório F4.
 

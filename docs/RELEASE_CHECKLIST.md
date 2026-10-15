@@ -56,4 +56,4 @@ Loop local1–20, carvão/offline, migração real/save e regressões testados; 
 
 ## Situação F4 — não é release público
 
-RPG local implementado/testado, catálogo1.000 e migrações/simulações; confirmar CI do commit publicado. Sem auth/banco/ledger/premium/anúncios. Licenças, jornada orgânica/playtest e aparelhos continuam necessários antes de distribuição. Não marcar checklist comercial pronta pela existência de equipamento/loja/guia ou simulação com fixture final.
+RPG local implementado/testado, catálogo1.000 e migrações/simulações, soak30min e smokes concluídos. [CI38765678454](https://github.com/marmitero/projeto-akai/actions/runs/38765678454) success no commit de implementação 7d17b40. Sem auth/banco/ledger/premium/anúncios. Licenças, jornada orgânica/playtest e aparelhos continuam necessários antes de distribuição. Não marcar checklist comercial pronta pela existência de equipamento/loja/guia ou simulação com fixture final.
