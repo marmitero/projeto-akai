@@ -86,3 +86,7 @@ Schema2 migra a versão publicada1 após validar checksum original. Save agrupa 
 content.ts define IDs/curvas/raridades/categorias, rpg-schema.ts valida estado/comandos, rpg.ts resolve itens/transações/XP/drops e loop.ts aplica combate/minas. LocalSession aplica comandos tipados a drafts, valida e confirma estado inteiro. Produção integra buffs por intervalos com BigInt/remainder; renderer não participa de grants.
 
 UI RPG tem estrutura estática e um handler delegado; não cria listeners por item ou por visita. Lista é refeita só quando inventário/equipados/filtro mudam; custos/botões se atualizam sem reconstruir toda a Forja a cada tick. Filtro/tabs são apresentação; itens, XP, pet e buffs são persistidos. Um sprite Musgo é reutilizado,10 animações/35 texturas/38 objetos. F5 deverá fornecer autoridade de servidor; reutilizar regra pura não torna saldo local confiável.
+
+## Atualização F6 — 15/10/2026
+
+F6 acrescenta CommunityService/CommunityEvents e migração002. Lock transacional41652006 coordena mudanças sociais e scheduler; locks de contas daF5 protegem recursos e ledger. Comandos, claims e auditoria persistidos; snapshots de comunidade por polling2s somente na área visível, mantendo sessão online/WebSocket e torre/minas separados. Calendário Intl America/Sao_Paulo, presença por intervalos confiáveis e snapshot competitivo sem tônico. Perfil local não recebe fake backend social. Desenho é piloto limitado, sem prova de escala: COMMUNITY_SYSTEMS/ADR-010.

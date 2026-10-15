@@ -102,3 +102,7 @@ Limites iniciais propostos para testes: payload HTTP 16 KB em comandos comuns, c
 ## Evolução e contrato
 
 Mudança compatível adiciona campo opcional; mudança de significado/tipo exige nova versão ou negociação. Clientes incompatíveis recebem UPDATE_REQUIRED. Não emitir preços/configurações futuras ao cliente como se fossem catálogo ativo. Testes de contrato devem verificar schema, erro, auth, idempotência e perda/reordenação de eventos. Nenhum teste de API foi executado nesta entrega documental.
+
+## Atualização F6 — 15/10/2026
+
+F6 instala GET /api/v1/community e POST /api/v1/community/commands sob os mesmos cookies/Origin/header da F5. Envelope {commandId,action}, schemas strict em shared/community.ts, sem expectedVersion global: seleção/vagas/permissões são revalidadas sob lock social. CommunityResult retorna commandId/status/code; recusas persistem para retries, conteúdo alterado com mesmo UUID409. Ações: profile,chat,block,report,guild.create/invite/accept/leave/role/emblem/upgrade,arena,boss(join/leave),raid,war.enroll/attack. Snapshot inclui chat permitido, vínculo/convites, arena/matches, eventos, rankings, arquivos e recompensas, sem segredos ou RNG. Rotas de moderação/iniciar evento não existem para jogadores; CLI operacional separada. Limites/eligibilidade em COMMUNITY_SYSTEMS; blueprint social antigo acima não é lista de outras rotas instaladas.

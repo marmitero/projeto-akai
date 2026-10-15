@@ -94,3 +94,7 @@ F5 acrescenta modo online explícito. Execução, migração separada, banco de 
 ## Iniciador Windows
 
 jogar.bat na raiz prepara o runtime e abre o modo local em127.0.0.1:5173, independentemente de .env online. Sem banco externo; instalação portátil sem administrador. Uso, cache, salvamento e diagnóstico em [LOCAL_PREVIEW](LOCAL_PREVIEW.md). CI dedicada exercita BAT/PowerShell no Windows com instalação limpa e diretório com espaços.
+
+## Atualização F6 — 15/10/2026
+
+Servidor atualizado: executar npm run db:migrate -w @akai/server; npm run dev:server e VITE_GAME_MODE=online npm run dev:client. Mais→Comunidade abre os sistemas reais do servidor; jogar.bat permanece local. npm run test:community exige TEST_DATABASE_URL para as integrações; sem esse env são puladas explicitamente. npm run test:browser:community e :preview exigem DBisolado/Chromium e build correto. CLI community:admin e configurações em COMMUNITY_SYSTEMS; não há admin no frontend.

@@ -27,7 +27,10 @@
     "simulate:rpg": "npm run build:shared && node scripts/simulate-rpg.mjs",
     "test:online": "npm run build:shared && vitest run apps/server/src/online.test.ts apps/server/src/google.test.ts",
     "test:browser:online": "npm run build && node scripts/smoke-online.mjs",
-    "test:browser:online:preview": "VITE_GAME_MODE=online npm run build && node scripts/smoke-online.mjs --preview"
+    "test:browser:online:preview": "VITE_GAME_MODE=online npm run build && node scripts/smoke-online.mjs --preview",
+    "test:community": "npm run build:shared && vitest run apps/server/src/community.test.ts",
+    "test:browser:community": "npm run build && node scripts/smoke-community.mjs",
+    "test:browser:community:preview": "VITE_GAME_MODE=online npm run build && node scripts/smoke-community.mjs --preview"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

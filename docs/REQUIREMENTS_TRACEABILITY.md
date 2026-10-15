@@ -44,3 +44,14 @@ F4:RPG-01 implementado localmente em14 categorias/9 slots/raridades/afixos/drops
 | Persistência e efeito único | database.ts,001_online.sql | PostgreSQL real,100replays, versões concorrentes, rollback e ledger |
 | Reconexão | /state, /events, /stream e cliente | Resposta perdida, mesmo UUID, restart, cookie/revogação |
 | Operação | Compose, health, migração e reconciliação | Build/CI; implantação pública/OAuth real pendentes |
+
+## Evidência implementada F6
+
+| Requisito | Implementação | Verificação |
+|---|---|---|
+| Chat e moderação | community.ts/ui/community.ts/community-admin.ts | LiteralXSS,bloqueio,denúncia,muteCLI,semrotaadmin |
+| Guildas/brasões | schemas/actions/migração002 | Roles,convites,vaga concorrente,limites,paleta e persistência |
+| Arena/rankings | community-domain.ts/service | Cinco reais,stats,match único,posições/troféus/cooldown/24h |
+| Temporadas | community-events.ts | CalendárioBrasília,arquivo,prêmio único,bônus expira |
+| Boss/relâmpagos/guerra | scheduler/claims/ledger | Últimogolpe,presença,loteria,raid,roster e rollback |
+| Integração | smoke-community.mjs | Dev/produção,dois perfis,UI/reload/responsividade |

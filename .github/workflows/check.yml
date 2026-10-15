@@ -5,7 +5,7 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     services:
       postgres:
         image: postgres:16
@@ -56,5 +56,7 @@ jobs:
       - run: npm run test:browser
       - run: node scripts/smoke-browser.mjs --preview
       - run: node scripts/smoke-online.mjs
+      - run: node scripts/smoke-community.mjs
       - run: VITE_GAME_MODE=online npm run build
       - run: node scripts/smoke-online.mjs --preview
+      - run: node scripts/smoke-community.mjs --preview

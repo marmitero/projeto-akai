@@ -124,6 +124,7 @@ export function advanceCombat(
   delta: number,
   wallStart = s.lastReconciledAt,
   random?: (max: number) => number,
+  xpBp = 10000,
 ): void {
   if (!Number.isSafeInteger(delta) || delta < 0) throw Error("INVALID_DELTA");
   const b = s.battle,
@@ -186,7 +187,7 @@ export function advanceCombat(
         );
         if (target.hp === 0) {
           addResource(s, "coin", BigInt(floorStats(b.floor).coin) * 1000n);
-          awardRpgDeath(s, b.floor, floorStats(b.floor).boss, random);
+          awardRpgDeath(s, b.floor, floorStats(b.floor).boss, random, xpBp);
           s.tutorial.victory = true;
         }
       }

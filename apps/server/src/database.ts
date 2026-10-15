@@ -15,9 +15,14 @@ export class Database {
       new URL("../migrations/001_online.sql", import.meta.url),
       "utf8",
     );
+    const community = await readFile(
+      new URL("../migrations/002_community.sql", import.meta.url),
+      "utf8",
+    );
     await this.transaction(async (c) => {
       await c.query("SELECT pg_advisory_xact_lock(41652001)");
       await c.query(sql);
+      await c.query(community);
     });
   }
   async transaction<T>(fn: (c: PoolClient) => Promise<T>): Promise<T> {

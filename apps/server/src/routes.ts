@@ -1,5 +1,6 @@
 import type { FastifyInstance, FastifyRequest } from "fastify";
 import { z } from "zod";
+import { communityRoutes } from "./community-routes.js";
 import type { ServerConfig } from "./config.js";
 import { OnlineError, type OnlineService } from "./online.js";
 import {
@@ -41,6 +42,7 @@ export async function onlineRoutes(
       throw new OnlineError("ORIGIN_REJECTED", 403);
     await service.authLimit(`http:${req.ip}`, 600);
   });
+  await communityRoutes(app, service);
   const cookie = (token: string) =>
     `akai_session=${token}; Path=/api/v1; HttpOnly; SameSite=Strict; Max-Age=604800${config.COOKIE_SECURE ? "; Secure" : ""}`;
   app.post("/api/v1/auth/guest", async (req, reply) => {

@@ -2,7 +2,7 @@
 
 RPG idle clicker 2D mobile-first, planejado para navegador e futura versão Android. Combina batalha automática, mineração ativa e minas de produção em três telas independentes com navegação inferior.
 
-**Estado atual: F1–F4 locais e F5 online implementadas no escopo de desenvolvimento.** Batalha/minas, RPG/Forja/Musgo e catálogo de1.000 andares; servidor autoritativo com PostgreSQL, convidado recuperável, Google opcional, ledger e reconexão. Perfil local continua padrão; não há deploy público ou pagamento ativo. `npm ci`, `npm run check`, `npm run dev:client`. [Execução online](docs/ONLINE.md), [relatório F5](docs/STAGE_05_REPORT.md), [documentação](docs/README.md).
+**Estado atual: F1–F4 locais, F5 online e F6 comunidade implementadas em desenvolvimento.** Mais→Comunidade no modo online: chat, guildas/brasões, arena, rankings/temporadas e eventos. F6 validada localmente; publicação/CI remota pendentes. Perfil local/jogar.bat continuam separados. Sem deploy público ou pagamentos. [Comunidade](docs/COMMUNITY_SYSTEMS.md), [relatório F6](docs/STAGE_06_REPORT.md), [documentação](docs/README.md).
 
 Comece pelo [AI_STATE](AI_STATE.md) e pelo [índice da documentação](docs/README.md). As regras do produto estão na [Constituição](docs/00-CONSTITUICAO.md) e no [GDD](docs/GDD.md); sequência de entregas no [Roadmap](docs/ROADMAP.md).
 

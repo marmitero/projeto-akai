@@ -1,4 +1,5 @@
 import "./style.css";
+import { createCommunityUI } from "./ui/community.js";
 import {
   OnlineSession,
   onlineBootstrap,
@@ -76,7 +77,7 @@ async function boot(): Promise<void> {
   snapshot = session.getSnapshot();
   if (online) {
     document.querySelector(".preview-strip")!.textContent =
-      "ONLINE · Fase 5 · estado e recompensas confirmados pelo servidor";
+      "ONLINE · Fase 6 · estado e recompensas confirmados pelo servidor";
     document.querySelector(".identity small")!.firstChild!.textContent =
       "Online · ";
     saveButton.textContent = "Sincronizar";
@@ -94,6 +95,7 @@ async function boot(): Promise<void> {
       () => {},
     );
   }
+  const communityUI = createCommunityUI(root!, online);
   let route: Route = snapshot.screen;
   const scroll = new Map<Route, number>();
   const content = document.querySelector<HTMLElement>("#content")!;
@@ -115,6 +117,9 @@ async function boot(): Promise<void> {
   function renderRoute(next: Route): void {
     scroll.set(route, content.scrollTop);
     route = next;
+    communityUI.show(next === "community");
+    document.querySelector<HTMLElement>("#tutorial")!.hidden = next === "community";
+    document.querySelector<HTMLElement>("#action-status")!.hidden = next === "community";
     const info = routeLabels[next];
     document.querySelector("#page-title")!.textContent = info.title;
     document.querySelector("#page-kicker")!.textContent = info.kicker;
@@ -377,7 +382,7 @@ async function boot(): Promise<void> {
     if (
       event.key === "Escape" &&
       !dialog.open &&
-      (route === "bag" || route === "shop")
+      (route === "bag" || route === "shop" || route === "community")
     ) {
       navigate(session.getSnapshot().screen);
       event.preventDefault();
@@ -399,7 +404,9 @@ async function boot(): Promise<void> {
     dialog.close();
   }
   listen(dialog, "close", () => {
-    visual.setOverlay(route === "bag" || route === "shop");
+    visual.setOverlay(
+      route === "bag" || route === "shop" || route === "community",
+    );
     returnFocus?.focus();
   });
   listen(dialog, "click", (event: MouseEvent) => {
@@ -430,7 +437,7 @@ async function boot(): Promise<void> {
   ))
     listen(button, "click", () => {
       closeDialog();
-      navigate(button.dataset["shortcut"] as "bag" | "shop");
+      navigate(button.dataset["shortcut"] as "bag" | "shop" | "community");
     });
   listen(mineTarget, "click", () => {
     if (
@@ -537,6 +544,7 @@ async function boot(): Promise<void> {
     unsubscribe();
     session.dispose();
     rpgUI.destroy();
+    communityUI.destroy();
     repository?.close();
     visual.destroy();
   });

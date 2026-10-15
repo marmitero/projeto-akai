@@ -90,3 +90,7 @@ Migração confere SHA antes de reorganizar propriedades. Schema2 ativo mantém 
 ## Atualização F5 — 15/10/2026
 
 F5 implementa o modelo físico em apps/server/migrations/001_online.sql: accounts, sessions, commands, ledger, events, auth_limits, nonces e streams. Snapshot de domínio validado guarda itens e progresso, sem aceitar importação local. Ledger e eventos são append-only; gravação sob lock de conta com duas versões. Novas tabelas não são um banco provisionado. Especificação atual em [ONLINE](ONLINE.md).
+
+## Atualização F6 — 15/10/2026
+
+Migração002 adiciona profiles,guilds,members,invites,chat,blocks,reports,seasons,arena,matches,guild_scores,bosses,boss_members,xp_windows,presence,lotteries,raids,social_rewards,social_commands,social_audit,war_enrollments,wars,war_attacks. Índices/constraints incluem apelido/guilda únicos, um vínculo por conta e posição única diferível por temporada. Claims por fonte/conta, idempotência por conta/UUID; histórico social/recompensas append-only. Roster/duelos/arquivos são snapshots calculados no servidor. Schema local continua3; migração001→002 testada preservando conta/sessão/snapshot. Executar migração antes do servidor novo; db:reconcile inclui Ruby. Detalhes em COMMUNITY_SYSTEMS.

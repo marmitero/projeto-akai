@@ -82,3 +82,7 @@ A simulação de percurso completo com atributos finais prova agenda/limites, n�
 ## Atualização F5 — 15/10/2026
 
 F5 adiciona modo online isolado: contas começam do zero, mesmas regras RPG da configuração local-rpg-1, com tempo/custos/RNG determinados pelo servidor. Combate conserva até3s de presença após queda abrupta; depois só minas até8h e prazo do boss. Navegação interna continua sem pausar o domínio. [ONLINE](ONLINE.md) detalha regras técnicas e limitações. Social, loja premium e mercado não foram ativados.
+
+## Atualização F6 — 15/10/2026
+
+F6 implementa chat/guildas/brasões/arena/rankings/temporadas/boss diário e eventos relâmpago/guerra em desenvolvimento. Regras adotadas atualizam as propostas acima: capacidade20–38, força10ATQ+HP+20DEF, empate favorece defesa, troca de posições, janelas/calendário/recompensas e papéis definidos em COMMUNITY_SYSTEMS/ADR-010. Valores são experimentais e testados tecnicamente, sem alegar equilíbrio humano ou publicação pública. Sem bots, merge de saldo local, pagamentos ou mercado.

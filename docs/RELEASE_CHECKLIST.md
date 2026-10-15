@@ -57,3 +57,7 @@ Loop local1–20, carvão/offline, migração real/save e regressões testados; 
 ## Situação F4 — não é release público
 
 RPG local implementado/testado, catálogo1.000 e migrações/simulações, soak30min e smokes concluídos. [CI38765678454](https://github.com/marmitero/projeto-akai/actions/runs/38765678454) success no commit de implementação 7d17b40. Sem auth/banco/ledger/premium/anúncios. Licenças, jornada orgânica/playtest e aparelhos continuam necessários antes de distribuição. Não marcar checklist comercial pronta pela existência de equipamento/loja/guia ou simulação com fixture final.
+
+## Atualização F6 — 15/10/2026
+
+Entrega técnica F6 não fecha release pública. Chat/denúncia/roles/duelos/calendários/grants testados em desenvolvimento; ainda faltam moderação humana e políticas, configuraçãoGoogle real, privacidade/exclusão/retencão, alertas/backup/restore/carga/aparelhos e licenças antes da distribuição. Validações antigas/fixtures não comprovam balanceamento humano ou escala comercial.

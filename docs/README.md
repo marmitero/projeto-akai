@@ -1,6 +1,6 @@
 # Documentação do Projeto Akai
 
-Baseline de planejamento — 15/10/2026. **F1–F4 locais; F5 online implementada no escopo de desenvolvimento, sem deploy público.** Leia [AI_STATE](../AI_STATE.md) antes de trabalhar. O usuário autorizou a próxima etapa em 15/10/2026. Comandos reais em [DEVELOPMENT](DEVELOPMENT.md); evidências atuais em [STAGE_05_REPORT](STAGE_05_REPORT.md).
+Baseline de planejamento — 15/10/2026. **F1–F4 locais; F5 online e F6 comunidade implementadas em desenvolvimento, sem deploy público. F6 com publicação/CI pendentes.** Leia [AI_STATE](../AI_STATE.md) antes de trabalhar. O usuário autorizou a próxima etapa em 15/10/2026. Comandos reais em [DEVELOPMENT](DEVELOPMENT.md); evidências atuais em [STAGE_06_REPORT](STAGE_06_REPORT.md).
 
 ## Ordem de leitura
 
@@ -25,9 +25,9 @@ AI_STATE é canônico na raiz; não criar cópias AI_State/AI_STATE em docs com 
 
 ## Como interpretar o estado
 
-“Regra aprovada” reproduz Master Prompt/pedido explícito; “proposto” detalha uma escolha a validar; “experimental” identifica parâmetros locais sujeitos a playtest; “implementado” exige código/teste e evidência — combate/economia local já têm evidência de F3; online tem implementação F5; social/premium continuam futuros. Documentos online/social/premium especificam preparação e gates, não serviços disponíveis.
+“Regra aprovada” reproduz Master Prompt/pedido explícito; “proposto” detalha uma escolha a validar; “experimental” identifica parâmetros locais sujeitos a playtest; “implementado” exige código/teste e evidência — combate/economia local já têm evidência de F3; online tem implementação F5; comunidade tem implementação F6; mercado/premium continuam futuros. Documentos online/social/premium especificam preparação e gates, não serviços disponíveis.
 
-[ONLINE](ONLINE.md) e API descrevem o online instalado; social/premium permanecem desenhos futuros. F1–F5 têm implementação em seus escopos; F6–F10 são futuras. O acervo foi inventariado tecnicamente; licenças e mapeamento visual de todos os frames não estão concluídos. Não confundir esses tipos de conclusão.
+[ONLINE](ONLINE.md) e API descrevem o online instalado; comunidade em [COMMUNITY_SYSTEMS](COMMUNITY_SYSTEMS.md); mercado/premium permanecem desenhos futuros. F1–F6 têm implementação em seus escopos; F7–F10 são futuras. O acervo foi inventariado tecnicamente; licenças e mapeamento visual de todos os frames não estão concluídos. Não confundir esses tipos de conclusão.
 
 ## Manutenção
 
@@ -46,3 +46,5 @@ F4:[sistemas RPG](RPG_SYSTEMS.md),[ADR-008](ADR/0008-local-rpg.md),[validação 
 F5: [execução e segurança online](ONLINE.md), [ADR-009](ADR/0009-authoritative-online.md), [relatório F5](STAGE_05_REPORT.md).
 
 Preview Windows: [LOCAL_PREVIEW](LOCAL_PREVIEW.md) e jogar.bat na raiz.
+
+F6: [sistemas de comunidade](COMMUNITY_SYSTEMS.md), [ADR-010](ADR/0010-community-authority.md), [relatório F6](STAGE_06_REPORT.md).

@@ -36,3 +36,7 @@ RBAC específico, autenticação forte, ações auditadas com motivo e escopo m�
 ## Atualização F5 — 15/10/2026
 
 F5 fornece Compose PostgreSQL16 de desenvolvimento, db:migrate separado do startup, health com dependência real do banco e db:reconcile sem correção silenciosa. Fluxos/restart testáveis em [ONLINE](ONLINE.md). Não há deploy, SLA, backup externo ou alertas configurados. Preparar staging privado antes do público; migração por owner e runtime sem DDL. Em discrepância do ledger, interromper serviço econômico e preservar evidências. Não remover comandos antigos para liberar espaço sem política de idempotência.
+
+## Atualização F6 — 15/10/2026
+
+F6 requer db:migrate para002antes de iniciar. Worker2s e leituras/comandos avançam edições sob lock no banco; múltiplas instâncias/restarts não duplicam grants. Moderação e debug só por CLI com operador/motivo/credencial operacional. Start-boss exige AKAI_COMMUNITY_DEBUG=1 e NODE_ENV não production, apenas edição ainda agendada sem inscritos. Em falha SQL, transação reverte e próximo tick reavalia; configurar alertas antes de público. Planejar retenção da presença/chat/denúncias, sem apagar claims/idempotências. Carga/backup/restore e permissões devem contemplar tabelas sociais. Não foi provisionada infraestrutura externa.

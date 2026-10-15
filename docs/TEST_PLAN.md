@@ -63,3 +63,7 @@ Soak F4 separado do arquivo F3,30min reais no build preview5185,120 peças/recic
 ## Atualização F5 — 15/10/2026
 
 F5 acrescenta integração PostgreSQL opcional local e obrigatória na CI, testes de JWT assinado e smokes online dev/produção. Abrange100 replays concorrentes, versões, abuso, IDOR, rollback após falha de persistência, deadlines/offline, craft/equip/enhance, ledger, recuperação/revogação e restart com resposta perdida. Os testes sem TEST_DATABASE_URL não validam persistência online. Evidências e limites em STAGE_05_REPORT. Nenhum novo soak30min foi exigido/alegado para esta fase; os soaks F3/F4 continuam históricos.
+
+## Atualização F6 — 15/10/2026
+
+F6 soma28casos aos66anteriores: regras de calendário/duelo e26integrações PostgreSQL, incluindo concorrência, permissão/chat privado, bloqueio/mute/denúncia, roles/vagas, fonte de dano confiável, rollover, loteria/raid/restart/rollback, limites e migração real001→002. Smoke-community emdev/produção com2contas semeadas no banco isolado, sem confundí-las com jornada humana: textoXSSliteral, convite/aceite, emblema persistido, chat privado, arena/boss, recarga,30ciclos e320/390/768px. Workflows preparados para repetir emPostgreSQL16; resultado remoto só afirmar após publicar/consultar. Não houve novo soak30min ou carga comercial.

@@ -1,6 +1,6 @@
 import { assets, installAssetStyles } from "../assets/catalog.js";
 import type { Screen } from "@akai/shared";
-export type Route = Screen | "bag" | "shop";
+export type Route = Screen | "bag" | "shop" | "community";
 const icon = (key: keyof typeof assets, className = ""): string =>
   `<img class="sprite ${className}" src="${assets[key]}" alt="" draggable="false">`;
 function upgradeCard(kind: string, title: string): string {
@@ -42,6 +42,7 @@ export function createShell(root: HTMLElement): void {
       </div>
     </section>
     <section data-pane="bag" class="extra-page" hidden><div id="rpg-root"></div></section>
+    <section data-pane="community" class="extra-page" hidden><div id="community-root"></div></section>
     <section data-pane="shop" class="extra-page" hidden><div class="empty-state panel">${icon("shop", "large-icon")}<h2>O mercador ainda está a caminho</h2><p>A loja está indisponível nesta fase. Não há produtos, preços ou compras ativas.</p></div></section>
   </main>
   <nav class="bottom-hud" aria-label="Menu principal">
@@ -54,6 +55,7 @@ export function createShell(root: HTMLElement): void {
   </nav>
   <dialog id="menu-dialog" aria-labelledby="dialog-title"><div class="dialog-panel panel"><div class="dialog-heading"><h2 id="dialog-title">Seu reino</h2><button id="close-dialog" class="close-button" aria-label="Fechar menu">${icon("close")}</button></div>
     <div id="dialog-menu"><div class="shortcut-row"><button data-shortcut="bag">${icon("bag")}Mochila</button><button data-shortcut="shop">${icon("shop")}Loja</button></div>
+    <button data-shortcut="community">Comunidade</button>
     <h3 id="profile-heading">Perfil local de teste</h3><p class="body-copy">O retrato do rei ainda não foi definido. Seu perfil local é salvo somente neste navegador.</p>
     <label class="motion-setting"><input id="reduce-motion" type="checkbox"> Reduzir movimento e efeitos</label>
     <div class="save-actions"><button id="save" disabled>Salvar perfil local</button><button id="recover" hidden>Restaurar cópia anterior</button></div>
@@ -112,6 +114,13 @@ export const routeLabels: Record<
     title: "Mochila",
     kicker: "SEU EQUIPAMENTO",
     badge: "Equipamento e Forja",
+    caption: "",
+    description: "",
+  },
+  community: {
+    title: "Comunidade",
+    kicker: "O REINO",
+    badge: "Online",
     caption: "",
     description: "",
   },

@@ -198,10 +198,17 @@ export function awardRpgDeath(
   floor: number,
   boss: boolean,
   random: (max: number) => number = (max) => nextRandom(s) % max,
+  xpBp = 10000,
 ): void {
   const r = s.rpg;
-  r.heroXp = Math.min(Number.MAX_SAFE_INTEGER, r.heroXp + floor * 10);
-  r.accountXp = Math.min(Number.MAX_SAFE_INTEGER, r.accountXp + floor * 2);
+  r.heroXp = Math.min(
+    Number.MAX_SAFE_INTEGER,
+    r.heroXp + Math.floor((floor * 10 * xpBp) / 10000),
+  );
+  r.accountXp = Math.min(
+    Number.MAX_SAFE_INTEGER,
+    r.accountXp + Math.floor((floor * 2 * xpBp) / 10000),
+  );
   const chance = boss
     ? Math.min(
         CONTENT.dropBossCapBp,

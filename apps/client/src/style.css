@@ -908,3 +908,37 @@ progress {
 .pet-card > img {
   height: 64px;
 }
+
+.community-tabs { display:flex; flex-wrap:wrap; gap:.4rem; margin-block:1rem; }
+.community-tabs button { flex:1 1 80px; }
+.community-form { display:grid; gap:.6rem; padding:1rem; margin-block:1rem; }
+.community-form label { display:grid; gap:.4rem; }
+.community-form input { width:100%; min-width:0; padding:.65rem; color:inherit; background:#211b2e; border:1px solid #cba44b; }
+#community-id,.chat-message,.chat-message p,#community-guild p { overflow-wrap:anywhere; }
+.chat-list { max-height:24rem; overflow-y:auto; padding:.75rem; }
+.chat-message { padding:.6rem 0; border-bottom:1px solid #735582; }
+.chat-message button { margin-right:.5rem; }
+.guild-emblem { display:inline-grid; grid-template-columns:repeat(16,2px); width:32px; height:32px; vertical-align:middle; margin-right:.5rem; }
+.guild-emblem i { display:block; width:2px; height:2px; }
+.emblem-editor { display:grid; grid-template-columns:repeat(16,minmax(0,1fr)); max-width:320px; margin:1rem auto; }
+.emblem-editor button { padding:0; min-height:0; aspect-ratio:1; border:1px solid #494052; border-radius:0; }
+#community-root article.panel { margin-block:1rem; padding:1rem; }
+#community-root progress { width:100%; }
+/* Community controls use the same curated sprite frames as the RPG menus. */
+#community-root button,
+[data-shortcut="community"] {
+  border: 7px solid transparent;
+  border-image: var(--asset-button) 7 12 fill / 7px stretch;
+  image-rendering: pixelated;
+  background: none;
+  color: #ead5a9;
+  padding: 7px 10px;
+  min-height: 44px;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+}
+#community-root button:active,
+#community-root button[aria-pressed="true"] { border-image-source: var(--asset-buttonPressed); }
+#community-root .emblem-editor button { border-image:none; border:1px solid #494052; padding:0; min-height:0; aspect-ratio:1; }
+#community-root .community-profile-details { padding:0 12px; }
+#community-id { font-size:11px; line-height:1.6; overflow-wrap:anywhere; }

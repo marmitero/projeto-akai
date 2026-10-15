@@ -64,3 +64,7 @@ Custos experimentais adotados pelo agente em RPG_SYSTEMS: Forja, ferro fundido, 
 Ouro exige carvão50; jade paga ferro/ouro/carvão/Coin. Passivos de equipamento/Musgo e tônico de produção integram somente o prazo válido. Resto por mina usa denominador40.000.000; migração do resto F3 multiplica40.000, sem perder fração. Ganhos manuais arredondam para baixo na unidade mínima; atributos aprimorados para cima.
 
 Inventário cheio converte drop em10×nível ferros, sem fila ilimitada; não pode fabricar cheio nem reciclar equipado. Aprimorar não rerrola atributos e reciclar não devolve seus custos. Equipe/desequipe não cura. XP muda poder e circulação de Coin; simulações locais versionadas não substituem monitoramento/ledger da F5 nem playtest comercial.
+
+## Atualização F6 — 15/10/2026
+
+F6 acrescenta custos virtuais de guilda500Coins/evolução1000×nível, prêmios experimentais de arena/guildas/boss/guerra, baú de raid e100Rubies da loteria prevista no prompt. Rubies online podem ser creditados somente pelo servidor na edição única elegível; não há compra, conversão monetária ou negociação. Ledger/outbox/claims atômicos e reconciliação testados; parâmetros/tabelas/limites em COMMUNITY_SYSTEMS. Não foram contratados serviços ou definidos preços reais.

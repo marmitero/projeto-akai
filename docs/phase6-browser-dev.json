@@ -1,0 +1,19 @@
+{
+  "mode": "development",
+  "passed": true,
+  "fixture": "Two server-seeded test accounts; not a human progression playtest.",
+  "checks": [
+    "chat-literal-XSS",
+    "guild-create-invite-join",
+    "emblem-persisted",
+    "private-chat",
+    "arena-result",
+    "boss-auto-damage-and-leave",
+    "reload",
+    "30-navigation-cycles",
+    "widths-320-390-768"
+  ],
+  "domBefore": 1182,
+  "domAfter": 1182,
+  "pageErrors": []
+}

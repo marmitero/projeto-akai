@@ -1,42 +1,39 @@
 # AI_STATE — Projeto Akai
 
-15/10/2026. **F1–F4 preservadas; F5 concluída no escopo de desenvolvimento. F6 não iniciada.** Base desta etapa: main `eaaeb9d283bd57a046cd0cabd2dd282aaa891e3b`.
+15/10/2026. **F1–F5 e iniciador Windows preservados; F6 implementada e validada em desenvolvimento. Publicação F6 bloqueada pela revisão automática; CI remota pendente. F7 não iniciada.** Base remota desta entrega:1dd97b6f8628198a9cb8de842f669ee683cec7df.
 
 ## Autorização e governança
 
-Usuário autorizou prosseguir F5. Resolver escolhas técnicas/reversíveis sem consulta; gastos relevantes, alterações profundas e atos do titular exigem participação somente quando necessários. Ao encerrar: feito, completude/faltas, decisões, validações e próximo passo; atualizar documentos. Não antecipar F6 nesta entrega. Nenhum serviço foi contratado/publicado.
+Usuário pediu prosseguir F6. Resolver escolhas técnicas/reversíveis sem consultas; reservar gastos relevantes, alterações profundas e atos do titular. Encerrar com feito, completude/faltas, decisões, pendências e próximo passo. Atualizar docs por etapa. Não antecipar F7, contratar serviços ou abrir produção pública.
 
-## Estado implementado
+## Implementado
 
-Local F4 preservado: schema3/local-rpg-1,1000 definições reutilizando mesmo bioma/família, inventário120,9slots/5raridades/afixos, Forja/enhance/tônicos/Musgo/minas e migrações. Não afirmar1000 mapas exclusivos nem balanceamento humano comprovado. Evidências F3/F4 históricas preservadas.
+F4 local: save schema3/local-rpg-1, migrações1/2,1000definições reutilizando bioma/família,9slots/5raridades/afixos, inventário120, Forja/tônicos/Musgo/minas. Não são1000cenários exclusivos nem balanceamento humano comprovado. F5: PostgreSQL, cookies/convidado recuperável/Google opcional, RNG/tempo/grants autoritativos, ledger/outbox/idempotência/reconexão. Save local nunca concede saldo online. Evidências antigas preservadas.
 
-F5: apps/server/src/online.ts é autoridade de domínio; database.ts + migrations/001_online.sql persistem accounts/sessions/commands/ledger/events/auth_limits/nonces/streams. PostgreSQL16 no Compose/CI. Migração separada de runtime. Transação/SELECT FOR UPDATE por conta liquidam simulação e gravam estado/ledger/idempotência/outbox juntos, sem worker em memória com estado concorrente.
+F6 `community-1`: packages/shared/src/community.ts, apps/server/src/community*.ts, migrations/002_community.sql, ui/community.ts e smoke-community.mjs. Migração aditiva mantém contas/sessões/saldos/itens. Comunidade só online, em Mais; modo local mostra indisponibilidade explícita sem inventar jogadores. Campo local para renderer é adaptador de leitura, não autoridade.
 
-Cliente `VITE_GAME_MODE=online` usa OnlineSession e snapshots via WebSocket; não usa IndexedDB, relógio, RNG ou LocalSession para decidir recursos. A forma local usada pelo renderer é apenas adaptador de leitura. Nunca importar save/itens/saldos locais. Modo local é padrão. Sem banco configurado, servidor continua diagnóstico e503; banco indisponível impede online saudável.
+- Chat global após andar1, guilda para membros atuais desde ingresso,500caracteres/3s, texto literal, block/unblock/report. Moderação mute/unmute/suspend/restore/remove-message/resolve-report só por CLI com credencial operacional e auditoria; não há rota admin pública.
+- Guilda500Coins/andar5; nível1–10 e20+2(n−1)até38vagas, XP/custos experimentais, convite24h, roles e transferência; brasão16×16/paleta8, sem upload. Bônus XP da semana anterior10/7/5/3/1%, vínculo24h, expiração exata; guerra semanal com roster congelado,2membros24h mínimo, um ataque, encerramento/prêmio únicos.
+- Arena: cinco reais imediatamente acima, andar5, sem bots. Stats autoritativas sem tônico, dupla batida simultânea/120s, empate favorece defesa. Vitória troca posições/+20troféus; derrota mantémposição/−10min0.60s entre desafios e20/24h atravessando reset. Matches auditam stats/posições/motivo.
+- Temporadas segunda00h Brasília, arquivos e grants únicos; reset de posições/troféus/pontos, não saldos/itens. Força=10ATQ+HP+20DEF, rankingCoin BigInt, guildas/dano e histórico últimosgolpes. Premiação exige match elegível e vínculo; números em COMMUNITY_SYSTEMS.
+- Boss diário22h–22h30/1MHP, andar10,200inscritos/edição máximo, tick1s e presença até3s. Outros membros ativos+1%até20%, não o próprio. Último golpe e contribuição únicos. Sair impede renovação até novo ingresso. Sem dano arbitrário, horas de ataque offline ou reinício por jogador.
+- XP diário12h–18h+30%, somado ao bônus de guilda, segmentado no tempo. Loteria18h/100Rubies: Google vinculado único, perfil, andar10, conta10min e presença histórica cobrindo instante; sem elegíveis, sem vencedor. Raid20h–21h, uma tentativa e baú persistido, raro superior ao comum; expirou/perdeu não concede. Rubies são virtuais, mercado/premium não ativados.
+- Scheduler2s e read/command usam lock transacional social41652006 antes de locks de conta, snapshot/ledger/outbox/claim confirmam juntos. Piloto5000perfis, histórico limitado por query. Não prometer escala ilimitada ou eliminação de toda conta alternativa. Comandos sociais têm idempotência própria, rejeições persistidas,60/min/sessão; UI um pendente, sem saldo/dano otimista.
 
-- Convidado explícito, UUID e chave secreta256bits de recuperação; recuperar rotaciona chave e revoga sessões. Cookie opaco256bits/HttpOnly/SameSiteStrict,7dias; hashes de segredos no banco. Secure exigido fora de loopback. Logout revoga no banco.
-- Google opcional configurável: GIS/JWKS, RS256/issuer/audience/exp/iat/sub/nonce; nonce5min de uso único, vínculo com prova da sessão e Google. Login somente identidade previamente vinculada; nunca mescla contas. Configuração/teste real do titular pendentes.
-- Comandos strict: mineração/upgrade/battle/RPG. commandId+hash escopados por conta, resultados inclusive recusas persistidos. commandVersion só ações aplicadas, stateVersion todo commit. Mesmo UUID/payload devolve resultado; divergência409. Nunca recriar compra automaticamente com chave nova após timeout.
-- RNG online por crypto.randomInt injetado em cada sorteio. Relógio/watermark do servidor; presença3s renovada a cada snapshot1s, ausência só minas8h e deadlineboss. Queda abrupta pode permitir até3s já autorizados de batalha; documentado, não combate offline ilimitado.
-- Bucket10cliques/s/burst10 persistido. Limites HTTP/auth e2streams/conta com lease10s; mensagensstream recusadas, backpressure limitado. Rate limits não equivalem a detecção humana ou prova de escala.
-- Ledger todos recursos+castIron e outbox append-only por triggers; reconciliação CLI detecta divergências sem reparo automático. Eventos próprios por cursor; reconexão entrega snapshot atual, sem reproduzir grants nem cada animação perdida.
+## Validação atual
 
-## Validação e limites
+94testes em9arquivos (66anteriores+28F6), typecheck, hashes e builds local/online passaram. Migração real001→002 preservando conta/sessão/snapshot,30replayschat,20replaysarena, vaga concorrente, TTL/roles/IDOR/mute, loteria/raid/rollover/últimogolpe/rollbackoutbox e CLI operacional. Smokes local/online/comunidade dev/produção passaram; community usa2contas de fixture isoladas, testa XSSliteral, guilda/emblema, arena/boss, reload,30ciclos e320/390/768px. DOM constante e sem pageerrors; local mantém35texturas/38objetos. Captura revisada e guiada para molduras existentes.
 
-Baseline F4 revalidada:45testes/hashes/typecheck/builds. F5:66testes no PostgreSQL local (20 de integração +1JWT além45anteriores), smokes online dev/produção com convidado/clique/cookie/reload/resposta perdida/restart/recuperação/revogação/logout; smokes locais dev/produção com50ciclos e fluxos F4. Evidências finais em STAGE_05_REPORT e phase5-browser-*.json. CI [38792734890](https://github.com/marmitero/projeto-akai/actions/runs/38792734890) concluída com sucesso no commit364384b3313ddbc99b44d569b6c77d6424e2baa5: PostgreSQL16, testes/builds/simulações e smokes locais/online em desenvolvimento/produção.
+Sem novo soak30min, escala comercial, playtest humano competitivo, aparelho real ou provedorGoogle real nesta entrega. CI remota F6 ainda depende de publicação e consulta; não usar runs F5 como prova da F6. Ler STAGE_06_REPORT e phase6-browser-*.json.
 
-Não houve novo soak30min nesta fase; históricos F3/F4 não são execução nova. Google real/staging externo/escala/backups gerenciados/aparelho físico não foram testados. Licenças/playtest humano continuam abertos. Hospedagem/credenciaisOAuth/políticas públicas somente quando for ativar esse ambiente, com decisão financeira concreta preparada.
+## Operação e próximo passo
 
-## Próximo trabalho
+Executar db:migrate antes do servidor atualizado; CLI e regras em COMMUNITY_SYSTEMS/ADR-010/API. Mute/suspensão não podem ser administrados por usuário comum. start-boss de desenvolvimento só com AKAI_COMMUNITY_DEBUG=1, NODE_ENV não production, operador/banco e edição ainda agendada; sem reabrir ativa/fechada. Nada disso existe em endpoint público.
 
-Ler ONLINE.md, API.md, ADR-009, STAGE_05_REPORT e testes antes de editar. Próxima fase técnica recomendada: F6 comunidade, após reler regras específicas, mantendo gates públicos e financeiros. Google/provider e operação pública têm pendências próprias; não anunciar lançamento online público por causa de uma CI local aprovada.
+jogar.bat segue local: Node24 portátil/checksum quando necessário, cache npm, sprites e5173fixo; validação Windows anterior38795097309success, não execução nova nesta etapa. Recursos sociais exigem conta/servidor; não iniciar banco/Google silenciosamente no BAT.
 
-## Estado de publicação F5
+Sem validação de design obrigatória do usuário agora. Permanecem gates públicos: OAuth/hospedagem/TLS/banco/backups, moderação humana/privacidade/retencão/alertas/carga, licenças e playtest/aparelhos. Próximo recomendado após publicação/CI: F7mercado, não iniciada.
 
-Usuário autorizou explicitamente publicação e integração à main em15/10/2026, resolvendo o bloqueio anterior. Implementação publicada na main no commit364384b3313ddbc99b44d569b6c77d6424e2baa5; árvore remota2d8eda31cfa54c219af3473e41dae9a8e6dc88f3 idêntica ao conteúdo local revisado. CI38792734890 success. Este fechamento altera apenas documentação de estado; não há pendência de publicação da implementação. F6 não iniciada. Nenhum deploy público, gasto ou cadastroOAuth foi realizado.
+## Publicação da F6
 
-## Entrega auxiliar — iniciador Windows
-
-Usuário solicitou jogar.bat e autorizou sua publicação. Iniciador publicado na main no commitab36b2e9d1532805e49cb3386a2e6a2cfc768579. BAT→PowerShell→Node: Node24 portátil oficial com checksum quando necessário, npm ci com cache por manifests/lock/plataforma, verificação de sprites, build shared e Vite local em127.0.0.1:5173. Sem banco/conta externa; força local mesmo com .env online. Cache ignorado pelo Git; originais/saves preservados.
-
-[CI Windows38795097309](https://github.com/marmitero/projeto-akai/actions/runs/38795097309) success: BAT real via cmd/PowerShell em diretório com espaços, download oficial do Node portátil forçado, instalação limpa, reutilização de dependências e Chromium carregando sprites/minerando ferro com VITE_GAME_MODE externo online. Testes locais de preparação/cache/HTTP/PNG também passaram. O download Chromium é exclusivo de CI; jogador usa o navegador padrão. CI geral38795097207 em execução no momento deste registro; consultar resultado antes de alegar aprovação dessa execução. Nenhuma validação obrigatória do usuário para usar o iniciador. Ler docs/LOCAL_PREVIEW.md. F6 não iniciada.
+Tentativa de push do payload F6 à main foi rejeitada pela revisão automática por exigir autorização explícita para publicar estes novos arquivos. Não houve contorno por outro canal, branch publicada, PR ou CI remota da F6. Implementação/testes/docs estão no commit local revisável; aguardar autorização de publicação. Autorizações anteriores referiam-se à F5 e ao iniciadorWindows. Nenhum sprite original ou save foi alterado por essa tentativa; F7 permanece não iniciada.

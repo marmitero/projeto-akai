@@ -48,3 +48,7 @@ content/rpg/rpg-schema adicionados ao shared; Mochila/Forja/Musgo e ouro/jade fu
 ## Atualização F5 — 15/10/2026
 
 Atualização F5: auditoria inicial acima é histórica. Agora há cliente local/online, servidor autoritativo, domínio compartilhado, migração PostgreSQL, identidade de convidado e Google opcional, CI e testes. Nenhum banco público/conta de provedor foi provisionado. Evidências atuais em STAGE_05_REPORT e instruções em ONLINE.
+
+## Atualização F6 — 15/10/2026
+
+F6 adiciona domínio social/API/UI, migração002, scheduler, moderaçãoCLI e testes. Há implementação testável de chat/guildas/brasões/PvP/rankings/temporadas/boss/XP/loteria/raid/guerra, com gates públicos separados. Estado canônico em AI_STATE/STAGE_06_REPORT/COMMUNITY_SYSTEMS, sem considerar o blueprint histórico como código ausente.

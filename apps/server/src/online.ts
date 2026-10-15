@@ -32,7 +32,7 @@ export class OnlineError extends Error {
     super(code);
   }
 }
-interface Account {
+export interface Account {
   id: string;
   snapshot: LocalSnapshot;
   state_version: string;
@@ -94,7 +94,7 @@ export class OnlineService {
         },
       });
       await c.query(
-        "INSERT INTO akai_accounts(id,recovery_hash,snapshot,last_at,click_at) VALUES($1,$2,$3,$4,$4)",
+        "INSERT INTO akai_accounts(id,recovery_hash,snapshot,last_at,click_at,created_at) VALUES($1,$2,$3,$4::bigint,$4::bigint,to_timestamp(($4::bigint)::double precision/1000))",
         [id, digest(recoveryKey), snapshot, now],
       );
       return { accountId: id, recoveryKey, token: await this.issue(c, id) };
@@ -118,13 +118,13 @@ export class OnlineService {
   }
   async identity(token: string, c: PoolClient) {
     const r = await c.query(
-      "SELECT account_id FROM akai_sessions WHERE token_hash=$1 AND NOT revoked AND expires_at>$2",
+      "SELECT s.account_id FROM akai_sessions s LEFT JOIN akai_profiles p ON p.account_id=s.account_id WHERE token_hash=$1 AND NOT revoked AND expires_at>$2 AND NOT COALESCE(p.suspended,false)",
       [digest(token), this.clock()],
     );
     if (!r.rowCount) throw new OnlineError("UNAUTHENTICATED", 401);
     return r.rows[0].account_id as string;
   }
-  private async lock(c: PoolClient, token: string): Promise<Account> {
+  async lock(c: PoolClient, token: string): Promise<Account> {
     const id = await this.identity(token, c);
     const row = (
       await c.query("SELECT * FROM akai_accounts WHERE id=$1 FOR UPDATE", [id])
@@ -148,19 +148,76 @@ export class OnlineService {
       serverTime: this.clock(),
     };
   }
-  private settle(a: Account): void {
+  async lockAccount(c: PoolClient, id: string): Promise<Account> {
+    const row = (
+      await c.query("SELECT * FROM akai_accounts WHERE id=$1 FOR UPDATE", [id])
+    ).rows[0] as Account | undefined;
+    if (!row) throw new OnlineError("NOT_FOUND", 404);
+    row.snapshot = LocalSnapshotSchema.parse(row.snapshot);
+    return row;
+  }
+  async settle(c: PoolClient, a: Account): Promise<void> {
     const now = Math.max(this.clock(), Number(a.last_at)),
-      elapsed = now - Number(a.last_at),
+      start = Number(a.last_at),
+      elapsed = now - start,
       s = a.snapshot;
     if (elapsed) {
       const active = Math.min(
         elapsed,
-        Math.max(0, Number(a.presence_until) - Number(a.last_at)),
+        Math.max(0, Number(a.presence_until) - start),
         5000,
       );
       if (active) {
+        const windows = (
+          await c.query(
+            "SELECT start_at,end_at,bp FROM akai_xp_windows WHERE start_at<$2 AND end_at>$1",
+            [start, start + active],
+          )
+        ).rows;
+        const guild = (
+          await c.query(
+            "SELECT g.bonus_bp,g.bonus_until,m.joined_at FROM akai_members m JOIN akai_guilds g ON g.id=m.guild_id WHERE m.account_id=$1 AND g.active AND g.bonus_until>$2",
+            [a.id, start],
+          )
+        ).rows[0];
+        const guildEdges = guild
+          ? [
+              Number(guild.bonus_until),
+              Number(guild.joined_at) + 86400000,
+            ].filter((at) => at > start && at < start + active)
+          : [];
+        const edges = [
+          ...new Set([
+            start,
+            start + active,
+            ...guildEdges,
+            ...windows.flatMap((w) => [
+              Math.max(start, Number(w.start_at)),
+              Math.min(start + active, Number(w.end_at)),
+            ]),
+          ]),
+        ].sort((x, y) => x - y);
+        for (let i = 0; i < edges.length - 1; i++) {
+          const at = edges[i]!,
+            end = edges[i + 1]!;
+          const bp =
+            10000 +
+            Math.max(
+              0,
+              ...windows
+                .filter(
+                  (w) => Number(w.start_at) <= at && Number(w.end_at) > at,
+                )
+                .map((w) => Number(w.bp)),
+            ) +
+            (guild &&
+            Number(guild.bonus_until) > at &&
+            Number(guild.joined_at) + 86400000 <= at
+              ? Number(guild.bonus_bp)
+              : 0);
+          advanceCombat(s, end - at, at, randomInt, bp);
+        }
         produce(s, active);
-        advanceCombat(s, active, Number(a.last_at), randomInt);
         s.activeMs += active;
         s.lastReconciledAt += active;
       }
@@ -174,12 +231,47 @@ export class OnlineService {
     }
     a.last_at = String(now);
   }
-  private async save(
-    c: PoolClient,
-    a: Account,
-    before: LocalSnapshot,
-    reason: string,
-  ) {
+  async presence(c: PoolClient, a: Account, present: boolean) {
+    const now = this.clock();
+    const last = (
+      await c.query(
+        "SELECT * FROM akai_presence WHERE account_id=$1 ORDER BY end_at DESC LIMIT 1",
+        [a.id],
+      )
+    ).rows[0];
+    if (!present) {
+      if (last && Number(last.end_at) > now)
+        await c.query("UPDATE akai_presence SET end_at=$2 WHERE id=$1", [
+          last.id,
+          now,
+        ]);
+      return;
+    }
+    const eligible =
+      !!(
+        await c.query(
+          "SELECT 1 FROM akai_accounts a JOIN akai_profiles p ON p.account_id=a.id WHERE a.id=$1 AND a.google_sub IS NOT NULL AND NOT p.suspended AND a.created_at<=to_timestamp($2::double precision/1000)",
+          [a.id, now - 600000],
+        )
+      ).rowCount && a.snapshot.battle.highest >= 10;
+    if (last && Number(last.end_at) >= now && last.eligible === eligible)
+      await c.query("UPDATE akai_presence SET end_at=$2 WHERE id=$1", [
+        last.id,
+        now + 3000,
+      ]);
+    else {
+      if (last && Number(last.end_at) > now)
+        await c.query("UPDATE akai_presence SET end_at=$2 WHERE id=$1", [
+          last.id,
+          now,
+        ]);
+      await c.query(
+        "INSERT INTO akai_presence(id,account_id,start_at,end_at,eligible) VALUES($1,$2,$3,$4,$5)",
+        [randomUUID(), a.id, now, now + 3000, eligible],
+      );
+    }
+  }
+  async save(c: PoolClient, a: Account, before: LocalSnapshot, reason: string) {
     a.snapshot = LocalSnapshotSchema.parse(a.snapshot);
     a.state_version = String(Number(a.state_version) + 1);
     const sequence = Number(a.state_version);
@@ -240,8 +332,9 @@ export class OnlineService {
     return this.db.transaction(async (c) => {
       const a = await this.lock(c, token),
         before = structuredClone(a.snapshot);
-      this.settle(a);
+      await this.settle(c, a);
       a.presence_until = String(present ? this.clock() + 3000 : 0);
+      await this.presence(c, a, present);
       await this.save(c, a, before, present ? "sync" : "absence");
       return this.view(a);
     });
@@ -263,7 +356,7 @@ export class OnlineService {
         return previous.result as CommandResult;
       }
       const before = structuredClone(a.snapshot);
-      this.settle(a);
+      await this.settle(c, a);
       let code = "OK",
         ok = false;
       if (cmd.expectedVersion !== Number(a.command_version))
@@ -384,8 +477,9 @@ export class OnlineService {
     return this.db.transaction(async (c) => {
       const a = await this.lock(c, token),
         before = structuredClone(a.snapshot);
-      this.settle(a);
+      await this.settle(c, a);
       a.presence_until = "0";
+      await this.presence(c, a, false);
       await this.save(c, a, before, "logout");
       await c.query(
         "UPDATE akai_sessions SET revoked=true WHERE token_hash=$1",

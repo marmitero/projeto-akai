@@ -18,3 +18,5 @@ Ao alterar decisão, criar sucessor ou histórico explícito; atualizar GDD/API/
 - [ADR-008 — Progressão RPG local e catálogo limitado](0008-local-rpg.md).
 
 - [ADR-009 — Autoridade online, identidade e persistência](0009-authoritative-online.md).
+
+- [ADR-010 — Comunidade e calendário autoritativos](0010-community-authority.md).

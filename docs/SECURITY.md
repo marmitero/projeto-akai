@@ -49,3 +49,7 @@ RPG local usa drafts validados, limites de inventário/nível/saldo, referência
 ## Atualização F5 — 15/10/2026
 
 F5 implementa identidade de sessão opaca/cookie, Origin/header anti-CSRF, prova de convidado recuperável, Google JWKS/claims/nonce, schemas strict, autoridade temporal/RNG, rate limits persistidos, lock/transação, replay/rollback/IDOR e histórico append-only. Testes e limitações em [ONLINE](ONLINE.md) e [STAGE_05_REPORT](STAGE_05_REPORT.md). Modelo acima mantém controles de sistemas futuros. Não declarar auditoria externa, integração Google real ou aptidão pública: configuração OAuth, TLS, papéis do banco, retenção, alertas e testes de escala ainda são gates de implantação.
+
+## Atualização F6 — 15/10/2026
+
+F6 implementa texto literal, limites, cooldown, bloqueio/denúncia e moderaçãoCLI auditada; roles/convites/vagas/brasão validados no servidor, sem upload livre. Arena não aceita resultado/dano; social lock e constraints previnem posições/vagas concorrentes; calendários/grants/outbox atômicos e presença histórica protegem eventos. Google único/presença comprovada restringem loteria sem prometer bloquear toda conta alternativa. Não existe endpoint público de moderação/início de boss. Gates públicos de moderação humana, privacidade, retenção, escala e hardening permanecem abertos. Evidência e limites em STAGE_06_REPORT/COMMUNITY_SYSTEMS.

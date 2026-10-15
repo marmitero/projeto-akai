@@ -56,3 +56,7 @@ Mina concede1+n ferro por toque, anuncia saldo e mostra melhoria de picareta. Pr
 Mochila funcional em três tabs:Equipamento(filtro/slots/ações),Forja(peça/nível/ingredientes/material/tônicos) eCompanheiro(Musgo/passivos/custos/estado). Tabs com controles de teclado; transações com estado de insuficiência/limite/requisito, sem recriar listeners por item. Dois anéis distintos e duas mãos/escudo explícitos. Lista mostra atributos-base e+n; resumo mostra atributos finais.
 
 Ouro/jade têm custo, taxa incluindo bônus e requisito real; minério não virou botão de clique manual. Totais grandes abreviados apenas na HUD, detalhes exatos no dialogRecursos. Resumo offline só aparece em ausências≥1s, crédito também é conciliado em intervalos menores. Nove-slice do pack HUD reaproveitado nos controles RPG; spriteMusgo e ícones reais. Perfil separa rei/guerreiro, sem conta online simulada. Loja premium ainda indisponível.
+
+## Atualização F6 — 15/10/2026
+
+Mais→Comunidade disponível no online, com áreas Chat/Guilda/Arena/Eventos/Rankings, apelido recolhível, UUID público, feedback de comando confirmado, horários de Brasília e mensagens de transição. Brasões por grade/paleta, texto de usuários como textContent; controles usam molduras de sprites da HUD existente. Modo local explica indisponibilidade social sem simular bots. Navegação não reinicia sessão; área oculta não mantém polling social. Layout320/390/768px e30ciclos verificados em navegador. Captura/limites em STAGE_06_REPORT.
