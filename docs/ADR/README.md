@@ -1,0 +1,10 @@
+# Architecture Decision Records
+
+ADRs registram contexto, decisão, alternativas e consequências. Estados: aceito (derivado de regra aprovada), proposto (a validar antes da fase), substituído (referenciar sucessor). Não confundir aceitação de direção técnica com implementação.
+
+- [ADR-001 — Separação de cliente, servidor e domínio local](0001-client-server-boundaries.md)
+- [ADR-002 — Três telas e estado persistente entre cenas](0002-independent-screens.md)
+- [ADR-003 — Save local e produção offline](0003-save-offline-policy.md)
+- [ADR-004 — Idempotência, ledger e outbox](0004-economic-consistency.md)
+
+Ao alterar decisão, criar sucessor ou histórico explícito; atualizar GDD/API/DATA_MODEL/AI_STATE conforme impacto. Questões de produto em [DECISIONS](../DECISIONS.md).

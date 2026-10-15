@@ -1,0 +1,42 @@
+# Interface e experiência do jogador
+
+Especificação de UX v1. Nenhuma tela implementada. Direção: RPG mobile vertical com sprites reais, não dashboard administrativo.
+
+## Mapa de navegação
+
+Tela inicial: Batalha. Barra inferior persistente: Batalha, Mina, Produção, Mochila, Loja, Mais. Mais abre destinos implementados de Perfil, equipamentos, mascotes, habilidades, eventos, mercado, arena, guildas, rankings e configurações. Loja não se confunde com mercado entre jogadores. Apenas um viewport principal ativo.
+
+HUD superior compacta com retrato/nome do rei, nível de conta e saldos essenciais; tocar saldos abre detalhe sem perder tela atual. Na ausência do retrato aprovado, usar moldura com identificação textual de perfil local e registrar lacuna, sem inventar retrato liberado. Barra inferior sempre acima da safe area. A grade de seis botões cabe quando os rótulos não truncam; em largura insuficiente manter Batalha/Mina/Produção/Mais e agrupar Mochila/Loja em Mais, conforme Master Prompt.
+
+## Especificação por tela
+
+| Tela | Informação e ação principal | Estados exigidos |
+|---|---|---|
+| Batalha | Andar/onda, herói/inimigos, HP, dano, timer de boss, pausa/retomar/retry | Carregando, combate, transição, pausado, falha, vitória, reconectando |
+| Mina | Nó de ferro central, ferro/clique, saldo, nível, bônus e melhoria | Carregando, pronta, impacto visual, comando pendente, rate limit, erro |
+| Produção | Seleção/lista de carvão/ouro/jade, nível, taxa, custo e unlock/upgrade | Bloqueada com requisito, disponível, produzindo, saldo insuficiente, transação pendente |
+| Mochila | Itens/slots/filtros, detalhe, equipar e atributos comparados | Vazia, carregando, item reservado, requisito insuficiente, equipado |
+| Loja | Catálogo elegível, preço/moeda, detalhe e confirmação | Desabilitada no MVP sem sistema, carregando, indisponível, compra pendente, sucesso/erro |
+| Mais/Perfil | Destinos disponíveis, identidade, configurações, debug local separado | Bloqueado/não implementado claramente identificado, sem compra falsa |
+
+Nó de minério é alvo clicável real, não botão invisível sobre toda a tela. Clique só na Mina ativa, sem modal cobrindo input. No online: animação imediata, saldo confirmado pelo servidor; pendência não pode aparentar saldo gastável. Não somar crédito duas vezes quando chegar resposta e evento.
+
+## Feedback e interrupções
+
+Mudança de HP e ataque deve ser legível mesmo sem números flutuantes. Mostrar custo e benefício de upgrade antes de gastar; compra irreversível/premium exige detalhe explícito do produto. Falha preserva contexto e oferece ação concreta de retry/reconexão. Retry de rede reutiliza commandId, não cria nova compra. Desabilitar ação durante envio não substitui idempotência.
+
+Derrota de boss fora da Batalha marca badge discreto, mantém progressão pausada e não força navegação. Toasts não cobrem nó/menu; conquistas e eventos ficam consultáveis depois. Nenhum modal de recompensa exige toque para conceder produção já conciliada. Back/Escape fecha modal, depois retorna ao contexto anterior; não reseta sessão.
+
+## Responsividade e acessibilidade
+
+Alvos ≥44×44 CSS px, gap suficiente e área independente do tamanho do ícone. Testar 320/360/390/768 CSS px e redimensionamento desktop. Scroll só no conteúdo, com padding para HUD e safe areas; canvas não distorce proporções. Escolher escala inteira de pixel art, centralizar viewport quando necessário. Texto principal proposto 16 CSS px e rótulos mínimos 12–14, ajustar com testes reais; nunca inserir texto essencial na textura sem alternativa acessível.
+
+Botões DOM com nomes, tab order e foco visível; teclado acessa menus. Estado ativo usa borda/ícone/rótulo, não só cor. Raridade apresenta nome e símbolo além da cor. Opções reduzir movimento, remover tremor e limitar flashes; não usar flashes rápidos como feedback único. Separar música/efeitos quando houver áudio. Formatar números em pt-BR; abreviações têm detalhe acessível e não arredondam preço real.
+
+## Carregamento, reconexão e desempenho
+
+HUD e primeira cena primeiro; demais assets sob demanda. Mostrar progresso/erro recuperável por pacote; não deixar tela vazia indefinidamente. Em desconexão, sinalizar estado e bloquear gasto não confirmável. Reconexão traz snapshot/cursor antes de liberar ações. Suspender partículas/áudio de cena oculta, preservar seleção/scroll/filtros. Metas de desempenho em PERFORMANCE; funcionamento background em ADR-003.
+
+## Integração artística
+
+Ícones concretos e recortes em Asset_Usage_Guide; painéis/abas de Hud com tema consistente. Não exibir spritesheet inteira como botão. Acessibilidade e integração não estão testadas; aceite visual e funcional em MVP_ACCEPTANCE/TEST_PLAN.

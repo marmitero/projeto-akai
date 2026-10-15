@@ -1,0 +1,32 @@
+# Rastreabilidade de requisitos
+
+Cada linha mapeia a intenção do Master Prompt a regra, fase e evidência de aceite. Estado de todos os requisitos de software: não implementado. A documentação só cobre planejamento, não prova comportamento.
+
+| ID | Requisito | Especificação | Fase | Evidência planejada |
+|---|---|---|---|---|
+| NAV-01 | Três telas/HUD persistente | UI_UX, ADR-002 | F2 | M02/M03/M12 |
+| ART-01 | Sprites reais, inventário e preservação | Asset_Manifest, Asset_Usage_Guide, Visual_Catalog | F0/F2 | Hashes + prévias + pivôs aprovados |
+| ART-02 | Licenças e consistência | ART_BIBLE, ASSET_LICENSES | F0/Release | Zero arquivo distribuído sem licença adequada |
+| CBT-01 | Automático, 3×3, 1.000 andares planejados | GDD, BALANCE | F3/F4 | M07 + simulação/dados completos |
+| CBT-02 | Boss a cada dez, timer, pausa e retry | GDD, BALANCE | F3 | M08/M09 |
+| MIN-01 | Ferro 1/clique e upgrades | ECONOMY, BALANCE | F3 | M04/M05 |
+| PRD-01 | Carvão/ouro/jade; carvão50 para ouro | GDD, ECONOMY | F3/F4 | M06 + teste de requisito |
+| OFF-01 | Offline controlado e idempotente | ADR-003, DATA_MODEL | F3/F5 | M10/M11 + crash/replay |
+| RPG-01 | Equipamentos/raridades/drops | GDD, DROP_TABLES | F4 | Slots/dono/pool/estatística |
+| RPG-02 | Pets/habilidades/fabricação | GDD, DECISIONS | F4 | Definições completas + custos/buffs/receitas |
+| EVT-01 | Boss global 22h Brasília | GDD, OPERATIONS, DATA_MODEL | F6 | Edição e último golpe únicos |
+| EVT-02 | XP/loteria/raid | GDD, DROP_TABLES | F6 | Elegibilidade/expiração/claim único |
+| AUTH-01 | Google/convidado, rei e nickname | GDD, SECURITY, DATA_MODEL | F5 | Identidade/uniqueness/vínculo seguro |
+| NET-01 | Cliente/servidor separados e autoritativos | ARCHITECTURE, API, ADR-001 | F1/F5 | Contratos + adulteração rejeitada |
+| SEC-01 | Economia/transações/concorrência | SECURITY, ECONOMY | F5 | Replay/rollback/locks |
+| MKT-01 | Leilão/mercado/ofertas/taxas/prazos | GDD, ECONOMY, DATA_MODEL | F7 | Compra simultânea e escrow |
+| PVP-01 | Cinco adversários, posição/troféus | GDD, DECISIONS | F6 | Regras finais + concorrência |
+| GLD-01 | Guilda/cargos/brasão/guerra | GDD, DECISIONS | F6 | Permissões/capacidade/edição |
+| RNK-01 | Rankings e fechamento semanal | GDD, DATA_MODEL, OPERATIONS | F6 | Snapshot/season/claim |
+| MON-01 | Compras e anúncios voluntários | GDD, SECURITY, RELEASE_CHECKLIST | F8 | Provedor sandbox + grant único |
+| AND-01 | Android desacoplado | ARCHITECTURE, RELEASE_CHECKLIST | F9 | Dispositivos/ciclo/SDKs verificados |
+| OPS-01 | Observabilidade/backup/debug | OPERATIONS, SECURITY | F5/Release | Restore/alertas/permissões |
+| QA-01 | Testes, desempenho e pronto | TEST_PLAN, PERFORMANCE, MVP_ACCEPTANCE | Todas | Comando/ambiente/resultado reais |
+| PAUSE-01 | Documentar e aguardar | Constituição, AI_STATE | Atual | Sem código novo nem serviços provisionados |
+
+Nomes na coluna Especificação correspondem ao índice em README. Pendência numérica/funcional não pode ser fechada por um teste que apenas reproduza um placeholder; resolver regra e depois validar o comportamento.

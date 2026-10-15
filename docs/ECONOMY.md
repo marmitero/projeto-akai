@@ -1,0 +1,52 @@
+# Economia e regras de transação
+
+Regras do produto e propostas de implementação v1. Nenhuma economia está em execução. Números de teste em BALANCE não são balanceamento comercial aprovado.
+
+## Fontes e sumidouros
+
+| Recurso | Fonte primária | Sumidouros previstos | Primeira fatia |
+|---|---|---|---|
+| Coin | Vitória de inimigos e recompensas explícitas | Upgrades, perks, desbloqueios e mercado | Sim |
+| Ferro | Mineração manual; autoclick autorizado em fase futura | Guerreiro, equipamentos, mascotes, minas, fabricação | Sim |
+| Carvão | Mina automática | Equipamentos e ferro fundido | Produção sim; receitas futuras |
+| Ouro | Mina automática; carvão nível 50 como requisito | Equipamento/mascote avançado e minas | F4 |
+| Jade | Mina automática avançada | Equipamento/mascote/receitas de nível alto | F4 |
+| Ruby | Compra validada e eventos/recompensas explícitas | Produtos premium/configurados | F8; sem saldo premium real no local |
+
+Não converter Coin em ouro por compartilharem cor. Ferro fundido é material de fabricação futuro, não sétima moeda já implementada. Sem receita aprovada não há razão para criar conversão automática entre materiais.
+
+## Representação e arredondamento
+
+Proposta: 1.000 unidades mínimas = 1 unidade exibida, para permitir carvão fracionário sem float. Saldo persistido é inteiro não negativo; UI pode abreviar, mas detalhe mostra valor real. Clique inicial de 1 ferro credita 1.000 unidades mínimas. Recursos indivisíveis como item/equipamento têm contagem inteira própria e não usam milésimos.
+
+Custos de upgrade arredondados para cima em unidades inteiras de recurso; ganhos de produção acumulam remainder para que frequência de reconciliação não mude a renda. Multiplicadores representados por razões ou basis points; aplicar ordem fixa documentada. Overflow/limite excedido rejeita antes do commit. API nunca aceita saldo final do cliente.
+
+## Semântica de compras e recompensas
+
+Compra: verificar pré-requisito, calcular custo usando configVersion e nível vigente, reservar/bloquear saldos, debitar, aplicar benefício, ledger, command result e outbox na mesma transação. quantity=1 inicialmente. Compra em lote futura calcula soma dos níveis individualmente, não custo inicial×quantidade.
+
+Grant: source único inclui edição/tentativa e beneficiário. Moeda de morte comum é por enemyInstanceId da tentativa; primeira conclusão de andar é outra fonte. Não conceder prêmio de boss derrotado por timeout. Uma apresentação visual atrasada não altera o grant confirmado.
+
+Produção é automática, sem necessidade de tocar “coletar” repetidamente. Retomada exibe resumo do que foi conciliado; clicar no resumo não concede segunda vez. Watermark e crédito são atômicos. Fração não exibida não é descartada a cada troca de tela.
+
+## Upgrades e desbloqueios
+
+Toda definição exige ID estável, efeito, custo por recurso, nível máximo quando aplicável, pré-requisitos, configVersion e disponibilidade por ambiente. Custos sempre exibidos antes da confirmação. Carvão custa ferro+coins; ouro exige carvão 50 e recursos; Jade exige ferro/ouro/carvão/coins. Quantidades de ouro/Jade permanecem não aprovadas, fora do MVP, até F4. Não inventar obrigação de ruby para progressão básica.
+
+## Mercado: regras propostas para fechar lacunas
+
+Referências do prompt: duração 3 dias, taxa 10%, custo de anúncio 100.000 Coin, relistagem após remoção antecipada do mesmo item aguarda 24h. Valores monetários são provisórios. Proposta: vendedor paga custo de anúncio ao publicar, sem reembolso em cancelamento/expiração; comprador paga preço anunciado, vendedor recebe preço menos taxa; taxa cobrada na moeda da transação, arredondada para cima na unidade mínima. Rejeitar preço tão baixo que o líquido seja ≤0. Esta política precisa ser confirmada/simulada em F7 antes de ativar.
+
+Itens em anúncio ficam em escrow: não equipar, consumir, anunciar novamente ou transferir. Pilhas reservam quantidade, equipamento reserva instância. Contraoferta proposta não reserva saldo indefinidamente; aceitação revalida saldo e disponibilidade de forma atômica. Se indisponível, não debitar ninguém. Oferta aceita encerra anúncio e demais ofertas. Vendedor não compra próprio anúncio. Identificação de cooldown de pilhas precisa de regra anti-divisão/mesclagem antes de F7.
+
+Ruby como moeda negociável fica desligado até decisão D15. Nenhuma negociação representa dinheiro real entre jogadores.
+
+## Offline e bônus
+
+Ver ADR-003: MVP acumula apenas minas, cap experimental de 8h, sem vitória/andar/drop offline. Integrar por intervalos de taxa e bônus; não aplicar bônus expirado a todo o período. Tempo negativo produz zero; navegação interna produz zero tempo de ausência. Online não usa relógio local. Bônus temporários são identificados por source/start/end; regra inicial proposta de mesmo tipo: estender apenas até cap configurado, sem multiplicar 2× em 4× silenciosamente. Não ativar anúncios antes de aprovar caps/cooldowns.
+
+## Observabilidade econômica e rebalanceamento
+
+Medir fontes e gastos por recurso/dia/coorte, tempo entre upgrades, tempo até carvão/primeiro boss, estoque mediano e p95, retenção e discrepâncias ledger↔saldo. Nada disso foi medido ainda. Simular jogadores ativos a 1/3/5 cliques por segundo e retornos em 1h/8h/24h, sem supor clique contínuo humano.
+
+Rebalancear cria configVersion nova com data efetiva e plano para saves/instâncias. Não recalcular compra passada, não editar ledger retroativamente nem reduzir saldo sem operação compensatória explícita e auditada. Critérios de experimento e fórmulas em BALANCE; probabilidades em DROP_TABLES.
