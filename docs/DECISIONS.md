@@ -27,3 +27,23 @@
 | D21 | Escrever documentos e aguardar; sem implementar agora | Instrução atual explícita | Parada após entrega |
 
 Mudança de decisão aprovada exige motivo e atualização dos documentos envolvidos; mudança técnica relevante exige ADR. Não há deadline externo ou contrato de hospedagem aprovado.
+
+## Delegação e triagem atualizadas
+
+As regras de autonomia da Constituição foram aprovadas explicitamente pelo usuário. “Proposto” não significa automaticamente “aguarda o usuário”: o agente pode adotar decisões não financeiras/reversíveis, registrá-las e validá-las tecnicamente. A etapa atual é revisão de pendências, não início de F1.
+
+| Pendência | Quem resolve | Quando é necessária |
+|---|---|---|
+| D04/D05: versões, organização, framework HTTP, adaptadores | Agente; sem contratar serviço | F1/F5 |
+| D06: primeira fatia de 20 andares | Adotada pelo agente sob delegação; mantém meta de 1.000 | F3 |
+| D07: offline só minas, cap inicial de 8h | Adotada como parâmetro experimental pelo agente; sem alegar equilíbrio | F3 |
+| D08–D10: alvo, morte comum, slots, raridades, XP e curvas | Agente, com testes/simulações e sem alterar pilares | F3/F4 |
+| D11–D13: PvP, guildas e guerra | Agente detalha dentro das regras; consulta só mudança profunda | F6 |
+| D14: taxas de moeda virtual e arredondamento | Agente, com simulação e rastreabilidade | F7 |
+| D15/D16: ruby negociável, preços reais e bônus pagos de impacto | Agente prepara análise; usuário decide impactos financeiros/mudança material | F7/F8 |
+| D17: ícones, mascotes e retrato | Agente seleciona/valida arte permitida | F2/F4 |
+| D18: licenças | Agente investiga; usuário fornece comprovante privado se necessário ou decide aquisição paga | Antes de distribuir assets afetados |
+| D19: infraestrutura | Agente escolhe tecnicamente; usuário decide contratação/custo relevante e realiza atos exclusivos do titular | F5/lançamento |
+| D20: privacidade/moderação/público | Agente prepara solução; usuário realiza declarações/aceites que dependam do responsável legal | Antes do online público |
+
+Não há pendência de design que obrigue consulta ao usuário antes de começar desenvolvimento local. Recortes/pivôs, compatibilidade e versões são tarefas técnicas do agente. Licenças seguem não verificadas e condicionam distribuição; não presumir uso comercial autorizado. Início de código continua não executado nesta revisão.

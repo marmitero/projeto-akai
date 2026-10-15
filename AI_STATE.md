@@ -1,6 +1,6 @@
 # AI_STATE — continuidade do Projeto Akai
 
-Atualizado: 15/10/2026. **Estado: DOCUMENTAÇÃO PREPARADA; AGUARDAR NOVA INSTRUÇÃO.**
+Atualizado: 15/10/2026. **Estado: DOCUMENTAÇÃO PREPARADA; AUTONOMIA REGISTRADA; CÓDIGO NÃO INICIADO.**
 
 ## Objetivo e limite da sessão
 
@@ -42,3 +42,17 @@ Auditoria anterior decodificou PNG/GIF sem falhas e preservou os originais. Nest
 ## Continuidade e atualização
 
 Ao terminar qualquer fase futura, atualizar este arquivo com objetivo, estado real, comandos/testes/resultados, problemas, arquivos e próxima tarefa. Registrar commit da entrega no histórico Git/mensagem final; não inserir hash do próprio commit como se conhecido antes de criá-lo. Preservar trabalho existente e manter regras aprovadas distintas de experimentos.
+
+## Atualização mais recente — autonomia e triagem (15/10/2026)
+
+A documentação anterior foi publicada em `25cc35a15633bf78e82cf4db3158da0f1e9bc76f`. Pedido atual: registrar três regras de trabalho e listar pendências antes de desenvolver, minimizando participação do usuário. Não iniciar F1 nesta revisão.
+
+Regra aprovada: ao terminar cada etapa, atualizar ROADMAP/AI_STATE/documentos afetados, listar no chat decisões autônomas e pendências que realmente precisem de validação. O agente decide escolhas não cruciais financeiramente e sem mudança rigorosa do produto. Gastos relevantes, decisões comerciais materiais, atos exclusivos do titular e mudanças profundas continuam com o usuário; preparar recomendação antes de consultar.
+
+Decisões desta etapa: adotar primeira fatia de 20 andares e offline inicial de minas limitado experimentalmente a 8h; manter versão final de 1.000 andares; classificar escolhas de stack, recortes, arte compatível e balanceamento virtual como execução do agente. Não há simulação nem código executado por essa adoção.
+
+Pendências que podem exigir usuário mais tarde: prova de aquisição/licença se necessária, contratação/custo de infraestrutura, conta/identidade/aceite de plataformas e decisões de monetização material. Nenhuma impede planejamento/fundação local agora; licença de asset não verificada impede tratar sua distribuição como liberada. Não solicitar credenciais no chat.
+
+Próxima ação imediata: entregar a triagem no chat e aguardar instrução de início. A pausa anterior vale para execução de código; novas regras de autonomia já valem para decisões futuras dentro do trabalho autorizado. As propostas anteriores D06/D07 foram adotadas pelo agente sob delegação, não apresentadas como aprovação numérica explícita do usuário.
+
+Verificações desta atualização: alterações limitadas a governança/estado/roadmap/decisões; links locais e diff conferidos. Sem testes/build do jogo, pois não existe implementação.
