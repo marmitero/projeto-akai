@@ -53,3 +53,9 @@ F5 implementa identidade de sessão opaca/cookie, Origin/header anti-CSRF, prova
 ## Atualização F6 — 15/10/2026
 
 F6 implementa texto literal, limites, cooldown, bloqueio/denúncia e moderaçãoCLI auditada; roles/convites/vagas/brasão validados no servidor, sem upload livre. Arena não aceita resultado/dano; social lock e constraints previnem posições/vagas concorrentes; calendários/grants/outbox atômicos e presença histórica protegem eventos. Google único/presença comprovada restringem loteria sem prometer bloquear toda conta alternativa. Não existe endpoint público de moderação/início de boss. Gates públicos de moderação humana, privacidade, retenção, escala e hardening permanecem abertos. Evidência e limites em STAGE_06_REPORT/COMMUNITY_SYSTEMS.
+
+## Atualização F7 — mercado
+
+Escrow retira o bem do domínio utilizável, sem depender de flag visual. Intenções strict não aceitam item arbitrário, preço na compra direta, saldo final ou Ruby. Locks do anúncio/participantes, revalidação de suspensão/sessão e transação única previnem venda dupla, equipar simultâneo e débito parcial. Ofertas são privadas e sem reserva financeira; saldo e mochila são revalidados na aceitação. Rejeições persistidas e replays não duplicam taxas ou transferência. Falha de outbox testada reverte ambos os perfis, trade, item e ledger.
+
+Cooldown de equipamento mantém procedência em novo ID; recurso aplica categoria inteira por conta contra divisão/mesclagem. Texto dinâmico usa textContent; moderação só via operador com DB e motivo auditado. Caps/rate limits são piloto, não proteção completa contra conluio/contas alternativas nem prova de carga. Retenção de anúncios/auditoria e supervisão humana seguem gates públicos.

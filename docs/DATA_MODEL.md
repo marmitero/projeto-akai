@@ -94,3 +94,7 @@ F5 implementa o modelo físico em apps/server/migrations/001_online.sql: account
 ## Atualização F6 — 15/10/2026
 
 Migração002 adiciona profiles,guilds,members,invites,chat,blocks,reports,seasons,arena,matches,guild_scores,bosses,boss_members,xp_windows,presence,lotteries,raids,social_rewards,social_commands,social_audit,war_enrollments,wars,war_attacks. Índices/constraints incluem apelido/guilda únicos, um vínculo por conta e posição única diferível por temporada. Claims por fonte/conta, idempotência por conta/UUID; histórico social/recompensas append-only. Roster/duelos/arquivos são snapshots calculados no servidor. Schema local continua3; migração001→002 testada preservando conta/sessão/snapshot. Executar migração antes do servidor novo; db:reconcile inclui Ruby. Detalhes em COMMUNITY_SYSTEMS.
+
+## Atualização F7 — mercado
+
+Migração003 adiciona `akai_market_listings` (asset/preço/moeda/prazo/estado/claim), `market_items` (account+ID local→procedência), `market_cooldowns`, `market_offers`, `market_trades`, `market_commands` e `market_audit`, todos com prefixo `akai_`. Um trade por listing; uma oferta pendente por listing/comprador; moeda restrita por CHECK, preço/fee/net inteiros e conservação `price=fee+net`. Triggers bloqueiam UPDATE/DELETE de trades, comandos e auditoria. Estado do anúncio é ativo→vendido/cancelado/expirado/removido; retorno exige claim único do dono. Snapshot local permanece schema3, sem migração destrutiva ou reinterpretação de save local como item online. Migração real001/002→003 e reexecução preservam conta/sessão/saldos.

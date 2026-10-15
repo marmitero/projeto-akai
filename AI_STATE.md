@@ -1,10 +1,10 @@
 # AI_STATE — Projeto Akai
 
-15/10/2026. **F1–F5 e iniciador Windows preservados; F6 concluída e publicada na main; CI remota aprovada. F7 não iniciada.** Base remota desta entrega:1dd97b6f8628198a9cb8de842f669ee683cec7df.
+15/10/2026. **F1–F5 e iniciador Windows preservados; F6 publicada com CI aprovada; F7 implementada em desenvolvimento, com validação local concluída. Publicação/CI F7 pendentes; F8 não iniciada.** Base remota F7:7ac5583c348e0ad4c468ab0e582e5954fe5972ea.
 
 ## Autorização e governança
 
-Usuário pediu prosseguir F6. Resolver escolhas técnicas/reversíveis sem consultas; reservar gastos relevantes, alterações profundas e atos do titular. Encerrar com feito, completude/faltas, decisões, pendências e próximo passo. Atualizar docs por etapa. Não antecipar F7, contratar serviços ou abrir produção pública.
+Usuário pediu prosseguir F7 após publicação F6. Resolver escolhas técnicas/reversíveis sem consultas; reservar gastos relevantes, alterações profundas e atos do titular. Encerrar com feito, completude/faltas, decisões, pendências e próximo passo. Atualizar docs por etapa. Não antecipar F8, contratar serviços ou abrir produção pública.
 
 ## Implementado
 
@@ -32,8 +32,17 @@ Executar db:migrate antes do servidor atualizado; CLI e regras em COMMUNITY_SYST
 
 jogar.bat segue local: Node24 portátil/checksum quando necessário, cache npm, sprites e5173fixo; [CI Windows 38803335493](https://github.com/marmitero/projeto-akai/actions/runs/38803335493) aprovada novamente nesta entrega. Recursos sociais exigem conta/servidor; não iniciar banco/Google silenciosamente no BAT.
 
-Sem validação de design obrigatória do usuário agora. Permanecem gates públicos: OAuth/hospedagem/TLS/banco/backups, moderação humana/privacidade/retencão/alertas/carga, licenças e playtest/aparelhos. Próximo recomendado: F7mercado, não iniciada.
+Sem validação de design obrigatória do usuário agora. Permanecem gates públicos: OAuth/hospedagem/TLS/banco/backups, moderação humana/privacidade/retencão/alertas/carga, licenças e playtest/aparelhos. Próximo recomendado após fechar F7: F8 monetização sandbox, não iniciada.
 
 ## Publicação da F6
 
-Usuário autorizou explicitamente a publicação em 15/10/2026. Implementação publicada na main em `c00a93a733c7e8e59b4aeae1feeb7e8ebed2b20e`; árvore remota `91544ca82d3e2d47596454c4dd551fab0ac08cf8` idêntica à validada localmente. [CI F6 38803335641](https://github.com/marmitero/projeto-akai/actions/runs/38803335641) e [CI Windows 38803335493](https://github.com/marmitero/projeto-akai/actions/runs/38803335493) aprovadas. Bloqueio anterior resolvido; nenhuma autorização de publicação pendente nesta entrega. F7 não iniciada.
+Usuário autorizou explicitamente a publicação em 15/10/2026. Implementação publicada na main em `c00a93a733c7e8e59b4aeae1feeb7e8ebed2b20e`; árvore remota `91544ca82d3e2d47596454c4dd551fab0ac08cf8` idêntica à validada localmente. [CI F6 38803335641](https://github.com/marmitero/projeto-akai/actions/runs/38803335641) e [CI Windows 38803335493](https://github.com/marmitero/projeto-akai/actions/runs/38803335493) aprovadas. Bloqueio anterior resolvido; nenhuma autorização de publicação pendente naquela entrega F6. F7 tratada na seção atual abaixo.
+
+
+## Implementação atual F7 — market-1
+
+MarketService/migração003 e shared/market.ts: escrow de peça não equipada ou recurso fungível, compra/oferta atômicas, prazo72h/custo100milCoins/taxa10% na própria moeda com ceil de milésimos. Equipamento conserva atributos/procedência ao receber ID de inventário novo; resgate explícito de cancelado/expirado/removido preserva bem com mochila cheia. Cancelamento impõe24h por procedência ou recurso inteiro na conta contra divisão/mesclagem. Expiração natural não impõe cooldown. Oferta até24h, sem reserva, revalida saldo/mochila/contas e fecha irmãs na venda.
+
+Mais→Mercado só online, sprite frames existentes, revisão das ações, filtros/páginas, resgates/ofertas/histórico, comando pendente em sessionStorage por conta para resposta perdida/reload. Ruby/Musgo singleton/skins sem instância não elegíveis. Nenhum pagamento ou fake backend. ModeraçãoCLI com motivo/DB, perfis moderáveis mesmo sem abrir comunidade; sem endpointadmin. Caps5000anúnciosativos,20pendências/vendedor e20ofertas/comprador. Market usa lock social41652006 antes dos locks ordenados de contas; trade/snapshots/ledger/outbox/resultado confirmam juntos. Histórico/commands/audit append-only, expiração auditada.
+
+117testes/10arquivos (23novos) passaram com PostgreSQL real; migração001/002→003, concorrência/replays/cancelamento×compra/oferta×compra/overflow/rollbackoutbox/IDOR/suspensão/CLI/rate validados. Typecheck/hashes/builds passaram. Todos os oito smokes local/online/comunidade/mercado passaram em dev/preview. Simulação salva mostra custo alto no começo, sem afirmar equilíbrio humano. Regras/evidências em MARKET_SYSTEMS/ADR-011/STAGE_07_REPORT e phase7-*.json. Não usar CI F6 como validação F7; publicação/CI F7 ainda pendentes.

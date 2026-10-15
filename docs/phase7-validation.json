@@ -1,0 +1,167 @@
+{
+  "stage": 7,
+  "execution": "local",
+  "remoteCI": "not-run",
+  "database": "Native PostgreSQL18.4 (isolated container test harness; UID shim external to repository)",
+  "node": "v24.19.0",
+  "unitTests": {
+    "passed": 117,
+    "files": 10,
+    "postgresTestsExecuted": true
+  },
+  "checks": {
+    "typecheck": true,
+    "assetHashes90": true,
+    "localBuild": true,
+    "onlineBuild": true,
+    "loopSimulation": true,
+    "rpgSimulation": true,
+    "marketSimulation": true
+  },
+  "browser": {
+    "localDev": {
+      "browser": "153.0.8010.0",
+      "productionPreview": false,
+      "navigationCycles": 50,
+      "unchangedTextures": "35",
+      "unchangedObjects": "38",
+      "saveReload": true,
+      "hiddenInputBlocked": true,
+      "modalInputBlocked": true,
+      "reducedMotion": true,
+      "widths": [
+        320,
+        360,
+        390,
+        768,
+        844
+      ],
+      "landscape": true,
+      "menus": true,
+      "realMiningGrants": true,
+      "upgradesAndCoal": true,
+      "rpgCraftEquipEnhancePetMinesAndReload": true,
+      "offlineCapAndSingleCredit": true,
+      "bossTimeoutAndTraining": true,
+      "towerCompletedFromMine": true,
+      "missingAssetHandled": true,
+      "onlineFailsClosed": true,
+      "pageErrors": [],
+      "failedAssetResponses": []
+    },
+    "localPreview": {
+      "browser": "153.0.8010.0",
+      "productionPreview": true,
+      "navigationCycles": 50,
+      "unchangedTextures": "35",
+      "unchangedObjects": "38",
+      "saveReload": true,
+      "hiddenInputBlocked": true,
+      "modalInputBlocked": true,
+      "reducedMotion": true,
+      "widths": [
+        320,
+        360,
+        390,
+        768,
+        844
+      ],
+      "landscape": true,
+      "menus": true,
+      "realMiningGrants": true,
+      "upgradesAndCoal": true,
+      "rpgCraftEquipEnhancePetMinesAndReload": true,
+      "offlineCapAndSingleCredit": true,
+      "bossTimeoutAndTraining": true,
+      "towerCompletedFromMine": true,
+      "missingAssetHandled": true,
+      "onlineFailsClosed": true,
+      "pageErrors": [],
+      "failedAssetResponses": []
+    },
+    "onlineDev": {
+      "passed": true
+    },
+    "onlinePreview": {
+      "passed": true
+    },
+    "communityDev": {
+      "mode": "development",
+      "passed": true,
+      "fixture": "Two server-seeded test accounts; not a human progression playtest.",
+      "checks": [
+        "chat-literal-XSS",
+        "guild-create-invite-join",
+        "emblem-persisted",
+        "private-chat",
+        "arena-result",
+        "boss-auto-damage-and-leave",
+        "reload",
+        "30-navigation-cycles",
+        "widths-320-390-768"
+      ],
+      "domBefore": 1183,
+      "domAfter": 1183,
+      "pageErrors": []
+    },
+    "communityPreview": {
+      "mode": "production",
+      "passed": true,
+      "fixture": "Two server-seeded test accounts; not a human progression playtest.",
+      "checks": [
+        "chat-literal-XSS",
+        "guild-create-invite-join",
+        "emblem-persisted",
+        "private-chat",
+        "arena-result",
+        "boss-auto-damage-and-leave",
+        "reload",
+        "30-navigation-cycles",
+        "widths-320-390-768"
+      ],
+      "domBefore": 1183,
+      "domAfter": 1183,
+      "pageErrors": []
+    },
+    "marketDev": {
+      "mode": "development",
+      "passed": true,
+      "fixture": "Two isolated server-seeded accounts; not an organic progression playtest.",
+      "checks": [
+        "equipment-escrow",
+        "lost-response-reload-idempotency",
+        "offer-accept-fee",
+        "resource-direct-purchase",
+        "cancel-claim-cooldown",
+        "30-navigation-cycles",
+        "widths-320-390-768"
+      ],
+      "domBefore": 94,
+      "domAfter": 94,
+      "pageErrors": []
+    },
+    "marketPreview": {
+      "mode": "production",
+      "passed": true,
+      "fixture": "Two isolated server-seeded accounts; not an organic progression playtest.",
+      "checks": [
+        "equipment-escrow",
+        "lost-response-reload-idempotency",
+        "offer-accept-fee",
+        "resource-direct-purchase",
+        "cancel-claim-cooldown",
+        "30-navigation-cycles",
+        "widths-320-390-768"
+      ],
+      "domBefore": 94,
+      "domAfter": 94,
+      "pageErrors": []
+    }
+  },
+  "limits": [
+    "No new30min soak",
+    "No physical device or human market playtest",
+    "No production scale/OAuth real/public hosting validation",
+    "Market uses isolated seeded fixtures, not organic progression"
+  ]
+}

@@ -30,7 +30,11 @@
     "test:browser:online:preview": "VITE_GAME_MODE=online npm run build && node scripts/smoke-online.mjs --preview",
     "test:community": "npm run build:shared && vitest run apps/server/src/community.test.ts",
     "test:browser:community": "npm run build && node scripts/smoke-community.mjs",
-    "test:browser:community:preview": "VITE_GAME_MODE=online npm run build && node scripts/smoke-community.mjs --preview"
+    "test:browser:community:preview": "VITE_GAME_MODE=online npm run build && node scripts/smoke-community.mjs --preview",
+    "test:market": "npm run build:shared && vitest run apps/server/src/market.test.ts",
+    "test:browser:market": "npm run build && node scripts/smoke-market.mjs",
+    "test:browser:market:preview": "VITE_GAME_MODE=online npm run build && node scripts/smoke-market.mjs --preview",
+    "simulate:market": "npm run build:shared && node scripts/simulate-market.mjs"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

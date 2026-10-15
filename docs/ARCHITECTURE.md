@@ -90,3 +90,9 @@ UI RPG tem estrutura estática e um handler delegado; não cria listeners por it
 ## Atualização F6 — 15/10/2026
 
 F6 acrescenta CommunityService/CommunityEvents e migração002. Lock transacional41652006 coordena mudanças sociais e scheduler; locks de contas daF5 protegem recursos e ledger. Comandos, claims e auditoria persistidos; snapshots de comunidade por polling2s somente na área visível, mantendo sessão online/WebSocket e torre/minas separados. Calendário Intl America/Sao_Paulo, presença por intervalos confiáveis e snapshot competitivo sem tônico. Perfil local não recebe fake backend social. Desenho é piloto limitado, sem prova de escala: COMMUNITY_SYSTEMS/ADR-010.
+
+## Atualização F7 — mercado
+
+MarketService/migração003 acrescentam escrow persistido fora do inventário, ofertas sem reserva financeira, transações imutáveis, procedência de equipamento e cooldown por conta/ativo. Todas as operações compartilham lock social41652006 e ordenam os locks de participantes antes de conciliar; snapshots, ledger, outbox, transferência e comando confirmam juntos. Sem chamada entre servidores ou terceiro participante econômico. Expiração é lazy em leitura/comando e pelo scheduler10s, sempre segundo prazo armazenado.
+
+UI independente em Mais→Mercado, com polling3s apenas aberta/visível, revisão explícita e comando pendente em sessionStorage por conta para recuperar resposta perdida/recarga. Perfil local e `jogar.bat` continuam separados; não há mercado artificial local. ADR-011/MARKET_SYSTEMS registram parâmetros, serialização do piloto e limites de produção.

@@ -1,6 +1,6 @@
 # Economia e regras de transação
 
-Regras do produto e propostas de implementação v1. Economia local F3/F4 em execução; sem economia online. Números de teste em BALANCE não são balanceamento comercial aprovado.
+Regras do produto e propostas de implementação v1. Economia local F3/F4, autoridade online F5 e comunidade/mercado F6/F7 em desenvolvimento. Números de teste em BALANCE não são balanceamento comercial aprovado.
 
 ## Fontes e sumidouros
 
@@ -68,3 +68,9 @@ Inventário cheio converte drop em10×nível ferros, sem fila ilimitada; não po
 ## Atualização F6 — 15/10/2026
 
 F6 acrescenta custos virtuais de guilda500Coins/evolução1000×nível, prêmios experimentais de arena/guildas/boss/guerra, baú de raid e100Rubies da loteria prevista no prompt. Rubies online podem ser creditados somente pelo servidor na edição única elegível; não há compra, conversão monetária ou negociação. Ledger/outbox/claims atômicos e reconciliação testados; parâmetros/tabelas/limites em COMMUNITY_SYSTEMS. Não foram contratados serviços ou definidos preços reais.
+
+## Implementação F7 — market-1
+
+A proposta de mercado acima foi adotada no piloto de desenvolvimento com [regras completas](MARKET_SYSTEMS.md), [ADR-011](ADR/0011-market-escrow.md) e [simulação reproduzível](phase7-economy-simulation.json). Anúncio100.000Coins/72h; venda10% na própria moeda com ceil em milésimos; mínimo0,002. Sem reembolso, Ruby, conversão premium ou transferência de dinheiro real. Negociação após andar10. Lote inteiro de recurso ou uma peça não equipada; Musgo/skins não têm instância elegível. Cooldown24h por procedência de peça ou categoria de recurso na conta; retorno por claim seguro.
+
+A taxa de anúncio pesa no começo: equivale a834vitórias individuais no andar10 e15no100, sem considerar tempo/derrotas/outros ganhos. Conservaram-se os números propostos para o teste de desenvolvimento; não abrir produção assumindo equilíbrio. O simulador verifica arredondamento/conservação e pressão por estágio; não substitui telemetria/coortes/playtest humano. Auditoria SQL de volume/taxas em OPERATIONS; `db:reconcile` continua verificando snapshots↔ledger sem editar histórico.

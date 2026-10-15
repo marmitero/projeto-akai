@@ -1,4 +1,5 @@
 import "./style.css";
+import { createMarketUI } from "./ui/market.js";
 import { createCommunityUI } from "./ui/community.js";
 import {
   OnlineSession,
@@ -77,7 +78,7 @@ async function boot(): Promise<void> {
   snapshot = session.getSnapshot();
   if (online) {
     document.querySelector(".preview-strip")!.textContent =
-      "ONLINE · Fase 6 · estado e recompensas confirmados pelo servidor";
+      "ONLINE · Fase 7 · estado e recompensas confirmados pelo servidor";
     document.querySelector(".identity small")!.firstChild!.textContent =
       "Online · ";
     saveButton.textContent = "Sincronizar";
@@ -95,6 +96,7 @@ async function boot(): Promise<void> {
       () => {},
     );
   }
+  const marketUI = createMarketUI(root!, online);
   const communityUI = createCommunityUI(root!, online);
   let route: Route = snapshot.screen;
   const scroll = new Map<Route, number>();
@@ -118,8 +120,11 @@ async function boot(): Promise<void> {
     scroll.set(route, content.scrollTop);
     route = next;
     communityUI.show(next === "community");
-    document.querySelector<HTMLElement>("#tutorial")!.hidden = next === "community";
-    document.querySelector<HTMLElement>("#action-status")!.hidden = next === "community";
+    marketUI.show(next === "market");
+    document.querySelector<HTMLElement>("#tutorial")!.hidden =
+      next === "community" || next === "market";
+    document.querySelector<HTMLElement>("#action-status")!.hidden =
+      next === "community" || next === "market";
     const info = routeLabels[next];
     document.querySelector("#page-title")!.textContent = info.title;
     document.querySelector("#page-kicker")!.textContent = info.kicker;
@@ -382,7 +387,10 @@ async function boot(): Promise<void> {
     if (
       event.key === "Escape" &&
       !dialog.open &&
-      (route === "bag" || route === "shop" || route === "community")
+      (route === "bag" ||
+        route === "shop" ||
+        route === "community" ||
+        route === "market")
     ) {
       navigate(session.getSnapshot().screen);
       event.preventDefault();
@@ -405,7 +413,10 @@ async function boot(): Promise<void> {
   }
   listen(dialog, "close", () => {
     visual.setOverlay(
-      route === "bag" || route === "shop" || route === "community",
+      route === "bag" ||
+        route === "shop" ||
+        route === "community" ||
+        route === "market",
     );
     returnFocus?.focus();
   });
@@ -437,7 +448,9 @@ async function boot(): Promise<void> {
   ))
     listen(button, "click", () => {
       closeDialog();
-      navigate(button.dataset["shortcut"] as "bag" | "shop" | "community");
+      navigate(
+        button.dataset["shortcut"] as "bag" | "shop" | "community" | "market",
+      );
     });
   listen(mineTarget, "click", () => {
     if (
@@ -545,6 +558,7 @@ async function boot(): Promise<void> {
     session.dispose();
     rpgUI.destroy();
     communityUI.destroy();
+    marketUI.destroy();
     repository?.close();
     visual.destroy();
   });

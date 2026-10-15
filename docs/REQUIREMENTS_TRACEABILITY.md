@@ -55,3 +55,15 @@ F4:RPG-01 implementado localmente em14 categorias/9 slots/raridades/afixos/drops
 | Temporadas | community-events.ts | CalendárioBrasília,arquivo,prêmio único,bônus expira |
 | Boss/relâmpagos/guerra | scheduler/claims/ledger | Últimogolpe,presença,loteria,raid,roster e rollback |
 | Integração | smoke-community.mjs | Dev/produção,dois perfis,UI/reload/responsividade |
+
+## Evidência implementada F7
+
+| Critério | Implementação | Evidência |
+|---|---|---|
+| MKT-01 reserva/compra/oferta/taxas | shared/market, MarketService, migração003 | market.test: compra dupla, replay, compra×aceitação, conservação e rollbackoutbox |
+| Expiração/relistagem/recuperação | prazo72h, claim, procedência e cooldown24h | Limites exatos, restart, mochila cheia, split/merge de recurso |
+| Histórico/moderação/abuso | trades/audit/commands append-only, CLI, auth/rate/suspensão | IDOR, sem adminHTTP, operador real, triggers e payloadstrict |
+| Interface | Mais→Mercado, sprites existentes, revisão e pendingpersistido | phase7-browser-dev/preview: resposta perdida+reload, oferta, compra, resgate,30ciclos,320/390/768 |
+| Parâmetros econômicos | market-1/ADR-011/MARKET_SYSTEMS | phase7-economy-simulation; sem alegação de equilíbrio humano |
+
+Itens não elegíveis atuais: mascote de conta Musgo, skins não implementadas e Ruby desabilitado por D15; não apresentados como negociáveis.

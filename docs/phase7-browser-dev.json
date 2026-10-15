@@ -1,0 +1,17 @@
+{
+  "mode": "development",
+  "passed": true,
+  "fixture": "Two isolated server-seeded accounts; not an organic progression playtest.",
+  "checks": [
+    "equipment-escrow",
+    "lost-response-reload-idempotency",
+    "offer-accept-fee",
+    "resource-direct-purchase",
+    "cancel-claim-cooldown",
+    "30-navigation-cycles",
+    "widths-320-390-768"
+  ],
+  "domBefore": 94,
+  "domAfter": 94,
+  "pageErrors": []
+}

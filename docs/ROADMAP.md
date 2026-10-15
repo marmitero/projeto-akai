@@ -1,6 +1,6 @@
 # Roadmap e gates de entrega
 
-Baseline v1 — 15/10/2026. Sem estimativas de calendário: duração depende da integração artística e validação do loop. Estado atual: F1–F5 e iniciador Windows concluídos; F6 concluída e publicada, com CI remota aprovada; F7 é a próxima etapa técnica. As linhas de estado e entregas datadas prevalecem sobre registros históricos abaixo.
+Baseline v1 — 15/10/2026. Sem estimativas de calendário: duração depende da integração artística e validação do loop. Estado atual: F1–F5 e iniciador Windows concluídos; F6 concluída e publicada, com CI remota aprovada; F7 implementada em desenvolvimento, validada localmente; publicação/CI pendentes. F8 não iniciada. As linhas de estado e entregas datadas prevalecem sobre registros históricos abaixo.
 
 | Fase | Entrega e dependências | Critério de saída | Estado |
 |---|---|---|---|
@@ -11,7 +11,7 @@ Baseline v1 — 15/10/2026. Sem estimativas de calendário: duração depende da
 | 4 — Progressão RPG | F3 + aceitação de mecânicas propostas | Equipamentos, raridades, drops, mascotes, ouro/jade, fabricação, buffs, dados escaláveis até 1.000 andares | Concluída no escopo local; ver STAGE_04_REPORT |
 | 5 — Online autoritativo | Fundação do servidor F1 + domínio estabilizado | Auth, persistência, ledger, reconexão, simulação confiável, testes de concorrência/abuso | Concluída e publicada; CI aprovada, ver STAGE_05_REPORT |
 | 6 — Comunidade | F5 + decisões sociais resolvidas | Chat/moderação, guildas/brasões, PvP, rankings/temporadas, boss global e eventos idempotentes | Concluída e publicada; CI aprovada, STAGE_06_REPORT |
-| 7 — Mercado | F4/F5 + definições de negociação | Reserva, compra/oferta atômicas, taxas, expiração/relistagem e auditoria verificadas | Não iniciada |
+| 7 — Mercado | F4/F5 + definições de negociação | Reserva, compra/oferta atômicas, taxas, expiração/relistagem e auditoria verificadas | Implementada em desenvolvimento; validação local concluída, STAGE_07_REPORT |
 | 8 — Monetização | F5 + economia simulada + contas de provedores | Compras/anúncios em sandbox validados e reconciliados, sem grants duplicados | Não iniciada |
 | 9 — Android | Loop estável + adaptação de plataforma | Build de teste em aparelhos, ciclo de vida, auth, compras e áudio validados | Não iniciada |
 | 10 — Candidato a lançamento | Gates anteriores + licenças + operação | RELEASE_CHECKLIST cumprido, riscos aceitos, rollback e restauração ensaiados | Não iniciada |
@@ -86,3 +86,10 @@ Concluída e publicada na main emab36b2e. Bootstrap portátil Node24, dependênc
 ## Entrega F6 — comunidade
 
 F6-01chat/bloqueio/denúncia/moderaçãoCLI; F6-02guildas/convites/roles/brasões/XP; F6-03arena autoritativa e rankings; F6-04temporadas/arquivo/prêmios; F6-05boss22h/XP/loteria/raid/guerra; F6-06migração002/UI/testes/documentação implementados.94testes, builds/hashes/typecheck e smokes local/online/comunidade emdev/produção passaram localmente. Regras em COMMUNITY_SYSTEMS/ADR-010 e evidências STAGE_06_REPORT. Sem contratação ou produção pública. Publicação autorizada explicitamente e concluída na main em c00a93a; [CI F6 38803335641](https://github.com/marmitero/projeto-akai/actions/runs/38803335641) e [CI Windows 38803335493](https://github.com/marmitero/projeto-akai/actions/runs/38803335493) aprovadas. F7 não iniciada.
+
+
+## Entrega F7 — mercado
+
+Autorizada pelo usuário após publicação F6. Contratos strict, migração003, reserva de equipamento/recurso, compra/aceitação atômicas, taxa na moeda da venda, expiração72h, cooldown24h, resgate seguro, histórico e moderaçãoCLI implementados. Mais→Mercado no modo online, com revisão e recuperação de resposta perdida/recarga. Parâmetros do prompt simulados; Ruby/Musgo de conta/skins sem instância não entram como ativos elegíveis. Regras em MARKET_SYSTEMS/ADR-011, evidências atuais em STAGE_07_REPORT.
+
+117testes com PostgreSQL real, typecheck/hashes/builds locais passaram. As oito verificações de navegador local/online/comunidade/mercado passaram em desenvolvimento e preview de produção. Publicação e CI remota F7 pendentes; não atribuir runs F6 à F7. Sem contratação ou produção pública. F8 não iniciada; próxima fase técnica é monetização sandbox, que exigirá preparação dos provedores e decisões próprias antes de qualquer gasto/ativação real.

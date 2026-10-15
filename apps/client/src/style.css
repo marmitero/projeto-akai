@@ -925,6 +925,8 @@ progress {
 #community-root article.panel { margin-block:1rem; padding:1rem; }
 #community-root progress { width:100%; }
 /* Community controls use the same curated sprite frames as the RPG menus. */
+#market-root button,
+[data-shortcut="market"],
 #community-root button,
 [data-shortcut="community"] {
   border: 7px solid transparent;
@@ -937,8 +939,19 @@ progress {
   font-family: system-ui, sans-serif;
   font-size: 12px;
 }
+#market-root button:active,
+#market-root button[aria-pressed="true"],
 #community-root button:active,
 #community-root button[aria-pressed="true"] { border-image-source: var(--asset-buttonPressed); }
 #community-root .emblem-editor button { border-image:none; border:1px solid #494052; padding:0; min-height:0; aspect-ratio:1; }
 #community-root .community-profile-details { padding:0 12px; }
 #community-id { font-size:11px; line-height:1.6; overflow-wrap:anywhere; }
+
+#market-root { overflow-wrap:anywhere; }
+#market-root .market-card, #market-review { padding:1rem; margin-block:1rem; }
+#market-root select { max-width:100%; min-width:0; padding:.65rem; color:inherit; background:#211b2e; border:1px solid #cba44b; }
+#market-root .market-card button { margin:.3rem; }
+
+#market-root .market-asset { width:40px; height:40px; object-fit:contain; float:left; margin-right:.6rem; }
+
+#market-root .community-tabs button { flex:1 1 110px; min-width:110px; overflow-wrap:normal; }

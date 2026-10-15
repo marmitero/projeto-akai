@@ -40,3 +40,22 @@ F5 fornece Compose PostgreSQL16 de desenvolvimento, db:migrate separado do start
 ## Atualização F6 — 15/10/2026
 
 F6 requer db:migrate para002antes de iniciar. Worker2s e leituras/comandos avançam edições sob lock no banco; múltiplas instâncias/restarts não duplicam grants. Moderação e debug só por CLI com operador/motivo/credencial operacional. Start-boss exige AKAI_COMMUNITY_DEBUG=1 e NODE_ENV não production, apenas edição ainda agendada sem inscritos. Em falha SQL, transação reverte e próximo tick reavalia; configurar alertas antes de público. Planejar retenção da presença/chat/denúncias, sem apagar claims/idempotências. Carga/backup/restore e permissões devem contemplar tabelas sociais. Não foi provisionada infraestrutura externa.
+
+## Atualização F7 — mercado
+
+Migrar003 antes do servidor. Rodar `db:reconcile`, verificar sem divergência e monitorar falhas de transação/latência do lock social; não reparar ledger com UPDATE. Remoção pelo operador em MARKET_SYSTEMS é auditada e preserva resgate do vendedor. Sessões suspensas não podem transacionar; resolver revisão e restaurar conta antes de permitir resgate, sem criar bypass administrativo de transferência.
+
+Indicadores exploratórios, executados com credencial somente de leitura:
+
+```sql
+SELECT status,count(*) FROM akai_market_listings GROUP BY status;
+SELECT currency,count(*) AS trades,sum(price) AS gross_minimal,
+       sum(fee) AS burned_minimal,sum(net) AS sellers_minimal
+FROM akai_market_trades GROUP BY currency;
+SELECT count(*) AS unclaimed_returns FROM akai_market_listings
+WHERE status IN ('expired','cancelled','removed') AND NOT claimed;
+```
+
+Contagem de anúncios representa custo queimado de100.000Coins por publicação confirmada; não multiplicar por resultados de replay. Trades registram a taxa na moeda correta, sem soma ingênua de moedas distintas. Datas de expiração são verificadas antes da operação, independente do tick10s.
+
+Rollback de código não deve apagar tabelas ou devolver bens por script ad hoc: um binário antigo pode deixar escrow temporariamente inacessível, mas os bens continuam persistidos. Restaurar versão com suporte a resgate ou executar compensação específica auditada após diagnóstico. Não duplicar manualmente item que possa ter trade confirmado. Backups/restauração real e retenção continuam requisitos de produção, não ensaiados integralmente nesta etapa.

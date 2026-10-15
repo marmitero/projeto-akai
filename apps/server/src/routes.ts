@@ -1,5 +1,6 @@
 import type { FastifyInstance, FastifyRequest } from "fastify";
 import { z } from "zod";
+import { marketRoutes } from "./market-routes.js";
 import { communityRoutes } from "./community-routes.js";
 import type { ServerConfig } from "./config.js";
 import { OnlineError, type OnlineService } from "./online.js";
@@ -43,6 +44,7 @@ export async function onlineRoutes(
     await service.authLimit(`http:${req.ip}`, 600);
   });
   await communityRoutes(app, service);
+  await marketRoutes(app, service);
   const cookie = (token: string) =>
     `akai_session=${token}; Path=/api/v1; HttpOnly; SameSite=Strict; Max-Age=604800${config.COOKIE_SECURE ? "; Secure" : ""}`;
   app.post("/api/v1/auth/guest", async (req, reply) => {

@@ -106,3 +106,11 @@ Mudança compatível adiciona campo opcional; mudança de significado/tipo exige
 ## Atualização F6 — 15/10/2026
 
 F6 instala GET /api/v1/community e POST /api/v1/community/commands sob os mesmos cookies/Origin/header da F5. Envelope {commandId,action}, schemas strict em shared/community.ts, sem expectedVersion global: seleção/vagas/permissões são revalidadas sob lock social. CommunityResult retorna commandId/status/code; recusas persistem para retries, conteúdo alterado com mesmo UUID409. Ações: profile,chat,block,report,guild.create/invite/accept/leave/role/emblem/upgrade,arena,boss(join/leave),raid,war.enroll/attack. Snapshot inclui chat permitido, vínculo/convites, arena/matches, eventos, rankings, arquivos e recompensas, sem segredos ou RNG. Rotas de moderação/iniciar evento não existem para jogadores; CLI operacional separada. Limites/eligibilidade em COMMUNITY_SYSTEMS; blueprint social antigo acima não é lista de outras rotas instaladas.
+
+## Atualização F7 — mercado
+
+- GET `/api/v1/market?kind=item|resource&currency=coin|iron|coal|gold|jade&offset=0`: filtros opcionais, página de 50, `hasMore`; também retorna inventário anunciável, saldos, pendências próprias, ofertas privadas, cooldowns e últimas 50 transações. Sem RNG ou dados de sessão. Offset inteiro entre 0 e 5.000.
+- POST `/api/v1/market/commands`: `{commandId:UUID,action}`, strict, 30/min/sessão. Ações `list.item(itemId,price,currency)`, `list.resource(resource,quantity,price,currency)`, `buy/cancel/claim(listingId)`, `offer(listingId,price,currency)` e `offer.accept/reject/withdraw(offerId)`. Preço/quantidade são strings de unidades mínimas, não valores já abreviados da UI. Exemplo: 1,125 ferros = `"1125"`.
+- Resposta `MarketResult`: commandId/status/code e listingId quando aplicável. Domínio rejeitado HTTP422 (permissão403), sem efeitos econômicos; resultado persiste. Conflito de payload no mesmo UUID é recusado. Erros inesperados revertem a transação e são retryáveis com o mesmo UUID. Sem `expectedVersion`: anúncio, oferta e ambos os perfis são revalidados sob locks.
+
+Ruby e campos arbitrários de saldo/itens são recusados pelo schema. Proteções de sessão, Origin, header CSRF e limite HTTP continuam as da F5. Moderação é CLI auditada; nenhuma rota `/market/admin`. Contratos exatos em shared/market.ts, regras em MARKET_SYSTEMS.

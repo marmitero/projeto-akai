@@ -98,3 +98,9 @@ jogar.bat na raiz prepara o runtime e abre o modo local em127.0.0.1:5173, indepe
 ## Atualização F6 — 15/10/2026
 
 Servidor atualizado: executar npm run db:migrate -w @akai/server; npm run dev:server e VITE_GAME_MODE=online npm run dev:client. Mais→Comunidade abre os sistemas reais do servidor; jogar.bat permanece local. npm run test:community exige TEST_DATABASE_URL para as integrações; sem esse env são puladas explicitamente. npm run test:browser:community e :preview exigem DBisolado/Chromium e build correto. CLI community:admin e configurações em COMMUNITY_SYSTEMS; não há admin no frontend.
+
+## Atualização F7 — 15/10/2026
+
+Executar `npm run db:migrate -w @akai/server` antes do servidor novo (migração003 aditiva). Mais→Mercado no cliente online; `jogar.bat` preserva local. `npm run test:market` roda contratos e integração real quando `TEST_DATABASE_URL` existe; sem ele os testes PostgreSQL são explicitamente skipped e não servem de aceite. `npm run simulate:market` gera phase7-economy-simulation.json. `npm run test:browser:market` e `npm run test:browser:market:preview` usam duas contas de fixture isoladas e exigem banco; inclua install do Chromium como nos smokes anteriores.
+
+CLI `npm run market:admin -w @akai/server -- operador UUID "Motivo com cinco caracteres ou mais"` exige DATABASE_URL e não usa cookie de jogador. Não há endpoint de concessão ou moderação. Workflow adiciona simulação e ambos os smokes do mercado com PostgreSQL16. Evidências locais e limites em STAGE_07_REPORT; não confundir execução local com CI remota.

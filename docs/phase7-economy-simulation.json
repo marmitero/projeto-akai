@@ -1,0 +1,86 @@
+{
+  "version": "market-1",
+  "experimental": true,
+  "scope": "Deterministic fee pressure and conservation, not commercial balance or human playtest.",
+  "stages": [
+    {
+      "floor": 1,
+      "coinPerEnemy": 3,
+      "listingFeeCoins": 100000,
+      "enemyWinsForListingFee": 33334,
+      "note": "Enemy-win comparison only; ignores time, guild/event income and combat losses."
+    },
+    {
+      "floor": 10,
+      "coinPerEnemy": 120,
+      "listingFeeCoins": 100000,
+      "enemyWinsForListingFee": 834,
+      "note": "Enemy-win comparison only; ignores time, guild/event income and combat losses."
+    },
+    {
+      "floor": 100,
+      "coinPerEnemy": 7125,
+      "listingFeeCoins": 100000,
+      "enemyWinsForListingFee": 15,
+      "note": "Enemy-win comparison only; ignores time, guild/event income and combat losses."
+    },
+    {
+      "floor": 500,
+      "coinPerEnemy": 178125,
+      "listingFeeCoins": 100000,
+      "enemyWinsForListingFee": 1,
+      "note": "Enemy-win comparison only; ignores time, guild/event income and combat losses."
+    },
+    {
+      "floor": 1000,
+      "coinPerEnemy": 712500,
+      "listingFeeCoins": 100000,
+      "enemyWinsForListingFee": 1,
+      "note": "Enemy-win comparison only; ignores time, guild/event income and combat losses."
+    }
+  ],
+  "prices": [
+    {
+      "priceMinimal": "2",
+      "feeMinimal": "1",
+      "netMinimal": "1",
+      "sellerProfitAfterListingFeeCoins": "-99999999"
+    },
+    {
+      "priceMinimal": "11",
+      "feeMinimal": "2",
+      "netMinimal": "9",
+      "sellerProfitAfterListingFeeCoins": "-99999991"
+    },
+    {
+      "priceMinimal": "1000",
+      "feeMinimal": "100",
+      "netMinimal": "900",
+      "sellerProfitAfterListingFeeCoins": "-99999100"
+    },
+    {
+      "priceMinimal": "1000000",
+      "feeMinimal": "100000",
+      "netMinimal": "900000",
+      "sellerProfitAfterListingFeeCoins": "-99100000"
+    },
+    {
+      "priceMinimal": "100000000",
+      "feeMinimal": "10000000",
+      "netMinimal": "90000000",
+      "sellerProfitAfterListingFeeCoins": "-10000000"
+    },
+    {
+      "priceMinimal": "1000000000",
+      "feeMinimal": "100000000",
+      "netMinimal": "900000000",
+      "sellerProfitAfterListingFeeCoins": "800000000"
+    }
+  ],
+  "reciprocal100Trades": {
+    "initialMinimal": "2000000000000",
+    "finalMinimal": "1980000000000",
+    "burnedMinimal": "20000000000"
+  },
+  "decision": "Keep prompt listing fee100000 Coins in development pilot; restrictive at early floors. Gate trading at floor10. Do not claim production balance; monitor volume, listing expiry and affordability before public launch."
+}

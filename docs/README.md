@@ -1,6 +1,6 @@
 # Documentação do Projeto Akai
 
-Baseline de planejamento — 15/10/2026. **F1–F4 locais; F5 online e F6 comunidade implementadas em desenvolvimento, sem deploy público. F6 publicada com CI aprovada.** Leia [AI_STATE](../AI_STATE.md) antes de trabalhar. O usuário autorizou a próxima etapa em 15/10/2026. Comandos reais em [DEVELOPMENT](DEVELOPMENT.md); evidências atuais em [STAGE_06_REPORT](STAGE_06_REPORT.md).
+Baseline de planejamento — 15/10/2026. **F1–F4 locais; F5 online e F6 comunidade publicadas; F7 mercado em desenvolvimento, sem deploy público. Publicação/CI F7 pendentes.** Leia [AI_STATE](../AI_STATE.md) antes de trabalhar. O usuário autorizou a próxima etapa em 15/10/2026. Comandos reais em [DEVELOPMENT](DEVELOPMENT.md); evidências atuais em [STAGE_07_REPORT](STAGE_07_REPORT.md) e regras em [MARKET_SYSTEMS](MARKET_SYSTEMS.md).
 
 ## Ordem de leitura
 

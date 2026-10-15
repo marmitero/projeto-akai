@@ -1,6 +1,6 @@
 import { assets, installAssetStyles } from "../assets/catalog.js";
 import type { Screen } from "@akai/shared";
-export type Route = Screen | "bag" | "shop" | "community";
+export type Route = Screen | "bag" | "shop" | "community" | "market";
 const icon = (key: keyof typeof assets, className = ""): string =>
   `<img class="sprite ${className}" src="${assets[key]}" alt="" draggable="false">`;
 function upgradeCard(kind: string, title: string): string {
@@ -42,6 +42,7 @@ export function createShell(root: HTMLElement): void {
       </div>
     </section>
     <section data-pane="bag" class="extra-page" hidden><div id="rpg-root"></div></section>
+    <section data-pane="market" class="extra-page" hidden><div id="market-root"></div></section>
     <section data-pane="community" class="extra-page" hidden><div id="community-root"></div></section>
     <section data-pane="shop" class="extra-page" hidden><div class="empty-state panel">${icon("shop", "large-icon")}<h2>O mercador ainda está a caminho</h2><p>A loja está indisponível nesta fase. Não há produtos, preços ou compras ativas.</p></div></section>
   </main>
@@ -55,12 +56,12 @@ export function createShell(root: HTMLElement): void {
   </nav>
   <dialog id="menu-dialog" aria-labelledby="dialog-title"><div class="dialog-panel panel"><div class="dialog-heading"><h2 id="dialog-title">Seu reino</h2><button id="close-dialog" class="close-button" aria-label="Fechar menu">${icon("close")}</button></div>
     <div id="dialog-menu"><div class="shortcut-row"><button data-shortcut="bag">${icon("bag")}Mochila</button><button data-shortcut="shop">${icon("shop")}Loja</button></div>
-    <button data-shortcut="community">Comunidade</button>
+    <button data-shortcut="community">Comunidade</button><button data-shortcut="market">Mercado</button>
     <h3 id="profile-heading">Perfil local de teste</h3><p class="body-copy">O retrato do rei ainda não foi definido. Seu perfil local é salvo somente neste navegador.</p>
     <label class="motion-setting"><input id="reduce-motion" type="checkbox"> Reduzir movimento e efeitos</label>
     <div class="save-actions"><button id="save" disabled>Salvar perfil local</button><button id="recover" hidden>Restaurar cópia anterior</button></div>
     <p id="save-status" role="status" aria-live="polite">Abrindo salvamento…</p>
-    <details><summary>Outros destinos do reino</summary><p>Habilidades avançadas, eventos, mercado, arena, guildas e rankings serão integrados nas fases seguintes.</p></details></div>
+    <details><summary>Outros destinos do reino</summary><p>Habilidades avançadas e loja premium serão integradas nas fases seguintes. Comunidade e Mercado estão disponíveis no modo online.</p></details></div>
     <div id="dialog-resources" hidden><p class="body-copy">Saldos do perfil local. Ouro e jade são gerados pelas minas desbloqueadas. Ruby permanece indisponível.</p><dl class="resources-list">${(
       [
         ["coin", "Coins", null],
@@ -114,6 +115,13 @@ export const routeLabels: Record<
     title: "Mochila",
     kicker: "SEU EQUIPAMENTO",
     badge: "Equipamento e Forja",
+    caption: "",
+    description: "",
+  },
+  market: {
+    title: "Mercado",
+    kicker: "ENTRE JOGADORES",
+    badge: "Online",
     caption: "",
     description: "",
   },
