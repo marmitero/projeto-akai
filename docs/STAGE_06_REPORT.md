@@ -1,6 +1,6 @@
 # Relatório Fase 6 — comunidade
 
-15/10/2026. **Implementação e validação técnica em desenvolvimento concluídas; publicação/CI remota ainda pendentes.** Base remota:1dd97b6f8628198a9cb8de842f669ee683cec7df. Sem contratação, publicação pública, alteração dos sprites originais ou início da F7.
+15/10/2026. **Implementação, publicação na main e validação técnica concluídas; CI remota aprovada.** Base remota:1dd97b6f8628198a9cb8de842f669ee683cec7df. Sem contratação, publicação pública, alteração dos sprites originais ou início da F7.
 
 ## Entregas
 
@@ -31,7 +31,7 @@ Regras/fórmulas/custos/horários/caps em [COMMUNITY_SYSTEMS](COMMUNITY_SYSTEMS.
 
 [Smoke comunidade dev](phase6-browser-dev.json), [produção](phase6-browser-preview.json), [captura](phase6-screenshots/community-guild-390.png). Testes de navegador usam contas semeadas no banco isolado com recursos/andar de fixture; não medem progressão orgânica ou equilíbrio de PvP/guerra. Resultados de produção visual rechecados após aplicar molduras da HUD.
 
-Ambiente local: Node24.19, Chromium153, PostgreSQL nativo18.4 em runtime isolado. Ajuste de UID do harness do contêiner não integra o projeto ou implantação. O workflow de CI permanece com imagem oficialPostgreSQL16, mas a execução desta F6 só pode ser afirmada após publicação/consulta ao run. Não houve novo soak30min nem teste de escala comercial. Os soaks F3/F4 permanecem históricos, sem serem reapresentados como execução nova.
+Ambiente local: Node24.19, Chromium153, PostgreSQL nativo18.4 em runtime isolado. Ajuste de UID do harness do contêiner não integra o projeto ou implantação. [CI F6 38803335641](https://github.com/marmitero/projeto-akai/actions/runs/38803335641) aprovada com imagem oficial PostgreSQL16; [CI Windows 38803335493](https://github.com/marmitero/projeto-akai/actions/runs/38803335493) também aprovada. Não houve novo soak30min nem teste de escala comercial. Os soaks F3/F4 permanecem históricos, sem serem reapresentados como execução nova.
 
 ## Decisões autônomas
 
@@ -39,8 +39,8 @@ Lock social global no primeiro piloto, limites5000perfis/200inscritos por boss, 
 
 ## Estado e próximo passo
 
-Conclusão técnica de desenvolvimento: pronta, com evidências locais. Falta publicar o commit e consultar a CI remota desta entrega; não declarar os runs antigos como validação da F6. Antes de público continuam configuraçãoGoogle real, banco/TLS/WSS/backups, moderação humana/políticas/retencão/privacidade, licenças, playtest de ritmo/competição e aparelhos/carga. Não houve gasto ou ativação de mercado/pagamentos. Próxima fase recomendada após fechamento: **F7 — mercado e economia compartilhada**, ainda não iniciada.
+Conclusão técnica: F6 concluída e publicada, com evidências locais e CI própria aprovada. Antes de público continuam configuraçãoGoogle real, banco/TLS/WSS/backups, moderação humana/políticas/retencão/privacidade, licenças, playtest de ritmo/competição e aparelhos/carga. Não houve gasto ou ativação de mercado/pagamentos. Próxima fase recomendada após fechamento: **F7 — mercado e economia compartilhada**, ainda não iniciada.
 
-## Pendência de publicação
+## Publicação e CI
 
-A revisão automática rejeitou o push da F6 à main: a autorização para prosseguir a fase não foi considerada autorização explícita para publicar este novo payload. Nenhum conteúdo F6 foi enviado ao remoto, nem há PR/CI da F6. O resultado está no commit local revisável. Publicação e CI dependem de autorização explícita; os testes locais acima permanecem válidos e não são apresentados como CI remota.
+Após autorização explícita do usuário em 15/10/2026, implementação publicada na main em `c00a93a733c7e8e59b4aeae1feeb7e8ebed2b20e`, com árvore `91544ca82d3e2d47596454c4dd551fab0ac08cf8` idêntica à validada. [CI F6 38803335641](https://github.com/marmitero/projeto-akai/actions/runs/38803335641) e [CI Windows 38803335493](https://github.com/marmitero/projeto-akai/actions/runs/38803335493) concluíram com sucesso. Bloqueio anterior resolvido. Nenhuma validação obrigatória pendente para esta publicação; os gates públicos listados acima continuam próprios de implantação.

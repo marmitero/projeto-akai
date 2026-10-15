@@ -1,6 +1,6 @@
 # AI_STATE — Projeto Akai
 
-15/10/2026. **F1–F5 e iniciador Windows preservados; F6 implementada e validada em desenvolvimento. Publicação F6 bloqueada pela revisão automática; CI remota pendente. F7 não iniciada.** Base remota desta entrega:1dd97b6f8628198a9cb8de842f669ee683cec7df.
+15/10/2026. **F1–F5 e iniciador Windows preservados; F6 concluída e publicada na main; CI remota aprovada. F7 não iniciada.** Base remota desta entrega:1dd97b6f8628198a9cb8de842f669ee683cec7df.
 
 ## Autorização e governança
 
@@ -24,16 +24,16 @@ F6 `community-1`: packages/shared/src/community.ts, apps/server/src/community*.t
 
 94testes em9arquivos (66anteriores+28F6), typecheck, hashes e builds local/online passaram. Migração real001→002 preservando conta/sessão/snapshot,30replayschat,20replaysarena, vaga concorrente, TTL/roles/IDOR/mute, loteria/raid/rollover/últimogolpe/rollbackoutbox e CLI operacional. Smokes local/online/comunidade dev/produção passaram; community usa2contas de fixture isoladas, testa XSSliteral, guilda/emblema, arena/boss, reload,30ciclos e320/390/768px. DOM constante e sem pageerrors; local mantém35texturas/38objetos. Captura revisada e guiada para molduras existentes.
 
-Sem novo soak30min, escala comercial, playtest humano competitivo, aparelho real ou provedorGoogle real nesta entrega. CI remota F6 ainda depende de publicação e consulta; não usar runs F5 como prova da F6. Ler STAGE_06_REPORT e phase6-browser-*.json.
+Sem novo soak30min, escala comercial, playtest humano competitivo, aparelho real ou provedorGoogle real nesta entrega. [CI F6 38803335641](https://github.com/marmitero/projeto-akai/actions/runs/38803335641) aprovada com PostgreSQL16 e os seis smokes de navegador. Ler STAGE_06_REPORT e phase6-browser-*.json.
 
 ## Operação e próximo passo
 
 Executar db:migrate antes do servidor atualizado; CLI e regras em COMMUNITY_SYSTEMS/ADR-010/API. Mute/suspensão não podem ser administrados por usuário comum. start-boss de desenvolvimento só com AKAI_COMMUNITY_DEBUG=1, NODE_ENV não production, operador/banco e edição ainda agendada; sem reabrir ativa/fechada. Nada disso existe em endpoint público.
 
-jogar.bat segue local: Node24 portátil/checksum quando necessário, cache npm, sprites e5173fixo; validação Windows anterior38795097309success, não execução nova nesta etapa. Recursos sociais exigem conta/servidor; não iniciar banco/Google silenciosamente no BAT.
+jogar.bat segue local: Node24 portátil/checksum quando necessário, cache npm, sprites e5173fixo; [CI Windows 38803335493](https://github.com/marmitero/projeto-akai/actions/runs/38803335493) aprovada novamente nesta entrega. Recursos sociais exigem conta/servidor; não iniciar banco/Google silenciosamente no BAT.
 
-Sem validação de design obrigatória do usuário agora. Permanecem gates públicos: OAuth/hospedagem/TLS/banco/backups, moderação humana/privacidade/retencão/alertas/carga, licenças e playtest/aparelhos. Próximo recomendado após publicação/CI: F7mercado, não iniciada.
+Sem validação de design obrigatória do usuário agora. Permanecem gates públicos: OAuth/hospedagem/TLS/banco/backups, moderação humana/privacidade/retencão/alertas/carga, licenças e playtest/aparelhos. Próximo recomendado: F7mercado, não iniciada.
 
 ## Publicação da F6
 
-Tentativa de push do payload F6 à main foi rejeitada pela revisão automática por exigir autorização explícita para publicar estes novos arquivos. Não houve contorno por outro canal, branch publicada, PR ou CI remota da F6. Implementação/testes/docs estão no commit local revisável; aguardar autorização de publicação. Autorizações anteriores referiam-se à F5 e ao iniciadorWindows. Nenhum sprite original ou save foi alterado por essa tentativa; F7 permanece não iniciada.
+Usuário autorizou explicitamente a publicação em 15/10/2026. Implementação publicada na main em `c00a93a733c7e8e59b4aeae1feeb7e8ebed2b20e`; árvore remota `91544ca82d3e2d47596454c4dd551fab0ac08cf8` idêntica à validada localmente. [CI F6 38803335641](https://github.com/marmitero/projeto-akai/actions/runs/38803335641) e [CI Windows 38803335493](https://github.com/marmitero/projeto-akai/actions/runs/38803335493) aprovadas. Bloqueio anterior resolvido; nenhuma autorização de publicação pendente nesta entrega. F7 não iniciada.
