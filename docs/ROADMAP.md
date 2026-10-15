@@ -81,6 +81,4 @@ Publicação F5 concluída após autorização explícita do usuário em15/10/20
 
 ## Entrega auxiliar — jogar.bat
 
-Iniciador Windows solicitado após F5: bootstrap portátil Node24 quando necessário, instalação de dependências, conferência de sprites e preview local automático. Documentação em LOCAL_PREVIEW; CI Windows com BAT real, diretório com espaços e mineração em navegador. Implementado e validado na preparação/HTTP/PNG local. Publicação bloqueada pela revisão automática aguardando autorização explícita para estes novos arquivos; validação Windows pela CI ainda não executada. Não avança F6 nem provisiona infraestrutura pública.
-
-Atualização15/10/2026: usuário autorizou explicitamente nova tentativa de publicação do jogar.bat e arquivos de apoio. Bloqueio anterior resolvido; publicação e execução da CI Windows em andamento.
+Concluída e publicada na main emab36b2e. Bootstrap portátil Node24, dependências com cache, integridade dos sprites e preview local automático em127.0.0.1:5173. [CI Windows38795097309](https://github.com/marmitero/projeto-akai/actions/runs/38795097309) success: BAT real, diretório com espaços, download Node/instalação limpa, modo local forçado e mineração no navegador. Instruções em LOCAL_PREVIEW. Autorização de publicação resolvida; nenhuma pendência obrigatória do usuário nesta entrega. Não avança F6 nem provisiona infraestrutura pública.

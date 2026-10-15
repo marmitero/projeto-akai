@@ -33,6 +33,6 @@ Fontes: [Node24.19.0 oficial](https://nodejs.org/dist/v24.19.0/), [API JavaScrip
 
 ## Estado desta entrega
 
-Implementação local pronta. Conferência de90arquivos de assets, instalação inicial de143pacotes, compilação shared, reutilização de cache, servidorHTTP, override online→local e respostaPNG verificados neste ambiente. O BAT/PowerShell ainda precisa da execução Windows preparada no workflow. A revisão automática bloqueou o upload deste novo conjunto de arquivos por exigir autorização explícita de publicação; portanto não há CI Windows executada nem publicação deste iniciador na main nesta entrega.
+Publicado na main em [ab36b2e](https://github.com/marmitero/projeto-akai/commit/ab36b2e9d1532805e49cb3386a2e6a2cfc768579). [CI Windows38795097309](https://github.com/marmitero/projeto-akai/actions/runs/38795097309) aprovada: BAT real via cmd/PowerShell, diretório com espaços, Node portátil baixado/verificado, dependências do zero e reaproveitadas, cenário pronto e mineração confirmada em Chromium, mesmo com VITE_GAME_MODE externo online. Windows x64 validado; a seleção ARM64 está implementada, mas não foi exercitada nesse runner.
 
-Atualização15/10/2026: usuário autorizou explicitamente nova tentativa de publicação do jogar.bat e arquivos de apoio. Bloqueio anterior resolvido; publicação e execução da CI Windows em andamento.
+Conferência local de90arquivos de assets, instalação inicial de143pacotes, compilação shared, cache, HTTP, override online→local e respostaPNG também passaram. Nenhum save ou sprite original alterado. Sem pendência obrigatória do usuário para esta entrega.
