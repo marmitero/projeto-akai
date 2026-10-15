@@ -20,3 +20,7 @@ Registro inicial — 15/10/2026. Probabilidade/impacto são avaliações qualita
 | R14 | Desenvolvimento continua apesar da pausa solicitada | Alta para colaboração | AI_STATE e Constituição explicitam aguardar nova instrução | Agora |
 
 Bloqueio atual de execução: pedido explícito para aguardar após documentar. Bloqueios de lançamento: licença, conformidade e ausência de implementação/testes. Licenças pendentes não foram tratadas como resolvidas pela publicação dos documentos. Não há incidente de segurança ou perda de dados observado; riscos são prospectivos.
+
+## Evidência após F2
+
+R02: subset Character/Skeleton/Hud/Normal BG tem recortes, pivôs e capturas revisados, inclusive correção do chão na morte do herói; demais famílias continuam sem aprovação completa. R06:50 ciclos mantêm texturas/objetos e input isolado no smoke. R08: bundle curado~1,45MB, sem o acervo integral. R01 permanece aberto: nenhuma licença foi liberada. Teste em aparelho permanece futuro; essas evidências não substituem verificação econômica F3/online F5. A pausa histórica R14 não impede a fase explicitamente autorizada.

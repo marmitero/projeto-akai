@@ -1,6 +1,6 @@
 # Interface e experiência do jogador
 
-Especificação de UX v1. Nenhuma tela implementada. Direção: RPG mobile vertical com sprites reais, não dashboard administrativo.
+Especificação de UX v1 com subset visual implementado na F2. Combate/economia ainda não implementados. Direção: RPG mobile vertical com sprites reais, não dashboard administrativo.
 
 ## Mapa de navegação
 
@@ -40,3 +40,7 @@ HUD e primeira cena primeiro; demais assets sob demanda. Mostrar progresso/erro 
 ## Integração artística
 
 Ícones concretos e recortes em Asset_Usage_Guide; painéis/abas de Hud com tema consistente. Não exibir spritesheet inteira como botão. Acessibilidade e integração não estão testadas; aceite visual e funcional em MVP_ACCEPTANCE/TEST_PLAN.
+
+## Implementação F2 e limites observados
+
+HUD persistente e destinos implementados visualmente; fallback até419px deixa Mochila/Loja em Mais. Todos os alvos do menu≥44px nas larguras testadas. O conteúdo rola acima da HUD. Modais nativos bloqueiam input e devolvem foco; Escape fecha modal ou retorna de Mochila/Loja à última atividade. Scroll de cada página é preservado enquanto navega. Não há timer/HP/recompensas falsos: cena de teste, minas inativas e loja indisponível estão identificados. O retrato ainda usa iniciais, sem desenho de rei presumido. Redução de movimento é opção da sessão, com padrão do sistema ao abrir. Ver STAGE_02_REPORT para evidência e capturas.

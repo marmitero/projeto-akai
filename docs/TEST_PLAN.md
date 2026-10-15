@@ -37,3 +37,7 @@ Testar IDOR, sessão expirada, payload enorme, números negativos/overflow, auth
 ## Execução e gates
 
 F1 define comandos reais de lint/typecheck/test/build e os documenta; atualmente não existem. Em cada mudança executar somente camadas pertinentes, registrar comando, commit, ambiente, resultado e limitações no AI_STATE. Cobertura numérica não substitui cenários. CI futura bloqueia regressão crítica, segredo e build quebrado. Antes de F5 exigir transações e reconexão testadas; antes de lançamento cumprir RELEASE_CHECKLIST. Dados de teste isolados, seeds versionadas e sem PII de produção.
+
+## Evidência F2
+
+14 testes unitários/regressão da F1 continuam passando; verificação de assets e smoke ampliado em dev e build estático foram executados. Oito animações e conclusão de morte,50 ciclos, input oculto/modal bloqueado, foco/Escape, alvos/scroll, save/reload e falha de asset validados. Esses testes não provam vida, ondas, produção ou segurança online, que não existem ainda. CI configurada para repetir check e ambos os smokes; confirmar run antes de declarar resultado remoto.

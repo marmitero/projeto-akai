@@ -45,3 +45,7 @@ Publicar somente o artefato testado e identificado. Esta documentação não aut
 ## Evidência de fundação F1
 
 F1 possui builds/testes e smoke conforme STAGE_01_REPORT. Isso não marca os checkboxes do MVP local completo, online ou lançamento: M02–M15 incluem gameplay/arte que ainda não existem. Workflow CI adicionado, execução remota só pode ser confirmada após consulta ao run efetivo.
+
+## Evidência visual F2
+
+Telas, HUD, oito animações, input e build estático testados conforme STAGE_02_REPORT. Loja, mineração/produção econômicas e combate continuam pendentes para MVP; licenças/Android/online continuam pendentes para lançamento. Nenhuma publicação comercial realizada.

@@ -1,0 +1,900 @@
+{
+  "version": 1,
+  "stage": "F2 visual preview; no economy",
+  "originals": [
+    {
+      "path": "sprites/Backgrounds/Normal BG/Background Castle .png",
+      "sha256": "7d64f4baaf9c367c412cbd06e1586dfd54795b1308a39bf1e77098099a9f84c0",
+      "width": 1024,
+      "height": 346,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Backgrounds/Normal BG/GandalfHardcore Background layers_layer 1.png",
+      "sha256": "7c2abd6b46196a28291be139252f81eb44e0d5a4fc320335459611edeb810834",
+      "width": 1024,
+      "height": 346,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Backgrounds/Normal BG/GandalfHardcore Background layers_layer 2.png",
+      "sha256": "ea4fbf0883a26a7349db9837f124dc6124673dde993ef6d434360e1bc078b973",
+      "width": 1024,
+      "height": 346,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Backgrounds/Normal BG/GandalfHardcore Background layers_layer 3.png",
+      "sha256": "e34ee1d0836358420e8644d1cf8e068a91025891db23693cdfd765c5a227855e",
+      "width": 1024,
+      "height": 346,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Backgrounds/Normal BG/GandalfHardcore Background layers_layer 4.png",
+      "sha256": "923d39d1b40868d623c07912f48816a649391b404737d307ee2da625e1080938",
+      "width": 1024,
+      "height": 346,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Backgrounds/Normal BG/GandalfHardcore Background layers_layer 5.png",
+      "sha256": "c835fd9e62fe6f501c8f88da718e99b1395fe9d50cd6c4db92adf0af7875b11b",
+      "width": 1024,
+      "height": 346,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Equipments/Swords/Icon1.png",
+      "sha256": "c3c6229f92d22d86b598f9604dea1c7d09c295c0bf9ebba9d590d81e536ae504",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Hud/20250420manaSoul9SlicesC-Sheet.png",
+      "sha256": "d89c7763428d50e59ad21a4802364e021aaf5c698a8619bca21e2de183de229e",
+      "width": 96,
+      "height": 96,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Hud/20250421barB-Sheet.png",
+      "sha256": "e2bfd2a8b96a9d204ed3101b5eeef5a5ab49f5a19ba70b8289f30a16c668d3a5",
+      "width": 95,
+      "height": 15,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Hud/20250425portraitFrame-Sheet.png",
+      "sha256": "e4809a74994435e7b60725b4536361bcfa4fd88fdd467a4ae0495a378f911eaf",
+      "width": 48,
+      "height": 72,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Materials/Icon31_13.png",
+      "sha256": "229079d5d5b4961c06042469e751d3d48cd50a40ad1dd3ee1731ebc30d2bde9e",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Materials/Icon31_15.png",
+      "sha256": "623768c1e620630ffdd6f29ca19ba97b76a6f9064c59bf84c0ad83255fad3c95",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Materials/Icon31_35.png",
+      "sha256": "c8b76dbaf954efb79428cf892c239d0e8d11267f387cf2a8f559741adf94bf98",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Materials/Icon31_40.png",
+      "sha256": "9c2e18b43a81dc9865addf956989df38a3a35cc505abf7d25f5e84b307784a79",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Mine/coalNode.png",
+      "sha256": "04b3f30c69cecaa54e6f62205a297c046fc5fa11d22bae705a630945d412f5e0",
+      "width": 16,
+      "height": 16,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Mine/goldNode.png",
+      "sha256": "ddddc6040b5f16721920995a5f6eccd9ccdd8eca8bec3c906d52fc84c7cd02b5",
+      "width": 16,
+      "height": 16,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Mine/ironNode.png",
+      "sha256": "1916057fa6f400628e955419f3d71a4e3db86ce98dc725ce780f6d068255532e",
+      "width": 16,
+      "height": 16,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Mine/jadeNode.png",
+      "sha256": "9887513da6ac0cb50eac4e9bc225309ad86b7a64bd77455befcdc3802e83c35c",
+      "width": 16,
+      "height": 16,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Misc/Enchantment/Icon328.png",
+      "sha256": "f9d7a4e28ac5746d11411cb2d523bf7e44c90e43618b34fc5e1149d285f23b80",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Misc/Tools/Icon290.png",
+      "sha256": "6e9dd2803390cc26d0aa3b351ddcd01942248e02d144529a0bd61c2b4ed48b08",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Misc/Tools/Icon291.png",
+      "sha256": "310dd8007595900e1f50d039837287e6c3481651c681fc4acc5e58e806e3db8a",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Misc/Tools/Icon292.png",
+      "sha256": "a9e73c60679654d1fe9bd4dbda929e7f10a2481366e759b86c70848d6b1a446e",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    }
+  ],
+  "derivatives": [
+    {
+      "key": "hero-idle",
+      "output": "apps/client/src/assets/derived/hero-idle.png",
+      "sha256": "e8e5afec7f88b0fbe358e1d476dc91eefe7686ee099c215b557c43fa08bf9768",
+      "width": 640,
+      "height": 128,
+      "sources": [
+        {
+          "path": "sprites/Character/Idle/Idle-Sheet.png",
+          "sha256": "ce3099581da85781822cb5304a8c0a486becd3de8ca7f5bb0f7ab86364fb401d"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 4,
+      "pivot": [
+        80,
+        112
+      ],
+      "sourceFrame": [
+        64,
+        80
+      ],
+      "sourcePivots": [
+        [
+          32,
+          64
+        ],
+        [
+          32,
+          64
+        ],
+        [
+          32,
+          64
+        ],
+        [
+          32,
+          64
+        ]
+      ],
+      "frameOffsets": [
+        [
+          48,
+          48
+        ],
+        [
+          48,
+          48
+        ],
+        [
+          48,
+          48
+        ],
+        [
+          48,
+          48
+        ]
+      ],
+      "fps": 10,
+      "margin": 0,
+      "spacing": 0,
+      "direction": "right"
+    },
+    {
+      "key": "hero-attack-01",
+      "output": "apps/client/src/assets/derived/hero-attack-01.png",
+      "sha256": "9bf46d45df66b2de6c73fc45e84b1d575cf04b335505585b05d867f0d9b7e288",
+      "width": 1280,
+      "height": 128,
+      "sources": [
+        {
+          "path": "sprites/Character/Attack-01/Attack-01-Sheet.png",
+          "sha256": "0013bff77a757247bd3f40c425e45c76ef55d595c9e62023eb8d3f80a8eb217f"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 8,
+      "pivot": [
+        80,
+        112
+      ],
+      "sourceFrame": [
+        96,
+        80
+      ],
+      "sourcePivots": [
+        [
+          48,
+          64
+        ],
+        [
+          48,
+          64
+        ],
+        [
+          48,
+          64
+        ],
+        [
+          48,
+          64
+        ],
+        [
+          48,
+          64
+        ],
+        [
+          48,
+          64
+        ],
+        [
+          48,
+          64
+        ],
+        [
+          48,
+          64
+        ]
+      ],
+      "frameOffsets": [
+        [
+          32,
+          48
+        ],
+        [
+          32,
+          48
+        ],
+        [
+          32,
+          48
+        ],
+        [
+          32,
+          48
+        ],
+        [
+          32,
+          48
+        ],
+        [
+          32,
+          48
+        ],
+        [
+          32,
+          48
+        ],
+        [
+          32,
+          48
+        ]
+      ],
+      "fps": 10,
+      "margin": 0,
+      "spacing": 0,
+      "direction": "right"
+    },
+    {
+      "key": "hero-dead",
+      "output": "apps/client/src/assets/derived/hero-dead.png",
+      "sha256": "2f5b937c1d6bb8e9e7ed3fa9c62c05db8811bd14f388e4307426122f4561c455",
+      "width": 1280,
+      "height": 128,
+      "sources": [
+        {
+          "path": "sprites/Character/Dead/Dead-Sheet.png",
+          "sha256": "6d1e14c93d1381d57cf1e30f76859e02197a8e15fd200e396767642070f3b566"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 8,
+      "pivot": [
+        80,
+        112
+      ],
+      "sourceFrame": [
+        80,
+        64
+      ],
+      "sourcePivots": [
+        [
+          40,
+          48
+        ],
+        [
+          40,
+          50
+        ],
+        [
+          40,
+          48
+        ],
+        [
+          40,
+          48
+        ],
+        [
+          40,
+          48
+        ],
+        [
+          40,
+          48
+        ],
+        [
+          40,
+          48
+        ],
+        [
+          40,
+          53
+        ]
+      ],
+      "frameOffsets": [
+        [
+          40,
+          64
+        ],
+        [
+          40,
+          62
+        ],
+        [
+          40,
+          64
+        ],
+        [
+          40,
+          64
+        ],
+        [
+          40,
+          64
+        ],
+        [
+          40,
+          64
+        ],
+        [
+          40,
+          64
+        ],
+        [
+          40,
+          59
+        ]
+      ],
+      "fps": 10,
+      "margin": 0,
+      "spacing": 0,
+      "direction": "right"
+    },
+    {
+      "key": "skeleton-idle",
+      "output": "apps/client/src/assets/derived/skeleton-idle.png",
+      "sha256": "2d3c6e3c96663ad8ecda77f09fb3629f7f15f40d1760dfe45158864ce939ddd9",
+      "width": 640,
+      "height": 128,
+      "sources": [
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/idle-1.png",
+          "sha256": "a74d13b1e2011b85286ae408b0c91aa131505d48a0daa87fbe82239fb8688fea"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/idle-2.png",
+          "sha256": "b93b21ca47323bbf60dc6dcc85c35957e6ae1c3a2fd5a669651a8830f2856ed7"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/idle-3.png",
+          "sha256": "d391635aa0b863c4856f875fa006110dc0144a9c65c38a46b09f302c9422a7b2"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/idle-4.png",
+          "sha256": "86156d9ac5d47277bd89418859731b085392d59f3c1e7bb069d892cbfd51c276"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 4,
+      "pivot": [
+        80,
+        112
+      ],
+      "sourcePivot": [
+        44,
+        96
+      ],
+      "offset": [
+        36,
+        16
+      ],
+      "fps": 8,
+      "margin": 0,
+      "spacing": 0,
+      "direction": "right; runtime flipX for enemy left"
+    },
+    {
+      "key": "skeleton-attack",
+      "output": "apps/client/src/assets/derived/skeleton-attack.png",
+      "sha256": "195d75828e27809a574b649c41b85427bba56a6d47385b3ec1e9820b085dad54",
+      "width": 1280,
+      "height": 128,
+      "sources": [
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/attack-A1.png",
+          "sha256": "b39a81aa4f7d45fadd0f01232d93b8de703cd70c0c2253ff6621b0dd06622ea1"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/attack-A2.png",
+          "sha256": "f7b06329adce0ac74f85a0255aecab1c9fa2b307a54c90547bdebf319785f445"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/attack-A3.png",
+          "sha256": "8bb7b82cfe26de9f6c87646b2d8eaba0feaef54e8522d1b207346882479f859a"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/attack-A4.png",
+          "sha256": "d594a3ac18534fa58b88201d56d3d44dfc8b0f214bd205dfa763ccfeba1f380f"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/attack-A5.png",
+          "sha256": "175b4a7325354bbffc36cbb54810d4b2d22924c614ed0ee896a0a7d7e020334c"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/attack-A6.png",
+          "sha256": "5c1f527886d8b0ad71e2bf6fd01c2a993185748eafae38c2cbecb0285f75e040"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/attack-A7.png",
+          "sha256": "70b1be135d464d339b6ee8549ba22ea115748ab42bb50355cec9f468cc169ea6"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/attack-A8.png",
+          "sha256": "577369bcaf905c5e3be6fc5b16786a7386dc41a510bfb7632d3ae8952a3d7b4c"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 8,
+      "pivot": [
+        80,
+        112
+      ],
+      "sourcePivot": [
+        44,
+        96
+      ],
+      "offset": [
+        36,
+        16
+      ],
+      "fps": 10,
+      "margin": 0,
+      "spacing": 0,
+      "direction": "right; runtime flipX for enemy left"
+    },
+    {
+      "key": "skeleton-dead",
+      "output": "apps/client/src/assets/derived/skeleton-dead.png",
+      "sha256": "be9f64f6c8fd2faed01d72ddd9b8ddcb1aba000cd15f182cbe905726f225fe3b",
+      "width": 640,
+      "height": 128,
+      "sources": [
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/dead-1.png",
+          "sha256": "ff7ea415b76d6c26dcd56ff56e28b51a162bce5ef6c508ecf0d14878cb71fb06"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/dead-2.png",
+          "sha256": "f1d83e23739522dd5b6d6665acc3e07b7e6c06f6e699a4646704427d3f8ae243"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/dead-3.png",
+          "sha256": "2fa1671a281a6d7a0b1490db528a4d6a73def54ef646e1d11716e49d69bf9821"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/dead-4.png",
+          "sha256": "20c84f956064be0271a0180afaef34382bd3dde2548ff7bc6f60c447c5b11276"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 4,
+      "pivot": [
+        80,
+        112
+      ],
+      "sourcePivot": [
+        44,
+        96
+      ],
+      "offset": [
+        36,
+        16
+      ],
+      "fps": 10,
+      "margin": 0,
+      "spacing": 0,
+      "direction": "right; runtime flipX for enemy left"
+    },
+    {
+      "key": "nav-normal",
+      "output": "apps/client/src/assets/derived/nav-normal.png",
+      "sha256": "30735291684548e5493df1fd6488bf048e97dc75fddf1d9852b9040dbea1e3b2",
+      "width": 96,
+      "height": 32,
+      "sources": [
+        {
+          "path": "sprites/Hud/20250420manaTabD-Sheet.png",
+          "sha256": "1adb26b4c9ce2a898444aeab5f2c888cececca5623c68fd4f9532a0b810877fd"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "crop": [
+        0,
+        0,
+        96,
+        32
+      ],
+      "flipY": false,
+      "scale": 1
+    },
+    {
+      "key": "nav-active",
+      "output": "apps/client/src/assets/derived/nav-active.png",
+      "sha256": "1ca0cefc49c9b91bc9de2c2f8f48d461e59e202598cbbb988b9b35f8a8eaee8e",
+      "width": 96,
+      "height": 32,
+      "sources": [
+        {
+          "path": "sprites/Hud/20250420manaTabD-Sheet.png",
+          "sha256": "1adb26b4c9ce2a898444aeab5f2c888cececca5623c68fd4f9532a0b810877fd"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "crop": [
+        96,
+        0,
+        192,
+        32
+      ],
+      "flipY": false,
+      "scale": 1
+    },
+    {
+      "key": "nav-pressed",
+      "output": "apps/client/src/assets/derived/nav-pressed.png",
+      "sha256": "4be5bd7e4c966bbb5f7aafff85dc9a4704472c084a1a1a5a023e3670f50273b4",
+      "width": 96,
+      "height": 32,
+      "sources": [
+        {
+          "path": "sprites/Hud/20250420manaTabD-Sheet.png",
+          "sha256": "1adb26b4c9ce2a898444aeab5f2c888cececca5623c68fd4f9532a0b810877fd"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "crop": [
+        192,
+        0,
+        288,
+        32
+      ],
+      "flipY": false,
+      "scale": 1
+    },
+    {
+      "key": "nav-disabled",
+      "output": "apps/client/src/assets/derived/nav-disabled.png",
+      "sha256": "8bd420703fca5012aca681e866107963fb30180314cf7f3fdfb3b2506f6c53a1",
+      "width": 96,
+      "height": 32,
+      "sources": [
+        {
+          "path": "sprites/Hud/20250420manaTabD-Sheet.png",
+          "sha256": "1adb26b4c9ce2a898444aeab5f2c888cececca5623c68fd4f9532a0b810877fd"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "crop": [
+        288,
+        0,
+        384,
+        32
+      ],
+      "flipY": false,
+      "scale": 1
+    },
+    {
+      "key": "button-normal",
+      "output": "apps/client/src/assets/derived/button-normal.png",
+      "sha256": "2f4ac318cd20b8c8b0d01fda9109f488afc6bd3a83377eae4a796e18b3128526",
+      "width": 96,
+      "height": 22,
+      "sources": [
+        {
+          "path": "sprites/Hud/20250421manaSoulButtonB-Sheet.png",
+          "sha256": "30bcbfc66544b938a760f36b26add1c2c6325a7d82bf4a20b77023296535372d"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "crop": [
+        0,
+        0,
+        96,
+        22
+      ],
+      "flipY": false,
+      "scale": 1
+    },
+    {
+      "key": "button-active",
+      "output": "apps/client/src/assets/derived/button-active.png",
+      "sha256": "ab9672a4af9a4ebc52286bc31ecfcdb866291df767e31e650a2ce3fcfc0f0a2c",
+      "width": 96,
+      "height": 22,
+      "sources": [
+        {
+          "path": "sprites/Hud/20250421manaSoulButtonB-Sheet.png",
+          "sha256": "30bcbfc66544b938a760f36b26add1c2c6325a7d82bf4a20b77023296535372d"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "crop": [
+        192,
+        0,
+        288,
+        22
+      ],
+      "flipY": false,
+      "scale": 1
+    },
+    {
+      "key": "options",
+      "output": "apps/client/src/assets/derived/options.png",
+      "sha256": "3aa4045cad2660296f63139223e318db6fd22f6961cc0e1459ffd93c827635f2",
+      "width": 32,
+      "height": 32,
+      "sources": [
+        {
+          "path": "sprites/Hud/20250425optionsButton-Sheet.png",
+          "sha256": "1da31f557c9ead2a0af01c1a8883f297d11414aa87fdecdc6fded8c000049f92"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "crop": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "flipY": false,
+      "scale": 1
+    },
+    {
+      "key": "close",
+      "output": "apps/client/src/assets/derived/close.png",
+      "sha256": "51ba234544acee9ac8ef964c04d5505c1bb292be4978aca97d672a78ea308eac",
+      "width": 32,
+      "height": 32,
+      "sources": [
+        {
+          "path": "sprites/Hud/20250425closeButton-Sheet.png",
+          "sha256": "ae84cf8719e733ae3151755ecc92e438a0430c960db8cccc054fd917a1682a57"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "crop": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "flipY": false,
+      "scale": 1
+    },
+    {
+      "key": "slot",
+      "output": "apps/client/src/assets/derived/slot.png",
+      "sha256": "fca11c9392019cf258d8c4742526db0b5b71b7c94fe9979052aab5a8496b01d9",
+      "width": 32,
+      "height": 32,
+      "sources": [
+        {
+          "path": "sprites/Hud/20250423emptyFrame-Sheet.png",
+          "sha256": "49b2f22cccb7f8ab083abcf041b95e510533e3461a47e44860cfb177c2585584"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "crop": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "flipY": false,
+      "scale": 1
+    },
+    {
+      "key": "grass",
+      "output": "apps/client/src/assets/derived/grass.png",
+      "sha256": "6c6768419dd78862d0bf411e09c63b882e4824a05d7ae93dcdc09da2994a8680",
+      "width": 32,
+      "height": 32,
+      "sources": [
+        {
+          "path": "sprites/Tiles/Floor Tiles1.png",
+          "sha256": "d759f6a5dd355a489b1257f623dbad2762875c3d9a92713c7a4077418834dd24"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "crop": [
+        32,
+        0,
+        64,
+        32
+      ],
+      "flipY": false,
+      "scale": 1
+    },
+    {
+      "key": "rock-top",
+      "output": "apps/client/src/assets/derived/rock-top.png",
+      "sha256": "ce1004dd1e641dd7a710c58e615695880de8e6d7f161057a201a63233cd390e1",
+      "width": 32,
+      "height": 32,
+      "sources": [
+        {
+          "path": "sprites/Tiles/Floor Tiles1.png",
+          "sha256": "d759f6a5dd355a489b1257f623dbad2762875c3d9a92713c7a4077418834dd24"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "crop": [
+        32,
+        64,
+        64,
+        96
+      ],
+      "flipY": true,
+      "scale": 1
+    },
+    {
+      "key": "rock-fill",
+      "output": "apps/client/src/assets/derived/rock-fill.png",
+      "sha256": "63f813f45d0505651c05a2e6265875136e165f2582992d39710f865ea0242159",
+      "width": 32,
+      "height": 32,
+      "sources": [
+        {
+          "path": "sprites/Tiles/Floor Tiles1.png",
+          "sha256": "d759f6a5dd355a489b1257f623dbad2762875c3d9a92713c7a4077418834dd24"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "crop": [
+        32,
+        32,
+        64,
+        64
+      ],
+      "flipY": false,
+      "scale": 1
+    },
+    {
+      "key": "rock-side",
+      "output": "apps/client/src/assets/derived/rock-side.png",
+      "sha256": "e1f683a06bfc5b3d0dc01e6df41e9f664fb7b8051748f578ad2c5471b0036cdc",
+      "width": 32,
+      "height": 32,
+      "sources": [
+        {
+          "path": "sprites/Tiles/Floor Tiles1.png",
+          "sha256": "d759f6a5dd355a489b1257f623dbad2762875c3d9a92713c7a4077418834dd24"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "crop": [
+        0,
+        32,
+        32,
+        64
+      ],
+      "flipY": false,
+      "scale": 1
+    },
+    {
+      "key": "torch",
+      "output": "apps/client/src/assets/derived/torch.png",
+      "sha256": "efa11366cb954d7098792148761a2660a7026c3d3e630f95860d0cf6429308a7",
+      "width": 192,
+      "height": 32,
+      "sources": [
+        {
+          "path": "sprites/Assets/Torch.png",
+          "sha256": "937e86feb077bd0ff334d872738d60a97bc68096a465b9996c8663ad9b156255"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "crop": [
+        0,
+        32,
+        192,
+        64
+      ],
+      "flipY": false,
+      "scale": 1
+    },
+    {
+      "key": "dust",
+      "output": "apps/client/src/assets/derived/dust.png",
+      "sha256": "e4fcd3b394f62d478342896492261427b80efb9e13b500932fe0fe550ecbfe33",
+      "width": 192,
+      "height": 64,
+      "sources": [
+        {
+          "path": "sprites/Effects/21.png",
+          "sha256": "a9316c071a117c83da2ae983ec998c58ec60ede9603ce6280a6984a46e3c2e1f"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "frameWidth": 32,
+      "frameHeight": 32,
+      "frames": 12,
+      "fps": 24,
+      "margin": 0,
+      "spacing": 0
+    }
+  ]
+}

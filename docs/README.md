@@ -1,6 +1,6 @@
 # Documentação do Projeto Akai
 
-Baseline de planejamento — 15/10/2026. **Fundação F1 implementada; gameplay ainda não iniciado.** Leia [AI_STATE](../AI_STATE.md) antes de trabalhar. O usuário autorizou a próxima etapa em 15/10/2026. Comandos reais em [DEVELOPMENT](DEVELOPMENT.md); evidências em [STAGE_01_REPORT](STAGE_01_REPORT.md).
+Baseline de planejamento — 15/10/2026. **F1 e F2 implementadas; loop jogável/econômico ainda não iniciado.** Leia [AI_STATE](../AI_STATE.md) antes de trabalhar. O usuário autorizou a próxima etapa em 15/10/2026. Comandos reais em [DEVELOPMENT](DEVELOPMENT.md); evidências em [STAGE_01_REPORT](STAGE_01_REPORT.md).
 
 ## Ordem de leitura
 
@@ -27,10 +27,14 @@ AI_STATE é canônico na raiz; não criar cópias AI_State/AI_STATE em docs com 
 
 “Regra aprovada” reproduz Master Prompt/pedido explícito; “proposto” detalha uma escolha a validar; “experimental” identifica números sem simulação; “implementado” exige código/teste e evidência — nenhum sistema de combate/economia está neste último estado; apenas a fundação técnica foi implementada. Documentos online/social/premium especificam preparação e gates, não serviços disponíveis.
 
-Contratos, schema e roadmap descrevem desenho futuro. F1 tem implementação de fundação; F2–F10 ainda não foram executadas. O acervo foi inventariado tecnicamente; licenças e mapeamento visual de todos os frames não estão concluídos. Não confundir esses tipos de conclusão.
+Contratos, schema e roadmap descrevem desenho futuro. F1 e F2 foram executadas em seus escopos; F3–F10 continuam futuras. O acervo foi inventariado tecnicamente; licenças e mapeamento visual de todos os frames não estão concluídos. Não confundir esses tipos de conclusão.
 
 ## Manutenção
 
 Mudança de produto atualiza GDD/Constituição se necessário, ADR/DECISIONS, testes de aceite e AI_STATE. Mudança de parâmetro cria configVersion e evidência de simulação. Ao adicionar/remover assets, regenerar auditoria com `python docs/tools/audit_assets.py` (Pillow) e revisar guias curados. Comandos de instalação/build/teste do jogo só serão publicados quando houver implementação verificável.
 
 Execução atual: [DEVELOPMENT](DEVELOPMENT.md), [relatório F1](STAGE_01_REPORT.md) e [ADR-005](ADR/0005-foundation-tooling.md).
+
+Entrega visual atual: [STAGE_02_REPORT](STAGE_02_REPORT.md), [guia de recortes runtime](art/RUNTIME_ASSETS.md) e [registro de hashes](art/Runtime_Asset_Manifest.json).
+
+F2: [relatório com capturas](STAGE_02_REPORT.md) e [guia de integração real](art/RUNTIME_ASSETS.md).

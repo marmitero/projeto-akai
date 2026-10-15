@@ -24,7 +24,7 @@
 | D18 | Licenças/proveniência dos packs | Sem comprovação; todos pendentes | Lançamento |
 | D19 | Plataforma/hospedagem, região, quotas e metas operacionais | Pendente de infraestrutura e orçamento | F5 |
 | D20 | Público etário, política de retenção/exclusão, moderação | Pendente de produto/privacidade | Online público |
-| D21 | Escrever documentos e aguardar; sem implementar agora | Instrução atual explícita | Parada após entrega |
+| D21 | Pausa após documentação inicial | Histórica; superada pelas autorizações expressas de F1/F2 | Histórico |
 
 Mudança de decisão aprovada exige motivo e atualização dos documentos envolvidos; mudança técnica relevante exige ADR. Não há deadline externo ou contrato de hospedagem aprovado.
 
@@ -51,3 +51,7 @@ Não há pendência de design que obrigue consulta ao usuário antes de começar
 ## Decisões da F1 — 15/10/2026
 
 Stack/versões e npm workspaces adotados em ADR-005; Fastify escolhido, sem contratar Supabase. IndexedDB com cópia anterior/quarentena e proteção de geração, primeiro schema real1, sem migração fictícia de save inexistente. Cliente só local; modo online falha fechado; servidor de diagnóstico não aceita gameplay. A pausa D21 foi superada pela autorização expressa de implementar a próxima etapa. Relatório final passa a incluir feito, estado/completude e próximo passo. Não houve gasto ou mudança de pilar do jogo.
+
+## Decisões da F2 — delegação técnica
+
+Adotado subset medieval pixel art (Character, Skeleton, Normal BG, nós e Hud), derivados com pivô comum e hashes, uma cena com grupos por tela e UI DOM, fallback de quatro botões até419px, iniciais em vez de retrato não confirmado e moeda Coin textual. Preload apenas do subset pequeno e compartilhado, com packs maiores por demanda nas expansões. Ataque/derrota/impacto são prévias sem efeito econômico; loja/minas futuras ficam explicitamente indisponíveis. Nenhuma contratação, preço ou regra fundamental alterada. Licenças e teste em aparelho continuam pendentes; não exigem decisão do usuário nesta etapa.

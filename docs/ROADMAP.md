@@ -1,12 +1,12 @@
 # Roadmap e gates de entrega
 
-Baseline v1 — 15/10/2026. Sem estimativas de calendário: duração depende da integração artística e validação do loop. Estado atual: F1 de fundação técnica concluída; F2 visual é a próxima etapa recomendada. Todos os marcos abaixo são futuros salvo as entregas documentais explicitadas.
+Baseline v1 — 15/10/2026. Sem estimativas de calendário: duração depende da integração artística e validação do loop. Estado atual: F1 e F2 concluídas em seus escopos; F3 (loop local) é a próxima etapa recomendada. Todos os marcos abaixo são futuros salvo as entregas documentais explicitadas.
 
 | Fase | Entrega e dependências | Critério de saída | Estado |
 |---|---|---|---|
 | 0 — Inspeção e planejamento | Auditoria, guias, Constituição, GDD, arquitetura, dados, economia, segurança e testes | Documentos rastreáveis, riscos e decisões abertos explícitos | Documentação preparada; licenças/arte ainda parciais |
 | 1 — Fundação | Após liberação para implementar; cliente e servidor independentes, TS estrito, contratos, fixtures, saves e configuração | Build/testes executáveis, perfil local rotulado, isolamento online/local, sem segredos | Concluída no escopo de fundação; ver STAGE_01_REPORT |
-| 2 — Vertical visual | F1 + recortes/pivôs de herói/inimigo/HUD/mina | Três telas navegáveis com sprites, input isolado, estado compartilhado e safe areas | Não iniciada |
+| 2 — Vertical visual | F1 + recortes/pivôs de herói/inimigo/HUD/mina | Três telas navegáveis com sprites, input isolado, estado compartilhado e safe areas | Concluída no escopo visual; ver STAGE_02_REPORT |
 | 3 — Loop local | F2 + configuração inicial validável | Andares 1–20, bosses 10/20, clique, carvão, upgrades, salvar/carregar e offline conforme MVP_ACCEPTANCE | Não iniciada |
 | 4 — Progressão RPG | F3 + aceitação de mecânicas propostas | Equipamentos, raridades, drops, mascotes, ouro/jade, fabricação, buffs, dados escaláveis até 1.000 andares | Não iniciada |
 | 5 — Online autoritativo | Fundação do servidor F1 + domínio estabilizado | Auth, persistência, ledger, reconexão, simulação confiável, testes de concorrência/abuso | Não iniciada |
@@ -47,3 +47,9 @@ Etapa de triagem/autonomia: concluída documentalmente. O agente pode resolver e
 F1-01/02/03/04 concluídos no escopo desta fase: npm workspaces/lockfile, cliente e servidor independentes, schemas compartilhados, runtime local sem economia, IndexedDB com backup/hash/geração, testes/configuração e workflow CI. Schema1 é a primeira versão real; migrações de schemas antigos serão implementadas quando houver um formato anterior concreto, sem inventar compatibilidade. F3 ainda precisa acrescentar estado de combate/minas e cálculo offline.
 
 Fase0 segue parcial em licenças e aprovação artística; isso não foi marcado como resolvido. F2: selecionar subset visual e recortes/pivôs, integrar protagonista/inimigos/mina/HUD e telas finais, mantendo o lifecycle validado. Nenhum sistema RPG/online foi antecipado ou removido.
+
+## Entrega F2 — integração visual
+
+F2-01 e F2-02 concluídos: subset de atores/cenário/minérios/HUD, pivôs comuns, oito animações incluindo morte, três telas independentes, Mochila/Loja/Mais e perfil/salvamento, erro de asset, redução de movimento, foco, alvos e scroll responsivos. Originais intactos; hashes/recortes no Runtime_Asset_Manifest. Testes de navegação e build estático sem concessão de recurso. Atores demonstram animações, não batalha econômica real.
+
+Fase3 continua não iniciada. Próximas tarefas F3-01/02/03: motor local determinístico, boss/retry, cliques/upgrades/carvão, migração do save se necessária e offline de minas. Boss art, transição de caminhada e feedback de recompensa precisam acompanhar o domínio quando esses estados existirem. Licenças e profiling em aparelho seguem abertos, sem bloquear código local.

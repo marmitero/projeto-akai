@@ -10,3 +10,5 @@ ADRs registram contexto, decisão, alternativas e consequências. Estados: aceit
 Ao alterar decisão, criar sucessor ou histórico explícito; atualizar GDD/API/DATA_MODEL/AI_STATE conforme impacto. Questões de produto em [DECISIONS](../DECISIONS.md).
 
 - [ADR-005 — Tooling e baseline executável](0005-foundation-tooling.md)
+
+- [ADR-006 — Subset visual e navegação](0006-visual-subset.md)

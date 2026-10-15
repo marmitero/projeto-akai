@@ -31,3 +31,7 @@ Estados permitidos: unverified, verified_allowed, restricted, replaced, excluded
 ## Critério de liberação
 
 Inventário dos arquivos efetivamente empacotados cruza com registro de licença; zero unverified/restricted incompatível no bundle final. Créditos e avisos acessíveis no app. Fonte tipográfica, áudio e bibliotecas possuem registro separado quando forem adicionados. Esta entrega não inclui pesquisa externa de autoria nem parecer jurídico; não atribui autoria presumida com base em nomes sugestivos.
+
+## Derivados F2
+
+Os21 derivados em apps/client/src/assets/derived e capturas da prévia mantêm a pendência das fontes. Mapeamento de origem/hash/transformação em Runtime_Asset_Manifest. Integração técnica de arte não muda status para verified_allowed. Nenhuma distribuição comercial do aplicativo realizada.

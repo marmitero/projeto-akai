@@ -178,7 +178,7 @@ def main():
           '## Escopo e limites','',
           'Todos os arquivos foram lidos e hashados. PNG/GIF foram decodificados; PSD tem somente cabeçalho/composite lido. AI/EPS/SCML/Aseprite são fontes inventariadas, não aprovadas visualmente. As folhas de contato cobrem todas as imagens de UI, ícones, efeitos, cenários e protagonista, e amostras de inimigos/bosses; não equivalem à aprovação de cada frame. Geometria, pivôs e FPS ainda exigem mapeamento quando não explicitados no guia.', '',
           'Não foram encontrados documentos de licença no snapshot. **Todos os assets têm licença pendente**, inclusive derivados. Autoria/atribuição desconhecidas não significam dispensa de crédito. O repositório público não concede licença comercial dos packs.', '',
-          'Estado do projeto: documentação + assets + referência visual; sem cliente, servidor, dependências ou testes de jogo. `sprites/Equipments/` é o caminho real, não `Equipment/`. `sprites/Hud/` também existe. `Acessories` e `Jumlp-All` são grafias reais que devem ser preservadas.', '',
+          'Esta auditoria de sprites não descreve o estágio atual da aplicação; consulte AI_STATE.md e os relatórios de etapa para implementação/testes. `sprites/Equipments/` é o caminho real, não `Equipment/`. `sprites/Hud/` também existe. `Acessories` e `Jumlp-All` são grafias reais que devem ser preservadas.', '',
           '## Resumo por família','', '| Família | Arquivos | Bytes | Formatos |','|---|---:|---:|---|']
     for cat in sorted(set(e['category'] for e in entries)):
         es=[e for e in entries if e['category']==cat]; counts=Counter(e['extension'] for e in es)

@@ -1,6 +1,6 @@
 # Asset Usage Guide — Projeto Akai
 
-Guia de aplicação para pessoas e agentes de IA. Leia junto do [Master Prompt](master-prompt.md), [inventário completo](Asset_Manifest.md), [índice técnico](art/asset_inventory.json) e [catálogo visual](Visual_Catalog.md). Auditoria de origem: commit `367032aff1b4d41c99f8bdb963acedfc0eea96d1`, em 15/10/2026. Este documento especifica integração futura; não existe implementação de jogo neste snapshot.
+Guia de aplicação para pessoas e agentes de IA. Leia junto do [Master Prompt](master-prompt.md), [inventário completo](Asset_Manifest.md), [índice técnico](art/asset_inventory.json) e [catálogo visual](Visual_Catalog.md). Auditoria de origem: commit `367032aff1b4d41c99f8bdb963acedfc0eea96d1`, em 15/10/2026. A auditoria original é histórica; o subset integrado na F2 está detalhado em docs/art/RUNTIME_ASSETS.md e no registro runtime, sem alterar o restante do inventário.
 
 ## 1. Como decidir com segurança
 
@@ -154,8 +154,12 @@ Não carregar o inventário completo como lista de preload: são 1.248.212.340 b
 
 Pendências prioritárias: licenças de todos os packs; retrato do rei; ícone definitivo de Coin; identidade de mascotes; pivôs/animações de camadas, bosses e efeitos; recortes de tiles e nine-slice; prévia composta e desempenho em dispositivos.
 
-## 11. Verificação desta entrega
+## 11. Verificação da auditoria original (histórico)
 
-Auditoria executada com Python e Pillow 12.3.0: 7.568 arquivos versionados cobertos exatamente pelas páginas do índice JSON, IDs únicos, soma de bytes conferida, nenhum erro de decodificação em PNG/GIF, 47 páginas de inventário cobrindo todos os arquivos e 23 folhas de contato. Todos os links Markdown locais foram resolvidos e os documentos ficaram abaixo de 500 KB por página para leitura no GitHub. `git diff --check` passou. Nenhum arquivo de `sprites/` foi alterado. Não há build/testes de gameplay aplicáveis porque ainda não existe código de jogo.
+Auditoria executada com Python e Pillow 12.3.0: 7.568 arquivos versionados cobertos exatamente pelas páginas do índice JSON, IDs únicos, soma de bytes conferida, nenhum erro de decodificação em PNG/GIF, 47 páginas de inventário cobrindo todos os arquivos e 23 folhas de contato. Todos os links Markdown locais foram resolvidos e os documentos ficaram abaixo de 500 KB por página para leitura no GitHub. `git diff --check` passou. Nenhum arquivo de `sprites/` foi alterado. Na auditoria original ainda não havia aplicação; as verificações atuais constam do relatório F2.
 
 O script regenera o inventário técnico, as páginas e as prévias; este guia e o catálogo são curados e devem ser revisados quando houver novos assets. Para reproduzir, disponibilize Pillow no ambiente e execute `python docs/tools/audit_assets.py` na raiz. Antes de comparar resultados, considere que o SHA de snapshot será o HEAD da nova execução.
+
+## Atualização de integração F2
+
+[Guia runtime](art/RUNTIME_ASSETS.md), [registro de hashes/recortes](art/Runtime_Asset_Manifest.json) e [capturas](STAGE_02_REPORT.md) descrevem o que efetivamente foi aplicado. Só esse subset tem recortes/pivôs e composições de runtime validados. Licenças e o restante dos frames/packs permanecem pendentes.

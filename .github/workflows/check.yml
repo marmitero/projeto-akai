@@ -1,15 +1,38 @@
-name: Foundation checks
+name: Project checks
 on: [push, pull_request]
 permissions:
   contents: read
 jobs:
   check:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            apps
+            packages
+            scripts
+            docs
+            .github
+            sprites/Character
+            sprites/Enemies/Skeleton
+            sprites/Tiles
+            sprites/Assets
+            sprites/Effects
+            sprites/Hud
+            sprites/Mine
+            sprites/Materials
+            sprites/Misc/Tools
+            sprites/Misc/Enchantment
+            sprites/Equipments/Swords
+            sprites/Backgrounds/Normal BG
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
       - run: npm run check
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
+      - run: node scripts/smoke-browser.mjs --preview

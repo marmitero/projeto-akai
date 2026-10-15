@@ -18,7 +18,7 @@ Cobertura visual: todos os PNGs de Acessories, Assets, Backgrounds, Character, E
 | Mochila | Itens em grade sobre moldura consistente | Ícones de Equipments/Acessories/Misc + Hud Frame |
 | Loja e Mais | Mesma linguagem de abas e painéis | Hud + ícones de produtos; maleta Icon291 para Loja e optionsButton para Mais |
 
-As escolhas de estilo/uso são propostas de integração. Nenhuma prévia composta ou teste em dispositivo foi concluído nesta entrega. Não interpretar a escolha de um boss como balanceamento de um andar específico.
+As escolhas de estilo/uso são propostas de integração. Na auditoria original não havia composição. A F2 acrescentou capturas de runtime abaixo; teste em dispositivo físico continua pendente. Não interpretar a escolha de um boss como balanceamento de um andar específico.
 
 ## Acessories
 
@@ -677,3 +677,13 @@ A tabela abaixo agrupa arquivos por diretório e prefixo anterior ao índice num
 | `sprites/Enemies/Skeleton/PNG` | `idle-` | 4 | 128×96 |
 | `sprites/Enemies/Skeleton/PNG` | `jump-` | 6 | 128×96 |
 | `sprites/Enemies/Skeleton/PNG` | `walk-` | 6 | 128×96 |
+
+## Composições de runtime F2
+
+Subset integrado: ver [relatório](STAGE_02_REPORT.md) e [guia](art/RUNTIME_ASSETS.md). Os atores foram normalizados por padding, não por recorte destrutivo.
+
+![Batalha](art/previews/F2_Battle.png)
+
+![Mina](art/previews/F2_Mine.png)
+
+![Produção](art/previews/F2_Production.png)

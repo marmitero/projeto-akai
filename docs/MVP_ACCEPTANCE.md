@@ -31,3 +31,7 @@ Mochila/Loja/Mais precisam de navegação consistente; quando um sistema não es
 ## Fora do aceite desta fatia
 
 Não comprova anticheat, escalabilidade, equilíbrio da economia final ou aptidão comercial. Não importa save local para conta online. Entrega é candidata a avaliação de gameplay; exige feedback sobre ritmo/legibilidade antes de avançar ao conteúdo maior.
+
+## Evidência parcial de F2
+
+Navegação visual, input, safe areas/alvos, save e recortes têm evidência no relatório F2. Isso cobre partes de M02/M03/M10/M12/M13; não marca esses critérios completos quando dependem de combate, recursos ou recuperação de progresso ainda inexistentes. O aceite do MVP continua futuro.

@@ -58,3 +58,7 @@ Envelope proposto: schemaVersion, configVersion, savedAt, generation, profile, p
 ## Privacidade, retenção e recuperação
 
 Proposta inicial: eventos detalhados de batalha 7 dias e logs operacionais 30 dias em ambientes de teste; duração final depende de custo/privacidade. Histórico financeiro, ledger e auditoria precisam de política específica, acesso restrito e revisão de obrigações aplicáveis antes do online público. Não há prazo legal presumido. Exclusão de conta precisa anonimizar dados sociais e desvincular identidade preservando somente registros legitimamente necessários. Backup/restore e migração reversível/compatível devem ser testados antes de produção; metas RPO/RTO em OPERATIONS são propostas.
+
+## Continuidade do save na F2
+
+Schema1 e config foundation-1 preservados: seleção das três atividades e perfil/saldos locais continuam compatíveis. Páginas auxiliares/scroll/efeitos são apresentação efêmera; não foi criada migração fictícia. O novo registro de assets é catálogo de autoria/runtime, não banco de itens do jogador. Gameplay F3 exigirá campos próprios e, se mudar schema, migração da versão real1 com fixture.

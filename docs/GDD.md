@@ -1,6 +1,6 @@
 # Game Design Document — Projeto Akai
 
-Baseline de design v1, 15/10/2026. Regras do Master Prompt preservadas; detalhes novos identificados como propostas. Produto ainda sem implementação.
+Baseline de design v1, 15/10/2026. Regras do Master Prompt preservadas; detalhes novos identificados como propostas. Fundação e prévia visual implementadas (F1/F2); regras de gameplay/economia seguem especificação para F3 e posteriores.
 
 ## Experiência e loop
 

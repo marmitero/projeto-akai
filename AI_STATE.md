@@ -1,38 +1,35 @@
 # AI_STATE — continuidade do Projeto Akai
 
-Atualizado: 15/10/2026. **F1: FUNDAÇÃO TÉCNICA CONCLUÍDA NO ESCOPO DA ETAPA. Gameplay ainda não implementado.**
+Atualizado: 15/10/2026. **F2: PROTÓTIPO VISUAL CONCLUÍDO NO ESCOPO DA ETAPA. F3 (loop jogável) ainda não iniciada.**
 
-## Pedido vigente e governança
+## Pedido e regras de trabalho
 
-O usuário autorizou a próxima etapa após documentação/autonomia: executar F1. A pausa histórica de documentação não bloqueia essa autorização. Ao terminar toda etapa: atualizar AI_STATE, ROADMAP e documentos afetados; listar no chat feito, completude/faltas, decisões, pendências que exijam validação e próximo passo recomendado. Decidir autonomamente escolhas não cruciais financeiramente e sem mudança rigorosa do produto; consultar usuário só nas questões reservadas, já com recomendação concreta.
+Usuário autorizou a Fase2 após a fundação. Em todo encerramento: atualizar este arquivo, ROADMAP e documentos afetados; listar feito, completude/faltas, decisões autônomas, pendências que exigem validação e próximo passo. Resolver escolhas técnicas/reversíveis sem consultar; reservar ao usuário gastos relevantes, mudanças profundas e atos exclusivos do titular.
 
-## Base e estado real
+## Base e implementação real
 
-Base remota desta etapa: `21aec0322088c910d5935c8b991e2b6103178f0d`. Agora existem apps/client, apps/server e packages/shared, npm workspaces/lockfile, TypeScript estrito, Phaser/Vite, Fastify, schemas Zod, Vitest e smoke Playwright. Comandos reais em [DEVELOPMENT](docs/DEVELOPMENT.md).
+Base desta etapa: `2f34ad1d7768a299322e0269811cf9392df77bc3`. F1 preservada: npm workspaces, shared Zod, cliente/servidor independentes, save IndexedDB versionado/backup/concorrência e 14 testes. O CI remoto da F1 foi posteriormente consultado e terminou com sucesso (run38733018634).
 
-Cliente: perfil local rotulado, saldos zero, seleção de destino independente da sessão, Phaser com cena interna de fundação e persistência IndexedDB. Servidor: diagnóstico /health e erros estruturados; qualquer /api/v1/* responde 503 ONLINE_NOT_AVAILABLE. **Sem auth, banco online, combate, mineração, produção, mercado, anúncios ou compras.** Não apresentar a tela de fundação como interface final do jogo.
+F2: telas Batalha/Mina/Produção separadas, HUD persistente com seis destinos quando há espaço e fallback para quatro até419px, Mochila/Loja em Mais. Mochila/Loja possuem páginas próprias e indicam indisponibilidade dos sistemas. Mais oferece perfil/salvamento e opção de reduzir movimento; Recursos mostra saldos. Dialog nativo bloqueia input; Escape/foco/scroll de tela tratados.
 
-## Entregue na F1
+Renderização Phaser com floresta em camadas, herói e três esqueletos laterais. Oito animações: idle/ataque/morte de herói e esqueleto, tocha e poeira. Derivados têm célula/pivô comum160×128 com âncora80,112 para os atores, sem alterar originais. Mina usa nó de ferro e pool limitado de seis impactos; Produção mostra carvão/ouro/jade inativos e requisitos. Renderer é uma cena com grupos separados por atividade; a sessão local continua fora dele.
 
-- Aplicativos/builds independentes e contratos compartilhados, configurações/env, scripts e workflow CI.
-- Sessão local com relógio injetável, snapshots isolados e listeners removíveis; seleção de tela não recria domínio.
-- Save schema1/config foundation-1 com hash contra corrupção acidental, cópia anterior, recuperação explícita/quarentena, proteção concorrente por geração/CAS e rejeição de versões/config desconhecidas.
-- Nenhum save anterior existia: não inventar migração v0. Compatibilidade futura exige schema real e fixtures. Save local nunca credita online.
-- Diagnóstico HTTP, limites de payload, erros sanitizados, log estruturado e bind local padrão.
-- Documentação de execução, ADR-005, relatório/testes e atualização dos documentos afetados.
+**Não há combate real, vida, ondas, drops, ganhos de clique, upgrades, produção, offline econômico ou boss implementados.** Ataques/derrota/impactos são demonstrações identificadas na interface. Recursos não são concedidos. Servidor continua só diagnóstico e 503 para gameplay; sem auth/banco/pagamento online.
 
-## Validação e limites
+## Assets e guias
 
-Evidências definitivas em [STAGE_01_REPORT](docs/STAGE_01_REPORT.md): instalação limpa, typecheck, testes, builds, smoke HTTP/navegador e auditoria de dependências. Nada disso valida economia/combate ainda inexistentes. CI versionada não significa execução remota confirmada.
+Registro curado: [Runtime_Asset_Manifest](docs/art/Runtime_Asset_Manifest.json), 21 derivados e22 originais diretos, rastreando49 originais únicos/70 arquivos com hashes. `npm run check:assets` confere integridade/dimensões/grades. Script Pillow opcional regenera derivados; npm build não depende de Python. Acervo integral e manifesto da auditoria permanecem preservados. Licenças de todos os packs continuam pendentes. Capturas da composição em [STAGE_02_REPORT](docs/STAGE_02_REPORT.md) e guias de arte atualizados.
 
-Preservados todos os sprites/manifestos anteriores. Inventário técnico original: 7.568 arquivos, 6.872 PNGs, 757 grupos de duplicatas, 47 páginas e 23 prévias. Licenças ainda pendentes; recortes/pivôs completos e aprovação visual de runtime não realizados. F0 continua parcial por essas razões.
+## Validação
 
-## Decisões desta etapa
+npm run check: hashes, TypeScript,14 testes e builds. Smoke em desenvolvimento e build estático, Chromium headless153:50 ciclos sem aumento de33 texturas/37 objetos, oito animações e conclusão de morte, save/reload, mina oculta/modal sem input, redução de movimento, menus/foco, larguras320/360/390/768, botões≥44px e scroll sem esconder a última mina. Falha de asset e modo online indisponível tratados; zero pageerrors/404 no fluxo normal e zero grants. Medição não equivale a profiling Android/WebGL; CI F2 só será confirmada por run efetivo após publicação.
 
-npm workspaces; Node24/TS5.9; Fastify; Zod; IndexedDB direto + fake-indexeddb; Playwright só de desenvolvimento. Versões exatas no lockfile/ADR-005. Online indisponível por construção, sem backend falso. Shared contém apenas contratos. Evitou-se contratar/provisionar serviços. 20 andares para primeira fatia e cap offline experimental8h continuam adotados para F3, ainda sem implementação ou simulação econômica.
+## Decisões e limites
 
-## Pendências e próximo passo
+Subset medieval pixel art, fundo Normal, esqueletos e tema roxo/dourado do pack Hud; sem retrato inventado (iniciais na moldura), Coin com rótulo e Ruby com gema328. Recorte/padding não destrutivos, nearest-neighbor, GPU/canvas com proporção384:300. Preload único do subset pequeno é escolha da prévia; carregar packs maiores sob demanda nas expansões, sem levar1,25GB ao cliente. Bundle atual ~1,45MB em disco, avisos de Phaser/Zod já conhecidos. Preferência de movimento vale na sessão; padrão acompanha configuração do sistema ao abrir.
 
-Nenhuma decisão obrigatória do usuário para continuar desenvolvimento local. Pendências técnicas do agente: integração artística F2, pivôs/recortes, HUD final, profiling real e gameplay F3. Chunk Phaser grande e avisos de anotações da dependência estão registrados no relatório, sem bloqueio de build. Licenças, eventual custo/contas/aceites e monetização material seguem gates futuros; não declarar asset liberado sem evidência.
+Sem gasto, contratação ou mudança de pilar. F1 e F2 concluídas nos respectivos escopos; F0 continua parcial em licença/aprovação integral de arte. Validação externa do usuário não é necessária agora. Licenças/contas/custos reais permanecem gates futuros.
 
-Próximo passo recomendado: F2 (protótipo visual navegável com sprites reais) sobre a sessão e persistência existentes. Não iniciar F3/economia online enquanto a fatia anterior não tiver aceite. Ao encerrar esta tarefa entregar o relatório no chat; nenhuma publicação comercial foi realizada.
+## Próximo passo recomendado
+
+F3: domínio local de combate (3×3, bosses10/20 e retry), ferro por clique, upgrades, carvão e save/offline de minas. Configs experimentais precisam de simulação; evoluir save real1 com migração testada quando mudar schema. Conectar eventos do domínio à apresentação; não usar loop de animação como motor econômico. Manter meta de1.000 andares, primeira fatia20 e cap offline experimental8h.

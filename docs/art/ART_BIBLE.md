@@ -30,6 +30,10 @@ Proposta local: até 24 partículas de mineração simultâneas e um impacto vis
 
 ## Entrega e rastreabilidade
 
-Cada derivado registra source path/hash, recortes, padding, escala, palette edit se houver, versão e licença. Keys semânticas (`hero.idle`, `resource.iron`) diferem dos IDs estáveis de auditoria. Não renomear Acessories, Equipments ou Jumlp-All silenciosamente. Só assets selecionados entram no pacote. Critério de aprovação: contato, prévia composta estática, animação em loop/ataque/morte e captura em mobile com pivôs estáveis. Nenhuma prévia composta de jogo foi aprovada ainda.
+Cada derivado registra source path/hash, recortes, padding, escala, palette edit se houver, versão e licença. Keys semânticas (`hero.idle`, `resource.iron`) diferem dos IDs estáveis de auditoria. Não renomear Acessories, Equipments ou Jumlp-All silenciosamente. Só assets selecionados entram no pacote. Critério de aprovação: contato, prévia composta estática, animação em loop/ataque/morte e captura em mobile com pivôs estáveis. Na auditoria original não havia prévia composta; o subset F2 tem validação técnica registrada abaixo.
 
 Lacunas: retrato de rei, identidade de mascotes, Coin definitivo, áudio/fontes e licenças. Registrar em ASSET_LICENSES e DECISIONS; não criar arte substituta sem necessidade autorizada.
+
+## Subset aprovado tecnicamente na F2
+
+Character/Skeleton laterais, Normal BG e Hud roxo/dourado integrados e revisados nas composições do STAGE_02_REPORT. Pivôs/recortes de apenas esse subset em RUNTIME_ASSETS/Runtime_Asset_Manifest. Isso não aprova outros packs ou resolve licenças; retrato, Coin definitivo e profiling real continuam abertos.

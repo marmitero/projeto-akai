@@ -1,57 +1,303 @@
-import { chromium } from 'playwright';
-import { createRequire } from 'node:module';
-import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { spawn } from 'node:child_process';
-import assert from 'node:assert/strict';
-const root = fileURLToPath(new URL('../', import.meta.url));
-const requireClient = createRequire(new URL('../apps/client/package.json', import.meta.url));
-const viteBin = resolve(dirname(requireClient.resolve('vite/package.json')), 'bin/vite.js');
+import { chromium } from "playwright";
+import { createRequire } from "node:module";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import { spawn } from "node:child_process";
+import { mkdir } from "node:fs/promises";
+import assert from "node:assert/strict";
+const preview = process.argv.includes("--preview");
+const root = fileURLToPath(new URL("../", import.meta.url));
+const requireClient = createRequire(
+  new URL("../apps/client/package.json", import.meta.url),
+);
+const viteBin = resolve(
+  dirname(requireClient.resolve("vite/package.json")),
+  "bin/vite.js",
+);
 const children = [];
 let browser;
 async function serve(port, mode) {
-  const child = spawn(process.execPath, [viteBin, '--host', '127.0.0.1', '--port', String(port), '--strictPort'], {
-    cwd: resolve(root, 'apps/client'), env: { ...process.env, VITE_GAME_MODE: mode }, stdio: 'ignore',
-  });
+  const child = spawn(
+    process.execPath,
+    [
+      viteBin,
+      ...(preview && mode === "local" ? ["preview"] : []),
+      "--host",
+      "127.0.0.1",
+      "--port",
+      String(port),
+      "--strictPort",
+    ],
+    {
+      cwd: resolve(root, "apps/client"),
+      env: { ...process.env, VITE_GAME_MODE: mode },
+      stdio: "ignore",
+    },
+  );
   children.push(child);
   const url = `http://127.0.0.1:${port}`;
   for (let n = 0; n < 150; n++) {
-    if (child.exitCode !== null) throw new Error(`Vite exited (${child.exitCode}); port ${port} may be occupied.`);
-    try { if ((await fetch(url)).ok) return url; } catch { /* wait for server */ }
-    await new Promise(r => setTimeout(r, 100));
+    if (child.exitCode !== null) throw Error(`Vite exited (${child.exitCode})`);
+    try {
+      if ((await fetch(url)).ok) return url;
+    } catch {}
+    await new Promise((r) => setTimeout(r, 100));
   }
-  throw new Error('Vite startup timeout');
+  throw Error("Vite startup timeout");
+}
+async function capture(page, name) {
+  if (process.env.AKAI_SCREENSHOT_DIR) {
+    await mkdir(process.env.AKAI_SCREENSHOT_DIR, { recursive: true });
+    await page.screenshot({
+      path: resolve(process.env.AKAI_SCREENSHOT_DIR, `${name}.png`),
+      fullPage: true,
+    });
+  }
 }
 try {
-  const url = await serve(5182, 'local');
+  const url = await serve(5182, "local");
   const executablePath = process.env.AKAI_BROWSER_EXECUTABLE;
-  browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath, args: ['--no-sandbox', '--disable-gpu', '--disable-software-rasterizer', '--disable-dev-shm-usage', '--no-zygote'] } : {}) });
-  const context = await browser.newContext(); const page = await context.newPage(); const errors = [];
-  page.on('pageerror', e => errors.push(e.message));
-  await page.setViewportSize({ width: 360, height: 800 }); await page.goto(url);
-  await page.locator('#save:not([disabled])').waitFor(); await page.locator('#game canvas').waitFor();
+  browser = await chromium.launch({
+    headless: true,
+    ...(executablePath
+      ? {
+          executablePath,
+          args: [
+            "--no-sandbox",
+            "--disable-gpu",
+            "--disable-software-rasterizer",
+            "--disable-dev-shm-usage",
+            "--no-zygote",
+          ],
+        }
+      : {}),
+  });
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  const errors = [];
+  const failures = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  page.on("response", (response) => {
+    if (response.status() >= 400) failures.push(response.url());
+  });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(url);
+  await page.locator("#game[data-load-status=ready]").waitFor();
+  await page.locator("#game canvas").waitFor();
+  assert.equal(
+    await page.locator("#game").getAttribute("data-animation-count"),
+    "8",
+  );
+  const textures = await page
+    .locator("#game")
+    .getAttribute("data-texture-count");
+  const objects = await page.locator("#game").getAttribute("data-object-count");
+  await capture(page, "battle-390");
+  await page
+    .getByRole("button", { name: "Testar animação de derrota", exact: true })
+    .click();
+  assert.equal(
+    await page.locator("#game").getAttribute("data-defeat-preview"),
+    "1",
+  );
+  await page.locator("#game[data-defeat-complete=true]").waitFor();
+  await capture(page, "defeat-390");
+  const navigate = async (name) => {
+    const direct = page
+      .locator(".bottom-hud")
+      .getByRole("button", { name, exact: true });
+    if (await direct.isVisible()) await direct.click();
+    else {
+      await page.locator("#more").click();
+      await page
+        .locator("#menu-dialog")
+        .getByRole("button", { name, exact: true })
+        .click();
+    }
+  };
+  await navigate("Mina");
+  await capture(page, "mine-390");
+  await page
+    .getByRole("button", { name: "Testar impacto no minério", exact: true })
+    .click();
+  assert.equal(
+    await page.locator("#game").getAttribute("data-impact-count"),
+    "1",
+  );
+  await navigate("Batalha");
+  await page.locator("#mine-target").evaluate((button) => button.click());
+  assert.equal(
+    await page.locator("#game").getAttribute("data-impact-count"),
+    "1",
+  );
   for (let n = 0; n < 50; n++) {
-    await page.getByRole('button', { name: 'Mina', exact: true }).click();
-    await page.getByRole('button', { name: 'Produção', exact: true }).click();
-    await page.getByRole('button', { name: 'Batalha', exact: true }).click();
+    await navigate("Mina");
+    await navigate("Produção");
+    await navigate("Batalha");
   }
-  await page.getByRole('button', { name: 'Mina', exact: true }).click();
-  await page.getByRole('button', { name: 'Salvar perfil local', exact: true }).click();
-  await page.getByText('Perfil salvo neste navegador.', { exact: false }).waitFor();
-  await page.reload(); await page.getByText('Perfil local carregado.', { exact: true }).waitFor();
-  assert.equal(await page.locator('[data-screen=mine]').getAttribute('aria-current'), 'true');
-  for (const width of [320, 360, 390, 768]) {
-    await page.setViewportSize({ width, height: 800 });
-    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, `horizontal overflow at ${width}`);
+  assert.equal(
+    await page.locator("#game").getAttribute("data-texture-count"),
+    textures,
+  );
+  assert.equal(
+    await page.locator("#game").getAttribute("data-object-count"),
+    objects,
+  );
+  await navigate("Produção");
+  assert.equal(
+    await page
+      .locator("[data-pane=production] article button:disabled")
+      .count(),
+    3,
+  );
+  await capture(page, "production-390");
+  await navigate("Mina");
+  await navigate("Mais");
+  assert.equal(
+    await page.locator("#menu-dialog").evaluate((d) => d.open),
+    true,
+  );
+  await page.locator("#mine-target").evaluate((button) => button.click());
+  assert.equal(
+    await page.locator("#game").getAttribute("data-impact-count"),
+    "1",
+  );
+  await page
+    .getByRole("checkbox", { name: "Reduzir movimento e efeitos" })
+    .check();
+  assert.equal(
+    await page.locator("#game").getAttribute("data-reduced-motion"),
+    "true",
+  );
+  await page
+    .getByRole("button", { name: "Salvar perfil local", exact: true })
+    .click();
+  await page
+    .getByText("Perfil salvo neste navegador.", { exact: true })
+    .waitFor();
+  await page.getByRole("button", { name: "Fechar menu", exact: true }).click();
+  assert.equal(
+    await page.locator("#more").evaluate((e) => e === document.activeElement),
+    true,
+  );
+  await page.reload();
+  await page.locator("#game[data-load-status=ready]").waitFor();
+  assert.equal(
+    await page.locator("[data-route=mine]").getAttribute("aria-current"),
+    "page",
+  );
+  await page.getByRole("button", { name: "Ver recursos" }).click();
+  assert.equal(
+    await page
+      .locator("#dialog-resources dd")
+      .allTextContents()
+      .then((v) => v.every((x) => x === "0")),
+    true,
+  );
+  await page.keyboard.press("Escape");
+  for (const [width, height] of [
+    [320, 640],
+    [360, 800],
+    [390, 844],
+    [768, 900],
+  ]) {
+    await page.setViewportSize({ width, height });
+    for (const name of ["Batalha", "Mina", "Produção"]) {
+      await navigate(name);
+      assert.equal(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth > innerWidth,
+        ),
+        false,
+      );
+      const box = await page.locator(".bottom-hud").boundingBox();
+      assert.ok(box && box.y + box.height <= height + 1);
+    }
+    for (const button of await page
+      .locator(".bottom-hud button:visible")
+      .all()) {
+      const box = await button.boundingBox();
+      assert.ok(box && box.width >= 44 && box.height >= 44);
+    }
+    if (width === 320) {
+      assert.equal(await page.locator("[data-route=bag]").isVisible(), false);
+      await navigate("Mais");
+      await page.getByRole("button", { name: "Mochila", exact: true }).click();
+      assert.equal(await page.locator("#page-title").textContent(), "Mochila");
+      await navigate("Mina");
+    }
+    await navigate("Produção");
+    await page.locator("#content").evaluate((el) => {
+      el.scrollTop = el.scrollHeight;
+    });
+    const lastMine = await page
+      .locator("[data-pane=production] article")
+      .last()
+      .boundingBox();
+    const navigation = await page.locator(".bottom-hud").boundingBox();
+    assert.ok(
+      lastMine &&
+        navigation &&
+        lastMine.y + lastMine.height <= navigation.y + 1,
+    );
+    await capture(page, `production-${width}`);
   }
-  const onlineUrl = await serve(5183, 'online'); const onlinePage = await context.newPage();
-  onlinePage.on('pageerror', e => errors.push(e.message)); await onlinePage.goto(onlineUrl);
-  await onlinePage.getByText('Modo online indisponível.', { exact: false }).waitFor();
-  assert.equal(await onlinePage.locator('canvas').count(), 0);
-  assert.equal(await onlinePage.locator('#save').isDisabled(), true);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await navigate("Loja");
+  await page
+    .getByText("O mercador ainda está a caminho", { exact: true })
+    .waitFor();
+  await capture(page, "shop-390");
+  await page.keyboard.press("Escape");
+  assert.equal(await page.locator("#page-title").textContent(), "Produção");
+  await page.setViewportSize({ width: 390, height: 960 });
+  await navigate("Produção");
+  await page.locator("#content").evaluate((el) => {
+    el.scrollTop = 0;
+  });
+  await capture(page, "production-full-390");
+  assert.deepEqual(failures, []);
   assert.deepEqual(errors, []);
-  console.log(JSON.stringify({ browser: browser.version(), canvas: true, navigationCycles: 50, saveReload: true, widths: [320, 360, 390, 768], onlineFailsClosed: true, pageErrors: errors }));
+  // A missing required image must display an error and keep the node disabled.
+  const broken = await browser.newContext();
+  await broken.route("**/hero-attack*", (route) => route.abort());
+  const brokenPage = await broken.newPage();
+  await brokenPage.goto(url);
+  await brokenPage.locator("#game[data-load-status=error]").waitFor();
+  await brokenPage
+    .getByText("Não foi possível carregar o cenário.", { exact: false })
+    .waitFor();
+  assert.equal(await brokenPage.locator("#mine-target").isDisabled(), true);
+  await broken.close();
+  const onlineUrl = await serve(5183, "online");
+  const onlinePage = await context.newPage();
+  await onlinePage.goto(onlineUrl);
+  await onlinePage
+    .locator("#asset-status")
+    .filter({ hasText: "Modo online indisponível." })
+    .waitFor();
+  assert.equal(await onlinePage.locator("canvas").count(), 0);
+  console.log(
+    JSON.stringify({
+      browser: browser.version(),
+      productionPreview: preview,
+      navigationCycles: 50,
+      unchangedTextures: textures,
+      unchangedObjects: objects,
+      saveReload: true,
+      hiddenInputBlocked: true,
+      modalInputBlocked: true,
+      reducedMotion: true,
+      widths: [320, 360, 390, 768],
+      menus: true,
+      zeroResourceGrants: true,
+      missingAssetHandled: true,
+      onlineFailsClosed: true,
+      pageErrors: errors,
+      failedAssetResponses: failures,
+    }),
+  );
 } finally {
   await browser?.close();
-  for (const child of children) child.kill('SIGTERM');
+  for (const child of children) child.kill("SIGTERM");
 }

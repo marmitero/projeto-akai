@@ -32,3 +32,7 @@ Após nova autorização: fundação técnica local e prova de integração de u
 ## Atualização F1 (histórico acima preservado)
 
 Depois do snapshot inicial foram criados apps/client, apps/server e packages/shared, package.json/lockfile, configurações, testes e CI. O estado inicial sem aplicação não descreve mais o HEAD desta etapa. Há fundação executável, sem combate/economia/banco online. Comandos/evidências em DEVELOPMENT e STAGE_01_REPORT. Assets originais inalterados.
+
+## Atualização F2
+
+Cliente contém agora catálogo curado, derivados e renderer com oito animações, HUD e telas. Há script de regeneração opcional e verificador Node de integridade. O acervo sprites e inventário original não foram reescritos. Logs/relatórios e capturas em STAGE_02_REPORT; servidor de gameplay continua indisponível.
