@@ -2,7 +2,7 @@
 
 ## Antes de alterar
 
-Ler AI_STATE, docs/README, Constituição, GDD, roadmap e documentos do domínio afetado. Verificar branch, HEAD remoto, alterações locais e instrução atual do usuário. Atualmente a tarefa termina após documentação; não iniciar implementação sem nova instrução. Preservar sprites e trabalho prévio; não reorganizar pastas por conveniência.
+Ler AI_STATE, docs/README, Constituição, GDD, roadmap e documentos do domínio afetado. Verificar branch, HEAD remoto, alterações locais e instrução atual do usuário. Atualização: a F1 foi autorizada e implementada em 15/10/2026. Respeitar o escopo da etapa atual registrado em AI_STATE, sem reativar pausas históricas como bloqueios permanentes. Preservar sprites e trabalho prévio; não reorganizar pastas por conveniência.
 
 ## Durante uma implementação futura
 
@@ -30,3 +30,5 @@ Ao final de **toda etapa**:
 4. Nas questões reservadas ao usuário, preparar antes uma recomendação concreta, opções/custo/impacto e perguntar apenas o indispensável. Não transformar pendências de fases futuras em bloqueios da fase atual.
 
 Reservado ao usuário: gastos/compromissos financeiros relevantes, preços reais/modelo de monetização de impacto material, identidade/contas/aceites que só o titular pode realizar e mudanças profundas das regras já estabelecidas. O agente pesquisa/projeta/implementa o restante dentro do trabalho autorizado, incluindo parâmetros de moeda virtual, com simulação e registro quando aplicável. Licenças não comprovadas não podem ser declaradas liberadas: investigar origem, usar alternativas permitidas e pedir comprovante ao titular somente quando necessário.
+
+Regra adicional do usuário (15/10/2026): todo encerramento também informa **o que foi feito**, **se a etapa está completa ou o que falta**, e **o próximo passo recomendado**, além de decisões e pendências de validação.

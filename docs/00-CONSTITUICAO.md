@@ -20,7 +20,7 @@ RPG idle clicker de fantasia medieval, 2D lateral, para sessões curtas e retorn
 
 O produto completo mantém equipamentos, mascotes, habilidades, fabricação, eventos, boss global, anúncios voluntários, loja, mercado, PvP, guildas e rankings. A primeira fatia local limita conteúdo para validar o loop, sem apagar o restante: [MVP](MVP_ACCEPTANCE.md) e [Roadmap](ROADMAP.md).
 
-Nesta entrega, a instrução explícita é **somente documentação e aguardar**. Ela prevalece sobre a orientação genérica do Master Prompt para avançar automaticamente à implementação. Não criar código do jogo, instalar stack, provisionar serviços ou publicar aplicativo nesta etapa.
+Histórico: a entrega documental inicial tinha pausa explícita. Em 15/10/2026 o usuário autorizou a próxima etapa, F1 de fundação técnica, sem contratar serviços nem publicar aplicativo. Novas etapas seguem o escopo autorizado e as regras de autonomia/encerramento; não interpretar a pausa anterior como proibição permanente de desenvolver.
 
 ## Hierarquia documental
 
@@ -57,3 +57,5 @@ Ao final de **toda etapa**:
 4. Nas questões reservadas ao usuário, preparar antes uma recomendação concreta, opções/custo/impacto e perguntar apenas o indispensável. Não transformar pendências de fases futuras em bloqueios da fase atual.
 
 Reservado ao usuário: gastos/compromissos financeiros relevantes, preços reais/modelo de monetização de impacto material, identidade/contas/aceites que só o titular pode realizar e mudanças profundas das regras já estabelecidas. O agente pesquisa/projeta/implementa o restante dentro do trabalho autorizado, incluindo parâmetros de moeda virtual, com simulação e registro quando aplicável. Licenças não comprovadas não podem ser declaradas liberadas: investigar origem, usar alternativas permitidas e pedir comprovante ao titular somente quando necessário.
+
+Regra adicional do usuário (15/10/2026): todo encerramento também informa **o que foi feito**, **se a etapa está completa ou o que falta**, e **o próximo passo recomendado**, além de decisões e pendências de validação.

@@ -41,3 +41,7 @@ Todos os itens de produto abaixo estão **pendentes**. Documento não certifica 
 - [ ] Artefato assinado, acesso restrito às chaves, plano de rollout/rollback e suporte.
 
 Publicar somente o artefato testado e identificado. Esta documentação não autoriza envio à Google Play, compras reais, contratação de serviços ou migração de produção.
+
+## Evidência de fundação F1
+
+F1 possui builds/testes e smoke conforme STAGE_01_REPORT. Isso não marca os checkboxes do MVP local completo, online ou lançamento: M02–M15 incluem gameplay/arte que ainda não existem. Workflow CI adicionado, execução remota só pode ser confirmada após consulta ao run efetivo.

@@ -1,11 +1,11 @@
 # Roadmap e gates de entrega
 
-Baseline v1 — 15/10/2026. Sem estimativas de calendário: duração depende da integração artística e validação do loop. Estado atual: documentação entregue; desenvolvimento aguardando nova instrução. Todos os marcos abaixo são futuros salvo as entregas documentais explicitadas.
+Baseline v1 — 15/10/2026. Sem estimativas de calendário: duração depende da integração artística e validação do loop. Estado atual: F1 de fundação técnica concluída; F2 visual é a próxima etapa recomendada. Todos os marcos abaixo são futuros salvo as entregas documentais explicitadas.
 
 | Fase | Entrega e dependências | Critério de saída | Estado |
 |---|---|---|---|
 | 0 — Inspeção e planejamento | Auditoria, guias, Constituição, GDD, arquitetura, dados, economia, segurança e testes | Documentos rastreáveis, riscos e decisões abertos explícitos | Documentação preparada; licenças/arte ainda parciais |
-| 1 — Fundação | Após liberação para implementar; cliente e servidor independentes, TS estrito, contratos, fixtures, saves e configuração | Build/testes executáveis, perfil local rotulado, isolamento online/local, sem segredos | Não iniciada |
+| 1 — Fundação | Após liberação para implementar; cliente e servidor independentes, TS estrito, contratos, fixtures, saves e configuração | Build/testes executáveis, perfil local rotulado, isolamento online/local, sem segredos | Concluída no escopo de fundação; ver STAGE_01_REPORT |
 | 2 — Vertical visual | F1 + recortes/pivôs de herói/inimigo/HUD/mina | Três telas navegáveis com sprites, input isolado, estado compartilhado e safe areas | Não iniciada |
 | 3 — Loop local | F2 + configuração inicial validável | Andares 1–20, bosses 10/20, clique, carvão, upgrades, salvar/carregar e offline conforme MVP_ACCEPTANCE | Não iniciada |
 | 4 — Progressão RPG | F3 + aceitação de mecânicas propostas | Equipamentos, raridades, drops, mascotes, ouro/jade, fabricação, buffs, dados escaláveis até 1.000 andares | Não iniciada |
@@ -36,8 +36,14 @@ A F1 prepara o servidor e seus limites, mas a implementação completa de econom
 
 F2 pode ser bloqueada por recortes/compatibilidade artística. F3 depende de curvas ainda não simuladas. F5 exige banco e serviços confiáveis. F6/7 dependem de regras competitivas e proteção de concorrência. F8/9 exigem integrações externas e políticas vigentes verificadas na data da implementação. Lançamento depende de licença confirmada de cada asset efetivamente distribuído.
 
-Não declarar F0 integralmente encerrada por haver documentação: a revisão de licenças, aprovação visual e decisões listadas em DECISIONS permanecem abertas. Após esta entrega, aguardar; não executar F1 automaticamente.
+Não declarar F0 integralmente encerrada por haver documentação: a revisão de licenças, aprovação visual e decisões listadas em DECISIONS permanecem abertas. A pausa histórica após documentação foi superada pela autorização expressa do usuário para F1. Encerrar cada etapa com relatório e próximo passo.
 
 ## Atualização de governança — 15/10/2026
 
 Etapa de triagem/autonomia: concluída documentalmente. O agente pode resolver escolhas rotineiras dentro do escopo e deve reportar decisões/validações ao terminar cada etapa, atualizando este roadmap, AI_STATE e documentos pertinentes. D06 (fatia20) e D07 (offline experimental8h) adotadas sob delegação, sem resultados de teste presumidos. F1 continua não iniciada: a mensagem atual solicita listar pendências. Não há bloqueio de design que exija decisão do usuário antes do desenvolvimento local; gates de licença, contratação, conta do titular e monetização permanecem nas fases correspondentes. Ver DECISIONS para responsáveis.
+
+## Entrega F1 — fundação técnica
+
+F1-01/02/03/04 concluídos no escopo desta fase: npm workspaces/lockfile, cliente e servidor independentes, schemas compartilhados, runtime local sem economia, IndexedDB com backup/hash/geração, testes/configuração e workflow CI. Schema1 é a primeira versão real; migrações de schemas antigos serão implementadas quando houver um formato anterior concreto, sem inventar compatibilidade. F3 ainda precisa acrescentar estado de combate/minas e cálculo offline.
+
+Fase0 segue parcial em licenças e aprovação artística; isso não foi marcado como resolvido. F2: selecionar subset visual e recortes/pivôs, integrar protagonista/inimigos/mina/HUD e telas finais, mantendo o lifecycle validado. Nenhum sistema RPG/online foi antecipado ou removido.

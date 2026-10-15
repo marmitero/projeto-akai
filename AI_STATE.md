@@ -1,58 +1,38 @@
 # AI_STATE — continuidade do Projeto Akai
 
-Atualizado: 15/10/2026. **Estado: DOCUMENTAÇÃO PREPARADA; AUTONOMIA REGISTRADA; CÓDIGO NÃO INICIADO.**
+Atualizado: 15/10/2026. **F1: FUNDAÇÃO TÉCNICA CONCLUÍDA NO ESCOPO DA ETAPA. Gameplay ainda não implementado.**
 
-## Objetivo e limite da sessão
+## Pedido vigente e governança
 
-Pedido atual: escrever toda a documentação necessária antes de desenvolver e aguardar. Nenhuma autorização para começar código nesta etapa. Ao concluir publicação dos documentos, parar. A orientação genérica do Master Prompt para seguir à fundação não supera esta pausa explícita.
+O usuário autorizou a próxima etapa após documentação/autonomia: executar F1. A pausa histórica de documentação não bloqueia essa autorização. Ao terminar toda etapa: atualizar AI_STATE, ROADMAP e documentos afetados; listar no chat feito, completude/faltas, decisões, pendências que exijam validação e próximo passo recomendado. Decidir autonomamente escolhas não cruciais financeiramente e sem mudança rigorosa do produto; consultar usuário só nas questões reservadas, já com recomendação concreta.
 
-## Estado real do repositório
+## Base e estado real
 
-Base inspecionada: `c577406dc292161e09838ac6e05ca3f8c65f87ce` em main. Contém acervo sprites, referencia_visual.jpg, Master Prompt, três guias e inventário/prévias. Ainda **não existe cliente, servidor, package.json, banco, autenticação, build ou suíte de gameplay**. Stack documentada é planejamento, não instalação.
+Base remota desta etapa: `21aec0322088c910d5935c8b991e2b6103178f0d`. Agora existem apps/client, apps/server e packages/shared, npm workspaces/lockfile, TypeScript estrito, Phaser/Vite, Fastify, schemas Zod, Vitest e smoke Playwright. Comandos reais em [DEVELOPMENT](docs/DEVELOPMENT.md).
 
-Auditoria prévia: 7.568 arquivos/6.872 PNGs, 757 grupos de duplicatas, 47 páginas e 23 folhas de contato. Inventário técnico integral; inspeção visual é representativa para inimigos/bosses. Licenças, recortes/pivôs e aprovação de combinações continuam parciais. Não reauditar 1,25GB de assets sem motivo; consultar arquivos canônicos primeiro.
+Cliente: perfil local rotulado, saldos zero, seleção de destino independente da sessão, Phaser com cena interna de fundação e persistência IndexedDB. Servidor: diagnóstico /health e erros estruturados; qualquer /api/v1/* responde 503 ONLINE_NOT_AVAILABLE. **Sem auth, banco online, combate, mineração, produção, mercado, anúncios ou compras.** Não apresentar a tela de fundação como interface final do jogo.
 
-## Entregas documentais desta etapa
+## Entregue na F1
 
-Constituição, auditoria de estado, GDD, roadmap, aceite do MVP, arquitetura, contratos de API, dados, segurança, economia, fórmulas experimentais/drops, UI/UX, Art Bible/licenças, testes, desempenho, operação, release checklist, riscos, decisões, rastreabilidade e quatro ADRs. Índice em [docs/README.md](docs/README.md). Sem alteração dos sprites originais ou código do jogo.
+- Aplicativos/builds independentes e contratos compartilhados, configurações/env, scripts e workflow CI.
+- Sessão local com relógio injetável, snapshots isolados e listeners removíveis; seleção de tela não recria domínio.
+- Save schema1/config foundation-1 com hash contra corrupção acidental, cópia anterior, recuperação explícita/quarentena, proteção concorrente por geração/CAS e rejeição de versões/config desconhecidas.
+- Nenhum save anterior existia: não inventar migração v0. Compatibilidade futura exige schema real e fixtures. Save local nunca credita online.
+- Diagnóstico HTTP, limites de payload, erros sanitizados, log estruturado e bind local padrão.
+- Documentação de execução, ADR-005, relatório/testes e atualização dos documentos afetados.
 
-## Decisões aprovadas
+## Validação e limites
 
-Três telas Batalha/Mina/Produção e HUD inferior; simulação continua entre telas. Ferro inicial 1/clique; carvão automático; ouro exige carvão50; nome Jade. Três ondas de três por andar comum; boss em múltiplos de dez, uma onda/um alvo com timer; falha retorna e pausa até retry manual. Meta de 1.000 andares. Online autoritativo e modos local/online separados. Documentar agora e aguardar.
+Evidências definitivas em [STAGE_01_REPORT](docs/STAGE_01_REPORT.md): instalação limpa, typecheck, testes, builds, smoke HTTP/navegador e auditoria de dependências. Nada disso valida economia/combate ainda inexistentes. CI versionada não significa execução remota confirmada.
 
-## Propostas e decisões pendentes
+Preservados todos os sprites/manifestos anteriores. Inventário técnico original: 7.568 arquivos, 6.872 PNGs, 757 grupos de duplicatas, 47 páginas e 23 prévias. Licenças ainda pendentes; recortes/pivôs completos e aprovação visual de runtime não realizados. F0 continua parcial por essas razões.
 
-Primeira fatia de 20 andares, cap offline experimental de oito horas só para minas, slots/raridades e curvas novas são propostas, não aprovação do usuário. Provedor/versões/hosting não escolhidos definitivamente. PvP/guerra de guildas/bônus de presença, preços/cooldowns premium, licenças, Coin/retrato/mascotes precisam de decisões/evidência nas fases correspondentes. Ver [DECISIONS](docs/DECISIONS.md) e [RISKS](docs/RISKS.md).
+## Decisões desta etapa
 
-## Concluído, parcial e não iniciado
+npm workspaces; Node24/TS5.9; Fastify; Zod; IndexedDB direto + fake-indexeddb; Playwright só de desenvolvimento. Versões exatas no lockfile/ADR-005. Online indisponível por construção, sem backend falso. Shared contém apenas contratos. Evitou-se contratar/provisionar serviços. 20 andares para primeira fatia e cap offline experimental8h continuam adotados para F3, ainda sem implementação ou simulação econômica.
 
-- Concluído nesta etapa: redação da baseline documental e mapeamento de regras/riscos/aceite.
-- Parcial: Fase0 como um todo (documentação preparada, arte e licenças não liberadas integralmente).
-- Não iniciado: Fases1–10, implementação, simulação de economia, teste de gameplay, provisionamento e deploy do jogo.
-- Não há funcionalidade de jogo declarada pronta.
+## Pendências e próximo passo
 
-## Últimas verificações
+Nenhuma decisão obrigatória do usuário para continuar desenvolvimento local. Pendências técnicas do agente: integração artística F2, pivôs/recortes, HUD final, profiling real e gameplay F3. Chunk Phaser grande e avisos de anotações da dependência estão registrados no relatório, sem bloqueio de build. Licenças, eventual custo/contas/aceites e monetização material seguem gates futuros; não declarar asset liberado sem evidência.
 
-Auditoria anterior decodificou PNG/GIF sem falhas e preservou os originais. Nesta etapa: validação estrutural dos 31 novos documentos, links Markdown locais, blocos de código fechados, contagem de licenças e presença dos documentos exigidos passou. Revisão cruzada de regras aprovadas/propostas e da pausa solicitada concluída. `git diff --check` sem erros; o commit final da documentação fica identificado no histórico Git e na mensagem de entrega. Não alegar build/teste do jogo: não há aplicação executável. Versionamento da documentação não é evidência de gameplay.
-
-## Próxima tarefa exata
-
-**Agora: aguardar nova instrução do usuário.** Se posteriormente autorizado a implementar: ler Constituição/GDD/ROADMAP/MVP_ACCEPTANCE, conferir HEAD e alterações, resolver versões da stack e preparar F1-01. Não iniciar todos os sistemas do Master Prompt simultaneamente; não remover backlog futuro para simplificar.
-
-## Continuidade e atualização
-
-Ao terminar qualquer fase futura, atualizar este arquivo com objetivo, estado real, comandos/testes/resultados, problemas, arquivos e próxima tarefa. Registrar commit da entrega no histórico Git/mensagem final; não inserir hash do próprio commit como se conhecido antes de criá-lo. Preservar trabalho existente e manter regras aprovadas distintas de experimentos.
-
-## Atualização mais recente — autonomia e triagem (15/10/2026)
-
-A documentação anterior foi publicada em `25cc35a15633bf78e82cf4db3158da0f1e9bc76f`. Pedido atual: registrar três regras de trabalho e listar pendências antes de desenvolver, minimizando participação do usuário. Não iniciar F1 nesta revisão.
-
-Regra aprovada: ao terminar cada etapa, atualizar ROADMAP/AI_STATE/documentos afetados, listar no chat decisões autônomas e pendências que realmente precisem de validação. O agente decide escolhas não cruciais financeiramente e sem mudança rigorosa do produto. Gastos relevantes, decisões comerciais materiais, atos exclusivos do titular e mudanças profundas continuam com o usuário; preparar recomendação antes de consultar.
-
-Decisões desta etapa: adotar primeira fatia de 20 andares e offline inicial de minas limitado experimentalmente a 8h; manter versão final de 1.000 andares; classificar escolhas de stack, recortes, arte compatível e balanceamento virtual como execução do agente. Não há simulação nem código executado por essa adoção.
-
-Pendências que podem exigir usuário mais tarde: prova de aquisição/licença se necessária, contratação/custo de infraestrutura, conta/identidade/aceite de plataformas e decisões de monetização material. Nenhuma impede planejamento/fundação local agora; licença de asset não verificada impede tratar sua distribuição como liberada. Não solicitar credenciais no chat.
-
-Próxima ação imediata: entregar a triagem no chat e aguardar instrução de início. A pausa anterior vale para execução de código; novas regras de autonomia já valem para decisões futuras dentro do trabalho autorizado. As propostas anteriores D06/D07 foram adotadas pelo agente sob delegação, não apresentadas como aprovação numérica explícita do usuário.
-
-Verificações desta atualização: alterações limitadas a governança/estado/roadmap/decisões; links locais e diff conferidos. Sem testes/build do jogo, pois não existe implementação.
+Próximo passo recomendado: F2 (protótipo visual navegável com sprites reais) sobre a sessão e persistência existentes. Não iniciar F3/economia online enquanto a fatia anterior não tiver aceite. Ao encerrar esta tarefa entregar o relatório no chat; nenhuma publicação comercial foi realizada.

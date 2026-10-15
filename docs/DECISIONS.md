@@ -47,3 +47,7 @@ As regras de autonomia da Constituição foram aprovadas explicitamente pelo usu
 | D20: privacidade/moderação/público | Agente prepara solução; usuário realiza declarações/aceites que dependam do responsável legal | Antes do online público |
 
 Não há pendência de design que obrigue consulta ao usuário antes de começar desenvolvimento local. Recortes/pivôs, compatibilidade e versões são tarefas técnicas do agente. Licenças seguem não verificadas e condicionam distribuição; não presumir uso comercial autorizado. Início de código continua não executado nesta revisão.
+
+## Decisões da F1 — 15/10/2026
+
+Stack/versões e npm workspaces adotados em ADR-005; Fastify escolhido, sem contratar Supabase. IndexedDB com cópia anterior/quarentena e proteção de geração, primeiro schema real1, sem migração fictícia de save inexistente. Cliente só local; modo online falha fechado; servidor de diagnóstico não aceita gameplay. A pausa D21 foi superada pela autorização expressa de implementar a próxima etapa. Relatório final passa a incluir feito, estado/completude e próximo passo. Não houve gasto ou mudança de pilar do jogo.

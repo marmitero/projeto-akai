@@ -1,6 +1,6 @@
 # Modelo de dados proposto
 
-Estado lógico v1; não há banco nem migrações existentes. PostgreSQL online, IndexedDB local proposto. Nomes são conceituais; schema físico definitivo será criado com migrações testadas na fase apropriada.
+Estado lógico v1; PostgreSQL online continua sem provisão. IndexedDB local schema1 implementado na F1 com backup, hash e geração concorrente; não existe schema antigo publicado para migrar. Versões desconhecidas são rejeitadas/preservadas, sem migração fictícia. Nomes são conceituais; schema físico definitivo será criado com migrações testadas na fase apropriada.
 
 ## Convenções e invariantes
 

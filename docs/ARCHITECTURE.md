@@ -1,6 +1,6 @@
 # Arquitetura proposta
 
-Estado: especificação, sem implementação. Base técnica do Master Prompt, detalhada em 15/10/2026. Versões e compatibilidades devem ser verificadas na F1; não há dependências instaladas ou infraestrutura provisionada.
+Estado: fundação F1 implementada; desenho de gameplay/online permanece planejado. Cliente, servidor de diagnóstico, contratos, sessão e save local existem. Versões resolvidas e evidências em DEVELOPMENT/ADR-005; nenhuma infraestrutura externa provisionada.
 
 ## Componentes e limites
 

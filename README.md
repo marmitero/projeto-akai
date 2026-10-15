@@ -2,7 +2,7 @@
 
 RPG idle clicker 2D mobile-first, planejado para navegador e futura versão Android. Combina batalha automática, mineração ativa e minas de produção em três telas independentes com navegação inferior.
 
-**Estado atual: documentação e assets; implementação do jogo ainda não iniciada.** Não há comando de instalação/build do jogo disponível. Nesta etapa o usuário solicitou preparar a documentação e aguardar.
+**Estado atual: fundação técnica implementada (F1), sem gameplay ainda.** Cliente local, servidor de diagnóstico, contratos, save e testes. Execute `npm ci` e `npm run check`; para abrir o cliente, `npm run dev:client`. Veja [DEVELOPMENT](docs/DEVELOPMENT.md) e [relatório da F1](docs/STAGE_01_REPORT.md).
 
 Comece pelo [AI_STATE](AI_STATE.md) e pelo [índice da documentação](docs/README.md). As regras do produto estão na [Constituição](docs/00-CONSTITUICAO.md) e no [GDD](docs/GDD.md); sequência de entregas no [Roadmap](docs/ROADMAP.md).
 

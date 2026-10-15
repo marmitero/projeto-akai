@@ -1,0 +1,21 @@
+{
+  "name": "@akai/client",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@akai/shared": "0.1.0",
+    "phaser": "^3.90.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "vite": "^7.0.0",
+    "fake-indexeddb": "^6.0.0"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "projeto-akai",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=24.0.0 <25",
+    "npm": ">=11"
+  },
+  "scripts": {
+    "build:shared": "npm run build -w @akai/shared",
+    "dev:client": "npm run build:shared && npm run dev -w @akai/client",
+    "dev:server": "npm run build:shared && npm run dev -w @akai/server",
+    "typecheck": "npm run build:shared && npm run typecheck --workspaces --if-present && tsc -p tsconfig.tests.json",
+    "test": "npm run build:shared && vitest run",
+    "build": "npm run build:shared && npm run build -w @akai/client && npm run build -w @akai/server",
+    "check": "npm run typecheck && npm test && npm run build",
+    "test:browser": "npm run build:shared && node scripts/smoke-browser.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "playwright": "^1.64.1",
+    "typescript": "^5.9.0",
+    "vitest": "^4.0.0"
+  }
+}

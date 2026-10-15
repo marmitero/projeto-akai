@@ -1,6 +1,6 @@
 # Rastreabilidade de requisitos
 
-Cada linha mapeia a intenção do Master Prompt a regra, fase e evidência de aceite. Estado de todos os requisitos de software: não implementado. A documentação só cobre planejamento, não prova comportamento.
+Cada linha mapeia a intenção do Master Prompt a regra, fase e evidência de aceite. F1 implementa contratos, sessão, save e servidor de diagnóstico; os requisitos de gameplay/online da tabela continuam não implementados. Evidência executada da fundação em STAGE_01_REPORT; a tabela não deve ser usada como prova de gameplay.
 
 | ID | Requisito | Especificação | Fase | Evidência planejada |
 |---|---|---|---|---|

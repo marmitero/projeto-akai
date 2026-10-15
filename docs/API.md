@@ -1,6 +1,6 @@
 # Contratos de API propostos — v1
 
-Nenhum endpoint existe atualmente. Este documento é contrato de implementação futura, não documentação de serviço disponível. Local usa adaptador em memória/IndexedDB com semântica equivalente de comandos, sem chamar endpoints fictícios.
+Implementado na F1: GET /health (200, diagnóstico, onlineGameplay=false); /api/v1/* retorna 503 ONLINE_NOT_AVAILABLE com envelope de erro. 404/400/413 também são estruturados. As demais rotas abaixo são contratos futuros, não serviços disponíveis. Cliente local não chama uma API de gameplay fictícia.
 
 ## Convenções e autenticação
 

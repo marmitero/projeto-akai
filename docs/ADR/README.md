@@ -8,3 +8,5 @@ ADRs registram contexto, decisão, alternativas e consequências. Estados: aceit
 - [ADR-004 — Idempotência, ledger e outbox](0004-economic-consistency.md)
 
 Ao alterar decisão, criar sucessor ou histórico explícito; atualizar GDD/API/DATA_MODEL/AI_STATE conforme impacto. Questões de produto em [DECISIONS](../DECISIONS.md).
+
+- [ADR-005 — Tooling e baseline executável](0005-foundation-tooling.md)

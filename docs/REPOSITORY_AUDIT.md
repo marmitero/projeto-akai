@@ -28,3 +28,7 @@ Licenças desconhecidas; pivôs, recortes e animações parcialmente mapeados; e
 ## Próximo passo condicionado
 
 Após nova autorização: fundação técnica local e prova de integração de um subconjunto artístico. Ver [ROADMAP](ROADMAP.md), [riscos](RISKS.md) e [AI_STATE](../AI_STATE.md). Nesta etapa não iniciar implementação.
+
+## Atualização F1 (histórico acima preservado)
+
+Depois do snapshot inicial foram criados apps/client, apps/server e packages/shared, package.json/lockfile, configurações, testes e CI. O estado inicial sem aplicação não descreve mais o HEAD desta etapa. Há fundação executável, sem combate/economia/banco online. Comandos/evidências em DEVELOPMENT e STAGE_01_REPORT. Assets originais inalterados.

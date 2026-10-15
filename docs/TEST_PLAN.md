@@ -1,6 +1,6 @@
 # Plano de testes e qualidade
 
-**Planejado; não executado para gameplay.** Nesta etapa só há validação documental e auditoria de assets prévia. Não instalar framework ou escrever implementação para satisfazer uma lista de testes de produto ainda inexistente.
+**Plano de gameplay ainda futuro; fundação testada na F1.** Há 14 testes Vitest de contratos, sessão, persistência e servidor, com typecheck/build executados. Ver STAGE_01_REPORT para comandos e limites; combate/economia/PvP/mercado continuam sem implementação ou testes de gameplay.
 
 ## Camadas e evidências
 
