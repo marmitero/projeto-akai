@@ -1,5 +1,11 @@
 import "./style.css";
 import {
+  OnlineSession,
+  onlineBootstrap,
+  api,
+  googleControl,
+} from "./online-session.js";
+import {
   heroStats,
   upgradeCost,
   LOOP,
@@ -27,45 +33,67 @@ const mineTarget = document.querySelector<HTMLButtonElement>("#mine-target")!;
 const stage = document.querySelector<HTMLElement>("#game")!;
 const assetStatus = document.querySelector<HTMLElement>("#asset-status")!;
 async function boot(): Promise<void> {
-  if ((import.meta.env.VITE_GAME_MODE ?? "local") !== "local") {
-    assetStatus.textContent =
-      "Modo online indisponível. Nenhum perfil local será usado como conta online.";
-    assetStatus.setAttribute("role", "alert");
-    status.textContent = assetStatus.textContent;
-    for (const button of document.querySelectorAll<HTMLButtonElement>("button"))
-      button.disabled = true;
-    return;
-  }
+  const mode = import.meta.env.VITE_GAME_MODE ?? "local";
+  if (mode !== "local" && mode !== "online") throw Error("INVALID_GAME_MODE");
+  const online = mode === "online";
+  const onlineState = online ? await onlineBootstrap(status) : undefined;
   let repository: SaveRepository | undefined;
   let snapshot = createLocalSnapshot(Date.now());
   let writable = true;
-  try {
-    repository = await SaveRepository.open(indexedDB);
-    const result = await repository.load();
-    if (result.status === "loaded") {
-      snapshot = result.snapshot;
-      status.textContent = "Perfil local carregado.";
-    } else if (result.status === "empty")
-      status.textContent = "Novo perfil local. Sua jornada começou.";
-    else if (result.status === "backup-available") {
-      snapshot = result.snapshot;
+  if (!online)
+    try {
+      repository = await SaveRepository.open(indexedDB);
+      const result = await repository.load();
+      if (result.status === "loaded") {
+        snapshot = result.snapshot;
+        status.textContent = "Perfil local carregado.";
+      } else if (result.status === "empty")
+        status.textContent = "Novo perfil local. Sua jornada começou.";
+      else if (result.status === "backup-available") {
+        snapshot = result.snapshot;
+        writable = false;
+        recoverButton.hidden = false;
+        status.textContent =
+          "Save atual inválido. Prévia da cópia anterior; confirme a restauração para salvar.";
+      } else {
+        writable = false;
+        status.textContent =
+          result.status === "unsupported"
+            ? "Save de versão incompatível preservado. Gravação bloqueada."
+            : "Save inválido preservado. Gravação bloqueada; nenhum dado foi apagado.";
+      }
+    } catch {
       writable = false;
-      recoverButton.hidden = false;
       status.textContent =
-        "Save atual inválido. Prévia da cópia anterior; confirme a restauração para salvar.";
-    } else {
-      writable = false;
-      status.textContent =
-        result.status === "unsupported"
-          ? "Save de versão incompatível preservado. Gravação bloqueada."
-          : "Save inválido preservado. Gravação bloqueada; nenhum dado foi apagado.";
+        "Armazenamento indisponível. Sessão temporária, sem salvamento.";
     }
-  } catch {
-    writable = false;
-    status.textContent =
-      "Armazenamento indisponível. Sessão temporária, sem salvamento.";
+  const session = onlineState
+    ? new OnlineSession(onlineState, (message) => {
+        status.textContent = message;
+        document.querySelector("#action-status")!.textContent = message;
+      })
+    : new LocalSession(systemClock, snapshot);
+  snapshot = session.getSnapshot();
+  if (online) {
+    document.querySelector(".preview-strip")!.textContent =
+      "ONLINE · Fase 5 · estado e recompensas confirmados pelo servidor";
+    document.querySelector(".identity small")!.firstChild!.textContent =
+      "Online · ";
+    saveButton.textContent = "Sincronizar";
+    document.querySelector("#profile-heading + p")!.textContent =
+      "Conta online. Guarde sua chave de recuperação; o progresso fica no servidor.";
+    document.querySelector("#dialog-resources > p")!.textContent =
+      "Saldos confirmados da conta online.";
+    const logout = document.createElement("button");
+    logout.textContent = "Sair da conta online";
+    logout.onclick = () => {
+      void api("auth/logout", {}).then(() => location.reload());
+    };
+    document.querySelector(".save-actions")!.append(logout);
+    void googleControl(document.querySelector("#dialog-menu")!, true).catch(
+      () => {},
+    );
   }
-  const session = new LocalSession(systemClock, snapshot);
   let route: Route = snapshot.screen;
   const scroll = new Map<Route, number>();
   const content = document.querySelector<HTMLElement>("#content")!;
@@ -161,7 +189,9 @@ async function boot(): Promise<void> {
     text(
       "action-status",
       ok
-        ? "Ação concluída."
+        ? online
+          ? "Comando enviado; aguardando confirmação."
+          : "Ação concluída."
         : "Ação indisponível: confira recursos, nível, slots e requisitos.",
     );
     if (ok) void persist();
@@ -173,7 +203,7 @@ async function boot(): Promise<void> {
     rpgUI.render(state);
     text(
       "profile-heading",
-      `Perfil local · Rei nível ${levelFromXp(state.rpg.accountXp)}`,
+      `${online ? "Conta online" : "Perfil local"} · Rei nível ${levelFromXp(state.rpg.accountXp)}`,
     );
     if (state.rpg.lootSerial !== lootSerial) {
       lootSerial = state.rpg.lootSerial;
@@ -299,9 +329,13 @@ async function boot(): Promise<void> {
     }
   });
   renderRoute(route);
-  saveButton.disabled = !writable;
+  saveButton.disabled = online || !writable;
   let saving = false;
   async function persist(): Promise<void> {
+    if (online) {
+      session.tick();
+      return;
+    }
     if (!repository || !writable || saving) return;
     saving = true;
     saveButton.disabled = true;
@@ -319,7 +353,7 @@ async function boot(): Promise<void> {
           : "Falha de salvamento. Dados anteriores preservados; recarregue para tentar novamente.";
     } finally {
       saving = false;
-      saveButton.disabled = !writable;
+      saveButton.disabled = online || !writable;
     }
   }
   const removers: Array<() => void> = [];
@@ -409,7 +443,9 @@ async function boot(): Promise<void> {
     )
       text(
         "mining-feedback",
-        `Ferro recebido. Saldo: ${formatAmount(session.getSnapshot().balances.iron)}.`,
+        online
+          ? "Toque enviado; aguardando confirmação."
+          : `Ferro recebido. Saldo: ${formatAmount(session.getSnapshot().balances.iron)}.`,
       );
   });
   for (const button of document.querySelectorAll<HTMLButtonElement>(
@@ -421,14 +457,19 @@ async function boot(): Promise<void> {
       text(
         "action-status",
         session.buy(kind)
-          ? "Melhoria adquirida."
+          ? online
+            ? "Compra enviada; aguardando confirmação."
+            : "Melhoria adquirida."
           : "Recursos insuficientes ou nível máximo.",
       );
       void persist();
     });
   listen(document.querySelector("#retry-battle")!, "click", () => {
     if (!dialog.open && session.retry()) {
-      text("action-status", "Nova tentativa iniciada.");
+      text(
+        "action-status",
+        online ? "Tentativa solicitada." : "Nova tentativa iniciada.",
+      );
       content.scrollTop = 0;
       void persist();
     }
@@ -503,6 +544,8 @@ async function boot(): Promise<void> {
 void boot().catch(() => {
   assetStatus.hidden = false;
   assetStatus.textContent =
-    "Falha ao iniciar o jogo local. Recarregue para tentar novamente.";
+    import.meta.env.VITE_GAME_MODE === "online"
+      ? "Servidor online indisponível. Recarregue para reconectar; o perfil local permanece separado."
+      : "Falha ao iniciar o jogo local. Recarregue para tentar novamente.";
   saveButton.disabled = true;
 });

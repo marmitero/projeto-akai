@@ -32,3 +32,7 @@ Metas iniciais propostas: RPO≤15min e RTO≤4h para online, sujeitas a provedo
 ## Administração e suporte
 
 RBAC específico, autenticação forte, ações auditadas com motivo e escopo mínimo. Debug local não compartilha endpoint público. Sem alteração manual de saldo por SQL sem trilha e plano de conciliação. Suspensão/denúncia/remoção de conteúdo devem ter política de moderação antes do online público. Retenção/exclusão de dados e requisitos de privacidade ainda precisam de decisão; ver DATA_MODEL e DECISIONS.
+
+## Atualização F5 — 15/10/2026
+
+F5 fornece Compose PostgreSQL16 de desenvolvimento, db:migrate separado do startup, health com dependência real do banco e db:reconcile sem correção silenciosa. Fluxos/restart testáveis em [ONLINE](ONLINE.md). Não há deploy, SLA, backup externo ou alertas configurados. Preparar staging privado antes do público; migração por owner e runtime sem DDL. Em discrepância do ledger, interromper serviço econômico e preservar evidências. Não remover comandos antigos para liberar espaço sem política de idempotência.

@@ -1,6 +1,6 @@
 # Roadmap e gates de entrega
 
-Baseline v1 — 15/10/2026. Sem estimativas de calendário: duração depende da integração artística e validação do loop. Estado atual: F1/F2 concluídas; F3 concluída no escopo local; F4 concluída no escopo local; F5 é a próxima etapa. As linhas de estado e entregas datadas prevalecem sobre registros históricos abaixo.
+Baseline v1 — 15/10/2026. Sem estimativas de calendário: duração depende da integração artística e validação do loop. Estado atual: F1/F2 concluídas; F3 concluída no escopo local; F4 concluída no escopo local; F5 implementada no escopo de desenvolvimento; F6 é a próxima etapa técnica. As linhas de estado e entregas datadas prevalecem sobre registros históricos abaixo.
 
 | Fase | Entrega e dependências | Critério de saída | Estado |
 |---|---|---|---|
@@ -9,7 +9,7 @@ Baseline v1 — 15/10/2026. Sem estimativas de calendário: duração depende da
 | 2 — Vertical visual | F1 + recortes/pivôs de herói/inimigo/HUD/mina | Três telas navegáveis com sprites, input isolado, estado compartilhado e safe areas | Concluída no escopo visual; ver STAGE_02_REPORT |
 | 3 — Loop local | F2 + configuração inicial validável | Andares 1–20, bosses 10/20, clique, carvão, upgrades, salvar/carregar e offline conforme MVP_ACCEPTANCE | Concluída no escopo local; ver STAGE_03_REPORT |
 | 4 — Progressão RPG | F3 + aceitação de mecânicas propostas | Equipamentos, raridades, drops, mascotes, ouro/jade, fabricação, buffs, dados escaláveis até 1.000 andares | Concluída no escopo local; ver STAGE_04_REPORT |
-| 5 — Online autoritativo | Fundação do servidor F1 + domínio estabilizado | Auth, persistência, ledger, reconexão, simulação confiável, testes de concorrência/abuso | Não iniciada |
+| 5 — Online autoritativo | Fundação do servidor F1 + domínio estabilizado | Auth, persistência, ledger, reconexão, simulação confiável, testes de concorrência/abuso | Técnica local concluída; publicação autorizada e CI em conferência, ver STAGE_05_REPORT |
 | 6 — Comunidade | F5 + decisões sociais resolvidas | Chat/moderação, guildas/brasões, PvP, rankings/temporadas, boss global e eventos idempotentes | Não iniciada |
 | 7 — Mercado | F4/F5 + definições de negociação | Reserva, compra/oferta atômicas, taxas, expiração/relistagem e auditoria verificadas | Não iniciada |
 | 8 — Monetização | F5 + economia simulada + contas de provedores | Compras/anúncios em sandbox validados e reconciliados, sem grants duplicados | Não iniciada |
@@ -70,3 +70,13 @@ Validação concluída:31 testes/builds, smokes dev/produção incluindo horizon
 F3 revalidada conforme [STAGE_03_VALIDATION](STAGE_03_VALIDATION.md). F4-01 catálogo/curvas1.000 e XP, F4-02 itens/raridades/slots/drops, F4-03 Forja/aprimoramento/tônicos, F4-04 Musgo/ouro/jade e F4-05 migração2→3/UI integrados.45 testes, smokes e simulações em [STAGE_04_REPORT](STAGE_04_REPORT.md); soak próprio concluído: 30min reais (1801134ms), 1238 ciclos; 35 texturas/38 objetos constantes, 136–140 listeners sem acúmulo e heap após GC 7.06–8.33MiB após aquecimento. Média rAF por minuto 36.75–48.25 no stress de inventário cheio; zero pageerrors. Regras completas em [RPG_SYSTEMS](RPG_SYSTEMS.md)/[ADR-008](ADR/0008-local-rpg.md).
 
 Catálogo1.000 é reutilização de bioma/família com atributos limitados, não1.000 mapas exclusivos nem balanceamento comercial. Equipamentos alteram atributos e ícones, sem vestir outro rig. Números de XP/recursos são experimentais. F5 não iniciada; próxima entrega é autoridade online, auth, ledger, persistência e reconexão, sem tratar save local como saldo confiável. Licenças/aparelhos seguem gates próprios.
+
+## Entrega F5 — online autoritativo de desenvolvimento
+
+Autorizada pelo usuário após F4. F5-01 identidade de convidado/cookie/recuperação e adaptador Google; F5-02 PostgreSQL/snapshot/ledger/outbox/comandos atômicos; F5-03 simulação de batalha/minas com relógio/RNG do servidor e watermark; F5-04 cliente online sem save local, WebSocket/reconexão; F5-05 concorrência/abuso/rollback/restart e documentação. Estado e evidências em [STAGE_05_REPORT](STAGE_05_REPORT.md), decisões em [ADR-009](ADR/0009-authoritative-online.md).
+
+Não foi contratado ou publicado serviço externo. Google real depende de client ID/origins do titular; código/provas e validações criptográficas são testáveis sem esse cadastro. Staging público exige HTTPS/WSS, banco com backup/permissões, observabilidade/retencão e gates de privacidade/licenças. Essas dependências não são declaradas concluídas pela suíte local. Próxima fase técnica: F6, comunidade, após reler suas regras e sem ativar gastos ou políticas públicas unilateralmente.
+
+Publicação F5: revisão automática bloqueou envio direto à main e upload para branch de revisão; código/documentos estão no commit local revisado. Aguardar autorização explícita para publicar e conferir CI. Nenhum PR foi criado, e F6 não começou.
+
+Autorização posterior F5: usuário autorizou publicação e integração à main em15/10/2026. Bloqueio de autorização resolvido; conferir publicação/CI antes de encerrar. F6 não iniciada.

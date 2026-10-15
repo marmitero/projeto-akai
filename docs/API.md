@@ -1,6 +1,41 @@
-# Contratos de API propostos — v1
+# Contratos API — implementação F5 e desenho futuro
 
-Implementado na F1: GET /health (200, diagnóstico, onlineGameplay=false); /api/v1/* retorna 503 ONLINE_NOT_AVAILABLE com envelope de erro. 404/400/413 também são estruturados. As demais rotas abaixo são contratos futuros, não serviços disponíveis. Cliente local não chama uma API de gameplay fictícia.
+A F5 instala as rotas abaixo quando DATABASE_URL está configurado e o schema foi migrado. Sem banco configurado, /health continua diagnóstico onlineGameplay=false e /api/v1/* retorna503. A descrição posterior é o desenho inicial: rotas específicas antigas não foram instaladas em paralelo ao envelope único. [ONLINE](ONLINE.md) e os schemas executáveis prevalecem para esta versão.
+
+## Contrato instalado na F5
+
+| Método /api/v1 + rota | Entrada | Saída |
+|---|---|---|
+| POST /auth/guest | {} | accountId/recoveryKey e cookie HttpOnly |
+| POST /auth/recover | recoveryKey | Chave rotacionada, cookie novo, sessões anteriores revogadas |
+| POST /auth/logout | {} | Revogação e expiração do cookie |
+| GET /auth/config | — | googleClientId público ou null |
+| POST /auth/google/nonce | {} + sessão | Nonce de vinculação pertencente à conta |
+| POST /auth/google/link | idToken + sessão | linked=true; não mescla contas |
+| POST /auth/google/login/nonce | {} | Nonce independente para entrar |
+| POST /auth/google/login | idToken | Cookie para identidade já vinculada |
+| GET /bootstrap, GET /state | Sessão | OnlineState: snapshot, stateVersion, commandVersion, serverTime |
+| POST /commands | OnlineCommand | Resultado aplicado/recusado persistido |
+| GET /commands/:id | UUID da própria conta | Resultado ou404 |
+| POST /presence/away | {} + sessão | Liquidação e presença encerrada |
+| GET /events?after=N | Cursor >=0 | Até100 eventos próprios ordenados |
+| GET /stream | Upgrade WebSocket + cookie + Origin | Snapshots confirmados a cada segundo |
+
+Todos os HTTP /api/v1 exigem X-Akai-Client:1; mutações exigem Origin igual a PUBLIC_ORIGIN. WebSocket exige Origin exato. Não há CORS aberto. JSON máximo16KB, comandos strict sem campos adicionais. UUIDs são account-scoped quando se trata de commandId; itens item-N são account-scoped, nunca globais.
+
+Exemplo instalado:
+
+```json
+{"commandId":"a7ecb023-86a0-4cb3-bbbc-6995340aa80f","expectedVersion":0,"action":{"type":"mining.click"}}
+```
+
+Ações: mining.click; upgrade com kind=attack/vitality/click/coal; battle com action=pause/resume/retry/train; rpg com command validado por RpgCommandSchema. expectedVersion é commandVersion, não stateVersion. Não há Idempotency-Key alternativo HTTP nesta implementação; commandId do envelope é a única chave. Replay devolve o mesmo CommandResult; não inclui snapshot antigo. Cliente então consulta /state. Campo rng nunca sai do servidor.
+
+CommandResult tem commandId, status=applied/rejected, code, stateVersion e commandVersion. Recusas de domínio são esse resultado (422 pré-condição,409 versão,429 limite); erros anteriores à aplicação usam envelope error estruturado (400 schema,401 credencial,403 CSRF/origem,404 dono/rota,409 payload divergente,429 abuso,500 interno sem detalhes). Retry-After acompanha429. Reenvio de comando recusado continua recusado; corrigir a intenção exige novo UUID após ler estado.
+
+Snapshot possui mode=online, profile.id UUID da conta e rpg sem rng. A forma interna compartilhada do domínio usa LocalSnapshot sem permitir importação remota; adaptador de leitura do cliente adiciona placeholders apenas para reutilizar renderer, sem simular ou salvar esse perfil em IndexedDB. O estado nunca vem do cliente.
+
+## Referência de desenho inicial e expansões futuras
 
 ## Convenções e autenticação
 

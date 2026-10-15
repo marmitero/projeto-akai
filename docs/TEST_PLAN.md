@@ -59,3 +59,7 @@ Resultado executado da sessão prolongada F3: 30min reais (1800914ms),1784 ciclo
 Smokes dev/produção: fabricar/equipar/aprimorar, Forja/ferro fundido/tônico, adoção, ouro bloqueado49/liberado50, jade, save/reload e tabs por teclado, além dos fluxos F3. Setup por snapshots válidos, sem grant de debug no jogo. Capturas inspecionadas.
 
 Soak F4 separado do arquivo F3,30min reais no build preview5185,120 peças/reciclagem/recompra e navegação repetidas. Medir heap apósGC, DOM/listeners, texturas/objetos e média rAF; critério de listeners tolera oscilação nativa limitada e rejeita crescimento. Não é benchmark de aparelho nem playtest orgânico. JSON/ambiente/limitações em STAGE_04_REPORT.
+
+## Atualização F5 — 15/10/2026
+
+F5 acrescenta integração PostgreSQL opcional local e obrigatória na CI, testes de JWT assinado e smokes online dev/produção. Abrange100 replays concorrentes, versões, abuso, IDOR, rollback após falha de persistência, deadlines/offline, craft/equip/enhance, ledger, recuperação/revogação e restart com resposta perdida. Os testes sem TEST_DATABASE_URL não validam persistência online. Evidências e limites em STAGE_05_REPORT. Nenhum novo soak30min foi exigido/alegado para esta fase; os soaks F3/F4 continuam históricos.

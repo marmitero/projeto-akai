@@ -1,0 +1,17 @@
+{
+  "mode": "production",
+  "passed": true,
+  "checks": [
+    "guest",
+    "mining",
+    "httpOnly",
+    "local-save-isolation",
+    "reload",
+    "lost-response-single-effect",
+    "server-restart",
+    "cross-device-recovery",
+    "session-revocation",
+    "logout"
+  ],
+  "pageErrors": []
+}

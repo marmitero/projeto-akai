@@ -44,3 +44,7 @@ Loop local real em packages/shared/src/loop.ts, conectado a LocalSession/UI/Phas
 ## Estado F4
 
 content/rpg/rpg-schema adicionados ao shared; Mochila/Forja/Musgo e ouro/jade funcionais, schema3 migrando1/2.45 testes e duas simulações, subset90 arquivos/fontes/24 derivados. Catálogo1.000 com atributos limitados, sem1.000 mapas exclusivos. Todo sprites/ original e dados históricos da F3 preservados. Servidor ainda diagnóstico; F5 não iniciada. Ver STAGE_04_REPORT.
+
+## Atualização F5 — 15/10/2026
+
+Atualização F5: auditoria inicial acima é histórica. Agora há cliente local/online, servidor autoritativo, domínio compartilhado, migração PostgreSQL, identidade de convidado e Google opcional, CI e testes. Nenhum banco público/conta de provedor foi provisionado. Evidências atuais em STAGE_05_REPORT e instruções em ONLINE.

@@ -176,8 +176,8 @@ export const HealthSchema = z
     status: z.literal("ok"),
     service: z.literal("akai-server"),
     protocolVersion: z.literal(PROTOCOL_VERSION),
-    stage: z.literal("foundation"),
-    onlineGameplay: z.literal(false),
+    stage: z.enum(["foundation", "online"]),
+    onlineGameplay: z.boolean(),
   })
   .strict();
 export const MiningClickSchema = z
@@ -203,3 +203,5 @@ export const ApiErrorSchema = z
 export * from "./content.js";
 export * from "./rpg-schema.js";
 export * from "./rpg.js";
+
+export * from "./online.js";

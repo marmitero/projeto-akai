@@ -86,3 +86,7 @@ Config local-rpg-1. Acrescenta rpg:inventory/equipped/RNG/nextItemId, heroXp/acc
 Slots9, dois anéis distintos e duas mãos incompatível com escudo são validados no load. Instâncias guardam definição/raridade/nível/aprimoramento/atributos/afixos; nenhum ID de PNG vira identidade do item. Remainder da produção passa a0..39.999.999, denominador40.000.000; schema2 antigo0..999 converte×40.000.
 
 Migração confere SHA antes de reorganizar propriedades. Schema2 ativo mantém HP/agenda/ondas/recursos; torre20 completa inicia21 com cura de transição normal. Sem XP/loot retroativos. Schema1 inicia os domínios que não existiam. Geração/backup/CAS/quarentena preservados; futuro bloqueado. Isso não implementa ledger ou anticheat online.
+
+## Atualização F5 — 15/10/2026
+
+F5 implementa o modelo físico em apps/server/migrations/001_online.sql: accounts, sessions, commands, ledger, events, auth_limits, nonces e streams. Snapshot de domínio validado guarda itens e progresso, sem aceitar importação local. Ledger e eventos são append-only; gravação sob lock de conta com duas versões. Novas tabelas não são um banco provisionado. Especificação atual em [ONLINE](ONLINE.md).

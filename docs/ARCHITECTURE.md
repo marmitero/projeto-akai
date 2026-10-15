@@ -1,6 +1,8 @@
 # Arquitetura proposta
 
-Estado:F1–F4 implementadas no modo local; online permanece planejado. Cliente, servidor de diagnóstico, contratos, sessão, loop e save local existem. Versões resolvidas e evidências em DEVELOPMENT/ADR-005; nenhuma infraestrutura externa provisionada.
+Estado atual: F1–F4 locais e F5 online implementadas no escopo de desenvolvimento. [ONLINE](ONLINE.md) descreve os componentes reais e gates de ativação; [ADR-009](ADR/0009-authoritative-online.md) atualiza as decisões propostas abaixo. Nenhuma infraestrutura externa foi contratada.
+
+F5: Fastify/PostgreSQL/cookie opaco + convidado/Google opcional, transação e lock de conta para cada liquidação. Worker de batalha sem estado em memória; duas instâncias não repetem intervalo. Snapshot+ledger+resultado+outbox atômicos. commandVersion separado de stateVersion, lease de presença3s e stream de snapshots1s; replay de eventos é consulta durável, não concessão econômica. Não há importação de save local. Blueprint abaixo inclui futuras expansões de jobs/cache/PvP; não é relação de serviços já provisionados.
 
 ## Componentes e limites
 

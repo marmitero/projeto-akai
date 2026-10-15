@@ -86,3 +86,7 @@ npm run test:soak
 Escritas das simulações agora vão para phase4-loop-results.json/phase4-rpg-results.json, preservando F3 histórica. Soak usa preview5185 e grava phase4-browser-soak.json:fixture rica/120 peças, compra/equipamento/reciclagem/tônicos/minas/navegação por30min. Não representa renda ou ritmo orgânico. Listeners nativos podem oscilar; critério após aquecimento é sem acúmulo(max≤base+2 e final≤base+1), além de texturas/objetos constantes e heap sem crescimento sustentado. AKAI_SOAK_MINUTES permite diagnóstico; não chamar sessão curta de30min.
 
 CI executa checks+duas simulações+smokes dev/produção, não o soak de30min no job10min. Servidor continua503 para gameplay. Nenhum endpoint/test hook de grant é embarcado. Fontes originais intocadas; recortes/hash no manifesto runtime. Licenças, rig por equipamento e benchmark físico continuam limites explícitos.
+
+## Atualização F5 — 15/10/2026
+
+F5 acrescenta modo online explícito. Execução, migração separada, banco de teste, proxy e comandos em [ONLINE](ONLINE.md). Modo local permanece padrão. GOOGLE_CLIENT_ID ausente desabilita provedor; não usar credenciais fictícias como autenticação real.

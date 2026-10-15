@@ -67,3 +67,9 @@ Tudo sob delegação, sem gasto ou alteração de pilar. Primeiras melhorias/car
 D26:curvas polinomiais depois20,1.000 definições/mesmo bioma e família; caps locais, sem declarar1.000 mapas ou balanceamento comercial. D27:14 categorias/9 slots,5 raridades/afixos, inventário120, overflow de drop em ferro e Forja comum para evitar dependência exclusiva de RNG. D28:Musgo como slime domesticado do próprio acervo, um ativo e passivos explícitos. D29:tônicos de duração wall-clock, sem stack do mesmo tipo, minas ouro/jade com custos experimentais e requisito carvão50 preservado. D30:schema3/migrações reais, XP separado do rei/guerreiro, sem recompensa retroativa nem cura por equipamento.
 
 Fonte e consequência em ADR-008/RPG_SYSTEMS. Sem gasto, contratação ou preço real. O ritmo inicial acelerado foi medido e registrado, não tratado como aprovação de equilíbrio. F5 permanece sem implementação/serviços e não inicia nesta etapa.
+
+## Decisões F5 — delegação técnica
+
+D31: PostgreSQL16 reproduzível, sem contratar Supabase; migração separada de runtime. D32: convidado com chave de recuperação rotacionada e cookie opaco HttpOnly7dias; Google GIS/JWKS por configuração do titular, sem fusão de contas. D33: lock por conta, ledger/outbox/idempotência transacionais; commandVersion separado de stateVersion; sem importação de save. D34: RNG criptográfico injetado em cada sorteio online, relógio/watermark no servidor; presença3s e stream1s. D35: reconexão por snapshot, um comando pendente por cliente e retry com mesmo UUID; limite2streams/conta e bucket10cliques/s/burst10 persistido.
+
+Sem custo real, contratação ou mudança de pilar. Gates do titular somente ao ativar OAuth/hospedagem pública ou aceitar políticas/contratos. Licenças/playtest/aparelhos continuam abertos. F6 não iniciada. [ADR-009](ADR/0009-authoritative-online.md) e [ONLINE](ONLINE.md).

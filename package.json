@@ -24,7 +24,10 @@
     "test:browser:preview": "npm run build && node scripts/smoke-browser.mjs --preview",
     "simulate:loop": "npm run build:shared && node scripts/simulate-loop.mjs",
     "test:soak": "npm run build && node scripts/soak-browser.mjs",
-    "simulate:rpg": "npm run build:shared && node scripts/simulate-rpg.mjs"
+    "simulate:rpg": "npm run build:shared && node scripts/simulate-rpg.mjs",
+    "test:online": "npm run build:shared && vitest run apps/server/src/online.test.ts apps/server/src/google.test.ts",
+    "test:browser:online": "npm run build && node scripts/smoke-online.mjs",
+    "test:browser:online:preview": "VITE_GAME_MODE=online npm run build && node scripts/smoke-online.mjs --preview"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

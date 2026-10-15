@@ -34,3 +34,13 @@ Nomes na coluna Especificação correspondem ao índice em README. Pendência nu
 F3: CBT-01 até20 (1.000 segueF4), CBT-02, MIN-01, PRD-01 somente carvão e OFF-01 local implementados/testados. NAV-01/ART-01 têm subset e capturas reais; ART-02 permanece pendente de licença. Segurança online/mercado/social/premium/Android não foram antecipados.
 
 F4:RPG-01 implementado localmente em14 categorias/9 slots/raridades/afixos/drops; RPG-02 emForja/Musgo/tônicos, habilidades avançadas/recrutamento continuam expansão. PRD-01 inclui ouro/jade, com carvão50. CBT-01 alcança catálogo1.000/fixture numérica, não1.000 mapas/playtest completo. OFF-01 inclui buffs por intervalo e migração2→3. Evidências em STAGE_04_REPORT/RPG_SYSTEMS; linhas online/social/premium/Android mantêm seus gates.
+
+## Evidência instalada na F5
+
+| Requisito | Implementação | Verificação |
+|---|---|---|
+| Identidade e isolamento local/online | online-session.ts, routes.ts, google.ts | Convidado/recuperação/IDOR; Google JWT/nonce; sem importação local |
+| Autoridade econômica | online.ts, domínio compartilhado com RNG injetado | Schema/payload, tempo do servidor, compras/RPG, limite de cliques |
+| Persistência e efeito único | database.ts,001_online.sql | PostgreSQL real,100replays, versões concorrentes, rollback e ledger |
+| Reconexão | /state, /events, /stream e cliente | Resposta perdida, mesmo UUID, restart, cookie/revogação |
+| Operação | Compose, health, migração e reconciliação | Build/CI; implantação pública/OAuth real pendentes |

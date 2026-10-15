@@ -81,11 +81,12 @@ export function createEquipment(
   definitionId: ItemId,
   level: number,
   rarity: Rarity,
+  random: (max: number) => number = (max) => nextRandom(s) % max,
 ): Equipment {
   if (s.rpg.nextItemId >= 999999999999999) throw Error("ITEM_ID_LIMIT");
   const d = ITEMS[definitionId],
     bp = RARITY[rarity].bp,
-    variation = 9000 + (nextRandom(s) % 2001);
+    variation = 9000 + random(2001);
   const scale = (value: number) =>
     Math.floor((value * level * level * bp * variation) / 100000000);
   const a = {
@@ -98,7 +99,7 @@ export function createEquipment(
   const pool = [...AFFIX_IDS],
     affixes: Equipment["affixes"] = [];
   for (let i = 0; i < RARITY[rarity].affixes; i++) {
-    const index = nextRandom(s) % pool.length,
+    const index = random(pool.length),
       affix = pool.splice(index, 1)[0]!;
     affixes.push(affix);
     if (affix === "might") a.attack += level * level;
@@ -196,6 +197,7 @@ export function awardRpgDeath(
   s: LocalSnapshot,
   floor: number,
   boss: boolean,
+  random: (max: number) => number = (max) => nextRandom(s) % max,
 ): void {
   const r = s.rpg;
   r.heroXp = Math.min(Number.MAX_SAFE_INTEGER, r.heroXp + floor * 10);
@@ -206,14 +208,15 @@ export function awardRpgDeath(
         CONTENT.dropBossBaseBp + Math.floor(floor / 10 - 1) * 10,
       )
     : CONTENT.dropCommonBp;
-  if (nextRandom(s) % 10000 >= chance) return;
-  const definitionId = ITEM_IDS[nextRandom(s) % ITEM_IDS.length]!;
-  const rarity = rollRarity(boss, nextRandom(s) % 10000, floor),
+  if (random(10000) >= chance) return;
+  const definitionId = ITEM_IDS[random(ITEM_IDS.length)]!;
+  const rarity = rollRarity(boss, random(10000), floor),
     item = createEquipment(
       s,
       definitionId,
       Math.min(100, Math.ceil(floor / 10)),
       rarity,
+      random,
     );
   r.lootSerial++;
   if (r.inventory.length >= CONTENT.bagCapacity) {
@@ -241,7 +244,11 @@ function compatible(s: LocalSnapshot, item: Equipment, slot: Slot): boolean {
     return false;
   return true;
 }
-export function applyRpgCommand(s: LocalSnapshot, input: RpgCommand): boolean {
+export function applyRpgCommand(
+  s: LocalSnapshot,
+  input: RpgCommand,
+  random?: (max: number) => number,
+): boolean {
   const cmd = RpgCommandSchema.parse(input),
     r = s.rpg;
   switch (cmd.type) {
@@ -254,7 +261,7 @@ export function applyRpgCommand(s: LocalSnapshot, input: RpgCommand): boolean {
       )
         return false;
       r.inventory.push(
-        createEquipment(s, cmd.definitionId, cmd.level, "common"),
+        createEquipment(s, cmd.definitionId, cmd.level, "common", random),
       );
       return true;
     }

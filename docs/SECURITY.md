@@ -45,3 +45,7 @@ Incidente: conter feature afetada por flag confiável, preservar evidência rest
 ## Estado implementado na F4
 
 RPG local usa drafts validados, limites de inventário/nível/saldo, referências únicas de equipamento e migração com SHA do payload original. SHA detecta corrupção acidental; não autentica um save contra edição deliberada. RNG xorshift32 e relógio do dispositivo são exclusivamente locais e previsíveis/manipuláveis. Servidor continua sem grants online. Nunca importar itens, XP, buffs, pet ou saldo desse save como autoridade de conta. F5 deverá validar comandos, custos, cooldowns, loot e produção no servidor, com RNG apropriado, idempotência e transações/ledger. Nenhuma proteção de antiabuso online foi declarada concluída na F4.
+
+## Atualização F5 — 15/10/2026
+
+F5 implementa identidade de sessão opaca/cookie, Origin/header anti-CSRF, prova de convidado recuperável, Google JWKS/claims/nonce, schemas strict, autoridade temporal/RNG, rate limits persistidos, lock/transação, replay/rollback/IDOR e histórico append-only. Testes e limitações em [ONLINE](ONLINE.md) e [STAGE_05_REPORT](STAGE_05_REPORT.md). Modelo acima mantém controles de sistemas futuros. Não declarar auditoria externa, integração Google real ou aptidão pública: configuração OAuth, TLS, papéis do banco, retenção, alertas e testes de escala ainda são gates de implantação.

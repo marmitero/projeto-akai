@@ -65,6 +65,9 @@ try {
   const url = await serve(5182, "local");
   const executablePath = process.env.AKAI_BROWSER_EXECUTABLE;
   browser = await chromium.launch({
+    ...(process.env.AKAI_CHROMIUM_EXECUTABLE
+      ? { executablePath: process.env.AKAI_CHROMIUM_EXECUTABLE }
+      : {}),
     headless: true,
     ...(executablePath
       ? {
@@ -501,7 +504,7 @@ try {
   await onlinePage.goto(onlineUrl);
   await onlinePage
     .locator("#asset-status")
-    .filter({ hasText: "Modo online indisponível." })
+    .filter({ hasText: "Servidor online indisponível." })
     .waitFor();
   assert.equal(await onlinePage.locator("canvas").count(), 0);
   console.log(

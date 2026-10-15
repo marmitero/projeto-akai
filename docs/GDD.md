@@ -78,3 +78,7 @@ Herói com força/vitalidade/clique melhoráveis, carvão e tutorial; níveis ex
 14 categorias/9 slots,5 raridades, afixos, drops raros, inventário120, Forja/ferro fundido/aprimoramento/reciclagem, dois tônicos, Musgo evoluível e minas ouro/jade integrados. XP do rei e guerreiro separados; equipamento/pet não cura ao trocar. Catálogo1–1.000 com curvas polinomiais após20, mesmo bioma/família lateral; cenário exclusivo/rig por item não foi inventado. Regras/custos/limites em RPG_SYSTEMS, evidência em STAGE_04_REPORT.
 
 A simulação de percurso completo com atributos finais prova agenda/limites, não ritmo natural até1.000. XP novo tornou primeiros20 mais rápidos que F3; os resultados antigos foram preservados e o config versionado. Sem anúncio, Ruby, loot offline ou preço real para progredir. Migração mantém progresso e recursos existentes.
+
+## Atualização F5 — 15/10/2026
+
+F5 adiciona modo online isolado: contas começam do zero, mesmas regras RPG da configuração local-rpg-1, com tempo/custos/RNG determinados pelo servidor. Combate conserva até3s de presença após queda abrupta; depois só minas até8h e prazo do boss. Navegação interna continua sem pausar o domínio. [ONLINE](ONLINE.md) detalha regras técnicas e limitações. Social, loja premium e mercado não foram ativados.

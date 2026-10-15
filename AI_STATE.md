@@ -1,41 +1,40 @@
 # AI_STATE — Projeto Akai
 
-15/10/2026. **F3 revalidada; F4 concluída no escopo local. F5 não iniciada.** Base remota desta etapa: `54c615a02357df3a122b8f6da17b43fcc55e66f0`.
+15/10/2026. **F1–F4 preservadas; F5 concluída no escopo de desenvolvimento. F6 não iniciada.** Base desta etapa: main `eaaeb9d283bd57a046cd0cabd2dd282aaa891e3b`.
 
-## Trabalho autorizado e governança
+## Autorização e governança
 
-Usuário pediu validar F3 e prosseguir F4. Resolver escolhas técnicas/reversíveis sem consultas; reservar gastos relevantes, mudanças profundas e atos exclusivos do titular. Encerrar listando feito, completude/faltas, decisões, validações pendentes e próximo passo. Atualizar estado, roadmap e demais documentos; não iniciar F5 nesta entrega.
+Usuário autorizou prosseguir F5. Resolver escolhas técnicas/reversíveis sem consulta; gastos relevantes, alterações profundas e atos do titular exigem participação somente quando necessários. Ao encerrar: feito, completude/faltas, decisões, validações e próximo passo; atualizar documentos. Não antecipar F6 nesta entrega. Nenhum serviço foi contratado/publicado.
 
-## Validação da F3
+## Estado implementado
 
-Checkout novo, npm ci e npm run check no commit publicado:31 testes, hashes, typecheck e builds passaram. Smoke do build estático repetido:50 ciclos e fluxos econômicos/save/offline/boss/input, sem erros. CI38746492933 confirmada success. Soak30min anterior conferido, sem apresentá-lo como execução nova. Evidências em docs/STAGE_03_VALIDATION.md e relatórios históricos preservados.
+Local F4 preservado: schema3/local-rpg-1,1000 definições reutilizando mesmo bioma/família, inventário120,9slots/5raridades/afixos, Forja/enhance/tônicos/Musgo/minas e migrações. Não afirmar1000 mapas exclusivos nem balanceamento humano comprovado. Evidências F3/F4 históricas preservadas.
 
-## F4 implementada
+F5: apps/server/src/online.ts é autoridade de domínio; database.ts + migrations/001_online.sql persistem accounts/sessions/commands/ledger/events/auth_limits/nonces/streams. PostgreSQL16 no Compose/CI. Migração separada de runtime. Transação/SELECT FOR UPDATE por conta liquidam simulação e gravam estado/ledger/idempotência/outbox juntos, sem worker em memória com estado concorrente.
 
-Config local-rpg-1, save schema3. Núcleo em content.ts/rpg.ts/rpg-schema.ts/loop.ts e LocalSession; interface em ui/rpg.ts. Mochila real com equipamento, filtro, Forja, tônicos e Musgo. Produção com ouro/jade; loja premium continua claramente indisponível. Batalha/estado permanecem independentes da tela e do renderer.
+Cliente `VITE_GAME_MODE=online` usa OnlineSession e snapshots via WebSocket; não usa IndexedDB, relógio, RNG ou LocalSession para decidir recursos. A forma local usada pelo renderer é apenas adaptador de leitura. Nunca importar save/itens/saldos locais. Modo local é padrão. Sem banco configurado, servidor continua diagnóstico e503; banco indisponível impede online saudável.
 
-- 1.000 definições por dados: comuns3×3,100 bosses, mesma família/bioma existente; curvas1–20 preservadas, polinomiais limitadas depois. Não são1.000 cenários exclusivos nem percurso orgânico balanceado.
-- 14 categorias,9 slots com dois anéis distintos, armas de duas mãos/arco incompatíveis com escudo. Instâncias únicas,5 raridades, atributos rolados, afixos0–4 e aprimoramento0–20. Inventário120 incluindo equipados; excedente de drop vira ferro; equipado não recicla.
-- Drops0,5% comum e10%→19,9% nos bosses10→1000. RNG local persistido xorshift32 de desenvolvimento, não seguro para online. Morto persistido não sorteia novamente.
-- Fabricação comum, ferro fundido, aprimoramento e reciclagem com custos reais. Tônicos+20%ATQ/60s e+25%minas/300s, sem empilhar mesmo tipo; prazo continua ausente.
-- Musgo, slime verde domesticado: incomum, adoção/evolução até100, um ativo,+2%produção e+5HP máximo por nível. Guardar/ativar não cura. Ícones de equipamento não trocam o rig corporal-base.
-- XP de guerreiro10f e rei2f por morte; níveis separados, até1.000. Força/vitalidade/clique/carvão e minas ouro/jade até1.000. Ouro mantém requisito carvão50; jade exige recursos, sem requisito numérico adicional inventado.
-- Produção segmentada por buffs, BigInt/remainder com denominador40.000.000 e offline só minas até8h. Não há combate/loot/XP offline. Pausa/retry/treino e prazo de boss da F3 preservados.
+- Convidado explícito, UUID e chave secreta256bits de recuperação; recuperar rotaciona chave e revoga sessões. Cookie opaco256bits/HttpOnly/SameSiteStrict,7dias; hashes de segredos no banco. Secure exigido fora de loopback. Logout revoga no banco.
+- Google opcional configurável: GIS/JWKS, RS256/issuer/audience/exp/iat/sub/nonce; nonce5min de uso único, vínculo com prova da sessão e Google. Login somente identidade previamente vinculada; nunca mescla contas. Configuração/teste real do titular pendentes.
+- Comandos strict: mineração/upgrade/battle/RPG. commandId+hash escopados por conta, resultados inclusive recusas persistidos. commandVersion só ações aplicadas, stateVersion todo commit. Mesmo UUID/payload devolve resultado; divergência409. Nunca recriar compra automaticamente com chave nova após timeout.
+- RNG online por crypto.randomInt injetado em cada sorteio. Relógio/watermark do servidor; presença3s renovada a cada snapshot1s, ausência só minas8h e deadlineboss. Queda abrupta pode permitir até3s já autorizados de batalha; documentado, não combate offline ilimitado.
+- Bucket10cliques/s/burst10 persistido. Limites HTTP/auth e2streams/conta com lease10s; mensagensstream recusadas, backpressure limitado. Rate limits não equivalem a detecção humana ou prova de escala.
+- Ledger todos recursos+castIron e outbox append-only por triggers; reconciliação CLI detecta divergências sem reparo automático. Eventos próprios por cursor; reconexão entrega snapshot atual, sem reproduzir grants nem cada animação perdida.
 
-## Save e segurança
+## Validação e limites
 
-Migração real1/2→3 após SHA original, mantendo recursos/perfil/tela/geração/watermark. Schema2 ativo mantém HP/ondas/cooldowns; resto×40.000. Torre20 completa vai21 com cura normal. Sem loot/XP retroativos. Backup/quarentena/CAS/futuro bloqueado preservados. Payload limitado500KB, inventário limitado e referências equipadas validadas.
+Baseline F4 revalidada:45testes/hashes/typecheck/builds. F5:66testes no PostgreSQL local (20 de integração +1JWT além45anteriores), smokes online dev/produção com convidado/clique/cookie/reload/resposta perdida/restart/recuperação/revogação/logout; smokes locais dev/produção com50ciclos e fluxos F4. Evidências finais em STAGE_05_REPORT e phase5-browser-*.json. CI será conferida no commit publicado; não presumir sucesso até consulta.
 
-Vitalidade corrigida: só acrescenta HP atual se vivo; não ressuscita uma tentativa derrotada. Trocas de equipamento/pet limitam HP ao máximo novo, sem cura gratuita. Servidor continua diagnóstico/503 para gameplay; local não é conta online. Sem auth, banco, ledger, pagamento, anúncio ou contratação. F5 deve assumir autoridade e RNG no servidor, sem importar saldo local.
+Não houve novo soak30min nesta fase; históricos F3/F4 não são execução nova. Google real/staging externo/escala/backups gerenciados/aparelho físico não foram testados. Licenças/playtest humano continuam abertos. Hospedagem/credenciaisOAuth/políticas públicas somente quando for ativar esse ambiente, com decisão financeira concreta preparada.
 
-## Evidências atuais
+## Próximo trabalho
 
-45 testes em6 arquivos, typecheck, hashes e builds passaram; smokes dev/produção passaram no código final. Catálogo1.000 validado; fixture de atributos finais atravessou toda a torre sem overflow. Sorteios200.000 por fonte:0,519% comum e9,9375% boss10, com bins de raridade exatos. Simulação1/3/5 cliques/s chega ao20 em575/538/538s com XP novo, sem afirmar ritmo humano. F3 histórica não foi sobrescrita. 30min reais (1801134ms), 1238 ciclos; 35 texturas/38 objetos constantes, 136–140 listeners sem acúmulo e heap após GC 7.06–8.33MiB após aquecimento. Média rAF por minuto 36.75–48.25 no stress de inventário cheio; zero pageerrors. JSON em docs/phase4-browser-soak.json. [CI38765678454](https://github.com/marmitero/projeto-akai/actions/runs/38765678454) success no commit de implementação 7d17b40.
+Ler ONLINE.md, API.md, ADR-009, STAGE_05_REPORT e testes antes de editar. Próxima fase técnica recomendada: F6 comunidade, após reler regras específicas, mantendo gates públicos e financeiros. Google/provider e operação pública têm pendências próprias; não anunciar lançamento online público por causa de uma CI local aprovada.
 
-Assets:24 derivados,37 originais diretos,66 originais únicos/90 arquivos/fontes verificados,278.153 bytes de autoria. Dois recortes Slime e15 ícones originais novos no catálogo; originais preservados, licenças não comprovadas.10 animações,35 texturas/38 objetos. Capturas finais e dados no relatório F4.
+## Estado de publicação F5
 
-## Documentos e próximo passo
+Envio direto à main bloqueado pela revisão automática por falta de autorização específica para publicação na branch padrão. A branch remota feat/phase5-authoritative-online foi criada na base F4, mas o upload da implementação também foi rejeitado pela revisão automática por exigir autorização explícita de publicação, inclusive na branch de revisão. Não há PR nem CI da F5 publicados. Aguardar autorização de publicação e integração com o commit local concreto já revisado. Não contornar o bloqueio via outro canal para alterar main. Etapa técnica concluída; integração à main é pendência separada.
 
-Ler docs/RPG_SYSTEMS.md, ADR-008, STAGE_04_REPORT e testes antes de alterar. Números locais são experimentais; XP mudou o ritmo do20 e foi versionado. Sem validação obrigatória do usuário agora. Continuam licenças, playtest humano e Android/WebGL antes da distribuição. Avisos conhecidos de chunk Phaser/Zod não bloqueiam build.
+## Autorização de publicação — 15/10/2026
 
-Próximo recomendado: F5, online autoritativo com autenticação/persistência/ledger/reconexão e concorrência. Preparar opções concretas antes de pedir contratação/credenciais do titular. Aparência por equipamento, mais biomas/companheiros e habilidades avançadas permanecem expansões; não confundir catálogo1.000 com produção artística exclusiva ou equilíbrio comercial comprovado.
+Usuário autorizou explicitamente publicar e integrar a implementação F5 à main. Bloqueio anterior superado por autorização; publicação e conferência da CI em andamento. F6 não autorizada nesta mensagem e não iniciada.

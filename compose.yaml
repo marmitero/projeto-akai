@@ -1,0 +1,19 @@
+# Isolated development database. Never reuse this password or expose this port publicly.
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: akai
+      POSTGRES_USER: akai
+      POSTGRES_PASSWORD: akai_dev_only
+    ports:
+      - '127.0.0.1:5432:5432'
+    volumes:
+      - akai_db:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U akai -d akai']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+volumes:
+  akai_db:
