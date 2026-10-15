@@ -1,6 +1,6 @@
 # AI_STATE — Projeto Akai
 
-15/10/2026. **F1–F5 e iniciador Windows preservados; F6 publicada com CI aprovada; F7 implementada em desenvolvimento, com validação local concluída. Publicação/CI F7 pendentes; F8 não iniciada.** Base remota F7:7ac5583c348e0ad4c468ab0e582e5954fe5972ea.
+15/10/2026. **F1–F5 e iniciador Windows preservados; F6 publicada com CI aprovada; F7 concluída e publicada na main, com CI remota aprovada; F8 não iniciada.** Base remota F7:7ac5583c348e0ad4c468ab0e582e5954fe5972ea.
 
 ## Autorização e governança
 
@@ -45,4 +45,8 @@ MarketService/migração003 e shared/market.ts: escrow de peça não equipada ou
 
 Mais→Mercado só online, sprite frames existentes, revisão das ações, filtros/páginas, resgates/ofertas/histórico, comando pendente em sessionStorage por conta para resposta perdida/reload. Ruby/Musgo singleton/skins sem instância não elegíveis. Nenhum pagamento ou fake backend. ModeraçãoCLI com motivo/DB, perfis moderáveis mesmo sem abrir comunidade; sem endpointadmin. Caps5000anúnciosativos,20pendências/vendedor e20ofertas/comprador. Market usa lock social41652006 antes dos locks ordenados de contas; trade/snapshots/ledger/outbox/resultado confirmam juntos. Histórico/commands/audit append-only, expiração auditada.
 
-117testes/10arquivos (23novos) passaram com PostgreSQL real; migração001/002→003, concorrência/replays/cancelamento×compra/oferta×compra/overflow/rollbackoutbox/IDOR/suspensão/CLI/rate validados. Typecheck/hashes/builds passaram. Todos os oito smokes local/online/comunidade/mercado passaram em dev/preview. Simulação salva mostra custo alto no começo, sem afirmar equilíbrio humano. Regras/evidências em MARKET_SYSTEMS/ADR-011/STAGE_07_REPORT e phase7-*.json. Não usar CI F6 como validação F7; publicação/CI F7 ainda pendentes.
+117testes/10arquivos (23novos) passaram com PostgreSQL real; migração001/002→003, concorrência/replays/cancelamento×compra/oferta×compra/overflow/rollbackoutbox/IDOR/suspensão/CLI/rate validados. Typecheck/hashes/builds passaram. Todos os oito smokes local/online/comunidade/mercado passaram em dev/preview. Simulação salva mostra custo alto no começo, sem afirmar equilíbrio humano. Regras/evidências em MARKET_SYSTEMS/ADR-011/STAGE_07_REPORT e phase7-*.json. [CI F7 38823228249](https://github.com/marmitero/projeto-akai/actions/runs/38823228249) e [CI Windows 38823228224](https://github.com/marmitero/projeto-akai/actions/runs/38823228224) aprovadas para a própria entrega F7.
+
+## Publicação F7
+
+Usuário autorizou explicitamente em15/10/2026. Implementação publicada na main em `a190b725a3d5f07d37079ea283be983b40a0327a`; árvore `1c2b4667082756883908523c824e7ac96cfb90fc` idêntica à validada localmente. [CI F7 38823228249](https://github.com/marmitero/projeto-akai/actions/runs/38823228249) e [CI Windows 38823228224](https://github.com/marmitero/projeto-akai/actions/runs/38823228224) aprovadas. Sem pendência de autorização ou validação obrigatória desta publicação. F8 não iniciada.

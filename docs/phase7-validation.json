@@ -1,7 +1,20 @@
 {
   "stage": 7,
   "execution": "local",
-  "remoteCI": "not-run",
+  "remoteCI": {
+    "implementationCommit": "a190b725a3d5f07d37079ea283be983b40a0327a",
+    "tree": "1c2b4667082756883908523c824e7ac96cfb90fc",
+    "project": {
+      "runId": 38823228249,
+      "conclusion": "success",
+      "url": "https://github.com/marmitero/projeto-akai/actions/runs/38823228249"
+    },
+    "windows": {
+      "runId": 38823228224,
+      "conclusion": "success",
+      "url": "https://github.com/marmitero/projeto-akai/actions/runs/38823228224"
+    }
+  },
   "database": "Native PostgreSQL18.4 (isolated container test harness; UID shim external to repository)",
   "node": "v24.19.0",
   "unitTests": {

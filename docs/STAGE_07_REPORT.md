@@ -1,6 +1,6 @@
 # Relatório Fase 7 — mercado
 
-15/10/2026. **Implementação e validação local concluídas no escopo de desenvolvimento. Publicação e CI remota F7 pendentes.** Base publicada F6: `7ac5583c348e0ad4c468ab0e582e5954fe5972ea`. Nenhum serviço contratado, pagamento ativado ou início da F8.
+15/10/2026. **Implementação, validação e publicação na main concluídas. CI remota F7 aprovada.** Base publicada F6: `7ac5583c348e0ad4c468ab0e582e5954fe5972ea`. Nenhum serviço contratado, pagamento ativado ou início da F8.
 
 ## Entregas
 
@@ -30,7 +30,7 @@ Apenas ativos elegíveis existentes: equipamentos e ferro/carvão/ouro/jade; pre
 | Simulação | phase7-economy-simulation.json: pressão por estágio, arredondamento e100transações recíprocas sem geração de moeda |
 | Navegador | Todos os oito smokes local/online/comunidade/mercado passaram em dev/preview |
 
-Ambiente local: Node24.19, PostgreSQL nativo18.4 e Chromium153. Harness isolado do contêiner usa ajuste de UID para executar PostgreSQL; esse ajuste não integra o projeto/servidor. Workflow remoto configurado com PostgreSQL16 e novos smokes/simulação F7, ainda sem execução remota desta fase. Não atribuir os runs aprovados F6 a esta entrega.
+Ambiente local: Node24.19, PostgreSQL nativo18.4 e Chromium153. Harness isolado do contêiner usa ajuste de UID para executar PostgreSQL; esse ajuste não integra o projeto/servidor. [CI F7 38823228249](https://github.com/marmitero/projeto-akai/actions/runs/38823228249) aprovada com PostgreSQL16, 117testes, simulações e oito smokes de navegador. [CI Windows 38823228224](https://github.com/marmitero/projeto-akai/actions/runs/38823228224) também aprovada com o BAT real.
 
 ## Decisões e limites
 
@@ -40,8 +40,12 @@ Lock social compartilhado e locks ordenados privilegiam integridade do primeiro 
 
 ## Completude e próximo passo
 
-F7 concluída no escopo de desenvolvimento e validação local, com regressões aprovadas. Publicação/CI remota pendentes. Antes de público permanecem hospedagem/Google real/TLS/banco/backups/retencão/privacidade/moderação humana/licenças/aparelhos/carga e validação econômica orgânica. Nenhuma decisão financeira do usuário bloqueia o desenvolvimento desta fase.
+F7 concluída e publicada na main, com validação local e CI remota próprias aprovadas. Antes de público permanecem hospedagem/Google real/TLS/banco/backups/retencão/privacidade/moderação humana/licenças/aparelhos/carga e validação econômica orgânica. Nenhuma decisão financeira do usuário bloqueia o desenvolvimento desta fase.
 
 Após o fechamento, próxima fase recomendada: **F8 — preparação de monetização em sandbox**. Primeiro definir provedores/contas/credenciais de teste e contratos de validação; não ativar cobrança ou anúncios reais nem fixar preços financeiros unilateralmente. F8 ainda não iniciada.
 
 [Evidência consolidada F7](phase7-validation.json), [mercado dev](phase7-browser-dev.json), [mercado produção](phase7-browser-preview.json), [captura](phase7-screenshots/market-history-390.png). DOM do mercado94→94 nos30ciclos, zero pageerrors. Artefatos F3–F6 históricos preservados; regressões novas constam na evidência consolidada F7.
+
+## Publicação e CI remota
+
+Publicação expressamente autorizada pelo usuário em15/10/2026. Implementação na main em `a190b725a3d5f07d37079ea283be983b40a0327a`, árvore `1c2b4667082756883908523c824e7ac96cfb90fc` verificada idêntica à validada localmente. [CI F7 38823228249](https://github.com/marmitero/projeto-akai/actions/runs/38823228249) e [CI Windows 38823228224](https://github.com/marmitero/projeto-akai/actions/runs/38823228224) concluídas com sucesso. Nenhuma validação obrigatória ou autorização de publicação pendente nesta entrega. Gates públicos permanecem os registrados acima.
