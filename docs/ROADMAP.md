@@ -78,3 +78,9 @@ Autorizada pelo usuário após F4. F5-01 identidade de convidado/cookie/recupera
 Não foi contratado ou publicado serviço externo. Google real depende de client ID/origins do titular; código/provas e validações criptográficas são testáveis sem esse cadastro. Staging público exige HTTPS/WSS, banco com backup/permissões, observabilidade/retencão e gates de privacidade/licenças. Essas dependências não são declaradas concluídas pela suíte local. Próxima fase técnica: F6, comunidade, após reler suas regras e sem ativar gastos ou políticas públicas unilateralmente.
 
 Publicação F5 concluída após autorização explícita do usuário em15/10/2026: implementação364384b na main, [CI38792734890](https://github.com/marmitero/projeto-akai/actions/runs/38792734890) success com PostgreSQL16 e smokes locais/online. Bloqueio anterior resolvido, sem pendência de autorização agora. F6 não iniciada; hospedagem pública/Google real e demais gates continuam separados.
+
+## Entrega auxiliar — jogar.bat
+
+Iniciador Windows solicitado após F5: bootstrap portátil Node24 quando necessário, instalação de dependências, conferência de sprites e preview local automático. Documentação em LOCAL_PREVIEW; CI Windows com BAT real, diretório com espaços e mineração em navegador. Implementado e validado na preparação/HTTP/PNG local. Publicação bloqueada pela revisão automática aguardando autorização explícita para estes novos arquivos; validação Windows pela CI ainda não executada. Não avança F6 nem provisiona infraestrutura pública.
+
+Atualização15/10/2026: usuário autorizou explicitamente nova tentativa de publicação do jogar.bat e arquivos de apoio. Bloqueio anterior resolvido; publicação e execução da CI Windows em andamento.

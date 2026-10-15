@@ -15,3 +15,7 @@ Prévia visual: [relatório e capturas da F2](docs/STAGE_02_REPORT.md).
 Entrega jogável: [relatório F3](docs/STAGE_03_REPORT.md), [configuração experimental](docs/BALANCE.md) e [decisão do loop](docs/ADR/0007-local-loop.md).
 
 [![Project checks](https://github.com/marmitero/projeto-akai/actions/workflows/check.yml/badge.svg)](https://github.com/marmitero/projeto-akai/actions/workflows/check.yml)
+
+## Testar no Windows
+
+Baixe/extraia a pasta completa do projeto e dê dois cliques em **jogar.bat**. Ele prepara Node portátil quando necessário, instala dependências, confere sprites e abre o preview local no navegador. Na primeira execução é necessário acesso à internet. Mantenha a janela aberta enquanto joga; Ctrl+C encerra. [Instruções e salvamento](docs/LOCAL_PREVIEW.md).

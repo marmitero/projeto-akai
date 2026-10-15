@@ -44,3 +44,5 @@ F3: [relatório jogável](STAGE_03_REPORT.md), [ADR-007](ADR/0007-local-loop.md)
 F4:[sistemas RPG](RPG_SYSTEMS.md),[ADR-008](ADR/0008-local-rpg.md),[validação F3](STAGE_03_VALIDATION.md),[relatório F4](STAGE_04_REPORT.md) e[simulações](phase4-rpg-results.json).
 
 F5: [execução e segurança online](ONLINE.md), [ADR-009](ADR/0009-authoritative-online.md), [relatório F5](STAGE_05_REPORT.md).
+
+Preview Windows: [LOCAL_PREVIEW](LOCAL_PREVIEW.md) e jogar.bat na raiz.

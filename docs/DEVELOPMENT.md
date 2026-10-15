@@ -90,3 +90,7 @@ CI executa checks+duas simulações+smokes dev/produção, não o soak de30min n
 ## Atualização F5 — 15/10/2026
 
 F5 acrescenta modo online explícito. Execução, migração separada, banco de teste, proxy e comandos em [ONLINE](ONLINE.md). Modo local permanece padrão. GOOGLE_CLIENT_ID ausente desabilita provedor; não usar credenciais fictícias como autenticação real.
+
+## Iniciador Windows
+
+jogar.bat na raiz prepara o runtime e abre o modo local em127.0.0.1:5173, independentemente de .env online. Sem banco externo; instalação portátil sem administrador. Uso, cache, salvamento e diagnóstico em [LOCAL_PREVIEW](LOCAL_PREVIEW.md). CI dedicada exercita BAT/PowerShell no Windows com instalação limpa e diretório com espaços.

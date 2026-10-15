@@ -1,0 +1,51 @@
+name: Windows local preview
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  windows-preview:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: Akai preview test
+    env:
+      AKAI_FORCE_PORTABLE_NODE: '1'
+      VITE_GAME_MODE: online
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: Akai preview test
+          sparse-checkout: |
+            apps
+            packages
+            scripts
+            docs
+            .github
+            sprites/Character
+            sprites/Enemies/Slime
+            sprites/Enemies/Skeleton
+            sprites/Tiles
+            sprites/Assets
+            sprites/Effects
+            sprites/Hud
+            sprites/Mine
+            sprites/Materials
+            sprites/Misc/Tools
+            sprites/Misc/Potions
+            sprites/Misc/Enchantment
+            sprites/Acessories
+            sprites/Equipments
+            sprites/Backgrounds/Normal BG
+      - name: Prepare through the actual BAT with portable Node and fresh dependencies
+        shell: cmd
+        run: jogar.bat -PrepareOnly
+      - name: Install Chromium for the test only
+        shell: pwsh
+        run: |
+          $node = Get-ChildItem -Path .akai-runtime -Filter node.exe -Recurse | Select-Object -First 1
+          & $node.FullName node_modules/playwright/cli.js install chromium
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Play through BAT using cached dependencies and forced local mode
+        shell: cmd
+        run: jogar.bat -NoBrowser -SmokeTest

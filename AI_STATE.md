@@ -34,3 +34,9 @@ Ler ONLINE.md, API.md, ADR-009, STAGE_05_REPORT e testes antes de editar. Próxi
 ## Estado de publicação F5
 
 Usuário autorizou explicitamente publicação e integração à main em15/10/2026, resolvendo o bloqueio anterior. Implementação publicada na main no commit364384b3313ddbc99b44d569b6c77d6424e2baa5; árvore remota2d8eda31cfa54c219af3473e41dae9a8e6dc88f3 idêntica ao conteúdo local revisado. CI38792734890 success. Este fechamento altera apenas documentação de estado; não há pendência de publicação da implementação. F6 não iniciada. Nenhum deploy público, gasto ou cadastroOAuth foi realizado.
+
+## Entrega auxiliar — iniciador Windows
+
+Usuário solicitou jogar.bat para testar no próprio PC. Implementado BAT→PowerShell→Node: Node24 portátil oficial com checksum quando necessário, npm ci com cache por manifests/lock/plataforma, verificação de sprites, build shared e Vite local em127.0.0.1:5173. Não exige banco/conta externa e força modo local mesmo com .env online. Cache ignorado pelo Git; originais/saves preservados. Workflow Windows preparado para validar bootstrap portátil, caminho com espaços, cache e cenário/mineração reais. Testes locais de preparação, cache, HTTP, override local e PNG passaram. Upload remoto foi bloqueado pela revisão automática por exigir autorização específica para publicar este novo payload; workflow Windows ainda não executado. Aguardar autorização para publicar e validar na CI; não confundir com F6, que não começou. Ler docs/LOCAL_PREVIEW.md.
+
+Atualização15/10/2026: usuário autorizou explicitamente nova tentativa de publicação do jogar.bat e arquivos de apoio. Bloqueio anterior resolvido; publicação e execução da CI Windows em andamento.
