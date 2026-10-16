@@ -60,3 +60,6 @@ Cada fatia deve ser validada e documentada antes de continuar. Não iniciar F9 n
 
 
 Validação P5: typecheck e build aprovados; `node scripts/smoke-arena-layout.mjs` e `--preview` aprovados nos cinco viewports citados em AI_STATE. Evidências em `polish-battle-p5-dev.json`, `polish-battle-p5-preview.json` e `polish-p5-screenshots/full-width-arena.png`. Na janela484×730, arena passou de326px para464px de largura e362,5px de altura. Revisão visual confirma uso da área ampla abaixo da HUD. Nesta fatia controles e melhorias permanecem abaixo da arena; P6/P7 reorganizarão esse conteúdo. Em paisagem/telas baixas há rolagem vertical prevista, com menu fixo acessível.
+
+
+P5 publicada após autorização explícita em16/10/2026: main `50f2913c1187b859f7a3111665639d3726e3a692`. CI inicial revelou teste premium de expiração que ignorava críticos confirmados; correção de teste `e62f131ee931c417e413adad2701f6406f2f4a2d` exige dano base ajustado pelo crítico, sem multiplicador de anúncio. Regra do jogo intacta. [CI principal38901885885](https://github.com/marmitero/projeto-akai/actions/runs/38901885885) e [Windows38901885853](https://github.com/marmitero/projeto-akai/actions/runs/38901885853) aprovados para o head corrigido. Próxima etapa P6: reunir Mina/Produção e criar Melhorias. Monetização adiada.
