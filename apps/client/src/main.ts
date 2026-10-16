@@ -40,6 +40,7 @@ async function boot(): Promise<void> {
   const mode = import.meta.env.VITE_GAME_MODE ?? "local";
   if (mode !== "local" && mode !== "online") throw Error("INVALID_GAME_MODE");
   const online = mode === "online";
+  stage.dataset["mode"] = mode;
   const onlineState = online ? await onlineBootstrap(status) : undefined;
   let repository: SaveRepository | undefined;
   let snapshot = createLocalSnapshot(Date.now());

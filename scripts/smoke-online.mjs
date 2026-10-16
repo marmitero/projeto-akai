@@ -104,7 +104,7 @@ try {
   assert.match(key, /^[A-Za-z0-9_-]{43}$/);
   await page.getByRole("button", { name: "Guardei a chave. Entrar" }).click();
   await page.waitForFunction(() =>
-    document.querySelector(".preview-strip")?.textContent?.includes("ONLINE"),
+    Boolean(document.querySelector("#game[data-mode=online][data-load-status=ready]")),
   );
   await page.waitForFunction(
     () => document.querySelector("#asset-status")?.hidden,
@@ -151,7 +151,7 @@ try {
   );
   await page.reload();
   await page.waitForFunction(() =>
-    document.querySelector(".preview-strip")?.textContent?.includes("ONLINE"),
+    Boolean(document.querySelector("#game[data-mode=online][data-load-status=ready]")),
   );
   assert.equal(
     (await state()).snapshot.balances.iron,
@@ -201,7 +201,7 @@ try {
     .waitFor();
   await other.getByRole("button", { name: "Guardei a chave. Entrar" }).click();
   await other.waitForFunction(() =>
-    document.querySelector(".preview-strip")?.textContent?.includes("ONLINE"),
+    Boolean(document.querySelector("#game[data-mode=online][data-load-status=ready]")),
   );
   const revoked = await page.evaluate(
     async () =>
