@@ -34,9 +34,9 @@ Leitura autenticada de identidade isolada (`community/identity`) impede que o ca
 
 Comandos adicionais: `node scripts/smoke-battle-hud.mjs` e `--preview` após build local; `AKAI_POLISH_EVIDENCE=polish-battle-p2-motion AKAI_POLISH_SCREENSHOTS=polish-p2-screenshots node scripts/smoke-battle-polish.mjs` preserva a evidência histórica P1. `AKAI_COMMUNITY_EVIDENCE=polish-p2-community node scripts/smoke-community.mjs` separa a evidência nova da F6.
 
-P1/P2 enviados ao [rascunho PR1](https://github.com/marmitero/projeto-akai/pull/1) após autorização explícita. P2:14e6a90; correção do smoke online:705b792. CI inicial detectou espera por banner removido; testes locais online dev/preview passaram após usar readiness do jogo. Sem merge/publicação na main. Monetização continua adiada.
+P1–P3 publicados na main após autorização explícita: [PR1](https://github.com/marmitero/projeto-akai/pull/1), merge9f04b81. P2:14e6a90; correção do smoke online:705b792. CI inicial detectou espera por banner removido; testes locais online dev/preview passaram após usar readiness do jogo. CI38893556081 e Windows38893556065 aprovadas para a implementação. Monetização continua adiada.
 
-P3 concluída localmente: críticos autoritativos5%/1,5×, hits confirmados e efeito dourado/número real. [Relatório P3](POLISH_P3_REPORT.md) detalha alteração experimental de combate, validação e evidências. Ainda separada do envio autorizado da P2.
+P3 publicada: críticos autoritativos5%/1,5×, hits confirmados e efeito dourado/número real. [Relatório P3](POLISH_P3_REPORT.md) detalha alteração experimental de combate, validação e evidências. Publicada junto de P1/P2 após aprovação do usuário.
 
 Validação P2:149testes/14arquivos com PostgreSQL real, typecheck/hashes/builds local e online. Nove verificações de navegador passaram: HUD, movimento e loop local em dev/preview; comunidade em dev/preview; loja de teste em preview. Loop manteve54texturas/70objetos em50ciclos por modo, zero pageerrors. Melhorias visíveis sem rolagem nos viewports320×640,360×740,390×844 e768×1024. Evidência consolidada em [polish-battle-p2-validation.json](polish-battle-p2-validation.json).
 

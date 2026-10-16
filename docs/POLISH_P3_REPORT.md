@@ -1,6 +1,6 @@
 # P3 — críticos da torre
 
-16/10/2026. Implementação local autorizada após o envio da P2. Monetização permanece adiada até a fase final.
+16/10/2026. Implementação e publicação autorizadas após o envio da P2. Monetização permanece adiada até a fase final.
 
 ## Regra e autoridade
 
@@ -20,4 +20,4 @@ Crítico mostra texto dourado maior e impacto/flash usando o sprite existente. D
 
 Smokes críticos dev/preview usam um save local isolado com RNG1 e alvos resistentes: o próprio motor produz o crítico9; nenhum flag visual é forçado. Exercitam recarga sem replay, redução de movimento e pool54texturas/70objetos. Loop completo local em dev/preview mantém50navegações e zero pageerrors. HUD, online, mercado e loja de teste revalidados nos modos indicados na evidência consolidada. Simulações determinísticas de loop/RPG registradas separadamente das históricas F4.
 
-Usuário autorizou publicar P3 em16/10/2026; envio/merge em preparação após verificações. Sem merge na main, sem início da F9 e sem ativar monetização. Próximo passo: avaliar estes parâmetros e o resultado visual em playtest.
+P1–P3 publicados na main em16/10/2026: merge9f04b8184dce0cfa699a9440dc65c45695ea30fd, PR1. CI38893556081 e Windows38893556065 aprovados; árvore remota idêntica à validada localmente. Sem início da F9 e sem ativar monetização. Próximo passo: avaliar estes parâmetros e o resultado visual em playtest.

@@ -19,3 +19,5 @@ Entrega jogável: [relatório F3](docs/STAGE_03_REPORT.md), [configuração expe
 ## Testar no Windows
 
 Baixe/extraia a pasta completa do projeto e dê dois cliques em **jogar.bat**. Ele prepara Node portátil quando necessário, instala dependências, confere sprites e abre o preview local no navegador. Na primeira execução é necessário acesso à internet. Mantenha a janela aberta enquanto joga; Ctrl+C encerra. [Instruções e salvamento](docs/LOCAL_PREVIEW.md).
+
+Polimentos de batalha P1–P3 publicados: parallax, entrada dos inimigos, HUD compacta com perfil/recursos/varal/HP e críticos autoritativos experimentais5%/1,5×. [Relatório e validação](docs/POLISH_P3_REPORT.md). Monetização permanece adiada até a fase final.

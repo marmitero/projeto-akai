@@ -1,6 +1,6 @@
 {
   "date": "2026-10-16",
-  "scope": "P3 validated locally; P2 separately submitted to draft PR1",
+  "scope": "P1-P3 published to main; P3 validated locally and in GitHub Actions",
   "tests": {
     "passed": 156,
     "files": 14,
@@ -117,6 +117,15 @@
   "limitations": [
     "No new physical device or 30-minute browser soak",
     "No human balance playtest; critical rolls alter progression and the local RNG sequence",
-    "P3 not sent to GitHub; main unchanged; monetization deferred"
-  ]
+    "Monetization deferred until final phase"
+  ],
+  "publication": {
+    "merge": "9f04b8184dce0cfa699a9440dc65c45695ea30fd",
+    "validatedHead": "ef8781c90a1b651afa76599ae438a20df541a07c",
+    "tree": "ac0c8213e16eab9b575e3c3cff49db2e212933d6",
+    "projectCI": 38893556081,
+    "projectResult": "success",
+    "windowsCI": 38893556065,
+    "windowsResult": "success"
+  }
 }

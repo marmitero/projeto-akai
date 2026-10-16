@@ -1,6 +1,6 @@
 {
   "date": "2026-10-16",
-  "scope": "P2 sent to draft PR1 after explicit authorization; main unchanged",
+  "scope": "P1-P3 published to main after explicit authorization",
   "checks": {
     "tests": 149,
     "files": 14,
@@ -88,11 +88,12 @@
   ],
   "storageRegression": "HUD browser smoke holds the first IndexedDB write open, submits a name, verifies pending state, releases the write and reloads the persisted name.",
   "publication": {
-    "state": "submitted-to-draft",
+    "state": "merged",
     "commit": "14e6a90ac2311ce5bd677c42a93f5085dc7bbf70",
     "readinessFixCommit": "705b7922cfd3945497c93dcb8cadaa17771800ab",
     "initialCIFailure": "Online smoke waited for the removed ONLINE banner; fixed to wait for data-mode=online and load-status=ready",
     "projectCI": 38892587375,
-    "projectCIResult": "in_progress"
+    "projectCIResult": "success",
+    "merge": "9f04b8184dce0cfa699a9440dc65c45695ea30fd"
   }
 }
