@@ -35,6 +35,7 @@ export function createShell(root: HTMLElement): void {
       <div class="stage-frame"><ol id="floor-banner" class="floor-banner" aria-label="Andares da torre"></ol><div id="game" role="img" aria-label="Combate lateral automático"></div>
         <div id="asset-status" class="loading-message" role="status">Preparando o cenário…</div>
         <button id="mine-target" class="mine-target" aria-label="Minerar ferro" hidden disabled><span class="sr-only">Toque para receber ferro</span></button>
+        <div id="battle-controls"><p id="battle-status" class="body-copy" role="status"></p><div class="battle-actions"><button id="pause-battle">Pausar batalha</button><button id="retry-battle" hidden>Tentar novamente</button><button id="train-battle" hidden>Treinar no andar anterior</button></div></div>
         <span id="scene-caption" class="scene-caption">Floresta do reino</span>
       </div>
       <p id="visual-description" class="sr-only">Batalha automática com vida, ondas e recompensas.</p>
@@ -42,7 +43,14 @@ export function createShell(root: HTMLElement): void {
     <section data-pane="battle" class="activity-details" aria-label="Batalha automática">
       <div class="encounter sr-only"><div>${icon("sword")}<span>Guerreiro<span id="hero-stats" class="muted"></span></span></div><span class="versus">VS</span><div><span id="enemy-name">Esqueletos</span></div></div>
       <div class="combat-readout sr-only" aria-label="Vida dos combatentes"><label>Vida do guerreiro <span id="hero-hp"></span><progress id="hero-health" max="100" value="100"></progress></label><div id="enemy-health"></div></div>
-      <p id="battle-status" class="body-copy" role="status"></p><div class="battle-actions"><button id="pause-battle">Pausar batalha</button><button id="retry-battle" hidden>Tentar novamente</button><button id="train-battle" hidden>Treinar no andar anterior</button></div>
+      <section id="battle-chat" class="battle-chat panel" aria-label="Conversa e registros da batalha">
+        <div class="battle-chat-tabs" role="tablist" aria-label="Canais da batalha">
+          <button id="battle-tab-global" data-battle-tab="global" role="tab" aria-controls="battle-global" aria-selected="false" tabindex="-1">Global</button>
+          <button id="battle-tab-system" data-battle-tab="system" role="tab" aria-controls="battle-system" aria-selected="true">Sistema</button>
+        </div>
+        <div id="battle-global" role="tabpanel" aria-labelledby="battle-tab-global" hidden><p id="battle-global-status"></p><button id="battle-global-open" hidden>Abrir chat da Comunidade</button></div>
+        <div id="battle-system" role="tabpanel" aria-labelledby="battle-tab-system"><p id="battle-log-empty">Os resultados das próximas batalhas aparecerão aqui.</p><ol id="battle-system-log" aria-label="Histórico de batalha" tabindex="0"></ol><button id="battle-log-latest" hidden>Ver recentes</button></div>
+      </section>
       <form id="nickname-setup" class="nickname-setup" hidden><label for="starting-name">Seu nick</label><input id="starting-name" name="name" minlength="3" maxlength="24" placeholder="Nome do guerreiro" required><button>Começar</button></form>
 
 

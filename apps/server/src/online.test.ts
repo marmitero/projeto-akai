@@ -64,6 +64,44 @@ describe.skipIf(!url)("online PostgreSQL integration", () => {
       state.snapshot.battle.hits,
     );
   });
+  it("persists a legacy account journal with real rewards and no duplicate reads or service restart", async () => {
+    const u = await service.guest();
+    await service.state(u.token);
+    const seeded = (await db.pool.query("SELECT snapshot FROM akai_accounts WHERE id=$1", [u.accountId])).rows[0].snapshot;
+    delete seeded.battle.reports;
+    delete seeded.battle.reportSerial;
+    seeded.upgrades.attack = 100;
+    await db.pool.query("UPDATE akai_accounts SET snapshot=$2 WHERE id=$1", [u.accountId, seeded]);
+    now += 3000;
+    const confirmed = await service.state(u.token);
+    const reports = confirmed.snapshot.battle.reports;
+    const rewards = reports.filter(r => r.kind === "reward");
+    expect(rewards).toHaveLength(3);
+    expect(reports.filter(r => r.kind === "victory")).toHaveLength(1);
+    expect(rewards.reduce((n,r) => n + BigInt(r.coin),0n)).toBe(BigInt(confirmed.snapshot.balances.coin));
+    expect(rewards.reduce((n,r) => n + r.heroXp,0)).toBe(confirmed.snapshot.rpg.heroXp);
+    const stored = (await db.pool.query("SELECT snapshot FROM akai_accounts WHERE id=$1", [u.accountId])).rows[0].snapshot;
+    expect(stored.battle.reports).toEqual(reports);
+    const restarted = new OnlineService(db, () => now);
+    expect((await restarted.state(u.token)).snapshot.battle.reports).toEqual(reports);
+    expect((await service.state(u.token)).snapshot.battle.reports).toEqual(reports);
+    expect(await reconcileLedger(db)).toEqual([]);
+  });
+  it("keeps the original boss floor in the persisted loss journal", async () => {
+    const u = await service.guest();
+    await service.state(u.token);
+    const seeded = (await db.pool.query("SELECT snapshot FROM akai_accounts WHERE id=$1", [u.accountId])).rows[0].snapshot;
+    startEncounter(seeded, 10);
+    seeded.battle.heroHp = 1;
+    seeded.battle.heroNextAt = 1000000;
+    seeded.battle.enemies[0].nextAt = seeded.battle.time + 1;
+    await db.pool.query("UPDATE akai_accounts SET snapshot=$2 WHERE id=$1", [u.accountId, seeded]);
+    now += 1;
+    const after = await service.state(u.token);
+    expect(after.snapshot.battle.floor).toBe(9);
+    expect(after.snapshot.battle.reports).toMatchObject([{kind:"defeat",floor:10,coin:"0",heroXp:0}]);
+    expect((await service.state(u.token)).snapshot.battle.reports).toEqual(after.snapshot.battle.reports);
+  });
   it("100 concurrent retries across two service instances create one grant, command, ledger and event", async () => {
     const user = await service.guest(),
       cmd = envelope();

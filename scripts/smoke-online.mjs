@@ -182,6 +182,38 @@ try {
       BigInt(beforeRetry.snapshot.balances.iron),
     1000n,
   );
+  // Seed only this freshly created account in the isolated test DB; no debug endpoint is shipped.
+  const journalDb = new Database(process.env.TEST_DATABASE_URL);
+  const accountId = (await state()).snapshot.profile.id;
+  try {
+    const seeded = (await journalDb.pool.query("SELECT snapshot FROM akai_accounts WHERE id=$1", [accountId])).rows[0].snapshot;
+    seeded.upgrades.attack = 100;
+    seeded.battle.paused = false;
+    seeded.battle.phase = "fighting";
+    seeded.battle.failure = "none";
+    seeded.battle.floor = 1;
+    seeded.battle.wave = 1;
+    seeded.battle.time = 0;
+    seeded.battle.heroNextAt = 1000;
+    seeded.battle.heroHp = 100;
+    seeded.battle.deadline = 0;
+    seeded.battle.enemies.forEach(e => {e.hp = 1; e.nextAt = 1000000;});
+    delete seeded.battle.reports;
+    delete seeded.battle.reportSerial;
+    await journalDb.pool.query("UPDATE akai_accounts SET snapshot=$2 WHERE id=$1", [accountId, seeded]);
+  } finally { await journalDb.close(); }
+  await page.locator('[data-route="battle"]').click();
+  await page.locator('#battle-system-log li[data-kind=victory]').waitFor();
+  if (!(await state()).snapshot.battle.paused) await page.locator('#pause-battle').click();
+  await page.waitForFunction(async () => (await (await fetch('/api/v1/state', {headers:{'X-Akai-Client':'1'}})).json()).snapshot.battle.paused);
+  const journalState = await state();
+  const journalTexts = await page.locator('#battle-system-log li').allTextContents();
+  assert.equal(journalTexts.length, journalState.snapshot.battle.reports.length);
+  assert(journalTexts.some(t => t.includes('Coins') && t.includes('XP do guerreiro')));
+  await page.reload();
+  await page.locator('#game[data-mode=online][data-load-status=ready]').waitFor();
+  assert.deepEqual(await page.locator('#battle-system-log li').allTextContents(), journalTexts);
+  if (process.env.AKAI_SCREENSHOT_DIR) await page.screenshot({path:process.env.AKAI_SCREENSHOT_DIR + '/online-system-390.png'});
   // Process restart, websocket recovery, and retained account state.
   server.kill("SIGTERM");
   await new Promise((resolve) => server.once("exit", resolve));
@@ -190,6 +222,8 @@ try {
   await ready("http://127.0.0.1:3000/health");
   await page.waitForTimeout(3500);
   assert.equal((await state()).snapshot.profile.id, mined.snapshot.profile.id);
+  assert.deepEqual((await state()).snapshot.battle.reports, journalState.snapshot.battle.reports);
+  assert.deepEqual(await page.locator('#battle-system-log li').allTextContents(), journalTexts);
   // New device recovery revokes the prior cookie and rotates the key.
   const second = await browser.newContext(),
     other = await second.newPage();
@@ -214,7 +248,7 @@ try {
   await other.locator("#guest-start").waitFor();
   assert.deepEqual(errors, []);
   await writeFile(
-    `docs/phase5-browser-${preview ? "preview" : "dev"}.json`,
+    `docs/${process.env.AKAI_ONLINE_EVIDENCE ?? "phase5-browser"}-${preview ? "preview" : "dev"}.json`,
     JSON.stringify(
       {
         mode: preview ? "production" : "development",
@@ -227,6 +261,9 @@ try {
           "reload",
           "lost-response-single-effect",
           "server-restart",
+          "confirmed-journal-rewards",
+          "legacy-journal-defaults",
+          "journal-reload-and-restart-without-duplicates",
           "cross-device-recovery",
           "session-revocation",
           "logout",

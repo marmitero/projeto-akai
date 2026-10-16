@@ -1197,3 +1197,86 @@ progress {
 .content[data-view="upgrades"] .upgrade-list {
   margin-top: 16px;
 }
+
+.battle-chat {
+  padding: 4px 6px;
+  margin-top: 8px;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+}
+.battle-chat-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.battle-chat-tabs button {
+  flex: 1;
+  min-height: 36px;
+}
+.battle-chat-tabs [aria-selected="true"] {
+  color: #ffe2a3;
+  border-bottom: 2px solid #c8aa62;
+}
+#battle-system-log {
+  position: relative;
+  list-style: none;
+  padding: 0 3px;
+  margin: 0;
+  height: clamp(96px, 16dvh, 150px);
+  overflow-y: auto;
+  overflow-wrap: anywhere;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+#battle-system-log li {
+  padding: 5px 0;
+  border-bottom: 1px solid #bca1c126;
+  line-height: 1.5;
+}
+#battle-system-log [data-kind="victory"] {
+  color: #b7e6a4;
+}
+#battle-system-log [data-kind="defeat"],
+#battle-system-log [data-kind="timeout"] {
+  color: #ffc0b4;
+}
+#battle-global,
+#battle-log-empty {
+  min-height: 104px;
+  margin: 0;
+  line-height: 1.6;
+}
+#battle-log-latest {
+  width: 100%;
+  min-height: 36px;
+  margin-top: 4px;
+}
+
+#battle-controls {
+  position: absolute;
+  bottom: 3px;
+  left: 5px;
+  right: 5px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3px 8px;
+  background: #18141de6;
+  padding: 2px 4px;
+}
+.content[data-view="battle"] #battle-controls #battle-status {
+  flex: 1;
+  min-width: 80px;
+  font-size: 10px;
+  line-height: 1.25;
+}
+.content[data-view="battle"] #battle-controls .battle-actions {
+  margin: 0;
+  gap: 3px;
+}
+.content[data-view="battle"] #battle-controls button {
+  min-height: 32px;
+  font-size: 10px;
+  padding: 3px 5px;
+}

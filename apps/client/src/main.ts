@@ -1,3 +1,4 @@
+import { createBattleJournal } from "./ui/battle-journal.js";
 import "./style.css";
 import { createFloorBanner } from "./ui/battle-hud.js";
 import { createPremiumUI } from "./ui/premium.js";
@@ -143,6 +144,8 @@ async function boot(): Promise<void> {
     },
   });
   function renderRoute(next: Route): void {
+    document.querySelector<HTMLElement>("#battle-controls")!.hidden =
+      next !== "battle";
     scroll.set(route, content.scrollTop);
     route = next;
     content.dataset["view"] = next;
@@ -236,9 +239,13 @@ async function boot(): Promise<void> {
     if (ok) void persist();
     return ok;
   });
+  const battleJournal = createBattleJournal(root!, online, () =>
+    navigate("community"),
+  );
   let lootSerial = snapshot.rpg.lootSerial;
   const unsubscribe = session.subscribe((state) => {
     visual.setBattle(state);
+    battleJournal.render(state);
     renderFloors(state.battle.floor);
     const defaultName = state.profile.name === "Perfil local de teste";
     text(
