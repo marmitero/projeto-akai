@@ -96,7 +96,7 @@ try {
   await page.locator("#game canvas").waitFor();
   assert.equal(
     await page.locator("#game").getAttribute("data-animation-count"),
-    "10",
+    "11",
   );
   const textures = await page
     .locator("#game")

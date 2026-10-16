@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "stage": "F4 local RPG",
+  "stage": "Battle presentation polish P1",
   "originals": [
     {
       "path": "sprites/Acessories/Pendants/Icon251.png",
@@ -1149,6 +1149,57 @@
       "fps": 24,
       "margin": 0,
       "spacing": 0
+    },
+    {
+      "key": "skeleton-walk",
+      "output": "apps/client/src/assets/derived/skeleton-walk.png",
+      "sha256": "6d1c0302eec31298c14ec15f0f58e553855ee84983edb8e562f98398fd82ff7c",
+      "width": 960,
+      "height": 128,
+      "sources": [
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/walk-1.png",
+          "sha256": "002ecff160a6016d499bb7361d3a51f504188f74a5c32cc821eb9f1e61199f03"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/walk-2.png",
+          "sha256": "0a3f37937da2f98505334cffefd7bb6249f8283fb49c9ff6a7a5c12a759ee55f"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/walk-3.png",
+          "sha256": "759b70bfafe104c2ed49e4f966707bf0c95470c4f8f900ef5c5ed41c0dfaf0fc"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/walk-4.png",
+          "sha256": "f326437de7f90ad73b7aa8c8f0e8804b0561e653ab5f96188d491d0b14454eba"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/walk-5.png",
+          "sha256": "c7a7448f0ae04614e784062655c2e17c65f1969147695b3324c6840c14dd88ec"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/walk-6.png",
+          "sha256": "ab236dd597090272dec6f48bc795c84bb6e7223f436345bfcb16c9b919ae212f"
+        }
+      ],
+      "licenseStatus": "unverified",
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 6,
+      "pivot": [
+        80,
+        112
+      ],
+      "sourcePivot": [
+        44,
+        96
+      ],
+      "offset": [
+        36,
+        16
+      ],
+      "fps": 10,
+      "direction": "right; runtime flipX for enemy left"
     }
   ]
 }

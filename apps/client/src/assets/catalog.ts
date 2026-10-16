@@ -17,6 +17,7 @@ export const assets = {
   itemRing:new URL("../../../../sprites/Acessories/Rings/Icon241.png",import.meta.url).href,
   attackTonic:new URL("../../../../sprites/Misc/Potions/Icon301.png",import.meta.url).href,
   productionTonic:new URL("../../../../sprites/Misc/Potions/Icon302.png",import.meta.url).href,
+  skeletonWalk:new URL("./derived/skeleton-walk.png",import.meta.url).href,
   heroRun: new URL("./derived/hero-run.png", import.meta.url).href,
   heroDead: new URL("./derived/hero-dead.png", import.meta.url).href,
   skeletonDead: new URL("./derived/skeleton-dead.png", import.meta.url).href,
