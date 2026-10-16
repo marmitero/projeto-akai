@@ -1,0 +1,156 @@
+{
+  "date": "2026-10-16",
+  "scope": "P4 local refinement following published P1-P3; no economic timing changes",
+  "tests": {
+    "passed": 159,
+    "files": 14,
+    "postgresExecuted": true
+  },
+  "checks": {
+    "typecheck": true,
+    "localBuild": true,
+    "assetHashes": true
+  },
+  "browser": {
+    "approachDev": {
+      "passed": true,
+      "mode": "dev",
+      "fixture": "Local resistant targets and upgraded vitality; engine schedules unchanged.",
+      "checks": [
+        "rear-enemy-reaches-melee-contact-before-swing",
+        "hero-target-in-reach-at-confirmed-hit",
+        "return-to-formation",
+        "pause-freezes-approach",
+        "overlay-cancels-pending-visual-attack",
+        "reduced-motion-skips-lunge"
+      ],
+      "attacking": [
+        null,
+        null,
+        {
+          "enemy": 2,
+          "phase": "attack",
+          "gap": 16
+        }
+      ],
+      "textures": "54",
+      "objects": "70",
+      "pageErrors": []
+    },
+    "approachPreview": {
+      "passed": true,
+      "mode": "preview",
+      "fixture": "Local resistant targets and upgraded vitality; engine schedules unchanged.",
+      "checks": [
+        "rear-enemy-reaches-melee-contact-before-swing",
+        "hero-target-in-reach-at-confirmed-hit",
+        "return-to-formation",
+        "pause-freezes-approach",
+        "overlay-cancels-pending-visual-attack",
+        "reduced-motion-skips-lunge"
+      ],
+      "attacking": [
+        null,
+        null,
+        {
+          "enemy": 2,
+          "phase": "attack",
+          "gap": 16
+        }
+      ],
+      "textures": "54",
+      "objects": "70",
+      "pageErrors": []
+    },
+    "loopDev": {
+      "browser": "153.0.8010.0",
+      "productionPreview": false,
+      "navigationCycles": 50,
+      "unchangedTextures": "54",
+      "unchangedObjects": "70",
+      "saveReload": true,
+      "hiddenInputBlocked": true,
+      "modalInputBlocked": true,
+      "reducedMotion": true,
+      "widths": [
+        320,
+        360,
+        390,
+        768,
+        844
+      ],
+      "landscape": true,
+      "menus": true,
+      "realMiningGrants": true,
+      "upgradesAndCoal": true,
+      "rpgCraftEquipEnhancePetMinesAndReload": true,
+      "offlineCapAndSingleCredit": true,
+      "bossTimeoutAndTraining": true,
+      "towerCompletedFromMine": true,
+      "missingAssetHandled": true,
+      "onlineFailsClosed": true,
+      "pageErrors": [],
+      "failedAssetResponses": []
+    },
+    "loopPreview": {
+      "browser": "153.0.8010.0",
+      "productionPreview": true,
+      "navigationCycles": 50,
+      "unchangedTextures": "54",
+      "unchangedObjects": "70",
+      "saveReload": true,
+      "hiddenInputBlocked": true,
+      "modalInputBlocked": true,
+      "reducedMotion": true,
+      "widths": [
+        320,
+        360,
+        390,
+        768,
+        844
+      ],
+      "landscape": true,
+      "menus": true,
+      "realMiningGrants": true,
+      "upgradesAndCoal": true,
+      "rpgCraftEquipEnhancePetMinesAndReload": true,
+      "offlineCapAndSingleCredit": true,
+      "bossTimeoutAndTraining": true,
+      "towerCompletedFromMine": true,
+      "missingAssetHandled": true,
+      "onlineFailsClosed": true,
+      "pageErrors": [],
+      "failedAssetResponses": []
+    },
+    "criticalRegression": {
+      "passed": true,
+      "mode": "dev",
+      "fixture": "Local seeded RNG1 with durable high-HP targets; critical flag comes from actual domain combat, not a visual override.",
+      "checks": [
+        "actual-critical-9-damage",
+        "boss-critical-confirmed",
+        "no-critical-replay-on-reload",
+        "reduced-motion-critical-readable",
+        "bounded-existing-renderer-pool"
+      ],
+      "textures": "54",
+      "objects": "70",
+      "pageErrors": []
+    }
+  },
+  "publication": {
+    "P1P2P3Merge": "9f04b8184dce0cfa699a9440dc65c45695ea30fd",
+    "P1P2P3ValidatedHead": "ef8781c90a1b651afa76599ae438a20df541a07c",
+    "projectCI": 38893556081,
+    "projectResult": "success",
+    "windowsCI": 38893556065,
+    "windowsResult": "success",
+    "P4": "local-only"
+  },
+  "limitations": [
+    "No new 30-minute browser soak or physical device test",
+    "Visual movement follows authoritative confirmations; HP is not delayed to wait for animation",
+    "No actual ranged enemy added; range metadata preserved",
+    "Monetization deferred"
+  ]
+}

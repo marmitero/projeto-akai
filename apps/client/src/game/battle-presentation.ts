@@ -56,3 +56,26 @@ export function formation(
   let rank = 0;
   return alive.map((living) => (living ? front + rank++ * 58 : null));
 }
+
+/** A confirmed attack moves to contact before its swing, then returns to the current formation. */
+export function approachFrame(
+  elapsed: number,
+  from: number,
+  contact: number,
+  home: number,
+) {
+  const ease = (value: number) => value * value * (3 - 2 * value);
+  if (elapsed < 0) return { phase: "waiting", x: from } as const;
+  if (elapsed < 160)
+    return {
+      phase: "approach",
+      x: from + (contact - from) * ease(elapsed / 160),
+    } as const;
+  if (elapsed < 520) return { phase: "attack", x: contact } as const;
+  if (elapsed < 680)
+    return {
+      phase: "return",
+      x: contact + (home - contact) * ease((elapsed - 520) / 160),
+    } as const;
+  return { phase: "done", x: home } as const;
+}
