@@ -78,6 +78,8 @@ async function boot(): Promise<void> {
         document.querySelector("#action-status")!.textContent = message;
       })
     : new LocalSession(systemClock, snapshot);
+  if (session.getSnapshot().screen === "production")
+    session.selectScreen("mine");
   snapshot = session.getSnapshot();
   if (online) {
     saveButton.textContent = "Sincronizar";
@@ -120,7 +122,9 @@ async function boot(): Promise<void> {
   const renderFloors = createFloorBanner(
     document.querySelector<HTMLElement>("#floor-banner")!,
   );
-  let route: Route = snapshot.screen;
+  const routeForScreen = (screen: typeof snapshot.screen): Route =>
+    screen === "production" ? "mine" : screen;
+  let route: Route = routeForScreen(snapshot.screen);
   const scroll = new Map<Route, number>();
   const content = document.querySelector<HTMLElement>("#content")!;
   let visualReady = false;
@@ -162,8 +166,7 @@ async function boot(): Promise<void> {
     document.querySelector("#visual-description")!.textContent =
       info.description;
     stage.setAttribute("aria-label", info.description);
-    const gameplay =
-      next === "battle" || next === "mine" || next === "production";
+    const gameplay = next === "battle" || next === "mine";
     document.querySelector<HTMLElement>("#visual-area")!.hidden = !gameplay;
     mineTarget.hidden = next !== "mine";
     for (const pane of document.querySelectorAll<HTMLElement>("[data-pane]"))
@@ -218,7 +221,7 @@ async function boot(): Promise<void> {
     if (
       dialog.open ||
       document.hidden ||
-      !(route === "bag" || route === "production")
+      !(route === "bag" || route === "mine")
     )
       return false;
     const ok = session.rpgCommand(command);
@@ -347,9 +350,9 @@ async function boot(): Promise<void> {
         : !state.tutorial.mined
           ? "Próximo passo: vá à Mina e toque no ferro."
           : !state.tutorial.upgraded
-            ? "Use ferro e Coins para melhorar a força do guerreiro."
+            ? "Abra Melhorias e use ferro e Coins para fortalecer o guerreiro."
             : !state.upgrades.coal
-              ? "Desbloqueie o carvão em Produção: 100 ferro + 50 Coins."
+              ? "Desbloqueie o carvão na Mina: 100 ferro + 50 Coins."
               : state.battle.highest < 10
                 ? "Seu reino produz carvão! Fortaleça o guerreiro para o boss do andar 10."
                 : "Conquiste novos andares e evolua o equipamento na Mochila.",
@@ -373,8 +376,9 @@ async function boot(): Promise<void> {
         ? compactAmount(state.balances[key])
         : formatAmount(state.balances[key]);
     }
-    if (route === "battle" || route === "mine" || route === "production") {
-      if (route !== state.screen) renderRoute(state.screen);
+    if (route === "battle" || route === "mine") {
+      if (route !== routeForScreen(state.screen))
+        renderRoute(routeForScreen(state.screen));
     }
   });
   renderRoute(route);
@@ -425,7 +429,7 @@ async function boot(): Promise<void> {
     );
   }
   function navigate(next: Route): void {
-    if (next === "battle" || next === "mine" || next === "production") {
+    if (next === "battle" || next === "mine") {
       session.selectScreen(next);
       if (route !== next) renderRoute(next);
     } else renderRoute(next);
@@ -434,12 +438,13 @@ async function boot(): Promise<void> {
     if (
       event.key === "Escape" &&
       !dialog.open &&
-      (route === "bag" ||
+      (route === "upgrades" ||
+        route === "bag" ||
         route === "shop" ||
         route === "community" ||
         route === "market")
     ) {
-      navigate(session.getSnapshot().screen);
+      navigate(routeForScreen(session.getSnapshot().screen));
       event.preventDefault();
     }
   });
@@ -495,7 +500,8 @@ async function boot(): Promise<void> {
   }
   listen(dialog, "close", () => {
     visual.setOverlay(
-      route === "bag" ||
+      route === "upgrades" ||
+        route === "bag" ||
         route === "shop" ||
         route === "community" ||
         route === "market",

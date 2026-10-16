@@ -1190,3 +1190,10 @@ progress {
 
 .floor-banner li[data-digits="4"] { font-size: 12px; }
 .floor-banner li[data-digits="4"][aria-current] { font-size: 16px; }
+
+.production-heading {
+  margin-top: 24px;
+}
+.content[data-view="upgrades"] .upgrade-list {
+  margin-top: 16px;
+}

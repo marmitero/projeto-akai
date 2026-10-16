@@ -1,0 +1,190 @@
+{
+  "date": "2026-10-16",
+  "scope": "P6 local navigation and screen consolidation",
+  "published": false,
+  "typecheck": true,
+  "build": true,
+  "localTests": {
+    "passed": 68,
+    "skippedPostgreSQL": 91
+  },
+  "dev": {
+    "browser": "153.0.8010.0",
+    "productionPreview": false,
+    "navigationCycles": 50,
+    "unchangedTextures": "54",
+    "unchangedObjects": "70",
+    "saveReload": true,
+    "hiddenInputBlocked": true,
+    "modalInputBlocked": true,
+    "reducedMotion": true,
+    "widths": [
+      320,
+      360,
+      390,
+      768,
+      844
+    ],
+    "landscape": true,
+    "menus": true,
+    "realMiningGrants": true,
+    "upgradesAndCoal": true,
+    "rpgCraftEquipEnhancePetMinesAndReload": true,
+    "offlineCapAndSingleCredit": true,
+    "bossTimeoutAndTraining": true,
+    "towerCompletedFromMine": true,
+    "missingAssetHandled": true,
+    "onlineFailsClosed": true,
+    "pageErrors": [],
+    "failedAssetResponses": []
+  },
+  "preview": {
+    "browser": "153.0.8010.0",
+    "productionPreview": true,
+    "navigationCycles": 50,
+    "unchangedTextures": "54",
+    "unchangedObjects": "70",
+    "saveReload": true,
+    "hiddenInputBlocked": true,
+    "modalInputBlocked": true,
+    "reducedMotion": true,
+    "widths": [
+      320,
+      360,
+      390,
+      768,
+      844
+    ],
+    "landscape": true,
+    "menus": true,
+    "realMiningGrants": true,
+    "upgradesAndCoal": true,
+    "rpgCraftEquipEnhancePetMinesAndReload": true,
+    "offlineCapAndSingleCredit": true,
+    "bossTimeoutAndTraining": true,
+    "towerCompletedFromMine": true,
+    "missingAssetHandled": true,
+    "onlineFailsClosed": true,
+    "pageErrors": [],
+    "failedAssetResponses": []
+  },
+  "newAssertions": [
+    "legacy production save opens Mina and can mine",
+    "For\u00e7a and Vitalidade purchased from Melhorias and persisted after reload",
+    "menu close keeps game hidden in Melhorias",
+    "Escape returns to last gameplay route"
+  ],
+  "hudDev": {
+    "passed": true,
+    "mode": "dev",
+    "checks": [
+      "nickname-first-start-and-reload",
+      "nickname-queued-during-indexeddb-write",
+      "nickname-edit-through-portrait",
+      "five-sprite-resources",
+      "no-empty-guild-line",
+      "full-width-arena-and-upgrades-in-dedicated-screen",
+      "floor-window-boundaries",
+      "in-arena-health-bars",
+      "resource-details-accessible"
+    ],
+    "layouts": [
+      {
+        "width": 320,
+        "height": 640,
+        "scroll": 0,
+        "arenaWidth": 304,
+        "availableWidth": 304,
+        "navTop": 553.609375,
+        "overflow": false
+      },
+      {
+        "width": 360,
+        "height": 740,
+        "scroll": 0,
+        "arenaWidth": 344,
+        "availableWidth": 344,
+        "navTop": 653.609375,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "scroll": 0,
+        "arenaWidth": 374,
+        "availableWidth": 374,
+        "navTop": 757.609375,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "height": 1024,
+        "scroll": 0,
+        "arenaWidth": 462,
+        "availableWidth": 462,
+        "navTop": 938,
+        "overflow": false
+      }
+    ],
+    "pageErrors": []
+  },
+  "limitations": [
+    "PostgreSQL suite not run locally",
+    "No new online screen navigation test with server",
+    "No physical device or new 30-minute soak"
+  ],
+  "hudPreview": {
+    "passed": true,
+    "mode": "preview",
+    "checks": [
+      "nickname-first-start-and-reload",
+      "nickname-queued-during-indexeddb-write",
+      "nickname-edit-through-portrait",
+      "five-sprite-resources",
+      "no-empty-guild-line",
+      "full-width-arena-and-upgrades-in-dedicated-screen",
+      "floor-window-boundaries",
+      "in-arena-health-bars",
+      "resource-details-accessible"
+    ],
+    "layouts": [
+      {
+        "width": 320,
+        "height": 640,
+        "scroll": 0,
+        "arenaWidth": 304,
+        "availableWidth": 304,
+        "navTop": 553.609375,
+        "overflow": false
+      },
+      {
+        "width": 360,
+        "height": 740,
+        "scroll": 0,
+        "arenaWidth": 344,
+        "availableWidth": 344,
+        "navTop": 653.609375,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "scroll": 0,
+        "arenaWidth": 374,
+        "availableWidth": 374,
+        "navTop": 757.609375,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "height": 1024,
+        "scroll": 0,
+        "arenaWidth": 462,
+        "availableWidth": 462,
+        "navTop": 938,
+        "overflow": false
+      }
+    ],
+    "pageErrors": []
+  }
+}

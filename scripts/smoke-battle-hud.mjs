@@ -159,7 +159,9 @@ try {
     "Novo Guerreiro",
   );
   const layouts = [];
-  await mkdir("docs/polish-p2-screenshots", { recursive: true });
+  const screenshotDir =
+    process.env.AKAI_HUD_SCREENSHOTS ?? "docs/polish-p2-screenshots";
+  await mkdir(screenshotDir, { recursive: true });
   for (const [width, height] of [
     [320, 640],
     [360, 740],
@@ -171,22 +173,29 @@ try {
     await page.waitForTimeout(250);
     const layout = await page.evaluate(() => {
       const content = document.querySelector("#content"),
-        last = document
-          .querySelector("[data-upgrade=vitality]")
-          .getBoundingClientRect(),
+        last = document.querySelector(".stage-frame").getBoundingClientRect(),
         nav = document.querySelector(".bottom-hud").getBoundingClientRect();
       return {
         width: innerWidth,
         height: innerHeight,
         scroll: content.scrollHeight - content.clientHeight,
-        upgradeBottom: last.bottom,
+        arenaWidth: last.width,
+        availableWidth: document
+          .querySelector("#visual-area")
+          .getBoundingClientRect().width,
         navTop: nav.top,
         overflow: document.documentElement.scrollWidth > innerWidth,
       };
     });
     assert.equal(layout.overflow, false);
-    assert.ok(layout.upgradeBottom <= layout.navTop, JSON.stringify(layout));
-    assert.equal(layout.scroll, 0, JSON.stringify(layout));
+    assert.ok(
+      Math.abs(layout.arenaWidth - layout.availableWidth) < 1,
+      JSON.stringify(layout),
+    );
+    assert.equal(
+      await page.locator("[data-upgrade=vitality]").isVisible(),
+      false,
+    );
     assert.equal(await page.locator(".wallet-item").count(), 5);
     assert.equal(await page.locator("#player-guild").isVisible(), false);
     assert.equal(await page.locator(".page-heading").isVisible(), false);
@@ -195,7 +204,7 @@ try {
       () => document.querySelector("#game").dataset.enemiesArriving === "false",
     );
     await page.screenshot({
-      path: `docs/polish-p2-screenshots/battle-${width}.png`,
+      path: `${screenshotDir}/battle-${width}.png`,
     });
   }
   for (const [floor, expected] of [
@@ -224,7 +233,7 @@ try {
   await page.waitForFunction(
     () => document.querySelector("#game").dataset.enemiesArriving === "false",
   );
-  await page.screenshot({ path: "docs/polish-p2-screenshots/boss.png" });
+  await page.screenshot({ path: `${screenshotDir}/boss.png` });
   await page.locator("#resources").click();
   assert.equal(await page.locator("#dialog-resources").isVisible(), true);
   await page.locator("#close-dialog").click();
@@ -238,7 +247,7 @@ try {
       "nickname-edit-through-portrait",
       "five-sprite-resources",
       "no-empty-guild-line",
-      "upgrades-above-nav-without-scroll",
+      "full-width-arena-and-upgrades-in-dedicated-screen",
       "floor-window-boundaries",
       "in-arena-health-bars",
       "resource-details-accessible",
@@ -247,7 +256,7 @@ try {
     pageErrors: errors,
   };
   await writeFile(
-    `docs/polish-battle-p2-${preview ? "preview" : "dev"}.json`,
+    `docs/${process.env.AKAI_HUD_EVIDENCE ?? "polish-battle-p2"}-${preview ? "preview" : "dev"}.json`,
     JSON.stringify(result, null, 2) + "\n",
   );
   console.log(JSON.stringify(result));

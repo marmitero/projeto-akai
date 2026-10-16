@@ -1,6 +1,12 @@
 import { assets, installAssetStyles } from "../assets/catalog.js";
 import type { Screen } from "@akai/shared";
-export type Route = Screen | "bag" | "shop" | "community" | "market";
+export type Route =
+  | Exclude<Screen, "production">
+  | "upgrades"
+  | "bag"
+  | "shop"
+  | "community"
+  | "market";
 const icon = (key: keyof typeof assets, className = ""): string =>
   `<img class="sprite ${className}" src="${assets[key]}" alt="" draggable="false">`;
 function upgradeCard(kind: string, title: string): string {
@@ -38,21 +44,23 @@ export function createShell(root: HTMLElement): void {
       <div class="combat-readout sr-only" aria-label="Vida dos combatentes"><label>Vida do guerreiro <span id="hero-hp"></span><progress id="hero-health" max="100" value="100"></progress></label><div id="enemy-health"></div></div>
       <p id="battle-status" class="body-copy" role="status"></p><div class="battle-actions"><button id="pause-battle">Pausar batalha</button><button id="retry-battle" hidden>Tentar novamente</button><button id="train-battle" hidden>Treinar no andar anterior</button></div>
       <form id="nickname-setup" class="nickname-setup" hidden><label for="starting-name">Seu nick</label><input id="starting-name" name="name" minlength="3" maxlength="24" placeholder="Nome do guerreiro" required><button>Começar</button></form>
-      <h2 class="upgrade-heading">Melhorias</h2><div class="upgrade-list">${upgradeCard("attack", "Força do guerreiro")}${upgradeCard("vitality", "Vitalidade")}</div>
+
 
     </section>
-    <section data-pane="mine" class="activity-details" aria-label="Mineração de ferro" hidden>
+    <section data-pane="mine" class="activity-details" aria-label="Mineração e produção" hidden>
       <div class="mine-summary panel">${icon("iron")}<div><span class="muted">Seu ferro</span><strong data-balance="iron">0</strong></div><span id="click-gain" class="badge">1 / toque</span></div>
       <h2>Ferro para o seu reino.</h2><p class="body-copy">Toque no minério. A batalha continua enquanto você minera.</p><div class="upgrade-list">${upgradeCard("click", "Poder da picareta")}</div>
       <p id="mining-feedback" class="sr-only" role="status" aria-live="polite"></p>
-    </section>
-    <section data-pane="production" class="activity-details" aria-label="Minas automáticas" hidden>
+      <h2 class="production-heading">Minas automáticas</h2>
       <p class="body-copy">Carvão produzido automaticamente, inclusive por até 8 horas de ausência. Ouro requer carvão nível 50. Todos os minérios mantêm seus bônus durante o prazo válido.</p>
       <div class="mines-list">
         <article class="mine-card panel">${icon("coalNode")}<div><h2>Mina de carvão</h2><p id="coal-production">Bloqueada · 0/s</p><span id="cost-coal" class="muted"></span></div><button data-upgrade="coal" disabled>Desbloquear</button></article>
         <article class="mine-card panel">${icon("goldNode")}<div><h2>Mina de ouro</h2><p id="gold-production">Bloqueada · 0/s</p><span id="cost-gold" class="muted"></span></div><button data-rpg-action="gold" disabled>Desbloquear</button></article>
         <article class="mine-card panel">${icon("jadeNode")}<div><h2>Mina de jade</h2><p id="jade-production">Bloqueada · 0/s</p><span id="cost-jade" class="muted"></span></div><button data-rpg-action="jade" disabled>Desbloquear</button></article>
       </div>
+    </section>
+    <section data-pane="upgrades" class="activity-details" aria-label="Melhorias do guerreiro" hidden>
+      <p class="body-copy">Fortaleça seu guerreiro para os próximos andares.</p><div class="upgrade-list">${upgradeCard("attack", "Força do guerreiro")}${upgradeCard("vitality", "Vitalidade")}</div>
     </section>
     <section data-pane="bag" class="extra-page" hidden><div id="rpg-root"></div></section>
     <section data-pane="market" class="extra-page" hidden><div id="market-root"></div></section>
@@ -62,7 +70,7 @@ export function createShell(root: HTMLElement): void {
   <nav class="bottom-hud" aria-label="Menu principal">
     <button data-route="battle" aria-current="page">${icon("sword")}<span>Batalha</span></button>
     <button data-route="mine">${icon("pickaxe")}<span>Mina</span></button>
-    <button data-route="production">${icon("coalNode")}<span>Produção</span></button>
+    <button data-route="upgrades">${icon("sword")}<span>Melhorias</span></button>
     <button data-route="bag" class="wide-menu">${icon("bag")}<span>Mochila</span></button>
     <button data-route="shop" class="wide-menu">${icon("shop")}<span>Loja</span></button>
     <button id="more">${icon("options")}<span>Mais</span></button>
@@ -118,12 +126,12 @@ export const routeLabels: Record<
     caption: "Veio de ferro",
     description: "Caverna de ferro. Toque no minério para receber ferro.",
   },
-  production: {
-    title: "Produção",
-    kicker: "RIQUEZAS DO REINO",
-    badge: "Minas automáticas",
-    caption: "Carvão · Ouro · Jade",
-    description: "Produção automática de carvão. Ouro e jade ainda bloqueados.",
+  upgrades: {
+    title: "Melhorias",
+    kicker: "SEU GUERREIRO",
+    badge: "Atributos",
+    caption: "",
+    description: "Melhorias de força e vitalidade do guerreiro.",
   },
   bag: {
     title: "Mochila",

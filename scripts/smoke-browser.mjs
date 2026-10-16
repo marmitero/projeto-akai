@@ -149,7 +149,7 @@ try {
   );
   for (let n = 0; n < 50; n++) {
     await navigate("Mina");
-    await navigate("Produção");
+    await navigate("Melhorias");
     await navigate("Batalha");
   }
   assert.equal(
@@ -161,10 +161,10 @@ try {
     objects,
   );
   assert.ok(await page.locator("#game").getAttribute("data-encounter"));
-  await navigate("Produção");
+  await navigate("Mina");
   assert.equal(
     await page
-      .locator("[data-pane=production] article button:disabled")
+      .locator("[data-pane=mine] .mines-list article button:disabled")
       .count(),
     3,
   );
@@ -221,7 +221,7 @@ try {
     [844, 390],
   ]) {
     await page.setViewportSize({ width, height });
-    for (const name of ["Batalha", "Mina", "Produção"]) {
+    for (const name of ["Batalha", "Mina", "Melhorias"]) {
       await navigate(name);
       assert.equal(
         await page.evaluate(
@@ -245,12 +245,12 @@ try {
       assert.equal(await page.locator("#page-title").textContent(), "Mochila");
       await navigate("Mina");
     }
-    await navigate("Produção");
+    await navigate("Mina");
     await page.locator("#content").evaluate((el) => {
       el.scrollTop = el.scrollHeight;
     });
     const lastMine = await page
-      .locator("[data-pane=production] article")
+      .locator("[data-pane=mine] .mines-list article")
       .last()
       .boundingBox();
     const navigation = await page.locator(".bottom-hud").boundingBox();
@@ -268,9 +268,9 @@ try {
     .waitFor();
   await capture(page, "shop-390");
   await page.keyboard.press("Escape");
-  assert.equal(await page.locator("#page-title").textContent(), "Produção");
+  assert.equal(await page.locator("#page-title").textContent(), "Mina");
   await page.setViewportSize({ width: 390, height: 960 });
-  await navigate("Produção");
+  await navigate("Mina");
   await page.locator("#content").evaluate((el) => {
     el.scrollTop = 0;
   });
@@ -323,10 +323,26 @@ try {
         ruby: "0",
       },
     });
-  await seed(fixture());
+  const legacyProduction = fixture();
+  legacyProduction.screen = "production";
+  await seed(legacyProduction);
+  assert.equal(await page.locator("#page-title").textContent(), "Mina");
+  await page.locator("#mine-target").click();
+  await navigate("Melhorias");
+  await page.locator("[data-upgrade=attack]").click();
+  await page.locator("[data-upgrade=vitality]").click();
+  assert.equal(await page.locator("#level-attack").textContent(), "Nível 1");
+  assert.equal(await page.locator("#level-vitality").textContent(), "Nível 1");
+  await page.waitForTimeout(250);
+  assert.equal(await page.locator("#page-title").textContent(), "Melhorias");
+  await navigate("Mais");
+  await page.locator("#close-dialog").click();
+  assert.equal(await page.locator("#visual-area").isVisible(), false);
+  await page.keyboard.press("Escape");
+  assert.equal(await page.locator("#page-title").textContent(), "Mina");
   await page.locator("[data-upgrade=click]").click();
   assert.equal(await page.locator("#click-gain").textContent(), "2 / toque");
-  await navigate("Produção");
+  await navigate("Mina");
   await page.locator("[data-upgrade=coal]").click();
   await page.waitForTimeout(1100);
   await navigate("Mais");
@@ -336,7 +352,11 @@ try {
     .waitFor();
   await page.reload();
   await page.locator("#game[data-load-status=ready]").waitFor();
-  await navigate("Produção");
+  await navigate("Melhorias");
+  assert.equal(await page.locator("#level-attack").textContent(), "Nível 1");
+  assert.equal(await page.locator("#level-vitality").textContent(), "Nível 1");
+  await capture(page, "upgrades-390");
+  await navigate("Mina");
   await page.getByText("Nível 1 · 0,1 /s", { exact: true }).waitFor();
   const offline = fixture();
   offline.upgrades.coal = 1;
@@ -402,7 +422,7 @@ try {
     .filter({ hasText: "Nível 1 · Ativo" })
     .waitFor();
   await capture(page, "rpg-pet-390");
-  await navigate("Produção");
+  await navigate("Mina");
   assert.equal(await page.locator("[data-rpg-action=gold]").isDisabled(), true);
   await page.locator("[data-upgrade=coal]").click();
   await page.locator("[data-rpg-action=gold]").click();
@@ -523,6 +543,8 @@ try {
       menus: true,
       realMiningGrants: true,
       upgradesAndCoal: true,
+      legacyProductionOpensMine: true,
+      dedicatedUpgradesPurchaseAndReload: true,
       rpgCraftEquipEnhancePetMinesAndReload: true,
       offlineCapAndSingleCredit: true,
       bossTimeoutAndTraining: true,
