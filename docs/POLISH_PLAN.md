@@ -45,3 +45,18 @@ Validação P2:149testes/14arquivos com PostgreSQL real, typecheck/hashes/builds
 ## P4 — contato de todos os atacantes (publicada)
 
 Investidas confirmadas para as posições traseiras, retorno à formação, janelas de golpe separadas, espaço reservado ao ataque do herói e números empilhados por alvo. Economia/cadência do domínio preservadas. Relatório em [POLISH_P4_REPORT](POLISH_P4_REPORT.md). Publicada após autorização explícita em16/10/2026: [PR2](https://github.com/marmitero/projeto-akai/pull/2), merge c97e59a. CI38896597933 e Windows38896598093 aprovados. Próximo passo: playtest no Windows via jogar.bat e ajustes de feedback antes de F9.
+
+
+## P5–P8 — arena, navegação e conversa (pedido de 16/10/2026)
+
+Referência: Screenshot_9.png. O retângulo vermelho pede arena de largura integral abaixo da identidade, mantendo a proporção 384/300 e os sprites sem distorção. A referência de aproximadamente 474×370 é compatível com essa proporção.
+
+1. **P5 — arena ampliada (implementada localmente):** retirar limite de326px aplicado em telas de até740px de altura. Usar toda a largura disponível na área de conteúdo, mantendo varal, controles e feedback acessíveis. Conferir desktop, retrato estreito e paisagem; em telas baixas permitir rolagem em vez de encolher a arena.
+2. **P6 — reorganização:** reunir mineração manual e minas automáticas na tela Mina; substituir Produção no menu por Melhorias, com Força do guerreiro e Vitalidade. Preservar ações, custos, salvamento e funcionamento online. Normalizar o destino production de saves antigos para Mina sem mudar a economia. Decidir a rota visual separadamente do Screen persistido para evitar quebrar clientes antigos.
+3. **P7 — Sistema na batalha:** substituir os cartões de melhorias por painel com abas Global/Sistema. Registrar vitória, derrota, Coins, XP e loot apenas quando confirmados pelo domínio/servidor. Examinar os eventos existentes antes de definir o adaptador; evitar duplicar mensagens na atualização ou recarga, limitar histórico e usar texto seguro. Não inventar XP ou loot quando o resultado não conceder esses recursos.
+4. **P8 — Global integrado:** reutilizar serviço, autenticação, validação, limites e moderação do chat online existente. Compartilhar estado com Comunidade sem requisições duplicadas nem renovar presença em eventos. No modo local indicar necessidade de conexão; sem conversa simulada. Validar envio, recebimento, troca de abas, reconexão e segurança.
+
+Cada fatia deve ser validada e documentada antes de continuar. Não iniciar F9 nem monetização. Implementação não implica nova autorização de publicação; esta sequência começa localmente para revisão. Próximo passo após P5: P6, antes de criar o painel de conversa no espaço liberado.
+
+
+Validação P5: typecheck e build aprovados; `node scripts/smoke-arena-layout.mjs` e `--preview` aprovados nos cinco viewports citados em AI_STATE. Evidências em `polish-battle-p5-dev.json`, `polish-battle-p5-preview.json` e `polish-p5-screenshots/full-width-arena.png`. Na janela484×730, arena passou de326px para464px de largura e362,5px de altura. Revisão visual confirma uso da área ampla abaixo da HUD. Nesta fatia controles e melhorias permanecem abaixo da arena; P6/P7 reorganizarão esse conteúdo. Em paisagem/telas baixas há rolagem vertical prevista, com menu fixo acessível.
