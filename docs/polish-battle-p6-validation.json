@@ -1,7 +1,7 @@
 {
   "date": "2026-10-16",
   "scope": "P6 local navigation and screen consolidation",
-  "published": false,
+  "published": true,
   "typecheck": true,
   "build": true,
   "localTests": {
@@ -186,5 +186,11 @@
       }
     ],
     "pageErrors": []
+  },
+  "publication": {
+    "head": "f31ca2971938887a59eb482a6ad52aec79af64bc",
+    "projectCI": 38908937775,
+    "windowsCI": 38908937828,
+    "result": "success"
   }
 }

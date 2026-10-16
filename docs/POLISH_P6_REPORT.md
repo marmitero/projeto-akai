@@ -1,6 +1,6 @@
 # P6 — Mina e Melhorias
 
-16/10/2026. Implementada localmente após publicação autorizada da P5; P6 ainda não publicada.
+16/10/2026. Publicada na main após autorização explícita do usuário. Head `f31ca2971938887a59eb482a6ad52aec79af64bc`. [CI principal38908937775](https://github.com/marmitero/projeto-akai/actions/runs/38908937775) e [Windows38908937828](https://github.com/marmitero/projeto-akai/actions/runs/38908937828) aprovados; suíte completa com159testes PostgreSQL e regressões online/dev/preview.
 
 Mina reúne minério clicável, poder da picareta e minas automáticas de carvão, ouro e jade. Ações, limites, bônus, valores e condições de desbloqueio permanecem no domínio existente. A guarda de comandos RPG aceita as minas na nova tela Mina, preservando também os comandos da Mochila.
 
