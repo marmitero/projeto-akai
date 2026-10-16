@@ -5,6 +5,8 @@ import {
   HERO_POSE,
   enemyPose,
   bodyGap,
+  contactX,
+  approachFrame,
 } from "./battle-presentation.js";
 import { assets, type AssetKey } from "../assets/catalog.js";
 export interface VisualGame {
@@ -46,6 +48,10 @@ export function createGame(
     private arriving = false;
     private groundOffset = 0;
     private heroMaxHp = 100;
+    private meleeMotions: Array<
+      | { elapsed: number; from: number; contact: number; swung: boolean }
+      | undefined
+    > = [];
     private healthBars: Array<{
       frame: Phaser.GameObjects.Image;
       background: Phaser.GameObjects.Image;
@@ -59,6 +65,7 @@ export function createGame(
       sprite: Phaser.GameObjects.Sprite;
       text: Phaser.GameObjects.Text;
       age: number;
+      owner?: Phaser.GameObjects.Sprite;
       x: number;
       y: number;
     }> = [];
@@ -368,6 +375,18 @@ export function createGame(
           const x = this.targets[i];
           if (x !== undefined && x !== null) e.x = x;
         });
+      if (overlay || document.hidden || reducedMotion || screen !== "battle") {
+        this.meleeMotions.forEach((motion, i) => {
+          if (!motion) return;
+          const actor = this.enemies[i]!;
+          actor.anims.timeScale = 1;
+          const home = this.targets[i];
+          if (home !== undefined && home !== null) actor.x = home;
+          if (battleState?.battle.enemies[i]?.hp) actor.play("enemy-idle");
+        });
+        this.meleeMotions = [];
+        parent.dataset["meleeMotions"] = "[]";
+      }
       const paused =
         overlay ||
         document.hidden ||
@@ -416,8 +435,14 @@ export function createGame(
       const fx = this.fx.find((f) => f.age >= 800);
       if (!fx) return;
       fx.x = actor.x + (hero ? 0 : 5);
+      const stack = this.fx.filter(
+        (f) => f !== fx && f.age < 800 && f.owner === actor,
+      ).length;
+      fx.owner = actor;
+      if (stack) fx.x += (stack % 2 ? 1 : -1) * 12;
       fx.y =
         actor.y -
+        Math.ceil(stack / 2) * 22 -
         (hero
           ? 104
           : enemyPose(battleState!.battle.enemies.length === 1).scale * 50);
@@ -483,6 +508,7 @@ export function createGame(
       const b = battleState?.battle;
       if (!b || !this.hero || screen !== "battle" || overlay || document.hidden)
         return;
+      if (b.paused) return;
       const ms = Math.min(delta, 50),
         moving = !b.paused && b.phase === "transition" && b.heroHp > 0;
       if (moving && !reducedMotion) {
@@ -501,8 +527,24 @@ export function createGame(
         });
       }
       let arriving = false;
+      for (const motion of this.meleeMotions) if (motion) motion.elapsed += ms;
+      const attacking = this.meleeMotions.findIndex(
+        (motion) => motion && motion.elapsed >= 0 && motion.elapsed < 520,
+      );
+      const front = this.targets.findIndex((target) => target !== null);
+      const homes = [...this.targets];
+      const heroNeedsContact =
+        b.heroNextAt - b.time <= 240 ||
+        (b.heroStrikes > 0 && b.time - (b.heroNextAt - 1000) < 200);
+      if (
+        attacking >= 0 &&
+        front >= 0 &&
+        attacking !== front &&
+        !heroNeedsContact
+      )
+        homes[front] = this.targets[attacking] ?? homes[front]!;
       this.enemies.forEach((enemy, i) => {
-        const target = this.targets[i];
+        const target = homes[i];
         if (
           target === undefined ||
           target === null ||
@@ -510,6 +552,34 @@ export function createGame(
           b.enemies[i]!.hp === 0
         )
           return;
+        const motion = this.meleeMotions[i];
+        if (motion && !reducedMotion) {
+          const frame = approachFrame(
+            motion.elapsed,
+            motion.from,
+            motion.contact,
+            target,
+          );
+          enemy.x = frame.x;
+          if (frame.phase === "attack") {
+            if (!motion.swung) {
+              enemy.anims.timeScale = 2.3;
+              enemy.play("enemy-attack");
+              motion.swung = true;
+              parent.dataset["meleeAttackCount"] = String(
+                Number(parent.dataset["meleeAttackCount"] ?? 0) + 1,
+              );
+            }
+          } else if (frame.phase === "approach" || frame.phase === "return") {
+            enemy.anims.timeScale = 1;
+            enemy.play("enemy-walk", true);
+          } else if (frame.phase === "done") {
+            enemy.anims.timeScale = 1;
+            enemy.play("enemy-idle");
+            this.meleeMotions[i] = undefined;
+          }
+          return;
+        }
         const offset = target - enemy.x;
         if (reducedMotion) {
           enemy.x = target;
@@ -553,6 +623,29 @@ export function createGame(
           fx.sprite.setVisible(false);
         }
       }
+      parent.dataset["meleeMotions"] = JSON.stringify(
+        this.meleeMotions.map((motion, i) =>
+          motion
+            ? {
+                enemy: i,
+                phase: approachFrame(
+                  motion.elapsed,
+                  motion.from,
+                  motion.contact,
+                  this.targets[i] ?? motion.from,
+                ).phase,
+                gap: Number(
+                  bodyGap(
+                    this.hero.x,
+                    this.enemies[i]!.x,
+                    HERO_POSE,
+                    enemyPose(b.enemies.length === 1),
+                  ).toFixed(1),
+                ),
+              }
+            : null,
+        ),
+      );
       this.syncHealth();
       parent.dataset["parallaxOffset"] = this.groundOffset.toFixed(2);
       parent.dataset["enemyPositions"] = JSON.stringify(
@@ -585,6 +678,7 @@ export function createGame(
         !reducedMotion &&
         !b.paused;
       if (fresh) {
+        this.meleeMotions = [];
         this.arriving =
           canMove && b.phase === "fighting" && (!!prev || b.heroStrikes === 0);
         for (const fx of this.fx) {
@@ -636,6 +730,18 @@ export function createGame(
         )
           sprite.play("hero-idle");
       };
+      if (prev && !fresh && b.heroStrikes !== prev.heroStrikes) {
+        const target = prev.enemies.findIndex((enemy) => enemy.hp > 0);
+        if (target >= 0)
+          parent.dataset["heroHitContactGap"] = String(
+            bodyGap(
+              this.hero.x,
+              this.enemies[target]!.x,
+              HERO_POSE,
+              enemyPose(boss),
+            ),
+          );
+      }
       animate(
         this.hero,
         b.heroHp === 0,
@@ -648,20 +754,27 @@ export function createGame(
           old = prev?.enemies[i];
         sprite.setVisible(!!e).setScale(enemyPose(boss).scale);
         if (fresh) {
+          sprite.anims.timeScale = 1;
           sprite.setAlpha(1).clearTint();
           sprite.x = this.arriving
             ? WIDTH + 100 + sprite.scaleX * 80 + i * 62
             : (this.targets[i] ?? 180 + i * 58);
         } else if (reducedMotion && e && e.hp > 0)
           sprite.x = this.targets[i] ?? sprite.x;
-        if (e)
-          animate(
-            sprite,
-            e.hp === 0,
-            old?.hp === 0,
-            e.strikes !== old?.strikes,
-            true,
-          );
+        if (!e || e.hp === 0) {
+          this.meleeMotions[i] = undefined;
+          sprite.anims.timeScale = 1;
+        } else if (!fresh && old && e.strikes > old.strikes && canMove) {
+          this.meleeMotions[i] = {
+            elapsed:
+              -b.enemies.slice(0, i).filter((enemy) => enemy.hp > 0).length *
+              480,
+            from: sprite.x,
+            contact: contactX(this.hero.x, HERO_POSE, enemyPose(boss)),
+            swung: false,
+          };
+        }
+        if (e) animate(sprite, e.hp === 0, old?.hp === 0, false, true);
       });
       if (
         prev &&

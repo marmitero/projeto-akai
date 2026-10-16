@@ -41,3 +41,7 @@ P3 publicada: críticos autoritativos5%/1,5×, hits confirmados e efeito dourado
 Validação P2:149testes/14arquivos com PostgreSQL real, typecheck/hashes/builds local e online. Nove verificações de navegador passaram: HUD, movimento e loop local em dev/preview; comunidade em dev/preview; loja de teste em preview. Loop manteve54texturas/70objetos em50ciclos por modo, zero pageerrors. Melhorias visíveis sem rolagem nos viewports320×640,360×740,390×844 e768×1024. Evidência consolidada em [polish-battle-p2-validation.json](polish-battle-p2-validation.json).
 
 16/10/2026: usuário autorizou explicitamente enviar P2 ao rascunho PR1 e prosseguir P3. Bloqueio anterior de autorização resolvido; monetização continua adiada.
+
+## P4 — contato de todos os atacantes (local)
+
+Investidas confirmadas para as posições traseiras, retorno à formação, janelas de golpe separadas, espaço reservado ao ataque do herói e números empilhados por alvo. Economia/cadência do domínio preservadas. Relatório em [POLISH_P4_REPORT](POLISH_P4_REPORT.md). Ainda local; próximo passo é avaliar o combate em playtest.

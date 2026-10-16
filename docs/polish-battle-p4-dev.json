@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "mode": "dev",
+  "fixture": "Local resistant targets and upgraded vitality; engine schedules unchanged.",
+  "checks": [
+    "rear-enemy-reaches-melee-contact-before-swing",
+    "hero-target-in-reach-at-confirmed-hit",
+    "return-to-formation",
+    "pause-freezes-approach",
+    "overlay-cancels-pending-visual-attack",
+    "reduced-motion-skips-lunge"
+  ],
+  "attacking": [
+    null,
+    null,
+    {
+      "enemy": 2,
+      "phase": "attack",
+      "gap": 16
+    }
+  ],
+  "textures": "54",
+  "objects": "70",
+  "pageErrors": []
+}
