@@ -238,7 +238,24 @@ try {
   await pa.locator("[data-premium-reward=autoclick]").click();
   await confirm(pa);
   await new Promise((r) => setTimeout(r, 5200));
-  await pa.locator("[data-premium-simulate]").first().click();
+  // Retain a deliberate user click while the periodic GET is in flight (slower CI/network).
+  let releaseSync;
+  const syncGate = new Promise((resolve) => {
+    releaseSync = resolve;
+  });
+  await pa.route("**/api/v1/premium", async (route) => {
+    await syncGate;
+    await route.continue();
+  });
+  await pa.waitForRequest(
+    (request) =>
+      request.url().endsWith("/api/v1/premium") && request.method() === "GET",
+  );
+  try {
+    await pa.locator("[data-premium-simulate]").first().click();
+  } finally {
+    releaseSync();
+  }
   await pa
     .locator("#premium-benefits")
     .filter({ hasText: "Autoclick" })
@@ -297,6 +314,7 @@ try {
           "restore-once",
           "cosmetic-title",
           "voluntary-autoclick-validated",
+          "simulate-click-retained-during-poll",
           "account-isolation",
           "30-navigation-cycles",
           "widths-320-390-768",

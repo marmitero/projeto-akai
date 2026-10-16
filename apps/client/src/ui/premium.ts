@@ -37,7 +37,8 @@ export function createPremiumUI(root: HTMLElement, online: boolean) {
     retry = 0,
     state: PremiumView | undefined,
     pending: PremiumCommand | undefined,
-    review: Omit<PremiumCommand, "commandId"> | undefined;
+    review: Omit<PremiumCommand, "commandId"> | undefined,
+    queuedSimulation: PremiumView["intents"][number] | undefined;
   const status = host.querySelector<HTMLElement>("#premium-status")!,
     box = host.querySelector<HTMLElement>("#premium-review")!;
   const cache = new Map<string, string>();
@@ -111,8 +112,9 @@ export function createPremiumUI(root: HTMLElement, online: boolean) {
       return;
     }
     if (loading) {
+      queuedSimulation = intent;
       status.textContent =
-        "Sincronizando. Tente concluir novamente em instantes.";
+        "Concluindo a simulação assim que a sincronização terminar…";
       return;
     }
     loading = true;
@@ -363,6 +365,17 @@ export function createPremiumUI(root: HTMLElement, online: boolean) {
       }
     } finally {
       loading = false;
+      if (
+        queuedSimulation &&
+        !pending &&
+        active &&
+        !disposed &&
+        !document.hidden
+      ) {
+        const intent = queuedSimulation;
+        queuedSimulation = undefined;
+        void simulate(intent);
+      }
     }
   }
   void api<PremiumView>("premium")
@@ -374,6 +387,7 @@ export function createPremiumUI(root: HTMLElement, online: boolean) {
   return {
     show: (on: boolean) => {
       active = on;
+      if (!on) queuedSimulation = undefined;
       if (on) void refresh();
     },
     destroy: () => {
