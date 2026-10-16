@@ -1,6 +1,6 @@
 {
   "date": "2026-10-16",
-  "scope": "P4 local refinement following published P1-P3; no economic timing changes",
+  "scope": "P4 published refinement following P1-P3; no economic timing changes",
   "tests": {
     "passed": 159,
     "files": 14,
@@ -145,7 +145,17 @@
     "projectResult": "success",
     "windowsCI": 38893556065,
     "windowsResult": "success",
-    "P4": "local-only"
+    "P4": {
+      "status": "merged",
+      "pr": 2,
+      "merge": "c97e59a0121e0e2eb890fc7e64a0c65ee50ace59",
+      "validatedHead": "67bfd2d3565b0957e5f8ed5f8ed7edea9415621e",
+      "tree": "0edbd5445baf37a790e6f65c346b0a55df1325e9",
+      "projectCI": 38896597933,
+      "projectResult": "success",
+      "windowsCI": 38896598093,
+      "windowsResult": "success"
+    }
   },
   "limitations": [
     "No new 30-minute browser soak or physical device test",

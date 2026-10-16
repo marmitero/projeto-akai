@@ -1,6 +1,6 @@
 # P4 — aproximação dos atacantes e legibilidade
 
-16/10/2026. Próxima fatia local após publicar P1–P3. Fecha a lacuna em que os inimigos nas posições traseiras ainda executavam o golpe longe do protagonista.
+16/10/2026. Refinamento publicado após P1–P3. Fecha a lacuna em que os inimigos nas posições traseiras ainda executavam o golpe longe do protagonista.
 
 Cada incremento confirmado de strikes agenda uma investida visual limitada: aproximação160ms, golpe na distância calculada pela silhueta, retorno à formação atual. Investidas de um grupo são espaçadas480ms pela ordem dos sobreviventes; corpos não ficam todos sobrepostos executando o golpe juntos. O ocupante da frente abre espaço e preserva contato quando chega a vez do ataque do herói. Morte, mudança de tentativa e redução de movimento limpam investidas; menu/atividade oculta cancela efeitos pendentes, pausa congela o movimento. Animação de caminhada e ataque existentes, sem arte nova.
 
@@ -10,4 +10,4 @@ Números simultâneos do mesmo alvo usam linhas/pequenos deslocamentos distintos
 
 Validação:159testes/14arquivos com PostgreSQL real, typecheck/build/hashes; geometria verifica contato normal/boss/distância e separação das janelas de golpe. Navegador dev/preview confirma o terceiro inimigo golpeando com intervalo de corpo16, alvo do herói ao alcance no instante confirmado, retorno, pausa, cancelamento por menu e redução de movimento. Loop local dev/preview e críticos revalidados;54texturas/70objetos estáveis, zero pageerrors. Sem novo soak30min, aparelho real ou playtest humano.
 
-Comando: `node scripts/smoke-melee-approach.mjs` e `--preview` após build local. Evidências em `polish-battle-p4-*.json` e `polish-p4-screenshots/`. P4 permanece local para revisão; a publicação autorizada nesta entrega foi P1–P3. Próximo passo: testar a sensação do combate antes de ampliar o escopo. Monetização segue adiada; não iniciar F9 automaticamente.
+Comando: `node scripts/smoke-melee-approach.mjs` e `--preview` após build local. Evidências em `polish-battle-p4-*.json` e `polish-p4-screenshots/`. P4 publicada após autorização explícita em16/10/2026: [PR2](https://github.com/marmitero/projeto-akai/pull/2), merge `c97e59a0121e0e2eb890fc7e64a0c65ee50ace59`. Head validado `67bfd2d3565b0957e5f8ed5f8ed7edea9415621e`, árvore `0edbd5445baf37a790e6f65c346b0a55df1325e9`. [CI principal](https://github.com/marmitero/projeto-akai/actions/runs/38896597933) e [Windows](https://github.com/marmitero/projeto-akai/actions/runs/38896598093) aprovados. Próximo passo: testar a sensação do combate antes de ampliar o escopo. Monetização segue adiada; não iniciar F9 automaticamente.

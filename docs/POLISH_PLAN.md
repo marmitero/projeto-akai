@@ -42,6 +42,6 @@ Validação P2:149testes/14arquivos com PostgreSQL real, typecheck/hashes/builds
 
 16/10/2026: usuário autorizou explicitamente enviar P2 ao rascunho PR1 e prosseguir P3. Bloqueio anterior de autorização resolvido; monetização continua adiada.
 
-## P4 — contato de todos os atacantes (local)
+## P4 — contato de todos os atacantes (publicada)
 
-Investidas confirmadas para as posições traseiras, retorno à formação, janelas de golpe separadas, espaço reservado ao ataque do herói e números empilhados por alvo. Economia/cadência do domínio preservadas. Relatório em [POLISH_P4_REPORT](POLISH_P4_REPORT.md). Ainda local; próximo passo é avaliar o combate em playtest.
+Investidas confirmadas para as posições traseiras, retorno à formação, janelas de golpe separadas, espaço reservado ao ataque do herói e números empilhados por alvo. Economia/cadência do domínio preservadas. Relatório em [POLISH_P4_REPORT](POLISH_P4_REPORT.md). Publicada após autorização explícita em16/10/2026: [PR2](https://github.com/marmitero/projeto-akai/pull/2), merge c97e59a. CI38896597933 e Windows38896598093 aprovados. Próximo passo: playtest no Windows via jogar.bat e ajustes de feedback antes de F9.
