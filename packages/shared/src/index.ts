@@ -109,6 +109,20 @@ export const LocalSnapshotSchema = Legacy2SnapshotSchema.extend({
     floor: safeInteger.min(1).max(1000),
     highest: safeInteger.max(1000),
     retryFloor: safeInteger.min(1).max(1000),
+    hits: z
+      .array(
+        z
+          .object({
+            strike: safeInteger.min(1),
+            attempt: safeInteger,
+            target: safeInteger.max(2),
+            damage: safeInteger.min(1),
+            critical: z.boolean(),
+          })
+          .strict(),
+      )
+      .max(8)
+      .default([]),
   }),
   rpg: RpgSchema,
 }).superRefine((s, ctx) => {
@@ -210,4 +224,4 @@ export * from "./community.js";
 
 export * from "./market.js";
 
-export * from './monetization.js';
+export * from "./monetization.js";

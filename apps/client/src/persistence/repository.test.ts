@@ -184,7 +184,7 @@ describe("real schema2 RPG migration", () => {
       JSON.stringify({ formatVersion: 1, payload: old, checksum }),
     );
     expect(migrated.schemaVersion).toBe(3);
-    expect(migrated.battle).toEqual(old.battle);
+    expect(migrated.battle).toEqual({ ...old.battle, hits: [] });
     expect(migrated.upgrades).toEqual(old.upgrades);
     expect(migrated.coalRemainder).toBe(31080000);
     expect(migrated.rpg.inventory).toHaveLength(0);

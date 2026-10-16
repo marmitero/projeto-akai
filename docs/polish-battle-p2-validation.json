@@ -1,6 +1,6 @@
 {
   "date": "2026-10-16",
-  "scope": "Battle HUD P2 validated locally; remote staging blocked pending explicit publication authorization",
+  "scope": "P2 sent to draft PR1 after explicit authorization; main unchanged",
   "checks": {
     "tests": 149,
     "files": 14,
@@ -88,9 +88,11 @@
   ],
   "storageRegression": "HUD browser smoke holds the first IndexedDB write open, submits a name, verifies pending state, releases the write and reloads the persisted name.",
   "publication": {
-    "state": "blocked-by-automatic-review",
-    "reason": "Prior publication authorization applied to F8; explicit P2 remote-staging authorization required",
-    "localImplementationCommit": "3a4962c",
-    "remotePR1Contains": "P1 only"
+    "state": "submitted-to-draft",
+    "commit": "14e6a90ac2311ce5bd677c42a93f5085dc7bbf70",
+    "readinessFixCommit": "705b7922cfd3945497c93dcb8cadaa17771800ab",
+    "initialCIFailure": "Online smoke waited for the removed ONLINE banner; fixed to wait for data-mode=online and load-status=ready",
+    "projectCI": 38892587375,
+    "projectCIResult": "in_progress"
   }
 }

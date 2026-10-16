@@ -411,6 +411,7 @@ export function createGame(
       actor: Phaser.GameObjects.Sprite,
       damage: number,
       hero: boolean,
+      critical = false,
     ) {
       const fx = this.fx.find((f) => f.age >= 800);
       if (!fx) return;
@@ -422,22 +423,30 @@ export function createGame(
           : enemyPose(battleState!.battle.enemies.length === 1).scale * 50);
       fx.age = 0;
       fx.text
-        .setText(String(damage))
-        .setColor(hero ? "#ffb5b5" : "#ffe2a3")
+        .setText(critical ? `CRÍTICO ${damage}` : String(damage))
+        .setFontSize(critical ? 20 : 16)
+        .setColor(critical ? "#fff19c" : hero ? "#ffb5b5" : "#ffe2a3")
         .setPosition(fx.x, fx.y)
         .setAlpha(1)
         .setVisible(true);
       if (!reducedMotion) {
         fx.sprite
           .setPosition(actor.x, actor.y - 45)
-          .setTint(hero ? 0xff8c8c : 0xffe2a3)
+          .setScale(critical ? 2.5 : 1.6)
+          .setTint(critical ? 0xffd45c : hero ? 0xff8c8c : 0xffe2a3)
           .setVisible(true)
           .play("dust-impact");
-        actor.setTint(hero ? 0xff8989 : 0xffedb0);
+        actor.setTint(critical ? 0xffda54 : hero ? 0xff8989 : 0xffedb0);
         this.flashes.set(actor, {
           left: 150,
-          color: hero ? 0xff8989 : 0xffedb0,
+          color: critical ? 0xffda54 : hero ? 0xff8989 : 0xffedb0,
         });
+      }
+      if (critical) {
+        parent.dataset["criticalFeedbackCount"] = String(
+          Number(parent.dataset["criticalFeedbackCount"] ?? 0) + 1,
+        );
+        parent.dataset["lastCriticalDamage"] = String(damage);
       }
       parent.dataset["damageFeedbackCount"] = String(
         Number(parent.dataset["damageFeedbackCount"] ?? 0) + 1,
@@ -663,10 +672,22 @@ export function createGame(
       ) {
         const damage = prev.heroHp - b.heroHp;
         if (damage > 0) this.hitFeedback(this.hero, damage, true);
-        b.enemies.forEach((e, i) => {
-          const delta = (prev.enemies[i]?.hp ?? e.hp) - e.hp;
-          if (delta > 0) this.hitFeedback(this.enemies[i]!, delta, false);
-        });
+        const confirmed = b.hits.filter(
+          (hit) => hit.strike > prev.heroStrikes && hit.attempt === b.attempt,
+        );
+        for (const hit of confirmed)
+          this.hitFeedback(
+            this.enemies[hit.target]!,
+            hit.damage,
+            false,
+            hit.critical,
+          );
+        // Older server snapshots without hit records retain ordinary HP-delta feedback only.
+        if (!confirmed.length)
+          b.enemies.forEach((e, i) => {
+            const delta = (prev.enemies[i]?.hp ?? e.hp) - e.hp;
+            if (delta > 0) this.hitFeedback(this.enemies[i]!, delta, false);
+          });
       }
       parent.dataset["heroX"] = String(this.hero.x);
       parent.dataset["enemyTargets"] = JSON.stringify(this.targets);

@@ -1,6 +1,6 @@
 import type { LocalSnapshot } from "./index.js";
 import { CONTENT, levelFromXp, floorDefinition } from "./content.js";
-import { gearStats, awardRpgDeath, addResource } from "./rpg.js";
+import { gearStats, awardRpgDeath, addResource, nextRandom } from "./rpg.js";
 export const LOOP = {
   version: "local-rpg-1",
   floors: CONTENT.maxFloor,
@@ -8,6 +8,8 @@ export const LOOP = {
   bossMs: 30000,
   offlineMs: 8 * 60 * 60 * 1000,
   maxLevel: CONTENT.maxUpgrade,
+  criticalChanceBp: 500,
+  criticalDamageBp: 15000,
 } as const;
 export type Upgrade = "attack" | "vitality" | "click" | "coal";
 export const heroStats = (s: LocalSnapshot, wallAt = s.lastReconciledAt) => {
@@ -99,6 +101,7 @@ export function startEncounter(
   b.floor = floor;
   b.wave = wave;
   b.phase = "fighting";
+  b.hits = [];
   b.failure = "none";
   b.heroNextAt = b.time + 1000;
   b.deadline = stats.boss ? b.time + LOOP.bossMs : 0;
@@ -189,15 +192,30 @@ export function advanceCombat(
       const target = b.enemies.find((e) => e.hp > 0);
       if (target) {
         const modifiers = eventModifiers?.(wallStart + b.time - origin);
-        target.hp = Math.max(
-          0,
-          target.hp -
+        const roll = random ? random(10000) : nextRandom(s) % 10000,
+          critical = roll < LOOP.criticalChanceBp,
+          baseDamage = Math.floor(
+            (heroStats(s, wallStart + b.time - origin).attack *
+              (modifiers?.damageBp ?? damageBp)) /
+              10000,
+          ),
+          damage = Math.min(
+            target.hp,
             Math.floor(
-              (heroStats(s, wallStart + b.time - origin).attack *
-                (modifiers?.damageBp ?? damageBp)) /
-                10000,
+              (baseDamage * (critical ? LOOP.criticalDamageBp : 10000)) / 10000,
             ),
-        );
+          );
+        target.hp -= damage;
+        if (damage > 0) {
+          b.hits.push({
+            strike: b.heroStrikes,
+            attempt: b.attempt,
+            target: b.enemies.indexOf(target),
+            damage,
+            critical,
+          });
+          if (b.hits.length > 8) b.hits.splice(0, b.hits.length - 8);
+        }
         if (target.hp === 0) {
           addResource(
             s,

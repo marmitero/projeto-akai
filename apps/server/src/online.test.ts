@@ -45,6 +45,25 @@ describe.skipIf(!url)("online PostgreSQL integration", () => {
     expect(s.snapshot.balances.iron).toBe("0");
     expect("rng" in s.snapshot.rpg).toBe(false);
   });
+  it("persists and exposes confirmed tower hit results without rerolling reads", async () => {
+    const u = await service.guest();
+    await service.state(u.token);
+    now += 1000;
+    const state = await service.state(u.token),
+      hit = state.snapshot.battle.hits[0]!;
+    expect(hit).toMatchObject({ strike: 1, attempt: 1, target: 0 });
+    expect(hit.damage).toBe(hit.critical ? 9 : 6);
+    expect(state.snapshot.battle.enemies[0]!.hp).toBe(18 - hit.damage);
+    const stored = (
+      await db.pool.query("SELECT snapshot FROM akai_accounts WHERE id=$1", [
+        u.accountId,
+      ])
+    ).rows[0].snapshot;
+    expect(stored.battle.hits).toEqual(state.snapshot.battle.hits);
+    expect((await service.state(u.token)).snapshot.battle.hits).toEqual(
+      state.snapshot.battle.hits,
+    );
+  });
   it("100 concurrent retries across two service instances create one grant, command, ledger and event", async () => {
     const user = await service.guest(),
       cmd = envelope();
@@ -130,6 +149,8 @@ describe.skipIf(!url)("online PostgreSQL integration", () => {
       { elapsed: 99999 },
       { accountId: b.accountId },
       { damage: 9999 },
+      { critical: true },
+      { hits: [{ damage: 9999, critical: true }] },
     ])
       await expect(
         service.command(a.token, { ...envelope(1), ...extra }),

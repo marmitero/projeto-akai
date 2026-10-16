@@ -215,3 +215,77 @@ describe("30 minute deterministic soak", () => {
     expect(s.balances.coal).toBe("540000");
   });
 });
+
+describe("authoritative tower critical hits", () => {
+  it("applies the exact 5 percent threshold and 1.5 multiplier", () => {
+    for (const [roll, damage, critical] of [
+      [499, 9, true],
+      [500, 6, false],
+    ] as const) {
+      const s = create();
+      advanceCombat(s, 1000, 0, () => roll);
+      expect(s.battle.enemies[0]!.hp).toBe(18 - damage);
+      expect(s.battle.hits).toEqual([
+        { strike: 1, attempt: 1, target: 0, damage, critical },
+      ]);
+    }
+  });
+  it("applies tower damage modifiers once and floors fractional critical damage", () => {
+    const boosted = create();
+    advanceCombat(boosted, 1000, 0, () => 0, 10000, 20000);
+    expect(boosted.battle.hits[0]).toMatchObject({
+      damage: 18,
+      critical: true,
+    });
+    expect(boosted.balances.coin).toBe("3000");
+    const fractional = create();
+    advanceCombat(fractional, 1000, 0, () => 0, 10000, 15000);
+    expect(fractional.battle.hits[0]).toMatchObject({
+      damage: 13,
+      critical: true,
+    });
+    expect(fractional.battle.enemies[0]!.hp).toBe(5);
+  });
+  it("records actual HP lost and grants a lethal hit exactly once", () => {
+    const s = create();
+    s.battle.enemies[0]!.hp = 4;
+    advanceCombat(s, 1000, 0, () => 0);
+    expect(s.battle.hits[0]).toMatchObject({ damage: 4, critical: true });
+    expect(s.balances.coin).toBe("3000");
+    const saved = LocalSnapshotSchema.parse(structuredClone(s));
+    advanceCombat(saved, 0, 0, () => 0);
+    expect(saved).toEqual(s);
+  });
+  it("bounds the hit history and resets it with a new encounter", () => {
+    const s = create();
+    s.battle.enemies.forEach((e) => {
+      e.hp = 100000;
+      e.maxHp = 100000;
+      e.nextAt = 999999;
+    });
+    advanceCombat(s, 9000, 0, () => 9999);
+    expect(s.battle.hits).toHaveLength(8);
+    expect(s.battle.hits[0]!.strike).toBe(2);
+    expect(s.battle.hits[7]!.strike).toBe(9);
+    startEncounter(s, 2);
+    expect(s.battle.hits).toEqual([]);
+  });
+  it("adds no historical hits when reading an older schema3 save", () => {
+    const raw = JSON.parse(JSON.stringify(create()));
+    delete raw.battle.hits;
+    const s = LocalSnapshotSchema.parse(raw);
+    expect(s.battle.hits).toEqual([]);
+    s.battle.paused = true;
+    advanceCombat(s, 5000, 0, () => 0);
+    expect(s.battle.hits).toEqual([]);
+  });
+  it("reproduces the same local rolls across reload and segmented ticks", () => {
+    const s = create(),
+      other = LocalSnapshotSchema.parse(structuredClone(s));
+    s.rpg.rng = other.rpg.rng = 1;
+    advanceCombat(s, 5000);
+    for (let i = 0; i < 50; i++) advanceCombat(other, 100);
+    expect(other).toEqual(s);
+    expect(s.battle.hits.some((hit) => hit.critical)).toBe(true);
+  });
+});
