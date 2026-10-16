@@ -1,5 +1,14 @@
 // Vite only bundles this curated subset; never preload the full audit inventory.
 export const assets = {
+  heroPortrait: new URL("./derived/hero-portrait.png", import.meta.url).href,
+  floorPaper0: new URL("./derived/floor-paper-0.png", import.meta.url).href,
+  floorPaper1: new URL("./derived/floor-paper-1.png", import.meta.url).href,
+  floorPaper2: new URL("./derived/floor-paper-2.png", import.meta.url).href,
+  floorPaper3: new URL("./derived/floor-paper-3.png", import.meta.url).href,
+  healthFrame: new URL("./derived/health-frame.png", import.meta.url).href,
+  healthFill: new URL("./derived/health-fill.png", import.meta.url).href,
+  coin: new URL("../../../../sprites/Misc/Tools/Icon286.png", import.meta.url).href,
+
   petIdle:new URL("./derived/pet-slime-idle.png",import.meta.url).href,
   petPortrait:new URL("./derived/pet-slime-portrait.png",import.meta.url).href,
   itemDagger:new URL("../../../../sprites/Equipments/Daggers/Icon81.png",import.meta.url).href,

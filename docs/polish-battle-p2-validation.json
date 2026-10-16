@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-16",
+  "scope": "Battle HUD P2 validated locally; remote staging blocked pending explicit publication authorization",
+  "checks": {
+    "tests": 149,
+    "files": 14,
+    "postgresExecuted": true,
+    "typecheck": true,
+    "assetHashes": true,
+    "buildLocal": true,
+    "buildOnline": true
+  },
+  "localRegression": {
+    "dev": {
+      "browser": "153.0.8010.0",
+      "productionPreview": false,
+      "navigationCycles": 50,
+      "unchangedTextures": "54",
+      "unchangedObjects": "70",
+      "saveReload": true,
+      "hiddenInputBlocked": true,
+      "modalInputBlocked": true,
+      "reducedMotion": true,
+      "widths": [
+        320,
+        360,
+        390,
+        768,
+        844
+      ],
+      "landscape": true,
+      "menus": true,
+      "realMiningGrants": true,
+      "upgradesAndCoal": true,
+      "rpgCraftEquipEnhancePetMinesAndReload": true,
+      "offlineCapAndSingleCredit": true,
+      "bossTimeoutAndTraining": true,
+      "towerCompletedFromMine": true,
+      "missingAssetHandled": true,
+      "onlineFailsClosed": true,
+      "pageErrors": [],
+      "failedAssetResponses": []
+    },
+    "preview": {
+      "browser": "153.0.8010.0",
+      "productionPreview": true,
+      "navigationCycles": 50,
+      "unchangedTextures": "54",
+      "unchangedObjects": "70",
+      "saveReload": true,
+      "hiddenInputBlocked": true,
+      "modalInputBlocked": true,
+      "reducedMotion": true,
+      "widths": [
+        320,
+        360,
+        390,
+        768,
+        844
+      ],
+      "landscape": true,
+      "menus": true,
+      "realMiningGrants": true,
+      "upgradesAndCoal": true,
+      "rpgCraftEquipEnhancePetMinesAndReload": true,
+      "offlineCapAndSingleCredit": true,
+      "bossTimeoutAndTraining": true,
+      "towerCompletedFromMine": true,
+      "missingAssetHandled": true,
+      "onlineFailsClosed": true,
+      "pageErrors": [],
+      "failedAssetResponses": []
+    }
+  },
+  "additionalBrowserChecks": {
+    "hudDev": "polish-battle-p2-dev.json",
+    "hudPreview": "polish-battle-p2-preview.json",
+    "motionDev": "polish-battle-p2-motion-dev.json",
+    "motionPreview": "polish-battle-p2-motion-preview.json",
+    "communityDev": "polish-p2-community-dev.json",
+    "communityPreview": "polish-p2-community-preview.json",
+    "premiumPreview": "Premium isolated simulator smoke passed: production preview"
+  },
+  "limits": [
+    "No new 30 minute soak or physical-device validation",
+    "Critical hit mechanic and authoritative indicator remain pending P3",
+    "No economic balance changes or monetization activation"
+  ],
+  "storageRegression": "HUD browser smoke holds the first IndexedDB write open, submits a name, verifies pending state, releases the write and reloads the persisted name.",
+  "publication": {
+    "state": "blocked-by-automatic-review",
+    "reason": "Prior publication authorization applied to F8; explicit P2 remote-staging authorization required",
+    "localImplementationCommit": "3a4962c",
+    "remotePR1Contains": "P1 only"
+  }
+}

@@ -174,11 +174,13 @@ export function createPremiumUI(root: HTMLElement, online: boolean) {
     );
   }
   function cosmetic(s: PremiumView) {
-    const target = root.querySelector<HTMLElement>(".identity .eyebrow");
-    if (target)
+    const target = root.querySelector<HTMLElement>("#profile-title");
+    if (target) {
+      target.hidden = !s.entitlements.includes("title_miner");
       target.textContent = s.entitlements.includes("title_miner")
         ? "Guardião das Minas"
-        : "PROJETO AKAI";
+        : "";
+    }
   }
   function render(s: PremiumView) {
     cosmetic(s);

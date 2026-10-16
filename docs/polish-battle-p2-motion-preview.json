@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "mode": "preview",
+  "fixture": "Isolated local saves, not a human playtest.",
+  "checks": [
+    "enemy-entry-from-right",
+    "melee-silhouette-gap-16",
+    "boss-silhouette-gap-22",
+    "confirmed-damage-feedback",
+    "transition-parallax",
+    "pause-stops-parallax",
+    "reduced-motion-snap-and-static-background"
+  ],
+  "entryPositions": [
+    562,
+    624,
+    686
+  ],
+  "settledPositions": [
+    158.5,
+    216.5,
+    274.5
+  ],
+  "textures": "54",
+  "objects": "70",
+  "pageErrors": []
+}

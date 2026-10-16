@@ -730,6 +730,41 @@ describe.skipIf(!url)("community real PostgreSQL", () => {
       await base.pool.query("DROP SCHEMA " + sub + " CASCADE");
     }
   });
+  it("HUD identity reads neither advance combat nor renew boss participation", async () => {
+    const a = await user();
+    await command(a.token, { type: "guild.create", name: "Guilda HUD" });
+    now = zonedDate(2026, 10, 15, 22);
+    await online.state(a.token);
+    await social.read(a.token);
+    await command(a.token, { type: "boss", join: true });
+    const account = async () =>
+      (
+        await db.pool.query(
+          "SELECT snapshot,last_at,state_version,presence_until FROM akai_accounts WHERE id=$1",
+          [a.accountId],
+        )
+      ).rows[0];
+    const participation = async () =>
+      (
+        await db.pool.query(
+          "SELECT next_at,present_until,engaged FROM akai_boss_members WHERE account_id=$1",
+          [a.accountId],
+        )
+      ).rows[0];
+    const before = await account(),
+      member = await participation();
+    now += 1000;
+    for (let i = 0; i < 3; i++)
+      expect(await social.identity(a.token)).toEqual({
+        name: "Player 1",
+        guild: "Guilda HUD",
+      });
+    expect(await account()).toEqual(before);
+    expect(await participation()).toEqual(member);
+    await expect(social.identity("invalid")).rejects.toMatchObject({
+      code: "UNAUTHENTICATED",
+    });
+  });
   it("HTTP community enforces auth/CSRF and exposes no admin/event-start route", async () => {
     const app = buildServer(parseServerConfig({}), false, { service: online });
     try {
@@ -742,12 +777,24 @@ describe.skipIf(!url)("community real PostgreSQL", () => {
           })
         ).statusCode,
       ).toBe(401);
+      expect(
+        (
+          await app.inject({
+            url: "/api/v1/community/identity",
+            headers: { "x-akai-client": "1" },
+          })
+        ).statusCode,
+      ).toBe(401);
       const a = await user();
       const headers = {
         origin: "http://localhost:5173",
         "x-akai-client": "1",
         cookie: "akai_session=" + a.token,
       };
+      expect(
+        (await app.inject({ url: "/api/v1/community/identity", headers }))
+          .statusCode,
+      ).toBe(200);
       expect(
         (await app.inject({ url: "/api/v1/community", headers })).statusCode,
       ).toBe(200);

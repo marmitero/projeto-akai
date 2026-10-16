@@ -119,17 +119,24 @@ try {
   // Tutorial is hidden only in this visual fixture; production onboarding remains unchanged.
   await page.locator("#tutorial").evaluate((e) => (e.style.display = "none"));
   await page.locator(".stage-frame").scrollIntoViewIfNeeded();
-  await mkdir("docs/polish-screenshots", { recursive: true });
+  await mkdir(
+    `docs/${process.env.AKAI_POLISH_SCREENSHOTS ?? "polish-screenshots"}`,
+    { recursive: true },
+  );
   await page
     .locator(".stage-frame")
-    .screenshot({ path: "docs/polish-screenshots/contact.png" });
+    .screenshot({
+      path: `docs/${process.env.AKAI_POLISH_SCREENSHOTS ?? "polish-screenshots"}/contact.png`,
+    });
   await page.waitForFunction(
     () =>
       Number(document.querySelector("#game")?.dataset.damageFeedbackCount) > 0,
   );
   await page
     .locator(".stage-frame")
-    .screenshot({ path: "docs/polish-screenshots/damage.png" });
+    .screenshot({
+      path: `docs/${process.env.AKAI_POLISH_SCREENSHOTS ?? "polish-screenshots"}/damage.png`,
+    });
   const transition = fixture();
   transition.battle.enemies.forEach((e) => (e.hp = 0));
   transition.battle.phase = "transition";
@@ -179,7 +186,7 @@ try {
     pageErrors: errors,
   };
   await writeFile(
-    `docs/polish-battle-p1-${preview ? "preview" : "dev"}.json`,
+    `docs/${process.env.AKAI_POLISH_EVIDENCE ?? "polish-battle-p1"}-${preview ? "preview" : "dev"}.json`,
     JSON.stringify(result, null, 2) + "\n",
   );
   console.log(JSON.stringify(result));

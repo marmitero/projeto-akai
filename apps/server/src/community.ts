@@ -8,6 +8,7 @@ import {
   type CommunityAction,
   type CommunityResult,
   type CommunitySnapshot,
+  type CommunityIdentity,
   type PublicPlayer,
 } from "@akai/shared";
 import { OnlineService, OnlineError, digest, type Account } from "./online.js";
@@ -576,6 +577,22 @@ export class CommunityService {
       }
     }
   }
+  /** Header-only read: never settles combat or renews boss/raid presence. */
+  async identity(token: string): Promise<CommunityIdentity> {
+    return this.online.db.transaction(async (c) => {
+      const id = await this.online.identity(token, c);
+      const row = (
+        await c.query(
+          `SELECT COALESCE(p.name,a.snapshot->'profile'->>'name') AS name,g.name AS guild
+         FROM akai_accounts a LEFT JOIN akai_profiles p ON p.account_id=a.id
+         LEFT JOIN akai_members m ON m.account_id=a.id
+         LEFT JOIN akai_guilds g ON g.id=m.guild_id AND g.active WHERE a.id=$1`,
+          [id],
+        )
+      ).rows[0];
+      return { name: row.name, ...(row.guild ? { guild: row.guild } : {}) };
+    });
+  }
   async read(token: string): Promise<CommunitySnapshot> {
     return this.online.db.transaction(async (c) => {
       await this.global(c);
@@ -624,16 +641,14 @@ export class CommunityService {
             [guild, id, guild ? Number(m?.joined_at ?? now) : 0],
           )
         ).rows;
-        return rows
-          .reverse()
-          .map((r) => ({
-            id: r.id,
-            authorId: r.author,
-            name: r.name,
-            text: r.text,
-            at: Number(r.at),
-            emblem: r.emblem ?? null,
-          }));
+        return rows.reverse().map((r) => ({
+          id: r.id,
+          authorId: r.author,
+          name: r.name,
+          text: r.text,
+          at: Number(r.at),
+          emblem: r.emblem ?? null,
+        }));
       };
       const guild = m
         ? {

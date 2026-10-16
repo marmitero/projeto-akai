@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "mode": "dev",
+  "checks": [
+    "nickname-first-start-and-reload",
+    "nickname-queued-during-indexeddb-write",
+    "nickname-edit-through-portrait",
+    "five-sprite-resources",
+    "no-empty-guild-line",
+    "upgrades-above-nav-without-scroll",
+    "floor-window-boundaries",
+    "in-arena-health-bars",
+    "resource-details-accessible"
+  ],
+  "layouts": [
+    {
+      "width": 320,
+      "height": 640,
+      "scroll": 0,
+      "upgradeBottom": 509.390625,
+      "navTop": 553.609375,
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "height": 740,
+      "scroll": 0,
+      "upgradeBottom": 526.578125,
+      "navTop": 653.609375,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "scroll": 0,
+      "upgradeBottom": 605.828125,
+      "navTop": 757.609375,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "scroll": 0,
+      "upgradeBottom": 674.578125,
+      "navTop": 938,
+      "overflow": false
+    }
+  ],
+  "pageErrors": []
+}

@@ -3,6 +3,7 @@ import {
   EMBLEM_PALETTE,
   type CommunityAction,
   type CommunitySnapshot,
+  type CommunityIdentity,
   type CommunityResult,
 } from "@akai/shared";
 import { api, ApiFailure } from "../online-session.js";
@@ -34,12 +35,24 @@ const date = (at: number) =>
     hour: "2-digit",
     minute: "2-digit",
   }).format(at) + " (Brasília)";
-export function createCommunityUI(root: HTMLElement, online: boolean) {
+export function createCommunityUI(
+  root: HTMLElement,
+  online: boolean,
+  onIdentity: (
+    name: string,
+    guild?: string,
+    result?: CommunityResult,
+  ) => void = () => {},
+) {
   const host = root.querySelector<HTMLElement>("#community-root")!;
   if (!online) {
     host.innerHTML =
       '<div class="panel"><h2>Seu reino ainda é local</h2><p>Comunidade precisa de uma conta online e servidor configurado. O jogar.bat continua sendo o teste local; nenhum jogador ou evento falso é criado aqui.</p></div>';
-    return { show: () => {}, destroy: () => {} };
+    return {
+      show: () => {},
+      destroy: () => {},
+      rename: (_name: string) => false,
+    };
   }
   host.innerHTML = `<p class="body-copy">Comunidade online · horários de Brasília. Seus dados e resultados são confirmados pelo servidor.</p><p id="community-status" role="status" aria-live="polite"></p>
  <nav class="community-tabs" aria-label="Áreas da comunidade">${[
@@ -103,7 +116,7 @@ export function createCommunityUI(root: HTMLElement, online: boolean) {
         "Dados inválidos. Confira o texto, o UUID e os limites.";
       return false;
     }
-    if (pending || !active || document.hidden) {
+    if (pending || (!active && action.type !== "profile") || document.hidden) {
       status.textContent = "Aguarde a confirmação ou abra a comunidade.";
       return false;
     }
@@ -111,11 +124,11 @@ export function createCommunityUI(root: HTMLElement, online: boolean) {
     void refresh();
     return true;
   }
-  async function refresh() {
+  async function refresh(identityOnly = false) {
     if (
       loading ||
       disposed ||
-      !active ||
+      (!active && !pending && !identityOnly) ||
       document.hidden ||
       Date.now() < retryAt
     )
@@ -130,10 +143,16 @@ export function createCommunityUI(root: HTMLElement, online: boolean) {
         if (result.status === "applied" && type === "guild.emblem")
           dirtyEmblem = false;
       }
+      if (!active) {
+        const identity = await api<CommunityIdentity>("community/identity");
+        if (!disposed) onIdentity(identity.name, identity.guild, result);
+        return;
+      }
       const state = await api<CommunitySnapshot>("community");
       if (disposed) return;
       latest = state;
-      render(state);
+      onIdentity(state.name, state.guild?.name, result);
+      if (active) render(state);
       status.textContent = result
         ? result.status === "applied"
           ? "Ação confirmada."
@@ -473,17 +492,14 @@ export function createCommunityUI(root: HTMLElement, online: boolean) {
     type: "guild.invite",
     accountId: String(d.get("id")),
   }));
-  host
-    .querySelector("#community-unblock")!
-    .addEventListener("click", () =>
-      send({
-        type: "block",
-        accountId: host.querySelector<HTMLInputElement>(
-          "#community-unblock-id",
-        )!.value,
-        blocked: false,
-      }),
-    );
+  host.querySelector("#community-unblock")!.addEventListener("click", () =>
+    send({
+      type: "block",
+      accountId: host.querySelector<HTMLInputElement>("#community-unblock-id")!
+        .value,
+      blocked: false,
+    }),
+  );
   for (const [id, action] of [
     ["community-guild-upgrade", { type: "guild.upgrade" }],
     ["community-guild-leave", { type: "guild.leave" }],
@@ -510,10 +526,17 @@ export function createCommunityUI(root: HTMLElement, online: boolean) {
       for (const button of host.querySelectorAll("[data-community-tab]"))
         button.setAttribute("aria-pressed", String(button === b));
     });
+  let identityAt = 0;
   const timer = setInterval(() => {
-    void refresh();
+    const identityDue = Date.now() - identityAt > 15000;
+    if (identityDue) identityAt = Date.now();
+    void refresh(identityDue);
   }, 2000);
+  void refresh(true);
   return {
+    rename(name: string) {
+      return send({ type: "profile", name });
+    },
     show(value: boolean) {
       active = value;
       if (value) void refresh();

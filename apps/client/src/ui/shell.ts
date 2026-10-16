@@ -9,12 +9,24 @@ function upgradeCard(kind: string, title: string): string {
 export function createShell(root: HTMLElement): void {
   installAssetStyles(root);
   root.innerHTML = `<div class="game-shell">
-  <header class="top-hud panel"><div class="identity"><div class="portrait" aria-label="Retrato do rei ainda não disponível"><span>AK</span></div><div><p class="eyebrow">PROJETO AKAI</p><strong>Reino em ascensão</strong><small>Local · <span data-balance="coin" data-compact>0</span> Coins</small></div></div><button class="icon-button" id="resources" aria-label="Ver recursos">${icon("iron")}<span data-balance="iron" data-compact>0</span></button></header>
-  <div class="preview-strip"><span class="preview-mark">MVP LOCAL</span><span>Fase 4 · progresso salvo neste navegador</span></div>
-  <main id="content" class="content" tabindex="-1">
+  <header class="top-hud panel"><button class="identity" id="profile-open" aria-label="Abrir perfil"><span class="portrait"><img src="${assets.heroPortrait}" alt="Retrato do protagonista" draggable="false"></span><span class="player-identity"><strong id="player-name">Aventureiro</strong><small id="player-guild" hidden></small></span></button><button class="resource-wallet" id="resources" aria-label="Ver recursos">${(
+    [
+      ["coin", "Coins"],
+      ["iron", "Ferro"],
+      ["coal", "Carvão"],
+      ["ruby", "Ruby"],
+      ["gold", "Ouro"],
+    ] as const
+  )
+    .map(
+      ([key, label]) =>
+        `<span class="wallet-item" data-resource="${key}" title="${label}">${icon(key)}<span class="sr-only">${label}: </span><span data-balance="${key}" data-compact>0</span></span>`,
+    )
+    .join("")}</button></header>
+  <main id="content" class="content" data-view="battle" tabindex="-1">
     <p id="offline-summary" class="notice" role="status" hidden></p><p id="tutorial" class="tutorial panel"></p><p id="action-status" role="status" aria-live="polite"></p><header class="page-heading"><div><p id="page-kicker" class="eyebrow">A TORRE</p><h1 id="page-title">Batalha</h1></div><span id="page-badge" class="badge">Andar 1</span></header>
     <section id="visual-area" aria-label="Cenário da atividade selecionada">
-      <div class="stage-frame"><div id="game" role="img" aria-label="Combate lateral automático"></div>
+      <div class="stage-frame"><ol id="floor-banner" class="floor-banner" aria-label="Andares da torre"></ol><div id="game" role="img" aria-label="Combate lateral automático"></div>
         <div id="asset-status" class="loading-message" role="status">Preparando o cenário…</div>
         <button id="mine-target" class="mine-target" aria-label="Minerar ferro" hidden disabled><span class="sr-only">Toque para receber ferro</span></button>
         <span id="scene-caption" class="scene-caption">Floresta do reino</span>
@@ -22,10 +34,11 @@ export function createShell(root: HTMLElement): void {
       <p id="visual-description" class="sr-only">Batalha automática com vida, ondas e recompensas.</p>
     </section>
     <section data-pane="battle" class="activity-details" aria-label="Batalha automática">
-      <div class="encounter panel"><div>${icon("sword")}<span>Guerreiro<span id="hero-stats" class="muted"></span></span></div><span class="versus">VS</span><div><span id="enemy-name">Esqueletos</span></div></div>
-      <div class="combat-readout panel"><label>Vida do guerreiro <span id="hero-hp"></span><progress id="hero-health" max="100" value="100"></progress></label><div id="enemy-health"></div></div>
+      <div class="encounter sr-only"><div>${icon("sword")}<span>Guerreiro<span id="hero-stats" class="muted"></span></span></div><span class="versus">VS</span><div><span id="enemy-name">Esqueletos</span></div></div>
+      <div class="combat-readout sr-only" aria-label="Vida dos combatentes"><label>Vida do guerreiro <span id="hero-hp"></span><progress id="hero-health" max="100" value="100"></progress></label><div id="enemy-health"></div></div>
       <p id="battle-status" class="body-copy" role="status"></p><div class="battle-actions"><button id="pause-battle">Pausar batalha</button><button id="retry-battle" hidden>Tentar novamente</button><button id="train-battle" hidden>Treinar no andar anterior</button></div>
-      <h2>Fortaleça seu guerreiro</h2><div class="upgrade-list">${upgradeCard("attack", "Força do guerreiro")}${upgradeCard("vitality", "Vitalidade")}</div>
+      <form id="nickname-setup" class="nickname-setup" hidden><label for="starting-name">Seu nick</label><input id="starting-name" name="name" minlength="3" maxlength="24" placeholder="Nome do guerreiro" required><button>Começar</button></form>
+      <h2 class="upgrade-heading">Melhorias</h2><div class="upgrade-list">${upgradeCard("attack", "Força do guerreiro")}${upgradeCard("vitality", "Vitalidade")}</div>
 
     </section>
     <section data-pane="mine" class="activity-details" aria-label="Mineração de ferro" hidden>
@@ -57,14 +70,15 @@ export function createShell(root: HTMLElement): void {
   <dialog id="menu-dialog" aria-labelledby="dialog-title"><div class="dialog-panel panel"><div class="dialog-heading"><h2 id="dialog-title">Seu reino</h2><button id="close-dialog" class="close-button" aria-label="Fechar menu">${icon("close")}</button></div>
     <div id="dialog-menu"><div class="shortcut-row"><button data-shortcut="bag">${icon("bag")}Mochila</button><button data-shortcut="shop">${icon("shop")}Loja</button></div>
     <button data-shortcut="community">Comunidade</button><button data-shortcut="market">Mercado</button>
-    <h3 id="profile-heading">Perfil local de teste</h3><p class="body-copy">O retrato do rei ainda não foi definido. Seu perfil local é salvo somente neste navegador.</p>
+    <h3 id="profile-heading">Perfil local de teste</h3><p class="body-copy">Seu perfil é salvo neste navegador. Escolha como quer ser chamado.</p>
+    <p id="profile-title" class="muted" hidden></p><form id="profile-name-form" class="community-form"><label>Nick do jogador<input name="name" minlength="3" maxlength="24" required autocomplete="nickname"></label><button>Salvar nick</button></form><p id="profile-name-status" role="status"></p>
     <label class="motion-setting"><input id="reduce-motion" type="checkbox"> Reduzir movimento e efeitos</label>
     <div class="save-actions"><button id="save" disabled>Salvar perfil local</button><button id="recover" hidden>Restaurar cópia anterior</button></div>
     <p id="save-status" role="status" aria-live="polite">Abrindo salvamento…</p>
     <details><summary>Outros destinos do reino</summary><p>Habilidades avançadas são futuras. Comunidade e Mercado estão no modo online; Loja depende da configuração de teste do servidor.</p></details></div>
     <div id="dialog-resources" hidden><p class="body-copy">Saldos do perfil local. Ouro e jade são gerados pelas minas desbloqueadas. Ruby permanece indisponível.</p><dl class="resources-list">${(
       [
-        ["coin", "Coins", null],
+        ["coin", "Coins", "coin"],
         ["iron", "Ferro", "iron"],
         ["coal", "Carvão", "coal"],
         ["gold", "Ouro", "gold"],

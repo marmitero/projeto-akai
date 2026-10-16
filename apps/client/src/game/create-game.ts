@@ -45,6 +45,12 @@ export function createGame(
     private targets: Array<number | null> = [];
     private arriving = false;
     private groundOffset = 0;
+    private heroMaxHp = 100;
+    private healthBars: Array<{
+      frame: Phaser.GameObjects.Image;
+      background: Phaser.GameObjects.Image;
+      fill: Phaser.GameObjects.Image;
+    }> = [];
     private flashes = new Map<
       Phaser.GameObjects.Sprite,
       { left: number; color: number }
@@ -99,6 +105,8 @@ export function createGame(
         "coalNode",
         "goldNode",
         "jadeNode",
+        "healthFrame",
+        "healthFill",
         "sky",
         "hills",
         "castle",
@@ -250,6 +258,19 @@ export function createGame(
         this.actor(296, 1.5, true),
         this.actor(344, 1.45, true),
       ];
+      for (let i = 0; i < 4; i++) {
+        const frame = this.add.image(0, 0, "healthFrame"),
+          background = this.add
+            .image(0, 0, "healthFill")
+            .setTint(0x251b2b)
+            .setOrigin(0, 0.5),
+          fill = this.add
+            .image(0, 0, "healthFill")
+            .setOrigin(0, 0.5)
+            .setTint(i === 0 ? 0x8bc981 : 0xe38779);
+        this.groups.get("battle")!.add([frame, background, fill]);
+        this.healthBars.push({ frame, background, fill });
+      }
       for (let i = 0; i < 10; i++) {
         const sprite = this.add
           .sprite(0, 0, "dust")
@@ -422,6 +443,33 @@ export function createGame(
         Number(parent.dataset["damageFeedbackCount"] ?? 0) + 1,
       );
     }
+    private syncHealth(): void {
+      if (!battleState) return;
+      const b = battleState.battle;
+      [this.hero, ...this.enemies].forEach((actor, i) => {
+        const bar = this.healthBars[i];
+        if (!bar) return;
+        const hp = i === 0 ? b.heroHp : (b.enemies[i - 1]?.hp ?? 0),
+          max = i === 0 ? this.heroMaxHp : (b.enemies[i - 1]?.maxHp ?? 1),
+          width = i === 0 ? 40 : b.enemies.length === 1 ? 54 : 32,
+          y = actor.y - 57 * actor.scaleY,
+          x = actor.x - width / 2 + (width * 8) / 96,
+          inner = (width * 80) / 96,
+          visible = actor.visible && hp > 0;
+        bar.frame
+          .setPosition(actor.x, y)
+          .setDisplaySize(width, 7)
+          .setVisible(visible);
+        bar.background
+          .setPosition(x, y - 0.2)
+          .setDisplaySize(inner, 2.3)
+          .setVisible(visible);
+        bar.fill
+          .setPosition(x, y - 0.2)
+          .setDisplaySize(inner * Math.max(0, Math.min(1, hp / max)), 2.3)
+          .setVisible(visible);
+      });
+    }
     update(_time: number, delta: number): void {
       const b = battleState?.battle;
       if (!b || !this.hero || screen !== "battle" || overlay || document.hidden)
@@ -496,6 +544,7 @@ export function createGame(
           fx.sprite.setVisible(false);
         }
       }
+      this.syncHealth();
       parent.dataset["parallaxOffset"] = this.groundOffset.toFixed(2);
       parent.dataset["enemyPositions"] = JSON.stringify(
         this.enemies.map((e) => Number(e.x.toFixed(1))),
@@ -514,6 +563,7 @@ export function createGame(
       parent.dataset["combatPhase"] = b.phase;
       const boss = b.enemies.length === 1;
       this.hero.x = 100;
+      this.heroMaxHp = heroStats(battleState).hp;
       this.targets = formation(
         this.hero.x,
         b.enemies.map((e) => e.hp > 0),
@@ -628,7 +678,9 @@ export function createGame(
           enemyPose(boss),
         ),
       );
-      parent.dataset["heroMaxHp"] = String(heroStats(battleState).hp);
+      parent.dataset["heroMaxHp"] = String(this.heroMaxHp);
+      this.syncHealth();
+      parent.dataset["healthBarCount"] = String(this.healthBars.length);
       this.lastBattle = structuredClone(b);
       this.applyState();
     }

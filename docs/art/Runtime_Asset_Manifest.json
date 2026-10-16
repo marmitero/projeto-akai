@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "stage": "Battle presentation polish P1",
+  "stage": "Battle HUD polish P2",
   "originals": [
     {
       "path": "sprites/Acessories/Pendants/Icon251.png",
@@ -257,6 +257,13 @@
     {
       "path": "sprites/Misc/Tools/Icon292.png",
       "sha256": "a9e73c60679654d1fe9bd4dbda929e7f10a2481366e759b86c70848d6b1a446e",
+      "width": 32,
+      "height": 32,
+      "licenseStatus": "unverified"
+    },
+    {
+      "path": "sprites/Misc/Tools/Icon286.png",
+      "sha256": "edf1e0bb21d32ccb4f3e035c89a5ed83943bb8be229b25b5b941d02dcd2c2710",
       "width": 32,
       "height": 32,
       "licenseStatus": "unverified"
@@ -1200,6 +1207,153 @@
       ],
       "fps": 10,
       "direction": "right; runtime flipX for enemy left"
+    },
+    {
+      "key": "hero-portrait",
+      "output": "apps/client/src/assets/derived/hero-portrait.png",
+      "sha256": "633bd7c5f6327a4564912f926c3dc1601353b04399a3a4d010fced3b0b78c97f",
+      "width": 19,
+      "height": 24,
+      "sources": [
+        {
+          "path": "apps/client/src/assets/derived/hero-idle.png",
+          "sha256": "e8e5afec7f88b0fbe358e1d476dc91eefe7686ee099c215b557c43fa08bf9768"
+        }
+      ],
+      "crop": [
+        71,
+        63,
+        90,
+        87
+      ],
+      "licenseStatus": "unverified",
+      "transform": "crop only"
+    },
+    {
+      "key": "floor-paper-0",
+      "output": "apps/client/src/assets/derived/floor-paper-0.png",
+      "sha256": "a56348d1a7407ede49db316ba620bde43e72c096787fea9cc4efb56a1c39f33b",
+      "width": 31,
+      "height": 45,
+      "sources": [
+        {
+          "path": "sprites/Hud/20250420manaTabB-Sheet.png",
+          "sha256": "728fef42850bc9227a496813cf5aba8677e57c7e4be1f932dfe03b7aa3b66060"
+        }
+      ],
+      "crop": [
+        0,
+        0,
+        31,
+        45
+      ],
+      "licenseStatus": "unverified",
+      "transform": "crop only"
+    },
+    {
+      "key": "floor-paper-1",
+      "output": "apps/client/src/assets/derived/floor-paper-1.png",
+      "sha256": "4b8c4a3ae8212694bb8a42987f687e7f984ba976f4692f04ca4ab092176449ec",
+      "width": 31,
+      "height": 45,
+      "sources": [
+        {
+          "path": "sprites/Hud/20250420manaTabB-Sheet.png",
+          "sha256": "728fef42850bc9227a496813cf5aba8677e57c7e4be1f932dfe03b7aa3b66060"
+        }
+      ],
+      "crop": [
+        31,
+        0,
+        62,
+        45
+      ],
+      "licenseStatus": "unverified",
+      "transform": "crop only"
+    },
+    {
+      "key": "floor-paper-2",
+      "output": "apps/client/src/assets/derived/floor-paper-2.png",
+      "sha256": "82ae463c04f09c1bc6d645bb17632222c67120289beca821bd0bd745a86d62cb",
+      "width": 31,
+      "height": 45,
+      "sources": [
+        {
+          "path": "sprites/Hud/20250420manaTabB-Sheet.png",
+          "sha256": "728fef42850bc9227a496813cf5aba8677e57c7e4be1f932dfe03b7aa3b66060"
+        }
+      ],
+      "crop": [
+        62,
+        0,
+        93,
+        45
+      ],
+      "licenseStatus": "unverified",
+      "transform": "crop only"
+    },
+    {
+      "key": "floor-paper-3",
+      "output": "apps/client/src/assets/derived/floor-paper-3.png",
+      "sha256": "1faee5aa3bdaf35dc9162a266287f0802beb2a80c3911477b086100ed2ac4046",
+      "width": 31,
+      "height": 45,
+      "sources": [
+        {
+          "path": "sprites/Hud/20250420manaTabB-Sheet.png",
+          "sha256": "728fef42850bc9227a496813cf5aba8677e57c7e4be1f932dfe03b7aa3b66060"
+        }
+      ],
+      "crop": [
+        93,
+        0,
+        124,
+        45
+      ],
+      "licenseStatus": "unverified",
+      "transform": "crop only"
+    },
+    {
+      "key": "health-frame",
+      "output": "apps/client/src/assets/derived/health-frame.png",
+      "sha256": "d5f17de527fbeab283b3106b26e2be59c7f852628f31baf931c4eeb11a53382d",
+      "width": 96,
+      "height": 16,
+      "sources": [
+        {
+          "path": "sprites/Hud/20250421barB-Sheet.png",
+          "sha256": "e2bfd2a8b96a9d204ed3101b5eeef5a5ab49f5a19ba70b8289f30a16c668d3a5"
+        }
+      ],
+      "crop": [
+        0,
+        0,
+        96,
+        16
+      ],
+      "licenseStatus": "unverified",
+      "transform": "crop only"
+    },
+    {
+      "key": "health-fill",
+      "output": "apps/client/src/assets/derived/health-fill.png",
+      "sha256": "bfd7aa3523a8ad14777598403d2545474df487dfc3711ab01d919a1f8b9305d3",
+      "width": 80,
+      "height": 5,
+      "sources": [
+        {
+          "path": "sprites/Hud/20250421barB-Sheet.png",
+          "sha256": "e2bfd2a8b96a9d204ed3101b5eeef5a5ab49f5a19ba70b8289f30a16c668d3a5"
+        }
+      ],
+      "crop": [
+        8,
+        5,
+        88,
+        10
+      ],
+      "licenseStatus": "unverified",
+      "transform": "crop; white fill mask"
     }
   ]
 }

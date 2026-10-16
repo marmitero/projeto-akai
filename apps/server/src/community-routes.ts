@@ -7,6 +7,9 @@ export async function communityRoutes(
   online: OnlineService,
 ) {
   const service = new CommunityService(online);
+  app.get("/api/v1/community/identity", async (req) =>
+    service.identity(sessionToken(req)),
+  );
   app.get("/api/v1/community", async (req) => service.read(sessionToken(req)));
   app.post("/api/v1/community/commands", async (req, reply) => {
     const token = sessionToken(req);

@@ -1,4 +1,5 @@
 import "./style.css";
+import { createFloorBanner } from "./ui/battle-hud.js";
 import { createPremiumUI } from "./ui/premium.js";
 import { createMarketUI } from "./ui/market.js";
 import { createCommunityUI } from "./ui/community.js";
@@ -78,10 +79,6 @@ async function boot(): Promise<void> {
     : new LocalSession(systemClock, snapshot);
   snapshot = session.getSnapshot();
   if (online) {
-    document.querySelector(".preview-strip")!.textContent =
-      "ONLINE · Fase 8 · estado e recompensas confirmados pelo servidor";
-    document.querySelector(".identity small")!.firstChild!.textContent =
-      "Online · ";
     saveButton.textContent = "Sincronizar";
     document.querySelector("#profile-heading + p")!.textContent =
       "Conta online. Guarde sua chave de recuperação; o progresso fica no servidor.";
@@ -99,7 +96,29 @@ async function boot(): Promise<void> {
   }
   const premiumUI = createPremiumUI(root!, online);
   const marketUI = createMarketUI(root!, online);
-  const communityUI = createCommunityUI(root!, online);
+  let onlineName: string | undefined;
+  let submittedName: string | undefined;
+  const communityUI = createCommunityUI(
+    root!,
+    online,
+    (name, guild, result) => {
+      onlineName = name;
+      if (submittedName && result) {
+        document.querySelector("#profile-name-status")!.textContent =
+          result.status === "applied"
+            ? "Nick confirmado."
+            : `Apelido recusado: ${result.code}.`;
+        submittedName = undefined;
+      }
+      document.querySelector("#player-name")!.textContent = name;
+      const line = document.querySelector<HTMLElement>("#player-guild")!;
+      line.textContent = guild ?? "";
+      line.hidden = !guild;
+    },
+  );
+  const renderFloors = createFloorBanner(
+    document.querySelector<HTMLElement>("#floor-banner")!,
+  );
   let route: Route = snapshot.screen;
   const scroll = new Map<Route, number>();
   const content = document.querySelector<HTMLElement>("#content")!;
@@ -121,6 +140,9 @@ async function boot(): Promise<void> {
   function renderRoute(next: Route): void {
     scroll.set(route, content.scrollTop);
     route = next;
+    content.dataset["view"] = next;
+    document.querySelector<HTMLElement>("#floor-banner")!.hidden =
+      next !== "battle";
     communityUI.show(next === "community");
     marketUI.show(next === "market");
     premiumUI.show(next === "shop");
@@ -213,6 +235,19 @@ async function boot(): Promise<void> {
   let lootSerial = snapshot.rpg.lootSerial;
   const unsubscribe = session.subscribe((state) => {
     visual.setBattle(state);
+    renderFloors(state.battle.floor);
+    const defaultName = state.profile.name === "Perfil local de teste";
+    text(
+      "player-name",
+      onlineName ?? (defaultName ? "Aventureiro" : state.profile.name),
+    );
+    document.querySelector<HTMLElement>("#nickname-setup")!.hidden =
+      online || !defaultName;
+    const nameField = document.querySelector<HTMLInputElement>(
+      "#profile-name-form input",
+    )!;
+    if (document.activeElement !== nameField)
+      nameField.value = onlineName ?? (defaultName ? "" : state.profile.name);
     rpgUI.render(state);
     text(
       "profile-heading",
@@ -261,7 +296,7 @@ async function boot(): Promise<void> {
             ? `Batalha pausada. ${boss ? Math.max(0, Math.ceil((b.deadline - b.time) / 1000)) + "s restantes no boss." : "Mineração e produção continuam."}`
             : b.phase === "transition"
               ? "Vitória! Seguindo para o próximo encontro…"
-              : `Andar ${b.floor} ${b.training ? "· Treino " : ""}· ${boss ? "Boss" : `Onda ${b.wave}/3`} · ${boss ? `${Math.max(0, Math.ceil((b.deadline - b.time) / 1000))}s restantes` : "Combate automático"}`,
+              : `${b.training ? "Treino · " : ""}${boss ? `Boss · ${Math.max(0, Math.ceil((b.deadline - b.time) / 1000))}s restantes` : `Onda ${b.wave}/3`}`,
     );
     document.querySelector<HTMLButtonElement>("#retry-battle")!.hidden =
       b.phase !== "failed";
@@ -343,31 +378,39 @@ async function boot(): Promise<void> {
   });
   renderRoute(route);
   saveButton.disabled = online || !writable;
-  let saving = false;
-  async function persist(): Promise<void> {
+  let saveRequested = false;
+  let saveInFlight: Promise<void> | undefined;
+  function persist(): Promise<void> {
     if (online) {
       session.tick();
-      return;
+      return Promise.resolve();
     }
-    if (!repository || !writable || saving) return;
-    saving = true;
+    if (!repository || !writable) return Promise.resolve();
+    saveRequested = true;
+    if (saveInFlight) return saveInFlight;
     saveButton.disabled = true;
-    try {
-      session.tick();
-      const current = session.getSnapshot();
-      current.savedAt = current.lastReconciledAt;
-      session.acknowledgeSave(await repository.save(current));
-      status.textContent = "Perfil salvo neste navegador.";
-    } catch (error) {
-      writable = false;
-      status.textContent =
-        error instanceof SaveConflictError
-          ? "Outro perfil/aba gravou uma versão mais recente. Recarregue antes de salvar."
-          : "Falha de salvamento. Dados anteriores preservados; recarregue para tentar novamente.";
-    } finally {
-      saving = false;
+    saveInFlight = (async () => {
+      while (saveRequested && writable) {
+        saveRequested = false;
+        try {
+          session.tick();
+          const current = session.getSnapshot();
+          current.savedAt = current.lastReconciledAt;
+          session.acknowledgeSave(await repository!.save(current));
+          status.textContent = "Perfil salvo neste navegador.";
+        } catch (error) {
+          writable = false;
+          status.textContent =
+            error instanceof SaveConflictError
+              ? "Outro perfil/aba gravou uma versão mais recente. Recarregue antes de salvar."
+              : "Falha de salvamento. Dados anteriores preservados; recarregue para tentar novamente.";
+        }
+      }
+    })().finally(() => {
+      saveInFlight = undefined;
       saveButton.disabled = online || !writable;
-    }
+    });
+    return saveInFlight;
   }
   const removers: Array<() => void> = [];
   function listen<T extends Event>(
@@ -399,6 +442,41 @@ async function boot(): Promise<void> {
       event.preventDefault();
     }
   });
+  for (const id of ["nickname-setup", "profile-name-form"]) {
+    listen<SubmitEvent>(
+      document.getElementById(id)!,
+      "submit",
+      async (event) => {
+        event.preventDefault();
+        const form = event.currentTarget as HTMLFormElement;
+        const name = String(new FormData(form).get("name") ?? "").trim();
+        if (name.length < 3 || name.length > 24) return;
+        if (session instanceof LocalSession) {
+          session.setName(name);
+          text("profile-name-status", "Salvando nick…");
+          await persist();
+          text(
+            "profile-name-status",
+            writable
+              ? "Nick salvo."
+              : "Não foi possível salvar o nick; confira o estado do perfil.",
+          );
+        } else {
+          const sent = communityUI.rename(name);
+          if (sent) submittedName = name;
+          text(
+            "profile-name-status",
+            sent
+              ? "Apelido enviado; aguardando confirmação."
+              : "Aguarde a operação atual e tente novamente.",
+          );
+        }
+      },
+    );
+  }
+  listen(document.getElementById("profile-open")!, "click", () =>
+    openDialog("menu", document.getElementById("profile-open")!),
+  );
   let returnFocus: HTMLElement | undefined;
   function openDialog(kind: "menu" | "resources", trigger: HTMLElement): void {
     returnFocus = trigger;

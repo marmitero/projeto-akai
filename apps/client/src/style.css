@@ -962,3 +962,235 @@ progress {
 #premium-root .premium-card { padding:1rem; margin-block:1rem; }
 #premium-root .premium-card img { width:40px; height:40px; object-fit:contain; float:left; margin-right:.5rem; }
 #premium-root button { overflow-wrap:normal; max-width:100%; }
+
+
+/* Battle HUD P2: sprite portrait, resource wallet and compact arena. */
+.top-hud {
+  border-width: 8px;
+  border-image-width: 8px;
+  padding: 2px 4px;
+  gap: 8px;
+}
+.identity {
+  border: 0;
+  background: none;
+  padding: 0;
+  text-align: left;
+  gap: 7px;
+  min-height: 48px;
+  flex: 1;
+  overflow: hidden;
+}
+.identity .portrait {
+  width: 34px;
+  height: 46px;
+}
+.portrait img {
+  width: 28px;
+  height: 38px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+.player-identity {
+  min-width: 0;
+  display: block;
+}
+.identity strong {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.identity small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 10px;
+  margin-top: 3px;
+}
+.resource-wallet {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(44px, 1fr));
+  gap: 2px 6px;
+  width: 53%;
+  min-height: 50px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font:
+    11px system-ui,
+    sans-serif;
+}
+.wallet-item {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+  justify-content: flex-start;
+}
+.wallet-item .sprite {
+  width: 20px;
+  height: 20px;
+}
+.wallet-item [data-balance] {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.content[data-view="battle"] {
+  padding: 6px 8px 12px;
+}
+.content[data-view="battle"] > .page-heading,
+.content[data-view="battle"] > #tutorial,
+.content[data-view="battle"] .scene-caption {
+  display: none;
+}
+.content[data-view="battle"] .activity-details {
+  margin-top: 6px;
+}
+.content[data-view="battle"] .combat-readout {
+  padding: 0;
+  margin: 0;
+}
+.content[data-view="battle"] #battle-status {
+  font-size: 12px;
+  margin: 3px 0;
+  min-height: 16px;
+}
+.content[data-view="battle"] .battle-actions {
+  margin: 0 0 6px;
+}
+.content[data-view="battle"] .battle-actions button {
+  min-height: 36px;
+  padding: 5px 12px;
+  font-size: 12px;
+}
+.content[data-view="battle"] .upgrade-heading {
+  font-size: 15px;
+}
+.content[data-view="battle"] .upgrade-list {
+  margin: 5px 0 0;
+  gap: 5px;
+}
+.content[data-view="battle"] .upgrade-card {
+  padding: 5px 7px;
+  border-width: 8px;
+  border-image-width: 8px;
+}
+.content[data-view="battle"] .upgrade-card p {
+  margin: 3px 0;
+  font-size: 11px;
+}
+.content[data-view="battle"] .upgrade-card h3 {
+  font-size: 13px;
+}
+.content[data-view="battle"] .upgrade-card button {
+  min-height: 38px;
+  padding: 5px 9px;
+  font-size: 12px;
+}
+.floor-banner {
+  position: absolute;
+  z-index: 2;
+  inset: 0 0 auto;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  list-style: none;
+  pointer-events: none;
+}
+.floor-banner li {
+  width: 10.8%;
+  max-width: 43px;
+  aspect-ratio: 31 / 45;
+  background-size: 100% 100%;
+  image-rendering: pixelated;
+  display: grid;
+  place-items: center;
+  padding-top: 7px;
+  color: #624146;
+  font:
+    bold 16px Georgia,
+    serif;
+  opacity: 0.82;
+}
+.floor-banner li[aria-current] {
+  width: 12.6%;
+  max-width: 49px;
+  color: #351d36;
+  font-size: clamp(16px, 5vw, 22px);
+  opacity: 1;
+  text-shadow: 0 1px #fff4cb;
+}
+.nickname-setup {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  margin: 6px 0;
+}
+.nickname-setup input {
+  min-width: 0;
+  width: 100%;
+  padding: 8px;
+}
+.nickname-setup label {
+  white-space: nowrap;
+}
+.nickname-setup button {
+  min-height: 36px;
+  padding: 5px 8px;
+}
+@media (max-height: 740px) {
+  .content[data-view="battle"] .stage-frame {
+    max-width: 326px;
+    margin-inline: auto;
+  }
+  .content[data-view="battle"] .upgrade-list {
+    grid-template-columns: 1fr 1fr;
+  }
+  .content[data-view="battle"] .upgrade-card {
+    flex-wrap: wrap;
+    gap: 3px;
+    padding: 3px;
+  }
+  .content[data-view="battle"] .upgrade-card button {
+    width: 100%;
+    min-height: 34px;
+  }
+}
+@media (max-width: 359px) {
+  .top-hud {
+    gap: 4px;
+    padding-inline: 2px;
+  }
+  .identity {
+    gap: 4px;
+  }
+  .identity .portrait {
+    width: 28px;
+    height: 42px;
+  }
+  .portrait img {
+    width: 25px;
+    height: 34px;
+  }
+  .identity strong {
+    font-size: 12px;
+  }
+  .resource-wallet {
+    width: 55%;
+    gap: 2px;
+    font-size: 10px;
+  }
+  .wallet-item .sprite {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+.floor-banner li[data-digits="4"] { font-size: 12px; }
+.floor-banner li[data-digits="4"][aria-current] { font-size: 16px; }

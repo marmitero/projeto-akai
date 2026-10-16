@@ -270,9 +270,32 @@ try {
       fullPage: true,
     });
   }
+  await pa.locator("[data-route=battle]").click();
+  await pa
+    .locator("#player-guild")
+    .filter({ hasText: "Guardioes Teste" })
+    .waitFor();
+  await pa.locator("#profile-open").click();
+  await pa.locator("#profile-name-form input").fill("Nick HUD Online");
+  await pa.locator("#profile-name-form button").click();
+  await pa.locator("#close-dialog").click();
+  await pa
+    .locator("#player-name")
+    .filter({ hasText: "Nick HUD Online" })
+    .waitFor();
+  await pa.reload();
+  await pa.locator("#game[data-load-status=ready]").waitFor();
+  await pa
+    .locator("#player-name")
+    .filter({ hasText: "Nick HUD Online" })
+    .waitFor();
+  await pa
+    .locator("#player-guild")
+    .filter({ hasText: "Guardioes Teste" })
+    .waitFor();
   assert.deepEqual(errors, []);
   await writeFile(
-    `docs/phase6-browser-${preview ? "preview" : "dev"}.json`,
+    `docs/${process.env.AKAI_COMMUNITY_EVIDENCE ?? "phase6-browser"}-${preview ? "preview" : "dev"}.json`,
     JSON.stringify(
       {
         mode: preview ? "production" : "development",
@@ -280,6 +303,7 @@ try {
         fixture:
           "Two server-seeded test accounts; not a human progression playtest.",
         checks: [
+          "hud-confirmed-nick-and-guild-after-reload",
           "chat-literal-XSS",
           "guild-create-invite-join",
           "emblem-persisted",
