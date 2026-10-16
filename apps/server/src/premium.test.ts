@@ -12,6 +12,7 @@ import { competitiveStats } from "./community-domain.js";
 import { buildServer } from "./app.js";
 import {
   advanceCombat,
+  LOOP,
   type PremiumCommand,
   type LocalSnapshot,
   type PremiumProduct,
@@ -470,7 +471,14 @@ describe.skipIf(!url)("premium PostgreSQL isolated sandbox", () => {
     now += 1000;
     await online.state(u.token);
     const after = await snapshot(u.accountId);
-    expect(after.battle.enemies[0]!.hp).toBe(10000 - stats.attack);
+    // Tower criticals are server-authored; expiry must remove only the ad multiplier.
+    const hit = after.battle.hits.at(-1)!;
+    expect(hit.strike).toBe(after.battle.heroStrikes);
+    const expectedDamage = Math.floor(
+      stats.attack * (hit.critical ? LOOP.criticalDamageBp : 10000) / 10000,
+    );
+    expect(hit.damage).toBe(expectedDamage);
+    expect(after.battle.enemies[0]!.hp).toBe(10000 - expectedDamage);
     expect(competitiveStats(after)).toEqual(stats);
   });
   it("suspension blocks verification and sanitized snapshot never leaks receipt or key", async () => {
