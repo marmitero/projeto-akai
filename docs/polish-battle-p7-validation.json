@@ -1,6 +1,6 @@
 {
-  "scope": "P7 local confirmed tower journal",
-  "published": false,
+  "scope": "P7 published confirmed tower journal",
+  "published": true,
   "tests": {
     "passed": 170,
     "skippedPostgreSQL": 0,
@@ -157,6 +157,14 @@
   },
   "publication": {
     "authorized": "2026-10-16",
-    "status": "validated-ready-for-CI"
+    "status": "merged",
+    "pr": 3,
+    "merge": "7033dde145fea04444f2266cf6f28cdee7bac066",
+    "validatedHead": "a397e225c800214cc6c9edb730409c500653b06b",
+    "tree": "015e070abe618072941089e2cd2210380b7cd317",
+    "projectCI": 38923516737,
+    "windowsCI": 38923516798,
+    "result": "success",
+    "databaseCI": "PostgreSQL16"
   }
 }

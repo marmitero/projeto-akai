@@ -1,6 +1,6 @@
 # P7 — Sistema na batalha
 
-16/10/2026. Implementação local após publicação da P6. P7 não publicada.
+16/10/2026. Publicada após a P6, com autorização explícita em16/10/2026.
 
 A batalha recebe painel com abas Global/Sistema no lugar dos antigos cartões de atributos. Sistema mostra recompensas por inimigo derrotado (Coins, XP do guerreiro/rei, item e conversão em ferro quando a mochila está cheia), vitória de onda/encontro, derrota e timeout do boss. Os valores são diferenças reais capturadas dentro da transação de combate, não estimativas da interface nem variações gerais de saldo. Sem mensagens por mineração/compra, sem recompensa por dano parcial e sem efeito sobre a economia/RNG.
 
@@ -14,4 +14,7 @@ Validação completa:170testes/16arquivos passaram com PostgreSQL real, sem skip
 
 Comandos: `node scripts/smoke-battle-journal.mjs` e `--preview` após build; loop `node scripts/smoke-browser.mjs` e `--preview`. AKAI_CHROMIUM_EXECUTABLE opcional. Smokes online P7 dev/preview passaram com banco/servidor reais: conta antiga sem campos de journal, recompensas confirmadas, recarga, reinício da API e reconexão sem duplicações. Conciliação de ledger passou no teste de integração. Evidência online em polish-battle-p7-online-*.json. Sem aparelho físico ou soak30min.
 
-Publicação da P7 autorizada explicitamente em16/10/2026, após completar PostgreSQL/online. Próximo: concluir CI/publicação e depois P8 integra conversa Global ao painel, reutilizando serviço/estado/moderação. Monetização permanece adiada e F9 não iniciada.
+Publicação da P7 autorizada explicitamente em16/10/2026, após completar PostgreSQL/online. CI/publicação concluídas. Próximo: P8 integra conversa Global ao painel, reutilizando serviço/estado/moderação. Monetização permanece adiada e F9 não iniciada.
+
+
+P7 publicada após autorização explícita: [PR3](https://github.com/marmitero/projeto-akai/pull/3), merge `7033dde145fea04444f2266cf6f28cdee7bac066`. Head validado `a397e225c800214cc6c9edb730409c500653b06b`, árvore `015e070abe618072941089e2cd2210380b7cd317`. [CI principal38923516737](https://github.com/marmitero/projeto-akai/actions/runs/38923516737) e [Windows38923516798](https://github.com/marmitero/projeto-akai/actions/runs/38923516798) aprovados.170testes PostgreSQL16 sem skips e regressões completas local/online/dev/preview. Sem pendência técnica obrigatória da P7. Próxima implementação: P8, conversa Global integrada; sem F9 ou monetização automática.
