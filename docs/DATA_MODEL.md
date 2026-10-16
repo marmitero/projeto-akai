@@ -98,3 +98,9 @@ Migração002 adiciona profiles,guilds,members,invites,chat,blocks,reports,seaso
 ## Atualização F7 — mercado
 
 Migração003 adiciona `akai_market_listings` (asset/preço/moeda/prazo/estado/claim), `market_items` (account+ID local→procedência), `market_cooldowns`, `market_offers`, `market_trades`, `market_commands` e `market_audit`, todos com prefixo `akai_`. Um trade por listing; uma oferta pendente por listing/comprador; moeda restrita por CHECK, preço/fee/net inteiros e conservação `price=fee+net`. Triggers bloqueiam UPDATE/DELETE de trades, comandos e auditoria. Estado do anúncio é ativo→vendido/cancelado/expirado/removido; retorno exige claim único do dono. Snapshot local permanece schema3, sem migração destrutiva ou reinterpretação de save local como item online. Migração real001/002→003 e reexecução preservam conta/sessão/saldos.
+
+## Atualização F8 — premium de teste
+
+Migração004: `akai_monetization_environment`, `premium_intents`, `sandbox_receipts`, `purchases`, `premium_grants`, `entitlements`, `premium_debts`, `ad_benefits`, `premium_commands`, `premium_audit` (todos prefixados akai_). Recibo associa intenção/conta/provedor, token_hash único e token_cipher autenticado; intent_id permite recuperar o contexto exato do anúncio. Fonte/kind únicos em grants, comandos por conta/UUID e triggers append-only de grants/audit/commands. Purchases guarda state/delivery/verified_at/attempts/next_retry_at para fila e reconciliação. Dívida Ruby separada evita saldo negativo; compensação é outra fonte, sem UPDATE do grant histórico.
+
+Ambiente persistido sandbox/google-play-test bloqueia troca para modooff ou para outro modo de teste. Contas/sessões/saldos F7 preservados em migração real003→004 e reexecução. Nenhuma chave, recibo puro ou segredo no snapshot público; token cifrado serve só ao adaptador backend. Banco descartável de teste não deve ser promovido ou mesclado com saldos normais.

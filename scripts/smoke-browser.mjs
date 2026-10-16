@@ -264,7 +264,7 @@ try {
   await page.setViewportSize({ width: 390, height: 844 });
   await navigate("Loja");
   await page
-    .getByText("O mercador ainda está a caminho", { exact: true })
+    .getByText("Loja indisponível no perfil local", { exact: true })
     .waitFor();
   await capture(page, "shop-390");
   await page.keyboard.press("Escape");

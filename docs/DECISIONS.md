@@ -85,3 +85,11 @@ Regras/fórmulas/recompensas e consequências em COMMUNITY_SYSTEMS/ADR-010. Subs
 D14 adotada no desenvolvimento por delegação: taxa10% na própria moeda com ceil de milésimos, anúncio100milCoins sem reembolso,72h; simulação registra pressão no início. Andar10 e caps de piloto; resgate explícito preserva item com mochila cheia. Cooldown24h por procedência de equipamento e por categoria de recurso/conta resolve pilhas fungíveis de forma conservadora. Contraoferta até24h sem reserva, revalidada na aceitação. ADR-011/MARKET_SYSTEMS/STAGE_07_REPORT contêm decisões e evidências.
 
 D15 continua desabilitada. Musgo é singleton de conta e skins não têm instâncias implementadas: somente equipamentos e recursos elegíveis atuais entram na F7; não inventar ativos transferíveis para preencher categorias futuras. Nenhum preço real, contratação, SDK de anúncio ou pagamento foi ativado. Não há decisão financeira do usuário bloqueando o código desta fase.
+
+## Resoluções técnicas F8 — 15/10/2026
+
+D16 técnica resolvida sob delegação para teste:120s, autoclick3/s, Coins/XP/dano torre2×,8solicitações/24h, cooldown5min, sem empilhar,coins30–1milhão conforme andar. Quantidades provisórias de pacotes100/550/1200/2600Ruby e título cosmético permitem exercitar consumível/entitlement sem preço ou poder permanente. ADR-012/MONETIZATION_SYSTEMS registram limites e simulação.
+
+Escolhido Google Play como alvo do adaptador backend de teste conforme Master Prompt; sem contratar/cadastrar conta, assinar termos ou definir preço financeiro. No navegador, monetização normal permaneceoff e sandbox é explicitamente local, assinado e separado por banco. O verificador SSV não representa uma integração real de anúncios já homologada.
+
+Pendente do titular antes do teste externo: package/app/produtos/license testers/permissão service account em canal privado e unidade/conta de anúncio. Preços reais/produtos com impacto de poder e ativação comercial continuam reservados ao usuário, com proposta concreta quando forem necessários. D15 Ruby negociável/conversões premium permanece desligada. F9 não iniciada.

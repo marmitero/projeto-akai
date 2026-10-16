@@ -44,7 +44,7 @@ export function createShell(root: HTMLElement): void {
     <section data-pane="bag" class="extra-page" hidden><div id="rpg-root"></div></section>
     <section data-pane="market" class="extra-page" hidden><div id="market-root"></div></section>
     <section data-pane="community" class="extra-page" hidden><div id="community-root"></div></section>
-    <section data-pane="shop" class="extra-page" hidden><div class="empty-state panel">${icon("shop", "large-icon")}<h2>O mercador ainda está a caminho</h2><p>A loja está indisponível nesta fase. Não há produtos, preços ou compras ativas.</p></div></section>
+    <section data-pane="shop" class="extra-page" hidden><div id="premium-root"></div></section>
   </main>
   <nav class="bottom-hud" aria-label="Menu principal">
     <button data-route="battle" aria-current="page">${icon("sword")}<span>Batalha</span></button>
@@ -61,7 +61,7 @@ export function createShell(root: HTMLElement): void {
     <label class="motion-setting"><input id="reduce-motion" type="checkbox"> Reduzir movimento e efeitos</label>
     <div class="save-actions"><button id="save" disabled>Salvar perfil local</button><button id="recover" hidden>Restaurar cópia anterior</button></div>
     <p id="save-status" role="status" aria-live="polite">Abrindo salvamento…</p>
-    <details><summary>Outros destinos do reino</summary><p>Habilidades avançadas e loja premium serão integradas nas fases seguintes. Comunidade e Mercado estão disponíveis no modo online.</p></details></div>
+    <details><summary>Outros destinos do reino</summary><p>Habilidades avançadas são futuras. Comunidade e Mercado estão no modo online; Loja depende da configuração de teste do servidor.</p></details></div>
     <div id="dialog-resources" hidden><p class="body-copy">Saldos do perfil local. Ouro e jade são gerados pelas minas desbloqueadas. Ruby permanece indisponível.</p><dl class="resources-list">${(
       [
         ["coin", "Coins", null],
@@ -135,7 +135,7 @@ export const routeLabels: Record<
   shop: {
     title: "Loja",
     kicker: "O MERCADOR",
-    badge: "Indisponível",
+    badge: "Teste / desativada",
     caption: "",
     description: "",
   },

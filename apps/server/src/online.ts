@@ -11,6 +11,8 @@ import {
   heroStats,
   LOOP,
   mineIron,
+  ironPerClick,
+  addResource,
   produce,
   reconcileBossAbsence,
   retryBattle,
@@ -180,6 +182,12 @@ export class OnlineService {
             [a.id, start],
           )
         ).rows[0];
+        const benefits = (
+          await c.query(
+            "SELECT kind,start_at,end_at FROM akai_ad_benefits WHERE account_id=$1 AND start_at<$3 AND end_at>$2",
+            [a.id, start, start + active],
+          )
+        ).rows;
         const guildEdges = guild
           ? [
               Number(guild.bonus_until),
@@ -191,6 +199,10 @@ export class OnlineService {
             start,
             start + active,
             ...guildEdges,
+            ...benefits.flatMap((w) => [
+              Math.max(start, Number(w.start_at)),
+              Math.min(start + active, Number(w.end_at)),
+            ]),
             ...windows.flatMap((w) => [
               Math.max(start, Number(w.start_at)),
               Math.min(start + active, Number(w.end_at)),
@@ -215,7 +227,65 @@ export class OnlineService {
             Number(guild.joined_at) + 86400000 <= at
               ? Number(guild.bonus_bp)
               : 0);
-          advanceCombat(s, end - at, at, randomInt, bp);
+          const benefit = (kind: string) =>
+            benefits.find(
+              (w) =>
+                w.kind === kind &&
+                Number(w.start_at) <= at &&
+                Number(w.end_at) > at,
+            );
+          const rewards = benefit("battle_rewards") ? 2 : 1;
+          advanceCombat(
+            s,
+            end - at,
+            at,
+            randomInt,
+            bp * rewards,
+            benefit("battle_damage") ? 20000 : 10000,
+            rewards * 10000,
+            (instant) => {
+              const has = (kind: string) =>
+                benefits.some(
+                  (w) =>
+                    w.kind === kind &&
+                    Number(w.start_at) <= instant &&
+                    Number(w.end_at) > instant,
+                );
+              const eventBp =
+                10000 +
+                Math.max(
+                  0,
+                  ...windows
+                    .filter(
+                      (w) =>
+                        Number(w.start_at) <= instant &&
+                        Number(w.end_at) > instant,
+                    )
+                    .map((w) => Number(w.bp)),
+                ) +
+                (guild &&
+                Number(guild.bonus_until) > instant &&
+                Number(guild.joined_at) + 86400000 <= instant
+                  ? Number(guild.bonus_bp)
+                  : 0);
+              return {
+                xpBp: eventBp * (has("battle_rewards") ? 2 : 1),
+                damageBp: has("battle_damage") ? 20000 : 10000,
+                coinBp: has("battle_rewards") ? 20000 : 10000,
+              };
+            },
+          );
+          const auto = benefit("autoclick");
+          if (auto) {
+            const anchor = Number(auto.start_at),
+              clicks =
+                Math.floor(((end - anchor) * 3) / 1000) -
+                Math.floor(((at - anchor) * 3) / 1000);
+            if (clicks) {
+              addResource(s, "iron", ironPerClick(s) * BigInt(clicks));
+              s.tutorial.mined = true;
+            }
+          }
         }
         produce(s, active);
         s.activeMs += active;

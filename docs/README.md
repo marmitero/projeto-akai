@@ -1,6 +1,6 @@
 # Documentação do Projeto Akai
 
-Baseline de planejamento — 15/10/2026. **F1–F4 locais; F5 online e F6 comunidade publicadas; F7 mercado publicada, com CI aprovada, sem deploy público.** Leia [AI_STATE](../AI_STATE.md) antes de trabalhar. O usuário autorizou a próxima etapa em 15/10/2026. Comandos reais em [DEVELOPMENT](DEVELOPMENT.md); evidências atuais em [STAGE_07_REPORT](STAGE_07_REPORT.md) e regras em [MARKET_SYSTEMS](MARKET_SYSTEMS.md).
+Baseline de planejamento — 15/10/2026. **F1–F4 locais; F5 online e F6 comunidade publicadas; F7 mercado publicada com CI aprovada; F8 técnica de teste local implementada, gate externo parcial, sem deploy público.** Leia [AI_STATE](../AI_STATE.md) antes de trabalhar. O usuário autorizou a próxima etapa em 15/10/2026. Comandos reais em [DEVELOPMENT](DEVELOPMENT.md); evidências atuais em [STAGE_08_REPORT](STAGE_08_REPORT.md) e regras em [MONETIZATION_SYSTEMS](MONETIZATION_SYSTEMS.md).
 
 ## Ordem de leitura
 
@@ -25,9 +25,9 @@ AI_STATE é canônico na raiz; não criar cópias AI_State/AI_STATE em docs com 
 
 ## Como interpretar o estado
 
-“Regra aprovada” reproduz Master Prompt/pedido explícito; “proposto” detalha uma escolha a validar; “experimental” identifica parâmetros locais sujeitos a playtest; “implementado” exige código/teste e evidência — combate/economia local já têm evidência de F3; online tem implementação F5; comunidade tem implementação F6; mercado tem implementação F7; premium continua futuro. Documentos online/social/premium especificam preparação e gates, não serviços disponíveis.
+“Regra aprovada” reproduz Master Prompt/pedido explícito; “proposto” detalha uma escolha a validar; “experimental” identifica parâmetros locais sujeitos a playtest; “implementado” exige código/teste e evidência — combate/economia local já têm evidência de F3; online tem implementação F5; comunidade tem implementação F6; mercado tem implementação F7; premium tem base técnica F8 de teste; provedores externos ainda não homologados. Documentos online/social/premium especificam preparação e gates, não serviços disponíveis.
 
-[ONLINE](ONLINE.md) e API descrevem o online instalado; comunidade em [COMMUNITY_SYSTEMS](COMMUNITY_SYSTEMS.md); mercado em [MARKET_SYSTEMS](MARKET_SYSTEMS.md). F1–F7 têm implementação em seus escopos; F8–F10 são futuras. O acervo foi inventariado tecnicamente; licenças e mapeamento visual de todos os frames não estão concluídos. Não confundir esses tipos de conclusão.
+[ONLINE](ONLINE.md) e API descrevem o online instalado; comunidade em [COMMUNITY_SYSTEMS](COMMUNITY_SYSTEMS.md); mercado em [MARKET_SYSTEMS](MARKET_SYSTEMS.md). F1–F7 têm implementação em seus escopos; F8 tem base de teste local; F9–F10 são futuras. O acervo foi inventariado tecnicamente; licenças e mapeamento visual de todos os frames não estão concluídos. Não confundir esses tipos de conclusão.
 
 ## Manutenção
 

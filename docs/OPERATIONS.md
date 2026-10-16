@@ -59,3 +59,18 @@ WHERE status IN ('expired','cancelled','removed') AND NOT claimed;
 Contagem de anúncios representa custo queimado de100.000Coins por publicação confirmada; não multiplicar por resultados de replay. Trades registram a taxa na moeda correta, sem soma ingênua de moedas distintas. Datas de expiração são verificadas antes da operação, independente do tick10s.
 
 Rollback de código não deve apagar tabelas ou devolver bens por script ad hoc: um binário antigo pode deixar escrow temporariamente inacessível, mas os bens continuam persistidos. Restaurar versão com suporte a resgate ou executar compensação específica auditada após diagnóstico. Não duplicar manualmente item que possa ter trade confirmado. Backups/restauração real e retenção continuam requisitos de produção, não ensaiados integralmente nesta etapa.
+
+## Atualização F8 — teste premium
+
+Não apontar modo de teste ao banco de jogadores. O marcador de ambiente existe para recusar a promoção acidental; não removê-lo para fazer o servidoroff aceitar saldos simulados. Manter chave/cipher compatíveis e credencial do provedor fora de arquivos versionados; perder a chave interrompe restore, não justifica crédito manual duplicado.
+
+Fila a cada10s,5recibos/lote, falha isolada com backoff2s–15min. Monitorar `attempts/next_retry_at`, falhas de provider e pendências de delivery; investigar dados confiáveis do provedor antes de qualquer compensação. Nunca imprimir tokens, service-account ou conteúdo desencriptado. Consultas de diagnóstico com credencial somente leitura:
+
+```sql
+SELECT provider,state,delivery,count(*) FROM akai_purchases GROUP BY provider,state,delivery;
+SELECT count(*) AS retrying FROM akai_purchases WHERE attempts>0;
+SELECT kind,sum(amount) FROM akai_premium_grants GROUP BY kind;
+SELECT count(*) AS debt_accounts,sum(ruby) FROM akai_premium_debts WHERE ruby>0;
+```
+
+Rodar db:reconcile para snapshots↔ledger. Grants e estornos têm fontes imutáveis; valores de premium_grants registram direito nominal, enquanto o ledger registra crédito/débito disponível após dívida. Não somar grant nominal diretamente ao saldo e ignorar compensações/dívida. CLI premium:admin controla apenas recibos do simulador; não é ferramenta de estornar Google. Gate de teste externo/acknowledgement/RTDN/SSV e procedimentos de chaves/backups reais continuam documentados em MONETIZATION_SYSTEMS.

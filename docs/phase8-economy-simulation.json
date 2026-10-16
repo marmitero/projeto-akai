@@ -1,0 +1,80 @@
+{
+  "version": "monetization-test-1",
+  "scope": "Local deterministic sandbox parameters, not pricing/commercial fairness or real provider certification.",
+  "products": [
+    {
+      "id": "ruby_handful",
+      "name": "Punhado de Rubies",
+      "rubies": 100,
+      "kind": "consumable",
+      "realPrice": null
+    },
+    {
+      "id": "ruby_bag",
+      "name": "Saco de Rubies",
+      "rubies": 550,
+      "kind": "consumable",
+      "realPrice": null
+    },
+    {
+      "id": "ruby_pot",
+      "name": "Pote de Rubies",
+      "rubies": 1200,
+      "kind": "consumable",
+      "realPrice": null
+    },
+    {
+      "id": "ruby_chest",
+      "name": "Baú de Rubies",
+      "rubies": 2600,
+      "kind": "consumable",
+      "realPrice": null
+    },
+    {
+      "id": "title_miner",
+      "name": "Título: Guardião das Minas",
+      "rubies": 0,
+      "kind": "entitlement",
+      "realPrice": null
+    }
+  ],
+  "ads": {
+    "durationMs": 120000,
+    "maxRolling24h": 8,
+    "cooldownMs": 300000,
+    "requestTtlMs": 600000,
+    "autoclickPotential": 360,
+    "offlineClicks": 0,
+    "perTypeStacking": false
+  },
+  "coinExamples": [
+    {
+      "floor": 1,
+      "coinsPerVerifiedReward": 30
+    },
+    {
+      "floor": 10,
+      "coinsPerVerifiedReward": 1200
+    },
+    {
+      "floor": 100,
+      "coinsPerVerifiedReward": 71250
+    },
+    {
+      "floor": 500,
+      "coinsPerVerifiedReward": 1000000
+    },
+    {
+      "floor": 1000,
+      "coinsPerVerifiedReward": 1000000
+    }
+  ],
+  "decisions": [
+    "Ruby trading and conversion into resources disabled.",
+    "No paid combat/permanent advantage; only cosmetic title entitlement.",
+    "2x rewards means tower Coins and XP only, no item duplication.",
+    "Ads excluded from arena, world boss and war.",
+    "Fake/signed sandbox receipts grant only in isolated loopback test DB; no production mode exists.",
+    "Keep catalog quantities provisional:100/550/1200/2600, no real prices."
+  ]
+}

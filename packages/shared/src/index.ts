@@ -209,3 +209,5 @@ export * from "./online.js";
 export * from "./community.js";
 
 export * from "./market.js";
+
+export * from './monetization.js';

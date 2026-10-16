@@ -1,4 +1,5 @@
 import "./style.css";
+import { createPremiumUI } from "./ui/premium.js";
 import { createMarketUI } from "./ui/market.js";
 import { createCommunityUI } from "./ui/community.js";
 import {
@@ -78,7 +79,7 @@ async function boot(): Promise<void> {
   snapshot = session.getSnapshot();
   if (online) {
     document.querySelector(".preview-strip")!.textContent =
-      "ONLINE · Fase 7 · estado e recompensas confirmados pelo servidor";
+      "ONLINE · Fase 8 · estado e recompensas confirmados pelo servidor";
     document.querySelector(".identity small")!.firstChild!.textContent =
       "Online · ";
     saveButton.textContent = "Sincronizar";
@@ -96,6 +97,7 @@ async function boot(): Promise<void> {
       () => {},
     );
   }
+  const premiumUI = createPremiumUI(root!, online);
   const marketUI = createMarketUI(root!, online);
   const communityUI = createCommunityUI(root!, online);
   let route: Route = snapshot.screen;
@@ -121,10 +123,11 @@ async function boot(): Promise<void> {
     route = next;
     communityUI.show(next === "community");
     marketUI.show(next === "market");
+    premiumUI.show(next === "shop");
     document.querySelector<HTMLElement>("#tutorial")!.hidden =
-      next === "community" || next === "market";
+      next === "community" || next === "market" || next === "shop";
     document.querySelector<HTMLElement>("#action-status")!.hidden =
-      next === "community" || next === "market";
+      next === "community" || next === "market" || next === "shop";
     const info = routeLabels[next];
     document.querySelector("#page-title")!.textContent = info.title;
     document.querySelector("#page-kicker")!.textContent = info.kicker;
@@ -559,6 +562,7 @@ async function boot(): Promise<void> {
     rpgUI.destroy();
     communityUI.destroy();
     marketUI.destroy();
+    premiumUI.destroy();
     repository?.close();
     visual.destroy();
   });

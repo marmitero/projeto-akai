@@ -1,5 +1,22 @@
 import { z } from "zod";
 const ConfigSchema = z.object({
+  NODE_ENV: z
+    .enum(["development", "test", "production"])
+    .default("development"),
+  MONETIZATION_MODE: z
+    .enum(["off", "sandbox", "google-play-test"])
+    .default("off"),
+  MONETIZATION_TEST_DATABASE: z.enum(["true", "false"]).default("false"),
+  MONETIZATION_KEY: z
+    .string()
+    .min(64)
+    .regex(/^[a-f0-9]{64}$/)
+    .optional(),
+  PLAY_PACKAGE_NAME: z
+    .string()
+    .regex(/^[a-zA-Z][\w]*(\.[\w]+)+$/)
+    .optional(),
+  PLAY_SERVICE_ACCOUNT_FILE: z.string().min(1).optional(),
   HOST: z.string().min(1).default("127.0.0.1"),
   PORT: z.coerce.number().int().min(1).max(65535).default(3000),
   DATABASE_URL: z.string().min(1).optional(),
@@ -27,5 +44,22 @@ export function parseServerConfig(
     )
   )
     throw Error("INSECURE_PUBLIC_ORIGIN");
+  if (config.MONETIZATION_MODE !== "off") {
+    if (
+      config.NODE_ENV === "production" ||
+      config.MONETIZATION_TEST_DATABASE !== "true" ||
+      !config.MONETIZATION_KEY ||
+      !["localhost", "127.0.0.1", "[::1]"].includes(
+        new URL(config.PUBLIC_ORIGIN).hostname,
+      ) ||
+      !["127.0.0.1", "localhost", "::1"].includes(config.HOST)
+    )
+      throw Error("TEST_MONETIZATION_REQUIRES_ISOLATED_LOOPBACK");
+    if (
+      config.MONETIZATION_MODE === "google-play-test" &&
+      (!config.PLAY_PACKAGE_NAME || !config.PLAY_SERVICE_ACCOUNT_FILE)
+    )
+      throw Error("PLAY_TEST_CONFIGURATION_REQUIRED");
+  }
   return config;
 }

@@ -34,7 +34,11 @@
     "test:market": "npm run build:shared && vitest run apps/server/src/market.test.ts",
     "test:browser:market": "npm run build && node scripts/smoke-market.mjs",
     "test:browser:market:preview": "VITE_GAME_MODE=online npm run build && node scripts/smoke-market.mjs --preview",
-    "simulate:market": "npm run build:shared && node scripts/simulate-market.mjs"
+    "simulate:market": "npm run build:shared && node scripts/simulate-market.mjs",
+    "test:premium": "npm run build:shared && vitest run apps/server/src/premium.test.ts apps/server/src/premium-providers.test.ts",
+    "simulate:monetization": "npm run build:shared && node scripts/simulate-monetization.mjs",
+    "test:browser:premium": "npm run build && node scripts/smoke-premium.mjs",
+    "test:browser:premium:preview": "VITE_GAME_MODE=online npm run build && node scripts/smoke-premium.mjs --preview"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

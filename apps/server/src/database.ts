@@ -23,11 +23,16 @@ export class Database {
       new URL("../migrations/003_market.sql", import.meta.url),
       "utf8",
     );
+    const premium = await readFile(
+      new URL("../migrations/004_monetization.sql", import.meta.url),
+      "utf8",
+    );
     await this.transaction(async (c) => {
       await c.query("SELECT pg_advisory_xact_lock(41652001)");
       await c.query(sql);
       await c.query(community);
       await c.query(market);
+      await c.query(premium);
     });
   }
   async transaction<T>(fn: (c: PoolClient) => Promise<T>): Promise<T> {

@@ -1,0 +1,18 @@
+{
+  "mode": "production-preview",
+  "passed": true,
+  "provider": "Explicit local signed simulator. NOT a real Google/AdMob sandbox certification.",
+  "checks": [
+    "catalog-labels-no-real-price",
+    "purchase-loss-response-reload-idempotency",
+    "restore-once",
+    "cosmetic-title",
+    "voluntary-autoclick-validated",
+    "account-isolation",
+    "30-navigation-cycles",
+    "widths-320-390-768"
+  ],
+  "domBefore": 75,
+  "domAfter": 75,
+  "pageErrors": []
+}

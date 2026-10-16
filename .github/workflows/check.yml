@@ -53,13 +53,16 @@ jobs:
       - run: node scripts/simulate-loop.mjs
       - run: node scripts/simulate-rpg.mjs
       - run: node scripts/simulate-market.mjs
+      - run: node scripts/simulate-monetization.mjs
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser
       - run: node scripts/smoke-browser.mjs --preview
       - run: node scripts/smoke-online.mjs
       - run: node scripts/smoke-community.mjs
       - run: node scripts/smoke-market.mjs
+      - run: node scripts/smoke-premium.mjs
       - run: VITE_GAME_MODE=online npm run build
       - run: node scripts/smoke-online.mjs --preview
       - run: node scripts/smoke-community.mjs --preview
       - run: node scripts/smoke-market.mjs --preview
+      - run: node scripts/smoke-premium.mjs --preview

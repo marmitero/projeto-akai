@@ -96,3 +96,9 @@ F6 acrescenta CommunityService/CommunityEvents e migração002. Lock transaciona
 MarketService/migração003 acrescentam escrow persistido fora do inventário, ofertas sem reserva financeira, transações imutáveis, procedência de equipamento e cooldown por conta/ativo. Todas as operações compartilham lock social41652006 e ordenam os locks de participantes antes de conciliar; snapshots, ledger, outbox, transferência e comando confirmam juntos. Sem chamada entre servidores ou terceiro participante econômico. Expiração é lazy em leitura/comando e pelo scheduler10s, sempre segundo prazo armazenado.
 
 UI independente em Mais→Mercado, com polling3s apenas aberta/visível, revisão explícita e comando pendente em sessionStorage por conta para recuperar resposta perdida/recarga. Perfil local e `jogar.bat` continuam separados; não há mercado artificial local. ADR-011/MARKET_SYSTEMS registram parâmetros, serialização do piloto e limites de produção.
+
+## Atualização F8 — monetização de teste
+
+PremiumService coordena intenções, prova verificada, concessões, dívida/entitlement e fila pós-commit; PurchaseProvider separa sandbox local e GooglePlayTestProvider do domínio/UI. Verificação de rede ocorre antes da transação curta; conta/produto/sessão e recibo são revalidados no commit. Mesmo lock social41652006 antes do lock individual mantém ordem compatível com comunidade/mercado. Migração004 aditiva não muda schema3 de save local.
+
+OnlineService consulta intervalos de benefícios server-side, integra autoclick somente na presença e usa modificador por instante de golpe para limite exclusivo. Valores padrão preservam o domínio local; competitiveStats não usa os novos multiplicadores. Loja faz polling apenas aberta/visível (mais uma consulta inicial para cosmético), com pending por conta e UUID estável. Sem produção monetizada; marcador de banco recusa reaproveitamento de saldos de teste em servidor normal. ADR-012 delimita as integrações externas pendentes.

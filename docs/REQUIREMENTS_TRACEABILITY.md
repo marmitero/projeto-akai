@@ -67,3 +67,17 @@ F4:RPG-01 implementado localmente em14 categorias/9 slots/raridades/afixos/drops
 | Parâmetros econômicos | market-1/ADR-011/MARKET_SYSTEMS | phase7-economy-simulation; sem alegação de equilíbrio humano |
 
 Itens não elegíveis atuais: mascote de conta Musgo, skins não implementadas e Ruby desabilitado por D15; não apresentados como negociáveis.
+
+## Evidência técnica F8
+
+| Critério | Entrega | Limite |
+|---|---|---|
+| Catálogo premium | Quatro pacotes e entitlement cosmético experimentais, sem preço real | Poder permanente/baús pagos/conversão sem ativação |
+| Compra/recibo | PurchaseProvider, sandbox assinado, GooglePlayTestProvider, token cifrado/único | API Google exercitada por mock HTTP; conta externa/nativo pendentes |
+| Concessão/restore | Transação grant+ledger+outbox, ack/consume após commit, backoff por recibo | Restore50/lote; descoberta nativa de tokens depende de F9 |
+| Estorno | Revogação por fonte, Ruby disponível/dívida, entitlement removido | Ruby ainda não possui gasto de produto ativo |
+| Recompensas voluntárias | Quatro tipos com intervalos, limites, presença e expiração exata | Simulador local, não comprovação de anúncio real |
+| AdMob SSV | Verificador puro ECDSA DER/raw query com chaves de fixture | SDK/transporte/rotação/unidade e callback real pendentes |
+| Isolamento | Off padrão, loopback/test-only, banco marcado, sem modo produção | Não promove banco teste para normal |
+
+Evidência em STAGE_08_REPORT/phase8-*.json; não declarar F8 externamente homologada por haver testes locais.

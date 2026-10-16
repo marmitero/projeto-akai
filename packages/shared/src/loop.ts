@@ -125,6 +125,13 @@ export function advanceCombat(
   wallStart = s.lastReconciledAt,
   random?: (max: number) => number,
   xpBp = 10000,
+  damageBp = 10000,
+  coinBp = 10000,
+  eventModifiers?: (wallAt: number) => {
+    xpBp: number;
+    damageBp: number;
+    coinBp: number;
+  },
 ): void {
   if (!Number.isSafeInteger(delta) || delta < 0) throw Error("INVALID_DELTA");
   const b = s.battle,
@@ -181,13 +188,32 @@ export function advanceCombat(
       b.heroStrikes++;
       const target = b.enemies.find((e) => e.hp > 0);
       if (target) {
+        const modifiers = eventModifiers?.(wallStart + b.time - origin);
         target.hp = Math.max(
           0,
-          target.hp - heroStats(s, wallStart + b.time - origin).attack,
+          target.hp -
+            Math.floor(
+              (heroStats(s, wallStart + b.time - origin).attack *
+                (modifiers?.damageBp ?? damageBp)) /
+                10000,
+            ),
         );
         if (target.hp === 0) {
-          addResource(s, "coin", BigInt(floorStats(b.floor).coin) * 1000n);
-          awardRpgDeath(s, b.floor, floorStats(b.floor).boss, random, xpBp);
+          addResource(
+            s,
+            "coin",
+            (BigInt(floorStats(b.floor).coin) *
+              1000n *
+              BigInt(modifiers?.coinBp ?? coinBp)) /
+              10000n,
+          );
+          awardRpgDeath(
+            s,
+            b.floor,
+            floorStats(b.floor).boss,
+            random,
+            modifiers?.xpBp ?? xpBp,
+          );
           s.tutorial.victory = true;
         }
       }

@@ -11,7 +11,8 @@
     "db:migrate": "node --env-file-if-exists=../../.env --import tsx src/migrate.ts",
     "db:reconcile": "node --env-file-if-exists=../../.env --import tsx src/reconcile.ts",
     "community:admin": "node --env-file-if-exists=../../.env --import tsx src/community-admin.ts",
-    "market:admin": "node --env-file-if-exists=../../.env --import tsx src/market-admin.ts"
+    "market:admin": "node --env-file-if-exists=../../.env --import tsx src/market-admin.ts",
+    "premium:admin": "node --env-file-if-exists=../../.env --import tsx src/premium-admin.ts"
   },
   "dependencies": {
     "@akai/shared": "0.1.0",

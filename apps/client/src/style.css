@@ -925,6 +925,7 @@ progress {
 #community-root article.panel { margin-block:1rem; padding:1rem; }
 #community-root progress { width:100%; }
 /* Community controls use the same curated sprite frames as the RPG menus. */
+#premium-root button,
 #market-root button,
 [data-shortcut="market"],
 #community-root button,
@@ -939,6 +940,7 @@ progress {
   font-family: system-ui, sans-serif;
   font-size: 12px;
 }
+#premium-root button:active,
 #market-root button:active,
 #market-root button[aria-pressed="true"],
 #community-root button:active,
@@ -955,3 +957,8 @@ progress {
 #market-root .market-asset { width:40px; height:40px; object-fit:contain; float:left; margin-right:.6rem; }
 
 #market-root .community-tabs button { flex:1 1 110px; min-width:110px; overflow-wrap:normal; }
+
+#premium-root { overflow-wrap:anywhere; }
+#premium-root .premium-card { padding:1rem; margin-block:1rem; }
+#premium-root .premium-card img { width:40px; height:40px; object-fit:contain; float:left; margin-right:.5rem; }
+#premium-root button { overflow-wrap:normal; max-width:100%; }

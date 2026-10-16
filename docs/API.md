@@ -114,3 +114,9 @@ F6 instala GET /api/v1/community e POST /api/v1/community/commands sob os mesmos
 - Resposta `MarketResult`: commandId/status/code e listingId quando aplicável. Domínio rejeitado HTTP422 (permissão403), sem efeitos econômicos; resultado persiste. Conflito de payload no mesmo UUID é recusado. Erros inesperados revertem a transação e são retryáveis com o mesmo UUID. Sem `expectedVersion`: anúncio, oferta e ambos os perfis são revalidados sob locks.
 
 Ruby e campos arbitrários de saldo/itens são recusados pelo schema. Proteções de sessão, Origin, header CSRF e limite HTTP continuam as da F5. Moderação é CLI auditada; nenhuma rota `/market/admin`. Contratos exatos em shared/market.ts, regras em MARKET_SYSTEMS.
+
+## Atualização F8 — premium de teste
+
+GET `/api/v1/premium` retorna modo off/sandbox/google-play-test, catálogo experimental sem preço real, accountBinding ofuscado, intenções próprias, estado de entrega, entitlements/benefícios e Ruby/dívida. Não retorna token, cipher, chave ou credential. POST `/api/v1/premium/commands` recebe união strict com commandId: `purchase.intent(productId)`, `purchase.verify(intentId,purchaseToken)`, `intent.cancel(intentId)`, `restore`, `ad.intent(reward)`. Taxa20/min/sessão, mesmas proteções Origin/CSRF/cookie da F5. Fonte/grant é por recibo, além da idempotência por comando; não há grant booleano/quantidade arbitrária.
+
+Somente modo sandbox instala POST `/api/v1/premium/sandbox` com `{intentId}`: emulador explícito,12/min/sessão, compra de teste assinada ou recompensa após5s do servidor. Fora do sandbox essa rota é404. Não é callback Google/AdMob nem processamento de pagamento real. Sem webhook RTDN/SSV público nesta entrega. Transporte nativo e credenciais dependem do gate externo descrito em MONETIZATION_SYSTEMS.
