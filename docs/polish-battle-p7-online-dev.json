@@ -1,0 +1,20 @@
+{
+  "mode": "development",
+  "passed": true,
+  "checks": [
+    "guest",
+    "mining",
+    "httpOnly",
+    "local-save-isolation",
+    "reload",
+    "lost-response-single-effect",
+    "server-restart",
+    "confirmed-journal-rewards",
+    "legacy-journal-defaults",
+    "journal-reload-and-restart-without-duplicates",
+    "cross-device-recovery",
+    "session-revocation",
+    "logout"
+  ],
+  "pageErrors": []
+}

@@ -93,6 +93,26 @@ export const Legacy2SnapshotSchema = z
       .strict(),
   })
   .strict();
+export const BattleReportSchema = z
+  .object({
+    id: safeInteger.min(1),
+    kind: z.enum(["reward", "victory", "defeat", "timeout"]),
+    floor: safeInteger.min(1).max(1000),
+    wave: safeInteger.min(1).max(3),
+    coin: z
+      .string()
+      .regex(/^\d{1,40}$/)
+      .default("0"),
+    iron: z
+      .string()
+      .regex(/^\d{1,40}$/)
+      .default("0"),
+    heroXp: safeInteger.default(0),
+    accountXp: safeInteger.default(0),
+    loot: z.string().max(200).default(""),
+  })
+  .strict();
+export type BattleReport = z.infer<typeof BattleReportSchema>;
 export const LocalSnapshotSchema = Legacy2SnapshotSchema.extend({
   schemaVersion: z.literal(3),
   configVersion: z.literal(CONFIG_VERSION),
@@ -106,6 +126,8 @@ export const LocalSnapshotSchema = Legacy2SnapshotSchema.extend({
     })
     .strict(),
   battle: Legacy2SnapshotSchema.shape.battle.extend({
+    reportSerial: safeInteger.default(0),
+    reports: z.array(BattleReportSchema).max(60).default([]),
     floor: safeInteger.min(1).max(1000),
     highest: safeInteger.max(1000),
     retryFloor: safeInteger.min(1).max(1000),
@@ -126,6 +148,15 @@ export const LocalSnapshotSchema = Legacy2SnapshotSchema.extend({
   }),
   rpg: RpgSchema,
 }).superRefine((s, ctx) => {
+  const reports = s.battle.reports;
+  if (
+    reports.some(
+      (report, index) =>
+        report.id > s.battle.reportSerial ||
+        (index > 0 && report.id <= reports[index - 1]!.id),
+    )
+  )
+    ctx.addIssue({ code: "custom", message: "Invalid battle report sequence" });
   const ids = s.rpg.inventory.map((i) => i.id),
     used = Object.values(s.rpg.equipped).filter((x) => x !== null);
   if (

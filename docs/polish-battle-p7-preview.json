@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "mode": "preview",
+  "rewardAndVictory": true,
+  "saveReloadWithoutDuplication": true,
+  "tabsAndKeyboard": true,
+  "globalLocalUnavailable": true,
+  "boundedHistory": 60,
+  "maliciousLootTextSafe": true,
+  "manualScrollPreserved": true,
+  "newResultsButton": true,
+  "defeatAndTimeout": true,
+  "viewports": [
+    320,
+    390,
+    844
+  ],
+  "pageErrors": []
+}

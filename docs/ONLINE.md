@@ -30,6 +30,43 @@ npm run db:reconcile -w @akai/server
 
 `npm test` sem TEST_DATABASE_URL pula explicitamente a suíte de integração PostgreSQL; não equivale à validação completa da F5. A CI fornece PostgreSQL real e executa a suíte e os smokes dos dois modos. Dependência de Chromium: `npx playwright install --with-deps chromium`. `AKAI_CHROMIUM_EXECUTABLE` permite usar um runtime de teste já disponível; não altera o jogo.
 
+## Testar no Windows (PowerShell)
+
+O jogo ainda não tem um servidor público hospedado. É possível testar o modo online completo no próprio computador. Instale Node24/npm11 e Docker Desktop com o mecanismo de containers Linux iniciado. Se usa apenas o Node portátil do jogar.bat, ele não instala os comandos npm/node no PATH; para os comandos abaixo use uma instalação Node24 disponível no terminal.
+
+Feche o jogar.bat/servidores Vite anteriores para liberar5173. Abra PowerShell na pasta do projeto atualizado. A senha abaixo pertence apenas ao Compose de desenvolvimento, já versionado; não a reutilize em um servidor publicado.
+
+**Terminal1 — banco e API:**
+
+```powershell
+npm ci
+docker compose up -d db
+$env:DATABASE_URL = "postgres://akai:akai_dev_only@127.0.0.1:5432/akai"
+npm run db:migrate -w @akai/server
+$env:PUBLIC_ORIGIN = "http://localhost:5173"
+$env:MONETIZATION_MODE = "off"
+npm run dev:server
+```
+
+**Terminal2 — cliente**, na mesma pasta:
+
+```powershell
+$env:VITE_GAME_MODE = "online"
+npm run dev:client
+```
+
+Abra **http://localhost:5173**. Se o Vite informar outra porta, libere5173 e reinicie o cliente para que a origem corresponda à API. Escolha criar conta de convidado, guarde a chave de recuperação em local privado e confirme a entrada. Google não é necessário. O perfil local continua separado; não há importação de saldo ou itens locais.
+
+Teste Mina, Melhorias e Batalha→Sistema; recarregue e confira os dados. Chat e outros jogadores estão em Mais→Comunidade; a conversa embutida na aba Global está prevista para P8. Para simular dois jogadores, use perfis diferentes do navegador (ou janela anônima) e crie um convidado em cada sessão. Apenas abrir duas abas com o mesmo cookie usa a mesma conta.
+
+Para encerrar, Ctrl+C em ambos os terminais e `docker compose stop db`. Isso preserva o volume do banco. Para voltar ao modo local, use jogar.bat. A publicação no GitHub não cria hospedagem para jogar pela internet.
+
+## Separar o banco do cliente
+
+Essa separação já existe: o navegador chama `/api/v1` e o servidor acessa PostgreSQL por `DATABASE_URL`. Essa variável não possui prefixo VITE e não é enviada ao cliente. Dano, recursos, custos, XP e loot online são calculados no servidor.
+
+Na hospedagem, cliente e API podem compartilhar uma origem pública via proxy e o banco ficar em outro servidor/rede privada. Restrinja a conexão PostgreSQL à API, com credenciais de runtime próprias e permissões mínimas; mantenha a porta do banco fora do acesso público. Para mover os dados, planeje backup/restauração e execução das migrações, alterando a conexão apenas no servidor. Nenhuma credencial de banco precisa ir para o jogador. Ainda não foi provisionada hospedagem, rede privada ou transferência de banco para produção.
+
 ## Identidade e autenticação
 
 Convidado: criação explícita gera UUID de conta, sessão opaca de 256 bits e chave de recuperação independente de 256 bits. Apenas hashes SHA-256 dos dois segredos ficam no banco. Chave aparece uma vez na interface, sem persistência no save local; usuário confirma que a guardou. A chave é credencial completa da conta e deve ficar privada. Recuperar preserva estado, rotaciona a chave e revoga todas as sessões anteriores. Perder cookie e chave sem Google vinculado significa não poder recuperar o convidado; não existe recuperação por nome.
@@ -70,6 +107,6 @@ GRANT SELECT, INSERT ON akai_commands, akai_ledger, akai_events TO akai_runtime;
 GRANT SELECT, INSERT, UPDATE, DELETE ON akai_auth_limits, akai_nonces, akai_streams TO akai_runtime;
 ```
 
-DB/migração devem estar em rede privada; revogar criação de objetos por runtime/public conforme ambiente. Backup/PITR, retenção de ledger/comandos/eventos, limpeza de nonces/sessões/limites expirados, monitoramento e exclusão de contas precisam de política operacional antes do público. Não apagar idempotências indiscriminadamente: isso pode permitir reexecução de compras antigas. Testes locais/CI não são teste de escala ou auditoria independente de segurança. Mercado, pagamentos e comunidade continuam indisponíveis.
+DB/migração devem estar em rede privada; revogar criação de objetos por runtime/public conforme ambiente. Backup/PITR, retenção de ledger/comandos/eventos, limpeza de nonces/sessões/limites expirados, monitoramento e exclusão de contas precisam de política operacional antes do público. Não apagar idempotências indiscriminadamente: isso pode permitir reexecução de compras antigas. Testes locais/CI não são teste de escala ou auditoria independente de segurança. Comunidade e Mercado estão implementados no modo online de desenvolvimento. Pagamentos reais continuam indisponíveis; monetização foi adiada para a fase final.
 
 Fontes técnicas: [locks PostgreSQL](https://www.postgresql.org/docs/16/explicit-locking.html), [Node crypto](https://nodejs.org/docs/latest-v24.x/api/crypto.html), [Google ID token](https://developers.google.com/identity/gsi/web/guides/verify-google-id-token), [GIS nonce](https://developers.google.com/identity/gsi/web/reference/js-reference#nonce).

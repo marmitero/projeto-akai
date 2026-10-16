@@ -1,3 +1,4 @@
+import { recordBattleReport } from "./battle-journal.js";
 import type { LocalSnapshot } from "./index.js";
 import { CONTENT, levelFromXp, floorDefinition } from "./content.js";
 import { gearStats, awardRpgDeath, addResource, nextRandom } from "./rpg.js";
@@ -115,6 +116,7 @@ export function startEncounter(
 }
 function fail(s: LocalSnapshot, cause: "defeat" | "timeout"): void {
   const b = s.battle;
+  recordBattleReport(s, cause);
   b.paused = false;
   b.phase = "failed";
   b.failure = cause;
@@ -217,6 +219,13 @@ export function advanceCombat(
           if (b.hits.length > 8) b.hits.splice(0, b.hits.length - 8);
         }
         if (target.hp === 0) {
+          const before = {
+            coin: s.balances.coin,
+            iron: s.balances.iron,
+            heroXp: s.rpg.heroXp,
+            accountXp: s.rpg.accountXp,
+            lootSerial: s.rpg.lootSerial,
+          };
           addResource(
             s,
             "coin",
@@ -232,6 +241,13 @@ export function advanceCombat(
             random,
             modifiers?.xpBp ?? xpBp,
           );
+          recordBattleReport(s, "reward", {
+            coin: String(BigInt(s.balances.coin) - BigInt(before.coin)),
+            iron: String(BigInt(s.balances.iron) - BigInt(before.iron)),
+            heroXp: s.rpg.heroXp - before.heroXp,
+            accountXp: s.rpg.accountXp - before.accountXp,
+            loot: s.rpg.lootSerial !== before.lootSerial ? s.rpg.lastLoot : "",
+          });
           s.tutorial.victory = true;
         }
       }
@@ -258,6 +274,7 @@ export function advanceCombat(
       }
     if (b.heroHp === 0) break;
     if (b.enemies.every((e) => e.hp === 0)) {
+      recordBattleReport(s, "victory");
       b.phase = "transition";
       b.transitionAt = next + LOOP.transitionMs;
       // Completion/reward is recorded immediately; transition is presentation time, not a second grant.

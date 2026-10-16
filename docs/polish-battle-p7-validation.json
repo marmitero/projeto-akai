@@ -1,0 +1,162 @@
+{
+  "scope": "P7 local confirmed tower journal",
+  "published": false,
+  "tests": {
+    "passed": 170,
+    "skippedPostgreSQL": 0,
+    "newTests": 11,
+    "database": "Native PostgreSQL 18.4 isolated scratch harness; CI PostgreSQL16 to follow"
+  },
+  "typecheck": true,
+  "build": true,
+  "journalDev": {
+    "passed": true,
+    "mode": "dev",
+    "rewardAndVictory": true,
+    "saveReloadWithoutDuplication": true,
+    "tabsAndKeyboard": true,
+    "globalLocalUnavailable": true,
+    "boundedHistory": 60,
+    "maliciousLootTextSafe": true,
+    "manualScrollPreserved": true,
+    "newResultsButton": true,
+    "defeatAndTimeout": true,
+    "viewports": [
+      320,
+      390,
+      844
+    ],
+    "pageErrors": []
+  },
+  "journalPreview": {
+    "passed": true,
+    "mode": "preview",
+    "rewardAndVictory": true,
+    "saveReloadWithoutDuplication": true,
+    "tabsAndKeyboard": true,
+    "globalLocalUnavailable": true,
+    "boundedHistory": 60,
+    "maliciousLootTextSafe": true,
+    "manualScrollPreserved": true,
+    "newResultsButton": true,
+    "defeatAndTimeout": true,
+    "viewports": [
+      320,
+      390,
+      844
+    ],
+    "pageErrors": []
+  },
+  "loopDev": {
+    "browser": "153.0.8010.0",
+    "productionPreview": false,
+    "navigationCycles": 50,
+    "unchangedTextures": "54",
+    "unchangedObjects": "70",
+    "saveReload": true,
+    "hiddenInputBlocked": true,
+    "modalInputBlocked": true,
+    "reducedMotion": true,
+    "widths": [
+      320,
+      360,
+      390,
+      768,
+      844
+    ],
+    "landscape": true,
+    "menus": true,
+    "realMiningGrants": true,
+    "upgradesAndCoal": true,
+    "legacyProductionOpensMine": true,
+    "dedicatedUpgradesPurchaseAndReload": true,
+    "rpgCraftEquipEnhancePetMinesAndReload": true,
+    "offlineCapAndSingleCredit": true,
+    "bossTimeoutAndTraining": true,
+    "towerCompletedFromMine": true,
+    "missingAssetHandled": true,
+    "onlineFailsClosed": true,
+    "pageErrors": [],
+    "failedAssetResponses": []
+  },
+  "loopPreview": {
+    "browser": "153.0.8010.0",
+    "productionPreview": true,
+    "navigationCycles": 50,
+    "unchangedTextures": "54",
+    "unchangedObjects": "70",
+    "saveReload": true,
+    "hiddenInputBlocked": true,
+    "modalInputBlocked": true,
+    "reducedMotion": true,
+    "widths": [
+      320,
+      360,
+      390,
+      768,
+      844
+    ],
+    "landscape": true,
+    "menus": true,
+    "realMiningGrants": true,
+    "upgradesAndCoal": true,
+    "legacyProductionOpensMine": true,
+    "dedicatedUpgradesPurchaseAndReload": true,
+    "rpgCraftEquipEnhancePetMinesAndReload": true,
+    "offlineCapAndSingleCredit": true,
+    "bossTimeoutAndTraining": true,
+    "towerCompletedFromMine": true,
+    "missingAssetHandled": true,
+    "onlineFailsClosed": true,
+    "pageErrors": [],
+    "failedAssetResponses": []
+  },
+  "limitations": [
+    "No new physical device or 30-minute soak",
+    "Global embeds conversation only in P8; online shortcut exists"
+  ],
+  "onlineDev": {
+    "mode": "development",
+    "passed": true,
+    "checks": [
+      "guest",
+      "mining",
+      "httpOnly",
+      "local-save-isolation",
+      "reload",
+      "lost-response-single-effect",
+      "server-restart",
+      "confirmed-journal-rewards",
+      "legacy-journal-defaults",
+      "journal-reload-and-restart-without-duplicates",
+      "cross-device-recovery",
+      "session-revocation",
+      "logout"
+    ],
+    "pageErrors": []
+  },
+  "onlinePreview": {
+    "mode": "production",
+    "passed": true,
+    "checks": [
+      "guest",
+      "mining",
+      "httpOnly",
+      "local-save-isolation",
+      "reload",
+      "lost-response-single-effect",
+      "server-restart",
+      "confirmed-journal-rewards",
+      "legacy-journal-defaults",
+      "journal-reload-and-restart-without-duplicates",
+      "cross-device-recovery",
+      "session-revocation",
+      "logout"
+    ],
+    "pageErrors": []
+  },
+  "publication": {
+    "authorized": "2026-10-16",
+    "status": "validated-ready-for-CI"
+  }
+}
