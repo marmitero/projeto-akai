@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "mode": "dev",
+  "fixture": "Local seeded RNG1 with durable high-HP targets; critical flag comes from actual domain combat, not a visual override.",
+  "checks": [
+    "actual-critical-9-damage",
+    "boss-critical-confirmed",
+    "no-critical-replay-on-reload",
+    "reduced-motion-critical-readable",
+    "bounded-existing-renderer-pool"
+  ],
+  "textures": "54",
+  "objects": "70",
+  "pageErrors": []
+}

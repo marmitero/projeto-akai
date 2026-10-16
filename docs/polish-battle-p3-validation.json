@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-16",
+  "scope": "P3 validated locally; P2 separately submitted to draft PR1",
+  "tests": {
+    "passed": 156,
+    "files": 14,
+    "postgresExecuted": true
+  },
+  "checks": {
+    "typecheck": true,
+    "assetHashes": true,
+    "localBuild": true,
+    "onlineBuild": true
+  },
+  "rules": {
+    "chanceBp": 500,
+    "damageBp": 15000,
+    "scope": "Hero automatic tower attacks, including training and tower bosses; experimental balance"
+  },
+  "browser": {
+    "criticalDev": {
+      "passed": true,
+      "mode": "dev",
+      "fixture": "Local seeded RNG1 with durable high-HP targets; critical flag comes from actual domain combat, not a visual override.",
+      "checks": [
+        "actual-critical-9-damage",
+        "boss-critical-confirmed",
+        "no-critical-replay-on-reload",
+        "reduced-motion-critical-readable",
+        "bounded-existing-renderer-pool"
+      ],
+      "textures": "54",
+      "objects": "70",
+      "pageErrors": []
+    },
+    "criticalPreview": {
+      "passed": true,
+      "mode": "preview",
+      "fixture": "Local seeded RNG1 with durable high-HP targets; critical flag comes from actual domain combat, not a visual override.",
+      "checks": [
+        "actual-critical-9-damage",
+        "boss-critical-confirmed",
+        "no-critical-replay-on-reload",
+        "reduced-motion-critical-readable",
+        "bounded-existing-renderer-pool"
+      ],
+      "textures": "54",
+      "objects": "70",
+      "pageErrors": []
+    },
+    "localDev": {
+      "browser": "153.0.8010.0",
+      "productionPreview": false,
+      "navigationCycles": 50,
+      "unchangedTextures": "54",
+      "unchangedObjects": "70",
+      "saveReload": true,
+      "hiddenInputBlocked": true,
+      "modalInputBlocked": true,
+      "reducedMotion": true,
+      "widths": [
+        320,
+        360,
+        390,
+        768,
+        844
+      ],
+      "landscape": true,
+      "menus": true,
+      "realMiningGrants": true,
+      "upgradesAndCoal": true,
+      "rpgCraftEquipEnhancePetMinesAndReload": true,
+      "offlineCapAndSingleCredit": true,
+      "bossTimeoutAndTraining": true,
+      "towerCompletedFromMine": true,
+      "missingAssetHandled": true,
+      "onlineFailsClosed": true,
+      "pageErrors": [],
+      "failedAssetResponses": []
+    },
+    "localPreview": {
+      "browser": "153.0.8010.0",
+      "productionPreview": true,
+      "navigationCycles": 50,
+      "unchangedTextures": "54",
+      "unchangedObjects": "70",
+      "saveReload": true,
+      "hiddenInputBlocked": true,
+      "modalInputBlocked": true,
+      "reducedMotion": true,
+      "widths": [
+        320,
+        360,
+        390,
+        768,
+        844
+      ],
+      "landscape": true,
+      "menus": true,
+      "realMiningGrants": true,
+      "upgradesAndCoal": true,
+      "rpgCraftEquipEnhancePetMinesAndReload": true,
+      "offlineCapAndSingleCredit": true,
+      "bossTimeoutAndTraining": true,
+      "towerCompletedFromMine": true,
+      "missingAssetHandled": true,
+      "onlineFailsClosed": true,
+      "pageErrors": [],
+      "failedAssetResponses": []
+    },
+    "hudDev": "passed",
+    "onlineDev": "passed",
+    "onlinePreview": "passed",
+    "marketPreview": "passed",
+    "premiumPreview": "passed"
+  },
+  "limitations": [
+    "No new physical device or 30-minute browser soak",
+    "No human balance playtest; critical rolls alter progression and the local RNG sequence",
+    "P3 not sent to GitHub; main unchanged; monetization deferred"
+  ]
+}

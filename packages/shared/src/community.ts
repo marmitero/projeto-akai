@@ -104,6 +104,10 @@ export interface GuildView {
   members: GuildMember[];
   bonusBp: number;
 }
+export interface CommunityIdentity {
+  name: string;
+  guild?: string;
+}
 export interface CommunitySnapshot {
   version: string;
   serverTime: number;

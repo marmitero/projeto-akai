@@ -1,0 +1,55 @@
+{
+  "criticalChanceBp": 500,
+  "criticalDamageBp": 15000,
+  "result": {
+    "configVersion": "local-rpg-1",
+    "definitions": 1000,
+    "maxEnemyHp": 3120000,
+    "maxEnemyAttack": 664,
+    "maxCoinPerEnemy": 712500,
+    "drops": [
+      {
+        "source": "common1",
+        "attempts": 200000,
+        "drops": 1038,
+        "observedPercent": 0.519,
+        "expectedPercent": 0.5
+      },
+      {
+        "source": "boss10",
+        "attempts": 200000,
+        "drops": 19875,
+        "observedPercent": 9.9375,
+        "expectedPercent": 10
+      }
+    ],
+    "conditionalBoss10RarityCounts": {
+      "common": 5000,
+      "uncommon": 3200,
+      "rare": 1500,
+      "epic": 280,
+      "legendary": 20
+    },
+    "fullTowerFixture": {
+      "note": "Max-level/XP and legendary enhanced weapon fixture; validates all1000 schedules/numeric bounds, not organic player progression or commercial balance.",
+      "initialStats": {
+        "hp": 65090,
+        "attack": 456304,
+        "defense": 200
+      },
+      "simulationMs": 36000000,
+      "highest": 1000,
+      "phase": "complete",
+      "heroStrikes": 8385,
+      "inventoryItems": 59,
+      "balances": {
+        "coin": "152361369000",
+        "iron": "0",
+        "coal": "0",
+        "gold": "0",
+        "jade": "0",
+        "ruby": "0"
+      }
+    }
+  }
+}

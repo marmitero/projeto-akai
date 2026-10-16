@@ -74,6 +74,12 @@ export class LocalSession {
   private emit(): void {
     for (const listener of this.listeners) listener(this.getSnapshot());
   }
+  setName(name: string): void {
+    const clean = name.trim();
+    if (clean.length < 3 || clean.length > 24) throw Error("INVALID_PROFILE_NAME");
+    this.state.profile.name = clean;
+    this.emit();
+  }
   selectScreen(screen: Screen): void {
     this.tick();
     this.state.screen = ScreenSchema.parse(screen);

@@ -96,7 +96,7 @@ try {
   await page.locator("#game canvas").waitFor();
   assert.equal(
     await page.locator("#game").getAttribute("data-animation-count"),
-    "10",
+    "11",
   );
   const textures = await page
     .locator("#game")
@@ -354,7 +354,7 @@ try {
   await page.reload();
   await page.locator("#game[data-load-status=ready]").waitFor();
   const coalAfterReload = await page
-    .locator("[data-balance=coal]")
+    .locator("#dialog-resources [data-balance=coal]")
     .textContent();
   assert.ok(
     Number(coalAfterReload.replaceAll(".", "").replace(",", ".")) >= 2880 &&
