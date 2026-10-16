@@ -1,6 +1,6 @@
 # Relatório Fase 8 — monetização técnica de teste
 
-15/10/2026. **Base técnica implementada e validada localmente. Gate externo da F8 parcial: Google Play/AdMob nas contas do titular ainda não exercitados. Publicação/CI remota F8 pendentes.** Base remota F7:`3ccfdc436706f77fbc6ba7aa8ac12206a5b63ac3`. Sem compra real, anúncio real, preço financeiro, contratação ou início da F9.
+15/10/2026. **Base técnica implementada e validada localmente. Gate externo da F8 parcial: Google Play/AdMob nas contas do titular ainda não exercitados. Publicação autorizada e realizada em16/10/2026; CI aprovada após correção de corrida na sincronização da loja.** Base remota F7:`3ccfdc436706f77fbc6ba7aa8ac12206a5b63ac3`. Sem compra real, anúncio real, preço financeiro, contratação ou início da F9.
 
 ## Entregas
 
@@ -44,7 +44,7 @@ Preservados alvos Google Play/AdMob do prompt, com isolamento explícito e falta
 
 | Pendência | Responsável e impacto |
 |---|---|
-| Publicar esta base e acompanhar CI F8 | Publicação depende da autorização específica do usuário; código/documentos revisáveis preparados |
+| Publicação da base técnica | Autorizada em16/10/2026; implementação089aa10 e correção c007562 publicadas, CI aprovada |
 | Package/app/produtos/license testers e acesso da service account | Titular configura no Play Console e fornece ao ambiente por canal privado, sem colocar chave no chat/Git; bloqueia teste Google real |
 | Checkout/query de compras nativas | Implementação Android na F9 ou cliente de teste equivalente; necessário para receber tokens reais de licença-teste |
 | Unidade/conta AdMob, SDK/SSV e configuração de chaves/consentimento | Titular e integração nativa; bloqueia anunciar validação externa de anúncio |
@@ -55,6 +55,12 @@ Preservados alvos Google Play/AdMob do prompt, com isolamento explícito e falta
 
 **Concluído:** base técnica F8 e seu simulador local verificável, com regressões anteriores preservadas. **Ainda parcial:** gate de integrações efetivas de teste nas contas dos provedores. Não chamar a F8 externa de homologada apenas por testes locais/mocks.
 
-Próximo passo recomendado: publicar a base desligada por padrão e executar CI; preparar as contas/produtos de teste em canal privado e planejar a ponte Android para o teste externo. A F9 continua não iniciada e não houve ativação comercial.
+Decisão atual do usuário em16/10/2026: adiar a integração/ativação de monetização até a fase final e priorizar polimentos. Todas as pendências externas, decisões comerciais e gates estão preservados em [MONETIZATION_DEFERRED](MONETIZATION_DEFERRED.md). Próximo trabalho: [POLISH_PLAN](POLISH_PLAN.md). A F9 continua não iniciada e não houve ativação comercial.
 
 [Evidência consolidada F8](phase8-validation.json) preserva os resultados novos das regressões sem sobrescrever os artefatos históricos F3–F7.
+
+## Publicação autorizada em16/10/2026
+
+Base publicada na `main` em `089aa10a06c6190e595ffd2cf0f0335b8e758093`. A [primeira CI](https://github.com/marmitero/projeto-akai/actions/runs/38884448935) expôs um clique perdido quando a simulação coincidiu com o GET periódico da loja. Corrigido em `c007562fcbf0f5141804175c168df7f9b1c732af`: guardar a intenção explícita durante sincronização e executá-la ao concluir a leitura, cancelando a fila ao sair da tela. O smoke agora bloqueia o GET deliberadamente e verifica a concessão, sem depender de um atraso aleatório. Desenvolvimento e preview locais passaram.
+
+[CI de revalidação](https://github.com/marmitero/projeto-akai/actions/runs/38885813053): aprovada (143testes e10smokes dev/preview). [Windows/jogar.bat](https://github.com/marmitero/projeto-akai/actions/runs/38885812976): aprovado. Essas execuções pertencem à própria F8; os números de fases anteriores permanecem históricos. A monetização segue desligada por padrão. Publicação de código não significa hospedagem pública nem ativação dos provedores.

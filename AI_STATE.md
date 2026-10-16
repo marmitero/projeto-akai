@@ -1,6 +1,6 @@
 # AI_STATE — Projeto Akai
 
-15/10/2026. **F1–F7 publicadas; F8 técnica de teste implementada/validada localmente. Gate externo Google Play/AdMob parcial, publicação/CI F8 pendentes. F9 não iniciada.** Base F8:3ccfdc436706f77fbc6ba7aa8ac12206a5b63ac3.
+16/10/2026. **F1–F8 técnicas publicadas; CI F8 aprovada após corrigir clique durante sincronização. Monetização externa adiada por decisão do usuário para a fase final; prioridade atual: polimentos do jogo. F9 não iniciada.** Base F8:3ccfdc436706f77fbc6ba7aa8ac12206a5b63ac3.
 
 ## Autorização e governança
 
@@ -32,7 +32,7 @@ Executar db:migrate antes do servidor atualizado; CLI e regras em COMMUNITY_SYST
 
 jogar.bat segue local: Node24 portátil/checksum quando necessário, cache npm, sprites e5173fixo; [CI Windows 38803335493](https://github.com/marmitero/projeto-akai/actions/runs/38803335493) aprovada novamente nesta entrega. Recursos sociais exigem conta/servidor; não iniciar banco/Google silenciosamente no BAT.
 
-Sem validação de design obrigatória do usuário agora. Permanecem gates públicos: OAuth/hospedagem/TLS/banco/backups, moderação humana/privacidade/retencão/alertas/carga, licenças e playtest/aparelhos. Próximo atual em STAGE_08_REPORT: fechar base técnica F8 e preparar gate externo, sem antecipar F9.
+Sem validação de design obrigatória do usuário agora. Permanecem gates públicos: OAuth/hospedagem/TLS/banco/backups, moderação humana/privacidade/retencão/alertas/carga, licenças e playtest/aparelhos. Próximo atual: polimentos; pendências externas preservadas em docs/MONETIZATION_DEFERRED.md, retomada somente na fase final.
 
 ## Publicação da F6
 
@@ -62,4 +62,4 @@ Recompensas voluntárias somente no simulador:120s autoclick3/s,2×Coins/XP da t
 
 143testes/12arquivos (26novos), PostgreSQL real, typecheck/builds/hashes90 e10smokes dev/preview passaram. DOM75→75 em30navegações premium, zero pageerrors,320/390/768px. APIs Play/OAuth mockadas e criptografia local não equivalem a homologação nas contas Google/AdMob. Sem novo Windows, soak30min, aparelho, playtest econômico ou carga. Regras/evidências em STAGE_08_REPORT, MONETIZATION_SYSTEMS, ADR-012 e phase8-*.json.
 
-Pendente: publicação e CI F8 próprias; titular configura package/produtos/license testers/API service account em canal privado e unidade AdMob/consentimento; cliente Android de teste/SDK/SSV reais. Não pedir segredos no chat nem criar conta, gasto ou aceite unilateralmente. Preços/produtos com impacto financeiro ou de poder exigem decisão material própria; não bloqueiam o código de teste desligado. Base técnica F8 concluída, gate externo parcial. F9 não iniciada.
+Publicação autorizada em16/10/2026: base main `089aa10a06c6190e595ffd2cf0f0335b8e758093`; correção de clique na sincronização `c007562fcbf0f5141804175c168df7f9b1c732af`. CI aprovada. Pendências de Google/AdMob/Android, catálogo e lançamento preservadas em [MONETIZATION_DEFERRED](docs/MONETIZATION_DEFERRED.md). Usuário adiou integração/ativação de monetização até a fase final; não solicitar credenciais ou iniciar F9 agora. Prioridade: [polimentos](docs/POLISH_PLAN.md), P1 local e HUD P2 pendente.

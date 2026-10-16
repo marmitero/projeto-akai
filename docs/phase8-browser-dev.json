@@ -8,6 +8,7 @@
     "restore-once",
     "cosmetic-title",
     "voluntary-autoclick-validated",
+    "simulate-click-retained-during-poll",
     "account-isolation",
     "30-navigation-cycles",
     "widths-320-390-768"

@@ -1,6 +1,6 @@
 # Documentação do Projeto Akai
 
-Baseline de planejamento — 15/10/2026. **F1–F4 locais; F5 online e F6 comunidade publicadas; F7 mercado publicada com CI aprovada; F8 técnica de teste local implementada, gate externo parcial, sem deploy público.** Leia [AI_STATE](../AI_STATE.md) antes de trabalhar. O usuário autorizou a próxima etapa em 15/10/2026. Comandos reais em [DEVELOPMENT](DEVELOPMENT.md); evidências atuais em [STAGE_08_REPORT](STAGE_08_REPORT.md) e regras em [MONETIZATION_SYSTEMS](MONETIZATION_SYSTEMS.md).
+Baseline de planejamento — 15/10/2026. **F1–F4 locais; F5 online e F6 comunidade publicadas; F7 mercado publicada com CI aprovada; F8 técnica de teste publicada, monetização externa adiada até a fase final, sem deploy público.** Leia [AI_STATE](../AI_STATE.md) antes de trabalhar. O usuário autorizou publicar F8 e priorizou polimentos em16/10/2026. Pendências em [MONETIZATION_DEFERRED](MONETIZATION_DEFERRED.md), trabalho atual em [POLISH_PLAN](POLISH_PLAN.md). Comandos reais em [DEVELOPMENT](DEVELOPMENT.md); evidências atuais em [STAGE_08_REPORT](STAGE_08_REPORT.md) e regras em [MONETIZATION_SYSTEMS](MONETIZATION_SYSTEMS.md).
 
 ## Ordem de leitura
 

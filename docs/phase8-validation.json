@@ -1,7 +1,23 @@
 {
   "stage": 8,
-  "execution": "local",
-  "remoteCI": "not-run",
+  "execution": "local-and-github-actions",
+  "remoteCI": {
+    "implementationCommit": "089aa10a06c6190e595ffd2cf0f0335b8e758093",
+    "fixCommit": "c007562fcbf0f5141804175c168df7f9b1c732af",
+    "initialProjectRun": {
+      "id": 38884448935,
+      "result": "failure",
+      "reason": "Premium simulation click ignored during periodic GET; fixed with queued intent and deterministic regression."
+    },
+    "projectRun": {
+      "id": 38885813053,
+      "result": "success"
+    },
+    "windowsRun": {
+      "id": 38885812976,
+      "result": "success"
+    }
+  },
   "unitTests": {
     "passed": 143,
     "files": 12,
@@ -171,6 +187,7 @@
           "restore-once",
           "cosmetic-title",
           "voluntary-autoclick-validated",
+          "simulate-click-retained-during-poll",
           "account-isolation",
           "30-navigation-cycles",
           "widths-320-390-768"
@@ -189,6 +206,7 @@
           "restore-once",
           "cosmetic-title",
           "voluntary-autoclick-validated",
+          "simulate-click-retained-during-poll",
           "account-isolation",
           "30-navigation-cycles",
           "widths-320-390-768"
@@ -215,7 +233,12 @@
   "limitations": [
     "No production monetization or real pricing",
     "No real provider account certification",
-    "No new30min soak, physical Android device, human economic playtest or commercial load test",
-    "No new Windows execution in this stage"
-  ]
+    "No new30min soak, physical Android device, human economic playtest or commercial load test"
+  ],
+  "monetizationDecision": {
+    "date": "2026-10-16",
+    "externalIntegrationAndActivation": "deferred-until-final-phase",
+    "backlog": "docs/MONETIZATION_DEFERRED.md",
+    "priority": "game-polish"
+  }
 }

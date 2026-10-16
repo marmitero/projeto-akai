@@ -1,6 +1,6 @@
 # Roadmap e gates de entrega
 
-Baseline v1 — 15/10/2026. Sem estimativas de calendário: duração depende da integração artística e validação do loop. Estado atual: F1–F5 e iniciador Windows concluídos; F6 concluída e publicada, com CI remota aprovada; F7 concluída e publicada, com CI remota aprovada. F8 técnica de teste implementada/validada localmente; gate externo parcial, publicação/CI pendentes. F9 não iniciada. As linhas de estado e entregas datadas prevalecem sobre registros históricos abaixo.
+Baseline v1 — 15/10/2026. Sem estimativas de calendário: duração depende da integração artística e validação do loop. Estado atual: F1–F5 e iniciador Windows concluídos; F6 concluída e publicada, com CI remota aprovada; F7 concluída e publicada, com CI remota aprovada. F8 técnica de teste publicada; CI aprovada. Gate externo adiado pelo usuário para a fase final; polimentos têm prioridade. F9 não iniciada. As linhas de estado e entregas datadas prevalecem sobre registros históricos abaixo.
 
 | Fase | Entrega e dependências | Critério de saída | Estado |
 |---|---|---|---|
@@ -12,7 +12,7 @@ Baseline v1 — 15/10/2026. Sem estimativas de calendário: duração depende da
 | 5 — Online autoritativo | Fundação do servidor F1 + domínio estabilizado | Auth, persistência, ledger, reconexão, simulação confiável, testes de concorrência/abuso | Concluída e publicada; CI aprovada, ver STAGE_05_REPORT |
 | 6 — Comunidade | F5 + decisões sociais resolvidas | Chat/moderação, guildas/brasões, PvP, rankings/temporadas, boss global e eventos idempotentes | Concluída e publicada; CI aprovada, STAGE_06_REPORT |
 | 7 — Mercado | F4/F5 + definições de negociação | Reserva, compra/oferta atômicas, taxas, expiração/relistagem e auditoria verificadas | Concluída e publicada; CI aprovada, STAGE_07_REPORT |
-| 8 — Monetização | F5 + economia simulada + contas de provedores | Compras/anúncios em sandbox validados e reconciliados, sem grants duplicados | Base técnica local validada; teste externo Google/AdMob parcial, STAGE_08_REPORT |
+| 8 — Monetização | F5 + economia simulada + contas de provedores | Compras/anúncios em sandbox validados e reconciliados, sem grants duplicados | Base técnica publicada; Google/AdMob adiados até fase final, MONETIZATION_DEFERRED |
 | 9 — Android | Loop estável + adaptação de plataforma | Build de teste em aparelhos, ciclo de vida, auth, compras e áudio validados | Não iniciada |
 | 10 — Candidato a lançamento | Gates anteriores + licenças + operação | RELEASE_CHECKLIST cumprido, riscos aceitos, rollback e restauração ensaiados | Não iniciada |
 
@@ -99,4 +99,4 @@ Autorizada pelo usuário após publicação F6. Contratos strict, migração003,
 
 Autorizada após publicaçãoF7. Catálogo/Loja, contratos/migração004, PurchaseProvider sandbox assinado e GooglePlayTestProvider, verificação/criptografia, concessões únicas, restore, consumo/ack pós-commit, fila/backoff, revogação/dívida e quatro bônus de recompensa com limites/presença/expiração implementados. Off padrão e banco de teste não promovível, sem monetização financeira de produção ou preço real. SSV puro testado não equivale a anúncio real.
 
-143testesPostgreSQL/12arquivos e10smokes dev/preview, hashes/builds/typecheck e simulação passaram localmente. Publicação/CI F8 pendentes. Base técnica concluída; gateexterno parcial até contas/produtos/license-testers/credencialAPI privada/clienteAndroid e unidadeAdMob/SDK/SSV efetivamente testados. Titular resolve atos de conta e futura decisão financeira; demais instruções/evidências em MONETIZATION_SYSTEMS/ADR-012/STAGE_08_REPORT. F9 não iniciada; próximo passo é publicar a baseoff e preparar teste externo em conjunto com a ponte nativa.
+143testesPostgreSQL/12arquivos e10smokes dev/preview, hashes/builds/typecheck e simulação passaram localmente. Publicação F8 autorizada e realizada em16/10/2026; CI aprovada. Base técnica concluída; gateexterno parcial até contas/produtos/license-testers/credencialAPI privada/clienteAndroid e unidadeAdMob/SDK/SSV efetivamente testados. Titular resolve atos de conta e futura decisão financeira; demais instruções/evidências em MONETIZATION_SYSTEMS/ADR-012/STAGE_08_REPORT. F9 não iniciada. Por decisão do usuário em16/10, monetização externa será retomada somente na fase final. Próximo passo: POLISH_PLAN; pendências completas em MONETIZATION_DEFERRED.
