@@ -1,6 +1,6 @@
 # servidor.bat — online com um iniciador
 
-16/10/2026. Implementado localmente, ainda não publicado.
+16/10/2026. Publicado na main após autorização explícita do usuário.
 
 servidor.bat chama o bootstrap PowerShell existente em modo Online. Reutiliza Node24 portátil verificado por checksum e o cache npm; o fluxo local continua sendo o padrão de jogar.bat. O helper servidor.mjs confere Docker Compose/contexto local, tenta abrir Docker Desktop se instalado no caminho padrão, valida portas3000/5173 e binding loopback do banco, prepara dependências/sprites, inicia o serviço db do Compose, aguarda readiness e executa migrações antes de iniciar API/Vite. Abre localhost:5173 no navegador padrão.
 
@@ -14,4 +14,7 @@ Validação executada em Linux: sintaxe Node; ausência de Docker, porta ocupada
 
 Limitação explícita: não há Windows/PowerShell ou engine Docker neste ambiente. A CLI Docker foi simulada somente para o teste de orquestração; isso não equivale a executar servidor.bat no Windows ou baixar/iniciar um container Docker real. Os comandos seguem o Compose já versionado. Ainda é necessária validação no Windows com Docker Desktop, incluindo Node portátil, caminhos com espaços, abertura do Desktop e Ctrl+C.
 
-Evidência: server-launcher-validation.json. Guia do usuário em ONLINE.md#iniciar-com-servidorbat-no-windows. Sem publicação externa, hospedagem, F9/P8 ou ativação de monetização.
+Evidência: server-launcher-validation.json. Guia do usuário em ONLINE.md#iniciar-com-servidorbat-no-windows. Código publicado no GitHub, sem hospedagem, F9/P8 ou ativação de monetização.
+
+
+Publicado na main após autorização explícita em16/10/2026: implementação3e05dd067a27cefe6d1854f96e2ff7924c5685ae. CI principal38987019738 e Windows38987019786 iniciadas (ainda sem resultado no fechamento). CI Windows existente testa jogar.bat, não executa Docker Desktop/servidor.bat. Limitações do teste específico do iniciador online permanecem registradas.

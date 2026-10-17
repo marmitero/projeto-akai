@@ -1,6 +1,6 @@
 {
   "date": "2026-10-16",
-  "status": "local-only",
+  "status": "published",
   "syntaxChecks": true,
   "boundaryChecks": {
     "missingDocker": true,
@@ -27,5 +27,13 @@
     "No Windows/PowerShell runtime available in this environment",
     "Docker CLI simulated for orchestration; actual Docker engine/Desktop lifecycle not executed",
     "No new Windows CI run; API, PostgreSQL and browser were real"
-  ]
+  ],
+  "publication": {
+    "head": "3e05dd067a27cefe6d1854f96e2ff7924c5685ae",
+    "authorizedLocalDate": "2026-10-16",
+    "projectCI": 38987019738,
+    "windowsCI": 38987019786,
+    "ciStatusAtClosure": "in_progress",
+    "windowsOnlineLauncherTest": "pending; existing workflow exercises local launcher only"
+  }
 }
