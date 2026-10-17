@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-16",
+  "status": "local-only",
+  "syntaxChecks": true,
+  "boundaryChecks": {
+    "missingDocker": true,
+    "occupiedPortRefused": true,
+    "existingProcessPreserved": true,
+    "publicDatabasePortRefused": true,
+    "noDatabaseStartedWhenUnsafe": true,
+    "remoteContextRefusedBeforeEngineConnection": true,
+    "remoteDockerHostRefused": true
+  },
+  "integration": {
+    "realAPI": true,
+    "realPostgreSQL": true,
+    "dockerCLI": "fixture only; Docker engine not available",
+    "onlineGuestSpritesMining": true,
+    "hostileEnvironmentOverridden": true,
+    "cachedPreparation": true,
+    "existingAccountsPreserved": true,
+    "ownedProcessesClosed": true,
+    "noVolumeDeletion": true
+  },
+  "localPreviewRegression": true,
+  "limitations": [
+    "No Windows/PowerShell runtime available in this environment",
+    "Docker CLI simulated for orchestration; actual Docker engine/Desktop lifecycle not executed",
+    "No new Windows CI run; API, PostgreSQL and browser were real"
+  ]
+}

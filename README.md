@@ -20,4 +20,6 @@ Entrega jogável: [relatório F3](docs/STAGE_03_REPORT.md), [configuração expe
 
 Baixe/extraia a pasta completa do projeto e dê dois cliques em **jogar.bat**. Ele prepara Node portátil quando necessário, instala dependências, confere sprites e abre o preview local no navegador. Na primeira execução é necessário acesso à internet. Mantenha a janela aberta enquanto joga; Ctrl+C encerra. [Instruções e salvamento](docs/LOCAL_PREVIEW.md).
 
+Para testar contas online, use **servidor.bat** (requer Docker Desktop instalado). Ele prepara banco, tabelas, API e cliente e abre o navegador, sem comandos manuais de PowerShell. Node portátil e dependências são preparados automaticamente. O banco conserva contas entre execuções. [Guia do modo online](docs/ONLINE.md#iniciar-com-servidorbat-no-windows).
+
 Polimentos de batalha P1–P3 publicados: parallax, entrada dos inimigos, HUD compacta com perfil/recursos/varal/HP e críticos autoritativos experimentais5%/1,5×. [Relatório e validação](docs/POLISH_P3_REPORT.md). Monetização permanece adiada até a fase final.

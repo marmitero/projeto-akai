@@ -32,7 +32,7 @@ function npm(args) {
 }
 async function dependenciesReady() {
   const hash = createHash('sha256');
-  for (const path of ['package-lock.json', 'package.json', 'apps/client/package.json', 'packages/shared/package.json']) hash.update(await readFile(resolve(root, path)));
+  for (const path of ['package-lock.json', 'package.json', 'apps/client/package.json', 'apps/server/package.json', 'packages/shared/package.json']) hash.update(await readFile(resolve(root, path)));
   const fingerprint = `${process.platform}:${process.arch}:node${process.versions.node.split('.')[0]}:${hash.digest('hex')}`;
   const marker = resolve(root, 'node_modules/.akai-preview-ready');
   let ready = false;
@@ -41,6 +41,9 @@ async function dependenciesReady() {
     await access(clientRequire.resolve('vite'));
     await access(clientRequire.resolve('phaser/package.json'));
     await access(resolve(root, 'node_modules/typescript/bin/tsc'));
+    const serverRequire = createRequire(resolve(root, 'apps/server/package.json'));
+    await access(serverRequire.resolve('tsx'));
+    await access(serverRequire.resolve('pg'));
   } catch { ready = false; }
   if (!ready) {
     console.log('\nInstalando dependencias do projeto (a primeira vez pode demorar)...');
@@ -55,7 +58,7 @@ async function shutdown() {
 }
 try {
   if (Number(process.versions.node.split('.')[0]) !== 24) throw Error('Use Node.js 24 ou execute jogar.bat para preparar a versao portatil.');
-  console.log('\nPROJETO AKAI - Preview local\n');
+  console.log(prepareOnly ? '\nPROJETO AKAI - Preparando arquivos do jogo\n' : '\nPROJETO AKAI - Preview local\n');
   process.env.VITE_GAME_MODE = 'local'; // takes precedence over .env and external online settings
   console.log('Conferindo integridade dos sprites...');
   await run(process.execPath, [resolve(root, 'scripts/check-visual-assets.mjs')]);

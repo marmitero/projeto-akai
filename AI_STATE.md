@@ -86,3 +86,8 @@ P7: validações pendentes concluídas após autorização explícita de publica
 
 
 P7 publicada após autorização explícita: [PR3](https://github.com/marmitero/projeto-akai/pull/3), merge `7033dde145fea04444f2266cf6f28cdee7bac066`. Head validado `a397e225c800214cc6c9edb730409c500653b06b`, árvore `015e070abe618072941089e2cd2210380b7cd317`. [CI principal38923516737](https://github.com/marmitero/projeto-akai/actions/runs/38923516737) e [Windows38923516798](https://github.com/marmitero/projeto-akai/actions/runs/38923516798) aprovados.170testes PostgreSQL16 sem skips e regressões completas local/online/dev/preview. Sem pendência técnica obrigatória da P7. Próxima implementação: P8, conversa Global integrada; sem F9 ou monetização automática.
+
+
+## Iniciador online solicitado (16/10/2026)
+
+servidor.bat/scripts/servidor.mjs implementados localmente (não publicados). Bootstrap jogar.ps1 aceita modo Online; jogar.bat continua local por padrão. Node24 portátil/cache, Compose db/migrações/API/Vite/browser automáticos; Docker Desktop Linux é pré-requisito externo. Banco e contas preservados; encerra só cliente/API próprios; guardas para portas/contextos Docker remotos/binding do banco. Monetização off e conexão local fixa, .env intacto. Relatório docs/SERVER_LAUNCHER_REPORT.md e server-launcher-validation.json. API/PostgreSQL/Chromium reais testados com CLI Docker de fixture; erros/cache/persistência/regressão local passaram. Sem execução real Windows/PowerShell/Docker engine disponível; essa validação ainda precisa ocorrer. Não confundir com CI Windows P7 anterior, que não exercita este novo iniciador. P8 não iniciada.

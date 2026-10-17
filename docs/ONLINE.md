@@ -30,6 +30,24 @@ npm run db:reconcile -w @akai/server
 
 `npm test` sem TEST_DATABASE_URL pula explicitamente a suíte de integração PostgreSQL; não equivale à validação completa da F5. A CI fornece PostgreSQL real e executa a suíte e os smokes dos dois modos. Dependência de Chromium: `npx playwright install --with-deps chromium`. `AKAI_CHROMIUM_EXECUTABLE` permite usar um runtime de teste já disponível; não altera o jogo.
 
+## Iniciar com servidor.bat no Windows
+
+1. Instale Docker Desktop com suporte a containers Linux (a instalação pode solicitar WSL2/virtualização e reinício). Isso é feito uma vez pela interface do instalador; o BAT não instala componentes de sistema.
+2. Atualize/extraia a pasta completa do projeto. Feche a janela do jogar.bat ou outro servidor do projeto.
+3. Dê dois cliques em **servidor.bat**. Se necessário, ele tenta abrir Docker Desktop e aguarda o mecanismo Linux. Node24 portátil, dependências e sprites são preparados pelo mesmo bootstrap do jogar.bat.
+4. Aguarde o primeiro download da imagem PostgreSQL16. O iniciador cria/inicia o banco do Compose, aguarda readiness, executa migrações e abre API/cliente em **http://localhost:5173**.
+5. Crie um convidado, guarde sua chave e confirme a entrada. Google não é necessário.
+
+Mantenha a janela aberta enquanto joga. Ctrl+C encerra o cliente/API iniciados pelo BAT. **O banco fica no Docker e conserva as contas**, inclusive entre reinícios. Para pará-lo também, use Docker Desktop→container db→Stop; não remova o volume se quiser manter o progresso. Nunca é usado `down -v` ou reset de banco. O iniciador não apaga perfis nem fecha outros programas para liberar portas.
+
+Este fluxo é somente para teste no próprio computador: API127.0.0.1:3000, cliente localhost:5173, banco127.0.0.1:5432. Monetização fica off e DATABASE_URL externa é ignorada; não conecta silenciosamente a bancos remotos. Utiliza o banco `akai`/volume de desenvolvimento do compose.yaml existente. Banco de monetização sandbox não deve substituir esse volume. O iniciador não altera .env.
+
+Erros de Docker ausente/inativo, containers Windows ou porta ocupada aparecem na janela. Se Docker Desktop foi instalado em outro local ou ainda está iniciando, abra-o manualmente, aguarde Linux pronto e execute o BAT novamente. Na primeira vez precisa de internet e escrita na pasta. Depois, runtimes, dependências e imagem são reaproveitados quando disponíveis.
+
+Opções técnicas: `servidor.bat -NoBrowser` não abre navegador; `-PrepareOnly` prepara dependências/banco/migrações sem iniciar API/cliente; `-SmokeTest` usa Playwright instalado para criar conta descartável e verificar um crédito real de ferro, depois encerra API/cliente. O navegador Playwright é exclusivo de testes; uso normal abre seu navegador padrão.
+
+O fluxo manual abaixo continua disponível para diagnóstico. `jogar.bat` continua sendo o modo local, sem Docker/contas online. Não execute ambos ao mesmo tempo: os dois usam5173.
+
 ## Testar no Windows (PowerShell)
 
 O jogo ainda não tem um servidor público hospedado. É possível testar o modo online completo no próprio computador. Instale Node24/npm11 e Docker Desktop com o mecanismo de containers Linux iniciado. Se usa apenas o Node portátil do jogar.bat, ele não instala os comandos npm/node no PATH; para os comandos abaixo use uma instalação Node24 disponível no terminal.

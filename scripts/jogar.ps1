@@ -1,4 +1,4 @@
-param([switch]$NoBrowser, [switch]$SmokeTest, [switch]$PrepareOnly)
+param([switch]$NoBrowser, [switch]$SmokeTest, [switch]$PrepareOnly, [switch]$Online)
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 $root = Split-Path -Parent $PSScriptRoot
@@ -69,12 +69,13 @@ try {
     }
     # This process only: do not change the machine PATH or the user's Node installation.
     $env:PATH = (Split-Path -Parent $node) + [IO.Path]::PathSeparator + $env:PATH
-    $env:VITE_GAME_MODE = 'local'
+    $env:VITE_GAME_MODE = if ($Online) { 'online' } else { 'local' }
     $arguments = @()
     if ($NoBrowser) { $arguments += '--no-browser' }
     if ($SmokeTest) { $arguments += '--smoke-test' }
     if ($PrepareOnly) { $arguments += '--prepare-only' }
-    & $node (Join-Path $PSScriptRoot 'jogar.mjs') @arguments
+    $launcher = if ($Online) { 'servidor.mjs' } else { 'jogar.mjs' }
+    & $node (Join-Path $PSScriptRoot $launcher) @arguments
     exit $LASTEXITCODE
 } catch {
     Write-Host ''
