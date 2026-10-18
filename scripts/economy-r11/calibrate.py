@@ -14,13 +14,13 @@ ORIGINAL_RUN=m.run_account
 ORIGINAL_BASE=copy.deepcopy(m.BASE)
 # Fixed before acceptance cohorts: maximum mastery generation 1 second/second.
 # 96*24 effective hours is an absolute bound, even all hits/crit/loot favorable.
-CONFIG=dict(version='r11-candidate-2',maxLevel=1000,minimumQualifyingCombatHours=2304,offlineHours=8,
+CONFIG=dict(version='r11-candidate-3',maxLevel=1000,minimumQualifyingCombatHours=2304,offlineHours=8,
  xpBandWeight=dict(base=.05,scale=2,power=1.7),commonHpRamp=2,commonAttackRamp=25,
  huntHpRamp=1,huntAttackRamp=4,huntEnrageSeconds=30,weeklyScrolls=30,paidWeeklyScrolls=10,
  protectedHighSuccess=[.32,.27,.22,.17,.12],materialExponent=.65,jadeDailyScenario=3,
  coinRewardLateRamp=.25,gearEquipHeroLevelsPerItemLevel=10,lateRecipeMultipliers=dict(coin=4,coal=4,iron=8,gold=4,jade=1),
  xpReference='min(completed encounter cycle seconds, benchmark cycle seconds) * challenge eligibility',
- benchmarkEnhancement=10,benchmark='Epic +10 at stage item level; swift equal-point build, no pets/buffs; legal stats')
+ benchmarkEnhancement=9,benchmark='Epic +9 at stage item level; swift equal-point build, no pets/buffs; legal stats')
 
 @lru_cache(maxsize=200000)
 def cached_item_score(definition,L,rarity,q,enh):
@@ -44,7 +44,7 @@ def configure(hours=2304):
  m.Item.score=item_score;m.Item.stats=item_stats
  m.run_account=run_account
  m.enhancement_cost=enhancement_cost
- m.Account=Account;m.farm=farm;m.encounter=encounter;m.choose=choose;m.advance_block=advance_block
+ m.Account=Account;m.farm=farm;m.encounter=encounter;m.choose=choose;m.advance_block=advance_block;m.best_hunt=best_hunt
  m.BASE=copy.deepcopy(ORIGINAL_BASE)
  for i,groups in enumerate(m.BASE['encounters']):
   if (i+1)%10==0:continue # No edits to published tower boss definitions.
@@ -204,6 +204,19 @@ def fallback(a,stats,kind='main'):
   if kind=='main' and f%10==0:continue
   if encounter(stats,kind,f)['safe']:return kind,f
  return 'main',1
+
+@lru_cache(maxsize=10000)
+def safe_hunt_repeat(stats_tuple,kind,highest):
+ stats=dict(stats_tuple)
+ for f in range(highest,0,-1):
+  if encounter(stats,kind,f)['safe']:return f
+ return None
+
+def best_hunt(a,kind,config,stats):
+ if a.highest<(20 if kind=='gold' else 5):return None
+ highest=a.hunts[kind]
+ if highest<1000 and encounter(stats,kind,highest+1)['safe']:return highest+1
+ return safe_hunt_repeat(tuple(sorted(stats.items())),kind,highest)
 
 def advance_block(a,seconds,day,config):
  a.collect_offline_items();a.buy_train();a.enhance(day);st=a.stats();kind,f=choose(a,config,st);remaining=seconds

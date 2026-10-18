@@ -5,16 +5,19 @@ Python3.12+, standard library. No game/server/launcher imports this model. Run f
 ```sh
 python scripts/economy-r11/tests.py
 python scripts/economy-r11/acceptance.py
+python scripts/economy-r11/builds.py
+python scripts/economy-r11/refinement.py
+python scripts/economy-r11/legacy.py
 python scripts/economy-r11/report.py
 ```
 
-Frozen acceptance criteria precede acceptance cohorts. Pilot seed2026101901; original rejected acceptance seeds78102001/99887101; candidate2 acceptance seed88452001 and independent holdout99337001. Original R1 outputs remain intact. Changing parameters requires a fresh candidate/seed, never changing the gates after execution. All non-progressors stay in denominators and censored quantiles.
+Frozen acceptance criteria precede acceptance cohorts. Pilot seed2026101901; original rejected acceptance seeds78102001/99887101; candidate2 acceptance seed88452001/holdout99337001; candidate3 acceptance99545001/holdout67432001. Original R1 outputs remain intact. Changing parameters requires a fresh candidate/seed, never changing the gates after execution. All non-progressors stay in denominators and censored quantiles.
 
 `calibrate.py` imports the frozen R1 Python harness, not game code. It replaces only independent simulation functions in process. Published content anchors are copied; **tower boss definitions are preserved unchanged**. Current game saves and XP units are not compatible with simulated mastery and are never opened/migrated here.
 
-Mastery grants happen only on completed victories. Per victory: min(complete encounter cycle time, legal epic+10 reference cycle time) × min(1,(equivalent floor / hero level)²). Total credit cannot exceed the economic time actually used. Reference/build eligibility is recalculated at every crossed level, including offline batches. Threshold weights `.05 + 2*(destinationOffset/999)^1.7` sum to2304hours (96days at24h/day). This is a global throughput ceiling, **not a daily login quest or reset requirement**. Trivial low-floor fights and weak gear are inefficient. No purchase/buff/event may bypass that ceiling in a future implementation.
+Mastery grants happen only on completed victories. Per victory: min(complete encounter cycle time, legal epic+9 reference cycle time) × min(1,(equivalent floor / hero level)²). Total credit cannot exceed the economic time actually used. Reference/build eligibility is recalculated at every crossed level, including offline batches. Threshold weights `.05 + 2*(destinationOffset/999)^1.7` sum to2304hours (96days at24h/day). This is a global throughput ceiling, **not a daily login quest or reset requirement**. Trivial low-floor fights and weak gear are inefficient. No purchase/buff/event may bypass that ceiling in a future implementation.
 
-Equipment requires hero level `10*(itemLevel-1)+1`. Max item100 becomes equipable at hero991. Attribute point/currency budgets remain finite. The simulated agent first improves all usable slots to+7, then prioritizes the weapon, then armor; it refuses unprotected risky attempts. This is one behavioral policy, not the only player strategy.
+Equipment requires hero level `10*(itemLevel-1)+1`. Max item100 becomes equipable at hero991. Attribute point/currency budgets remain finite. The simulated agent first improves all usable slots to+7, then prioritizes the weapon, then armor; it refuses unprotected risky attempts. If the highest cleared hunt becomes unsafe, return to a lower cleared safe floor instead of declaring the material unavailable. This is one behavioral policy, not the only player strategy.
 
 Content common HP and damage ramp beyond floor100. Final hunts have an encounter timer and rising damage. The tests compare max-level identical point budgets/common+0,rare+0,rare+7,epic+12,legendary+15. A proposed future raid uses this stat-budget envelope only; **no raid/boss mechanics implemented or claimed tested**.
 

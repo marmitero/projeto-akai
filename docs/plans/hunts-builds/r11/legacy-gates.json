@@ -1,0 +1,21 @@
+{
+  "gates": {
+    "regularMain100By30": true,
+    "basicHuntsBy30": true,
+    "renewableLegendary": true,
+    "buildDiversity": true,
+    "paidFloorProgressionRatio": true
+  },
+  "eligibleBy90": 1.0,
+  "legendaryGivenEligibleBy90": 1.0,
+  "buildWins": {
+    "balanced": 4,
+    "swift": 12,
+    "brute": 1,
+    "physical": 0,
+    "magic": 0,
+    "critical": 3
+  },
+  "largestBuildWinnerShare": 0.6,
+  "note": "Original R1 numeric diagnostics retained; changed user pacing goal supersedes earlier XP timeline; completeness still blocked"
+}

@@ -24,7 +24,7 @@ text=f'''# R1.1 — Calibração de tempo e conquistas
 
 Pedido: no melhor cenário legal, chegar ao nível máximo em aproximadamente90–120dias; conteúdo avançado deve exigir bons equipamentos/refino e conquistas, sem depender apenas de nível ou tempo.
 
-Candidata2: melhor perfil contínuo, desde conta nova, mediana **{best['maxLevelDays']['p50']}dias**, mínimo observado **{best['maxLevelDays']['min']}**, p90 **{best['maxLevelDays']['p90']}**; {pct(best['maxLevelBy120Fraction'])}até120dias. Holdout independente: mediana **{hold['maxLevelDays']['p50']}**, {pct(hold['maxLevelBy120Fraction'])}até120. Perfil16honline+8hoffline: mediana **{s['optimized_16plus8']['maxLevelDays']['p50']}dias**.
+Candidata3: melhor perfil contínuo, desde conta nova, mediana **{best['maxLevelDays']['p50']}dias**, mínimo observado **{best['maxLevelDays']['min']}**, p90 **{best['maxLevelDays']['p90']}**; {pct(best['maxLevelBy120Fraction'])}até120dias. Holdout independente: mediana **{hold['maxLevelDays']['p50']}**, {pct(hold['maxLevelBy120Fraction'])}até120. Perfil16honline+8hoffline: mediana **{s['optimized_16plus8']['maxLevelDays']['p50']}dias**.
 
 O modelo possui piso matemático de **96dias**: mesmo com equipamento transferido, todos os drops favoráveis e recursos abundantes, a conta não gera mais de um segundo de XP qualificado por segundo de atividade econômica válida. O máximo exige2304horas qualificadas. Nenhuma combinação online/offline pode somar mais de24h/dia. Isso depende de o futuro motor aplicar o mesmo pipeline a todas as fontes deXP; não é uma proteção já implantada no servidor.
 
@@ -42,7 +42,7 @@ Para cada nível destino, peso w(n)=0,05+2×(n/999)^1,7, com n=1…999. Normaliz
 
 Esses são limites ideais, não datas prometidas de cada marco. Tempo em eventos, escolhas de farm, equipamento inadequado, derrotas, loot, transições e fracionamento dos encontros aumentam as datas orgânicas.
 
-Recompensa por vitória: `min(tempo do ciclo concluído, tempo de referência no mesmo encontro) × min(1,(andar equivalente/nível do herói)²)`. Referência: build ágil com orçamento legal e equipamento épico+10 apropriado ao nível. Um conjunto fraco leva mais tempo que a referência e rende menosXP/h; matar inimigos triviais abaixo do nível sofre redução. Ao atingir a eficiência de referência, o teto estabiliza o prazo mesmo com bônus. O ciclo inclui a transição daquele encontro concluído; não há crédito por espera livre, batalha perdida, login, entrar/sair ou encontro parcial. É uma regra nova candidata de recompensa/limitação de fluxo, não apenas multiplicar a antigaXP.
+Recompensa por vitória: `min(tempo do ciclo concluído, tempo de referência no mesmo encontro) × min(1,(andar equivalente/nível do herói)²)`. Referência: build ágil com orçamento legal e equipamento épico+9 apropriado ao nível. Um conjunto fraco leva mais tempo que a referência e rende menosXP/h; matar inimigos triviais abaixo do nível sofre redução. Ao atingir a eficiência de referência, o teto estabiliza o prazo mesmo com bônus. O ciclo inclui a transição daquele encontro concluído; não há crédito por espera livre, batalha perdida, login, entrar/sair ou encontro parcial. É uma regra nova candidata de recompensa/limitação de fluxo, não apenas multiplicar a antigaXP.
 
 Não é necessário completar missão diária para receberXP, nem existe reset diário dessa barra. Não há estoque inicial/catch-up que permita atravessar o piso. Repetir andares elegíveis segue permitido; bosses concluídos não. No offline, só a atividade já concluída/selecionada; stats congelados. Recalcular referência e elegibilidade em cada nível cruzado evita usar por8h a taxa fácil do primeiro nível do lote. O teste de200encontros em lote versus separados verifica esse caminho com stats fixos; não equivale à determinística do motor inteiro com loot.
 
@@ -58,9 +58,25 @@ Ablation no herói1000: mesmos pontos e mesmo nível de equipamento; só raridad
 |---|---|---|
 {fixture}
 
+Na grade adicional de20contextos com orçamento igual, houve quatro builds vencedoras: equilibrada4, ágil12, força1ecrítica3. A maior participação foi60%, abaixo do limite anterior80%; o gate numérico de diversidade também passa. Builds defensivas não lideram abates/hora nessa grade e precisam de objetivos de sobrevivência e inimigos mágicos reais para validar sua utilidade completa. Dados em `build-diversity.json`; critérios numéricos antigos retidos em `legacy-gates.json`.
+
 Nas seis builds testadas, comum+0 e raro+0 falham em ambos os desafios. Uma build épica+12 legal passa; lendário+15 oferece alternativas nas demais. Isso prova necessidade de investimento no envelope testado; não que todo equipamento lendário deva ser+15, nem que todos os slots precisem do mesmo refino. Grade registra resultados por build/raridade em `results.json`. O agente orgânico compra equipamento/refino com saldo limitado, começa sem doações e prioriza todos os slots até+7 antes de refino alto na arma. Resultados ainda dependem de modelar afixos/pets/consumos e inimigos mágicos reais.
 
 Para futuras raids avançadas: usar esse envelope de equipamento/DPS/sobrevivência e conquistas prévias de torre/hunts como base de acesso, não vender entrada apenas por nível. **Não existem raids novas implementadas ou validadas por este ensaio.** Mecânicas e recompensas dos bosses continuam em etapa própria. As definições dos bosses atuais da torre foram preservadas byte a byte; por isso a dificuldade deles ainda precisa de calibração na fase específica e não se afirma que a campanha inteira está pronta para produção.
+
+## Marcos de conquistas
+
+As faixas abaixo são objetivos de progressão e orientação de equipamento, não travas artificiais que exigem exatamente um+X em cada slot. A aprovação quantitativa de equipamento é a ablation final; marcos intermediários ainda exigem playtest.
+
+| Faixa do herói | Conquista que sustenta o avanço | Investimento de referência |
+|---|---|---|
+|1–100|Acessar carvão/ferro e formar o conjunto inicial|Itens adequados ao nível;+1–3sem perda na falha|
+|101–250|Dominar hunts iniciais e iniciar a build|Peças úteis;+3–7|
+|251–500|Sustentar farm intermediário de ferro e ouro|Raros adequados;+7–10|
+|501–750|Especializar dano/acerto/defesas e financiar upgrades|Mistura rara/épica;+10–12nas peças prioritárias|
+|751–900|Vencer o início das hunts avançadas e obter bases duráveis|Épicos fortes ou lendários;+12–15conforme build|
+|901–1000|Equipar as bases90–100 e vencer o envelope final|Conjunto coerente e fortalecido;+20opcional|
+|Após o cap|Otimizar peças, mercado e prestígio|Buscar+16–20sem tornar+20obrigatório para a campanha|
 
 ## Fortalecimento e prestígio
 
@@ -72,11 +88,13 @@ Para futuras raids avançadas: usar esse envelope de equipamento/DPS/sobrevivên
 
 Coorte madura90dias,300contas gratuitas, base lendária100 já disponível: **{pct(free['any20'])}com+20** (IC95% {pct(free['any20Wilson95'][0])}–{pct(free['any20Wilson95'][1])}), contra32,7% na candidata anteriorR0. Com dez pergaminhos pagos/semana hipoteticamente financiados: **{pct(paid['any20'])}**. Não confundir esse fixture com chegar à maturidade em90dias. Estoques/múltiplas bases/item baixo/mercado podem alterar a escassez global; a proporção real ainda precisa de amostra maior e contratos definitivos.
 
+A matemática do refino protegido continua importante: numa base lendária100, as médias são29tentativas até+12,70até+15e18.375até+20; o+20consome em média18.037pergaminhos, com p50de12.748tentativas e p95de54.972. A grande maioria fica bem abaixo do extremo de prestígio nos primeiros90dias; os poucos sucessos antecipados não tornam a média um prazo garantido. A cadência gratuita de30/semana é lenta frente a essa média, e precisa de playtest de satisfação; não prometer que todo jogador chegará ao+20em90–120dias. O objetivo de90–120dias é o nível máximo. Valores e custos por material em `refinement-expectations.json`, obtidos por recorrência exata e CDF, sem inventar reposição de itens ou recursos.
+
 Continuam hipóteses:30pergaminhos/eventos por semana,10de loja e3jade/dia com participação. Jade segue exclusiva do futuro boss global diário; nenhuma fonte alternativa foi criada. PreçoRuby, tradabilidade e proteção contra funil de alts não foram definidos/ativados. Não se deve aprovar comércio monetizado com base apenas no gap medido.
 
 ## Coortes e gates
 
-Total: **{n}trajetórias**, de90a365dias. Seeds de aceite88452001 e holdout99337001; pilotos separados. Contas que não terminam continuam no denominador; quantil censurado aparece como “não atingiu”.
+Total: **{n}trajetórias**, de90a365dias. Seeds de aceite99545001 e holdout67432001; pilotos separados. Contas que não terminam continuam no denominador; quantil censurado aparece como “não atingiu”.
 
 | Perfil | Contas | Horas online+offline/dia | Primeiro máximo | Mediana | p90 | Máximo até120d |
 |---|---:|---:|---:|---:|---:|---:|
@@ -88,7 +106,7 @@ Horas “online” significam jogo em batalha automática, não quantidade de cl
 |---|---|
 {gates}
 
-O primeiro candidato, com referência épico+12, foi rejeitado:62,5%do melhor perfil até120dias, embora a mediana fosse115. Resultados brutos e resumo preservados em `rejected-candidate-1*.json`; não relaxamos gates. Candidata2 mudou a referência para épico+10, preservou o piso96dias e rodou seeds novas. O primeiro ensaio foi interrompido após os perfis suficientes para identificar a reprovação; não é apresentado como validação completa daquele candidato.
+O primeiro candidato, com referência épico+12, foi rejeitado:62,5%do melhor perfil até120dias, embora a mediana fosse115. Resultados brutos e resumo preservados em `rejected-candidate-1*.json`; não relaxamos gates. Candidata2 mudou a referência para épico+10, preservou o piso96dias e rodou seeds novas; passou a coorte principal, mas o holdout ficou em87,5%até120dias e o+20maduro em0,67%, reprovando dois gates. Seus resultados completos estão preservados no commit remoto0605e36c9294e3f21c96e0307f0dbd78366295e2 e no resumo `rejected-candidate-2.json`. Candidata3 usa referência épico+9 e corrige a estratégia de voltar a um andar inferior já concluído quando a hunt máxima fica inviável; não alterou as consequências de falha nem os gates. Rodou seeds99545001/67432001 novas. O primeiro ensaio foi interrompido após os perfis suficientes para identificar a reprovação; não é apresentado como validação completa daquele candidato.
 
 {tests['tests']}testes passaram, incluindo limite temporal, contabilidade por fonte/gasto, fontes exclusivas das hunts, equipamento por nível, ausência deXP sem vitórias, falha/proteção, bosses preservados, retorno a andar seguro, batches cruzando níveis e censura de amostra. `assert` verifica saldos não negativos, tempo e teto de domínio ao longo das contas. Esses testes validam o modelo, não servidor/concorrência/banco/Windows. Dados e scripts têm hashes no manifesto; os resultados principais registram os hashes dos seus insumos.
 
@@ -102,7 +120,12 @@ Esta etapa entrega a curva candidata, o prazo medido, a exigência de equipament
 '''
 # Readable separation in generated Portuguese; preserve paths/code expressions.
 import re
-text=re.sub(r'(?<=\d)(?=[A-Za-zÀ-ÿ])',' ',text)
+parts=re.split(r'(`[^`]*`|https?://[^\s]+|[0-9a-f]{40}|\bp(?:50|90|95|99)\b)',text)
+for i in range(0,len(parts),2):
+ parts[i]=re.sub(r'(?<=[a-zÀ-ÿ])(?=\d)',' ',parts[i])
+ parts[i]=re.sub(r'(?<=\d)(?=[a-zÀ-ÿ])',' ',parts[i])
+ parts[i]=re.sub(r'(\d) h(online|offline)',r'\1 h \2',parts[i])
+text=''.join(parts)
 (c.OUT/'CALIBRATION_REPORT.md').write_text(text)
 # Preserve raw trajectories without a giant unreviewable JSON file in git.
 folder=c.OUT/'cohorts';folder.mkdir(exist_ok=True)

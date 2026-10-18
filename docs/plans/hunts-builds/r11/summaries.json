@@ -5,100 +5,16 @@
     "active": 24,
     "offline": 0,
     "paid": 0,
-    "seed": 88452001,
+    "seed": 99545001,
     "mature": false,
     "maxLevelReached": 24,
     "maxLevelBy120Fraction": 0.9583333333333334,
     "maxLevelDays": {
-      "min": 106,
-      "p50": 112,
-      "p90": 118,
-      "p95": 120,
-      "max": 133
-    },
-    "main100By30": 1.0,
-    "basicHuntsBy30": 1.0,
-    "any20": 0.0,
-    "any20Wilson95": [
-      0,
-      0.13797620467497365
-    ],
-    "finalLevelMedian": 1000,
-    "finalMainMedian": 1000,
-    "advancedHunt": 0.7083333333333334
-  },
-  "optimized_16plus8": {
-    "n": 24,
-    "days": 160,
-    "active": 16,
-    "offline": 8,
-    "paid": 0,
-    "seed": 88452001,
-    "mature": false,
-    "maxLevelReached": 24,
-    "maxLevelBy120Fraction": 0.9583333333333334,
-    "maxLevelDays": {
-      "min": 105,
-      "p50": 114,
-      "p90": 118,
-      "p95": 119,
-      "max": 127
-    },
-    "main100By30": 1.0,
-    "basicHuntsBy30": 1.0,
-    "any20": 0.0,
-    "any20Wilson95": [
-      0,
-      0.13797620467497365
-    ],
-    "finalLevelMedian": 1000,
-    "finalMainMedian": 1000,
-    "advancedHunt": 0.7083333333333334
-  },
-  "paid_best_24h": {
-    "n": 24,
-    "days": 150,
-    "active": 24,
-    "offline": 0,
-    "paid": 10,
-    "seed": 88452001,
-    "mature": false,
-    "maxLevelReached": 24,
-    "maxLevelBy120Fraction": 0.9166666666666666,
-    "maxLevelDays": {
-      "min": 106,
-      "p50": 112,
-      "p90": 116,
-      "p95": 117,
-      "max": 133
-    },
-    "main100By30": 1.0,
-    "basicHuntsBy30": 1.0,
-    "any20": 0.0,
-    "any20Wilson95": [
-      0,
-      0.13797620467497365
-    ],
-    "finalLevelMedian": 1000,
-    "finalMainMedian": 1000,
-    "advancedHunt": 0.625
-  },
-  "regular_2plus8": {
-    "n": 24,
-    "days": 365,
-    "active": 2,
-    "offline": 8,
-    "paid": 0,
-    "seed": 88452001,
-    "mature": false,
-    "maxLevelReached": 24,
-    "maxLevelBy120Fraction": 0.0,
-    "maxLevelDays": {
-      "min": 255,
-      "p50": 294,
-      "p90": 333,
-      "p95": 333,
-      "max": 339
+      "min": 103,
+      "p50": 109,
+      "p90": 114,
+      "p95": 115,
+      "max": 126
     },
     "main100By30": 1.0,
     "basicHuntsBy30": 1.0,
@@ -111,33 +27,117 @@
     "finalMainMedian": 1000,
     "advancedHunt": 0.8333333333333334
   },
+  "optimized_16plus8": {
+    "n": 24,
+    "days": 160,
+    "active": 16,
+    "offline": 8,
+    "paid": 0,
+    "seed": 99545001,
+    "mature": false,
+    "maxLevelReached": 24,
+    "maxLevelBy120Fraction": 0.9583333333333334,
+    "maxLevelDays": {
+      "min": 102,
+      "p50": 108,
+      "p90": 113,
+      "p95": 118,
+      "max": 128
+    },
+    "main100By30": 1.0,
+    "basicHuntsBy30": 1.0,
+    "any20": 0.041666666666666664,
+    "any20Wilson95": [
+      0.00739345616550606,
+      0.2024180647865531
+    ],
+    "finalLevelMedian": 1000,
+    "finalMainMedian": 1000,
+    "advancedHunt": 0.625
+  },
+  "paid_best_24h": {
+    "n": 24,
+    "days": 150,
+    "active": 24,
+    "offline": 0,
+    "paid": 10,
+    "seed": 99545001,
+    "mature": false,
+    "maxLevelReached": 24,
+    "maxLevelBy120Fraction": 1.0,
+    "maxLevelDays": {
+      "min": 105,
+      "p50": 108,
+      "p90": 114,
+      "p95": 116,
+      "max": 119
+    },
+    "main100By30": 1.0,
+    "basicHuntsBy30": 1.0,
+    "any20": 0.08333333333333333,
+    "any20Wilson95": [
+      0.02315881529704407,
+      0.2584880219321007
+    ],
+    "finalLevelMedian": 1000,
+    "finalMainMedian": 1000,
+    "advancedHunt": 0.5833333333333334
+  },
+  "regular_2plus8": {
+    "n": 24,
+    "days": 365,
+    "active": 2,
+    "offline": 8,
+    "paid": 0,
+    "seed": 99545001,
+    "mature": false,
+    "maxLevelReached": 24,
+    "maxLevelBy120Fraction": 0.0,
+    "maxLevelDays": {
+      "min": 260,
+      "p50": 299,
+      "p90": 311,
+      "p95": 311,
+      "max": 333
+    },
+    "main100By30": 1.0,
+    "basicHuntsBy30": 1.0,
+    "any20": 0.08333333333333333,
+    "any20Wilson95": [
+      0.02315881529704407,
+      0.2584880219321007
+    ],
+    "finalLevelMedian": 1000,
+    "finalMainMedian": 1000,
+    "advancedHunt": 0.5416666666666666
+  },
   "dedicated_8plus8": {
     "n": 24,
     "days": 250,
     "active": 8,
     "offline": 8,
     "paid": 0,
-    "seed": 88452001,
+    "seed": 99545001,
     "mature": false,
     "maxLevelReached": 24,
     "maxLevelBy120Fraction": 0.0,
     "maxLevelDays": {
-      "min": 161,
-      "p50": 186,
-      "p90": 195,
-      "p95": 205,
-      "max": 230
+      "min": 159,
+      "p50": 183,
+      "p90": 196,
+      "p95": 198,
+      "max": 209
     },
     "main100By30": 1.0,
     "basicHuntsBy30": 1.0,
-    "any20": 0.0,
+    "any20": 0.125,
     "any20Wilson95": [
-      0,
-      0.13797620467497365
+      0.043443340801235575,
+      0.31003881270499467
     ],
     "finalLevelMedian": 1000,
     "finalMainMedian": 1000,
-    "advancedHunt": 0.5833333333333334
+    "advancedHunt": 0.4583333333333333
   },
   "best_holdout": {
     "n": 24,
@@ -145,23 +145,23 @@
     "active": 24,
     "offline": 0,
     "paid": 0,
-    "seed": 99337001,
+    "seed": 67432001,
     "mature": false,
     "maxLevelReached": 24,
-    "maxLevelBy120Fraction": 0.875,
+    "maxLevelBy120Fraction": 1.0,
     "maxLevelDays": {
-      "min": 104,
-      "p50": 112,
-      "p90": 120,
-      "p95": 121,
-      "max": 124
+      "min": 103,
+      "p50": 107,
+      "p90": 113,
+      "p95": 113,
+      "max": 117
     },
     "main100By30": 1.0,
     "basicHuntsBy30": 1.0,
-    "any20": 0.0,
+    "any20": 0.041666666666666664,
     "any20Wilson95": [
-      0,
-      0.13797620467497365
+      0.00739345616550606,
+      0.2024180647865531
     ],
     "finalLevelMedian": 1000,
     "finalMainMedian": 1000,
@@ -173,7 +173,7 @@
     "active": 2,
     "offline": 8,
     "paid": 0,
-    "seed": 88452001,
+    "seed": 99545001,
     "mature": true,
     "maxLevelReached": 300,
     "maxLevelBy120Fraction": 1.0,
@@ -186,10 +186,10 @@
     },
     "main100By30": 1.0,
     "basicHuntsBy30": 1.0,
-    "any20": 0.006666666666666667,
+    "any20": 0.016666666666666666,
     "any20Wilson95": [
-      0.0018301483579118427,
-      0.023977583250306238
+      0.007139477350633493,
+      0.03841539483309368
     ],
     "finalLevelMedian": 1000,
     "finalMainMedian": 1000,
@@ -201,7 +201,7 @@
     "active": 2,
     "offline": 8,
     "paid": 10,
-    "seed": 88452001,
+    "seed": 99545001,
     "mature": true,
     "maxLevelReached": 300,
     "maxLevelBy120Fraction": 1.0,
@@ -214,10 +214,10 @@
     },
     "main100By30": 1.0,
     "basicHuntsBy30": 1.0,
-    "any20": 0.006666666666666667,
+    "any20": 0.016666666666666666,
     "any20Wilson95": [
-      0.0018301483579118427,
-      0.023977583250306238
+      0.007139477350633493,
+      0.03841539483309368
     ],
     "finalLevelMedian": 1000,
     "finalMainMedian": 1000,

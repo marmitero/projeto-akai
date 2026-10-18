@@ -210,3 +210,8 @@ Há itens antigos não lendários acima de+15permitidos pelo jogo atual: não de
 8. Aprovar compensação/migração antes do corte; manter comercialização adiada e bosses em etapa separada.
 
 Próxima entrega prevista é o modelo integrado de economia/builds, após autorização para avançar. Nada neste plano alterou gameplay, banco, preços ativos, probabilidade ou sprites.
+
+
+## Calibração posterior R1.1
+
+A candidata histórica acima foi preservada. Para novos números deXP/tempo, requisito de equipamento, rampa comum/hunts, custo de refino e chances+16–20, consultar [R1.1](r11/CALIBRATION_REPORT.md). Meta explicitada pelo usuário:90–120dias no melhor cenário; +20é prestígio separado, não requisito para cap. Candidata3passou gates numéricos, mas segue sem aprovação completa de produção. Nada deste planejamento está ativo no jogo.

@@ -63,6 +63,11 @@ class CalibrationTests(unittest.TestCase):
   for k in ('coal','iron','gold'):c.farm(x,k,1,3600,1,{})
   self.assertEqual(x.balances['coin'],initial['coin']);self.assertEqual(x.balances['jade'],initial['jade']);self.assertEqual(x.next_id,itemcount)
   for k in m.KEYS:self.assertEqual(x.balances[k],x.initial[k]+x.source[k]-x.spent[k])
+ def test_material_farm_can_return_to_safe_cleared_hunt(self):
+  x=c.Account(0,1,0,0,'balanced',mature=True);st=x.stats()
+  self.assertFalse(c.encounter(st,'gold',1000)['safe'])
+  f=c.best_hunt(x,'gold',{},st)
+  self.assertIsNotNone(f);self.assertLess(f,1000);self.assertTrue(c.encounter(st,'gold',f)['safe'])
  def test_retry_can_return_to_safe_cleared_floor(self):
   x=c.Account(0,1,0,0,'swift',mature=True);x.gear={};kind,floor=c.fallback(x,x.stats())
   self.assertLess(floor,999);self.assertNotEqual(floor%10,0);self.assertTrue(c.encounter(x.stats(),kind,floor)['safe'])

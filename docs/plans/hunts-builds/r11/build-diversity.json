@@ -1,0 +1,775 @@
+{
+  "method": "Equal weighted points and identical epic+12 gear per hero level; no acquisition claim",
+  "wins": {
+    "balanced": 4,
+    "swift": 12,
+    "brute": 1,
+    "physical": 0,
+    "magic": 0,
+    "critical": 3
+  },
+  "distinctWinners": 4,
+  "largestWinnerShare": 0.6,
+  "cases": [
+    {
+      "level": 100,
+      "kind": "main",
+      "floor": 99,
+      "winner": "swift",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 1202.4048096192387,
+          "incomingHpFraction": 0.03488179196483827
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 1218.6865267433989,
+          "incomingHpFraction": 0.042822327413601195
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 1200.0,
+          "incomingHpFraction": 0.03708354120925208
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 1200.0,
+          "incomingHpFraction": 0.026654618819816376
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 1200.0,
+          "incomingHpFraction": 0.03159721349592392
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 1200.0,
+          "incomingHpFraction": 0.03897851078619312
+        }
+      }
+    },
+    {
+      "level": 100,
+      "kind": "coal",
+      "floor": 70,
+      "winner": "balanced",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 360.75759094097606,
+          "incomingHpFraction": 0.017313774828587276
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 332.84023668639054,
+          "incomingHpFraction": 0.028570497761288675
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 360.0,
+          "incomingHpFraction": 0.018512615882211387
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 327.27272727272725,
+          "incomingHpFraction": 0.017945879331809942
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 327.27272727272725,
+          "incomingHpFraction": 0.020663706637116166
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 360.0,
+          "incomingHpFraction": 0.01939736239959895
+        }
+      }
+    },
+    {
+      "level": 100,
+      "kind": "iron",
+      "floor": 70,
+      "winner": "balanced",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 300.6765221748935,
+          "incomingHpFraction": 0.028856291380978796
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 281.91072826938137,
+          "incomingHpFraction": 0.044641402752013566
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 300.0,
+          "incomingHpFraction": 0.030428602964733167
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 276.9230769230769,
+          "incomingHpFraction": 0.025917133873682545
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 276.9230769230769,
+          "incomingHpFraction": 0.0344103442027645
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 300.0,
+          "incomingHpFraction": 0.03232893733266491
+        }
+      }
+    },
+    {
+      "level": 100,
+      "kind": "gold",
+      "floor": 70,
+      "winner": "brute",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 240.57738572574178,
+          "incomingHpFraction": 0.055404079451479286
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 244.49877750611248,
+          "incomingHpFraction": 0.06856919462709284
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 257.14285714285717,
+          "incomingHpFraction": 0.06046655051925958
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 240.0,
+          "incomingHpFraction": 0.04796219954589507
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 240.0,
+          "incomingHpFraction": 0.04470080677952759
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 240.0,
+          "incomingHpFraction": 0.06207155967871663
+        }
+      }
+    },
+    {
+      "level": 250,
+      "kind": "main",
+      "floor": 249,
+      "winner": "balanced",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 1208.0536912751677,
+          "incomingHpFraction": 0.016732605105614987
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 1139.0002109259651,
+          "incomingHpFraction": 0.021452914697771483
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 1200.800533689126,
+          "incomingHpFraction": 0.017577163188392638
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 1080.0,
+          "incomingHpFraction": 0.01692961438387239
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 1080.0,
+          "incomingHpFraction": 0.02022359208130801
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 1200.800533689126,
+          "incomingHpFraction": 0.01810860245602282
+        }
+      }
+    },
+    {
+      "level": 250,
+      "kind": "coal",
+      "floor": 175,
+      "winner": "swift",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 362.5377643504532,
+          "incomingHpFraction": 0.006528838132365234
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 379.66673697532167,
+          "incomingHpFraction": 0.0077659489782744276
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 360.2521765235665,
+          "incomingHpFraction": 0.006898585896171715
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 327.27272727272725,
+          "incomingHpFraction": 0.007149745243295222
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 327.27272727272725,
+          "incomingHpFraction": 0.008263110734088355
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 360.2521765235665,
+          "incomingHpFraction": 0.0070824675012226765
+        }
+      }
+    },
+    {
+      "level": 250,
+      "kind": "iron",
+      "floor": 175,
+      "winner": "critical",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 302.2670025188917,
+          "incomingHpFraction": 0.010881396887275392
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 317.62837480148227,
+          "incomingHpFraction": 0.012943248297124049
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 300.2251688766575,
+          "incomingHpFraction": 0.011324421317885662
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 300.0,
+          "incomingHpFraction": 0.00824132812237332
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 300.0,
+          "incomingHpFraction": 0.011024741849356156
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 327.51091703056767,
+          "incomingHpFraction": 0.011801631693900323
+        }
+      }
+    },
+    {
+      "level": 250,
+      "kind": "gold",
+      "floor": 175,
+      "winner": "balanced",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 259.1792656587473,
+          "incomingHpFraction": 0.020892282023568753
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 255.10204081632654,
+          "incomingHpFraction": 0.024851036730478174
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 257.34505683036673,
+          "incomingHpFraction": 0.02257435377386302
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 240.0,
+          "incomingHpFraction": 0.019163446467336177
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 240.0,
+          "incomingHpFraction": 0.01782740787838442
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 257.34505683036673,
+          "incomingHpFraction": 0.02267104073134851
+        }
+      }
+    },
+    {
+      "level": 500,
+      "kind": "main",
+      "floor": 499,
+      "winner": "swift",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 1064.039408866995,
+          "incomingHpFraction": 0.044648291574951746
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 1194.3379534060748,
+          "incomingHpFraction": 0.03780843658712272
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 1048.8831337002266,
+          "incomingHpFraction": 0.044677086215395685
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 982.5327510917031,
+          "incomingHpFraction": 0.03741572278072861
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 982.5327510917031,
+          "incomingHpFraction": 0.04382300086664147
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 1047.3912200168102,
+          "incomingHpFraction": 0.047601059652238015
+        }
+      }
+    },
+    {
+      "level": 500,
+      "kind": "coal",
+      "floor": 350,
+      "winner": "critical",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 305.73248407643314,
+          "incomingHpFraction": 0.005550194398639078
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 345.6221198156682,
+          "incomingHpFraction": 0.006465944256693772
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 328.4671532846715,
+          "incomingHpFraction": 0.0055827947026064985
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 300.2251688766575,
+          "incomingHpFraction": 0.004745809198484606
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 300.2251688766575,
+          "incomingHpFraction": 0.0053941548989045116
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 360.75759094097606,
+          "incomingHpFraction": 0.0044477515399804
+        }
+      }
+    },
+    {
+      "level": 500,
+      "kind": "iron",
+      "floor": 350,
+      "winner": "critical",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 262.2950819672131,
+          "incomingHpFraction": 0.008672178747873559
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 298.40848806366046,
+          "incomingHpFraction": 0.010103037901084017
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 277.992277992278,
+          "incomingHpFraction": 0.008565685005472378
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 257.34505683036673,
+          "incomingHpFraction": 0.008290568153014972
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 257.34505683036673,
+          "incomingHpFraction": 0.010721864529589622
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 300.6765221748935,
+          "incomingHpFraction": 0.007412919233300665
+        }
+      }
+    },
+    {
+      "level": 500,
+      "kind": "gold",
+      "floor": 350,
+      "winner": "swift",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 229.66507177033495,
+          "incomingHpFraction": 0.015540544316189418
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 262.54375729288216,
+          "incomingHpFraction": 0.012931888513387543
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 225.9177910260433,
+          "incomingHpFraction": 0.01605500162353574
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 211.93924408336275,
+          "incomingHpFraction": 0.014649791726638703
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 211.93924408336275,
+          "incomingHpFraction": 0.01374210774605083
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 240.57738572574178,
+          "incomingHpFraction": 0.014232804927937279
+        }
+      }
+    },
+    {
+      "level": 750,
+      "kind": "main",
+      "floor": 749,
+      "winner": "swift",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 870.265914585012,
+          "incomingHpFraction": 0.11528052717033586
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 1084.3373493975903,
+          "incomingHpFraction": 0.11404592757394474
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 841.7770849571317,
+          "incomingHpFraction": 0.12293452837356467
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 837.2093023255815,
+          "incomingHpFraction": 0.11518993286872799
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 837.2093023255815,
+          "incomingHpFraction": 0.12424617884057333
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 962.1380846325168,
+          "incomingHpFraction": 0.11796554317723688
+        }
+      }
+    },
+    {
+      "level": 750,
+      "kind": "coal",
+      "floor": 525,
+      "winner": "swift",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 341.94528875379945,
+          "incomingHpFraction": 0.004865026364507483
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 420.1680672268908,
+          "incomingHpFraction": 0.0043327558748135365
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 364.33559356340453,
+          "incomingHpFraction": 0.0036532256091940498
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 329.6703296703297,
+          "incomingHpFraction": 0.004575653159930138
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 329.6703296703297,
+          "incomingHpFraction": 0.0048646212391165915
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 363.3060853769301,
+          "incomingHpFraction": 0.0038783218307653178
+        }
+      }
+    },
+    {
+      "level": 750,
+      "kind": "iron",
+      "floor": 525,
+      "winner": "swift",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 290.088638195004,
+          "incomingHpFraction": 0.007601603694542944
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 361.44578313253015,
+          "incomingHpFraction": 0.005415944843516922
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 303.8743985819195,
+          "incomingHpFraction": 0.005960576769582083
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 279.06976744186045,
+          "incomingHpFraction": 0.006923701750526425
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 279.06976744186045,
+          "incomingHpFraction": 0.007826726997984092
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 302.9537995455693,
+          "incomingHpFraction": 0.006463869717942196
+        }
+      }
+    },
+    {
+      "level": 750,
+      "kind": "gold",
+      "floor": 525,
+      "winner": "swift",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 236.3290225169041,
+          "incomingHpFraction": 0.011676063274817962
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 298.804780876494,
+          "incomingHpFraction": 0.011554015666169435
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 243.30900243309003,
+          "incomingHpFraction": 0.012059343777155994
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 241.93548387096777,
+          "incomingHpFraction": 0.011501710126367953
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 241.93548387096777,
+          "incomingHpFraction": 0.011154948431344206
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 259.79649274734794,
+          "incomingHpFraction": 0.01241062985844902
+        }
+      }
+    },
+    {
+      "level": 1000,
+      "kind": "main",
+      "floor": 999,
+      "winner": "swift",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 722.7948065854639,
+          "incomingHpFraction": 0.2768426898325959
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 1069.5187165775399,
+          "incomingHpFraction": 0.20480660124679895
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 731.9718055304536,
+          "incomingHpFraction": 0.2775943194724338
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 702.5151777970511,
+          "incomingHpFraction": 0.296951274523142
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 702.5151777970511,
+          "incomingHpFraction": 0.296951274523142
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 726.3596825539165,
+          "incomingHpFraction": 0.2874969730286991
+        }
+      }
+    },
+    {
+      "level": 1000,
+      "kind": "coal",
+      "floor": 700,
+      "winner": "swift",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 312.22896790980053,
+          "incomingHpFraction": 0.007155328226669529
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 446.09665427509293,
+          "incomingHpFraction": 0.004316514589765769
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 317.1247357293869,
+          "incomingHpFraction": 0.007152695856579813
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 293.15960912052117,
+          "incomingHpFraction": 0.008750760975243427
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 293.15960912052117,
+          "incomingHpFraction": 0.008750760975243427
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 314.8779847808974,
+          "incomingHpFraction": 0.00718423597547261
+        }
+      }
+    },
+    {
+      "level": 1000,
+      "kind": "iron",
+      "floor": 700,
+      "winner": "swift",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 255.518489601817,
+          "incomingHpFraction": 0.013416240425005367
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 375.35189239912415,
+          "incomingHpFraction": 0.008093464855810816
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 272.56208358570564,
+          "incomingHpFraction": 0.01101766323800484
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 254.66893039049233,
+          "incomingHpFraction": 0.013126141462865138
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 254.66893039049233,
+          "incomingHpFraction": 0.013126141462865138
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 270.53430525287445,
+          "incomingHpFraction": 0.011225368711675954
+        }
+      }
+    },
+    {
+      "level": 1000,
+      "kind": "gold",
+      "floor": 700,
+      "winner": "swift",
+      "builds": {
+        "balanced": {
+          "safe": true,
+          "killsPerHour": 216.24219125420473,
+          "incomingHpFraction": 0.02003491903467468
+        },
+        "swift": {
+          "safe": true,
+          "killsPerHour": 323.97408207343415,
+          "incomingHpFraction": 0.01381284668725046
+        },
+        "brute": {
+          "safe": true,
+          "killsPerHour": 225.11255627813907,
+          "incomingHpFraction": 0.02045339221230168
+        },
+        "physical": {
+          "safe": true,
+          "killsPerHour": 212.7659574468085,
+          "incomingHpFraction": 0.019601704584545274
+        },
+        "magic": {
+          "safe": true,
+          "killsPerHour": 212.7659574468085,
+          "incomingHpFraction": 0.019601704584545274
+        },
+        "critical": {
+          "safe": true,
+          "killsPerHour": 223.35277329693508,
+          "incomingHpFraction": 0.02011586073132331
+        }
+      }
+    }
+  ]
+}

@@ -7,7 +7,7 @@ for n,p in enumerate(c.m.CURVE['probabilities'],1):
  bill=c.enhancement_cost(n,100,4)
  for k in c.m.KEYS:coststep[k]=(bill[k]+back*coststep[k])/p;totcost[k]+=coststep[k]
  if n in (3,7,12,15,20):rows.append(dict(target=n,meanAttempts=totn,meanScrolls=tots,meanCosts=dict(totcost)))
-state=[1.]+[0.]*20;quantiles={};expected=sum(v for v in [0.])
+state=[1.]+[0.]*20;quantiles={}
 for attempts in range(1,250001):
  nxt=[0.]*20+[state[20]]
  for lv in range(20):

@@ -42,3 +42,10 @@ R3 e R4 precisam de trabalho incremental em branch, mantendo o jogo antigo jogá
 6. Política de itens antigos>+15não lendários e conversão de minas/clique/afixos exige decisão explícita antes da migração.
 
 Sem cronograma de calendário contratado. A sequência é por dependências e evidência; não por prometer número de dias sem implementação e playtest. Próximo trabalho: R1.1, corrigir proteção/XP/fontes e fechar entradas indefinidas, preservando os gates e usando seed nova. R2 continua condicionada à aprovação integral; nenhuma implementação de gameplay começou nesta validação.
+
+
+## Atualização R1.1 — tempo e conquistas (18/10/2026)
+
+Usuário definiu90–120dias até o nível máximo no melhor cenário, com equipamento/refino necessários para high-end. [CalibraçãoR1.1](r11/CALIBRATION_REPORT.md): candidata3 passou os gates numéricos de tempo/equipamento/escassez; coorte24h mediana109dias, holdout107, piso96dias; +20em1,67%da coorte madura gratuita/90dias.17testes e typecheck passaram. Trajetórias/rejeições/hipóteses e diferenças de tempo por perfil documentadas.
+
+Ainda não iniciar/ativar nova economia: completude não passou. Fechar jade/participação do boss em escopo separado, Ruby/pergaminhos/eventos/transferências, mercado/consumidores legados e compensação/migração. R2continua condicionada ao gate completo. Não confundir aprovação numérica desta calibração com implantação, preço de loja ou novo boss.8hoffline e24heconômicas máximas/dia são as hipóteses atuais; com2honline+8hoffline a mediana é299dias, não90–120.
