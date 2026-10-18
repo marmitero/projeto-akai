@@ -1358,12 +1358,18 @@
     {
       "key": "bestiary-slime-green",
       "output": "apps/client/src/assets/derived/bestiary-slime-green.png",
-      "sha256": "18b4207fa8e6de1d0947a38a5fae5f4c9dc5e69aa1de92cd59923ef8aed2d77c",
+      "sha256": "47a09fd64ef506580e37af79047123e00877283c659bdfae7247bc3868e25f70",
       "width": 1280,
       "height": 512,
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 5,
+        "attack": 8,
+        "dead": 6
+      },
       "pivot": [
         80,
         112
@@ -1379,12 +1385,18 @@
     {
       "key": "bestiary-slime-blue",
       "output": "apps/client/src/assets/derived/bestiary-slime-blue.png",
-      "sha256": "c3b726d69a100ae9daa1e1eeb56a0885132f92b2757a3f96bc7e3d8f4c8a1b73",
+      "sha256": "c6c3715a6eb075192bc4628344e6bd0ca4f132b98291e908ba2d6089bf90d9cb",
       "width": 1280,
       "height": 512,
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 5,
+        "attack": 8,
+        "dead": 6
+      },
       "pivot": [
         80,
         112
@@ -1400,12 +1412,18 @@
     {
       "key": "bestiary-slime-red",
       "output": "apps/client/src/assets/derived/bestiary-slime-red.png",
-      "sha256": "4b61e73b88a5432ce142d42d0b7661e7e66a76924c0ba6129cb59e8a37feed41",
+      "sha256": "427333af5b5dc99de0bd7ea7a8cd7bd229ea1c60bc7d0abad6a09cf76d9f03dd",
       "width": 1280,
       "height": 512,
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 5,
+        "attack": 8,
+        "dead": 6
+      },
       "pivot": [
         80,
         112
@@ -1421,12 +1439,18 @@
     {
       "key": "bestiary-bat",
       "output": "apps/client/src/assets/derived/bestiary-bat.png",
-      "sha256": "08564e270116c659f7f0a8073e6ad89fe72db1da029a3f1e5dccb70654660f93",
+      "sha256": "da48b802aef331fd63094074aa91ec05268952a52a8e0cf39e2695db2b5d6b79",
       "width": 1280,
       "height": 512,
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 9,
+        "walk": 8,
+        "attack": 8,
+        "dead": 11
+      },
       "pivot": [
         80,
         112
@@ -1460,6 +1484,12 @@
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 7,
+        "walk": 8,
+        "attack": 10,
+        "dead": 15
+      },
       "pivot": [
         80,
         112
@@ -1493,6 +1523,12 @@
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 4,
+        "walk": 6,
+        "attack": 4,
+        "dead": 8
+      },
       "pivot": [
         80,
         112
@@ -1526,6 +1562,12 @@
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 4,
+        "walk": 6,
+        "attack": 4,
+        "dead": 8
+      },
       "pivot": [
         80,
         112
@@ -1559,6 +1601,12 @@
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 4,
+        "walk": 6,
+        "attack": 4,
+        "dead": 8
+      },
       "pivot": [
         80,
         112
@@ -1592,6 +1640,12 @@
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 4,
+        "walk": 6,
+        "attack": 8,
+        "dead": 4
+      },
       "pivot": [
         80,
         112
@@ -1697,6 +1751,12 @@
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 4,
+        "walk": 6,
+        "attack": 12,
+        "dead": 4
+      },
       "pivot": [
         80,
         112
@@ -1812,12 +1872,18 @@
     {
       "key": "bestiary-lancer",
       "output": "apps/client/src/assets/derived/bestiary-lancer.png",
-      "sha256": "86027b51fbc2a0fc7a6f010e28cdeb0ccd69795d364ad57d63a5560a1fa0edfa",
+      "sha256": "961044ade3c4fb80cfe18c1ad9086e9f1a39d6e6fdcd069ebd7fa8029cf3ef1a",
       "width": 1280,
       "height": 512,
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 2,
+        "walk": 6,
+        "attack": 6,
+        "dead": 4
+      },
       "pivot": [
         80,
         112
@@ -1907,6 +1973,12 @@
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 2,
+        "walk": 12,
+        "attack": 6,
+        "dead": 4
+      },
       "pivot": [
         80,
         112
@@ -2020,6 +2092,12 @@
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 4,
+        "walk": 4,
+        "attack": 10,
+        "dead": 5
+      },
       "pivot": [
         80,
         112
@@ -2123,12 +2201,18 @@
     {
       "key": "bestiary-inquisitor",
       "output": "apps/client/src/assets/derived/bestiary-inquisitor.png",
-      "sha256": "13bb6b1de632cb1a335f8932e7e9da823b1fdeeea9328d0e9d1ec68373908247",
+      "sha256": "7da457c4ef15e1fdc7c6f96e28c24d91d461842e2eb46f39e649e2814ca1e38b",
       "width": 1280,
       "height": 512,
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 6,
+        "walk": 11,
+        "attack": 7,
+        "dead": 6
+      },
       "pivot": [
         80,
         112
@@ -2260,12 +2344,18 @@
     {
       "key": "bestiary-warrior",
       "output": "apps/client/src/assets/derived/bestiary-warrior.png",
-      "sha256": "39fb9b527d84122a231ae3c34c9769a06ec3659783c82689c419c74b98e04527",
+      "sha256": "8b4e8ad5bd23f0d3848ee19b05a0e69436fcd78e3ff1e33e614c766a3d658c3e",
       "width": 1280,
       "height": 512,
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 8,
+        "attack": 6,
+        "dead": 10
+      },
       "pivot": [
         80,
         112
@@ -2287,6 +2377,12 @@
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 6,
+        "walk": 10,
+        "attack": 5,
+        "dead": 5
+      },
       "pivot": [
         80,
         112
@@ -2320,6 +2416,12 @@
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 6,
+        "walk": 10,
+        "attack": 5,
+        "dead": 5
+      },
       "pivot": [
         80,
         112
@@ -2353,6 +2455,12 @@
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 6,
+        "walk": 10,
+        "attack": 4,
+        "dead": 5
+      },
       "pivot": [
         80,
         112
@@ -2386,6 +2494,12 @@
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 7,
+        "walk": 12,
+        "attack": 10,
+        "dead": 5
+      },
       "pivot": [
         80,
         112
@@ -2413,12 +2527,18 @@
     {
       "key": "bestiary-male-bandit",
       "output": "apps/client/src/assets/derived/bestiary-male-bandit.png",
-      "sha256": "4e9d6a780bd9ca2088c203dfe45d7e941b68d696b4879ac4d4fae831910bf09b",
+      "sha256": "36bfd1c7fdf3a8647a93b3c7221d1e0c0a6c3cdc17d4d73886773adf2c3fa737",
       "width": 1280,
       "height": 512,
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 8,
+        "attack": 6,
+        "dead": 10
+      },
       "pivot": [
         80,
         112
@@ -2458,12 +2578,18 @@
     {
       "key": "bestiary-male-orc",
       "output": "apps/client/src/assets/derived/bestiary-male-orc.png",
-      "sha256": "091bb016f080d6979202b6b36635ddc5f1704ac1092739e65d03929c3923b774",
+      "sha256": "aa5683b65a8e9dfc61744ab5a26c95cb1842f069bc3d71e0a5cd48c673a793cf",
       "width": 1280,
       "height": 512,
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 8,
+        "attack": 6,
+        "dead": 10
+      },
       "pivot": [
         80,
         112
@@ -2499,12 +2625,18 @@
     {
       "key": "bestiary-male-deserter",
       "output": "apps/client/src/assets/derived/bestiary-male-deserter.png",
-      "sha256": "369c6ba6363c8b2f74305b49087b2f58f7c39432109dec06c0f9be1f6f0cd0b9",
+      "sha256": "3a6f938a9f878edeca60987a88efb771a582bab85246f2291b03353540d96f58",
       "width": 1280,
       "height": 512,
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 8,
+        "attack": 6,
+        "dead": 10
+      },
       "pivot": [
         80,
         112
@@ -2544,12 +2676,18 @@
     {
       "key": "bestiary-male-plague",
       "output": "apps/client/src/assets/derived/bestiary-male-plague.png",
-      "sha256": "ca192985b2dd968fbcb923cc9d17a4af085e98cb7b769dcab474b7e7d0a8d7a7",
+      "sha256": "51c37cbbf8759de167d42cdfdde3376f0e372966eea76a535aa8f2f674d2c999",
       "width": 1280,
       "height": 512,
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 8,
+        "attack": 6,
+        "dead": 10
+      },
       "pivot": [
         80,
         112
@@ -2589,12 +2727,18 @@
     {
       "key": "bestiary-female-scout",
       "output": "apps/client/src/assets/derived/bestiary-female-scout.png",
-      "sha256": "1652b2310fd2df632ef90906dcbea0c091f594008e07cbcd15b3bb10a97b079f",
+      "sha256": "795670f78f7d46bf18e04e07db6893a509741503f00fdb99cabf1f30f54c96db",
       "width": 1280,
       "height": 512,
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 8,
+        "attack": 6,
+        "dead": 10
+      },
       "pivot": [
         80,
         112
@@ -2630,12 +2774,18 @@
     {
       "key": "bestiary-female-guard",
       "output": "apps/client/src/assets/derived/bestiary-female-guard.png",
-      "sha256": "48219724d88543c42d4d41ee1244290dfe8e4e9e7cc8c3e15e759ac14bc1e46e",
+      "sha256": "5f97d8e7d102dafb8dddf2dbc65563ec6f851c45dbf3bbc33003c5aeabb68a2a",
       "width": 1280,
       "height": 512,
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 8,
+        "attack": 6,
+        "dead": 10
+      },
       "pivot": [
         80,
         112
@@ -2671,12 +2821,18 @@
     {
       "key": "bestiary-female-cultist",
       "output": "apps/client/src/assets/derived/bestiary-female-cultist.png",
-      "sha256": "cc3190aaa051032bca60f0f3cd82b069e4a0baf460b2b3e457a7a651ccb921d7",
+      "sha256": "406b06d95ac2477a0497f4b18789247017e9754683754fdb7c20579a4cb0cc43",
       "width": 1280,
       "height": 512,
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 8,
+        "attack": 6,
+        "dead": 10
+      },
       "pivot": [
         80,
         112
@@ -2716,12 +2872,18 @@
     {
       "key": "bestiary-female-revenant",
       "output": "apps/client/src/assets/derived/bestiary-female-revenant.png",
-      "sha256": "a14870d441458d114a213e76ae6d07d2adb6bc3b8545977bae448ff7364e8207",
+      "sha256": "c8ab52c5946437229b4c04b66f70baf720f01fbe7871c7f5304e97df19e062ea",
       "width": 1280,
       "height": 512,
       "frameWidth": 160,
       "frameHeight": 128,
       "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 8,
+        "attack": 6,
+        "dead": 10
+      },
       "pivot": [
         80,
         112
@@ -2750,6 +2912,20 @@
         {
           "path": "sprites/Enemies/Female Base/Female Skin/Female Ghost skin.png",
           "sha256": "fed8deb5fe55ffa05299ac297008c70ca82e8fc7552297be613f12494d579988"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-arrow",
+      "output": "apps/client/src/assets/derived/bestiary-arrow.png",
+      "sha256": "3eee4627cee2582b00a390ccccc7811ec93679ddfdc372941d6ff88892efd50a",
+      "width": 10,
+      "height": 1,
+      "sources": [
+        {
+          "path": "sprites/Enemies/Archer/PNG/attack-A4.png",
+          "sha256": "a1ccc1327957296f4dee0cb3937bde9684a46702c44526147fcdead0d5eff347"
         }
       ],
       "licenseStatus": "unverified"

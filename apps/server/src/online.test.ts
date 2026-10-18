@@ -12,7 +12,7 @@ import {
 } from "./google.js";
 import { reconcileLedger } from "./audit.js";
 import { createLocalSnapshot } from "../../client/src/local/session.js";
-import { startEncounter } from "@akai/shared";
+import { startEncounter, encounterEnemies, enemyDefinition } from "@akai/shared";
 import type { OnlineCommand } from "@akai/shared";
 const url = process.env.TEST_DATABASE_URL;
 describe.skipIf(!url)("online PostgreSQL integration", () => {
@@ -36,6 +36,23 @@ describe.skipIf(!url)("online PostgreSQL integration", () => {
   afterAll(async () => {
     await app.close();
     await db.close();
+  });
+  it("persists common bestiary identity, server rewards and the next deterministic roster", async () => {
+    const u=await service.guest();await service.state(u.token);
+    const seeded=(await db.pool.query("SELECT snapshot FROM akai_accounts WHERE id=$1",[u.accountId])).rows[0].snapshot;
+    seeded.upgrades.attack=1000;seeded.upgrades.vitality=1000;seeded.battle.heroHp=10000;
+    startEncounter(seeded,31);
+    await db.pool.query("UPDATE akai_accounts SET snapshot=$2 WHERE id=$1",[u.accountId,seeded]);
+    now+=3000;
+    const first=await service.state(u.token), roster=encounterEnemies(31,1);
+    const rewards=first.snapshot.battle.reports.filter(r=>r.kind==="reward");
+    expect(rewards.map(r=>r.enemyId)).toEqual(roster.map(t=>t.id));
+    rewards.forEach((r,i)=>expect(r.coin).toBe(String(enemyDefinition(31,roster[i]!.id).coin*1000)));
+    expect((await service.state(u.token)).snapshot.battle.reports).toEqual(first.snapshot.battle.reports);
+    now+=3000;const second=await service.state(u.token);
+    expect(second.snapshot.battle.wave).toBe(2);
+    expect(second.snapshot.battle.enemies.map(e=>e.templateId)).toEqual(encounterEnemies(31,2).map(t=>t.id));
+    second.snapshot.battle.enemies.forEach(e=>expect(e.maxHp).toBe(enemyDefinition(31,e.templateId).hp));
   });
   it("starts an isolated online account and hides RNG", async () => {
     const user = await service.guest(),

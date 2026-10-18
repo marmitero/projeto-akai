@@ -2,6 +2,12 @@
 
 16/10/2026. **F1–F8 técnicas publicadas; CI F8 aprovada após corrigir clique durante sincronização. Monetização externa adiada por decisão do usuário para a fase final; prioridade atual: polimentos do jogo. F9 não iniciada.** Base F8:3ccfdc436706f77fbc6ba7aa8ac12206a5b63ac3.
 
+## Entrega atual — bestiário comum (18/10/2026)
+
+27fichas comuns(19visuais+8composições Male/Female), inventário762arquivos/732PNG/19diretórios, catálogo Mais→Bestiário, stats/XP/Coins por papel, identidade opcional no snapshot/diário e projétil visual para arqueiro. Fonte scripts/bestiary-spec.json e gerador prepare-bestiary-assets.py; documentos docs/bestiary/BESTIARY.md e BESTIARY_IMPLEMENTATION.md. Bosses diretos preservados, sem mudança em content.ts ou sprites originais. Sem migração SQL; atualizar cliente e servidor juntos.
+
+Guard de PNG valida702frames ativos, excluindo padding transparente; pivô de morte do Inquisitor normalizado separadamente. Reconstrução validada com177testes/17arquivos e PostgreSQL18.4;900andares comuns simulados; smokes específicos e gerais dev/preview passaram. Build de referência não simula aquisição/farm ou comprova equilíbrio humano. PR4 concentra publicação e CI da entrega. Checkpoint remoto3c215904df3580e731aa9ef1dad52bf956c86dd6. Próximo: playtest e ajustes das curvas; etapa dos bosses separada. Monetização permanece adiada; não antecipar P8 do chat nesta entrega.
+
 ## Publicação ao concluir cada etapa
 
 Regra permanente solicitada pelo usuário em 18/10/2026: toda etapa concluída deve ser validada, commitada e publicada no GitHub sem nova confirmação. Preservar commits anteriores para rollback por revert, sem apagar histórico ou forçar main. Em etapas longas, enviar checkpoints à branch remota. Se houver falha real de publicação, informar e preservar o trabalho em branch remota quando possível. Publicar código no repositório não autoriza gastos ou deploy público de infraestrutura.

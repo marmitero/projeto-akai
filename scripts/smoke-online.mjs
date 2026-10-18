@@ -224,6 +224,10 @@ try {
   assert.equal((await state()).snapshot.profile.id, mined.snapshot.profile.id);
   assert.deepEqual((await state()).snapshot.battle.reports, journalState.snapshot.battle.reports);
   assert.deepEqual(await page.locator('#battle-system-log li').allTextContents(), journalTexts);
+  await page.locator('#more').click();
+  await page.getByRole('button',{name:'Bestiário',exact:true}).click();
+  assert.equal(await page.locator('.bestiary-card').count(),27);
+  await page.keyboard.press('Escape');
   // New device recovery revokes the prior cookie and rotates the key.
   const second = await browser.newContext(),
     other = await second.newPage();
@@ -262,6 +266,7 @@ try {
           "lost-response-single-effect",
           "server-restart",
           "confirmed-journal-rewards",
+          "online-bestiary-catalogue",
           "legacy-journal-defaults",
           "journal-reload-and-restart-without-duplicates",
           "cross-device-recovery",

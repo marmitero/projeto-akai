@@ -23,8 +23,7 @@ jobs:
             docs
             .github
             sprites/Character
-            sprites/Enemies/Slime
-            sprites/Enemies/Skeleton
+            sprites/Enemies
             sprites/Tiles
             sprites/Assets
             sprites/Effects

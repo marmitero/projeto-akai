@@ -1,0 +1,7240 @@
+{
+  "version": "common-1",
+  "floors": 900,
+  "templates": 27,
+  "monotoneCurves": true,
+  "firstAppearances": {
+    "slime-green": 1,
+    "slime-blue": 2,
+    "slime-red": 3,
+    "bat": 4,
+    "mushroom": 5,
+    "male-bandit": 6,
+    "dude": 7,
+    "owlet": 8,
+    "pink": 9,
+    "skeleton": 11,
+    "zombie-1": 13,
+    "female-scout": 14,
+    "shield-skeleton": 16,
+    "zombie-2": 18,
+    "lancer": 21,
+    "archer": 26,
+    "zombie-3": 27,
+    "female-guard": 28,
+    "warrior": 33,
+    "zombie-4": 34,
+    "male-orc": 36,
+    "shadow": 43,
+    "male-deserter": 46,
+    "female-cultist": 52,
+    "inquisitor": 63,
+    "male-plague": 71,
+    "female-revenant": 81
+  },
+  "referenceBuild": "Common full gear from floor2, level ceil(f/10), enhancement floor(f/100), upgrades f-1, prior hero XP25*f². No acquisition/farming simulation, criticals or random loot.",
+  "minClearMs": 15000,
+  "maxClearMs": 33000,
+  "samples": [
+    {
+      "floor": 1,
+      "won": true,
+      "elapsedMs": 33000,
+      "healthRemaining": 58,
+      "coins": "27000",
+      "xp": 90
+    },
+    {
+      "floor": 2,
+      "won": true,
+      "elapsedMs": 15000,
+      "healthRemaining": 148,
+      "coins": "36000",
+      "xp": 165
+    },
+    {
+      "floor": 3,
+      "won": true,
+      "elapsedMs": 15000,
+      "healthRemaining": 165,
+      "coins": "39000",
+      "xp": 273
+    },
+    {
+      "floor": 4,
+      "won": true,
+      "elapsedMs": 15000,
+      "healthRemaining": 187,
+      "coins": "38000",
+      "xp": 349
+    },
+    {
+      "floor": 5,
+      "won": true,
+      "elapsedMs": 18000,
+      "healthRemaining": 195,
+      "coins": "44000",
+      "xp": 455
+    },
+    {
+      "floor": 6,
+      "won": true,
+      "elapsedMs": 17000,
+      "healthRemaining": 221,
+      "coins": "44000",
+      "xp": 542
+    },
+    {
+      "floor": 7,
+      "won": true,
+      "elapsedMs": 17000,
+      "healthRemaining": 234,
+      "coins": "53000",
+      "xp": 633
+    },
+    {
+      "floor": 8,
+      "won": true,
+      "elapsedMs": 17000,
+      "healthRemaining": 256,
+      "coins": "52000",
+      "xp": 716
+    },
+    {
+      "floor": 9,
+      "won": true,
+      "elapsedMs": 18000,
+      "healthRemaining": 266,
+      "coins": "63000",
+      "xp": 828
+    },
+    {
+      "floor": 11,
+      "won": true,
+      "elapsedMs": 15000,
+      "healthRemaining": 412,
+      "coins": "75000",
+      "xp": 1014
+    },
+    {
+      "floor": 12,
+      "won": true,
+      "elapsedMs": 15000,
+      "healthRemaining": 437,
+      "coins": "84000",
+      "xp": 1107
+    },
+    {
+      "floor": 13,
+      "won": true,
+      "elapsedMs": 15000,
+      "healthRemaining": 451,
+      "coins": "94000",
+      "xp": 1215
+    },
+    {
+      "floor": 14,
+      "won": true,
+      "elapsedMs": 15000,
+      "healthRemaining": 475,
+      "coins": "100000",
+      "xp": 1264
+    },
+    {
+      "floor": 15,
+      "won": true,
+      "elapsedMs": 15000,
+      "healthRemaining": 481,
+      "coins": "113000",
+      "xp": 1403
+    },
+    {
+      "floor": 16,
+      "won": true,
+      "elapsedMs": 17000,
+      "healthRemaining": 504,
+      "coins": "124000",
+      "xp": 1514
+    },
+    {
+      "floor": 17,
+      "won": true,
+      "elapsedMs": 17000,
+      "healthRemaining": 497,
+      "coins": "126000",
+      "xp": 1537
+    },
+    {
+      "floor": 18,
+      "won": true,
+      "elapsedMs": 18000,
+      "healthRemaining": 527,
+      "coins": "149000",
+      "xp": 1687
+    },
+    {
+      "floor": 19,
+      "won": true,
+      "elapsedMs": 18000,
+      "healthRemaining": 531,
+      "coins": "157000",
+      "xp": 1754
+    },
+    {
+      "floor": 21,
+      "won": true,
+      "elapsedMs": 15000,
+      "healthRemaining": 758,
+      "coins": "203000",
+      "xp": 2032
+    },
+    {
+      "floor": 22,
+      "won": true,
+      "elapsedMs": 15000,
+      "healthRemaining": 788,
+      "coins": "212000",
+      "xp": 2038
+    },
+    {
+      "floor": 23,
+      "won": true,
+      "elapsedMs": 18000,
+      "healthRemaining": 795,
+      "coins": "259000",
+      "xp": 2274
+    },
+    {
+      "floor": 24,
+      "won": true,
+      "elapsedMs": 19000,
+      "healthRemaining": 770,
+      "coins": "265000",
+      "xp": 2271
+    },
+    {
+      "floor": 25,
+      "won": true,
+      "elapsedMs": 17000,
+      "healthRemaining": 797,
+      "coins": "270000",
+      "xp": 2233
+    },
+    {
+      "floor": 26,
+      "won": true,
+      "elapsedMs": 19000,
+      "healthRemaining": 834,
+      "coins": "317000",
+      "xp": 2496
+    },
+    {
+      "floor": 27,
+      "won": true,
+      "elapsedMs": 21000,
+      "healthRemaining": 808,
+      "coins": "324000",
+      "xp": 2494
+    },
+    {
+      "floor": 28,
+      "won": true,
+      "elapsedMs": 22000,
+      "healthRemaining": 837,
+      "coins": "373000",
+      "xp": 2748
+    },
+    {
+      "floor": 29,
+      "won": true,
+      "elapsedMs": 22000,
+      "healthRemaining": 812,
+      "coins": "370000",
+      "xp": 2654
+    },
+    {
+      "floor": 31,
+      "won": true,
+      "elapsedMs": 19000,
+      "healthRemaining": 1133,
+      "coins": "437000",
+      "xp": 2931
+    },
+    {
+      "floor": 32,
+      "won": true,
+      "elapsedMs": 18000,
+      "healthRemaining": 1193,
+      "coins": "452000",
+      "xp": 2968
+    },
+    {
+      "floor": 33,
+      "won": true,
+      "elapsedMs": 19000,
+      "healthRemaining": 1183,
+      "coins": "500000",
+      "xp": 3169
+    },
+    {
+      "floor": 34,
+      "won": true,
+      "elapsedMs": 21000,
+      "healthRemaining": 1181,
+      "coins": "513000",
+      "xp": 3163
+    },
+    {
+      "floor": 35,
+      "won": true,
+      "elapsedMs": 23000,
+      "healthRemaining": 1199,
+      "coins": "586000",
+      "xp": 3466
+    },
+    {
+      "floor": 36,
+      "won": true,
+      "elapsedMs": 21000,
+      "healthRemaining": 1189,
+      "coins": "587000",
+      "xp": 3403
+    },
+    {
+      "floor": 37,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 1188,
+      "coins": "611000",
+      "xp": 3420
+    },
+    {
+      "floor": 38,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 1242,
+      "coins": "685000",
+      "xp": 3764
+    },
+    {
+      "floor": 39,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 1241,
+      "coins": "693000",
+      "xp": 3688
+    },
+    {
+      "floor": 41,
+      "won": true,
+      "elapsedMs": 21000,
+      "healthRemaining": 1622,
+      "coins": "755000",
+      "xp": 3864
+    },
+    {
+      "floor": 42,
+      "won": true,
+      "elapsedMs": 21000,
+      "healthRemaining": 1631,
+      "coins": "797000",
+      "xp": 3970
+    },
+    {
+      "floor": 43,
+      "won": true,
+      "elapsedMs": 22000,
+      "healthRemaining": 1657,
+      "coins": "847000",
+      "xp": 4130
+    },
+    {
+      "floor": 44,
+      "won": true,
+      "elapsedMs": 21000,
+      "healthRemaining": 1644,
+      "coins": "872000",
+      "xp": 4160
+    },
+    {
+      "floor": 45,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 1645,
+      "coins": "922000",
+      "xp": 4272
+    },
+    {
+      "floor": 46,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 1688,
+      "coins": "956000",
+      "xp": 4350
+    },
+    {
+      "floor": 47,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 1679,
+      "coins": "971000",
+      "xp": 4346
+    },
+    {
+      "floor": 48,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 1726,
+      "coins": "1058000",
+      "xp": 4614
+    },
+    {
+      "floor": 49,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 1722,
+      "coins": "1125000",
+      "xp": 4792
+    },
+    {
+      "floor": 51,
+      "won": true,
+      "elapsedMs": 22000,
+      "healthRemaining": 2165,
+      "coins": "1212000",
+      "xp": 4988
+    },
+    {
+      "floor": 52,
+      "won": true,
+      "elapsedMs": 21000,
+      "healthRemaining": 2197,
+      "coins": "1194000",
+      "xp": 4820
+    },
+    {
+      "floor": 53,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 2191,
+      "coins": "1272000",
+      "xp": 5032
+    },
+    {
+      "floor": 54,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 2176,
+      "coins": "1291000",
+      "xp": 5013
+    },
+    {
+      "floor": 55,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 2215,
+      "coins": "1380000",
+      "xp": 5264
+    },
+    {
+      "floor": 56,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 2244,
+      "coins": "1410000",
+      "xp": 5299
+    },
+    {
+      "floor": 57,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 2243,
+      "coins": "1490000",
+      "xp": 5476
+    },
+    {
+      "floor": 58,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 2282,
+      "coins": "1566000",
+      "xp": 5673
+    },
+    {
+      "floor": 59,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 2284,
+      "coins": "1538000",
+      "xp": 5469
+    },
+    {
+      "floor": 61,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 2774,
+      "coins": "1675000",
+      "xp": 5769
+    },
+    {
+      "floor": 62,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 2803,
+      "coins": "1785000",
+      "xp": 6050
+    },
+    {
+      "floor": 63,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 2815,
+      "coins": "1856000",
+      "xp": 6186
+    },
+    {
+      "floor": 64,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 2844,
+      "coins": "1908000",
+      "xp": 6264
+    },
+    {
+      "floor": 65,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 2850,
+      "coins": "1864000",
+      "xp": 6025
+    },
+    {
+      "floor": 66,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 2859,
+      "coins": "1967000",
+      "xp": 6266
+    },
+    {
+      "floor": 67,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 2870,
+      "coins": "2048000",
+      "xp": 6412
+    },
+    {
+      "floor": 68,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 2905,
+      "coins": "2106000",
+      "xp": 6508
+    },
+    {
+      "floor": 69,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 2850,
+      "coins": "2147000",
+      "xp": 6526
+    },
+    {
+      "floor": 71,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 3480,
+      "coins": "2226000",
+      "xp": 6583
+    },
+    {
+      "floor": 72,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 3477,
+      "coins": "2344000",
+      "xp": 6840
+    },
+    {
+      "floor": 73,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 3507,
+      "coins": "2413000",
+      "xp": 6931
+    },
+    {
+      "floor": 74,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 3545,
+      "coins": "2499000",
+      "xp": 7082
+    },
+    {
+      "floor": 75,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 3547,
+      "coins": "2486000",
+      "xp": 6953
+    },
+    {
+      "floor": 76,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 3545,
+      "coins": "2612000",
+      "xp": 7217
+    },
+    {
+      "floor": 77,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 3569,
+      "coins": "2700000",
+      "xp": 7370
+    },
+    {
+      "floor": 78,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 3584,
+      "coins": "2711000",
+      "xp": 7320
+    },
+    {
+      "floor": 79,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 3545,
+      "coins": "2749000",
+      "xp": 7306
+    },
+    {
+      "floor": 81,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 4257,
+      "coins": "2988000",
+      "xp": 7752
+    },
+    {
+      "floor": 82,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 4235,
+      "coins": "2960000",
+      "xp": 7581
+    },
+    {
+      "floor": 83,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 4285,
+      "coins": "3154000",
+      "xp": 7975
+    },
+    {
+      "floor": 84,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 4325,
+      "coins": "3254000",
+      "xp": 8135
+    },
+    {
+      "floor": 85,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 4302,
+      "coins": "3294000",
+      "xp": 8136
+    },
+    {
+      "floor": 86,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 4332,
+      "coins": "3330000",
+      "xp": 8135
+    },
+    {
+      "floor": 87,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 4292,
+      "coins": "3469000",
+      "xp": 8381
+    },
+    {
+      "floor": 88,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 4282,
+      "coins": "3524000",
+      "xp": 8426
+    },
+    {
+      "floor": 89,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 4356,
+      "coins": "3489000",
+      "xp": 8228
+    },
+    {
+      "floor": 91,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 5067,
+      "coins": "3872000",
+      "xp": 8937
+    },
+    {
+      "floor": 92,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 5113,
+      "coins": "3947000",
+      "xp": 9001
+    },
+    {
+      "floor": 93,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 5115,
+      "coins": "3889000",
+      "xp": 8797
+    },
+    {
+      "floor": 94,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 5109,
+      "coins": "3991000",
+      "xp": 8927
+    },
+    {
+      "floor": 95,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 5011,
+      "coins": "4075000",
+      "xp": 9022
+    },
+    {
+      "floor": 96,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 5095,
+      "coins": "4194000",
+      "xp": 9192
+    },
+    {
+      "floor": 97,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 5076,
+      "coins": "4281000",
+      "xp": 9284
+    },
+    {
+      "floor": 98,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 5126,
+      "coins": "4343000",
+      "xp": 9306
+    },
+    {
+      "floor": 99,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 5105,
+      "coins": "4340000",
+      "xp": 9216
+    },
+    {
+      "floor": 101,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 6193,
+      "coins": "4485000",
+      "xp": 9340
+    },
+    {
+      "floor": 102,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 6207,
+      "coins": "4702000",
+      "xp": 9687
+    },
+    {
+      "floor": 103,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 6229,
+      "coins": "4826000",
+      "xp": 9860
+    },
+    {
+      "floor": 104,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 6283,
+      "coins": "4978000",
+      "xp": 10075
+    },
+    {
+      "floor": 105,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 6268,
+      "coins": "4944000",
+      "xp": 9904
+    },
+    {
+      "floor": 106,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 6277,
+      "coins": "5072000",
+      "xp": 10066
+    },
+    {
+      "floor": 107,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 6169,
+      "coins": "5387000",
+      "xp": 10590
+    },
+    {
+      "floor": 108,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 6255,
+      "coins": "5315000",
+      "xp": 10338
+    },
+    {
+      "floor": 109,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 6275,
+      "coins": "5225000",
+      "xp": 10080
+    },
+    {
+      "floor": 111,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 7248,
+      "coins": "5678000",
+      "xp": 10751
+    },
+    {
+      "floor": 112,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 7235,
+      "coins": "5708000",
+      "xp": 10724
+    },
+    {
+      "floor": 113,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 7255,
+      "coins": "5745000",
+      "xp": 10688
+    },
+    {
+      "floor": 114,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 7282,
+      "coins": "5955000",
+      "xp": 10984
+    },
+    {
+      "floor": 115,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 7287,
+      "coins": "6023000",
+      "xp": 11008
+    },
+    {
+      "floor": 116,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 7275,
+      "coins": "5920000",
+      "xp": 10727
+    },
+    {
+      "floor": 117,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 7274,
+      "coins": "6355000",
+      "xp": 11419
+    },
+    {
+      "floor": 118,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 7215,
+      "coins": "6505000",
+      "xp": 11590
+    },
+    {
+      "floor": 119,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 7258,
+      "coins": "6586000",
+      "xp": 11644
+    },
+    {
+      "floor": 121,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 8288,
+      "coins": "6614000",
+      "xp": 11491
+    },
+    {
+      "floor": 122,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 8330,
+      "coins": "6716000",
+      "xp": 11586
+    },
+    {
+      "floor": 123,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 8360,
+      "coins": "6885000",
+      "xp": 11774
+    },
+    {
+      "floor": 124,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 8362,
+      "coins": "6999000",
+      "xp": 11870
+    },
+    {
+      "floor": 125,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 8298,
+      "coins": "7057000",
+      "xp": 11872
+    },
+    {
+      "floor": 126,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 8360,
+      "coins": "7030000",
+      "xp": 11731
+    },
+    {
+      "floor": 127,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 8294,
+      "coins": "7345000",
+      "xp": 12158
+    },
+    {
+      "floor": 128,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 8360,
+      "coins": "7205000",
+      "xp": 11840
+    },
+    {
+      "floor": 129,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 8384,
+      "coins": "7514000",
+      "xp": 12251
+    },
+    {
+      "floor": 131,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 9490,
+      "coins": "7904000",
+      "xp": 12688
+    },
+    {
+      "floor": 132,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 9482,
+      "coins": "7814000",
+      "xp": 12454
+    },
+    {
+      "floor": 133,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 9478,
+      "coins": "7990000",
+      "xp": 12632
+    },
+    {
+      "floor": 134,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 9373,
+      "coins": "8444000",
+      "xp": 13263
+    },
+    {
+      "floor": 135,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 9456,
+      "coins": "8292000",
+      "xp": 12924
+    },
+    {
+      "floor": 136,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 9485,
+      "coins": "8131000",
+      "xp": 12580
+    },
+    {
+      "floor": 137,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 9486,
+      "coins": "8575000",
+      "xp": 13166
+    },
+    {
+      "floor": 138,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 9557,
+      "coins": "8767000",
+      "xp": 13366
+    },
+    {
+      "floor": 139,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 9482,
+      "coins": "8790000",
+      "xp": 13306
+    },
+    {
+      "floor": 141,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 10702,
+      "coins": "9108000",
+      "xp": 13586
+    },
+    {
+      "floor": 142,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 10714,
+      "coins": "9174000",
+      "xp": 13594
+    },
+    {
+      "floor": 143,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 10703,
+      "coins": "8992000",
+      "xp": 13226
+    },
+    {
+      "floor": 144,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 10703,
+      "coins": "9616000",
+      "xp": 14058
+    },
+    {
+      "floor": 145,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 10625,
+      "coins": "9814000",
+      "xp": 14243
+    },
+    {
+      "floor": 146,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 10684,
+      "coins": "9914000",
+      "xp": 14286
+    },
+    {
+      "floor": 147,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 10730,
+      "coins": "9717000",
+      "xp": 13906
+    },
+    {
+      "floor": 148,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 10691,
+      "coins": "9889000",
+      "xp": 14057
+    },
+    {
+      "floor": 149,
+      "won": true,
+      "elapsedMs": 28000,
+      "healthRemaining": 10624,
+      "coins": "10022000",
+      "xp": 14152
+    },
+    {
+      "floor": 151,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 11989,
+      "coins": "10378000",
+      "xp": 14456
+    },
+    {
+      "floor": 152,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 11938,
+      "coins": "10430000",
+      "xp": 14440
+    },
+    {
+      "floor": 153,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 11985,
+      "coins": "10356000",
+      "xp": 14245
+    },
+    {
+      "floor": 154,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 11925,
+      "coins": "10789000",
+      "xp": 14742
+    },
+    {
+      "floor": 155,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 11993,
+      "coins": "10565000",
+      "xp": 14334
+    },
+    {
+      "floor": 156,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 12023,
+      "coins": "10983000",
+      "xp": 14817
+    },
+    {
+      "floor": 157,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 12020,
+      "coins": "11213000",
+      "xp": 15030
+    },
+    {
+      "floor": 158,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 12119,
+      "coins": "11489000",
+      "xp": 15304
+    },
+    {
+      "floor": 159,
+      "won": true,
+      "elapsedMs": 28000,
+      "healthRemaining": 11969,
+      "coins": "11334000",
+      "xp": 15004
+    },
+    {
+      "floor": 161,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 13412,
+      "coins": "12197000",
+      "xp": 15936
+    },
+    {
+      "floor": 162,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 13317,
+      "coins": "11941000",
+      "xp": 15508
+    },
+    {
+      "floor": 163,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 13336,
+      "coins": "11683000",
+      "xp": 15074
+    },
+    {
+      "floor": 164,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 13358,
+      "coins": "12286000",
+      "xp": 15762
+    },
+    {
+      "floor": 165,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 13410,
+      "coins": "12536000",
+      "xp": 15982
+    },
+    {
+      "floor": 166,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 13339,
+      "coins": "12533000",
+      "xp": 15892
+    },
+    {
+      "floor": 167,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 13390,
+      "coins": "12538000",
+      "xp": 15800
+    },
+    {
+      "floor": 168,
+      "won": true,
+      "elapsedMs": 28000,
+      "healthRemaining": 13409,
+      "coins": "12923000",
+      "xp": 16191
+    },
+    {
+      "floor": 169,
+      "won": true,
+      "elapsedMs": 28000,
+      "healthRemaining": 13380,
+      "coins": "12991000",
+      "xp": 16178
+    },
+    {
+      "floor": 171,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 14771,
+      "coins": "13559000",
+      "xp": 16690
+    },
+    {
+      "floor": 172,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 14700,
+      "coins": "13816000",
+      "xp": 16896
+    },
+    {
+      "floor": 173,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 14748,
+      "coins": "13918000",
+      "xp": 16929
+    },
+    {
+      "floor": 174,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 14809,
+      "coins": "13617000",
+      "xp": 16462
+    },
+    {
+      "floor": 175,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 14755,
+      "coins": "13822000",
+      "xp": 16622
+    },
+    {
+      "floor": 176,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 14754,
+      "coins": "13984000",
+      "xp": 16720
+    },
+    {
+      "floor": 177,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 14833,
+      "coins": "14255000",
+      "xp": 16944
+    },
+    {
+      "floor": 178,
+      "won": true,
+      "elapsedMs": 28000,
+      "healthRemaining": 14795,
+      "coins": "14411000",
+      "xp": 17040
+    },
+    {
+      "floor": 179,
+      "won": true,
+      "elapsedMs": 28000,
+      "healthRemaining": 14747,
+      "coins": "14458000",
+      "xp": 17001
+    },
+    {
+      "floor": 181,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 16199,
+      "coins": "14909000",
+      "xp": 17328
+    },
+    {
+      "floor": 182,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 16278,
+      "coins": "14559000",
+      "xp": 16833
+    },
+    {
+      "floor": 183,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 16309,
+      "coins": "15114000",
+      "xp": 17382
+    },
+    {
+      "floor": 184,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 16306,
+      "coins": "15407000",
+      "xp": 17618
+    },
+    {
+      "floor": 185,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 16399,
+      "coins": "15753000",
+      "xp": 17919
+    },
+    {
+      "floor": 186,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 16415,
+      "coins": "15514000",
+      "xp": 17549
+    },
+    {
+      "floor": 187,
+      "won": true,
+      "elapsedMs": 28000,
+      "healthRemaining": 16216,
+      "coins": "15789000",
+      "xp": 17761
+    },
+    {
+      "floor": 188,
+      "won": true,
+      "elapsedMs": 29000,
+      "healthRemaining": 16277,
+      "coins": "16623000",
+      "xp": 18609
+    },
+    {
+      "floor": 189,
+      "won": true,
+      "elapsedMs": 28000,
+      "healthRemaining": 16279,
+      "coins": "16249000",
+      "xp": 18094
+    },
+    {
+      "floor": 191,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 17842,
+      "coins": "16658000",
+      "xp": 18357
+    },
+    {
+      "floor": 192,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 17918,
+      "coins": "16973000",
+      "xp": 18600
+    },
+    {
+      "floor": 193,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 17830,
+      "coins": "16948000",
+      "xp": 18476
+    },
+    {
+      "floor": 194,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 17894,
+      "coins": "16919000",
+      "xp": 18353
+    },
+    {
+      "floor": 195,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 17941,
+      "coins": "17415000",
+      "xp": 18790
+    },
+    {
+      "floor": 196,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 17911,
+      "coins": "17475000",
+      "xp": 18764
+    },
+    {
+      "floor": 197,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 17876,
+      "coins": "17059000",
+      "xp": 18220
+    },
+    {
+      "floor": 198,
+      "won": true,
+      "elapsedMs": 29000,
+      "healthRemaining": 17914,
+      "coins": "18186000",
+      "xp": 19327
+    },
+    {
+      "floor": 199,
+      "won": true,
+      "elapsedMs": 29000,
+      "healthRemaining": 17856,
+      "coins": "18491000",
+      "xp": 19548
+    },
+    {
+      "floor": 201,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 20384,
+      "coins": "18168000",
+      "xp": 19015
+    },
+    {
+      "floor": 202,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 20366,
+      "coins": "18422000",
+      "xp": 19186
+    },
+    {
+      "floor": 203,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 20236,
+      "coins": "18601000",
+      "xp": 19281
+    },
+    {
+      "floor": 204,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 20335,
+      "coins": "18931000",
+      "xp": 19530
+    },
+    {
+      "floor": 205,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 20320,
+      "coins": "19119000",
+      "xp": 19626
+    },
+    {
+      "floor": 206,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 20372,
+      "coins": "19151000",
+      "xp": 19567
+    },
+    {
+      "floor": 207,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 20432,
+      "coins": "18961000",
+      "xp": 19274
+    },
+    {
+      "floor": 208,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 20360,
+      "coins": "19688000",
+      "xp": 19916
+    },
+    {
+      "floor": 209,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 20434,
+      "coins": "19195000",
+      "xp": 19328
+    },
+    {
+      "floor": 211,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 22168,
+      "coins": "20251000",
+      "xp": 20200
+    },
+    {
+      "floor": 212,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 22187,
+      "coins": "20683000",
+      "xp": 20535
+    },
+    {
+      "floor": 213,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 22193,
+      "coins": "20345000",
+      "xp": 20099
+    },
+    {
+      "floor": 214,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 22101,
+      "coins": "20671000",
+      "xp": 20327
+    },
+    {
+      "floor": 215,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 22095,
+      "coins": "21742000",
+      "xp": 21282
+    },
+    {
+      "floor": 216,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 22195,
+      "coins": "21229000",
+      "xp": 20682
+    },
+    {
+      "floor": 217,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 22206,
+      "coins": "20690000",
+      "xp": 20068
+    },
+    {
+      "floor": 218,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 22223,
+      "coins": "21705000",
+      "xp": 20952
+    },
+    {
+      "floor": 219,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 22290,
+      "coins": "22077000",
+      "xp": 21213
+    },
+    {
+      "floor": 221,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 23975,
+      "coins": "21953000",
+      "xp": 20909
+    },
+    {
+      "floor": 222,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 24032,
+      "coins": "22560000",
+      "xp": 21392
+    },
+    {
+      "floor": 223,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 24003,
+      "coins": "22625000",
+      "xp": 21350
+    },
+    {
+      "floor": 224,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 24097,
+      "coins": "22053000",
+      "xp": 20720
+    },
+    {
+      "floor": 225,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 24094,
+      "coins": "23478000",
+      "xp": 21961
+    },
+    {
+      "floor": 226,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 24017,
+      "coins": "23846000",
+      "xp": 22201
+    },
+    {
+      "floor": 227,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 24062,
+      "coins": "23960000",
+      "xp": 22214
+    },
+    {
+      "floor": 228,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 24133,
+      "coins": "23372000",
+      "xp": 21571
+    },
+    {
+      "floor": 229,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 24075,
+      "coins": "23664000",
+      "xp": 21752
+    },
+    {
+      "floor": 231,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 25934,
+      "coins": "24273000",
+      "xp": 22116
+    },
+    {
+      "floor": 232,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 25932,
+      "coins": "24481000",
+      "xp": 22214
+    },
+    {
+      "floor": 233,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 25973,
+      "coins": "24502000",
+      "xp": 22131
+    },
+    {
+      "floor": 234,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 26045,
+      "coins": "24222000",
+      "xp": 21788
+    },
+    {
+      "floor": 235,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 25961,
+      "coins": "25126000",
+      "xp": 22498
+    },
+    {
+      "floor": 236,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 26041,
+      "coins": "24474000",
+      "xp": 21827
+    },
+    {
+      "floor": 237,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 26063,
+      "coins": "25355000",
+      "xp": 22512
+    },
+    {
+      "floor": 238,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 26068,
+      "coins": "25767000",
+      "xp": 22786
+    },
+    {
+      "floor": 239,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 26161,
+      "coins": "26293000",
+      "xp": 23151
+    },
+    {
+      "floor": 241,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 27924,
+      "coins": "26210000",
+      "xp": 22891
+    },
+    {
+      "floor": 242,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 27922,
+      "coins": "27542000",
+      "xp": 23955
+    },
+    {
+      "floor": 243,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 28015,
+      "coins": "26857000",
+      "xp": 23264
+    },
+    {
+      "floor": 244,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 28046,
+      "coins": "26159000",
+      "xp": 22567
+    },
+    {
+      "floor": 245,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 28047,
+      "coins": "27415000",
+      "xp": 23548
+    },
+    {
+      "floor": 246,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 28127,
+      "coins": "27852000",
+      "xp": 23829
+    },
+    {
+      "floor": 247,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 28037,
+      "coins": "27748000",
+      "xp": 23648
+    },
+    {
+      "floor": 248,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 28097,
+      "coins": "27649000",
+      "xp": 23467
+    },
+    {
+      "floor": 249,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 28148,
+      "coins": "28392000",
+      "xp": 23995
+    },
+    {
+      "floor": 251,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 30150,
+      "coins": "27684000",
+      "xp": 23214
+    },
+    {
+      "floor": 252,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 30153,
+      "coins": "29455000",
+      "xp": 24598
+    },
+    {
+      "floor": 253,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 30060,
+      "coins": "29877000",
+      "xp": 24854
+    },
+    {
+      "floor": 254,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 30118,
+      "coins": "29998000",
+      "xp": 24857
+    },
+    {
+      "floor": 255,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 30180,
+      "coins": "29227000",
+      "xp": 24127
+    },
+    {
+      "floor": 256,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 30131,
+      "coins": "29576000",
+      "xp": 24320
+    },
+    {
+      "floor": 257,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 30108,
+      "coins": "29811000",
+      "xp": 24411
+    },
+    {
+      "floor": 258,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 30216,
+      "coins": "30276000",
+      "xp": 24700
+    },
+    {
+      "floor": 259,
+      "won": true,
+      "elapsedMs": 28000,
+      "healthRemaining": 30164,
+      "coins": "30515000",
+      "xp": 24796
+    },
+    {
+      "floor": 261,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 32323,
+      "coins": "30136000",
+      "xp": 24303
+    },
+    {
+      "floor": 262,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 32247,
+      "coins": "31223000",
+      "xp": 25084
+    },
+    {
+      "floor": 263,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 32323,
+      "coins": "30394000",
+      "xp": 24326
+    },
+    {
+      "floor": 264,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 32347,
+      "coins": "31457000",
+      "xp": 25080
+    },
+    {
+      "floor": 265,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 32342,
+      "coins": "31944000",
+      "xp": 25370
+    },
+    {
+      "floor": 266,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 32453,
+      "coins": "32559000",
+      "xp": 25766
+    },
+    {
+      "floor": 267,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 32461,
+      "coins": "31965000",
+      "xp": 25194
+    },
+    {
+      "floor": 268,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 32354,
+      "coins": "32414000",
+      "xp": 25457
+    },
+    {
+      "floor": 269,
+      "won": true,
+      "elapsedMs": 29000,
+      "healthRemaining": 32307,
+      "coins": "34038000",
+      "xp": 26628
+    },
+    {
+      "floor": 271,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 34544,
+      "coins": "32271000",
+      "xp": 25066
+    },
+    {
+      "floor": 272,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 34559,
+      "coins": "33788000",
+      "xp": 26146
+    },
+    {
+      "floor": 273,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 34630,
+      "coins": "34303000",
+      "xp": 26444
+    },
+    {
+      "floor": 274,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 34547,
+      "coins": "34155000",
+      "xp": 26232
+    },
+    {
+      "floor": 275,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 34603,
+      "coins": "34001000",
+      "xp": 26018
+    },
+    {
+      "floor": 276,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 34658,
+      "coins": "34879000",
+      "xp": 26597
+    },
+    {
+      "floor": 277,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 34626,
+      "coins": "34901000",
+      "xp": 26520
+    },
+    {
+      "floor": 278,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 34737,
+      "coins": "33956000",
+      "xp": 25713
+    },
+    {
+      "floor": 279,
+      "won": true,
+      "elapsedMs": 29000,
+      "healthRemaining": 34619,
+      "coins": "36101000",
+      "xp": 27235
+    },
+    {
+      "floor": 281,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 36849,
+      "coins": "36712000",
+      "xp": 27499
+    },
+    {
+      "floor": 282,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 36916,
+      "coins": "35749000",
+      "xp": 26680
+    },
+    {
+      "floor": 283,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 36856,
+      "coins": "36148000",
+      "xp": 26881
+    },
+    {
+      "floor": 284,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 36846,
+      "coins": "36405000",
+      "xp": 26977
+    },
+    {
+      "floor": 285,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 36942,
+      "coins": "36951000",
+      "xp": 27286
+    },
+    {
+      "floor": 286,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 36935,
+      "coins": "37210000",
+      "xp": 27382
+    },
+    {
+      "floor": 287,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 36984,
+      "coins": "37176000",
+      "xp": 27262
+    },
+    {
+      "floor": 288,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 36951,
+      "coins": "36692000",
+      "xp": 26820
+    },
+    {
+      "floor": 289,
+      "won": true,
+      "elapsedMs": 28000,
+      "healthRemaining": 36923,
+      "coins": "37994000",
+      "xp": 27668
+    },
+    {
+      "floor": 291,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 39302,
+      "coins": "38217000",
+      "xp": 27641
+    },
+    {
+      "floor": 292,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 39305,
+      "coins": "38789000",
+      "xp": 27956
+    },
+    {
+      "floor": 293,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 39408,
+      "coins": "39507000",
+      "xp": 28382
+    },
+    {
+      "floor": 294,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 39417,
+      "coins": "38751000",
+      "xp": 27744
+    },
+    {
+      "floor": 295,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 39297,
+      "coins": "39272000",
+      "xp": 28022
+    },
+    {
+      "floor": 296,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 39299,
+      "coins": "41202000",
+      "xp": 29304
+    },
+    {
+      "floor": 297,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 39400,
+      "coins": "40120000",
+      "xp": 28434
+    },
+    {
+      "floor": 298,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 39357,
+      "coins": "39025000",
+      "xp": 27561
+    },
+    {
+      "floor": 299,
+      "won": true,
+      "elapsedMs": 28000,
+      "healthRemaining": 39296,
+      "coins": "40822000",
+      "xp": 28738
+    },
+    {
+      "floor": 301,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 43540,
+      "coins": "41212000",
+      "xp": 28818
+    },
+    {
+      "floor": 302,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 43451,
+      "coins": "41002000",
+      "xp": 28574
+    },
+    {
+      "floor": 303,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 43499,
+      "coins": "42030000",
+      "xp": 29198
+    },
+    {
+      "floor": 304,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 43478,
+      "coins": "42034000",
+      "xp": 29108
+    },
+    {
+      "floor": 305,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 43580,
+      "coins": "40877000",
+      "xp": 28208
+    },
+    {
+      "floor": 306,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 43583,
+      "coins": "43424000",
+      "xp": 29869
+    },
+    {
+      "floor": 307,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 43486,
+      "coins": "43984000",
+      "xp": 30159
+    },
+    {
+      "floor": 308,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 43545,
+      "coins": "44113000",
+      "xp": 30142
+    },
+    {
+      "floor": 309,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 43608,
+      "coins": "42924000",
+      "xp": 29236
+    },
+    {
+      "floor": 311,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 46215,
+      "coins": "43652000",
+      "xp": 29542
+    },
+    {
+      "floor": 312,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 46133,
+      "coins": "44276000",
+      "xp": 29874
+    },
+    {
+      "floor": 313,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 46114,
+      "coins": "44562000",
+      "xp": 29966
+    },
+    {
+      "floor": 314,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 46167,
+      "coins": "44497000",
+      "xp": 29826
+    },
+    {
+      "floor": 315,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 46233,
+      "coins": "43900000",
+      "xp": 29331
+    },
+    {
+      "floor": 316,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 46150,
+      "coins": "45424000",
+      "xp": 30254
+    },
+    {
+      "floor": 317,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 46228,
+      "coins": "44159000",
+      "xp": 29320
+    },
+    {
+      "floor": 318,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 46267,
+      "coins": "45640000",
+      "xp": 30207
+    },
+    {
+      "floor": 319,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 46252,
+      "coins": "46284000",
+      "xp": 30542
+    },
+    {
+      "floor": 321,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 48961,
+      "coins": "46196000",
+      "xp": 30289
+    },
+    {
+      "floor": 322,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 48824,
+      "coins": "46788000",
+      "xp": 30586
+    },
+    {
+      "floor": 323,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 48815,
+      "coins": "49063000",
+      "xp": 31974
+    },
+    {
+      "floor": 324,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 48922,
+      "coins": "47751000",
+      "xp": 31020
+    },
+    {
+      "floor": 325,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 48940,
+      "coins": "46415000",
+      "xp": 30060
+    },
+    {
+      "floor": 326,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 48957,
+      "coins": "48534000",
+      "xp": 31334
+    },
+    {
+      "floor": 327,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 49030,
+      "coins": "49215000",
+      "xp": 31676
+    },
+    {
+      "floor": 328,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 48944,
+      "coins": "48937000",
+      "xp": 31406
+    },
+    {
+      "floor": 329,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 49000,
+      "coins": "48658000",
+      "xp": 31127
+    },
+    {
+      "floor": 331,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 51679,
+      "coins": "49837000",
+      "xp": 31690
+    },
+    {
+      "floor": 332,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 51790,
+      "coins": "48434000",
+      "xp": 30707
+    },
+    {
+      "floor": 333,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 51785,
+      "coins": "51428000",
+      "xp": 32506
+    },
+    {
+      "floor": 334,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 51695,
+      "coins": "52064000",
+      "xp": 32812
+    },
+    {
+      "floor": 335,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 51748,
+      "coins": "52178000",
+      "xp": 32785
+    },
+    {
+      "floor": 336,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 51820,
+      "coins": "50750000",
+      "xp": 31794
+    },
+    {
+      "floor": 337,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 51756,
+      "coins": "51252000",
+      "xp": 32011
+    },
+    {
+      "floor": 338,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 51747,
+      "coins": "51556000",
+      "xp": 32106
+    },
+    {
+      "floor": 339,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 51850,
+      "coins": "52271000",
+      "xp": 32456
+    },
+    {
+      "floor": 341,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 54608,
+      "coins": "52480000",
+      "xp": 32392
+    },
+    {
+      "floor": 342,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 54684,
+      "coins": "51741000",
+      "xp": 31846
+    },
+    {
+      "floor": 343,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 54590,
+      "coins": "53515000",
+      "xp": 32840
+    },
+    {
+      "floor": 344,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 54679,
+      "coins": "51995000",
+      "xp": 31820
+    },
+    {
+      "floor": 345,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 54701,
+      "coins": "53712000",
+      "xp": 32771
+    },
+    {
+      "floor": 346,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 54706,
+      "coins": "54451000",
+      "xp": 33126
+    },
+    {
+      "floor": 347,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 54809,
+      "coins": "55413000",
+      "xp": 33613
+    },
+    {
+      "floor": 348,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 54826,
+      "coins": "54296000",
+      "xp": 32839
+    },
+    {
+      "floor": 349,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 54706,
+      "coins": "54968000",
+      "xp": 33152
+    },
+    {
+      "floor": 351,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 57598,
+      "coins": "56043000",
+      "xp": 33606
+    },
+    {
+      "floor": 352,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 57630,
+      "coins": "54447000",
+      "xp": 32560
+    },
+    {
+      "floor": 353,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 57637,
+      "coins": "56897000",
+      "xp": 33929
+    },
+    {
+      "floor": 354,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 57720,
+      "coins": "57669000",
+      "xp": 34291
+    },
+    {
+      "floor": 355,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 57624,
+      "coins": "57325000",
+      "xp": 33988
+    },
+    {
+      "floor": 356,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 57686,
+      "coins": "56965000",
+      "xp": 33683
+    },
+    {
+      "floor": 357,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 57736,
+      "coins": "58344000",
+      "xp": 34403
+    },
+    {
+      "floor": 358,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 57712,
+      "coins": "58294000",
+      "xp": 34276
+    },
+    {
+      "floor": 359,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 57813,
+      "coins": "56628000",
+      "xp": 33206
+    },
+    {
+      "floor": 361,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 60594,
+      "coins": "60829000",
+      "xp": 35465
+    },
+    {
+      "floor": 362,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 60658,
+      "coins": "60928000",
+      "xp": 35427
+    },
+    {
+      "floor": 363,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 60722,
+      "coins": "59236000",
+      "xp": 34345
+    },
+    {
+      "floor": 364,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 60667,
+      "coins": "59792000",
+      "xp": 34577
+    },
+    {
+      "floor": 365,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 60636,
+      "coins": "60126000",
+      "xp": 34672
+    },
+    {
+      "floor": 366,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 60752,
+      "coins": "60925000",
+      "xp": 35042
+    },
+    {
+      "floor": 367,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 60735,
+      "coins": "61262000",
+      "xp": 35138
+    },
+    {
+      "floor": 368,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 60793,
+      "coins": "61113000",
+      "xp": 34960
+    },
+    {
+      "floor": 369,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 60861,
+      "coins": "60232000",
+      "xp": 34360
+    },
+    {
+      "floor": 371,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 63809,
+      "coins": "60475000",
+      "xp": 34314
+    },
+    {
+      "floor": 372,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 63847,
+      "coins": "62453000",
+      "xp": 35337
+    },
+    {
+      "floor": 373,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 63840,
+      "coins": "63279000",
+      "xp": 35712
+    },
+    {
+      "floor": 374,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 63957,
+      "coins": "64373000",
+      "xp": 36229
+    },
+    {
+      "floor": 375,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 63960,
+      "coins": "63045000",
+      "xp": 35389
+    },
+    {
+      "floor": 376,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 63850,
+      "coins": "63800000",
+      "xp": 35720
+    },
+    {
+      "floor": 377,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 63835,
+      "coins": "66845000",
+      "xp": 37320
+    },
+    {
+      "floor": 378,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 63948,
+      "coins": "64985000",
+      "xp": 36190
+    },
+    {
+      "floor": 379,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 63971,
+      "coins": "63111000",
+      "xp": 35054
+    },
+    {
+      "floor": 381,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 67096,
+      "coins": "66804000",
+      "xp": 36907
+    },
+    {
+      "floor": 382,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 67004,
+      "coins": "66374000",
+      "xp": 36574
+    },
+    {
+      "floor": 383,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 67062,
+      "coins": "65936000",
+      "xp": 36239
+    },
+    {
+      "floor": 384,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 67119,
+      "coins": "67512000",
+      "xp": 37008
+    },
+    {
+      "floor": 385,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 67088,
+      "coins": "67417000",
+      "xp": 36860
+    },
+    {
+      "floor": 386,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 67204,
+      "coins": "65472000",
+      "xp": 35701
+    },
+    {
+      "floor": 387,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 67193,
+      "coins": "69461000",
+      "xp": 37777
+    },
+    {
+      "floor": 388,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 67101,
+      "coins": "70261000",
+      "xp": 38118
+    },
+    {
+      "floor": 389,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 67156,
+      "coins": "70351000",
+      "xp": 38070
+    },
+    {
+      "floor": 391,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 70271,
+      "coins": "68989000",
+      "xp": 37142
+    },
+    {
+      "floor": 392,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 70262,
+      "coins": "69351000",
+      "xp": 37240
+    },
+    {
+      "floor": 393,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 70368,
+      "coins": "70253000",
+      "xp": 37626
+    },
+    {
+      "floor": 394,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 70358,
+      "coins": "70606000",
+      "xp": 37722
+    },
+    {
+      "floor": 395,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 70407,
+      "coins": "70414000",
+      "xp": 37521
+    },
+    {
+      "floor": 396,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 70481,
+      "coins": "69369000",
+      "xp": 36875
+    },
+    {
+      "floor": 397,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 70384,
+      "coins": "71689000",
+      "xp": 38010
+    },
+    {
+      "floor": 398,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 70479,
+      "coins": "69605000",
+      "xp": 36813
+    },
+    {
+      "floor": 399,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 70500,
+      "coins": "71848000",
+      "xp": 37902
+    },
+    {
+      "floor": 401,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 76760,
+      "coins": "74002000",
+      "xp": 38844
+    },
+    {
+      "floor": 402,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 76742,
+      "coins": "72449000",
+      "xp": 37934
+    },
+    {
+      "floor": 403,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 76728,
+      "coins": "73292000",
+      "xp": 38281
+    },
+    {
+      "floor": 404,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 76822,
+      "coins": "76757000",
+      "xp": 39993
+    },
+    {
+      "floor": 405,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 76824,
+      "coins": "74608000",
+      "xp": 38776
+    },
+    {
+      "floor": 406,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 76726,
+      "coins": "72427000",
+      "xp": 37553
+    },
+    {
+      "floor": 407,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 76733,
+      "coins": "75640000",
+      "xp": 39120
+    },
+    {
+      "floor": 408,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 76808,
+      "coins": "76608000",
+      "xp": 39525
+    },
+    {
+      "floor": 409,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 76706,
+      "coins": "76084000",
+      "xp": 39158
+    },
+    {
+      "floor": 411,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 80335,
+      "coins": "77331000",
+      "xp": 39607
+    },
+    {
+      "floor": 412,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 80345,
+      "coins": "77203000",
+      "xp": 39446
+    },
+    {
+      "floor": 413,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 80357,
+      "coins": "74951000",
+      "xp": 38200
+    },
+    {
+      "floor": 414,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 80387,
+      "coins": "79487000",
+      "xp": 40414
+    },
+    {
+      "floor": 415,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 80395,
+      "coins": "80377000",
+      "xp": 40770
+    },
+    {
+      "floor": 416,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 80288,
+      "coins": "80462000",
+      "xp": 40716
+    },
+    {
+      "floor": 417,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 80348,
+      "coins": "78161000",
+      "xp": 39454
+    },
+    {
+      "floor": 418,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 80293,
+      "coins": "78850000",
+      "xp": 39706
+    },
+    {
+      "floor": 419,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 80272,
+      "coins": "79231000",
+      "xp": 39801
+    },
+    {
+      "floor": 421,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 83996,
+      "coins": "80613000",
+      "xp": 40308
+    },
+    {
+      "floor": 422,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 84045,
+      "coins": "80361000",
+      "xp": 40087
+    },
+    {
+      "floor": 423,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 84049,
+      "coins": "79157000",
+      "xp": 39389
+    },
+    {
+      "floor": 424,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 84054,
+      "coins": "81770000",
+      "xp": 40598
+    },
+    {
+      "floor": 425,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 84069,
+      "coins": "79366000",
+      "xp": 39308
+    },
+    {
+      "floor": 426,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 84013,
+      "coins": "81898000",
+      "xp": 40466
+    },
+    {
+      "floor": 427,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 84006,
+      "coins": "82929000",
+      "xp": 40882
+    },
+    {
+      "floor": 428,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 84123,
+      "coins": "84301000",
+      "xp": 41460
+    },
+    {
+      "floor": 429,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 84126,
+      "coins": "82504000",
+      "xp": 40484
+    },
+    {
+      "floor": 431,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 87815,
+      "coins": "87358000",
+      "xp": 42666
+    },
+    {
+      "floor": 432,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 87826,
+      "coins": "84883000",
+      "xp": 41364
+    },
+    {
+      "floor": 433,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 87781,
+      "coins": "82381000",
+      "xp": 40048
+    },
+    {
+      "floor": 434,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 87867,
+      "coins": "86003000",
+      "xp": 41715
+    },
+    {
+      "floor": 435,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 87906,
+      "coins": "87080000",
+      "xp": 42138
+    },
+    {
+      "floor": 436,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 87715,
+      "coins": "86462000",
+      "xp": 41744
+    },
+    {
+      "floor": 437,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 87771,
+      "coins": "85843000",
+      "xp": 41348
+    },
+    {
+      "floor": 438,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 87832,
+      "coins": "87829000",
+      "xp": 42209
+    },
+    {
+      "floor": 439,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 87797,
+      "coins": "87659000",
+      "xp": 42032
+    },
+    {
+      "floor": 441,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 91628,
+      "coins": "90186000",
+      "xp": 43048
+    },
+    {
+      "floor": 442,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 91642,
+      "coins": "91176000",
+      "xp": 43423
+    },
+    {
+      "floor": 443,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 91689,
+      "coins": "91239000",
+      "xp": 43355
+    },
+    {
+      "floor": 444,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 91697,
+      "coins": "88609000",
+      "xp": 42010
+    },
+    {
+      "floor": 445,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 91532,
+      "coins": "89367000",
+      "xp": 42272
+    },
+    {
+      "floor": 446,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 91523,
+      "coins": "89766000",
+      "xp": 42367
+    },
+    {
+      "floor": 447,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 91629,
+      "coins": "90877000",
+      "xp": 42798
+    },
+    {
+      "floor": 448,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 91614,
+      "coins": "91288000",
+      "xp": 42896
+    },
+    {
+      "floor": 449,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 91665,
+      "coins": "90983000",
+      "xp": 42651
+    },
+    {
+      "floor": 451,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 95547,
+      "coins": "92514000",
+      "xp": 43180
+    },
+    {
+      "floor": 452,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 95572,
+      "coins": "89771000",
+      "xp": 41807
+    },
+    {
+      "floor": 453,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 95568,
+      "coins": "92605000",
+      "xp": 43032
+    },
+    {
+      "floor": 454,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 95604,
+      "coins": "93751000",
+      "xp": 43468
+    },
+    {
+      "floor": 455,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 95610,
+      "coins": "95268000",
+      "xp": 44076
+    },
+    {
+      "floor": 456,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 95626,
+      "coins": "93215000",
+      "xp": 43035
+    },
+    {
+      "floor": 457,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 95503,
+      "coins": "94249000",
+      "xp": 43411
+    },
+    {
+      "floor": 458,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 95504,
+      "coins": "98642000",
+      "xp": 45339
+    },
+    {
+      "floor": 459,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 95607,
+      "coins": "95828000",
+      "xp": 43946
+    },
+    {
+      "floor": 461,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 99601,
+      "coins": "97038000",
+      "xp": 44311
+    },
+    {
+      "floor": 462,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 99650,
+      "coins": "98222000",
+      "xp": 44754
+    },
+    {
+      "floor": 463,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 99611,
+      "coins": "97501000",
+      "xp": 44330
+    },
+    {
+      "floor": 464,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 99641,
+      "coins": "96772000",
+      "xp": 43906
+    },
+    {
+      "floor": 465,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 99564,
+      "coins": "98989000",
+      "xp": 44812
+    },
+    {
+      "floor": 466,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 99541,
+      "coins": "98767000",
+      "xp": 44616
+    },
+    {
+      "floor": 467,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 99647,
+      "coins": "95832000",
+      "xp": 43194
+    },
+    {
+      "floor": 468,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 99650,
+      "coins": "101571000",
+      "xp": 45685
+    },
+    {
+      "floor": 469,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 99545,
+      "coins": "102659000",
+      "xp": 46076
+    },
+    {
+      "floor": 471,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 103682,
+      "coins": "99714000",
+      "xp": 44566
+    },
+    {
+      "floor": 472,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 103668,
+      "coins": "100537000",
+      "xp": 44840
+    },
+    {
+      "floor": 473,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 103711,
+      "coins": "100965000",
+      "xp": 44931
+    },
+    {
+      "floor": 474,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 103758,
+      "coins": "102193000",
+      "xp": 45382
+    },
+    {
+      "floor": 475,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 103604,
+      "coins": "102626000",
+      "xp": 45478
+    },
+    {
+      "floor": 476,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 103653,
+      "coins": "102248000",
+      "xp": 45217
+    },
+    {
+      "floor": 477,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 103723,
+      "coins": "100650000",
+      "xp": 44418
+    },
+    {
+      "floor": 478,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 103635,
+      "coins": "103917000",
+      "xp": 45766
+    },
+    {
+      "floor": 479,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 103717,
+      "coins": "100817000",
+      "xp": 44306
+    },
+    {
+      "floor": 481,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 107833,
+      "coins": "105230000",
+      "xp": 46052
+    },
+    {
+      "floor": 482,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 107913,
+      "coins": "106910000",
+      "xp": 46691
+    },
+    {
+      "floor": 483,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 107888,
+      "coins": "104586000",
+      "xp": 45579
+    },
+    {
+      "floor": 484,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 107881,
+      "coins": "105717000",
+      "xp": 45977
+    },
+    {
+      "floor": 485,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 107725,
+      "coins": "110621000",
+      "xp": 48012
+    },
+    {
+      "floor": 486,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 107839,
+      "coins": "107432000",
+      "xp": 46532
+    },
+    {
+      "floor": 487,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 107861,
+      "coins": "104211000",
+      "xp": 45046
+    },
+    {
+      "floor": 488,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 107880,
+      "coins": "108737000",
+      "xp": 46909
+    },
+    {
+      "floor": 489,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 107956,
+      "coins": "110041000",
+      "xp": 47369
+    },
+    {
+      "floor": 491,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 112109,
+      "coins": "108366000",
+      "xp": 46457
+    },
+    {
+      "floor": 492,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 112144,
+      "coins": "110823000",
+      "xp": 47414
+    },
+    {
+      "floor": 493,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 112139,
+      "coins": "110543000",
+      "xp": 47202
+    },
+    {
+      "floor": 494,
+      "won": true,
+      "elapsedMs": 25000,
+      "healthRemaining": 112128,
+      "coins": "107227000",
+      "xp": 45693
+    },
+    {
+      "floor": 495,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 112123,
+      "coins": "113625000",
+      "xp": 48322
+    },
+    {
+      "floor": 496,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 112031,
+      "coins": "114814000",
+      "xp": 48732
+    },
+    {
+      "floor": 497,
+      "won": true,
+      "elapsedMs": 27000,
+      "healthRemaining": 112074,
+      "coins": "114836000",
+      "xp": 48640
+    },
+    {
+      "floor": 498,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 112153,
+      "coins": "111478000",
+      "xp": 47119
+    },
+    {
+      "floor": 499,
+      "won": true,
+      "elapsedMs": 26000,
+      "healthRemaining": 112083,
+      "coins": "112365000",
+      "xp": 47401
+    },
+    {
+      "floor": 501,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 120928,
+      "coins": "114165000",
+      "xp": 47968
+    },
+    {
+      "floor": 502,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 120921,
+      "coins": "114623000",
+      "xp": 48064
+    },
+    {
+      "floor": 503,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 120962,
+      "coins": "114171000",
+      "xp": 47782
+    },
+    {
+      "floor": 504,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 120977,
+      "coins": "112365000",
+      "xp": 46935
+    },
+    {
+      "floor": 505,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 120979,
+      "coins": "115990000",
+      "xp": 48350
+    },
+    {
+      "floor": 506,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 121004,
+      "coins": "112498000",
+      "xp": 46801
+    },
+    {
+      "floor": 507,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 120996,
+      "coins": "115994000",
+      "xp": 48161
+    },
+    {
+      "floor": 508,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 121036,
+      "coins": "117381000",
+      "xp": 48638
+    },
+    {
+      "floor": 509,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 121106,
+      "coins": "119224000",
+      "xp": 49307
+    },
+    {
+      "floor": 511,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 125484,
+      "coins": "117840000",
+      "xp": 48542
+    },
+    {
+      "floor": 512,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 125578,
+      "coins": "123275000",
+      "xp": 50688
+    },
+    {
+      "floor": 513,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 125577,
+      "coins": "119697000",
+      "xp": 49116
+    },
+    {
+      "floor": 514,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 125543,
+      "coins": "116087000",
+      "xp": 47541
+    },
+    {
+      "floor": 515,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 125616,
+      "coins": "121107000",
+      "xp": 49501
+    },
+    {
+      "floor": 516,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 125666,
+      "coins": "122529000",
+      "xp": 49985
+    },
+    {
+      "floor": 517,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 125630,
+      "coins": "121575000",
+      "xp": 49500
+    },
+    {
+      "floor": 518,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 125661,
+      "coins": "120610000",
+      "xp": 49013
+    },
+    {
+      "floor": 519,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 125679,
+      "coins": "123312000",
+      "xp": 50015
+    },
+    {
+      "floor": 521,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 130191,
+      "coins": "119269000",
+      "xp": 48188
+    },
+    {
+      "floor": 522,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 130227,
+      "coins": "126356000",
+      "xp": 50956
+    },
+    {
+      "floor": 523,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 130236,
+      "coins": "127656000",
+      "xp": 51381
+    },
+    {
+      "floor": 524,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 130292,
+      "coins": "127661000",
+      "xp": 51283
+    },
+    {
+      "floor": 525,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 130289,
+      "coins": "123892000",
+      "xp": 49675
+    },
+    {
+      "floor": 526,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 130276,
+      "coins": "124857000",
+      "xp": 49967
+    },
+    {
+      "floor": 527,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 130318,
+      "coins": "125336000",
+      "xp": 50062
+    },
+    {
+      "floor": 528,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 130362,
+      "coins": "126801000",
+      "xp": 50556
+    },
+    {
+      "floor": 529,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 130346,
+      "coins": "127281000",
+      "xp": 50648
+    },
+    {
+      "floor": 531,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 134978,
+      "coins": "124730000",
+      "xp": 49446
+    },
+    {
+      "floor": 532,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 134990,
+      "coins": "128728000",
+      "xp": 50936
+    },
+    {
+      "floor": 533,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 135005,
+      "coins": "124829000",
+      "xp": 49300
+    },
+    {
+      "floor": 534,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 135007,
+      "coins": "128677000",
+      "xp": 50727
+    },
+    {
+      "floor": 535,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 135037,
+      "coins": "130180000",
+      "xp": 51224
+    },
+    {
+      "floor": 536,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 135117,
+      "coins": "132206000",
+      "xp": 51925
+    },
+    {
+      "floor": 537,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 135091,
+      "coins": "129274000",
+      "xp": 50674
+    },
+    {
+      "floor": 538,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 135087,
+      "coins": "130616000",
+      "xp": 51106
+    },
+    {
+      "floor": 539,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 135173,
+      "coins": "136623000",
+      "xp": 53358
+    },
+    {
+      "floor": 541,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 139801,
+      "coins": "128603000",
+      "xp": 50040
+    },
+    {
+      "floor": 542,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 139884,
+      "coins": "134131000",
+      "xp": 52097
+    },
+    {
+      "floor": 543,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 139924,
+      "coins": "135682000",
+      "xp": 52601
+    },
+    {
+      "floor": 544,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 139898,
+      "coins": "134597000",
+      "xp": 52088
+    },
+    {
+      "floor": 545,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 139919,
+      "coins": "133506000",
+      "xp": 51566
+    },
+    {
+      "floor": 546,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 139949,
+      "coins": "136476000",
+      "xp": 52618
+    },
+    {
+      "floor": 547,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 139945,
+      "coins": "136089000",
+      "xp": 52372
+    },
+    {
+      "floor": 548,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 139968,
+      "coins": "131951000",
+      "xp": 50687
+    },
+    {
+      "floor": 549,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 139991,
+      "coins": "139767000",
+      "xp": 53593
+    },
+    {
+      "floor": 551,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 144806,
+      "coins": "141157000",
+      "xp": 53926
+    },
+    {
+      "floor": 552,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 144814,
+      "coins": "136962000",
+      "xp": 52233
+    },
+    {
+      "floor": 553,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 144788,
+      "coins": "137999000",
+      "xp": 52531
+    },
+    {
+      "floor": 554,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 144843,
+      "coins": "138502000",
+      "xp": 52626
+    },
+    {
+      "floor": 555,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 144880,
+      "coins": "140102000",
+      "xp": 53138
+    },
+    {
+      "floor": 556,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 144867,
+      "coins": "140598000",
+      "xp": 53234
+    },
+    {
+      "floor": 557,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 144910,
+      "coins": "140002000",
+      "xp": 52912
+    },
+    {
+      "floor": 558,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 144923,
+      "coins": "137732000",
+      "xp": 51961
+    },
+    {
+      "floor": 559,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 144922,
+      "coins": "142121000",
+      "xp": 53522
+    },
+    {
+      "floor": 561,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 149776,
+      "coins": "142025000",
+      "xp": 53291
+    },
+    {
+      "floor": 562,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 149816,
+      "coins": "143653000",
+      "xp": 53808
+    },
+    {
+      "floor": 563,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 149886,
+      "coins": "145865000",
+      "xp": 54538
+    },
+    {
+      "floor": 564,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 149870,
+      "coins": "142600000",
+      "xp": 53224
+    },
+    {
+      "floor": 565,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 149854,
+      "coins": "144057000",
+      "xp": 53672
+    },
+    {
+      "floor": 566,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 149950,
+      "coins": "150649000",
+      "xp": 56031
+    },
+    {
+      "floor": 567,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 149953,
+      "coins": "146219000",
+      "xp": 54288
+    },
+    {
+      "floor": 568,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 149908,
+      "coins": "141756000",
+      "xp": 52540
+    },
+    {
+      "floor": 569,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 149985,
+      "coins": "147832000",
+      "xp": 54692
+    },
+    {
+      "floor": 571,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 154920,
+      "coins": "148289000",
+      "xp": 54670
+    },
+    {
+      "floor": 572,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 154954,
+      "coins": "147068000",
+      "xp": 54122
+    },
+    {
+      "floor": 573,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 154973,
+      "coins": "150305000",
+      "xp": 55220
+    },
+    {
+      "floor": 574,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 154979,
+      "coins": "149859000",
+      "xp": 54958
+    },
+    {
+      "floor": 575,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 154992,
+      "coins": "145271000",
+      "xp": 53186
+    },
+    {
+      "floor": 576,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 155027,
+      "coins": "153857000",
+      "xp": 56232
+    },
+    {
+      "floor": 577,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 155032,
+      "coins": "155383000",
+      "xp": 56687
+    },
+    {
+      "floor": 578,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 155088,
+      "coins": "155317000",
+      "xp": 56568
+    },
+    {
+      "floor": 579,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 155084,
+      "coins": "150683000",
+      "xp": 54784
+    },
+    {
+      "floor": 581,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 160120,
+      "coins": "152332000",
+      "xp": 55192
+    },
+    {
+      "floor": 582,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 160164,
+      "coins": "154062000",
+      "xp": 55724
+    },
+    {
+      "floor": 583,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 160147,
+      "coins": "154589000",
+      "xp": 55820
+    },
+    {
+      "floor": 584,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 160194,
+      "coins": "153910000",
+      "xp": 55480
+    },
+    {
+      "floor": 585,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 160199,
+      "coins": "151383000",
+      "xp": 54475
+    },
+    {
+      "floor": 586,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 160212,
+      "coins": "156188000",
+      "xp": 56106
+    },
+    {
+      "floor": 587,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 160226,
+      "coins": "151405000",
+      "xp": 54294
+    },
+    {
+      "floor": 588,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 160232,
+      "coins": "156017000",
+      "xp": 55857
+    },
+    {
+      "floor": 589,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 160261,
+      "coins": "157787000",
+      "xp": 56394
+    },
+    {
+      "floor": 591,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 165407,
+      "coins": "156580000",
+      "xp": 55774
+    },
+    {
+      "floor": 592,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 165400,
+      "coins": "158157000",
+      "xp": 56240
+    },
+    {
+      "floor": 593,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 165484,
+      "coins": "165371000",
+      "xp": 58704
+    },
+    {
+      "floor": 594,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 165494,
+      "coins": "160480000",
+      "xp": 56872
+    },
+    {
+      "floor": 595,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 165448,
+      "coins": "155557000",
+      "xp": 55034
+    },
+    {
+      "floor": 596,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 165535,
+      "coins": "162194000",
+      "xp": 57288
+    },
+    {
+      "floor": 597,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 165575,
+      "coins": "164009000",
+      "xp": 57832
+    },
+    {
+      "floor": 598,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 165545,
+      "coins": "162651000",
+      "xp": 57256
+    },
+    {
+      "floor": 599,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 165564,
+      "coins": "161281000",
+      "xp": 56678
+    },
+    {
+      "floor": 601,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 177155,
+      "coins": "164288000",
+      "xp": 57542
+    },
+    {
+      "floor": 602,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 177173,
+      "coins": "159238000",
+      "xp": 55681
+    },
+    {
+      "floor": 603,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 177197,
+      "coins": "168619000",
+      "xp": 58864
+    },
+    {
+      "floor": 604,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 177213,
+      "coins": "170255000",
+      "xp": 59340
+    },
+    {
+      "floor": 605,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 177258,
+      "coins": "170176000",
+      "xp": 59211
+    },
+    {
+      "floor": 606,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 177265,
+      "coins": "165066000",
+      "xp": 57340
+    },
+    {
+      "floor": 607,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 177242,
+      "coins": "166269000",
+      "xp": 57662
+    },
+    {
+      "floor": 608,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 177294,
+      "coins": "166823000",
+      "xp": 57760
+    },
+    {
+      "floor": 609,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 177330,
+      "coins": "168683000",
+      "xp": 58308
+    },
+    {
+      "floor": 611,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 182831,
+      "coins": "168463000",
+      "xp": 58041
+    },
+    {
+      "floor": 612,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 182846,
+      "coins": "165681000",
+      "xp": 56990
+    },
+    {
+      "floor": 613,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 182848,
+      "coins": "170914000",
+      "xp": 58692
+    },
+    {
+      "floor": 614,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 182873,
+      "coins": "165648000",
+      "xp": 56793
+    },
+    {
+      "floor": 615,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 182869,
+      "coins": "170679000",
+      "xp": 58422
+    },
+    {
+      "floor": 616,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 182907,
+      "coins": "172589000",
+      "xp": 58982
+    },
+    {
+      "floor": 617,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 182979,
+      "coins": "175181000",
+      "xp": 59769
+    },
+    {
+      "floor": 618,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 182961,
+      "coins": "171216000",
+      "xp": 58319
+    },
+    {
+      "floor": 619,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 182949,
+      "coins": "172910000",
+      "xp": 58801
+    },
+    {
+      "floor": 621,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 188601,
+      "coins": "175396000",
+      "xp": 59458
+    },
+    {
+      "floor": 622,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 188566,
+      "coins": "169989000",
+      "xp": 57533
+    },
+    {
+      "floor": 623,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 188642,
+      "coins": "177226000",
+      "xp": 59883
+    },
+    {
+      "floor": 624,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 188691,
+      "coins": "179179000",
+      "xp": 60450
+    },
+    {
+      "floor": 625,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 188652,
+      "coins": "177665000",
+      "xp": 59840
+    },
+    {
+      "floor": 626,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 188685,
+      "coins": "176145000",
+      "xp": 59231
+    },
+    {
+      "floor": 627,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 188703,
+      "coins": "179969000",
+      "xp": 60424
+    },
+    {
+      "floor": 628,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 188713,
+      "coins": "179378000",
+      "xp": 60128
+    },
+    {
+      "floor": 629,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 188724,
+      "coins": "173837000",
+      "xp": 58180
+    },
+    {
+      "floor": 631,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 194413,
+      "coins": "185820000",
+      "xp": 61992
+    },
+    {
+      "floor": 632,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 194469,
+      "coins": "185699000",
+      "xp": 61857
+    },
+    {
+      "floor": 633,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 194466,
+      "coins": "180102000",
+      "xp": 59893
+    },
+    {
+      "floor": 634,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 194453,
+      "coins": "181383000",
+      "xp": 60226
+    },
+    {
+      "floor": 635,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 194495,
+      "coins": "181961000",
+      "xp": 60321
+    },
+    {
+      "floor": 636,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 194539,
+      "coins": "183974000",
+      "xp": 60894
+    },
+    {
+      "floor": 637,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 194523,
+      "coins": "184559000",
+      "xp": 60990
+    },
+    {
+      "floor": 638,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 194571,
+      "coins": "183683000",
+      "xp": 60607
+    },
+    {
+      "floor": 639,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 194575,
+      "coins": "180626000",
+      "xp": 59504
+    },
+    {
+      "floor": 641,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 200353,
+      "coins": "180530000",
+      "xp": 59288
+    },
+    {
+      "floor": 642,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 200359,
+      "coins": "185990000",
+      "xp": 60986
+    },
+    {
+      "floor": 643,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 200387,
+      "coins": "188043000",
+      "xp": 61564
+    },
+    {
+      "floor": 644,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 200469,
+      "coins": "190844000",
+      "xp": 62385
+    },
+    {
+      "floor": 645,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 200439,
+      "coins": "186503000",
+      "xp": 60869
+    },
+    {
+      "floor": 646,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 200435,
+      "coins": "188318000",
+      "xp": 61367
+    },
+    {
+      "floor": 647,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 200521,
+      "coins": "196850000",
+      "xp": 64050
+    },
+    {
+      "floor": 648,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 200532,
+      "coins": "190984000",
+      "xp": 62046
+    },
+    {
+      "floor": 649,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 200485,
+      "coins": "185075000",
+      "xp": 60028
+    },
+    {
+      "floor": 651,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 206429,
+      "coins": "195020000",
+      "xp": 63063
+    },
+    {
+      "floor": 652,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 206400,
+      "coins": "193347000",
+      "xp": 62426
+    },
+    {
+      "floor": 653,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 206423,
+      "coins": "191662000",
+      "xp": 61787
+    },
+    {
+      "floor": 654,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 206451,
+      "coins": "195803000",
+      "xp": 63026
+    },
+    {
+      "floor": 655,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 206451,
+      "coins": "195129000",
+      "xp": 62714
+    },
+    {
+      "floor": 656,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 206472,
+      "coins": "189079000",
+      "xp": 60680
+    },
+    {
+      "floor": 657,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 206493,
+      "coins": "200171000",
+      "xp": 64135
+    },
+    {
+      "floor": 658,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 206511,
+      "coins": "202060000",
+      "xp": 64645
+    },
+    {
+      "floor": 659,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 206559,
+      "coins": "201907000",
+      "xp": 64496
+    },
+    {
+      "floor": 661,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 212465,
+      "coins": "197161000",
+      "xp": 62792
+    },
+    {
+      "floor": 662,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 212517,
+      "coins": "197762000",
+      "xp": 62887
+    },
+    {
+      "floor": 663,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 212553,
+      "coins": "199926000",
+      "xp": 63480
+    },
+    {
+      "floor": 664,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 212545,
+      "coins": "200529000",
+      "xp": 63578
+    },
+    {
+      "floor": 665,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 212583,
+      "coins": "199559000",
+      "xp": 63171
+    },
+    {
+      "floor": 666,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 212597,
+      "coins": "196205000",
+      "xp": 62018
+    },
+    {
+      "floor": 667,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 212604,
+      "coins": "202349000",
+      "xp": 63862
+    },
+    {
+      "floor": 668,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 212629,
+      "coins": "196061000",
+      "xp": 61787
+    },
+    {
+      "floor": 669,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 212621,
+      "coins": "201970000",
+      "xp": 63552
+    },
+    {
+      "floor": 671,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 218734,
+      "coins": "207187000",
+      "xp": 65001
+    },
+    {
+      "floor": 672,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 218718,
+      "coins": "202444000",
+      "xp": 63420
+    },
+    {
+      "floor": 673,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 218704,
+      "coins": "204393000",
+      "xp": 63931
+    },
+    {
+      "floor": 674,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 218800,
+      "coins": "213633000",
+      "xp": 66723
+    },
+    {
+      "floor": 675,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 218801,
+      "coins": "207231000",
+      "xp": 64628
+    },
+    {
+      "floor": 676,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 218767,
+      "coins": "200790000",
+      "xp": 62527
+    },
+    {
+      "floor": 677,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 218840,
+      "coins": "209273000",
+      "xp": 65074
+    },
+    {
+      "floor": 678,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 218890,
+      "coins": "211527000",
+      "xp": 65679
+    },
+    {
+      "floor": 679,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 218848,
+      "coins": "209692000",
+      "xp": 65012
+    },
+    {
+      "floor": 681,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 224994,
+      "coins": "212304000",
+      "xp": 65629
+    },
+    {
+      "floor": 682,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 225004,
+      "coins": "211550000",
+      "xp": 65298
+    },
+    {
+      "floor": 683,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 225015,
+      "coins": "204971000",
+      "xp": 63174
+    },
+    {
+      "floor": 684,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 225050,
+      "coins": "216963000",
+      "xp": 66772
+    },
+    {
+      "floor": 685,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 225054,
+      "coins": "218987000",
+      "xp": 67298
+    },
+    {
+      "floor": 686,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 225112,
+      "coins": "218788000",
+      "xp": 67139
+    },
+    {
+      "floor": 687,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 225112,
+      "coins": "212141000",
+      "xp": 65005
+    },
+    {
+      "floor": 688,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 225092,
+      "coins": "213600000",
+      "xp": 65360
+    },
+    {
+      "floor": 689,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 225138,
+      "coins": "214225000",
+      "xp": 65451
+    },
+    {
+      "floor": 691,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 231349,
+      "coins": "217171000",
+      "xp": 66160
+    },
+    {
+      "floor": 692,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 231401,
+      "coins": "216097000",
+      "xp": 65737
+    },
+    {
+      "floor": 693,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 231405,
+      "coins": "212438000",
+      "xp": 64533
+    },
+    {
+      "floor": 694,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 231415,
+      "coins": "219058000",
+      "xp": 66448
+    },
+    {
+      "floor": 695,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 231432,
+      "coins": "212233000",
+      "xp": 64286
+    },
+    {
+      "floor": 696,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 231435,
+      "coins": "218594000",
+      "xp": 66120
+    },
+    {
+      "floor": 697,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 231462,
+      "coins": "220954000",
+      "xp": 66734
+    },
+    {
+      "floor": 698,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 231545,
+      "coins": "224197000",
+      "xp": 67616
+    },
+    {
+      "floor": 699,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 231520,
+      "coins": "219036000",
+      "xp": 65964
+    },
+    {
+      "floor": 701,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 246501,
+      "coins": "231086000",
+      "xp": 69396
+    },
+    {
+      "floor": 702,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 246513,
+      "coins": "224139000",
+      "xp": 67214
+    },
+    {
+      "floor": 703,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 246470,
+      "coins": "217144000",
+      "xp": 65026
+    },
+    {
+      "floor": 704,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 246552,
+      "coins": "226298000",
+      "xp": 67672
+    },
+    {
+      "floor": 705,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 246591,
+      "coins": "228713000",
+      "xp": 68294
+    },
+    {
+      "floor": 706,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 246566,
+      "coins": "226696000",
+      "xp": 67596
+    },
+    {
+      "floor": 707,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 246578,
+      "coins": "224668000",
+      "xp": 66896
+    },
+    {
+      "floor": 708,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 246612,
+      "coins": "229479000",
+      "xp": 68231
+    },
+    {
+      "floor": 709,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 246607,
+      "coins": "228632000",
+      "xp": 67884
+    },
+    {
+      "floor": 711,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 253271,
+      "coins": "234427000",
+      "xp": 69409
+    },
+    {
+      "floor": 712,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 253288,
+      "coins": "236586000",
+      "xp": 69954
+    },
+    {
+      "floor": 713,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 253335,
+      "coins": "236347000",
+      "xp": 69781
+    },
+    {
+      "floor": 714,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 253344,
+      "coins": "229146000",
+      "xp": 67558
+    },
+    {
+      "floor": 715,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 253320,
+      "coins": "230697000",
+      "xp": 67921
+    },
+    {
+      "floor": 716,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 253374,
+      "coins": "231344000",
+      "xp": 68017
+    },
+    {
+      "floor": 717,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 253409,
+      "coins": "233822000",
+      "xp": 68650
+    },
+    {
+      "floor": 718,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 253403,
+      "coins": "234474000",
+      "xp": 68746
+    },
+    {
+      "floor": 719,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 253434,
+      "coins": "233280000",
+      "xp": 68302
+    },
+    {
+      "floor": 721,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 260152,
+      "coins": "236435000",
+      "xp": 69032
+    },
+    {
+      "floor": 722,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 260178,
+      "coins": "229039000",
+      "xp": 66781
+    },
+    {
+      "floor": 723,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 260170,
+      "coins": "235886000",
+      "xp": 68681
+    },
+    {
+      "floor": 724,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 260209,
+      "coins": "238409000",
+      "xp": 69320
+    },
+    {
+      "floor": 725,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 260274,
+      "coins": "241879000",
+      "xp": 70232
+    },
+    {
+      "floor": 726,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 260261,
+      "coins": "236284000",
+      "xp": 68514
+    },
+    {
+      "floor": 727,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 260244,
+      "coins": "238507000",
+      "xp": 69062
+    },
+    {
+      "floor": 728,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 260336,
+      "coins": "249233000",
+      "xp": 72072
+    },
+    {
+      "floor": 729,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 260337,
+      "coins": "241710000",
+      "xp": 69798
+    },
+    {
+      "floor": 731,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 267163,
+      "coins": "243993000",
+      "xp": 70264
+    },
+    {
+      "floor": 732,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 267212,
+      "coins": "246567000",
+      "xp": 70910
+    },
+    {
+      "floor": 733,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 267173,
+      "coins": "244372000",
+      "xp": 70182
+    },
+    {
+      "floor": 734,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 267206,
+      "coins": "242154000",
+      "xp": 69452
+    },
+    {
+      "floor": 735,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 267230,
+      "coins": "247307000",
+      "xp": 70832
+    },
+    {
+      "floor": 736,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 267235,
+      "coins": "246375000",
+      "xp": 70472
+    },
+    {
+      "floor": 737,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 267247,
+      "coins": "238659000",
+      "xp": 68168
+    },
+    {
+      "floor": 738,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 267283,
+      "coins": "252568000",
+      "xp": 72043
+    },
+    {
+      "floor": 739,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 267292,
+      "coins": "254869000",
+      "xp": 72603
+    },
+    {
+      "floor": 741,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 274230,
+      "coins": "246800000",
+      "xp": 70114
+    },
+    {
+      "floor": 742,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 274216,
+      "coins": "248445000",
+      "xp": 70487
+    },
+    {
+      "floor": 743,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 274260,
+      "coins": "249118000",
+      "xp": 70582
+    },
+    {
+      "floor": 744,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 274299,
+      "coins": "251755000",
+      "xp": 71238
+    },
+    {
+      "floor": 745,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 274282,
+      "coins": "252434000",
+      "xp": 71330
+    },
+    {
+      "floor": 746,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 274336,
+      "coins": "251132000",
+      "xp": 70866
+    },
+    {
+      "floor": 747,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 274335,
+      "coins": "246838000",
+      "xp": 69561
+    },
+    {
+      "floor": 748,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 274347,
+      "coins": "254475000",
+      "xp": 71618
+    },
+    {
+      "floor": 749,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 274362,
+      "coins": "246495000",
+      "xp": 69280
+    },
+    {
+      "floor": 751,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 281380,
+      "coins": "256523000",
+      "xp": 71906
+    },
+    {
+      "floor": 752,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 281459,
+      "coins": "260226000",
+      "xp": 72850
+    },
+    {
+      "floor": 753,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 281425,
+      "coins": "254180000",
+      "xp": 71059
+    },
+    {
+      "floor": 754,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 281423,
+      "coins": "256548000",
+      "xp": 71626
+    },
+    {
+      "floor": 755,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 281507,
+      "coins": "268063000",
+      "xp": 74742
+    },
+    {
+      "floor": 756,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 281518,
+      "coins": "259942000",
+      "xp": 72384
+    },
+    {
+      "floor": 757,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 281473,
+      "coins": "251786000",
+      "xp": 70020
+    },
+    {
+      "floor": 758,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 281559,
+      "coins": "262345000",
+      "xp": 72860
+    },
+    {
+      "floor": 759,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 281598,
+      "coins": "265090000",
+      "xp": 73526
+    },
+    {
+      "floor": 761,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 288658,
+      "coins": "260304000",
+      "xp": 72005
+    },
+    {
+      "floor": 762,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 288692,
+      "coins": "265811000",
+      "xp": 73435
+    },
+    {
+      "floor": 763,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 288687,
+      "coins": "264786000",
+      "xp": 73054
+    },
+    {
+      "floor": 764,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 288709,
+      "coins": "256467000",
+      "xp": 70667
+    },
+    {
+      "floor": 765,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 288735,
+      "coins": "271387000",
+      "xp": 74680
+    },
+    {
+      "floor": 766,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 288754,
+      "coins": "273835000",
+      "xp": 75256
+    },
+    {
+      "floor": 767,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 288800,
+      "coins": "273502000",
+      "xp": 75067
+    },
+    {
+      "floor": 768,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 288807,
+      "coins": "265111000",
+      "xp": 72672
+    },
+    {
+      "floor": 769,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 288784,
+      "coins": "266855000",
+      "xp": 73051
+    },
+    {
+      "floor": 771,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 296020,
+      "coins": "270358000",
+      "xp": 73820
+    },
+    {
+      "floor": 772,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 296013,
+      "coins": "271068000",
+      "xp": 73916
+    },
+    {
+      "floor": 773,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 296054,
+      "coins": "269638000",
+      "xp": 73432
+    },
+    {
+      "floor": 774,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 296069,
+      "coins": "265007000",
+      "xp": 72076
+    },
+    {
+      "floor": 775,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 296071,
+      "coins": "273174000",
+      "xp": 74204
+    },
+    {
+      "floor": 776,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 296096,
+      "coins": "264586000",
+      "xp": 71780
+    },
+    {
+      "floor": 777,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 296092,
+      "coins": "272441000",
+      "xp": 73811
+    },
+    {
+      "floor": 778,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 296130,
+      "coins": "275293000",
+      "xp": 74490
+    },
+    {
+      "floor": 779,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 296202,
+      "coins": "279242000",
+      "xp": 75463
+    },
+    {
+      "floor": 781,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 303424,
+      "coins": "275253000",
+      "xp": 74192
+    },
+    {
+      "floor": 782,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 303518,
+      "coins": "287577000",
+      "xp": 77415
+    },
+    {
+      "floor": 783,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 303519,
+      "coins": "278842000",
+      "xp": 74970
+    },
+    {
+      "floor": 784,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 303484,
+      "coins": "270070000",
+      "xp": 72520
+    },
+    {
+      "floor": 785,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 303560,
+      "coins": "281367000",
+      "xp": 75455
+    },
+    {
+      "floor": 786,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 303609,
+      "coins": "284289000",
+      "xp": 76141
+    },
+    {
+      "floor": 787,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 303570,
+      "coins": "281705000",
+      "xp": 75352
+    },
+    {
+      "floor": 788,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 303603,
+      "coins": "279097000",
+      "xp": 74561
+    },
+    {
+      "floor": 789,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 303627,
+      "coins": "284981000",
+      "xp": 76037
+    },
+    {
+      "floor": 791,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 310988,
+      "coins": "274913000",
+      "xp": 73166
+    },
+    {
+      "floor": 792,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 311024,
+      "coins": "290885000",
+      "xp": 77319
+    },
+    {
+      "floor": 793,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 311033,
+      "coins": "293485000",
+      "xp": 77909
+    },
+    {
+      "floor": 794,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 311089,
+      "coins": "293098000",
+      "xp": 77709
+    },
+    {
+      "floor": 795,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 311086,
+      "coins": "284085000",
+      "xp": 75223
+    },
+    {
+      "floor": 796,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 311073,
+      "coins": "285922000",
+      "xp": 75617
+    },
+    {
+      "floor": 797,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 311115,
+      "coins": "286644000",
+      "xp": 75712
+    },
+    {
+      "floor": 798,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 311161,
+      "coins": "289635000",
+      "xp": 76406
+    },
+    {
+      "floor": 799,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 311143,
+      "coins": "290361000",
+      "xp": 76502
+    },
+    {
+      "floor": 801,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 329860,
+      "coins": "283815000",
+      "xp": 74590
+    },
+    {
+      "floor": 802,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 329871,
+      "coins": "292547000",
+      "xp": 76788
+    },
+    {
+      "floor": 803,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 329887,
+      "coins": "283318000",
+      "xp": 74274
+    },
+    {
+      "floor": 804,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 329893,
+      "coins": "291698000",
+      "xp": 76377
+    },
+    {
+      "floor": 805,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 329920,
+      "coins": "294738000",
+      "xp": 77076
+    },
+    {
+      "floor": 806,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 330001,
+      "coins": "298936000",
+      "xp": 78079
+    },
+    {
+      "floor": 807,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 329975,
+      "coins": "291949000",
+      "xp": 76159
+    },
+    {
+      "floor": 808,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 329969,
+      "coins": "294614000",
+      "xp": 76760
+    },
+    {
+      "floor": 809,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 330053,
+      "coins": "307771000",
+      "xp": 80088
+    },
+    {
+      "floor": 811,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 337825,
+      "coins": "288988000",
+      "xp": 75014
+    },
+    {
+      "floor": 812,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 337910,
+      "coins": "301053000",
+      "xp": 78051
+    },
+    {
+      "floor": 813,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 337948,
+      "coins": "304159000",
+      "xp": 78757
+    },
+    {
+      "floor": 814,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 337920,
+      "coins": "301362000",
+      "xp": 77938
+    },
+    {
+      "floor": 815,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 337942,
+      "coins": "298554000",
+      "xp": 77117
+    },
+    {
+      "floor": 816,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 337971,
+      "coins": "304824000",
+      "xp": 78642
+    },
+    {
+      "floor": 817,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 337971,
+      "coins": "303586000",
+      "xp": 78224
+    },
+    {
+      "floor": 818,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 337993,
+      "coins": "294002000",
+      "xp": 75661
+    },
+    {
+      "floor": 819,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 338017,
+      "coins": "311054000",
+      "xp": 79951
+    },
+    {
+      "floor": 821,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 345990,
+      "coins": "313367000",
+      "xp": 80352
+    },
+    {
+      "floor": 822,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 345998,
+      "coins": "303698000",
+      "xp": 77779
+    },
+    {
+      "floor": 823,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 345975,
+      "coins": "305653000",
+      "xp": 78182
+    },
+    {
+      "floor": 824,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 346027,
+      "coins": "306395000",
+      "xp": 78280
+    },
+    {
+      "floor": 825,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 346062,
+      "coins": "309560000",
+      "xp": 78990
+    },
+    {
+      "floor": 826,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 346055,
+      "coins": "310317000",
+      "xp": 79086
+    },
+    {
+      "floor": 827,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 346097,
+      "coins": "308624000",
+      "xp": 78561
+    },
+    {
+      "floor": 828,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 346112,
+      "coins": "303270000",
+      "xp": 77105
+    },
+    {
+      "floor": 829,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 346113,
+      "coins": "312568000",
+      "xp": 79374
+    },
+    {
+      "floor": 831,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 354129,
+      "coins": "311618000",
+      "xp": 78942
+    },
+    {
+      "floor": 832,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 354166,
+      "coins": "314835000",
+      "xp": 79664
+    },
+    {
+      "floor": 833,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 354237,
+      "coins": "319300000",
+      "xp": 80694
+    },
+    {
+      "floor": 834,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 354221,
+      "coins": "311806000",
+      "xp": 78704
+    },
+    {
+      "floor": 835,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 354209,
+      "coins": "314631000",
+      "xp": 79321
+    },
+    {
+      "floor": 836,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 354299,
+      "coins": "328662000",
+      "xp": 82761
+    },
+    {
+      "floor": 837,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 354301,
+      "coins": "318638000",
+      "xp": 80140
+    },
+    {
+      "floor": 838,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 354268,
+      "coins": "308550000",
+      "xp": 77513
+    },
+    {
+      "floor": 839,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 354340,
+      "coins": "321411000",
+      "xp": 80646
+    },
+    {
+      "floor": 841,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 362445,
+      "coins": "321680000",
+      "xp": 80522
+    },
+    {
+      "floor": 842,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 362477,
+      "coins": "318657000",
+      "xp": 79670
+    },
+    {
+      "floor": 843,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 362496,
+      "coins": "325322000",
+      "xp": 81241
+    },
+    {
+      "floor": 844,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 362506,
+      "coins": "323978000",
+      "xp": 80810
+    },
+    {
+      "floor": 845,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 362518,
+      "coins": "313730000",
+      "xp": 78160
+    },
+    {
+      "floor": 846,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 362552,
+      "coins": "331893000",
+      "xp": 82588
+    },
+    {
+      "floor": 847,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 362559,
+      "coins": "334804000",
+      "xp": 83214
+    },
+    {
+      "floor": 848,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 362616,
+      "coins": "334323000",
+      "xp": 82998
+    },
+    {
+      "floor": 849,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 362615,
+      "coins": "323987000",
+      "xp": 80332
+    },
+    {
+      "floor": 851,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 370833,
+      "coins": "326800000",
+      "xp": 80841
+    },
+    {
+      "floor": 852,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 370878,
+      "coins": "330155000",
+      "xp": 81576
+    },
+    {
+      "floor": 853,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 370862,
+      "coins": "330930000",
+      "xp": 81672
+    },
+    {
+      "floor": 854,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 370911,
+      "coins": "329111000",
+      "xp": 81127
+    },
+    {
+      "floor": 855,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 370915,
+      "coins": "323369000",
+      "xp": 79619
+    },
+    {
+      "floor": 856,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 370931,
+      "coins": "333257000",
+      "xp": 81962
+    },
+    {
+      "floor": 857,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 370947,
+      "coins": "322703000",
+      "xp": 79268
+    },
+    {
+      "floor": 858,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 370949,
+      "coins": "332197000",
+      "xp": 81506
+    },
+    {
+      "floor": 859,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 370978,
+      "coins": "335604000",
+      "xp": 82246
+    },
+    {
+      "floor": 861,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 379315,
+      "coins": "332323000",
+      "xp": 81254
+    },
+    {
+      "floor": 862,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 379311,
+      "coins": "335302000",
+      "xp": 81887
+    },
+    {
+      "floor": 863,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 379395,
+      "coins": "350233000",
+      "xp": 85434
+    },
+    {
+      "floor": 864,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 379407,
+      "coins": "339521000",
+      "xp": 82728
+    },
+    {
+      "floor": 865,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 379364,
+      "coins": "328755000",
+      "xp": 80008
+    },
+    {
+      "floor": 866,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 379446,
+      "coins": "342425000",
+      "xp": 83241
+    },
+    {
+      "floor": 867,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 379485,
+      "coins": "345903000",
+      "xp": 83988
+    },
+    {
+      "floor": 868,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 379460,
+      "coins": "342670000",
+      "xp": 83108
+    },
+    {
+      "floor": 869,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 379482,
+      "coins": "339432000",
+      "xp": 82226
+    },
+    {
+      "floor": 871,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 387889,
+      "coins": "345046000",
+      "xp": 83396
+    },
+    {
+      "floor": 872,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 387912,
+      "coins": "334101000",
+      "xp": 80660
+    },
+    {
+      "floor": 873,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 387934,
+      "coins": "353422000",
+      "xp": 85222
+    },
+    {
+      "floor": 874,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 387951,
+      "coins": "356501000",
+      "xp": 85867
+    },
+    {
+      "floor": 875,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 387998,
+      "coins": "355952000",
+      "xp": 85637
+    },
+    {
+      "floor": 876,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 388007,
+      "coins": "344918000",
+      "xp": 82888
+    },
+    {
+      "floor": 877,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 387983,
+      "coins": "347072000",
+      "xp": 83312
+    },
+    {
+      "floor": 878,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 388037,
+      "coins": "347863000",
+      "xp": 83407
+    },
+    {
+      "floor": 879,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 388072,
+      "coins": "351411000",
+      "xp": 84162
+    },
+    {
+      "floor": 881,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 396584,
+      "coins": "350245000",
+      "xp": 83691
+    },
+    {
+      "floor": 882,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 396598,
+      "coins": "344116000",
+      "xp": 82133
+    },
+    {
+      "floor": 883,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 396604,
+      "coins": "354618000",
+      "xp": 84544
+    },
+    {
+      "floor": 884,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 396630,
+      "coins": "343360000",
+      "xp": 81767
+    },
+    {
+      "floor": 885,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 396622,
+      "coins": "353440000",
+      "xp": 84072
+    },
+    {
+      "floor": 886,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 396661,
+      "coins": "357034000",
+      "xp": 84832
+    },
+    {
+      "floor": 887,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 396730,
+      "coins": "362042000",
+      "xp": 85926
+    },
+    {
+      "floor": 888,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 396716,
+      "coins": "353490000",
+      "xp": 83805
+    },
+    {
+      "floor": 889,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 396702,
+      "coins": "356639000",
+      "xp": 84451
+    },
+    {
+      "floor": 891,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 405366,
+      "coins": "361074000",
+      "xp": 85310
+    },
+    {
+      "floor": 892,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 405333,
+      "coins": "349604000",
+      "xp": 82507
+    },
+    {
+      "floor": 893,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 405405,
+      "coins": "364111000",
+      "xp": 85837
+    },
+    {
+      "floor": 894,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 405454,
+      "coins": "367775000",
+      "xp": 86604
+    },
+    {
+      "floor": 895,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 405419,
+      "coins": "364317000",
+      "xp": 85694
+    },
+    {
+      "floor": 896,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 405451,
+      "coins": "360842000",
+      "xp": 84784
+    },
+    {
+      "floor": 897,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 405470,
+      "coins": "368337000",
+      "xp": 86446
+    },
+    {
+      "floor": 898,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 405480,
+      "coins": "366771000",
+      "xp": 85980
+    },
+    {
+      "floor": 899,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 405492,
+      "coins": "355107000",
+      "xp": 83154
+    },
+    {
+      "floor": 901,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 428372,
+      "coins": "378861000",
+      "xp": 88520
+    },
+    {
+      "floor": 902,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 428429,
+      "coins": "378255000",
+      "xp": 88280
+    },
+    {
+      "floor": 903,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 428429,
+      "coins": "366503000",
+      "xp": 85444
+    },
+    {
+      "floor": 904,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 428413,
+      "coins": "368771000",
+      "xp": 85880
+    },
+    {
+      "floor": 905,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 428453,
+      "coins": "369588000",
+      "xp": 85971
+    },
+    {
+      "floor": 906,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 428500,
+      "coins": "373330000",
+      "xp": 86746
+    },
+    {
+      "floor": 907,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 428484,
+      "coins": "374154000",
+      "xp": 86842
+    },
+    {
+      "floor": 908,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 428531,
+      "coins": "372048000",
+      "xp": 86257
+    },
+    {
+      "floor": 909,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 428537,
+      "coins": "365504000",
+      "xp": 84648
+    },
+    {
+      "floor": 911,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 437642,
+      "coins": "364654000",
+      "xp": 84266
+    },
+    {
+      "floor": 912,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 437644,
+      "coins": "375325000",
+      "xp": 86640
+    },
+    {
+      "floor": 913,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 437672,
+      "coins": "379123000",
+      "xp": 87416
+    },
+    {
+      "floor": 914,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 437750,
+      "coins": "384418000",
+      "xp": 88541
+    },
+    {
+      "floor": 915,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 437728,
+      "coins": "375321000",
+      "xp": 86349
+    },
+    {
+      "floor": 916,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 437722,
+      "coins": "378631000",
+      "xp": 87017
+    },
+    {
+      "floor": 917,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 437803,
+      "coins": "395435000",
+      "xp": 90780
+    },
+    {
+      "floor": 918,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 437815,
+      "coins": "383288000",
+      "xp": 87896
+    },
+    {
+      "floor": 919,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 437773,
+      "coins": "371083000",
+      "xp": 85006
+    },
+    {
+      "floor": 921,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 447074,
+      "coins": "390329000",
+      "xp": 89219
+    },
+    {
+      "floor": 922,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 447045,
+      "coins": "386629000",
+      "xp": 88278
+    },
+    {
+      "floor": 923,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 447066,
+      "coins": "382918000",
+      "xp": 87335
+    },
+    {
+      "floor": 924,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 447099,
+      "coins": "390849000",
+      "xp": 89048
+    },
+    {
+      "floor": 925,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 447097,
+      "coins": "389159000",
+      "xp": 88566
+    },
+    {
+      "floor": 926,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 447118,
+      "coins": "376762000",
+      "xp": 85653
+    },
+    {
+      "floor": 927,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 447143,
+      "coins": "398497000",
+      "xp": 90496
+    },
+    {
+      "floor": 928,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 447163,
+      "coins": "401912000",
+      "xp": 91176
+    },
+    {
+      "floor": 929,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 447206,
+      "coins": "401238000",
+      "xp": 90922
+    },
+    {
+      "floor": 931,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 456469,
+      "coins": "391134000",
+      "xp": 88441
+    },
+    {
+      "floor": 932,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 456523,
+      "coins": "391970000",
+      "xp": 88537
+    },
+    {
+      "floor": 933,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 456557,
+      "coins": "395917000",
+      "xp": 89332
+    },
+    {
+      "floor": 934,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 456548,
+      "coins": "396757000",
+      "xp": 89428
+    },
+    {
+      "floor": 935,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 456585,
+      "coins": "394496000",
+      "xp": 88822
+    },
+    {
+      "floor": 936,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 456601,
+      "coins": "387539000",
+      "xp": 87165
+    },
+    {
+      "floor": 937,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 456606,
+      "coins": "399316000",
+      "xp": 89714
+    },
+    {
+      "floor": 938,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 456630,
+      "coins": "386584000",
+      "xp": 86761
+    },
+    {
+      "floor": 939,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 456625,
+      "coins": "397879000",
+      "xp": 89201
+    },
+    {
+      "floor": 941,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 466104,
+      "coins": "407465000",
+      "xp": 91157
+    },
+    {
+      "floor": 942,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 466092,
+      "coins": "397790000",
+      "xp": 88899
+    },
+    {
+      "floor": 943,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 466078,
+      "coins": "401280000",
+      "xp": 89582
+    },
+    {
+      "floor": 944,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 466167,
+      "coins": "419058000",
+      "xp": 93456
+    },
+    {
+      "floor": 945,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 466169,
+      "coins": "406163000",
+      "xp": 90480
+    },
+    {
+      "floor": 946,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 466137,
+      "coins": "393208000",
+      "xp": 87501
+    },
+    {
+      "floor": 947,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 466209,
+      "coins": "409482000",
+      "xp": 91027
+    },
+    {
+      "floor": 948,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 466258,
+      "coins": "413548000",
+      "xp": 91835
+    },
+    {
+      "floor": 949,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 466221,
+      "coins": "409609000",
+      "xp": 90864
+    },
+    {
+      "floor": 951,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 475752,
+      "coins": "414027000",
+      "xp": 91649
+    },
+    {
+      "floor": 952,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 475762,
+      "coins": "412204000",
+      "xp": 91154
+    },
+    {
+      "floor": 953,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 475769,
+      "coins": "399046000",
+      "xp": 88148
+    },
+    {
+      "floor": 954,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 475804,
+      "coins": "422045000",
+      "xp": 93130
+    },
+    {
+      "floor": 955,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 475814,
+      "coins": "425639000",
+      "xp": 93825
+    },
+    {
+      "floor": 956,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 475867,
+      "coins": "424895000",
+      "xp": 93565
+    },
+    {
+      "floor": 957,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 475866,
+      "coins": "411647000",
+      "xp": 90553
+    },
+    {
+      "floor": 958,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 475856,
+      "coins": "414144000",
+      "xp": 91007
+    },
+    {
+      "floor": 959,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 475896,
+      "coins": "415007000",
+      "xp": 91102
+    },
+    {
+      "floor": 961,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 485501,
+      "coins": "420036000",
+      "xp": 92012
+    },
+    {
+      "floor": 962,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 485545,
+      "coins": "417610000",
+      "xp": 91386
+    },
+    {
+      "floor": 963,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 485551,
+      "coins": "410225000",
+      "xp": 89676
+    },
+    {
+      "floor": 964,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 485566,
+      "coins": "422660000",
+      "xp": 92300
+    },
+    {
+      "floor": 965,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 485580,
+      "coins": "409166000",
+      "xp": 89260
+    },
+    {
+      "floor": 966,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 485585,
+      "coins": "421087000",
+      "xp": 91767
+    },
+    {
+      "floor": 967,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 485615,
+      "coins": "425293000",
+      "xp": 92588
+    },
+    {
+      "floor": 968,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 485691,
+      "coins": "431180000",
+      "xp": 93775
+    },
+    {
+      "floor": 969,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 485665,
+      "coins": "420922000",
+      "xp": 91444
+    },
+    {
+      "floor": 971,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 495416,
+      "coins": "443372000",
+      "xp": 96126
+    },
+    {
+      "floor": 972,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 495429,
+      "coins": "429708000",
+      "xp": 93066
+    },
+    {
+      "floor": 973,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 495387,
+      "coins": "415973000",
+      "xp": 90000
+    },
+    {
+      "floor": 974,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 495465,
+      "coins": "433167000",
+      "xp": 93623
+    },
+    {
+      "floor": 975,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 495504,
+      "coins": "437439000",
+      "xp": 94451
+    },
+    {
+      "floor": 976,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 495477,
+      "coins": "433250000",
+      "xp": 93452
+    },
+    {
+      "floor": 977,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 495498,
+      "coins": "429038000",
+      "xp": 92444
+    },
+    {
+      "floor": 978,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 495531,
+      "coins": "437863000",
+      "xp": 94252
+    },
+    {
+      "floor": 979,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 495529,
+      "coins": "435910000",
+      "xp": 93736
+    },
+    {
+      "floor": 981,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 505340,
+      "coins": "446272000",
+      "xp": 95767
+    },
+    {
+      "floor": 982,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 505360,
+      "coins": "450046000",
+      "xp": 96478
+    },
+    {
+      "floor": 983,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 505403,
+      "coins": "449237000",
+      "xp": 96208
+    },
+    {
+      "floor": 984,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 505412,
+      "coins": "435211000",
+      "xp": 93111
+    },
+    {
+      "floor": 985,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 505392,
+      "coins": "437816000",
+      "xp": 93571
+    },
+    {
+      "floor": 986,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 505442,
+      "coins": "438711000",
+      "xp": 93666
+    },
+    {
+      "floor": 987,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 505473,
+      "coins": "443072000",
+      "xp": 94502
+    },
+    {
+      "floor": 988,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 505470,
+      "coins": "443965000",
+      "xp": 94598
+    },
+    {
+      "floor": 989,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 505508,
+      "coins": "441378000",
+      "xp": 93952
+    },
+    {
+      "floor": 991,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 515411,
+      "coins": "446665000",
+      "xp": 94886
+    },
+    {
+      "floor": 992,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 515435,
+      "coins": "432382000",
+      "xp": 91760
+    },
+    {
+      "floor": 993,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 515430,
+      "coins": "444961000",
+      "xp": 94331
+    },
+    {
+      "floor": 994,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 515467,
+      "coins": "449374000",
+      "xp": 95172
+    },
+    {
+      "floor": 995,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 515536,
+      "coins": "455574000",
+      "xp": 96388
+    },
+    {
+      "floor": 996,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 515520,
+      "coins": "444704000",
+      "xp": 93994
+    },
+    {
+      "floor": 997,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 515508,
+      "coins": "448551000",
+      "xp": 94712
+    },
+    {
+      "floor": 998,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 515600,
+      "coins": "468381000",
+      "xp": 98799
+    },
+    {
+      "floor": 999,
+      "won": true,
+      "elapsedMs": 24000,
+      "healthRemaining": 515600,
+      "coins": "453914000",
+      "xp": 95652
+    }
+  ]
+}

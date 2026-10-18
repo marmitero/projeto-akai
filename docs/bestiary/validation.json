@@ -1,0 +1,40 @@
+{
+  "version": "common-1",
+  "date": "2026-10-18",
+  "tests": {
+    "passed": 177,
+    "files": 17,
+    "skipped": 0,
+    "database": "PostgreSQL18.4"
+  },
+  "simulation": {
+    "commonFloors": 900,
+    "wins": 900,
+    "templates": 27,
+    "acquisitionSimulated": false
+  },
+  "bossDirectRulesChanged": false,
+  "windowsManualRetested": false,
+  "githubCi": "see PR4 final head",
+  "browser-dev": {
+    "passed": true,
+    "pageErrors": []
+  },
+  "browser-preview": {
+    "passed": true,
+    "pageErrors": []
+  },
+  "online-dev": {
+    "passed": true,
+    "pageErrors": []
+  },
+  "online-preview": {
+    "passed": true,
+    "pageErrors": []
+  },
+  "animationIntegrity": {
+    "atlases": 27,
+    "nonemptyFrames": 702,
+    "transparentPaddingExcluded": true
+  }
+}

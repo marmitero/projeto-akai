@@ -28,3 +28,4 @@ export const bestiaryAssets = {
   "female-cultist": new URL("./derived/bestiary-female-cultist.png", import.meta.url).href,
   "female-revenant": new URL("./derived/bestiary-female-revenant.png", import.meta.url).href,
 } as const;
+export const enemyArrow = new URL("./derived/bestiary-arrow.png", import.meta.url).href;

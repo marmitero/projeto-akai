@@ -1,4 +1,4 @@
-import { bestiaryAssets } from "../assets/bestiary.js";
+import { bestiaryAssets, enemyArrow } from "../assets/bestiary.js";
 import Phaser from "phaser";
 import { heroStats, type Screen, type LocalSnapshot } from "@akai/shared";
 import {
@@ -46,6 +46,8 @@ export function createGame(
     private battleLayers: Phaser.GameObjects.TileSprite[] = [];
     private battleGround!: Phaser.GameObjects.TileSprite;
     private targets: Array<number | null> = [];
+    private arrows: Phaser.GameObjects.Image[] = [];
+    private flights: Array<{image:Phaser.GameObjects.Image, age:number, x:number,y:number,dx:number,dy:number}> = [];
     private arriving = false;
     private groundOffset = 0;
     private heroMaxHp = 100;
@@ -92,6 +94,7 @@ export function createGame(
           frameWidth: 160,
           frameHeight: 128,
         });
+      this.load.image("enemy-arrow",enemyArrow);
       for (const [id,url] of Object.entries(bestiaryAssets)) this.load.spritesheet(`be-${id}`,url,{frameWidth:160,frameHeight:128});
       this.load.spritesheet("petIdle", assets.petIdle, {
         frameWidth: 32,
@@ -167,6 +170,7 @@ export function createGame(
       this.groups.set("mine", this.add.container());
       this.groups.set("production", this.add.container());
       this.buildBattle();
+      for(let i=0;i<3;i++){const arrow=this.add.image(0,0,"enemy-arrow").setScale(2).setVisible(false).setDepth(6);this.groups.get("battle")!.add(arrow);this.arrows.push(arrow);}
       this.buildMine();
       this.buildProduction();
       this.syncBattle();
@@ -214,6 +218,14 @@ export function createGame(
         .setTileScale(2);
       this.groups.get(group)!.add(floor);
       return floor;
+    }
+    private shoot(sprite:Phaser.GameObjects.Sprite, i:number) {
+      const image=this.arrows[i]!;
+      const x=sprite.x,y=sprite.y-42,dx=this.hero.x-x,dy=this.hero.y-60-y;
+      image.setPosition(x,y).setRotation(Math.atan2(dy,dx)).setVisible(true);
+      this.flights=this.flights.filter(f=>f.image!==image);
+      this.flights.push({image,age:0,x,y,dx,dy});
+      parent.dataset["rangedAttackCount"]=String(Number(parent.dataset["rangedAttackCount"]??0)+1);
     }
     private enemyAnimation(sprite: Phaser.GameObjects.Sprite, action:string) {
       const id=sprite.getData("enemyId") as string | undefined;
@@ -397,6 +409,7 @@ export function createGame(
           if (battleState?.battle.enemies[i]?.hp) actor.play(this.enemyAnimation(actor,"idle"));
         });
         this.meleeMotions = [];
+        this.flights=[];this.arrows.forEach(a=>a.setVisible(false));
         parent.dataset["meleeMotions"] = "[]";
       }
       const paused =
@@ -489,6 +502,14 @@ export function createGame(
         Number(parent.dataset["damageFeedbackCount"] ?? 0) + 1,
       );
     }
+    private headOffset(id?:string) {
+      if(id?.startsWith("slime"))return 32;
+      if(id==="bat")return 38;
+      if(id==="mushroom")return 38;
+      if(id==="shadow")return 22;
+      if(id?.startsWith("male-") || id?.startsWith("female-") || id==="warrior")return 48;
+      return 65;
+    }
     private syncHealth(): void {
       if (!battleState) return;
       const b = battleState.battle;
@@ -498,7 +519,7 @@ export function createGame(
         const hp = i === 0 ? b.heroHp : (b.enemies[i - 1]?.hp ?? 0),
           max = i === 0 ? this.heroMaxHp : (b.enemies[i - 1]?.maxHp ?? 1),
           width = i === 0 ? 40 : b.enemies.length === 1 ? 54 : 32,
-          y = actor.y - 57 * actor.scaleY,
+          y = actor.y - (i === 0 || b.enemies.length === 1 ? 57 : this.headOffset(b.enemies[i-1]?.templateId)) * actor.scaleY,
           x = actor.x - width / 2 + (width * 8) / 96,
           inner = (width * 80) / 96,
           visible = actor.visible && hp > 0;
@@ -539,6 +560,8 @@ export function createGame(
         });
       }
       let arriving = false;
+      for(const flight of this.flights){flight.age+=ms;const p=Math.min(1,flight.age/220);flight.image.setPosition(flight.x+flight.dx*p,flight.y+flight.dy*p);if(p===1)flight.image.setVisible(false);}
+      this.flights=this.flights.filter(f=>f.age<220);
       for (const motion of this.meleeMotions) if (motion) motion.elapsed += ms;
       const attacking = this.meleeMotions.findIndex(
         (motion) => motion && motion.elapsed >= 0 && motion.elapsed < 520,
@@ -692,6 +715,7 @@ export function createGame(
         !reducedMotion &&
         !b.paused;
       if (fresh) {
+        this.flights=[];this.arrows.forEach(a=>a.setVisible(false));
         this.meleeMotions = [];
         this.arriving =
           canMove && b.phase === "fighting" && (!!prev || b.heroStrikes === 0);
@@ -780,7 +804,7 @@ export function createGame(
           this.meleeMotions[i] = undefined;
           sprite.anims.timeScale = 1;
         } else if (!fresh && old && e.strikes > old.strikes && canMove) {
-          this.meleeMotions[i] = {
+          if(this.pose(sprite).style === "ranged") {sprite.play(this.enemyAnimation(sprite,"attack"));this.shoot(sprite,i);} else this.meleeMotions[i] = {
             elapsed:
               -b.enemies.slice(0, i).filter((enemy) => enemy.hp > 0).length *
               480,
