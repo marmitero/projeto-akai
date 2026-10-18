@@ -28,7 +28,11 @@ Os27atlases representam aproximadamente67,5MiBRGBA antes de overhead. Conteúdo 
 
 ## Publicação e continuidade
 
-[PR4](https://github.com/marmitero/projeto-akai/pull/4). A regra permanente em `AGENTS.md` e `AI_STATE.md` exige validação e publicação ao final de cada etapa, sem nova confirmação, com checkpoints remotos em trabalhos longos. Rollback por revert preservando histórico. Checkpoint da reconstrução: `3c215904df3580e731aa9ef1dad52bf956c86dd6`. Conferir o resultado da CI da versão final na PR antes de considerar a etapa integrada.
+**Publicado na main em18/10/2026** pela PR4. Merge: `a440640cee5528f7568de8be63a3824bffb5520b`. Head da implementação validada: `cfe90c78e80bfec066852eef196ce65863c82b5d`; árvore: `3cf9ccf86deed20a3c131eb483084db1d7093d7a`. [Project checks/PostgreSQL16](https://github.com/marmitero/projeto-akai/actions/runs/39124955299) e [Windows local preview](https://github.com/marmitero/projeto-akai/actions/runs/39124955224) **aprovadas**; PostgreSQL16 executou177testes/17arquivos sem skips e verificou702frames. O Windows executou o BAT real com Node portátil e smoke de navegador.
+
+Base anterior: `e39540d2f7d1ac4382ca93352541a8a086b8584a`. Um rollback pode reverter o merge, preservando commits e a regra permanente de publicação. Este fechamento altera apenas documentação; as CIs citadas validam a implementação acima.
+
+[PR4](https://github.com/marmitero/projeto-akai/pull/4). A regra permanente em `AGENTS.md` e `AI_STATE.md` exige validação e publicação ao final de cada etapa, sem nova confirmação, com checkpoints remotos em trabalhos longos. Rollback por revert preservando histórico. Checkpoint da reconstrução: `3c215904df3580e731aa9ef1dad52bf956c86dd6`. Etapa integrada após ambas as CIs aprovarem o head final.
 
 ## Playtest
 

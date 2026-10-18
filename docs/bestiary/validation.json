@@ -15,7 +15,7 @@
   },
   "bossDirectRulesChanged": false,
   "windowsManualRetested": false,
-  "githubCi": "see PR4 final head",
+  "githubCi": "passed on implementation head; see publication",
   "browser-dev": {
     "passed": true,
     "pageErrors": []
@@ -36,5 +36,20 @@
     "atlases": 27,
     "nonemptyFrames": 702,
     "transparentPaddingExcluded": true
+  },
+  "publication": {
+    "mainMerge": "a440640cee5528f7568de8be63a3824bffb5520b",
+    "validatedHead": "cfe90c78e80bfec066852eef196ce65863c82b5d",
+    "validatedTree": "3cf9ccf86deed20a3c131eb483084db1d7093d7a",
+    "projectChecks": {
+      "run": 39124955299,
+      "conclusion": "success",
+      "postgres": "16",
+      "tests": 177
+    },
+    "windowsPreview": {
+      "run": 39124955224,
+      "conclusion": "success"
+    }
   }
 }
