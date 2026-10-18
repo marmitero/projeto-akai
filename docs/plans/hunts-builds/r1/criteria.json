@@ -1,0 +1,16 @@
+{
+  "version": "r1-gates-v1",
+  "fixedBeforeExecution": true,
+  "scope": "Proposed economy; offline model, not production or human validation",
+  "gates": {
+    "bootstrap": {"firstCoalMaxActiveHours": 6, "firstIronMaxActiveHours": 6, "zeroRandomDropsMustSucceed": true},
+    "regularProgression": {"horizonDays": 30, "minimumMain100Fraction": 0.9, "minimumCoal5Iron5Gold1Fraction": 0.9},
+    "renewableLegendary": {"horizonDays": 90, "minimumEligibleFraction": 0.8, "minimumLegendaryGivenEligible": 0.8},
+    "matureScarcity": {"horizonDays": 90, "minimumSample": 300, "maximumAny20Fraction": 0.03, "minimumAny20Fraction": 0.01},
+    "paidAdvantage": {"maximumAbsoluteAny20Gap": 0.1, "maximumPaidFreeProgressionRatio": 1.5},
+    "buildDiversity": {"minimumDistinctThroughputWinners": 2, "maximumSingleBuildWinnerShare": 0.8},
+    "sourcesAndConservation": {"resourceLeakage": 0, "negativeBalances": 0, "maximumDailyEconomicHours": 24},
+    "completeness": {"zeroUnspecifiedProductionInputs": true, "note": "Hypothetical jade, shop Ruby funding/prices and new enemy stats must be reported as unresolved. No full approval while these materially control the result."}
+  },
+  "interpretation": "Failure blocks gameplay implementation under the user's conditional authorization. Updating a candidate requires preserving v1 and a fresh holdout seed; not moving these gates after observing results. Passing model gates is not a launch approval."
+}

@@ -1,0 +1,30 @@
+{
+  "tests": 11,
+  "failures": 0,
+  "errors": 0,
+  "market": {
+    "n": 120,
+    "rounds": 90,
+    "seed": 61922,
+    "trades": 2040,
+    "rejected": 8760,
+    "initialCoin": 600000000,
+    "remainingCoin": 9891180,
+    "coinBurned": 590108820,
+    "materialConserved": true,
+    "coinConserved": true,
+    "negativeBalances": false,
+    "meaning": "Closed transfer stress only; synthetic demand/prices, not an equilibrium forecast"
+  },
+  "earlyCombat": {
+    "n": 5000,
+    "seed": 61127,
+    "wins": 5000,
+    "survival": 1.0,
+    "confidence95": [
+      0.9992322980549431,
+      1
+    ],
+    "scope": "Initial floor only; no general runtime survival claim"
+  }
+}
