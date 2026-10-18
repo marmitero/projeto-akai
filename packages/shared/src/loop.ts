@@ -1,3 +1,4 @@
+import { encounterEnemies, enemyDefinition } from "./bestiary.js";
 import { recordBattleReport } from "./battle-journal.js";
 import type { LocalSnapshot } from "./index.js";
 import { CONTENT, levelFromXp, floorDefinition } from "./content.js";
@@ -107,12 +108,12 @@ export function startEncounter(
   b.heroNextAt = b.time + 1000;
   b.deadline = stats.boss ? b.time + LOOP.bossMs : 0;
   b.transitionAt = 0;
-  b.enemies = Array.from({ length: stats.boss ? 1 : 3 }, () => ({
-    hp: stats.hp,
-    maxHp: stats.hp,
-    nextAt: b.time + stats.interval,
-    strikes: 0,
-  }));
+  const roster = encounterEnemies(floor,wave);
+  b.enemies = Array.from({length:stats.boss ? 1 : 3}, (_,i) => {
+    const template=roster[i], def=enemyDefinition(floor,template?.id);
+    return {hp:def.hp,maxHp:def.hp,nextAt:b.time+def.interval,strikes:0,
+      ...(template ? {templateId:template.id} : {})};
+  });
 }
 function fail(s: LocalSnapshot, cause: "defeat" | "timeout"): void {
   const b = s.battle;
@@ -229,7 +230,7 @@ export function advanceCombat(
           addResource(
             s,
             "coin",
-            (BigInt(floorStats(b.floor).coin) *
+            (BigInt(enemyDefinition(b.floor,target.templateId).coin) *
               1000n *
               BigInt(modifiers?.coinBp ?? coinBp)) /
               10000n,
@@ -239,9 +240,10 @@ export function advanceCombat(
             b.floor,
             floorStats(b.floor).boss,
             random,
-            modifiers?.xpBp ?? xpBp,
+            Math.floor((modifiers?.xpBp ?? xpBp) * enemyDefinition(b.floor,target.templateId).xpBp /10000),
           );
           recordBattleReport(s, "reward", {
+            ...(target.templateId ? {enemyId:target.templateId} : {}),
             coin: String(BigInt(s.balances.coin) - BigInt(before.coin)),
             iron: String(BigInt(s.balances.iron) - BigInt(before.iron)),
             heroXp: s.rpg.heroXp - before.heroXp,
@@ -254,7 +256,7 @@ export function advanceCombat(
     }
     for (const enemy of b.enemies)
       if (enemy.hp > 0 && enemy.nextAt === next) {
-        enemy.nextAt += floorStats(b.floor).interval;
+        enemy.nextAt += enemyDefinition(b.floor,enemy.templateId).interval;
         enemy.strikes++;
         b.heroHp = Math.max(
           0,
@@ -262,7 +264,7 @@ export function advanceCombat(
             Math.max(
               1,
               Math.floor(
-                (floorStats(b.floor).attack * 100) /
+                (enemyDefinition(b.floor,enemy.templateId).attack * 100) /
                   (100 + heroStats(s).defense),
               ),
             ),

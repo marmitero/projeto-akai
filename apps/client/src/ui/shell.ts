@@ -6,7 +6,8 @@ export type Route =
   | "bag"
   | "shop"
   | "community"
-  | "market";
+  | "market"
+  | "bestiary";
 const icon = (key: keyof typeof assets, className = ""): string =>
   `<img class="sprite ${className}" src="${assets[key]}" alt="" draggable="false">`;
 function upgradeCard(kind: string, title: string): string {
@@ -73,6 +74,7 @@ export function createShell(root: HTMLElement): void {
     <section data-pane="bag" class="extra-page" hidden><div id="rpg-root"></div></section>
     <section data-pane="market" class="extra-page" hidden><div id="market-root"></div></section>
     <section data-pane="community" class="extra-page" hidden><div id="community-root"></div></section>
+    <section data-pane="bestiary" class="extra-page" hidden><div id="bestiary-root"></div></section>
     <section data-pane="shop" class="extra-page" hidden><div id="premium-root"></div></section>
   </main>
   <nav class="bottom-hud" aria-label="Menu principal">
@@ -85,7 +87,7 @@ export function createShell(root: HTMLElement): void {
   </nav>
   <dialog id="menu-dialog" aria-labelledby="dialog-title"><div class="dialog-panel panel"><div class="dialog-heading"><h2 id="dialog-title">Seu reino</h2><button id="close-dialog" class="close-button" aria-label="Fechar menu">${icon("close")}</button></div>
     <div id="dialog-menu"><div class="shortcut-row"><button data-shortcut="bag">${icon("bag")}Mochila</button><button data-shortcut="shop">${icon("shop")}Loja</button></div>
-    <button data-shortcut="community">Comunidade</button><button data-shortcut="market">Mercado</button>
+    <button data-shortcut="bestiary">Bestiário</button><button data-shortcut="community">Comunidade</button><button data-shortcut="market">Mercado</button>
     <h3 id="profile-heading">Perfil local de teste</h3><p class="body-copy">Seu perfil é salvo neste navegador. Escolha como quer ser chamado.</p>
     <p id="profile-title" class="muted" hidden></p><form id="profile-name-form" class="community-form"><label>Nick do jogador<input name="name" minlength="3" maxlength="24" required autocomplete="nickname"></label><button>Salvar nick</button></form><p id="profile-name-status" role="status"></p>
     <label class="motion-setting"><input id="reduce-motion" type="checkbox"> Reduzir movimento e efeitos</label>
@@ -148,6 +150,7 @@ export const routeLabels: Record<
     caption: "",
     description: "",
   },
+  bestiary: {title:"Bestiário",kicker:"CRIATURAS DA TORRE",badge:"Inimigos comuns",caption:"",description:"Catálogo de inimigos comuns e recompensas por andar."},
   market: {
     title: "Mercado",
     kicker: "ENTRE JOGADORES",

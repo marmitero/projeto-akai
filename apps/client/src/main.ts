@@ -1,3 +1,5 @@
+import { createBestiaryUI } from "./ui/bestiary.js";
+import { enemyTemplate } from "@akai/shared";
 import { createBattleJournal } from "./ui/battle-journal.js";
 import "./style.css";
 import { createFloorBanner } from "./ui/battle-hud.js";
@@ -98,6 +100,7 @@ async function boot(): Promise<void> {
       () => {},
     );
   }
+  const bestiaryUI = createBestiaryUI(document.querySelector<HTMLElement>("#bestiary-root")!);
   const premiumUI = createPremiumUI(root!, online);
   const marketUI = createMarketUI(root!, online);
   let onlineName: string | undefined;
@@ -154,10 +157,11 @@ async function boot(): Promise<void> {
     communityUI.show(next === "community");
     marketUI.show(next === "market");
     premiumUI.show(next === "shop");
+    bestiaryUI.show(next === "bestiary");
     document.querySelector<HTMLElement>("#tutorial")!.hidden =
-      next === "community" || next === "market" || next === "shop";
+      next === "community" || next === "market" || next === "shop" || next === "bestiary";
     document.querySelector<HTMLElement>("#action-status")!.hidden =
-      next === "community" || next === "market" || next === "shop";
+      next === "community" || next === "market" || next === "shop" || next === "bestiary";
     const info = routeLabels[next];
     document.querySelector("#page-title")!.textContent = info.title;
     document.querySelector("#page-kicker")!.textContent = info.kicker;
@@ -280,14 +284,14 @@ async function boot(): Promise<void> {
     const bar = document.querySelector<HTMLProgressElement>("#hero-health")!;
     bar.max = stats.hp;
     bar.value = b.heroHp;
-    const enemyKey = b.enemies.map((e) => `${e.hp}/${e.maxHp}`).join(",");
+    const enemyKey = b.enemies.map((e) => `${e.templateId ?? "legacy"}:${e.hp}/${e.maxHp}`).join(",");
     const enemyList = document.querySelector<HTMLElement>("#enemy-health")!;
     if (enemyList.dataset["hp"] !== enemyKey) {
       enemyList.dataset["hp"] = enemyKey;
       enemyList.innerHTML = b.enemies
         .map(
           (e, i) =>
-            `<label>${boss ? "Guardião Ossudo" : `Esqueleto ${i + 1}`} · ${e.hp}/${e.maxHp}<progress max="${e.maxHp}" value="${e.hp}"></progress></label>`,
+            `<label>${boss ? "Guardião Ossudo" : `${enemyTemplate(e.templateId)?.name ?? "Esqueleto"} ${i + 1}`} · ${e.hp}/${e.maxHp}<progress max="${e.maxHp}" value="${e.hp}"></progress></label>`,
         )
         .join("");
     }
@@ -295,7 +299,7 @@ async function boot(): Promise<void> {
       "enemy-name",
       boss
         ? "Guardião Ossudo"
-        : `${b.enemies.filter((e) => e.hp > 0).length} esqueletos vivos`,
+        : b.enemies.filter(e=>e.hp>0).map(e=>enemyTemplate(e.templateId)?.name ?? "Esqueleto").join(" · "),
     );
     text(
       "battle-status",
@@ -449,7 +453,7 @@ async function boot(): Promise<void> {
         route === "bag" ||
         route === "shop" ||
         route === "community" ||
-        route === "market")
+        route === "market" || route === "bestiary")
     ) {
       navigate(routeForScreen(session.getSnapshot().screen));
       event.preventDefault();
@@ -511,7 +515,7 @@ async function boot(): Promise<void> {
         route === "bag" ||
         route === "shop" ||
         route === "community" ||
-        route === "market",
+        route === "market" || route === "bestiary",
     );
     returnFocus?.focus();
   });

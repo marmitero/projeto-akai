@@ -5,7 +5,7 @@ export function recordBattleReport(
   s: LocalSnapshot,
   kind: BattleReport["kind"],
   reward: Partial<
-    Pick<BattleReport, "coin" | "iron" | "heroXp" | "accountXp" | "loot">
+    Pick<BattleReport, "coin" | "iron" | "heroXp" | "accountXp" | "loot" | "enemyId">
   > = {},
 ): void {
   const b = s.battle;

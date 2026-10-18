@@ -1,3 +1,4 @@
+import { ENEMY_IDS } from "./bestiary.js";
 import { z } from "zod";
 import { RpgSchema, newRpgState } from "./rpg-schema.js";
 import { ITEMS, SLOT_IDS } from "./content.js";
@@ -95,6 +96,7 @@ export const Legacy2SnapshotSchema = z
   .strict();
 export const BattleReportSchema = z
   .object({
+    enemyId: z.enum(ENEMY_IDS).optional(),
     id: safeInteger.min(1),
     kind: z.enum(["reward", "victory", "defeat", "timeout"]),
     floor: safeInteger.min(1).max(1000),
@@ -126,6 +128,7 @@ export const LocalSnapshotSchema = Legacy2SnapshotSchema.extend({
     })
     .strict(),
   battle: Legacy2SnapshotSchema.shape.battle.extend({
+    enemies: z.array(Legacy2SnapshotSchema.shape.battle.shape.enemies.element.extend({ templateId: z.enum(ENEMY_IDS).optional() })).min(1).max(3),
     reportSerial: safeInteger.default(0),
     reports: z.array(BattleReportSchema).max(60).default([]),
     floor: safeInteger.min(1).max(1000),
@@ -256,3 +259,5 @@ export * from "./community.js";
 export * from "./market.js";
 
 export * from "./monetization.js";
+
+export * from "./bestiary.js";

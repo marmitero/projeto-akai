@@ -1,0 +1,278 @@
+[
+  {
+    "id": "slime-green",
+    "name": "Gosma do musgo",
+    "family": "Slime",
+    "role": "fighter",
+    "minFloor": 1,
+    "layers": []
+  },
+  {
+    "id": "slime-blue",
+    "name": "Gosma do orvalho",
+    "family": "Slime",
+    "role": "runner",
+    "minFloor": 2,
+    "layers": []
+  },
+  {
+    "id": "slime-red",
+    "name": "Gosma ferrugem",
+    "family": "Slime",
+    "role": "brute",
+    "minFloor": 3,
+    "layers": []
+  },
+  {
+    "id": "bat",
+    "name": "Morcego das copas",
+    "family": "Bat",
+    "role": "runner",
+    "minFloor": 4,
+    "layers": []
+  },
+  {
+    "id": "mushroom",
+    "name": "Cogumelo errante",
+    "family": "Mushroom",
+    "role": "tank",
+    "minFloor": 5,
+    "layers": []
+  },
+  {
+    "id": "dude",
+    "name": "Pestinha do bosque",
+    "family": "Dude_Monster",
+    "role": "fighter",
+    "minFloor": 7,
+    "layers": []
+  },
+  {
+    "id": "owlet",
+    "name": "Corujito feroz",
+    "family": "Owlet Monster",
+    "role": "runner",
+    "minFloor": 8,
+    "layers": []
+  },
+  {
+    "id": "pink",
+    "name": "Espinheiro rosado",
+    "family": "Pink Monster",
+    "role": "brute",
+    "minFloor": 9,
+    "layers": []
+  },
+  {
+    "id": "skeleton",
+    "name": "Ossada errante",
+    "family": "Skeleton",
+    "role": "fighter",
+    "minFloor": 11,
+    "layers": []
+  },
+  {
+    "id": "shield-skeleton",
+    "name": "Sentinela de ossos",
+    "family": "Shield Skeleton",
+    "role": "tank",
+    "minFloor": 16,
+    "layers": []
+  },
+  {
+    "id": "lancer",
+    "name": "Lanceiro sepulcral",
+    "family": "Lancer Skeleton",
+    "role": "brute",
+    "minFloor": 21,
+    "layers": []
+  },
+  {
+    "id": "archer",
+    "name": "Arqueiro proscrito",
+    "family": "Archer",
+    "role": "ranged",
+    "minFloor": 25,
+    "layers": []
+  },
+  {
+    "id": "shadow",
+    "name": "Sombra rastejante",
+    "family": "Shadow",
+    "role": "runner",
+    "minFloor": 41,
+    "layers": []
+  },
+  {
+    "id": "inquisitor",
+    "name": "Inquisidor renegado",
+    "family": "Inquisitor",
+    "role": "tank",
+    "minFloor": 61,
+    "layers": []
+  },
+  {
+    "id": "warrior",
+    "name": "Guerreiro exilado",
+    "family": "Warrior",
+    "role": "fighter",
+    "minFloor": 31,
+    "layers": []
+  },
+  {
+    "id": "zombie-1",
+    "name": "Andarilho putrefato",
+    "family": "Zombie_1",
+    "role": "fighter",
+    "minFloor": 12,
+    "layers": []
+  },
+  {
+    "id": "zombie-2",
+    "name": "Carcereiro pútrido",
+    "family": "Zombie_2",
+    "role": "tank",
+    "minFloor": 18,
+    "layers": []
+  },
+  {
+    "id": "zombie-3",
+    "name": "Devorador das ruínas",
+    "family": "Zombie_3",
+    "role": "brute",
+    "minFloor": 24,
+    "layers": []
+  },
+  {
+    "id": "zombie-4",
+    "name": "Corredor febril",
+    "family": "Zombie_4",
+    "role": "runner",
+    "minFloor": 32,
+    "layers": []
+  },
+  {
+    "id": "male-bandit",
+    "name": "Saqueador da estrada",
+    "family": "Male Base",
+    "role": "fighter",
+    "minFloor": 6,
+    "layers": [
+      "sprites/Enemies/Male Base/Male Skin/Male Skin2.png",
+      "sprites/Enemies/Male Base/Male Clothing/Pants.png",
+      "sprites/Enemies/Male Base/Male Clothing/Boots.png",
+      "sprites/Enemies/Male Base/Male Clothing/Shirt v2.png",
+      "sprites/Enemies/Male Base/Male Hair/Male Hair3.png",
+      "sprites/Enemies/Male Base/Male Hand/Iron Sword.png",
+      "sprites/Enemies/Male Base/Male Mask/Male Bandit Scarf.png"
+    ]
+  },
+  {
+    "id": "male-orc",
+    "name": "Lenhador orc renegado",
+    "family": "Male Base",
+    "role": "brute",
+    "minFloor": 35,
+    "layers": [
+      "sprites/Enemies/Male Base/Male Skin/Male Orc skin.png",
+      "sprites/Enemies/Male Base/Male Clothing/Green Pants.png",
+      "sprites/Enemies/Male Base/Male Clothing/Boots.png",
+      "sprites/Enemies/Male Base/Male Clothing/Green Shirt v2.png",
+      "sprites/Enemies/Male Base/Male Hair/Male Hair7.png",
+      "sprites/Enemies/Male Base/Male Hand/Iron Axe.png"
+    ]
+  },
+  {
+    "id": "male-deserter",
+    "name": "Guarda desertor",
+    "family": "Male Base",
+    "role": "tank",
+    "minFloor": 45,
+    "layers": [
+      "sprites/Enemies/Male Base/Male Skin/Male Skin3.png",
+      "sprites/Enemies/Male Base/Male Clothing/Blue Pants.png",
+      "sprites/Enemies/Male Base/Male Clothing/Boots.png",
+      "sprites/Enemies/Male Base/Male Clothing/Chainmail.png",
+      "sprites/Enemies/Male Base/Male Hair/Male Hair12.png",
+      "sprites/Enemies/Male Base/Male Hat/Guard Helmet.png",
+      "sprites/Enemies/Male Base/Male Hand/Iron Sword.png"
+    ]
+  },
+  {
+    "id": "male-plague",
+    "name": "Carrasco da peste",
+    "family": "Male Base",
+    "role": "fighter",
+    "minFloor": 71,
+    "layers": [
+      "sprites/Enemies/Male Base/Male Skin/Male Ghost skin.png",
+      "sprites/Enemies/Male Base/Male Clothing/Purple Pants.png",
+      "sprites/Enemies/Male Base/Male Clothing/Boots.png",
+      "sprites/Enemies/Male Base/Male Clothing/Purple Shirt v2.png",
+      "sprites/Enemies/Male Base/Male Hair/Male Hair1.png",
+      "sprites/Enemies/Male Base/Male Hand/Bronze Axe.png",
+      "sprites/Enemies/Male Base/Male Mask/Male Plague Mask.png"
+    ]
+  },
+  {
+    "id": "female-scout",
+    "name": "Batedora renegada",
+    "family": "Female Base",
+    "role": "runner",
+    "minFloor": 14,
+    "layers": [
+      "sprites/Enemies/Female Base/Female Skin/Female Skin2.png",
+      "sprites/Enemies/Female Base/Female Clothing/Skirt.png",
+      "sprites/Enemies/Female Base/Female Clothing/Boots.png",
+      "sprites/Enemies/Female Base/Female Clothing/Green Bodice Long Sleeves.png",
+      "sprites/Enemies/Female Base/Female Hair/Female Hair3.png",
+      "sprites/Enemies/Female Base/Female Hand/Iron Sword.png"
+    ]
+  },
+  {
+    "id": "female-guard",
+    "name": "Guarda da ruína",
+    "family": "Female Base",
+    "role": "tank",
+    "minFloor": 28,
+    "layers": [
+      "sprites/Enemies/Female Base/Female Skin/Female Skin3.png",
+      "sprites/Enemies/Female Base/Female Clothing/Skirt.png",
+      "sprites/Enemies/Female Base/Female Clothing/Boots.png",
+      "sprites/Enemies/Female Base/Female Clothing/Blue Bodice Long Sleeves.png",
+      "sprites/Enemies/Female Base/Female Hair/Female Hair12.png",
+      "sprites/Enemies/Female Base/Female Hand/Iron Sword.png"
+    ]
+  },
+  {
+    "id": "female-cultist",
+    "name": "Acólita da penumbra",
+    "family": "Female Base",
+    "role": "fighter",
+    "minFloor": 51,
+    "layers": [
+      "sprites/Enemies/Female Base/Female Skin/Female Devil skin.png",
+      "sprites/Enemies/Female Base/Female Clothing/Skirt.png",
+      "sprites/Enemies/Female Base/Female Clothing/Boots.png",
+      "sprites/Enemies/Female Base/Female Clothing/Purple Bodice Long Sleeves.png",
+      "sprites/Enemies/Female Base/Female Hair/Female Hair20.png",
+      "sprites/Enemies/Female Base/Female Hat/Witch hat.png",
+      "sprites/Enemies/Female Base/Female Hand/Bronze Sword.png"
+    ]
+  },
+  {
+    "id": "female-revenant",
+    "name": "Revenante escarlate",
+    "family": "Female Base",
+    "role": "brute",
+    "minFloor": 81,
+    "layers": [
+      "sprites/Enemies/Female Base/Female Skin/Female Ghost skin.png",
+      "sprites/Enemies/Female Base/Female Clothing/Skirt.png",
+      "sprites/Enemies/Female Base/Female Clothing/Boots.png",
+      "sprites/Enemies/Female Base/Female Clothing/Red Bodice Long Sleeves.png",
+      "sprites/Enemies/Female Base/Female Hair/Female Hair30.png",
+      "sprites/Enemies/Female Base/Female Hand/Iron Axe.png"
+    ]
+  }
+]
