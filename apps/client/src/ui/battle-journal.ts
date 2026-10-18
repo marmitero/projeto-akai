@@ -1,3 +1,4 @@
+import { enemyTemplate } from "@akai/shared";
 import type { BattleReport, LocalSnapshot } from "@akai/shared";
 
 const amount = (value: string): string => {
@@ -20,7 +21,7 @@ export function describeBattleReport(r: BattleReport): string {
     rewards.push(`+${r.accountXp.toLocaleString("pt-BR")} XP do rei`);
   if (BigInt(r.iron) > 0n) rewards.push(`+${amount(r.iron)} ferro`);
   if (r.loot) rewards.push(r.loot);
-  return `${location} — Inimigo derrotado.${rewards.length ? ` ${rewards.join(" · ")}` : ""}`;
+  return `${location} — ${r.enemyId ? `Eliminado: ${enemyTemplate(r.enemyId)?.name}.` : "Inimigo derrotado."}${rewards.length ? ` ${rewards.join(" · ")}` : ""}`;
 }
 
 export function createBattleJournal(

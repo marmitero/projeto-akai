@@ -11,15 +11,15 @@ jobs:
         image: postgres:16
         env:
           POSTGRES_USER: akai
-          POSTGRES_PASSWORD: akai_ci_only
+          POSTGRES_HOST_AUTH_METHOD: trust
           POSTGRES_DB: akai_test
         ports:
-          - 5432:5432
+          - 127.0.0.1:5432:5432
         options: >-
           --health-cmd "pg_isready -U akai -d akai_test"
           --health-interval 5s --health-timeout 5s --health-retries 10
     env:
-      TEST_DATABASE_URL: postgres://akai:akai_ci_only@127.0.0.1:5432/akai_test
+      TEST_DATABASE_URL: postgres://akai@127.0.0.1:5432/akai_test
     steps:
       - uses: actions/checkout@v4
         with:
@@ -30,8 +30,7 @@ jobs:
             docs
             .github
             sprites/Character
-            sprites/Enemies/Slime
-            sprites/Enemies/Skeleton
+            sprites/Enemies
             sprites/Tiles
             sprites/Assets
             sprites/Effects
@@ -52,9 +51,12 @@ jobs:
       - run: npm run check
       - run: node scripts/simulate-loop.mjs
       - run: node scripts/simulate-rpg.mjs
+      - run: node scripts/simulate-bestiary.mjs
       - run: node scripts/simulate-market.mjs
       - run: node scripts/simulate-monetization.mjs
       - run: npx playwright install --with-deps chromium
+      - run: node scripts/smoke-bestiary.mjs
+      - run: node scripts/smoke-bestiary.mjs --preview
       - run: npm run test:browser
       - run: node scripts/smoke-browser.mjs --preview
       - run: node scripts/smoke-online.mjs

@@ -1,0 +1,6090 @@
+{
+  "files": 762,
+  "png": 732,
+  "directories": {
+    "Archer": {
+      "files": 44,
+      "png": 40
+    },
+    "Bat": {
+      "files": 8,
+      "png": 8
+    },
+    "Dude_Monster": {
+      "files": 17,
+      "png": 17
+    },
+    "Female Base": {
+      "files": 167,
+      "png": 167
+    },
+    "Inquisitor": {
+      "files": 156,
+      "png": 145
+    },
+    "Lancer Skeleton": {
+      "files": 40,
+      "png": 36
+    },
+    "Male Base": {
+      "files": 124,
+      "png": 124
+    },
+    "Mushroom": {
+      "files": 7,
+      "png": 7
+    },
+    "Owlet Monster": {
+      "files": 17,
+      "png": 17
+    },
+    "Pink Monster": {
+      "files": 17,
+      "png": 17
+    },
+    "Shadow": {
+      "files": 46,
+      "png": 45
+    },
+    "Shield Skeleton": {
+      "files": 47,
+      "png": 43
+    },
+    "Skeleton": {
+      "files": 46,
+      "png": 42
+    },
+    "Slime": {
+      "files": 5,
+      "png": 3
+    },
+    "Warrior": {
+      "files": 1,
+      "png": 1
+    },
+    "Zombie_1": {
+      "files": 5,
+      "png": 5
+    },
+    "Zombie_2": {
+      "files": 5,
+      "png": 5
+    },
+    "Zombie_3": {
+      "files": 5,
+      "png": 5
+    },
+    "Zombie_4": {
+      "files": 5,
+      "png": 5
+    }
+  },
+  "entries": [
+    {
+      "path": "sprites/Enemies/Archer/PNG/attack-A1.png",
+      "sha256": "497f9eb4879f340f9676543c3d306b08ff56dac93a4dd0e512160a846471457b",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/attack-A2.png",
+      "sha256": "6557c64745e77968399f24938b582d0b641fc20910029dee0e359599f80c232b",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/attack-A3.png",
+      "sha256": "ee02cfd523dad3aab334b392e322e7b506d0eeea41fc29297e364e3a0c588f17",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/attack-A4.png",
+      "sha256": "a1ccc1327957296f4dee0cb3937bde9684a46702c44526147fcdead0d5eff347",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/attack-A5.png",
+      "sha256": "d7860c0ff7a878d837ff2a4f69a0c88431b75f2092a7ab53b575037ddec283aa",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/attack-A6.png",
+      "sha256": "9a57ad129e1cc2da79904d1d019b8b5c2d99ccbed5759b4125573404d8a144a2",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/attack-B1.png",
+      "sha256": "e921c18a2e08f786a622aac1cd32520c430ab45f0a7a7d3d9a8abd8f7da4c280",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/attack-B2.png",
+      "sha256": "0616f854425774adc5f3d5743274569efcae2214f5f52a1e914f04e5cc5dc0a9",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/attack-B3.png",
+      "sha256": "90b07541602ea0c7c3d575769d09627c3cd9d7f6d70bde879eb89385a08d5129",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/attack-B4.png",
+      "sha256": "8e453a61609c8bf49e85ad088597ddfaac00e20c76cf79686b642cab46d697f9",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/attack-B5.png",
+      "sha256": "11e1a4ae6eac8d60a155a1ffb4663839eecefa6e206a747c9aa019c9a53d5476",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/attack-B6.png",
+      "sha256": "2d22b115b6566c35f4aac2c5ccdbdc1ce5445edac53da0bd152e99f315535b7f",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/dead-1.png",
+      "sha256": "128a777752a470bcd25c41ec329d690e20a2604165ce3f9c22597a6164a7ee83",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/dead-2.png",
+      "sha256": "2555dd5f53ccb8e849d2b72f4139bf4c808de4ab8ba7f27bcaa3f51bea4768bd",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/dead-3.png",
+      "sha256": "5f27f90ea077f14a8b13fde56ebf88f65a9c0826c0e82a4a6879e9464b50e91c",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/dead-4.png",
+      "sha256": "2efc8feb8819c8a60bc0ec2211d6e76d545430ae95141513be64139419ba203a",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/hit-1.png",
+      "sha256": "c476ff1e014ff3f7a3ac7cf7091e8d83d6bf96654ecfeb51a14b15d555efa461",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/hit-2.png",
+      "sha256": "24074de71dcdd8150ede296f6ca7f3efcd938ed819452f8970c12cf68b803569",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/hit-3.png",
+      "sha256": "d07b6267512f1ddb1bc6efa6606cd04c35dd10013cbd43e98cd416a8fea79ac4",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/hit-4.png",
+      "sha256": "d343ab0fc8f054be5f4247633d7042772ff9ae367738b1d7f543bd2b0cede54b",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/idle-1.png",
+      "sha256": "ad04e29c9315293f61f84e3eacad1a6b4072bc23ae66f80de7840442dc65ed67",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/idle-2.png",
+      "sha256": "6bb4b4026f55529aae11712b36baf11448310a0a8cad52988346d8906ba1e06d",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/jump-1.png",
+      "sha256": "eba88a43e516543abad6a003a21f4819454ac26c3e7a7eaeabf201cf02b62346",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/jump-2.png",
+      "sha256": "6d5a645bc4bc24669bee907cd1caf800d9d24aa7fb8dc7562286cf65448cbffe",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/jump-3.png",
+      "sha256": "a0cec460fbe2fa02289ff7cfcbf9355ac01f54fc39d4cb888e35b0c59a833284",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/jump-4.png",
+      "sha256": "1f8d97113e029236beab77513e051b6bca549495be1a25fb7df8be9f55c57b13",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/jump-5.png",
+      "sha256": "08695f6803909fbe4b631927ec4d9bdde50c58bea549b397567f373bca5859a7",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/jump-6.png",
+      "sha256": "e51cf3acf4b97b8c9d8d3e999d6b827dbf354c213813be8a0ce450d1303c7b72",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/run-1.png",
+      "sha256": "8194df96a5e9df234a121c4af1dc8693d89e4ff75d3392738ceb136642dcb192",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/run-10.png",
+      "sha256": "9dda56c8148539ea61d1acf0d85e7ef89afdc3399c1e68f54b69536964e34513",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/run-11.png",
+      "sha256": "f10978b4c1713abea4ce9a7a4ef7f9d80a0a722272729723af4988880cfad6b4",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/run-12.png",
+      "sha256": "3bc5e8baaed27f0231bd034563cbbb7ff65a61402f67815b4275430d53f80713",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/run-2.png",
+      "sha256": "c54d394f5073b5e63ffdcbf3b53dfadded9aa6a093630a34c01f62aa1fb29476",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/run-3.png",
+      "sha256": "f93911c83f53b58827be34444703a7152d87797964c2be02c2d0e9fc860b9e54",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/run-4.png",
+      "sha256": "2ece76f0f46cddc5bcfd94e4c0d45b3e40fcdb4c13596bec9b92ac0f15b593f7",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/run-5.png",
+      "sha256": "8973b4d9795343db2694d5f8a9d21c42acd0fec72522257740eb36d8fa7f976b",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/run-6.png",
+      "sha256": "d6c07f92dede3b7fed158eace91a54592becd1b31b68cb65aa90da1532492f1c",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/run-7.png",
+      "sha256": "c8b66d1f8fda470cd62aded997fb4d4f31eafdb9cedc43a24b2936fdf8fd6d25",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/run-8.png",
+      "sha256": "3994219c51c2c7c75b23a6ac45584133eee56bcc5aa81bcfcb5b2020ae4767b1",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/PNG/run-9.png",
+      "sha256": "c6425fa8582e48a1fe0d427c4c76d57efb18c453a00f9f1793d2553b382e91e0",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Archer/attack, idle, run.psd",
+      "sha256": "f4e05f0d976fe40fd106188cde9cd8731ae8e78d4d0ea65a224a369c5ebf0aa3",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Archer/dead.psd",
+      "sha256": "b5017a28399749bc002cd702c07f3025bd80e5c1d7ed95b17fe28d451b5162e4",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Archer/hit.psd",
+      "sha256": "30eebb7cd574c5e543d84e4ad555e3cd42fdf2fde4ca3476d3202b3eaf83c8b1",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Archer/jump.psd",
+      "sha256": "4eaadcf1b47d5ce86f00c0a6d57c29e20607d642719dff277f61309eeb623e57",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Bat/Bat-Attack1.png",
+      "sha256": "e54fa22b3da3ac6208cc03f134abb79e2f3f1a6172e9993fe15d67b332500b27",
+      "dimensions": [
+        512,
+        64
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Bat/Bat-Attack2.png",
+      "sha256": "b0678301681e2b07857cab6b5fc02cd68c3661513571c6e02f8ee214d1bb1f74",
+      "dimensions": [
+        704,
+        64
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Bat/Bat-Die.png",
+      "sha256": "0ec3c2ca47f6c350ba005f14132147e02fa03d484ba91e9bafa78899339393ae",
+      "dimensions": [
+        768,
+        64
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Bat/Bat-Hurt.png",
+      "sha256": "a4f5584849a967c5977fe4d0252f703c5f4e856cd2f235f598ef221160308618",
+      "dimensions": [
+        320,
+        64
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Bat/Bat-IdleFly.png",
+      "sha256": "403543f3b0b3d66f9c9432dccdf435c657bcc2841b4cbadc93c66fa664b52006",
+      "dimensions": [
+        576,
+        64
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Bat/Bat-Run.png",
+      "sha256": "dbb18490811e5c952b750f9ecff354c45d9b743b51487e18ecfe0b560e8c5ad4",
+      "dimensions": [
+        512,
+        64
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Bat/Bat-Sleep.png",
+      "sha256": "57109aba0fe1558f932326853a1fecf0c46e7a3e72a40c994dd104221bc0467c",
+      "dimensions": [
+        192,
+        64
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Bat/Bat-WakeUp.png",
+      "sha256": "9cd2923563503bf09b3b927dadbcbdfd9ee0355886703cb589b6e3f33fcc674b",
+      "dimensions": [
+        1024,
+        64
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Dude_Monster/Double_Jump_Dust_5.png",
+      "sha256": "4721003278ef1c21a6206708f99cbb7af4c134f23b5040a41b28e9edcacf83a1",
+      "dimensions": [
+        160,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Dude_Monster/Dude_Monster.png",
+      "sha256": "c3ed82e01749d5737b5f4103823d5aa8ea0e40590a77a18132aadf11292d942c",
+      "dimensions": [
+        32,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Dude_Monster/Dude_Monster_Attack1_4.png",
+      "sha256": "573614ecfd4d142e466bd3e97e0cfed488cbc018b5fff8c7a3e89c038c697958",
+      "dimensions": [
+        128,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Dude_Monster/Dude_Monster_Attack2_6.png",
+      "sha256": "3b26f7d6664b1d8bb212ca2d80177892dcde9db402b6e9672a42ee1cf283ab38",
+      "dimensions": [
+        192,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Dude_Monster/Dude_Monster_Climb_4.png",
+      "sha256": "7a0b303cfccf8ef933d0a62e2b43ccc0765abecc7bfba13d0190c132da328433",
+      "dimensions": [
+        128,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Dude_Monster/Dude_Monster_Death_8.png",
+      "sha256": "519666d552acc8679d8798a2c22e6a4618129816455432a4784d44684f9802b0",
+      "dimensions": [
+        256,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Dude_Monster/Dude_Monster_Hurt_4.png",
+      "sha256": "001246117f76ffbfdc2d15dca1ec7a5f5cee19a1f95dd890e17a2cbf40eef0a7",
+      "dimensions": [
+        128,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Dude_Monster/Dude_Monster_Idle_4.png",
+      "sha256": "928f96bb50b31f8f29fb0c2e9f78ad9a7ff4a2c7ae3aed860960bb02fe98338c",
+      "dimensions": [
+        128,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Dude_Monster/Dude_Monster_Jump_8.png",
+      "sha256": "2af63b3a430102c277002a97a6b2560460104711934ac4701bf862f4f8c5747e",
+      "dimensions": [
+        256,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Dude_Monster/Dude_Monster_Push_6.png",
+      "sha256": "cf62c9c7d00c30d8eeb56501875296b8a2e8410dd9f216e6c9d4e6580afd94e9",
+      "dimensions": [
+        192,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Dude_Monster/Dude_Monster_Run_6.png",
+      "sha256": "cb7995ebce2442994f6c48b4d05e68f225188792f75d8a2f61a8d664d0f8f94e",
+      "dimensions": [
+        192,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Dude_Monster/Dude_Monster_Throw_4.png",
+      "sha256": "c56bd567cc9a05a3a4cf7aef4d170b328061c84be72164f95cad9495b62d2229",
+      "dimensions": [
+        128,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Dude_Monster/Dude_Monster_Walk+Attack_6.png",
+      "sha256": "9eb7990fce2e65fa4bde63b99a072609860d1c3d8252452cab5edff1963fedb1",
+      "dimensions": [
+        192,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Dude_Monster/Dude_Monster_Walk_6.png",
+      "sha256": "df198d13d45a8a476a12a0456db7b92667aad26dfca26e119bc3d86f9f5a6b53",
+      "dimensions": [
+        192,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Dude_Monster/Rock1.png",
+      "sha256": "f5b59efc8e6e00dfbeaa05e4c9431005b0db022d86d31d61819b49fe18553177",
+      "dimensions": [
+        8,
+        8
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Dude_Monster/Rock2.png",
+      "sha256": "8e7b5a3d58c03605ad7509ab30907de25274c98d379e8e00b3612b0ca8aef509",
+      "dimensions": [
+        16,
+        16
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Dude_Monster/Walk_Run_Push_Dust_6.png",
+      "sha256": "4fdd0d37619097d522f0257c4113372310185e06f903dc4af6b55811c6bbd4ae",
+      "dimensions": [
+        192,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Arm Layers/Opera Gloves blue.png",
+      "sha256": "80a5479813dde7161904620303b05174fe06716d689fcfe36a893afe8110bd50",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Arm Layers/Opera Gloves brown.png",
+      "sha256": "855ffa6d2f54bc7c50720b06fba0540d647c681fb49d09bb6c31f0eff43d0686",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Arm Layers/Opera Gloves green.png",
+      "sha256": "087169e2e61c152db503a39ac88b6c59912db2307b1e8b0851efc340b20349f7",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Arm Layers/Opera Gloves orange.png",
+      "sha256": "15a835140d051b2dd59231924e164b559bcd4a3e27b174da375e984dd9c25f1c",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Arm Layers/Opera Gloves purple.png",
+      "sha256": "359c37f0b5ed3e6ea6cba4105c32aa381fddb6a434972470449bd5ca44721d44",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Arm Layers/Opera Gloves red.png",
+      "sha256": "f29d83942826a52a1e885a5fa74493abfc5d5ece9ee9fa515d5b1d505a9f7052",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Arm Layers/Opera Gloves.png",
+      "sha256": "c793d97c1f7db2d9c9d5f4ccbf8365c42fa6b404be8ee26a1645c1e06ff5c838",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Armored Corset.png",
+      "sha256": "eaf85f4ecf25c4067636eb034289c091a10f6309d31307f690641831f1888168",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Black Thigh-High Boots.png",
+      "sha256": "b0ae7c15eddc025d55ab0856499eb9cfe95dc53c62cde5a7955a0a59b3e1c6c3",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Blue Bodice Long Sleeves.png",
+      "sha256": "ac1b5b8bd4f38c3e41c5f93dc09a6627dc31c3e23db00513418e92edcf368382",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Blue Bodice Mid Sleeves.png",
+      "sha256": "f6b8f5fede0b4bc03d2caad3fcccc9eff1598c9d862f09f6fd8508a790ee42cd",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Blue Bodice.png",
+      "sha256": "82821bba4163ffda9e9a6094d432e4be45c0c44a436951546aff30d2087e7413",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Blue Corset Long Sleeves.png",
+      "sha256": "4d09a6281bba1725a6d14dd8da4ebcb44e5cc6d939ef765d0ada879f224ec240",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Blue Corset v2 Long Sleeves.png",
+      "sha256": "41dcbb01616c8595a770dbafcccc781284fd0139df8faf2049ea35d88cfa8b90",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Blue Corset v2.png",
+      "sha256": "51ce38aa0a4e7c5fdba2210808c920371216be0b14e1908688708bd3d18e8dbb",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Blue Corset.png",
+      "sha256": "0555687a8829c14b8b18772f5e84bb8fcbffc2efc523d8364779bc0fb73b8dff",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Blue Panties and Bra.png",
+      "sha256": "92ff44fee5832e2b3a9f59b7dd9bfe1078924fcd5ad49d216aaeaf123fc022c4",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Blue bikini.png",
+      "sha256": "026f1151288821722f22aeba7daf5843723b7c31f3aae89f9a4c2788df3bf5ec",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Blue dress.png",
+      "sha256": "2547b43cd5c17ecd3df1fb98d108132893a09aa5cc66d7a0bfe3a8635bb03b87",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Boots.png",
+      "sha256": "e3b269a8be19139ec5a7ddf9daa55df90451a9da7cbc0ed1b08a8c886c257d92",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Brown Thigh-High Boots.png",
+      "sha256": "3a915893acea7ca70744081e3b3134030e2757d721ebcf8611c932a927ec8ab2",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Corset Long Sleeves.png",
+      "sha256": "116063e0730827c44e02466396b1afc0ab4d3a2cfd4146b3b7f84063aea4c785",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Corset v2 Long Sleeves.png",
+      "sha256": "1ed1504a7fc888f869e9bd8490a535b9c7bb1ae146c254cfcc3288c7585e0e81",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Corset v2.png",
+      "sha256": "c9d55722b863e18f428dca8c6646ac7604b0b9e21ca7d05b694fbc375e054284",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Corset.png",
+      "sha256": "75583c0362178ce732731c984e5c1052492752dcd0c955e7d3c6d8bfcc15efb3",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Fancy Blue Dress.png",
+      "sha256": "0cdef9ec5e9a5fe47d9183250f37a56adc936eb5c183a06f8bd340846cd2bc7d",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Green Bodice Long Sleeves.png",
+      "sha256": "3823f3963cf781040722b6dacc66b466db588eaf93f61a03469eb9e667d67d8a",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Green Bodice Mid Sleeves.png",
+      "sha256": "f2bbec4310ca5b928590dc90d9ea7ca11cc410a945437d9d773734d6584e5d46",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Green Bodice.png",
+      "sha256": "3b270a6c0630c9dea39f3dfa32d4bab0b351da6d0f9c1fea1613019040de624e",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Green Corset Long Sleeves.png",
+      "sha256": "0ed93cd31f9b4740d6c73419793e83f28d0041926b3513b7b30fe9257ba88488",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Green Corset v2 Long Sleeves.png",
+      "sha256": "5ef80bfc7c47d60cf4e8118ac8e1d4852d365422c71597e60a30d76e6f9b3613",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Green Corset v2.png",
+      "sha256": "db242a822c25c4efdc722f1b0dc2b6683b7fdee799ef89fcf6208e0a34e388ee",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Green Corset.png",
+      "sha256": "bf381e0d42a8f3112a0e088e72e21e6d9f01c130f245a06fbae8425f9358321b",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Green Panties and Bra.png",
+      "sha256": "53fbfe985163a4af42a8daae417282f8902d695775a8bb637125a402f88e7972",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Green Socks.png",
+      "sha256": "c276318e71c3eefa404bedf0cb595fb4b31c58c970d73edba464cf911864d7e2",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Green bikini.png",
+      "sha256": "db471ac7464e540f863031d62f7d3fac14c1ecd08b8786ac44b3a315abbf9eb9",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Long dress blue.png",
+      "sha256": "64178a523819823f8ed3dc58125b891bcafd093b36fd033f51e863496e235b40",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Long dress green.png",
+      "sha256": "0fd035d0c6d1410d6e4cfe0ecaf201e30f33586fa1120a90a84e510a6a93b6c3",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Long dress orange.png",
+      "sha256": "4512871157eef4ac1de00e5e7a2c3fb87a915793ca5824c898e9fa13164d34c7",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Long dress purple.png",
+      "sha256": "b0145f0794b6a4517e5cefed85ef691cb92c55d79f5b0255bbe06b4be32c5170",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Long dress red.png",
+      "sha256": "bc5bfca695493cd2bdd8c6c829bdb11c908a892a8adab26026e76f03720f779d",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Orange Bodice Long Sleeves.png",
+      "sha256": "3d351e83c5e288ae5eb1fdbe2082617bae4c176a4e9008e9b18efbff81c8d1fa",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Orange Bodice Mid Sleeves.png",
+      "sha256": "8203acc3334727cf672611f6807c192ece5ab94a66ab4e4ff5e95002366a5a45",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Orange Bodice.png",
+      "sha256": "0f6eb36952e7c052960a3069b91c636708b8b39e166ba4e252d8a6e252dd6e91",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Orange Corset Long Sleeves.png",
+      "sha256": "7723125a3fd35aaf18304414fba6a3206c4f0e6b516364cfc3c131e12e16a915",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Orange Corset v2 Long Sleeves.png",
+      "sha256": "36be34351d6aa87a5ba7ba03f2fdd1ad679e1ea9ada0d17f7c1020c32eebca61",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Orange Corset v2.png",
+      "sha256": "63fe3e9c800bf3b06ce5f9bcccfc6010504799d4da1381f40aa88b97be065b21",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Orange Corset.png",
+      "sha256": "317a01b7347f2146ef16941d7cdf35920502e93a4fbdaa52abc230573a64c1fd",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Orange Panties and Bra.png",
+      "sha256": "01b0096dbaf23d9bffb7a46f739b1873cc07e22bc23c558a17c91cbd93a7add6",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Orange Socks.png",
+      "sha256": "71db1af2604bbd143d8875ea021fea64adfe3f52efd719eff80ab0aa68ef2a64",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Orange bikini.png",
+      "sha256": "647eaf1896073af357d809c1efeb75e8238246d991e5c0a58975b2641ab24516",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Pink Thigh-High Boots.png",
+      "sha256": "1b44a9873ae53d7ecff1418b677c4f6e4072137995cd7a5b541b16c548e53da6",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Purple Bodice Long Sleeves.png",
+      "sha256": "a694e95220a525c2ca8375c20cad92febd96a6c3f765887b7ffbbcdf32e388b7",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Purple Bodice Mid Sleeves.png",
+      "sha256": "213bf5aa5ccf7bcd0442565197d81dd184f2e5f73d9ea09e2c53751582e6323b",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Purple Bodice.png",
+      "sha256": "64b8b9c4fd3745b19837a438cdc8116b8ec7c3e838d0768b5d8846343aa5c283",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Purple Corset Long Sleeves.png",
+      "sha256": "2b642a7d131189c57758ab979431f81935e1afb5886aeefe838c7a438d7e77dd",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Purple Corset v2 Long Sleeves.png",
+      "sha256": "412a7b12b6dfacc96532ef3e150c46cf58bb39f05eafaf3380224fb3c54822cc",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Purple Corset v2.png",
+      "sha256": "2ea2117d125f6c615cc99e4410073d3c1dd13f70945b9066366645ba66a11a92",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Purple Corset.png",
+      "sha256": "199642decd0c2ec24fbbbb08d3e4e6923c2dab1cbd280a7816a1a358853b0d79",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Purple Panties and Bra.png",
+      "sha256": "7451bde8eb655670459c93676dc93d07b21ca6f1e523721dac894dbe999a2827",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Purple Socks.png",
+      "sha256": "abaf51fd20043c5eceb97ff1d4fa3798ac72e67f73dd0d225fa5564d2af423db",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Purple bikini.png",
+      "sha256": "8114b04a16703c8ef8aab70ba3ff174c8cd56d63b9dd554a1b8d9a171e85f700",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Queen Dress.png",
+      "sha256": "26f54bcede8188fb4f37a13dd0ff3bf5ef221cdad46d5221367a2dd686e45dbb",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Red Bodice Long Sleeves.png",
+      "sha256": "3af0e08379fdd06e9ed899e0076fed071ce6258c5948ed3af8b27609b1b2f965",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Red Bodice Mid Sleeves.png",
+      "sha256": "2c137d4b321483ddf74b35ca45827c7f5a80f10484a060f50e0030bd95459fca",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Red Bodice.png",
+      "sha256": "4d08f33cc8e134d51d4361cb5f745d04c8e9bf47388084fc8a934ab9db860a0a",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Red Panties and Bra.png",
+      "sha256": "160d2d3157e5684f54599726c146b09201f06c703dbc9f91a36f70f18abc2c5d",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Red Socks.png",
+      "sha256": "8aaa6ca091b91d769c88c7c96c7879e1d13e5697fc3f03d889734b8fcd0ccb3a",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Red Thigh-High Boots.png",
+      "sha256": "bc664b78786be16492b6a0f2987b958f7036221aea79ae9cc355666859e751f8",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Red bikini.png",
+      "sha256": "9155609933c05408bbe5b9f165b3098aa9711a44745affb0234d477bac6e31e4",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Short Skirt.png",
+      "sha256": "b6d535878283184c516a24c02f04cb9a5b089435cbc451fbd0090b2b6e81f6e0",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Skirt.png",
+      "sha256": "dcb193338aabebfbcca83b5484d14f3d97b75763f1a3133aaa0c3c893b49f8b4",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Skyblue Panties and Bra.png",
+      "sha256": "5e86ffc6f40a2a6cd10121c4d1e04a1c7e11adf935f785de4ffc4dd2f8a74784",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Skyblue Socks.png",
+      "sha256": "9977391734253cca714ebe652485977623c39be3f21720387fc26b66cbe3892d",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Clothing/Socks.png",
+      "sha256": "ece6d9224a1b4a4f79fd66dbefffacd600168c0e88a21620f543a28e3d16793d",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Ears/Elven Ears1.png",
+      "sha256": "cb994a3aded643e0a0015f093d09f0c4dd2bc753a67b08618608534a13faa564",
+      "dimensions": [
+        720,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Ears/Elven Ears2.png",
+      "sha256": "c3409cc71eb5c5da74e1f06ca058ebd6116796d4312706197a5ec8ba33e810b3",
+      "dimensions": [
+        720,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Ears/Elven Ears3.png",
+      "sha256": "47e5e3f0ea7a9ffa0190eb5acf72ff0ffe89b34f1055ca3315fc5f556fc30184",
+      "dimensions": [
+        720,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Ears/Elven Ears4.png",
+      "sha256": "4f006f02ef8c2f3eec10a0495cfba5a0a98edd689e5f330456cfa17e61ca231d",
+      "dimensions": [
+        720,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Ears/Elven Ears5.png",
+      "sha256": "dd40c0f800a6ab3486a014407564c0e61be9a53565d30861f03770613c968051",
+      "dimensions": [
+        720,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair1.png",
+      "sha256": "53dd53e94e32c523eda9a79ab81bb62b497ab8dfc54b1f0acf31b6b8d5cc72a2",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair10.png",
+      "sha256": "9dd54fd40a0198b3892b74ab19368538016723f2c640a66363a0e69db3da1584",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair11.png",
+      "sha256": "e50ebe9d2d15afe7a66cee70609047acfd3f95fe066f56356f3934fabf615900",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair12.png",
+      "sha256": "7599cd485e84d54981197ce99cefeb57458af1d3eaa94aaaf4b172e6e3ee4f3c",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair13.png",
+      "sha256": "d17cb3b95f8c5d062f5a9a61425a602d67c841265519ae44a954d915c4c29bad",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair14.png",
+      "sha256": "b9ddd2ad999bfb3c976226878ee18024fde5c61b9a9b1b201cb63404a9cc09ba",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair15.png",
+      "sha256": "29bafac7165595bc7c95b79cae92a1b20b5d049a0ef999834827cf6cb50d594b",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair16.png",
+      "sha256": "1c99befc6b746ed192174dbd1bae5812840f43948f4167cb0cde89a714020c2d",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair17.png",
+      "sha256": "e4658292e7db2c51fe7e19c8191e05b0abdc31502692f17733234f7d9bb6122d",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair18.png",
+      "sha256": "b3767e767caab0111f15f647bcc1ec54d6712de7c85208aed890ef68babcc252",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair19.png",
+      "sha256": "21ac3410decc8acb4e19268deb2edca1a424d5093e8c86c7fc0e3847d73b603c",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair2.png",
+      "sha256": "d2c7b276bbe65711c1fa828e2eb364aef8adf26687a826f6fa2fb09fe639121d",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair20.png",
+      "sha256": "71f5fabc41a4d3e334e34672d10985b7e250d27502f126a40c6c501dcd4895a9",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair21.png",
+      "sha256": "47aa3697956b326ab2c741460ce75d3b3bb89b4a3f20d20114b4b37c4848312c",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair22.png",
+      "sha256": "9b5150bca665cd6e999c5137e6dbca173549bdc5a6274c1d0c415845b1308c34",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair23.png",
+      "sha256": "779551e69892f057696d8fb02a1c7e776b3e1fed6bcaa256fb84b12c5dddb85f",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair24.png",
+      "sha256": "87d921f8c8f77ebc2a84cf928f8b35a439e1047844a927b7b08a2097c98c7185",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair25.png",
+      "sha256": "47aa3697956b326ab2c741460ce75d3b3bb89b4a3f20d20114b4b37c4848312c",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair26.png",
+      "sha256": "69e256891059824411f019edac366b3de5beeb986ee656989c445f3f91319d10",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair27.png",
+      "sha256": "716ebb7ace914cfe80e572e0128e7bc68d0aae0f336f4abb4ded678dd19c882b",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair28.png",
+      "sha256": "663ec8f052c9540a8a5046fa7d67d0e538c87632e4d8400ca5e4f6197b015747",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair29.png",
+      "sha256": "0f9cf89c8c7a1ce23f0f988d17b2bfe58badc5a45472495255e88238c52fdaa4",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair3.png",
+      "sha256": "1dd191f9100813b21f77a8eecd3c3a3db3938989208cd9b6d6bff16892e1ba30",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair30.png",
+      "sha256": "5d8a86879ac9a5c7b58be336c9678a5abc6ed3440aa4248daf312bd208cfa2da",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair31.png",
+      "sha256": "1959097593780dfb8517281927908ef0d7fa0625e5fa0d048f05b4707f4251db",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair32.png",
+      "sha256": "b0fad633f453d6416f8a4b3ac87ccf2171406e107d6e29a1f65feab3814a0de7",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair33.png",
+      "sha256": "0396586dc92c70b1b0fe4a9e6f584a31977f293d0bc5c2b6fec063489c155495",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair34.png",
+      "sha256": "32f265fd9bee0f258a9cde6ed27c69e37bffe1949f78dfc1c1aef8fd0ec53a0c",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair35.png",
+      "sha256": "77a632f28fce95320ac7ad9039e0f088a2b1039da4e7d87b4edc8039b873d1d8",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair4.png",
+      "sha256": "ed8da00469856dff32557b273119d23e4fe75605be436ac969d1186c58125f6c",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair5.png",
+      "sha256": "29f08ecc1afff3a92f71e2688c6b6f2037d1735921697c0f16cae0c057ad0f85",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair6.png",
+      "sha256": "6b3db8570f0d554a12716afa412cf4095d305dc04e948c5ab082ecd23d0d4bba",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair7.png",
+      "sha256": "643be33e7cf156e48de3e5032869f7c6fd67876a27bf3a397f255cbfef4a26a0",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair8.png",
+      "sha256": "d9145182261e140e178423bb2046472f4fc5113bde65585f06367ce71e8bbbfe",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hair/Female Hair9.png",
+      "sha256": "b968c60366d218c103e7e23e4cc89cb04f7724fb4b25c2122104d5ee0f1f6c5c",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Basket.png",
+      "sha256": "7d418a707546ab6699608e389de1fb3573e9e6a2ef39fdef2fe4fb14e148436e",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Bronze Axe.png",
+      "sha256": "5bccf8fae0791b35cf6b85cecb360227f20d59ca3cd6eaf436f5514342947ce4",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Bronze Pickaxe.png",
+      "sha256": "5e9b82e945aa8cc18590baa6fc986f7c3206443cc5bb818a5106b216fda7370a",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Bronze Sword.png",
+      "sha256": "ed4b15ddb8a514ba571df5eb6cb4deebe768868a1a4d79f7411032b8489c4abe",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Diamond Axe.png",
+      "sha256": "3e4dc7cfda18013f189ec070d75daa7f4d786c8b9d575c0af7c6ad77076e67ae",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Diamond Pickaxe.png",
+      "sha256": "113394d31a109bfc88be21e78f244093025e2bd18aa923728c27d641f2ad27e4",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Diamond Sword.png",
+      "sha256": "4b1c4eea406b3b637b94c4dd88f7f662f89453f30b410bb8dae6a919556f61a4",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Female Sword.png",
+      "sha256": "6f6c17037bf4ee07c76e05e0286d5221a51a761b57021d611b22b27de465e741",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Flower.png",
+      "sha256": "59a7dd7b5357bbdafea9b501fc2cf2b513498b0ce5684c539ae1488d975d962e",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Golden Axe.png",
+      "sha256": "b503640ab161d357acb52b89ff25d441e4e1db125bc4e38da4cb2d8ee6eb3910",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Golden Pickaxe.png",
+      "sha256": "e0c8729215a5242517dcd8a17c98bc6be97bff2cf406b182ffcbdf96b448287a",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Golden Sword.png",
+      "sha256": "a1cb9d6a28e36df4f29171d2f02ef693d7055dabf94cb1e8d2419035f39e1a43",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Hoe F.png",
+      "sha256": "45aea916f6220177f12254fdb1cbdf1bdabc840a83ad11e3367e05aeaee79624",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Iron Axe.png",
+      "sha256": "da84633856f5775b164164e4c8396842216923f77d40ef757b45eeed0c7fbeee",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Iron Pickaxe.png",
+      "sha256": "3a1483b4c303486fcbb8a2add7ed81fb690d26c71eee2eeaa0e447bf8ad591f0",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Iron Sword.png",
+      "sha256": "6f6c17037bf4ee07c76e05e0286d5221a51a761b57021d611b22b27de465e741",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Stick.png",
+      "sha256": "aeda03d6e86cdd87800b0a088a5d289e73c0169d1395da5c7125ca350f570217",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Wooden Axe.png",
+      "sha256": "8ece1ded1fdd712579ca5fefd7bf8e5d921353f2aa825a1e87d02e87205cfee8",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Wooden Pickaxe.png",
+      "sha256": "344c78783d6b24a9f48871c18750652a22b01c63a38128d00cb37b19d9aa2b14",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hand/Wooden Sword.png",
+      "sha256": "f553a0f8be7f404d91a379cf506a4afcc4181fea85d8f79308dd244aeb611223",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hat/Bunny ears1.png",
+      "sha256": "ef6ae8c1732f2dfc4a9ef0f7c99155c71e2d46fefe64ffde9d130d73bfc29b06",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hat/Bunny ears2.png",
+      "sha256": "0b2066a82046454101128256f8a05940a1ea74d6ba328a09b54d476e44a8607c",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hat/Bunny ears3.png",
+      "sha256": "46d343df59c073e9ebce6e29fcc608578dda4b32ce351bc3f92175c80283d762",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hat/Bunny ears4.png",
+      "sha256": "133eb37eb0cce635c0d36bd48a496e194f29152ea36f7156e28bb4e5fcbb75ad",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hat/Bunny ears5.png",
+      "sha256": "65c0f93cc52a34cf8d125baa6baba4a687dfa30139a1d4f66c094ec1df560a81",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hat/Farming Hat F.png",
+      "sha256": "2d0a45ce6ae869061bf492d927b3cbaf75558dc50bd49f5cf27fa16a5e2b3c16",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hat/Female Blue cap.png",
+      "sha256": "eb757781137ccff37ae1ff36fae7f72ad780ea331ccb3f058d43249397cd03a9",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hat/Female Green cap.png",
+      "sha256": "a5fcf4868a538dab1bbc9b78f7bce0448dd045d0410ffacbe2fde3caf3f457a0",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hat/Female Hat1.png",
+      "sha256": "28c4894112c2c7a243813c1d35d3e1a2c3cbe9ae1e30f5d1a7d54e24c00bdb18",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hat/Female Hat2.png",
+      "sha256": "7c8fcad31055028c5e3a88da6f3fc9d734fcecc0b9341ad2a57a127632a42a4c",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hat/Female Hat3.png",
+      "sha256": "870ce452360728873122d8735248d7a778b0c5707c9ad454704b2fef63fe67f3",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hat/Female Hat4.png",
+      "sha256": "14e96bc7a19562ed714d7aa155f79e1281a4540bd32863907a253f5518d9e47f",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hat/Female Hat5.png",
+      "sha256": "80c49141f79f658329e4965c06e28c5c18ea981c6f97e629a94c9b103999d895",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hat/Female Mining Helmet.png",
+      "sha256": "4b71aa7817ecc0b13a9b45dfe7cb0f5ba2ce1735c22bc5fba96bf156098d9978",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hat/Female Orange cap.png",
+      "sha256": "9ae9b8b0806e7ed6f20c272a4f0b62b09c6594a24e868d71a5db1ec01478721e",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hat/Female Purple cap.png",
+      "sha256": "0943e660be1e30d5b6565bf97144cf449357b13f04f11379f8b25e8f51a2e7d4",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hat/Female Red cap.png",
+      "sha256": "a0b67f4938398db05b568c0ecf44cd8148c3ac692cc97a91878930ff024e769b",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hat/Female Santa hat.png",
+      "sha256": "52d43a1eba0d0c31eea4e7380e74ddc4ccb7822a9b4d1117cbc8f7ee8886d0e9",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Hat/Witch hat.png",
+      "sha256": "d23221927d3287da3e6b1b87f0474531e8b2a1b62515deb6d0b26a37f67dd319",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Mask/Female Blue Face paint.png",
+      "sha256": "560f5c9886df69ad199d0d92f3b4e31a48dd4e8599d5f349289cd14724ed7a35",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Mask/Female Mask.png",
+      "sha256": "d33dcdf26a61a9690a6292c8b093180074a70ddeabddd3a014f276c53bc07e63",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Mask/Female Plague Mask.png",
+      "sha256": "e83cd6af69ee537bcd2946f3659553ee322e89ba9e10106eed8c572c63ab5a9c",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Skin/Female Demon skin.png",
+      "sha256": "6e8dfd25ae4d6e8cf2a9d541c06fef28d1c7fb90bce43a006fa948ac1ee2b818",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Skin/Female Devil skin.png",
+      "sha256": "63f39c8f62772d848f24e661737ed6d99b0723bce7c990f7e80d17ec74ba3a75",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Skin/Female Ghost skin.png",
+      "sha256": "fed8deb5fe55ffa05299ac297008c70ca82e8fc7552297be613f12494d579988",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Skin/Female Orc skin.png",
+      "sha256": "a06e8ca58ed4940d6b8a203197ede47ad370087d4ae3663d6d11e061d826f1ff",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Skin/Female Skin1.png",
+      "sha256": "23bf2fbe62bbe7a4801f203c164afa0e2cea933a6111eb6db0a4854869d83df9",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Skin/Female Skin2.png",
+      "sha256": "b586498a861962c442b2c1334ddc56c7e2b5a3d847ce47b845988242ae007e79",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Skin/Female Skin3.png",
+      "sha256": "79e133201d43b34ae5126d39d3c72bbcce3d0a16890487b6a7bbec2d32ef7e04",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Skin/Female Skin4.png",
+      "sha256": "229ee8e5e4eda32963a839cace32b881de7309f1a906f456e9c74a3cd67c5e3e",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Skin/Female Skin5.png",
+      "sha256": "3e838448c656fb1ce66396d32425c6e90044c3a29240e1cd68cb9046429e54e6",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Female Base/Female Skin/Female Zombie skin.png",
+      "sha256": "e15493d879bf5a75c23e6b5b9b8cf93ddd56aaebdedda3eed268bf603e8ed83a",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-A1.png",
+      "sha256": "09824de8f0df7e15eee891028daf680e92c5fd50f92aecf2faac2f63fdc6a78a",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-A2.png",
+      "sha256": "aa182a17e7602408e00cdd4c1e3a387eb18c440731ae1369094b813ca6ee27c4",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-A3.png",
+      "sha256": "2afa6ec036ea88c273469ef8a478fe9f1585061491afbd1ce76123b0547a1f50",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-A4.png",
+      "sha256": "b044a965f3c58d61afd98c4b7a0135bf8518c020e97635b6143fd5da0d96a83f",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-A5.png",
+      "sha256": "9d1c35dd1543484cb67d1200f42ab042f54d3b486ef0c0da7c80b340b7a698f4",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-A6.png",
+      "sha256": "865679c2c98536de9b08e08de516bd19b1c8bfa0834f1abfc3a5ddbbac772a89",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-A7.png",
+      "sha256": "41f236634732cb58f9cc2efc7221af2a046a1429b027386db9fef7fde00aa09c",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-B1.png",
+      "sha256": "2d6b22d562389122cc65aebacc4555c01525deaebc153c20fbb4bb8f17708063",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-B2.png",
+      "sha256": "1913400bf1ba36b2f362e3fdd432cbae6e65a839fa76c56c43432fcc3265343b",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-B3.png",
+      "sha256": "91fba0a51de3af058fdff2b5af99548ee80fae5e991f5360158e8e82d4943b13",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-B4.png",
+      "sha256": "8356f45cbd38b2c653a140179c0071f063c64e0e6afbf439338b0d94a5d961ee",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-B5.png",
+      "sha256": "c482c287b2e2b5bce09eb100c45d16bf4f21dd14edb1c9681e5cae9780ba97e1",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-B6.png",
+      "sha256": "ab2c550a8255da35bbc455c6069e5595cd723ad0f6780d72158fd702c684668f",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-C1.png",
+      "sha256": "5ae90fa381879b848a98996aeebb3cca9183e7d1f7e1dcb22d8065cd2ca78740",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-C2.png",
+      "sha256": "cebba7bf61baa7b73841cbabf3c50e219a6a83a8323602e5b7df20cfdabeb3fd",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-C3.png",
+      "sha256": "7da12d7b6374b3cee84aca357e2e9596e234805d73fae3338c52b9865cc7f001",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-C4.png",
+      "sha256": "df7e900967ec093bfcdbff5837be9f1bbea4f17252b6e25b9d8c54c6fe6c0365",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-C5.png",
+      "sha256": "9a8bffb8a937ce2366e76b422d319c6631c8f7e496fc50692fddb327cee4db5b",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-C6.png",
+      "sha256": "0dc407e4e1d2f4aa31b8bfe209646034ee8b104538bfbafd12bf566fc16ce1ed",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-C7.png",
+      "sha256": "67444a78b0d8eaf4aaeb4ff22d4372bf157d42b47ef07099ef5ce89dd869bc9a",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-D1.png",
+      "sha256": "03c83c9ef33b96a5cc016eacea7f32363f1b6008cf4dc61bcc174d9decd268eb",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-D2.png",
+      "sha256": "74ac7fcf43fa94aa64208cf9a0e35ac69fd6fb7c7bb5472e4be355306fd5bb64",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-D3.png",
+      "sha256": "3835f893a0e689adbfbd2f47047302cc681ac281df627ea9b38b024f5592713b",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-D4.png",
+      "sha256": "47ae3810b4a42b6d153d86c3a7e974b1f2fb4404b1ac86c4185564018dd6d03f",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-D5.png",
+      "sha256": "8216a706cc49725b0d7acd36c5add28cada72d5a34cf474325071290eb777702",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-D6.png",
+      "sha256": "00532c5b57ed560c760f04943699a96d4a9acb6394b5c3a1452ad84a16334f43",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-D7.png",
+      "sha256": "8d99601e5b2d335f7dd523f996b98a58d8c485fdccb1fb95dd39dcaf798033cb",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-D8.png",
+      "sha256": "16f38f572472c1e3fe8e365baef16cddf769f6e0fcdbd86dbd8c419c4c26636c",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-D9.png",
+      "sha256": "ba9247cd0a6b54e2f14608bd03940ec2596abbb9f0d77254264e752a8b85ec00",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/jump-attack-1.png",
+      "sha256": "6483fac26a0e8be7544e7837a7085ef5e7963ee7008439e29d3ad33a4539ca08",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/jump-attack-2.png",
+      "sha256": "4b89fc9e028f68480bbb7d37095ca9f5b3a55bfa3287bd1c66dcce33f36e57d8",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/jump-attack-3.png",
+      "sha256": "dcab7c34d0ffb21774e34bdf11733ba7e5d3316fb56f149b5164fc0b0bc33ec1",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/jump-attack-4.png",
+      "sha256": "bd0c2012807af42089a3b72e7e4d81d0cb05b13959db0e92856c39dc7072cb7a",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/jump-attack-5.png",
+      "sha256": "b2e41d91dddd4d05b3c39588d2826866eef90527c19c777cfd90ea0670dbf0a1",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/kick-1.png",
+      "sha256": "9930b181ec8828faac8addfa8e68b70ed09b5893d7be7c12a0427b76a3a4436a",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/kick-2.png",
+      "sha256": "8697a4cd38f53529536e58f859c66c3ab968d51713e5663d38d39cf1bea03317",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/kick-3.png",
+      "sha256": "da8d939ad6923a7b9679553865555ce748206d6d821d522c41e18514890bedf7",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Attacks/kick-4.png",
+      "sha256": "801b74168e7afabfbbadace1e1ecaa169ab824572341a68695d3d9af032b2ad9",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Climb/climb-1.png",
+      "sha256": "9e06a5e2d7bc4e5b56a018885e896041bda44240c3fa110d0a87cc671215ac90",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Climb/climb-10.png",
+      "sha256": "861a9aab4e3b9b7cf02521be323585bea7aa7406813f3a0de5b2032bc3765edb",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Climb/climb-11.png",
+      "sha256": "1065f81011bed8801b3990ce7d3f63b2010d164248e2fcb0639f524f77f11d4b",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Climb/climb-12.png",
+      "sha256": "010d5168c586a90f66402a431a22749bd4b3432ceab96464cb7a69bbca1758ea",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Climb/climb-13.png",
+      "sha256": "3a53a4f2370cd4dcb2e1f21d8df9bd2b22874745d9b53d11cb518aac3d78450f",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Climb/climb-14.png",
+      "sha256": "14dc76d2e6542c1680a13be48ae46138f15f7edd66bb7a724d45fa47f6fa1fa6",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Climb/climb-15.png",
+      "sha256": "48a469262fe9eb88f38ab087dab22a4c4aee2c61862f7a707b2ecab8c3c626d6",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Climb/climb-16.png",
+      "sha256": "3da0c64260551339f8cfc846c52477305d1ec4e15a5977a15cfbad66ab811ef6",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Climb/climb-2.png",
+      "sha256": "7fd6250266f133b9a1aa2c7e7ffcab26883e9e94873f827b5a87fa2df2c60930",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Climb/climb-3.png",
+      "sha256": "34d83ac4c37fc594287b62a92bd0f33a963e8d26fd0508f20515b8f48d988c67",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Climb/climb-4.png",
+      "sha256": "23f6df9c0dd636b39aa9d4c7b9e393c3db2a030a0ea2b55b14741cc24770bd5b",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Climb/climb-5.png",
+      "sha256": "3ecede0827e78725b1a87fad9b32faebcadfdf07ad6c8a3c0b1226bae4198da5",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Climb/climb-6.png",
+      "sha256": "1330a8a634b355ba5930447a3cf12df8c80719c30028b21ca1273881f1b5c9bb",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Climb/climb-7.png",
+      "sha256": "f7fc6b9fd7c4fdaf8c6f5ebcdd1e8e2869ac81de63ea854ee72e85b3ac27b3b3",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Climb/climb-8.png",
+      "sha256": "063ebed309bcdf5679754cb48b1dc24a81ab962f028855c9ec846fa6ecb608be",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Climb/climb-9.png",
+      "sha256": "0518e4e24291cbcb334f0ff58c103346203630a2bb61c27b7f9338dfa879ee1c",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Dead/dead-1.png",
+      "sha256": "71dfaa5d73616b69f3170551e09ac9cfc2d7487cfbe19d38c307c0d667a58ea3",
+      "dimensions": [
+        128,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Dead/dead-2.png",
+      "sha256": "2d8a33e709b1279d7d8d5796fe4d159bf14d27a661154d4e7f2898b650f6cfe1",
+      "dimensions": [
+        128,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Dead/dead-3.png",
+      "sha256": "508600d2aaa1c9ce1c7f7679542982d770d6238e94b3dc03a02dcb1586943655",
+      "dimensions": [
+        128,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Dead/dead-4.png",
+      "sha256": "7748bae69575d6a772c814fd590d7c55234e6030e02677b1c38206ffa33d2b41",
+      "dimensions": [
+        128,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Dead/dead-5.png",
+      "sha256": "c59d97a6a38e0d7bc3a8664b6700f7e81ae7a9952bc15b0b792a2347bc6ff22e",
+      "dimensions": [
+        128,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Dead/dead-6.png",
+      "sha256": "ff15604ab9e29c060210d27697a2e845053232f0d011b235b963802192a6ec1f",
+      "dimensions": [
+        128,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Hit/hit-idle-A1.png",
+      "sha256": "2021c7beb89295f9253ba8007d19de4b362591b8292e8a9bb08857d6b1e2b43c",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Hit/hit-idle-A2.png",
+      "sha256": "fb8603b9e5b69b3c30561770eb315c655b63dfbde5ecb9f655f3a0879af6308d",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Hit/hit-idle-A3.png",
+      "sha256": "70906107d321d16fb2807ccda670e5654c094be86664a69b6d5491ceeacec351",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Hit/hit-idle-A4.png",
+      "sha256": "59013be6dd4a98f6929f6c8aa50d0fa61a9ae1ff5d76b966de57a17cbc1c5717",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Hit/hit-idle-B1.png",
+      "sha256": "b3349c3ce8bae071533e0c936dda9fc367b8a0d8cb9b18c9e035eaf40d6b5037",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Hit/hit-idle-B2.png",
+      "sha256": "8c1d8e3ee5e5c58957a8b1f2575472d1917a914f58c6383b14e897d13c9ac64e",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Hit/hit-idle-B3.png",
+      "sha256": "c8b9e3ad75a432902e551586fb80d5f28d952ec7e54a48d4f439b7067ae2f9e8",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Hit/hit-idle-B4.png",
+      "sha256": "3a33f489710b343446ff00ec994cbc8887d07f50cfdf627936dd508b802c5eac",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Hit/hit-with-weapon-A1.png",
+      "sha256": "c7481eff873a72af5ee0628b224be91b8926f26741831867f2ec93871998fa83",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Hit/hit-with-weapon-A2.png",
+      "sha256": "d2ddfc090e58650d700125532b51f91f90b9446c211d603a8f8eebc9cf3485c9",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Hit/hit-with-weapon-A3.png",
+      "sha256": "05e31f336311056b69bed8d36d35f51b89f05d06d3b1a087f6c037475e93e0e7",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Hit/hit-with-weapon-A4.png",
+      "sha256": "fe50980e9149db9e588503aa971428fffd9541700ce2f81f7587bdb7d442ea71",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Hit/hit-with-weapon-B1.png",
+      "sha256": "ed2556f24c20753bd04657f71d4c47bdf5b9b84681d6f8c40a0fac39e3c76120",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Hit/hit-with-weapon-B2.png",
+      "sha256": "8f711fc336fbf4a99f60efd8c9763a0db0fb8c5bfe9edd489f0af0fbe546b6dd",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Hit/hit-with-weapon-B3.png",
+      "sha256": "3c5c2ea6393308c0b8b49b5fa9f6eaba73fd92e72110e9c2aac03b864d273a20",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Hit/hit-with-weapon-B4.png",
+      "sha256": "b02cff6183face7d2a3021acc47f73b29316c448b240f4692a25830814551c4a",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Idle/idle-1.png",
+      "sha256": "8768ce611bc4fc5cf45eaab0283fb365c14b69f912f549e499b226bbc6a566a2",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Idle/idle-2.png",
+      "sha256": "9f0d1b23c426306836e2213412d895fa8fd141ad3869a72824b80bf5f698e54c",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Idle/idle-3.png",
+      "sha256": "c5f1fece61eab828b58f1ef62040c8a2a3522e1874ff12d1e55c1c7560f38b39",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Idle/idle-4.png",
+      "sha256": "a529b2566e29dfc61c0c30b2e69f40de721c710e804a149fab44890a59bfca00",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Idle/idle-5.png",
+      "sha256": "8b441e276168818471bf25f38d8c7d8e10705f61498afadc3caa128138beefd8",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Idle/idle-6.png",
+      "sha256": "0c9338b4fbe2b244e6f6aa4ab96595935f9070f788a0b5d959aff9492062e383",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Idle/idle-with-weapon-1.png",
+      "sha256": "7790b0d760cfae1d60d3716ee050e21e9ed0642f6e1e79d0d4ee503211433ffd",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Idle/idle-with-weapon-2.png",
+      "sha256": "9c836e33e2d4c82b88ab9c7e7c5a7e21cc01dde42f08115d3438939fe4a71862",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Idle/idle-with-weapon-3.png",
+      "sha256": "744a9ec20208db26f18a136d986397792eaea99c26bf67c5471a9e18b666c44d",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Idle/idle-with-weapon-4.png",
+      "sha256": "413b2525701dd0e7e6d4339ed9068bd55cb069b21ecbef46074c37a094185f91",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Idle/idle-with-weapon-5.png",
+      "sha256": "7cf31a4a1b35a712af972302e9e5d12c6f0c01b1c929c3641a6935ed10360d01",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Idle/idle-with-weapon-6.png",
+      "sha256": "d624945e995ccee840d1f9613ab77d10dff8431726b475fdddc8ebf9de69d2d1",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Jump/jump-1.png",
+      "sha256": "4423ba040b7cd52653b39af301cb282464b6e2fb6a6928f7e7b712712ff1166b",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Jump/jump-10.png",
+      "sha256": "873d095d7b31b22bbe6ab29d49837eb6dfefad1e361b86ca135341975dda7049",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Jump/jump-11.png",
+      "sha256": "6fa5854d6717b4c959b3a922f17bd284f6e00a4e34e4177e7b89f595d8c9c85e",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Jump/jump-12.png",
+      "sha256": "2baf718a284dcad390264bd4b9356658ffdc4a174f7d55468f20872460a6e1e1",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Jump/jump-13.png",
+      "sha256": "98fe21184a8e293469e7395d32ca9968df212c185c598fa64774bf804858c8c1",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Jump/jump-14.png",
+      "sha256": "a4562a57acc9d95f41dabbd31d0bf386a8a229317dadd0f867a8853af231282d",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Jump/jump-2.png",
+      "sha256": "226bef77f66049a14d8fcac52756df9ad01dc1bd10892c2a1cd1c0f13a58b8df",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Jump/jump-3.png",
+      "sha256": "93e35a4e904527839f7ef9dd87d6c7f4fc77e3306043a7a5349b7493fcee6153",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Jump/jump-4.png",
+      "sha256": "dcc2f7964e22d9e161ae64d2db101ed68e8b7ea429018f27f7402e42dee9bc29",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Jump/jump-5.png",
+      "sha256": "2d29733d97c119776de8bf274e7833cd94866d7f323a675822502476df3fd975",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Jump/jump-6.png",
+      "sha256": "191f8806cce3dd4816d8804b1ff7e81fe7c97cb8b906abc915f0cb1b51134a6b",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Jump/jump-7.png",
+      "sha256": "68526ceafb32263d70860f37b67461f2a8f680460428fb81ef2738452615da1a",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Jump/jump-8.png",
+      "sha256": "89c7392de1107398200bcd9d5e59b1f45470bcab23134e1f701b4535730f54e9",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Jump/jump-9.png",
+      "sha256": "56af652f728cae25e266ec2a4cf144c1b927425e8147d530a7105ea95c9d0387",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Roll/roll-1.png",
+      "sha256": "0642ab4e4cc20e4e54a79ab24bd96c37c1db080daed69e1d4269cffe1315c456",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Roll/roll-10.png",
+      "sha256": "c7d7036a19315f60a6420ae2bd1d87323dba32e8d541104303acd1266d7b2192",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Roll/roll-11.png",
+      "sha256": "3c8080488295a2216c0fc660680512ca1a5fce28c1f1a71b23262fb6b03f1c2f",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Roll/roll-12.png",
+      "sha256": "c69de994a05e6c7568264ceee49dbafdb622674b8f8aa1c943788d5fe0a98e34",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Roll/roll-13.png",
+      "sha256": "99568815267c57d72efa6ac2d1b59e49c929d1907d4ba9e28200ac5df2c90df9",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Roll/roll-14.png",
+      "sha256": "c6bd148c59858dcc41564d0b07fbcbe12fcbd0ae1dbe4322d55910a1ccd4e569",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Roll/roll-2.png",
+      "sha256": "e0ccaa2010ab0f0e4d66dbf81de537862d8c1933f911b9f80c4c77f4e3286d7e",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Roll/roll-3.png",
+      "sha256": "6ed4df2febe6d4508c40ad1933b5116ea4739119898d8585dd0c5a385b94370d",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Roll/roll-4.png",
+      "sha256": "e83a61e6a8e9123a15f1e42b4c7c902c4f59402125bd2e30855ab9fba5b82a10",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Roll/roll-5.png",
+      "sha256": "8f380cbd7716d8a109691ce18f2f032188047c43dcdb024b4e1558677b414a69",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Roll/roll-6.png",
+      "sha256": "f863efae696ce9a7bb8d5835657c69f8d26efad1acaf42c4c7b64a9d40410846",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Roll/roll-7.png",
+      "sha256": "a67a6c277eecead5caa7d59f4dc901103edd276bfe8c7437e07b001aee5bf3e8",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Roll/roll-8.png",
+      "sha256": "8da228a62efa2a4ad4ddba2381bef48505d9f6be1b1b7fad96ee862df1eb3e2a",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Roll/roll-9.png",
+      "sha256": "cc42f068d24b8db777a45730a076eb062c785130dadd364c9e7905afc383b2d3",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Run/run-1.png",
+      "sha256": "179898497311a82a7ab7cca7f875314eb4675aaec53bdae46dbe3d57f7381103",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Run/run-10.png",
+      "sha256": "24315a653a0043d4080b5537a435726a0aa12ab66239ff8a4c99148092f7a37c",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Run/run-11.png",
+      "sha256": "d5ac5d406b33734c4a7b7eb605ccb727d4f40664bf426f75b8fec4455339d6aa",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Run/run-12.png",
+      "sha256": "3492f933de38326cd90a25b0a66961d9248a3e1a03495818d0eb3d3e9f0a2461",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Run/run-2.png",
+      "sha256": "0ebf7941b29320224a27bf4531f0994833c0a44c9b15db27997235152230a596",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Run/run-3.png",
+      "sha256": "62d2dfd8c19ab5c00be7f614dbe5c7ac5b755445fa882f4e00d9fca6d0e536f6",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Run/run-4.png",
+      "sha256": "2e693ff56327e1c768eb206996f059614e7a0acb72c4c9759b823e319b09bd8c",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Run/run-5.png",
+      "sha256": "701d13e8cebe9f0811a64d07e0837a67c3e6265b8048b7cc793e218906722b89",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Run/run-6.png",
+      "sha256": "7a1c12e5aef62a50d6ac40099c22e000407ebc9beeaf688890b4a4092e8cfbd8",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Run/run-7.png",
+      "sha256": "54bb5a5e23d94102f300cfda59b4e26083827714ac55e3dcd4a7a9f951d1274e",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Run/run-8.png",
+      "sha256": "4806eca16904649a7903d8e6312ed508b5c149e961be8e94944e2becafe6d3f2",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Run/run-9.png",
+      "sha256": "fe1229532d2d44942c22898159c39424ef157a587af3c0fc392fdeba7dce5afc",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Shield Block/shield-block-activ-1.png",
+      "sha256": "3e512e6648ccc5b73ab67a2c68a89bd771d7e7edeaad470aac3e192d15a4e641",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Shield Block/shield-block-activ-2.png",
+      "sha256": "febcff781faa0200d779b1926bf45a0aacbae97822fa95bb2f1365e36cae2b7a",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Shield Block/shield-block-center-1.png",
+      "sha256": "627768eab663ef72bf83c2e3af4725436f3ba843902f4ad29963e99a57238215",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Shield Block/shield-block-center-2.png",
+      "sha256": "a7c551c295c3c90cd9acff700033eccc1ef33ec6906d39d8d17dacaf01bee175",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Shield Block/shield-block-up-1.png",
+      "sha256": "63da13b5262f4372a4ab9eb9f14ed4b75c58aa7aa57b4cb7b68245c6c56e5b32",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/Shield Block/shield-block-up-2.png",
+      "sha256": "16625abdd4e52283a267a5f98c99d2a3c3e8c5d06cd5098ebcca1e44526a9680",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-1.png",
+      "sha256": "8a15a050231dce882db4c3b031ef8a11fafe4150726d447fa458b001d565ce57",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-10.png",
+      "sha256": "6ff13e78378a42958d28129307af1a7356521a786c1eb313516a6a70a7819f33",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-11.png",
+      "sha256": "1174a8ac96ba52ede008fcae91cbfa574ae1e0734b4c0145a85d5365bd8b2095",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-2.png",
+      "sha256": "978d7317b80eb82ac504e44d633fb9779b2f91c7481d4066e970d7cfd896247c",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-3.png",
+      "sha256": "9eed44d531dbc7bf20bd6b7a4523ef9bd0651dbbac0822dedcb0c714f47b9198",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-4.png",
+      "sha256": "a644c75efa6c134794ead1f711acac385629836b4ee2ddfae7c435fc0cf8add1",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-5.png",
+      "sha256": "0fd81fd3cafa3bedf69528b74046800d6ccd180db79bbaa875bc08e0ae4c28ba",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-6.png",
+      "sha256": "e08ad59ae02d69128ea936bf3d10573a0148ea35d6240a3e1d418e57602d0c18",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-7.png",
+      "sha256": "dee40da170929886a487af91ac10761fe283bfa6ea210350c691c82d1bff180b",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-8.png",
+      "sha256": "15d35ebb47e7163d60af89c8aeff273d12041d024c041b9c181e062715451b54",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-9.png",
+      "sha256": "e09adc76e546cdc8def368fbde3ab40983bfd124d2b0c4f0d13fc305a40c0c4f",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/attacks.psd",
+      "sha256": "03c31e56bf26c186d418767d9697a5f0428ddd894b501cf3c72ec188f252ab85",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/climb.psd",
+      "sha256": "9a3dcc5cf5363e042e65bb9ba41fbb83246faf54d1035a44e4f9269e2f36b9e4",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/dead.psd",
+      "sha256": "67c9514241b8b5698f2ae94b7ce3cfa961e4b5f1a6b1b747fe747c51fe509ecd",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/hit idle.psd",
+      "sha256": "5d4c4a2aca2942d4884c2d793a7f2fe52226ad10fea7410706768166157b57e0",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/hit with weapon.psd",
+      "sha256": "4b37c85d578385c0ddb4c478114917ed32bb16c46145ac2432108a42da32e8e3",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/idle with weapon.psd",
+      "sha256": "7bb2c6620dbdea14100e0b9c8f027a82a2b3050538bc03685e402b1b6a16cb23",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/idle.psd",
+      "sha256": "0198fb6828c31377c73f57f0f80982abb68eceaeeab36742f30c865cf2714f9e",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/jump, roll.psd",
+      "sha256": "d03d12299dfa55af9ede1fd119447e04c710042d89df53c948b4984cb0768d32",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/run.psd",
+      "sha256": "02f625aa18fc35111286bfa8e8eba32c0e65f372e6544e2a1001c1ce8aaf431d",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/shield block.psd",
+      "sha256": "0ffcded9f20152446ee81c2b66bdd58123bd8f69b528844f4320bad21d3fe3d8",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Inquisitor/walk with weapon.psd",
+      "sha256": "d35764e62f56152fcb24627fa082abacd28c68e31f0e10512e9ef4fdb0f75e02",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-A1.png",
+      "sha256": "fdb376fd2177215c1a67cccdd3dc30a8ced7a0a4b5fe1f95bed62a2bbc7f7602",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-A2.png",
+      "sha256": "4add43f25c857bbe0767bcd6b3658f5bd9a10064bea07d9a0f72cebb09865a74",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-A3.png",
+      "sha256": "6d89249c7975f2c2ecee5bdfeb45d2ec616f4683861e4f9a3ea9b4002ce191d7",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-A4.png",
+      "sha256": "20712e44f50c97a35ed1ee1631804132f0e2e2ac01b80780f8d10be3ec360ceb",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-A5.png",
+      "sha256": "7eb51f0ae2a2df8dfa5c76ac7b05a8f72255eedab9e12971d4b6c6449193197c",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-A6.png",
+      "sha256": "1a921266dafd454b31cc616b06700f7dcd505daf68bbf1aa91489848d003ff61",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-B1.png",
+      "sha256": "a2f9b6a5dca26d928087dc74dcf5537a4513b594c0171ccd763f227e526cdac0",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-B10.png",
+      "sha256": "746c8655857ce852be333d42747bac6a35b7e1d91b9ddf6d425e0611c22933bf",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-B2.png",
+      "sha256": "75f55e4c6844e51a5ee7d01377ba7ca662be9e249bf558019192f3ae0fac3a13",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-B3.png",
+      "sha256": "71e37504dd71fa5966fa0efa206dc42612d8d842da3cd0fd7f1d23ec16b50637",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-B4.png",
+      "sha256": "1b3e5ef73262ac069356d0a32ea8929f2378c6601ca06f42b460c7519fdc63dc",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-B5.png",
+      "sha256": "e21853946da683cd1d793347e2788735da4e697d401ffbd1e3576f9b32576de9",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-B6.png",
+      "sha256": "c44fcfbc197981ade7dde3e95d83cf48336349ad01d0494228b0f54c7d6d2a10",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-B7.png",
+      "sha256": "ed1d84c61ae735fd4805fd130eeaebf47895aebf5032a4bcd92a508bd43b2624",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-B8.png",
+      "sha256": "5b5811175ff13ff93c7758ffd2a77253402bfe44b043474693e5eaf2f3c45fc6",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-B9.png",
+      "sha256": "b2545c924a91455238576906ded684c40fa3fc46600c2689e4fd07cff76111f7",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/dead-1.png",
+      "sha256": "1fe9b5e9ec56c742f1999eea8e8981c11b35349b1226db39b6841eedbddd78e7",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/dead-2.png",
+      "sha256": "497eb2a7e9feb2fcd3f68e265198c3f04837420ac390a7d672073da9ea05bdb0",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/dead-3.png",
+      "sha256": "257bd020404cd09da3c090c635de2b3c5310fdeee28d32968abd0d181c1fb36f",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/dead-4.png",
+      "sha256": "2b135866b30b57bbc883f6ba6c8b221b67a29472c31df668c90f10a401a0f7a4",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/hit-1.png",
+      "sha256": "ddf05fba084d30491f70ccb5f90a031b2bc571dd95ad0c36167fa45fd7c6ca2b",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/hit-2.png",
+      "sha256": "cd27794ef1179750c2ba9960b27ab1fceb8cc6bbfe9e17ea69da32e7432e5e31",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/hit-3.png",
+      "sha256": "f3fccaea4346c5e4e8052bc5e531be59365389efd49444b371858bd8cfc297ae",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/idle-1.png",
+      "sha256": "197ef054aa848b6434c4c405b481490364185e725142c7f5e85ebc5b48b40324",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/idle-2.png",
+      "sha256": "ef0eecefd1f84bcdac24ddf35afe2c25a49dfaab004ed58ca474bd6c91378c98",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/jump-1.png",
+      "sha256": "7bc9405b93b5797dac3d149108cdd704a2320b8dd0332bb0a6bbb6efd956f5a3",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/jump-2.png",
+      "sha256": "d4a4c8eb2ac7d5b1337996878bf25fd3c39ca03eb3643cb9fddabbc50368ec9f",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/jump-3.png",
+      "sha256": "7d386e16ba142bfaa3af96f3386b9b40e3bbd1b12e5e873ad5b361065a6b73b7",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/jump-4.png",
+      "sha256": "8b3176d7d05492df0a36ced34d96a06d419f0fe753be7cf0c04742a85197a257",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/jump-5.png",
+      "sha256": "c4c089e051b8fbf37ab02a5af7982907da217f8a90c274baf3b4591d8fb24d81",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/walk-1.png",
+      "sha256": "683d02972c331c4746924abaf08727fd7b8e187c573fd9e185f2dc3c9df622af",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/walk-2.png",
+      "sha256": "993d35333782b042e3eb48f554a8431930ab34e23f4c0af9183b1517ee16712e",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/walk-3.png",
+      "sha256": "8e63751720e094cca2a4e3b2da2c38a2cdcd6e834bf25e19cec9d839c29d9177",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/walk-4.png",
+      "sha256": "455325a447b30f3ef739e1c260da3d3d7ca506e099fd3858c1dfb9f774e61d1d",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/walk-5.png",
+      "sha256": "6ff415109b6f66d55dd8753b9b4e5a2f052cc04884bade7991fb4ca644c544ac",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/PNG/walk-6.png",
+      "sha256": "707d61f68f4919601a42899ff1f623ea506dcc7a437db52846c1464d772370bd",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/attack, idle, walk.psd",
+      "sha256": "51831a80080894f696f77852b072d42355718ca7d5770779bbc086d8056a90d3",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/dead.psd",
+      "sha256": "fb64125f222717715ebf9bd68a9c8d9281220e0acfd5511917a8b7f426ff0096",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/hit.psd",
+      "sha256": "74a4afa966303c062cc6eda913211d9f94ecd2fa943d2d818da95f7a5a216a0f",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Lancer Skeleton/jump.psd",
+      "sha256": "89522e5dcaa4c42643c75147f52b9a42f29a221bc731cdc8064a018e582ff118",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Arm Layers/Glove blue.png",
+      "sha256": "f0d02636398a10da5c7bee1c24751bebaa91cbfb2aacf711c7a0c05dc7684e78",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Arm Layers/Glove green.png",
+      "sha256": "9d6205c60a46677b7154d22e1fc278b164e8c041114686402ab250fd820aa987",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Arm Layers/Glove orange.png",
+      "sha256": "9896d95cdf8bdc7f73e3498f2bfedb401aca1de88315d2fd5a629492b81f0f98",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Arm Layers/Glove purple.png",
+      "sha256": "e566e4b589fe41cf6e171e232f106ed4c44b7e22e9a26b064496277676ac3835",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Arm Layers/Glove red.png",
+      "sha256": "ec075d732f6cf77d1d11024854637d52176ca98be571c7709e966cb6754cabe4",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Arm Layers/Glove white.png",
+      "sha256": "177911211b1e2e64c0a9d5337689db5e5b06e58a4349b655a1664b0eec1cf015",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Arm Layers/Gloves.png",
+      "sha256": "6549915130ad896fdd345e1e787b4cf78ffbe269485fb35ed5b0926edc5ca981",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Blue Pants.png",
+      "sha256": "8ee4d1d561ebdeb8ad526281aa2e3a3c68dedaf6dfe0da2921589d81b7e2c142",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Blue Shirt v2.png",
+      "sha256": "33f76d5096c3d0ea627f45d411b5867463c1b57ebe42ed462eb5b4194f227f8e",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Blue swim trunks.png",
+      "sha256": "f2da15af43a6108987c0ebe376ada340b1512459b4a99950983a83def66f68cc",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Boots.png",
+      "sha256": "12d6051b8fd339e29d06b4f298675a292e91b0adfffdafa613c189533feab046",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Chainmail.png",
+      "sha256": "f5d0fe4b419203222e80e20d2d779b72ce196b9c9c5a42af075950d0d8ac4c5b",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Green Pants.png",
+      "sha256": "6e3ca8f23da858705e378661379d78d7c330f42abfd45072a35eab0d23fa390f",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Green Shirt v2.png",
+      "sha256": "c00a364bd12321e796316adab1a8c50436848b7afa56c99c25bea9e947c9ac0d",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Green Underwear.png",
+      "sha256": "c67a82fd5b886a619d9a8ee5c7e48915e8ed95065223a6b3be70ecf84dd0dea6",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Green swim trunks.png",
+      "sha256": "a4929e122e2858537b4dfcb777ff4443c7d6f0f1b295a3e87e3ebe1e11f971e0",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Orange Pants.png",
+      "sha256": "685bcb271e5635054938df66807c301243e28e004b8e981214717cd95694697c",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Orange Underwear.png",
+      "sha256": "202ca07ab055978e8211edeb16b96d0db8ac2e444e20577f2b5a82b2cfe0a9c8",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Orange swim trunks.png",
+      "sha256": "775ca9958ca19cb8f4e6cd996b023ecc9cfacda63799ea81e19b28538024c545",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Pants.png",
+      "sha256": "de047029130b36db4232f6c96da464b2856adf23f6481556de2da6b2daf9c2fc",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Purple Pants.png",
+      "sha256": "891e17300ad12ce15b8e53ce03a44bf6c7f5eeb8eb371b6af05ef95ae6ccb174",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Purple Shirt v2.png",
+      "sha256": "ed12e7275d63e52bfbaa68fb3af3170c1105d106d384df4fc0ed1c922f1c68f7",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Purple Underwear.png",
+      "sha256": "1903c140bcde0519599024dfeb006147e734ff2d88503f5e0415cc8e1fb7fcbc",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Purple swim trunks.png",
+      "sha256": "c677ea525a53eb551e99283879ae8f0944af527c5fd2aa76c1d7a78dbd98ec36",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Red Underwear.png",
+      "sha256": "3fa4dd5c16e5d39d3f1861969f8d7e2bd93a7e07112fc3324c4ca2a7518f981f",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Red swim trunks.png",
+      "sha256": "8315a7e6fc9440fd185c4e1eab53ba8f81b0ba2bba6b689e4e53456dc5105f69",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Shirt v2.png",
+      "sha256": "20aa695fedbbeb5959c10680468ec5833ca340a8a235e32a9da14bd781623d03",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Shirt.png",
+      "sha256": "25b6d66dd638f0abb13d328687b5132de0640e1f440520029f128537f1c821f6",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Shoes.png",
+      "sha256": "d35fce8394a1fa2e7a39b7fab16c68f53940affdfa7f77de0c32b3b6c406e65d",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Skyblue Underwear.png",
+      "sha256": "0bf285b5ebb1779644c21a0f5976fb9772c8fbe450e7f81f00df16fa429e6abb",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Split hose.png",
+      "sha256": "d27f9702f05d266155ffbe479d875a5d3239e1c29f6f9c265a93ec0c97f9d57c",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/Underwear.png",
+      "sha256": "d39ad355cdeceb125abecf2cdaf794f35dfa09e9595b4c20b00895b826fee6ea",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Clothing/orange Shirt v2.png",
+      "sha256": "20aa695fedbbeb5959c10680468ec5833ca340a8a235e32a9da14bd781623d03",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Ears/Elven Ears1.png",
+      "sha256": "0708abd8316d60de2f636f01b6aea0993587d00ac8ece63ecafd0a54026c374c",
+      "dimensions": [
+        720,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Ears/Elven Ears2.png",
+      "sha256": "268b0c37cfede5f04dba93c814aa14493b6fad99a2b09d339855d7f1a916b540",
+      "dimensions": [
+        720,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Ears/Elven Ears3.png",
+      "sha256": "4bed8088080a1a311258b5ad9e6fedee43df8ea2cb6f1843c829b5ee480ae5c0",
+      "dimensions": [
+        720,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Ears/Elven Ears4.png",
+      "sha256": "d0fadce0f298b945a4480b060d279b5ccb7c1ae8800eba296e8902c1945d302c",
+      "dimensions": [
+        720,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Ears/Elven Ears5.png",
+      "sha256": "ae375b3b776b4cec0fe411e1ba2cd7869a9b5f00d5633cb784c04f2dfe41b55a",
+      "dimensions": [
+        720,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Fancy Hair.png",
+      "sha256": "3d96ed3bbd2a5039a4537c1489d91113de35864ca59157b43cedbcfddba87b55",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair1.png",
+      "sha256": "a760b4ae826a3a8483f61c1f63a35aad7f8c57748de80c1791d6bff1f4bd09d3",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair10.png",
+      "sha256": "cd318c8258fac76fc75ae7accc67e47569ff0b379baad821717e0c57591b66b3",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair11.png",
+      "sha256": "14de2632f042dd7e02c4539ad518f125ec5a7bc399806a67f80fcb061232af0b",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair12.png",
+      "sha256": "94fc8b8dc3660781e930b87d804050f92b4cfa9a3cfcd26323711d7ea3c45745",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair13.png",
+      "sha256": "fc5be8c9492eea3f05e053338190b81c131955a73c38fd4accd05483d2080038",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair14.png",
+      "sha256": "9b3e6c4c4badc80ad84bb0087622a8a0eeffc206efcd69d9e5f86372169302b2",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair15.png",
+      "sha256": "14de2632f042dd7e02c4539ad518f125ec5a7bc399806a67f80fcb061232af0b",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair16.png",
+      "sha256": "c53fc8a25034e5cc6540fceb9763e66bf579e4c22aeaadbc265c79c599640948",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair17.png",
+      "sha256": "21a6c12f2625deda45a3ecc7f6dfb11c77b460ba7028b071a058ca689fa45434",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair18.png",
+      "sha256": "0d449c82b7ba182def8ac70d09ffd5dc17aedf9167b11ef1252bbe3fb999919a",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair19.png",
+      "sha256": "fdd49007cd1b2973046c3b997c615c89b3b2adddcb4e4aba78bde27b828200c9",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair2.png",
+      "sha256": "80ab96b357538fd513050b26d15e166b742c5233ba3cd6cba499f652b1ad70e3",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair20.png",
+      "sha256": "994ef100ea9dd259b024e228add8ee98915452e9db6b15afbc1872f29c1ddf59",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair21.png",
+      "sha256": "87d8862ae7910d91b420fb494a45834c286a64c94e2df3f436d3e895f045153b",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair22.png",
+      "sha256": "0135ede7a971489ed43c2eb53fdc9e8f593f4d9531c747ee22c0646a75127198",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair23.png",
+      "sha256": "6e04cfb3d5f4b0456fb99f92fe986b1de528db793df67470bc2a986476047bdf",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair24.png",
+      "sha256": "a65c20de0afe1880938ad6de4ef62d7a53f99b3e257048f05404a6d2c549b73a",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair25.png",
+      "sha256": "87d8862ae7910d91b420fb494a45834c286a64c94e2df3f436d3e895f045153b",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair26.png",
+      "sha256": "1776c2b76cce9ab7e74b13b19eeadfb6d17485aa1c5d1f80bf276d6a399604f1",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair27.png",
+      "sha256": "68d968d310a362de8ec12041203c888481e687f2a4f983af871fda923cde6915",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair28.png",
+      "sha256": "62d9b86eeab0b522cc228acee0878fa020a44076b1adef5b2e59689685fd78fe",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair29.png",
+      "sha256": "2c89660f93218dbe21f1462faf34eb5d9fca20e1feb3a33fcbf584e550c2f78b",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair3.png",
+      "sha256": "3d11de54e3eaa82b78656c991d8e620df6e71384f89a64927aa12f438ebfa5a4",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair30.png",
+      "sha256": "f67799299c32b11108d3b3d9acdb9854b5d98888464c3f12447505718afe90dd",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair4.png",
+      "sha256": "06a54760658ce0baf68577c37f7ea7ab4bce587ab0d8b8d4af485f8f94558a70",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair5.png",
+      "sha256": "9fdb2ca2e16cd34447f96a5145d641ad63baff375cbf6c053a30e26bd7fae076",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair6.png",
+      "sha256": "939c5c73f4b888ed5261c7d55b461031caf9b274c7308c78b072662724612ff8",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair7.png",
+      "sha256": "97840fb9d1e8ab3e6cea39058775801279f148196f3a5f61f8bcf1c6e9a61848",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair8.png",
+      "sha256": "7973c7be0f16c2288d08428c90284c75632568830ab002c576b3fa6c84a1b0ec",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Male Hair9.png",
+      "sha256": "bf38f6809a06a3705515c161e805189b3afd3a64c46850569da5e4637ca86606",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Queen hair.png",
+      "sha256": "41432d24d59cb9f7cf652d9ff8c94b74cb36b7147e8594c250e084e0922d7aab",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hair/Shield Maiden hair.png",
+      "sha256": "658e59487668e9cf2bcc0b6373d4b632ce1437b28d9d6715cbe9058960ea72c2",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hand/Bronze Axe.png",
+      "sha256": "ca4979032c65a97e2965dc97a193c93b4acc39c3a4d7bb5dfcd51f6c8dfe299d",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hand/Bronze Pickaxe.png",
+      "sha256": "6557a3268b6f02b9d13c924589350efba29f5d1a0a9f3eb2b5844cd107e8a6e3",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hand/Bronze Sword.png",
+      "sha256": "0ecdb98499748d328fec540929e73e3c00d6a1df9390243d63a0ccf300b48eb0",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hand/Diamond Axe.png",
+      "sha256": "60703ec8135c9679716f78420cb3fe78425b2ba1f14a9f4ce1968bb9db884823",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hand/Diamond Pickaxe.png",
+      "sha256": "9cbd258e4737355ce639206ad442fc0a38e7224b9d09216f02511e9fe42307c6",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hand/Diamond Sword.png",
+      "sha256": "188b79e15c51d0957f13cf6942bc24090049570137d940bd4124c5b0f27f75c6",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hand/Golden Axe.png",
+      "sha256": "ce704685d919ed43c1a0d1f64833702af7f9417f81be727ab251231b343628a0",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hand/Golden Pickaxe.png",
+      "sha256": "75ae3a0dc33ec42010e50b41d38fd5f6caadba9ca8f05ddd50815b34f33b030a",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hand/Golden Sword.png",
+      "sha256": "c25b5b5be0c8a66e74939f3ba78cb571c41470dca749d97badafe2b54a76b2c6",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hand/Hoe M.png",
+      "sha256": "2a1489c63d5d2a195a0465844ff215a4f248a95739bd49e873a7afd1ed116c19",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hand/Iron Axe.png",
+      "sha256": "89c1948b9f722c802db98ee58f93af851b90c4a55eb88d0c8a1715361f61a5ca",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hand/Iron Pickaxe.png",
+      "sha256": "ccdae095470716f97ca05999a411f489ff098d6dea8bff6716a8e9893b2ec33b",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hand/Iron Sword.png",
+      "sha256": "a7c0795e77ad571ddfc22a3faae9e057103af345a5d48b1ed09692ef565d2321",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hand/Male Sword.png",
+      "sha256": "a7c0795e77ad571ddfc22a3faae9e057103af345a5d48b1ed09692ef565d2321",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hand/Stick.png",
+      "sha256": "a284328dfb9b605638ddd4d7dddbb339dc475eefda876780d214a71e45f1d8d0",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hand/Wooden Axe.png",
+      "sha256": "b5b07e6bd48a7160c00f69c918fc674364c510d7f8ec1305ffd9b28e2daa57b7",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hand/Wooden Pickaxe.png",
+      "sha256": "95c576666c836463a0620928fb3f4a17022081cae1df2638514ab6e7d3e4e5f1",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hand/Wooden Sword.png",
+      "sha256": "3d8fff16a917237feb7e0190040795f106664f795f10d315a4033070e6c45b91",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Farming Hat M.png",
+      "sha256": "ff424c7d4a782c424b6da6dce75d1a5450d4626ce316d611c81612e3994d6854",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Guard Helmet.png",
+      "sha256": "6c6bcce83939c86a53d2ad87ee9545e4c06f0d0983afb871f7d03f8930ec6cc8",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Male Blue cap.png",
+      "sha256": "4fed93e4b0ae46b09f85cb1cd58971f359a27829abfb86f7afd2caeaa8a6bdec",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Male Green cap.png",
+      "sha256": "352044a075840477c2b69e1a1bdbf0d97acc2c1ed6874f0268fe2f43b8d977df",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Male Hat1.png",
+      "sha256": "c3f30d04886064c1de8ffdcd1e24effb40bc922fd581791ad594b235365a2338",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Male Hat10.png",
+      "sha256": "cc7f2e265e453418110399a109e81f379bd0f87b9808fa7426fb201e4e85cd9a",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Male Hat2.png",
+      "sha256": "98103a930c76300c70cc3ac750345558aca15c3bdb22f3d4b0b4bc30da5f7c86",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Male Hat3.png",
+      "sha256": "3c5370e8524db95b3c19ac6760141b4df3edb0f5093bff9b7b0af6466a909e43",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Male Hat4.png",
+      "sha256": "a0034f639d895829e140cb64f81b493dc036cb1eb428be06786c5efcc3e5ebe0",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Male Hat5.png",
+      "sha256": "ea0722e1e8a4f560d8d1239e8f08c3781cb56bdf4012f93cfbadb7d05363894b",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Male Hat6.png",
+      "sha256": "ea34da1bc5bf90d30e8b4723d9f309d92724d05692798d65197701add1e7da3a",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Male Hat7.png",
+      "sha256": "7425cae4e5ab3295f8ce8c743e1c1309cfe71d225a316a5aa577c00b0a4c1790",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Male Hat8.png",
+      "sha256": "379e04423154efbad5116924f946ba9203fa2db6634b55da39c3ebd9d49875e2",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Male Hat9.png",
+      "sha256": "c439258dbfc1e654a6435c5be1b293b81107f976e65365f456a7ddebf9388548",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Male Mining Helmet.png",
+      "sha256": "a528db34522dedc2a684059fbc6e55e02d2b30b4a9aa67ee15028faae9ee5e39",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Male Orange cap.png",
+      "sha256": "b54ca12a63d9e9061290a8d5d4b49d5c44dca07397c56ae718fee3118eea5f27",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Male Purple cap.png",
+      "sha256": "7ab0ef218c1d2b02a13213c0399ec5ec527684aa77b1503b3e910ad4b112cc75",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Male Red cap.png",
+      "sha256": "b470172ccb27a652ba2c967b2d44dd5e0bc228ac4c22b2c5774645e3e2bf7840",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Male Santa hat.png",
+      "sha256": "cae53645fe095f77d97b8ecebac6c8feda1cbe14ecc92fc5de4509b2e4799838",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Pumpkin hat.png",
+      "sha256": "cb37cd4643e51adc3a02123a6872bef0ccdaa1e7f0f63dd2f25b190ebc570c97",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Viking Helmet with horns.png",
+      "sha256": "cde8f3e8f463321a7116d93bed0340a3cda1d85bee826714b27024554cd6b28a",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Hat/Viking Helmet.png",
+      "sha256": "1b98647687c40d20eff808a7af8b88a36bcfee07bd05f6a7a738ea911ef5a4d6",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Mask/Male Bandit Scarf.png",
+      "sha256": "f8e48064995f512bd7bb7cddbd049f26ff0f51c20c32cc63d1ef02258cab8d50",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Mask/Male Mask.png",
+      "sha256": "02156553d00b0427f2793e7ec4429eb259ea8601e82d461890265d4d4f1e0575",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Mask/Male Plague Mask.png",
+      "sha256": "0b05d72fc5405aae32cd6472744a9ebbf3fe2727fae5978a7b6c74637beae225",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Skin/Male Demon skin.png",
+      "sha256": "b692f7d7836df04838fecb75f82a7eb0b2feefd9fe16cdfcfd6dbc2ccce7e289",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Skin/Male Devil skin.png",
+      "sha256": "7442cf7d27c439a9529aafdaed731a962534a558228d67b75e7d572d7fbdce2e",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Skin/Male Ghost skin.png",
+      "sha256": "8aad60f4cc6d5169b32fecd86e631c317489e52f345b85b152237d026151578b",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Skin/Male Orc skin.png",
+      "sha256": "d75ccccb9d5e16e7ad6a7a823251ffa1827956635a573036c185e1be3badfb30",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Skin/Male Skin1.png",
+      "sha256": "5a3c9a2cf0fd18a679f8ab3118122b928a797f7ba06865bc836b4dbf6a0365d4",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Skin/Male Skin2.png",
+      "sha256": "e9943c5bde8e5e92f9dc529af0cadebfb669654fd24e124ace901c50141d7ee3",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Skin/Male Skin3.png",
+      "sha256": "73eeeddb21cb3c1b0d2cd051a3dec490a5923870a51ef8df3fc0df5be6835307",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Skin/Male Skin4.png",
+      "sha256": "94c6ffec07d392e9ab82e4a6a491730a1ba7193ccaa2668c12dfce42753f13bd",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Skin/Male Skin5.png",
+      "sha256": "9b19ead91b569124a3cfb46c485431d1c85ecd1066a31026bb9cd2539e2854f1",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Male Base/Male Skin/Male Zombie skin.png",
+      "sha256": "5d04a03324a9ccf812145510ee5f80355630ebadd19357a8e6e55f09b21a889c",
+      "dimensions": [
+        800,
+        448
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Mushroom/Mushroom-Attack.png",
+      "sha256": "dfd74c6e28cca1af2a4d5fe4135313dcfe15b3d855fd7dde59b44d790c858554",
+      "dimensions": [
+        800,
+        64
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Mushroom/Mushroom-AttackWithStun.png",
+      "sha256": "6cae2c24487b8bafb29555f61a99e5cc0d100f1a5f168988cc5fd296f1f13070",
+      "dimensions": [
+        1920,
+        64
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Mushroom/Mushroom-Die.png",
+      "sha256": "e6e0bbfcc843c3dcda80f97c6c04efda59672c67756530ff524d38085dab9be0",
+      "dimensions": [
+        1200,
+        64
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Mushroom/Mushroom-Hit.png",
+      "sha256": "1733694cc5b8c5195cb19f51d74c1e7cc20984aae3e16ea38149f2d75df53454",
+      "dimensions": [
+        400,
+        64
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Mushroom/Mushroom-Idle.png",
+      "sha256": "29e56ba3fe25b64ed0c6d003ffef5f014a3ad61c40e5f475b576b8504df61779",
+      "dimensions": [
+        560,
+        64
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Mushroom/Mushroom-Run.png",
+      "sha256": "2119c0893e631da53f61ea8575fb346d7dbc5f173bb9136f9990c6e9893c56ad",
+      "dimensions": [
+        640,
+        64
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Mushroom/Mushroom-Stun.png",
+      "sha256": "ac548c107bae1efa4308506fb511073e5941682ab419108a52da0b3aae46db35",
+      "dimensions": [
+        1440,
+        64
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Owlet Monster/Double_Jump_Dust_5.png",
+      "sha256": "4721003278ef1c21a6206708f99cbb7af4c134f23b5040a41b28e9edcacf83a1",
+      "dimensions": [
+        160,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Owlet Monster/Owlet_Monster.png",
+      "sha256": "4d139589251b004201af6d88ff829c67014211a982902e5f8a3a745dde9e176d",
+      "dimensions": [
+        32,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Owlet Monster/Owlet_Monster_Attack1_4.png",
+      "sha256": "0f64d4c0da983eb73b4008a76928d39788e44552dde2bcb75357dcfacfa2fb6f",
+      "dimensions": [
+        128,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Owlet Monster/Owlet_Monster_Attack2_6.png",
+      "sha256": "70d7fcdfed1058529fe0eb10763405fd1122c776e1ff02d61f579c5338ad8456",
+      "dimensions": [
+        192,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Owlet Monster/Owlet_Monster_Climb_4.png",
+      "sha256": "edf217a9e2fc4814d23e6c9133b37ba154ca81d738e7b238161c7ae3485b0fc1",
+      "dimensions": [
+        128,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Owlet Monster/Owlet_Monster_Death_8.png",
+      "sha256": "2dacc71d5d32d3abbf2f8302f227b00eae2c387dd7602aa772166894e21edef5",
+      "dimensions": [
+        256,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Owlet Monster/Owlet_Monster_Hurt_4.png",
+      "sha256": "90e40c444898416799c219374d737850ec341c1437da2d4582ea34271c3a9f74",
+      "dimensions": [
+        128,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Owlet Monster/Owlet_Monster_Idle_4.png",
+      "sha256": "c1b2c57cf8cee390142a98bb00a426db50bb158bea2871bd8f5a679b4d606ec7",
+      "dimensions": [
+        128,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Owlet Monster/Owlet_Monster_Jump_8.png",
+      "sha256": "92271feea2d42611e73a881ed444f7dc7eae18e7ed8372f0fcf002b70100b6a8",
+      "dimensions": [
+        256,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Owlet Monster/Owlet_Monster_Push_6.png",
+      "sha256": "e547f6b399e5d21999a8fa539e6937aeaa29d117095a0373e0fb32e91fd8f6a4",
+      "dimensions": [
+        192,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Owlet Monster/Owlet_Monster_Run_6.png",
+      "sha256": "fdea327a324747a30982cae5c24645a403bbba2a783392729310a07fde20e60a",
+      "dimensions": [
+        192,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Owlet Monster/Owlet_Monster_Throw_4.png",
+      "sha256": "e0b2295d232c78702a041be2d9d903375d9f22d3bf3afb70f2586319bfc7f4f2",
+      "dimensions": [
+        128,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Owlet Monster/Owlet_Monster_Walk+Attack_6.png",
+      "sha256": "7b43af5eb19962da833fdfdf17f6c09f802343724efed8b47062c6a1b8c3a45f",
+      "dimensions": [
+        192,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Owlet Monster/Owlet_Monster_Walk_6.png",
+      "sha256": "91c42bcb051eb51766da6020333a2d96a6c43b01cbda39ec591c77fc29014011",
+      "dimensions": [
+        192,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Owlet Monster/Rock1.png",
+      "sha256": "f5b59efc8e6e00dfbeaa05e4c9431005b0db022d86d31d61819b49fe18553177",
+      "dimensions": [
+        8,
+        8
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Owlet Monster/Rock2.png",
+      "sha256": "8e7b5a3d58c03605ad7509ab30907de25274c98d379e8e00b3612b0ca8aef509",
+      "dimensions": [
+        16,
+        16
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Owlet Monster/Walk_Run_Push_Dust_6.png",
+      "sha256": "4fdd0d37619097d522f0257c4113372310185e06f903dc4af6b55811c6bbd4ae",
+      "dimensions": [
+        192,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Pink Monster/Double_Jump_Dust_5.png",
+      "sha256": "4721003278ef1c21a6206708f99cbb7af4c134f23b5040a41b28e9edcacf83a1",
+      "dimensions": [
+        160,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Pink Monster/Pink_Monster.png",
+      "sha256": "7c47b94845243d1c6ca7951afc3ef78d73b6a63bc1b5163a84c56c774a5a89a1",
+      "dimensions": [
+        32,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Pink Monster/Pink_Monster_Attack1_4.png",
+      "sha256": "8996d428eb0870c040bc58a0906d4fbd0db7382c24e08addf062c33fe832f650",
+      "dimensions": [
+        128,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Pink Monster/Pink_Monster_Attack2_6.png",
+      "sha256": "854a2c0e06d8fe1a5c6808931a6d78c89daa52ad7716577df55578f972b8f8a4",
+      "dimensions": [
+        192,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Pink Monster/Pink_Monster_Climb_4.png",
+      "sha256": "7db273e0605a02ebbf713dcf393bb8ed829b69174b94ab4e3eac2519309883c1",
+      "dimensions": [
+        128,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Pink Monster/Pink_Monster_Death_8.png",
+      "sha256": "5c70176a464fc7e679c15dd521d58e2430f249913315bedf81b423206b95c172",
+      "dimensions": [
+        256,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Pink Monster/Pink_Monster_Hurt_4.png",
+      "sha256": "182a68b8659ebd7c0d3ed0940ac5cca967a94a91b5c39e4417a48c05763d8196",
+      "dimensions": [
+        128,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Pink Monster/Pink_Monster_Idle_4.png",
+      "sha256": "89efc9b303af2ce44b67e46d03d7859760abd4d5f179c79c749a32b667af7f32",
+      "dimensions": [
+        128,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Pink Monster/Pink_Monster_Jump_8.png",
+      "sha256": "88060e92577d193a38eba46e542ac85c4cf97bf42013861523de1d184290f998",
+      "dimensions": [
+        256,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Pink Monster/Pink_Monster_Push_6.png",
+      "sha256": "ba78f40ec494103e18fdf63878a7d4e9b94fa22acb3e5c95ac3638e1bcdf9026",
+      "dimensions": [
+        192,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Pink Monster/Pink_Monster_Run_6.png",
+      "sha256": "c8a189feaf85de7f65d32cb2bd25b7878a71a4e7bace164f73e1082a40ff33a7",
+      "dimensions": [
+        192,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Pink Monster/Pink_Monster_Throw_4.png",
+      "sha256": "0e57286234e07746762b5f48d42844da944b1a4859a872fcf8b46114b8ff5386",
+      "dimensions": [
+        128,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Pink Monster/Pink_Monster_Walk+Attack_6.png",
+      "sha256": "36c84f4e63bc9feeb689623a35463850dddc7e1939805d91e34203f4ccd20f0e",
+      "dimensions": [
+        192,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Pink Monster/Pink_Monster_Walk_6.png",
+      "sha256": "0cefd6f6eded0eb8b5e263ca04bc063fa70927c48ea9402ed7fd36be37372d37",
+      "dimensions": [
+        192,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Pink Monster/Rock1.png",
+      "sha256": "f5b59efc8e6e00dfbeaa05e4c9431005b0db022d86d31d61819b49fe18553177",
+      "dimensions": [
+        8,
+        8
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Pink Monster/Rock2.png",
+      "sha256": "8e7b5a3d58c03605ad7509ab30907de25274c98d379e8e00b3612b0ca8aef509",
+      "dimensions": [
+        16,
+        16
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Pink Monster/Walk_Run_Push_Dust_6.png",
+      "sha256": "4fdd0d37619097d522f0257c4113372310185e06f903dc4af6b55811c6bbd4ae",
+      "dimensions": [
+        192,
+        32
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-A1.png",
+      "sha256": "4ab1a6b9b538904eef8acc5fdb4c6c97e1c53c3843df695bf0e2aa584d415ef5",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-A10.png",
+      "sha256": "38908db08040aa8ff23a1fe99da85e0ab641285cc2479fe7fc8fdfc1f7e458b4",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-A2.png",
+      "sha256": "a597b4a862269a176d5e31aa68cc4d3c54abfc5f35332ee0eec3dc367d2435ea",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-A3.png",
+      "sha256": "166c652d7c9d43eccf5daae619cf1775e1427c25a954d3fbbd77c6e7b4552e9e",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-A4.png",
+      "sha256": "fb20fcadf70cf88d0ef1fd3a77b2e2bc0dcaa8f1f73aa583dedc812d33cfd929",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-A5.png",
+      "sha256": "6f0432f343082cc702bf613bd6e42ec8bd72c0bc380e92efc786d58cb580a259",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-A6.png",
+      "sha256": "242a363cf4a22d522d39b280fe2d39ba5e75a6ca5227e6123d86ca9fe9a4b86a",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-A7.png",
+      "sha256": "9b3222e18d11cc57a0508cd13864a93ac983054a83241d20deb37bb34928bc62",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-A8.png",
+      "sha256": "4571072ea0c48f9c2cf353d87d8b0fbde5f636afd8d80d8b31b537db00433972",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-A9.png",
+      "sha256": "f09010504fcf463155c5773d47f3ed144eff8efc71f2768a2cd94c5493be3a29",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-B1.png",
+      "sha256": "a00ebcad4b90148e03106d83b1a3751721571f074d121926ba5eb13495fbd0fd",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-B10.png",
+      "sha256": "495ca33f7f2b8f3db6f51d36c022fcb98f992cee132e9251d066c9b2fbd0e9e9",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-B11.png",
+      "sha256": "9479370d06e9aff742563abb73891fd67530a6257c1c1b023c78b798dfda8a53",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-B2.png",
+      "sha256": "7393234bddf980acb8ef13ac4dfae2c132836ce4b788f36470f3a3905f309869",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-B3.png",
+      "sha256": "16b59437de8fab00eb639adadd7fb26fc6abb20cdab897203d594bcdb1a0e1c2",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-B4.png",
+      "sha256": "5fd327eeba4ab0cff5ce38132992dbd70875175dcaea469055fa4e89937844ef",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-B5.png",
+      "sha256": "359bcdf035f751b26fbe84a8196227f2585dfbe399d8c9b7287ef8c76cb9c92c",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-B6.png",
+      "sha256": "1e17a6f4cc4d5d05bedb608283d392c655a5e44d4f0e6363f103420cc4f5e76a",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-B7.png",
+      "sha256": "1841bd44da211d27d17e71064ce0bad9ef9b85beb30180035b1581a4c25f7563",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-B8.png",
+      "sha256": "4d305295c03043f61e5d3c982e60e801c4f34efa56e0937e2291357f4de151b9",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-B9.png",
+      "sha256": "8d5263f61816fb54591c671609d748ff71e4903aa72fccf3af37743c4422312d",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-C1.png",
+      "sha256": "7b1bae2e3af0ab91dd1c9c3fa50c3aa0f44712fc76de4c78101f635d4780bcc7",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-C2.png",
+      "sha256": "bda5f350f6184992667a587d88a29391ca7742d34a94981fdfec0b540baf7de8",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-C3.png",
+      "sha256": "3aa125bf4d146c6e075a64eefd672b3b8465b1bea7ad948e60b1adfbb2b42233",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-C4.png",
+      "sha256": "45d2f7b77a9bc8288070428b3690a6a70e8e06145d0ec08b4f78164d8598ee8b",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-C5.png",
+      "sha256": "00bac51319c11f3dfbe5a17432e734b04b5d3dfadc0ee6d2f5e305adef565740",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-C6.png",
+      "sha256": "12fafae84888ce12b86032c762f4667089dc88b6dc8f92a254155c45f6993432",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-C7.png",
+      "sha256": "a67884e1ac738322b3c3bb5690ee05dcb30e5b3738a822702935d760dbf4750b",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/attack-C8.png",
+      "sha256": "a0760e0220458dc5348bf271a13624d1c7b7d34a1287e0b6aa1651f3b2b0a169",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/dead-1.png",
+      "sha256": "cd2d694893f6e2d42f8470e2ddc926f81b30090a712f0d3e8271962cd76d0e9e",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/dead-2.png",
+      "sha256": "7d73b8894b60b83b41f1a3defe6bbb0028e90e8b2b9d4de0d6150bdfeafbd602",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/dead-3.png",
+      "sha256": "eabc54e93d60b6408053d560058cb93aeea76ce6a64456d876f2b96da185a8a1",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/dead-4.png",
+      "sha256": "a8155256abbdec29ce71b4f21d0b07ada72b398d45df086a2211bf7b80a94f04",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/dead-5.png",
+      "sha256": "e501feddb95d977541b6862de2caf7f2159f854bc43c47ae2817bd5d997a1b1a",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/hit-1.png",
+      "sha256": "ba00804b5e4f9228285827bd21c7654510603f52635d2510e4ed1d98e566ffa9",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/hit-2.png",
+      "sha256": "8808f6e57dbc66d55f7c4b14a3f4ab16457054095e20131eccba3d04d4b0904e",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/hit-3.png",
+      "sha256": "ec4818c75145fdfc426312c9472f481405d9bf3a4341d9308a2101359f2ec9dc",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/idle-1.png",
+      "sha256": "30423ea9d75897b7eb3190a065f417af177d8f19ad99b0e3ffb7fdcbdabaf3b4",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/idle-2.png",
+      "sha256": "4f026c9dd476c83046a3373a3513c5926943937bd304ac1c9cc269fc3728ddaf",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/idle-3.png",
+      "sha256": "78e4fc8d6bb983c0baadcb2d40c9284f2730e36090e8401c2240ec7f752c07ac",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/idle-4.png",
+      "sha256": "f34f16f4e84448c2a88c38cc5aff18d69c5f4d6c3df3c1ad6cdf57f4483bc95f",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/walk-1.png",
+      "sha256": "55d95c368c6ebc755537602a81fbe2f86e1d3f6ee71049ce9eb89e6ad44ca5cb",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/walk-2.png",
+      "sha256": "35a742d993c76c77f7e901495144e4c086f16281109f0b4983505cdb72c01dc1",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/walk-3.png",
+      "sha256": "68e361b4136037752fda37c0d12d47aa634e0b715c037050b38f3343af1e6c4e",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/PNG/walk-4.png",
+      "sha256": "77980999e8e9b3d1f7217cdaede938899cdfa9c0797198db4c8950378a1a2779",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shadow/attacks, dead, hit, idle, walk.psd",
+      "sha256": "5e03162e8841196ab81fda2359366097537a89ca82d176755e29dcf700a95928",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A1.png",
+      "sha256": "4c2f7c48d50743cae490d65c66bffcce2cd848c4d0228b2a1f3516e0292dab8d",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A10.png",
+      "sha256": "a7381068e817c9448b20ec3349b6f1c3144e8f7afed2274628712cc2b7d8a55b",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A11.png",
+      "sha256": "e414d68b60b7a424a693f8a518936fc2038dcb8cb40178eae5508beeeddee294",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A12.png",
+      "sha256": "e80c4c7debed71556bfb5213b0b750a1eb1ffdd855cce27b0a82f020b1283cb7",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A2.png",
+      "sha256": "9c8d8fe11e0fd5f2c30cc15b1c4a1eb2217a3060bc19bbe23fb2565ea5cb3ce2",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A3.png",
+      "sha256": "39ff552da5c0d09b95ca6727b1040c0ed8d29993819f7a710c054092f7d4c43e",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A4.png",
+      "sha256": "f4b7bffa3dca20e7f74b89688cd5280ad12f40423aa0813fa56946979fb53532",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A5.png",
+      "sha256": "fafd0b801425e8bacdd345efbcdafe8f8ce586be1296f945472647196a1f874d",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A6.png",
+      "sha256": "caa3cb37620adf80489e464c5385d76a15caf91eb167232e12abc67e781237e1",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A7.png",
+      "sha256": "839625d914370149aa4368309f2afcfae4c3b92e68e98a65e5b27619992291e3",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A8.png",
+      "sha256": "3e2888e843d0974eedae7f69584f72a12aab83cfa0ceb0dcf55be726340736cc",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A9.png",
+      "sha256": "20875ac9d9ca8b354cdbf0f22f14a096083f00f324e951c8390e03ba3e870e5c",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/attack-B1.png",
+      "sha256": "6df7a982af0adef18d5f8682c16cc9baeacfb9c0c8c5fdc29a6453ef75aed0bd",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/attack-B2.png",
+      "sha256": "0df29bd2500e50e302000b1bb9f290db1a08447372d7f7c011788ee8111474b3",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/attack-B3.png",
+      "sha256": "110d9e187dba06e6a0a353b4188cba58a243adfb1b22128fe3d3ccd5c442b3b4",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/attack-B4.png",
+      "sha256": "c370053236adcfd037705c65630fe76a8edb920714c21ba459834a559e75bcf0",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/attack-B5.png",
+      "sha256": "b84cb0cee03fb22baf647c5cd694e7de48222125e753c8b20a3ba8a55e9ccc03",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/attack-B6.png",
+      "sha256": "1ded30159cce912654cafcbb7e86d792d32619d910fa31dc19b491fffd4fa3e2",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/attack-B7.png",
+      "sha256": "66ae6c30c0493d435e7ca896ebcd7e27f5619b91f2e75088071ac7fc9a6050f3",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/dead-1.png",
+      "sha256": "eff2f61fe20d86a4e8f289b3f6a2f2ce34624505c54135954d96ed8216e19293",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/dead-2.png",
+      "sha256": "76a4f18c344003583600539654661685a55ac12014850e9f3987878ba310cc39",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/dead-3.png",
+      "sha256": "6af3b2059707c85e5dd5f73f2849fa0b8d61f171f4e41712c41fc08cdf292f9a",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/dead-4.png",
+      "sha256": "e5f90cb98c5249965ae291c833d01c73da8a2512cd5505c3ec959d98fcb5914d",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/hit-1.png",
+      "sha256": "f19142743e1ee22a0b0b30628b78bf48cc279b65132bfc4986602d1ec5cb67df",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/hit-2.png",
+      "sha256": "9a21cf68e25d3f5374a3f472dde522621884d879a025c405b35f0a766471bf48",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/hit-3.png",
+      "sha256": "c8686db4c12cfe290b09883148c1c703a3d39bf6685e6bbf50bab031036d1974",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/idle-1.png",
+      "sha256": "1fd08799c8c24cbc3e1ac6419efcd4215abc891bb0d2bb042c529dccbe00be77",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/idle-2.png",
+      "sha256": "741a167e043947ed52701311efa907785d1d4c2d21dda0ea6030fa2bcdc337f3",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/idle-3.png",
+      "sha256": "63b8e6c5f58b566aa3df163b6b9e5c4b0af2ecbcaa41e8f4c3fa51257f5c400b",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/idle-4.png",
+      "sha256": "55d75f1b3cd0050fa314e00fd10779dcaef45cb24d07ebf7c723f99dcd5bb15f",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/jump-1.png",
+      "sha256": "aefdd3c7874e3c03f1eb4d738f7379ac64de98fd83bb6e868e07355a6f99cc13",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/jump-2.png",
+      "sha256": "85d61d1822ed16accecc0aa8e4c1ba3c16e63f93846f4d436759086d1acef3af",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/jump-3.png",
+      "sha256": "0586cc4dd15d981c3111c9b06930287df817280e22ebc2ca4fceb06ec0bbfce0",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/jump-4.png",
+      "sha256": "7dea1b8d8388574cc0c46c20c9810f58210a1ea8811ba3f464109c588c46bf3d",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/jump-5.png",
+      "sha256": "159cbe36c5fc1dac2345b31939445b4a162b087c3782b985ccc68c3c4c75e7a0",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/shield-block-1.png",
+      "sha256": "37b134b02a465040690636cf9cb327fb377c9dd03c5f9a5ff49a5896add2ee37",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/shield-block-2.png",
+      "sha256": "53f50e6220494e1e903d1b7a2741e02f80e4cc41ec85cafaae8f94bf0bf5065e",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/walk-1.png",
+      "sha256": "bbc0f9f6b250b37a20578ac3c37a57d05e6db7d36e3a84a8f93b4bc2a084045b",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/walk-2.png",
+      "sha256": "b43048c448f63d97c814bcc0baba8355952a0281243982a16002e1ae84570d9b",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/walk-3.png",
+      "sha256": "c5d44e20c771a2af202f628a872812aeea2dedbce8bfaf68f0f4d13ae878bee2",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/walk-4.png",
+      "sha256": "9b625468c651d07150575039efb56d1f72b5f6c42f1e2c1e50fbd7864462fdf8",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/walk-5.png",
+      "sha256": "d9e1f7e0d2b998b8fcd0addce34fdd118beaa9e2e4d72db19c64ce1ebed59a66",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/PNG/walk-6.png",
+      "sha256": "c16e7d96eb44b91bf4b19e85fbc23aaa0fe879aaa188e79ae2feed1dbcdcde42",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/attack, block, idle, walk.psd",
+      "sha256": "10a31baffbcbcfe0bb89093b0869eeffdf049b6987acaa1a670be1ff9caac75c",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/dead.psd",
+      "sha256": "288ed199da5814e2e74abbcd8e97476a5161cbf2f68ec1cb36f185c99bf09d7d",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/hit.psd",
+      "sha256": "279117f2ad121615a62447367befd19d98f95bb75861b92e45b57c3989d83832",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Shield Skeleton/jump.psd",
+      "sha256": "c2bf25757e0e04028b2659c9b9e64a4e126028f317831c0660f27a5de1166d3d",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/attack-A1.png",
+      "sha256": "b39a81aa4f7d45fadd0f01232d93b8de703cd70c0c2253ff6621b0dd06622ea1",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/attack-A2.png",
+      "sha256": "f7b06329adce0ac74f85a0255aecab1c9fa2b307a54c90547bdebf319785f445",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/attack-A3.png",
+      "sha256": "8bb7b82cfe26de9f6c87646b2d8eaba0feaef54e8522d1b207346882479f859a",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/attack-A4.png",
+      "sha256": "d594a3ac18534fa58b88201d56d3d44dfc8b0f214bd205dfa763ccfeba1f380f",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/attack-A5.png",
+      "sha256": "175b4a7325354bbffc36cbb54810d4b2d22924c614ed0ee896a0a7d7e020334c",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/attack-A6.png",
+      "sha256": "5c1f527886d8b0ad71e2bf6fd01c2a993185748eafae38c2cbecb0285f75e040",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/attack-A7.png",
+      "sha256": "70b1be135d464d339b6ee8549ba22ea115748ab42bb50355cec9f468cc169ea6",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/attack-A8.png",
+      "sha256": "577369bcaf905c5e3be6fc5b16786a7386dc41a510bfb7632d3ae8952a3d7b4c",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/attack-B1.png",
+      "sha256": "b932fb84685b1dd1a09641a7da4e0a3c4886da8a999767ee6c32f4678a969bf0",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/attack-B10.png",
+      "sha256": "00a07cb28a74dc2b8a38ec3e49f5a275fa0e7e09a7770598758824f509006711",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/attack-B11.png",
+      "sha256": "49c518b19337853540be0f87733f830b10b9501d9015da2d58392b48ec3c7573",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/attack-B2.png",
+      "sha256": "4d59ab264227ea46429b73084701c61bac75ccf4a25468357ab56edd4ca3c9ec",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/attack-B3.png",
+      "sha256": "aafead3a1629c8373a2e8844204a75b73f6a33209486735127c40ab897ba7f69",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/attack-B4.png",
+      "sha256": "c7beb1dd5f71d59b9eb49f1f180cf8bb227d083b4611adf3f9499246518cbeb0",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/attack-B5.png",
+      "sha256": "ecc3d7c67f669a939906fd02e683e647189f47dc710eb5944ee9ea541c5507cd",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/attack-B6.png",
+      "sha256": "30852a6835ff23d1a6bc705d3837169237d62f525328d828a6f98988ab93bfd8",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/attack-B7.png",
+      "sha256": "9743b6cbfe73857284c48ead2edd0c0d2e774302a9160b1490646ece6cdd8bab",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/attack-B8.png",
+      "sha256": "5832bf036868a18ff22ace4b7b8503080dcb026e73e60791c2b7f8e96e8724ab",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/attack-B9.png",
+      "sha256": "5e4b31d7a8bbd454757bc94598d7e27a066445385707c484cc7a02167fb1f86f",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/dead-1.png",
+      "sha256": "ff7ea415b76d6c26dcd56ff56e28b51a162bce5ef6c508ecf0d14878cb71fb06",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/dead-2.png",
+      "sha256": "f1d83e23739522dd5b6d6665acc3e07b7e6c06f6e699a4646704427d3f8ae243",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/dead-3.png",
+      "sha256": "2fa1671a281a6d7a0b1490db528a4d6a73def54ef646e1d11716e49d69bf9821",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/dead-4.png",
+      "sha256": "20c84f956064be0271a0180afaef34382bd3dde2548ff7bc6f60c447c5b11276",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/hit-1.png",
+      "sha256": "db5361fe829c52b137193ff67afe6abb498ea4a3004922c4b83266809ba9dc11",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/hit-2.png",
+      "sha256": "4a6d9c3b32e046347e1dd973143d05ff53257cd900f910e3c1514a7f1db90edc",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/hit-3.png",
+      "sha256": "1655e72fd1d0b09dd253ef77111a19f41b2236cbbeec7a41b3deff1fc755e967",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/idle-1.png",
+      "sha256": "a74d13b1e2011b85286ae408b0c91aa131505d48a0daa87fbe82239fb8688fea",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/idle-2.png",
+      "sha256": "b93b21ca47323bbf60dc6dcc85c35957e6ae1c3a2fd5a669651a8830f2856ed7",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/idle-3.png",
+      "sha256": "d391635aa0b863c4856f875fa006110dc0144a9c65c38a46b09f302c9422a7b2",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/idle-4.png",
+      "sha256": "86156d9ac5d47277bd89418859731b085392d59f3c1e7bb069d892cbfd51c276",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/jump-1.png",
+      "sha256": "3ae0536fa0671bcff5507b185b1e9ae8595370ba7fb031f263a7ee87c911ce74",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/jump-2.png",
+      "sha256": "156b854f4d2919c2051331006d74c25bc7f246a50117c18d00ae20815b4a2f55",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/jump-3.png",
+      "sha256": "4808355efff85a284e82f6f75bfae275f46bd31c75c8f7a1e988272c1a42dbc1",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/jump-4.png",
+      "sha256": "55278fafb3fa20ff7b8984b145fc19ee4cab3019698b5bbe00d238852e1697c4",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/jump-5.png",
+      "sha256": "8ad08bc4baccf81ee570dba760bab452464116eefc4bae8e654fc52e839677ca",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/jump-6.png",
+      "sha256": "8f5c12c0a8129f2fc1948c3567407b2bc1f7df80655015a2fa086625d3aa212d",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/walk-1.png",
+      "sha256": "002ecff160a6016d499bb7361d3a51f504188f74a5c32cc821eb9f1e61199f03",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/walk-2.png",
+      "sha256": "0a3f37937da2f98505334cffefd7bb6249f8283fb49c9ff6a7a5c12a759ee55f",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/walk-3.png",
+      "sha256": "759b70bfafe104c2ed49e4f966707bf0c95470c4f8f900ef5c5ed41c0dfaf0fc",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/walk-4.png",
+      "sha256": "f326437de7f90ad73b7aa8c8f0e8804b0561e653ab5f96188d491d0b14454eba",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/walk-5.png",
+      "sha256": "c7a7448f0ae04614e784062655c2e17c65f1969147695b3324c6840c14dd88ec",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/PNG/walk-6.png",
+      "sha256": "ab236dd597090272dec6f48bc795c84bb6e7223f436345bfcb16c9b919ae212f",
+      "dimensions": [
+        128,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/attack, idle, walk.psd",
+      "sha256": "ab035a5f772f70d30f3c8aafb624d8d4e35ab6a06b3ce155d6c8980228c2a76b",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/dead.psd",
+      "sha256": "4565df6df433884e3cc700e22463b2299eb0011cac0a92072517ac51445b6d1a",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/hit.psd",
+      "sha256": "e4f967fb1c8d3c450e1d569f83f46437e2ad9196012448dfe278ecd13523adc5",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Skeleton/jump.psd",
+      "sha256": "9cabbc5ad29c221083222eb52b040b1134b283466748a67416422e5d6cb7ec94",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Slime/Slime blue.png",
+      "sha256": "e4690cd80d8462ffe2bc84299314b6c977b7854a71cefeffcefa465e22b8b529",
+      "dimensions": [
+        256,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Slime/Slime green.png",
+      "sha256": "a5c0bed5ce1db197053347f9f043ba7044a632840b3c078924f1adb0122191a1",
+      "dimensions": [
+        256,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Slime/Slime red.png",
+      "sha256": "d32db988d14ce04d1a1eb7c01826c302e346ceb8d961f82740fae99b801428f8",
+      "dimensions": [
+        256,
+        96
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Slime/Slime.ase",
+      "sha256": "aec1b0a6d10effb1c1f55e62caaf86be17e52a498b9365b9412ad709d2f3b734",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Slime/Slime.gif",
+      "sha256": "eba944ba5ee616b2763985fcd76aa75e62929133f09175bec4cbec5a2d29d217",
+      "dimensions": null
+    },
+    {
+      "path": "sprites/Enemies/Warrior/GandalfHardcore Warrior.png",
+      "sha256": "0fcd10854ccf00dc274cbb927170a86c83bd62c4353dbccae7b530c682fbc2f6",
+      "dimensions": [
+        800,
+        1088
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_1/Attack.png",
+      "sha256": "587a047b850d768b61756b68d3f6bf8ec3b5e2a37641c1cfd4eaa90f8fde401d",
+      "dimensions": [
+        640,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_1/Dead.png",
+      "sha256": "140df4bdc550d602ab0d1c9058533c1213b02c4b1991068e6c0200d290186929",
+      "dimensions": [
+        640,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_1/Hurt.png",
+      "sha256": "a77b73c81a32f1482778c7bd20b0700f957c0200c2746f86961d4f11f9410f17",
+      "dimensions": [
+        512,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_1/Idle.png",
+      "sha256": "4547880d187eeffad44479854fe1533249b2624f4edbaf67ca21ae654aeecdaf",
+      "dimensions": [
+        768,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_1/Walk.png",
+      "sha256": "a061e3a15714ac355a2cfb5731e756ebc6f75a1a0e4cdcd84311e3ae46a1065d",
+      "dimensions": [
+        1280,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_2/Attack.png",
+      "sha256": "f166cc0227c0b65f3e37cdc16e0bf4e3e024f40b1af8fe02faad63190d750d03",
+      "dimensions": [
+        640,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_2/Dead.png",
+      "sha256": "d66e6603aa2e8befaf2af8f3ff81ed09422c5c36e8874e26a894280df95fdaca",
+      "dimensions": [
+        640,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_2/Hurt.png",
+      "sha256": "158894634d3545e20de483bc682600c32bb2bf60b1aea2f0c3fd2010daafb381",
+      "dimensions": [
+        512,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_2/Idle.png",
+      "sha256": "59fc05777d5b5f2387cbef63f3940b37e09dc6f9e67acdf2d1436adab3ec40ac",
+      "dimensions": [
+        768,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_2/Walk.png",
+      "sha256": "3943ad5538d80f89e06bb91c8a342e07f6a5dd8e3181927d07f3f9d10d2bf1c7",
+      "dimensions": [
+        1280,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_3/Attack.png",
+      "sha256": "8a923780bf183009147b26948fe8a11b8cd4d9e6c8b263d8f56d186764dbf9ca",
+      "dimensions": [
+        512,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_3/Dead.png",
+      "sha256": "d63d2871d61091834729fea9816147907256abddcb25d0cd8dcf20c9424ec29f",
+      "dimensions": [
+        640,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_3/Hurt.png",
+      "sha256": "d719a525ba0d95257f51b834177fbd41b62296efef9ba063dadbb32c015bed8b",
+      "dimensions": [
+        512,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_3/Idle.png",
+      "sha256": "4b3e798e4d4c0abdd96c8a43d6f5907bae0e5952dbd33188026b427733d65345",
+      "dimensions": [
+        768,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_3/Walk.png",
+      "sha256": "f2c7e22e86c9d94987e25edd325969784ef0648607848e38108d307e937843fc",
+      "dimensions": [
+        1280,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_4/Attack.png",
+      "sha256": "d4d0e7b962642a5d22935ce8654a25e65f37c965d2fd1870327469694a5f92c2",
+      "dimensions": [
+        1280,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_4/Dead.png",
+      "sha256": "f1a2ab451a3e4743b9808db4badcedbf269fcb0fbb6f0a8ed09baa30895a7aff",
+      "dimensions": [
+        640,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_4/Hurt.png",
+      "sha256": "d7ab01ef2ed175860e0a8fa3f97bd2554d820525dc30af469e3c1cdd4b5c005a",
+      "dimensions": [
+        512,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_4/Idle.png",
+      "sha256": "95a15ab184c599174e500bf6d5144332311609fde9fd6b42c8d6df09272b6391",
+      "dimensions": [
+        896,
+        128
+      ]
+    },
+    {
+      "path": "sprites/Enemies/Zombie_4/Walk.png",
+      "sha256": "7e80b1960d0df2ab7a9d7ccaa3d9b38a3db01700bafee5fae47d3d88570dcfc8",
+      "dimensions": [
+        1536,
+        128
+      ]
+    }
+  ]
+}

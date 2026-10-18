@@ -23,7 +23,7 @@ export interface Clock {
 }
 export const systemClock: Clock = { now: () => Date.now() };
 export function createLocalSnapshot(now: number): LocalSnapshot {
-  return LocalSnapshotSchema.parse({
+  const fresh = LocalSnapshotSchema.parse({
     ...newLoopState(),
     schemaVersion: 3,
     configVersion: CONFIG_VERSION,
@@ -43,6 +43,8 @@ export function createLocalSnapshot(now: number): LocalSnapshot {
       ruby: "0",
     },
   });
+  fresh.battle.enemies.forEach(e => e.templateId = "slime-green");
+  return fresh;
 }
 export class LocalSession {
   private state: LocalSnapshot;

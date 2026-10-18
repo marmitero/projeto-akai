@@ -1,0 +1,171 @@
+{
+  "passed": true,
+  "mode": "preview",
+  "templates": [
+    {
+      "id": "slime-green",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "slime-blue",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "slime-red",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "bat",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "mushroom",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "dude",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "owlet",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "pink",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "skeleton",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "shield-skeleton",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "lancer",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "archer",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "shadow",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "inquisitor",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "warrior",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "zombie-1",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "zombie-2",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "zombie-3",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "zombie-4",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "male-bandit",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "male-orc",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "male-deserter",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "male-plague",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "female-scout",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "female-guard",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "female-cultist",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    },
+    {
+      "id": "female-revenant",
+      "gap": 16,
+      "textures": 82,
+      "objects": 73
+    }
+  ],
+  "bossPreserved": true,
+  "rangedAttack": true,
+  "pageErrors": []
+}

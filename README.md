@@ -1,5 +1,7 @@
 # Projeto Akai
 
+Bestiário comum: **27 inimigos**, com papéis, oito composições Male/Female Base e consulta em **Mais → Bestiário**. [Fichas e inventário](docs/bestiary/BESTIARY.md); [validação da entrega](docs/bestiary/BESTIARY_IMPLEMENTATION.md). Bosses preservados.
+
 RPG idle clicker 2D mobile-first, planejado para navegador e futura versão Android. Combina batalha automática, mineração ativa e minas de produção em três telas independentes com navegação inferior.
 
 **Estado atual: F1–F4 locais, F5 online, F6 comunidade publicada e F7 mercado publicada; F8 técnica de monetização de teste publicada.** Mais→Comunidade no modo online: chat, guildas/brasões, arena, rankings/temporadas e eventos. Mais→Mercado oferece anúncios, compra, contraofertas, escrow e resgate no modo online. F7 publicada com CI aprovada. F8 desligada por padrão; simulador local validado, integrações externas Google/AdMob adiadas até a fase final; prioridade atual: polimentos. [Pendências preservadas](docs/MONETIZATION_DEFERRED.md). Perfil local/jogar.bat continuam separados. Sem deploy público ou pagamentos. [Monetização de teste](docs/MONETIZATION_SYSTEMS.md), [relatório F8](docs/STAGE_08_REPORT.md), [Mercado](docs/MARKET_SYSTEMS.md), [relatório F7](docs/STAGE_07_REPORT.md), [Comunidade](docs/COMMUNITY_SYSTEMS.md), [relatório F6](docs/STAGE_06_REPORT.md), [documentação](docs/README.md).

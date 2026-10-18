@@ -1,5 +1,7 @@
 # Balanceamento experimental e fórmulas
 
+Atualização common-1: inimigos comuns usam as [curvas por papel do bestiário](bestiary/BESTIARY.md), sobre a base vigente floorDefinition. As fórmulas candidatas históricas abaixo não substituem essas definições. [Simulação de 900 andares](bestiary/balance-simulation.json); aquisição, farm e equilíbrio humano não comprovados. Bosses mantêm a configuração anterior.
+
 **F3 histórica:local-loop-1; F4 atual:local-rpg-1 com XP/itens e curvas limitadas em RPG_SYSTEMS. Simulação determinística executada; sem playtest humano nem equilíbrio comercial comprovado.** Configuração futura deve ser versionada e carregada por dados, nunca espalhada na UI.
 
 ## Regras fixas

@@ -95,6 +95,7 @@ export class OnlineService {
           ruby: "0",
         },
       });
+      snapshot.battle.enemies.forEach(e => e.templateId = "slime-green");
       await c.query(
         "INSERT INTO akai_accounts(id,recovery_hash,snapshot,last_at,click_at,created_at) VALUES($1,$2,$3,$4::bigint,$4::bigint,to_timestamp(($4::bigint)::double precision/1000))",
         [id, digest(recoveryKey), snapshot, now],

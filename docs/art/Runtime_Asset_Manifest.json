@@ -1354,6 +1354,1581 @@
       ],
       "licenseStatus": "unverified",
       "transform": "crop; white fill mask"
+    },
+    {
+      "key": "bestiary-slime-green",
+      "output": "apps/client/src/assets/derived/bestiary-slime-green.png",
+      "sha256": "47a09fd64ef506580e37af79047123e00877283c659bdfae7247bc3868e25f70",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 5,
+        "attack": 8,
+        "dead": 6
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Slime/Slime green.png",
+          "sha256": "a5c0bed5ce1db197053347f9f043ba7044a632840b3c078924f1adb0122191a1"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-slime-blue",
+      "output": "apps/client/src/assets/derived/bestiary-slime-blue.png",
+      "sha256": "c6c3715a6eb075192bc4628344e6bd0ca4f132b98291e908ba2d6089bf90d9cb",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 5,
+        "attack": 8,
+        "dead": 6
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Slime/Slime blue.png",
+          "sha256": "e4690cd80d8462ffe2bc84299314b6c977b7854a71cefeffcefa465e22b8b529"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-slime-red",
+      "output": "apps/client/src/assets/derived/bestiary-slime-red.png",
+      "sha256": "427333af5b5dc99de0bd7ea7a8cd7bd229ea1c60bc7d0abad6a09cf76d9f03dd",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 5,
+        "attack": 8,
+        "dead": 6
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Slime/Slime red.png",
+          "sha256": "d32db988d14ce04d1a1eb7c01826c302e346ceb8d961f82740fae99b801428f8"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-bat",
+      "output": "apps/client/src/assets/derived/bestiary-bat.png",
+      "sha256": "da48b802aef331fd63094074aa91ec05268952a52a8e0cf39e2695db2b5d6b79",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 9,
+        "walk": 8,
+        "attack": 8,
+        "dead": 11
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Bat/Bat-Attack1.png",
+          "sha256": "e54fa22b3da3ac6208cc03f134abb79e2f3f1a6172e9993fe15d67b332500b27"
+        },
+        {
+          "path": "sprites/Enemies/Bat/Bat-Die.png",
+          "sha256": "0ec3c2ca47f6c350ba005f14132147e02fa03d484ba91e9bafa78899339393ae"
+        },
+        {
+          "path": "sprites/Enemies/Bat/Bat-IdleFly.png",
+          "sha256": "403543f3b0b3d66f9c9432dccdf435c657bcc2841b4cbadc93c66fa664b52006"
+        },
+        {
+          "path": "sprites/Enemies/Bat/Bat-Run.png",
+          "sha256": "dbb18490811e5c952b750f9ecff354c45d9b743b51487e18ecfe0b560e8c5ad4"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-mushroom",
+      "output": "apps/client/src/assets/derived/bestiary-mushroom.png",
+      "sha256": "3ef39095f6710aa082646cc4324eb1c3a6f9897f4248db0d9cd0edcd1f1e232c",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 7,
+        "walk": 8,
+        "attack": 10,
+        "dead": 15
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Mushroom/Mushroom-Attack.png",
+          "sha256": "dfd74c6e28cca1af2a4d5fe4135313dcfe15b3d855fd7dde59b44d790c858554"
+        },
+        {
+          "path": "sprites/Enemies/Mushroom/Mushroom-Die.png",
+          "sha256": "e6e0bbfcc843c3dcda80f97c6c04efda59672c67756530ff524d38085dab9be0"
+        },
+        {
+          "path": "sprites/Enemies/Mushroom/Mushroom-Idle.png",
+          "sha256": "29e56ba3fe25b64ed0c6d003ffef5f014a3ad61c40e5f475b576b8504df61779"
+        },
+        {
+          "path": "sprites/Enemies/Mushroom/Mushroom-Run.png",
+          "sha256": "2119c0893e631da53f61ea8575fb346d7dbc5f173bb9136f9990c6e9893c56ad"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-dude",
+      "output": "apps/client/src/assets/derived/bestiary-dude.png",
+      "sha256": "4eddcff11c5c999a035cdd0d17d4de0b670c111d29b8289d3fe8254babee3087",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 4,
+        "walk": 6,
+        "attack": 4,
+        "dead": 8
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Dude_Monster/Dude_Monster_Attack1_4.png",
+          "sha256": "573614ecfd4d142e466bd3e97e0cfed488cbc018b5fff8c7a3e89c038c697958"
+        },
+        {
+          "path": "sprites/Enemies/Dude_Monster/Dude_Monster_Death_8.png",
+          "sha256": "519666d552acc8679d8798a2c22e6a4618129816455432a4784d44684f9802b0"
+        },
+        {
+          "path": "sprites/Enemies/Dude_Monster/Dude_Monster_Idle_4.png",
+          "sha256": "928f96bb50b31f8f29fb0c2e9f78ad9a7ff4a2c7ae3aed860960bb02fe98338c"
+        },
+        {
+          "path": "sprites/Enemies/Dude_Monster/Dude_Monster_Run_6.png",
+          "sha256": "cb7995ebce2442994f6c48b4d05e68f225188792f75d8a2f61a8d664d0f8f94e"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-owlet",
+      "output": "apps/client/src/assets/derived/bestiary-owlet.png",
+      "sha256": "86a6a4c1e6a46ba4fa002bb56bee4a5ef2ec2fd4e3e6efe7457039e1dd7e57bd",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 4,
+        "walk": 6,
+        "attack": 4,
+        "dead": 8
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Owlet Monster/Owlet_Monster_Attack1_4.png",
+          "sha256": "0f64d4c0da983eb73b4008a76928d39788e44552dde2bcb75357dcfacfa2fb6f"
+        },
+        {
+          "path": "sprites/Enemies/Owlet Monster/Owlet_Monster_Death_8.png",
+          "sha256": "2dacc71d5d32d3abbf2f8302f227b00eae2c387dd7602aa772166894e21edef5"
+        },
+        {
+          "path": "sprites/Enemies/Owlet Monster/Owlet_Monster_Idle_4.png",
+          "sha256": "c1b2c57cf8cee390142a98bb00a426db50bb158bea2871bd8f5a679b4d606ec7"
+        },
+        {
+          "path": "sprites/Enemies/Owlet Monster/Owlet_Monster_Run_6.png",
+          "sha256": "fdea327a324747a30982cae5c24645a403bbba2a783392729310a07fde20e60a"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-pink",
+      "output": "apps/client/src/assets/derived/bestiary-pink.png",
+      "sha256": "cfca8f157129c8c9fb10b47cbf388acb37aa362ed98e6f8421e813e69d70aa87",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 4,
+        "walk": 6,
+        "attack": 4,
+        "dead": 8
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Pink Monster/Pink_Monster_Attack1_4.png",
+          "sha256": "8996d428eb0870c040bc58a0906d4fbd0db7382c24e08addf062c33fe832f650"
+        },
+        {
+          "path": "sprites/Enemies/Pink Monster/Pink_Monster_Death_8.png",
+          "sha256": "5c70176a464fc7e679c15dd521d58e2430f249913315bedf81b423206b95c172"
+        },
+        {
+          "path": "sprites/Enemies/Pink Monster/Pink_Monster_Idle_4.png",
+          "sha256": "89efc9b303af2ce44b67e46d03d7859760abd4d5f179c79c749a32b667af7f32"
+        },
+        {
+          "path": "sprites/Enemies/Pink Monster/Pink_Monster_Run_6.png",
+          "sha256": "c8a189feaf85de7f65d32cb2bd25b7878a71a4e7bace164f73e1082a40ff33a7"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-skeleton",
+      "output": "apps/client/src/assets/derived/bestiary-skeleton.png",
+      "sha256": "5ba2f1fa93847ccbb2b36211f037ea24374aa6b5bf5f78b0f564e5a7a02a6e3c",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 4,
+        "walk": 6,
+        "attack": 8,
+        "dead": 4
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/attack-A1.png",
+          "sha256": "b39a81aa4f7d45fadd0f01232d93b8de703cd70c0c2253ff6621b0dd06622ea1"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/attack-A2.png",
+          "sha256": "f7b06329adce0ac74f85a0255aecab1c9fa2b307a54c90547bdebf319785f445"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/attack-A3.png",
+          "sha256": "8bb7b82cfe26de9f6c87646b2d8eaba0feaef54e8522d1b207346882479f859a"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/attack-A4.png",
+          "sha256": "d594a3ac18534fa58b88201d56d3d44dfc8b0f214bd205dfa763ccfeba1f380f"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/attack-A5.png",
+          "sha256": "175b4a7325354bbffc36cbb54810d4b2d22924c614ed0ee896a0a7d7e020334c"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/attack-A6.png",
+          "sha256": "5c1f527886d8b0ad71e2bf6fd01c2a993185748eafae38c2cbecb0285f75e040"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/attack-A7.png",
+          "sha256": "70b1be135d464d339b6ee8549ba22ea115748ab42bb50355cec9f468cc169ea6"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/attack-A8.png",
+          "sha256": "577369bcaf905c5e3be6fc5b16786a7386dc41a510bfb7632d3ae8952a3d7b4c"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/dead-1.png",
+          "sha256": "ff7ea415b76d6c26dcd56ff56e28b51a162bce5ef6c508ecf0d14878cb71fb06"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/dead-2.png",
+          "sha256": "f1d83e23739522dd5b6d6665acc3e07b7e6c06f6e699a4646704427d3f8ae243"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/dead-3.png",
+          "sha256": "2fa1671a281a6d7a0b1490db528a4d6a73def54ef646e1d11716e49d69bf9821"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/dead-4.png",
+          "sha256": "20c84f956064be0271a0180afaef34382bd3dde2548ff7bc6f60c447c5b11276"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/idle-1.png",
+          "sha256": "a74d13b1e2011b85286ae408b0c91aa131505d48a0daa87fbe82239fb8688fea"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/idle-2.png",
+          "sha256": "b93b21ca47323bbf60dc6dcc85c35957e6ae1c3a2fd5a669651a8830f2856ed7"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/idle-3.png",
+          "sha256": "d391635aa0b863c4856f875fa006110dc0144a9c65c38a46b09f302c9422a7b2"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/idle-4.png",
+          "sha256": "86156d9ac5d47277bd89418859731b085392d59f3c1e7bb069d892cbfd51c276"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/walk-1.png",
+          "sha256": "002ecff160a6016d499bb7361d3a51f504188f74a5c32cc821eb9f1e61199f03"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/walk-2.png",
+          "sha256": "0a3f37937da2f98505334cffefd7bb6249f8283fb49c9ff6a7a5c12a759ee55f"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/walk-3.png",
+          "sha256": "759b70bfafe104c2ed49e4f966707bf0c95470c4f8f900ef5c5ed41c0dfaf0fc"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/walk-4.png",
+          "sha256": "f326437de7f90ad73b7aa8c8f0e8804b0561e653ab5f96188d491d0b14454eba"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/walk-5.png",
+          "sha256": "c7a7448f0ae04614e784062655c2e17c65f1969147695b3324c6840c14dd88ec"
+        },
+        {
+          "path": "sprites/Enemies/Skeleton/PNG/walk-6.png",
+          "sha256": "ab236dd597090272dec6f48bc795c84bb6e7223f436345bfcb16c9b919ae212f"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-shield-skeleton",
+      "output": "apps/client/src/assets/derived/bestiary-shield-skeleton.png",
+      "sha256": "e6e472bedf37f3ae8b7a310a91163d8eeace2b2832193907a2b55c3120237fa7",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 4,
+        "walk": 6,
+        "attack": 12,
+        "dead": 4
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A1.png",
+          "sha256": "4c2f7c48d50743cae490d65c66bffcce2cd848c4d0228b2a1f3516e0292dab8d"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A10.png",
+          "sha256": "a7381068e817c9448b20ec3349b6f1c3144e8f7afed2274628712cc2b7d8a55b"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A11.png",
+          "sha256": "e414d68b60b7a424a693f8a518936fc2038dcb8cb40178eae5508beeeddee294"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A12.png",
+          "sha256": "e80c4c7debed71556bfb5213b0b750a1eb1ffdd855cce27b0a82f020b1283cb7"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A2.png",
+          "sha256": "9c8d8fe11e0fd5f2c30cc15b1c4a1eb2217a3060bc19bbe23fb2565ea5cb3ce2"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A3.png",
+          "sha256": "39ff552da5c0d09b95ca6727b1040c0ed8d29993819f7a710c054092f7d4c43e"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A4.png",
+          "sha256": "f4b7bffa3dca20e7f74b89688cd5280ad12f40423aa0813fa56946979fb53532"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A5.png",
+          "sha256": "fafd0b801425e8bacdd345efbcdafe8f8ce586be1296f945472647196a1f874d"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A6.png",
+          "sha256": "caa3cb37620adf80489e464c5385d76a15caf91eb167232e12abc67e781237e1"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A7.png",
+          "sha256": "839625d914370149aa4368309f2afcfae4c3b92e68e98a65e5b27619992291e3"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A8.png",
+          "sha256": "3e2888e843d0974eedae7f69584f72a12aab83cfa0ceb0dcf55be726340736cc"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/attack-A9.png",
+          "sha256": "20875ac9d9ca8b354cdbf0f22f14a096083f00f324e951c8390e03ba3e870e5c"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/dead-1.png",
+          "sha256": "eff2f61fe20d86a4e8f289b3f6a2f2ce34624505c54135954d96ed8216e19293"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/dead-2.png",
+          "sha256": "76a4f18c344003583600539654661685a55ac12014850e9f3987878ba310cc39"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/dead-3.png",
+          "sha256": "6af3b2059707c85e5dd5f73f2849fa0b8d61f171f4e41712c41fc08cdf292f9a"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/dead-4.png",
+          "sha256": "e5f90cb98c5249965ae291c833d01c73da8a2512cd5505c3ec959d98fcb5914d"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/idle-1.png",
+          "sha256": "1fd08799c8c24cbc3e1ac6419efcd4215abc891bb0d2bb042c529dccbe00be77"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/idle-2.png",
+          "sha256": "741a167e043947ed52701311efa907785d1d4c2d21dda0ea6030fa2bcdc337f3"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/idle-3.png",
+          "sha256": "63b8e6c5f58b566aa3df163b6b9e5c4b0af2ecbcaa41e8f4c3fa51257f5c400b"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/idle-4.png",
+          "sha256": "55d75f1b3cd0050fa314e00fd10779dcaef45cb24d07ebf7c723f99dcd5bb15f"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/walk-1.png",
+          "sha256": "bbc0f9f6b250b37a20578ac3c37a57d05e6db7d36e3a84a8f93b4bc2a084045b"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/walk-2.png",
+          "sha256": "b43048c448f63d97c814bcc0baba8355952a0281243982a16002e1ae84570d9b"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/walk-3.png",
+          "sha256": "c5d44e20c771a2af202f628a872812aeea2dedbce8bfaf68f0f4d13ae878bee2"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/walk-4.png",
+          "sha256": "9b625468c651d07150575039efb56d1f72b5f6c42f1e2c1e50fbd7864462fdf8"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/walk-5.png",
+          "sha256": "d9e1f7e0d2b998b8fcd0addce34fdd118beaa9e2e4d72db19c64ce1ebed59a66"
+        },
+        {
+          "path": "sprites/Enemies/Shield Skeleton/PNG/walk-6.png",
+          "sha256": "c16e7d96eb44b91bf4b19e85fbc23aaa0fe879aaa188e79ae2feed1dbcdcde42"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-lancer",
+      "output": "apps/client/src/assets/derived/bestiary-lancer.png",
+      "sha256": "961044ade3c4fb80cfe18c1ad9086e9f1a39d6e6fdcd069ebd7fa8029cf3ef1a",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 2,
+        "walk": 6,
+        "attack": 6,
+        "dead": 4
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-A1.png",
+          "sha256": "fdb376fd2177215c1a67cccdd3dc30a8ced7a0a4b5fe1f95bed62a2bbc7f7602"
+        },
+        {
+          "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-A2.png",
+          "sha256": "4add43f25c857bbe0767bcd6b3658f5bd9a10064bea07d9a0f72cebb09865a74"
+        },
+        {
+          "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-A3.png",
+          "sha256": "6d89249c7975f2c2ecee5bdfeb45d2ec616f4683861e4f9a3ea9b4002ce191d7"
+        },
+        {
+          "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-A4.png",
+          "sha256": "20712e44f50c97a35ed1ee1631804132f0e2e2ac01b80780f8d10be3ec360ceb"
+        },
+        {
+          "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-A5.png",
+          "sha256": "7eb51f0ae2a2df8dfa5c76ac7b05a8f72255eedab9e12971d4b6c6449193197c"
+        },
+        {
+          "path": "sprites/Enemies/Lancer Skeleton/PNG/attack-A6.png",
+          "sha256": "1a921266dafd454b31cc616b06700f7dcd505daf68bbf1aa91489848d003ff61"
+        },
+        {
+          "path": "sprites/Enemies/Lancer Skeleton/PNG/dead-1.png",
+          "sha256": "1fe9b5e9ec56c742f1999eea8e8981c11b35349b1226db39b6841eedbddd78e7"
+        },
+        {
+          "path": "sprites/Enemies/Lancer Skeleton/PNG/dead-2.png",
+          "sha256": "497eb2a7e9feb2fcd3f68e265198c3f04837420ac390a7d672073da9ea05bdb0"
+        },
+        {
+          "path": "sprites/Enemies/Lancer Skeleton/PNG/dead-3.png",
+          "sha256": "257bd020404cd09da3c090c635de2b3c5310fdeee28d32968abd0d181c1fb36f"
+        },
+        {
+          "path": "sprites/Enemies/Lancer Skeleton/PNG/dead-4.png",
+          "sha256": "2b135866b30b57bbc883f6ba6c8b221b67a29472c31df668c90f10a401a0f7a4"
+        },
+        {
+          "path": "sprites/Enemies/Lancer Skeleton/PNG/idle-1.png",
+          "sha256": "197ef054aa848b6434c4c405b481490364185e725142c7f5e85ebc5b48b40324"
+        },
+        {
+          "path": "sprites/Enemies/Lancer Skeleton/PNG/idle-2.png",
+          "sha256": "ef0eecefd1f84bcdac24ddf35afe2c25a49dfaab004ed58ca474bd6c91378c98"
+        },
+        {
+          "path": "sprites/Enemies/Lancer Skeleton/PNG/walk-1.png",
+          "sha256": "683d02972c331c4746924abaf08727fd7b8e187c573fd9e185f2dc3c9df622af"
+        },
+        {
+          "path": "sprites/Enemies/Lancer Skeleton/PNG/walk-2.png",
+          "sha256": "993d35333782b042e3eb48f554a8431930ab34e23f4c0af9183b1517ee16712e"
+        },
+        {
+          "path": "sprites/Enemies/Lancer Skeleton/PNG/walk-3.png",
+          "sha256": "8e63751720e094cca2a4e3b2da2c38a2cdcd6e834bf25e19cec9d839c29d9177"
+        },
+        {
+          "path": "sprites/Enemies/Lancer Skeleton/PNG/walk-4.png",
+          "sha256": "455325a447b30f3ef739e1c260da3d3d7ca506e099fd3858c1dfb9f774e61d1d"
+        },
+        {
+          "path": "sprites/Enemies/Lancer Skeleton/PNG/walk-5.png",
+          "sha256": "6ff415109b6f66d55dd8753b9b4e5a2f052cc04884bade7991fb4ca644c544ac"
+        },
+        {
+          "path": "sprites/Enemies/Lancer Skeleton/PNG/walk-6.png",
+          "sha256": "707d61f68f4919601a42899ff1f623ea506dcc7a437db52846c1464d772370bd"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-archer",
+      "output": "apps/client/src/assets/derived/bestiary-archer.png",
+      "sha256": "6f98c5e38bc69dd8420353b8be31813d95f3f4e6d2d6678990190ed874f96d3c",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 2,
+        "walk": 12,
+        "attack": 6,
+        "dead": 4
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Archer/PNG/attack-A1.png",
+          "sha256": "497f9eb4879f340f9676543c3d306b08ff56dac93a4dd0e512160a846471457b"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/attack-A2.png",
+          "sha256": "6557c64745e77968399f24938b582d0b641fc20910029dee0e359599f80c232b"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/attack-A3.png",
+          "sha256": "ee02cfd523dad3aab334b392e322e7b506d0eeea41fc29297e364e3a0c588f17"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/attack-A4.png",
+          "sha256": "a1ccc1327957296f4dee0cb3937bde9684a46702c44526147fcdead0d5eff347"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/attack-A5.png",
+          "sha256": "d7860c0ff7a878d837ff2a4f69a0c88431b75f2092a7ab53b575037ddec283aa"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/attack-A6.png",
+          "sha256": "9a57ad129e1cc2da79904d1d019b8b5c2d99ccbed5759b4125573404d8a144a2"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/dead-1.png",
+          "sha256": "128a777752a470bcd25c41ec329d690e20a2604165ce3f9c22597a6164a7ee83"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/dead-2.png",
+          "sha256": "2555dd5f53ccb8e849d2b72f4139bf4c808de4ab8ba7f27bcaa3f51bea4768bd"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/dead-3.png",
+          "sha256": "5f27f90ea077f14a8b13fde56ebf88f65a9c0826c0e82a4a6879e9464b50e91c"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/dead-4.png",
+          "sha256": "2efc8feb8819c8a60bc0ec2211d6e76d545430ae95141513be64139419ba203a"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/idle-1.png",
+          "sha256": "ad04e29c9315293f61f84e3eacad1a6b4072bc23ae66f80de7840442dc65ed67"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/idle-2.png",
+          "sha256": "6bb4b4026f55529aae11712b36baf11448310a0a8cad52988346d8906ba1e06d"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/run-1.png",
+          "sha256": "8194df96a5e9df234a121c4af1dc8693d89e4ff75d3392738ceb136642dcb192"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/run-10.png",
+          "sha256": "9dda56c8148539ea61d1acf0d85e7ef89afdc3399c1e68f54b69536964e34513"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/run-11.png",
+          "sha256": "f10978b4c1713abea4ce9a7a4ef7f9d80a0a722272729723af4988880cfad6b4"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/run-12.png",
+          "sha256": "3bc5e8baaed27f0231bd034563cbbb7ff65a61402f67815b4275430d53f80713"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/run-2.png",
+          "sha256": "c54d394f5073b5e63ffdcbf3b53dfadded9aa6a093630a34c01f62aa1fb29476"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/run-3.png",
+          "sha256": "f93911c83f53b58827be34444703a7152d87797964c2be02c2d0e9fc860b9e54"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/run-4.png",
+          "sha256": "2ece76f0f46cddc5bcfd94e4c0d45b3e40fcdb4c13596bec9b92ac0f15b593f7"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/run-5.png",
+          "sha256": "8973b4d9795343db2694d5f8a9d21c42acd0fec72522257740eb36d8fa7f976b"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/run-6.png",
+          "sha256": "d6c07f92dede3b7fed158eace91a54592becd1b31b68cb65aa90da1532492f1c"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/run-7.png",
+          "sha256": "c8b66d1f8fda470cd62aded997fb4d4f31eafdb9cedc43a24b2936fdf8fd6d25"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/run-8.png",
+          "sha256": "3994219c51c2c7c75b23a6ac45584133eee56bcc5aa81bcfcb5b2020ae4767b1"
+        },
+        {
+          "path": "sprites/Enemies/Archer/PNG/run-9.png",
+          "sha256": "c6425fa8582e48a1fe0d427c4c76d57efb18c453a00f9f1793d2553b382e91e0"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-shadow",
+      "output": "apps/client/src/assets/derived/bestiary-shadow.png",
+      "sha256": "34d542643b22ceae59ac15d4eb8ca87834feb16227173e41578c1c8084718990",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 4,
+        "walk": 4,
+        "attack": 10,
+        "dead": 5
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Shadow/PNG/attack-A1.png",
+          "sha256": "4ab1a6b9b538904eef8acc5fdb4c6c97e1c53c3843df695bf0e2aa584d415ef5"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/attack-A10.png",
+          "sha256": "38908db08040aa8ff23a1fe99da85e0ab641285cc2479fe7fc8fdfc1f7e458b4"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/attack-A2.png",
+          "sha256": "a597b4a862269a176d5e31aa68cc4d3c54abfc5f35332ee0eec3dc367d2435ea"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/attack-A3.png",
+          "sha256": "166c652d7c9d43eccf5daae619cf1775e1427c25a954d3fbbd77c6e7b4552e9e"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/attack-A4.png",
+          "sha256": "fb20fcadf70cf88d0ef1fd3a77b2e2bc0dcaa8f1f73aa583dedc812d33cfd929"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/attack-A5.png",
+          "sha256": "6f0432f343082cc702bf613bd6e42ec8bd72c0bc380e92efc786d58cb580a259"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/attack-A6.png",
+          "sha256": "242a363cf4a22d522d39b280fe2d39ba5e75a6ca5227e6123d86ca9fe9a4b86a"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/attack-A7.png",
+          "sha256": "9b3222e18d11cc57a0508cd13864a93ac983054a83241d20deb37bb34928bc62"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/attack-A8.png",
+          "sha256": "4571072ea0c48f9c2cf353d87d8b0fbde5f636afd8d80d8b31b537db00433972"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/attack-A9.png",
+          "sha256": "f09010504fcf463155c5773d47f3ed144eff8efc71f2768a2cd94c5493be3a29"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/dead-1.png",
+          "sha256": "cd2d694893f6e2d42f8470e2ddc926f81b30090a712f0d3e8271962cd76d0e9e"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/dead-2.png",
+          "sha256": "7d73b8894b60b83b41f1a3defe6bbb0028e90e8b2b9d4de0d6150bdfeafbd602"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/dead-3.png",
+          "sha256": "eabc54e93d60b6408053d560058cb93aeea76ce6a64456d876f2b96da185a8a1"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/dead-4.png",
+          "sha256": "a8155256abbdec29ce71b4f21d0b07ada72b398d45df086a2211bf7b80a94f04"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/dead-5.png",
+          "sha256": "e501feddb95d977541b6862de2caf7f2159f854bc43c47ae2817bd5d997a1b1a"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/idle-1.png",
+          "sha256": "30423ea9d75897b7eb3190a065f417af177d8f19ad99b0e3ffb7fdcbdabaf3b4"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/idle-2.png",
+          "sha256": "4f026c9dd476c83046a3373a3513c5926943937bd304ac1c9cc269fc3728ddaf"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/idle-3.png",
+          "sha256": "78e4fc8d6bb983c0baadcb2d40c9284f2730e36090e8401c2240ec7f752c07ac"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/idle-4.png",
+          "sha256": "f34f16f4e84448c2a88c38cc5aff18d69c5f4d6c3df3c1ad6cdf57f4483bc95f"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/walk-1.png",
+          "sha256": "55d95c368c6ebc755537602a81fbe2f86e1d3f6ee71049ce9eb89e6ad44ca5cb"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/walk-2.png",
+          "sha256": "35a742d993c76c77f7e901495144e4c086f16281109f0b4983505cdb72c01dc1"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/walk-3.png",
+          "sha256": "68e361b4136037752fda37c0d12d47aa634e0b715c037050b38f3343af1e6c4e"
+        },
+        {
+          "path": "sprites/Enemies/Shadow/PNG/walk-4.png",
+          "sha256": "77980999e8e9b3d1f7217cdaede938899cdfa9c0797198db4c8950378a1a2779"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-inquisitor",
+      "output": "apps/client/src/assets/derived/bestiary-inquisitor.png",
+      "sha256": "7da457c4ef15e1fdc7c6f96e28c24d91d461842e2eb46f39e649e2814ca1e38b",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 6,
+        "walk": 11,
+        "attack": 7,
+        "dead": 6
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-A1.png",
+          "sha256": "09824de8f0df7e15eee891028daf680e92c5fd50f92aecf2faac2f63fdc6a78a"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-A2.png",
+          "sha256": "aa182a17e7602408e00cdd4c1e3a387eb18c440731ae1369094b813ca6ee27c4"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-A3.png",
+          "sha256": "2afa6ec036ea88c273469ef8a478fe9f1585061491afbd1ce76123b0547a1f50"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-A4.png",
+          "sha256": "b044a965f3c58d61afd98c4b7a0135bf8518c020e97635b6143fd5da0d96a83f"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-A5.png",
+          "sha256": "9d1c35dd1543484cb67d1200f42ab042f54d3b486ef0c0da7c80b340b7a698f4"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-A6.png",
+          "sha256": "865679c2c98536de9b08e08de516bd19b1c8bfa0834f1abfc3a5ddbbac772a89"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/Attacks/attack-A7.png",
+          "sha256": "41f236634732cb58f9cc2efc7221af2a046a1429b027386db9fef7fde00aa09c"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/Dead/dead-1.png",
+          "sha256": "71dfaa5d73616b69f3170551e09ac9cfc2d7487cfbe19d38c307c0d667a58ea3"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/Dead/dead-2.png",
+          "sha256": "2d8a33e709b1279d7d8d5796fe4d159bf14d27a661154d4e7f2898b650f6cfe1"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/Dead/dead-3.png",
+          "sha256": "508600d2aaa1c9ce1c7f7679542982d770d6238e94b3dc03a02dcb1586943655"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/Dead/dead-4.png",
+          "sha256": "7748bae69575d6a772c814fd590d7c55234e6030e02677b1c38206ffa33d2b41"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/Dead/dead-5.png",
+          "sha256": "c59d97a6a38e0d7bc3a8664b6700f7e81ae7a9952bc15b0b792a2347bc6ff22e"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/Dead/dead-6.png",
+          "sha256": "ff15604ab9e29c060210d27697a2e845053232f0d011b235b963802192a6ec1f"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/Idle/idle-with-weapon-1.png",
+          "sha256": "7790b0d760cfae1d60d3716ee050e21e9ed0642f6e1e79d0d4ee503211433ffd"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/Idle/idle-with-weapon-2.png",
+          "sha256": "9c836e33e2d4c82b88ab9c7e7c5a7e21cc01dde42f08115d3438939fe4a71862"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/Idle/idle-with-weapon-3.png",
+          "sha256": "744a9ec20208db26f18a136d986397792eaea99c26bf67c5471a9e18b666c44d"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/Idle/idle-with-weapon-4.png",
+          "sha256": "413b2525701dd0e7e6d4339ed9068bd55cb069b21ecbef46074c37a094185f91"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/Idle/idle-with-weapon-5.png",
+          "sha256": "7cf31a4a1b35a712af972302e9e5d12c6f0c01b1c929c3641a6935ed10360d01"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/Idle/idle-with-weapon-6.png",
+          "sha256": "d624945e995ccee840d1f9613ab77d10dff8431726b475fdddc8ebf9de69d2d1"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-1.png",
+          "sha256": "8a15a050231dce882db4c3b031ef8a11fafe4150726d447fa458b001d565ce57"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-10.png",
+          "sha256": "6ff13e78378a42958d28129307af1a7356521a786c1eb313516a6a70a7819f33"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-11.png",
+          "sha256": "1174a8ac96ba52ede008fcae91cbfa574ae1e0734b4c0145a85d5365bd8b2095"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-2.png",
+          "sha256": "978d7317b80eb82ac504e44d633fb9779b2f91c7481d4066e970d7cfd896247c"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-3.png",
+          "sha256": "9eed44d531dbc7bf20bd6b7a4523ef9bd0651dbbac0822dedcb0c714f47b9198"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-4.png",
+          "sha256": "a644c75efa6c134794ead1f711acac385629836b4ee2ddfae7c435fc0cf8add1"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-5.png",
+          "sha256": "0fd81fd3cafa3bedf69528b74046800d6ccd180db79bbaa875bc08e0ae4c28ba"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-6.png",
+          "sha256": "e08ad59ae02d69128ea936bf3d10573a0148ea35d6240a3e1d418e57602d0c18"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-7.png",
+          "sha256": "dee40da170929886a487af91ac10761fe283bfa6ea210350c691c82d1bff180b"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-8.png",
+          "sha256": "15d35ebb47e7163d60af89c8aeff273d12041d024c041b9c181e062715451b54"
+        },
+        {
+          "path": "sprites/Enemies/Inquisitor/PNG/walk-with-weapon-9.png",
+          "sha256": "e09adc76e546cdc8def368fbde3ab40983bfd124d2b0c4f0d13fc305a40c0c4f"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-warrior",
+      "output": "apps/client/src/assets/derived/bestiary-warrior.png",
+      "sha256": "8b4e8ad5bd23f0d3848ee19b05a0e69436fcd78e3ff1e33e614c766a3d658c3e",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 8,
+        "attack": 6,
+        "dead": 10
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Warrior/GandalfHardcore Warrior.png",
+          "sha256": "0fcd10854ccf00dc274cbb927170a86c83bd62c4353dbccae7b530c682fbc2f6"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-zombie-1",
+      "output": "apps/client/src/assets/derived/bestiary-zombie-1.png",
+      "sha256": "38469a839331a0488c05c85651e8711fd636c0d0b6dbef02cdc8b8649105aade",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 6,
+        "walk": 10,
+        "attack": 5,
+        "dead": 5
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Zombie_1/Attack.png",
+          "sha256": "587a047b850d768b61756b68d3f6bf8ec3b5e2a37641c1cfd4eaa90f8fde401d"
+        },
+        {
+          "path": "sprites/Enemies/Zombie_1/Dead.png",
+          "sha256": "140df4bdc550d602ab0d1c9058533c1213b02c4b1991068e6c0200d290186929"
+        },
+        {
+          "path": "sprites/Enemies/Zombie_1/Idle.png",
+          "sha256": "4547880d187eeffad44479854fe1533249b2624f4edbaf67ca21ae654aeecdaf"
+        },
+        {
+          "path": "sprites/Enemies/Zombie_1/Walk.png",
+          "sha256": "a061e3a15714ac355a2cfb5731e756ebc6f75a1a0e4cdcd84311e3ae46a1065d"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-zombie-2",
+      "output": "apps/client/src/assets/derived/bestiary-zombie-2.png",
+      "sha256": "a04411986c0fa1d23784baabad0643b3a1c71824130b0328ef0952f49a0cc4aa",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 6,
+        "walk": 10,
+        "attack": 5,
+        "dead": 5
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Zombie_2/Attack.png",
+          "sha256": "f166cc0227c0b65f3e37cdc16e0bf4e3e024f40b1af8fe02faad63190d750d03"
+        },
+        {
+          "path": "sprites/Enemies/Zombie_2/Dead.png",
+          "sha256": "d66e6603aa2e8befaf2af8f3ff81ed09422c5c36e8874e26a894280df95fdaca"
+        },
+        {
+          "path": "sprites/Enemies/Zombie_2/Idle.png",
+          "sha256": "59fc05777d5b5f2387cbef63f3940b37e09dc6f9e67acdf2d1436adab3ec40ac"
+        },
+        {
+          "path": "sprites/Enemies/Zombie_2/Walk.png",
+          "sha256": "3943ad5538d80f89e06bb91c8a342e07f6a5dd8e3181927d07f3f9d10d2bf1c7"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-zombie-3",
+      "output": "apps/client/src/assets/derived/bestiary-zombie-3.png",
+      "sha256": "4d0bd4195b9fed1c244a937a4bf715aef23dca514517b6acd9eced1713db0d8d",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 6,
+        "walk": 10,
+        "attack": 4,
+        "dead": 5
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Zombie_3/Attack.png",
+          "sha256": "8a923780bf183009147b26948fe8a11b8cd4d9e6c8b263d8f56d186764dbf9ca"
+        },
+        {
+          "path": "sprites/Enemies/Zombie_3/Dead.png",
+          "sha256": "d63d2871d61091834729fea9816147907256abddcb25d0cd8dcf20c9424ec29f"
+        },
+        {
+          "path": "sprites/Enemies/Zombie_3/Idle.png",
+          "sha256": "4b3e798e4d4c0abdd96c8a43d6f5907bae0e5952dbd33188026b427733d65345"
+        },
+        {
+          "path": "sprites/Enemies/Zombie_3/Walk.png",
+          "sha256": "f2c7e22e86c9d94987e25edd325969784ef0648607848e38108d307e937843fc"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-zombie-4",
+      "output": "apps/client/src/assets/derived/bestiary-zombie-4.png",
+      "sha256": "057239ffe3b7a79398ad12aac7b0bdd8dfd4483208d64dd9604297000afcc4a3",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 7,
+        "walk": 12,
+        "attack": 10,
+        "dead": 5
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Zombie_4/Attack.png",
+          "sha256": "d4d0e7b962642a5d22935ce8654a25e65f37c965d2fd1870327469694a5f92c2"
+        },
+        {
+          "path": "sprites/Enemies/Zombie_4/Dead.png",
+          "sha256": "f1a2ab451a3e4743b9808db4badcedbf269fcb0fbb6f0a8ed09baa30895a7aff"
+        },
+        {
+          "path": "sprites/Enemies/Zombie_4/Idle.png",
+          "sha256": "95a15ab184c599174e500bf6d5144332311609fde9fd6b42c8d6df09272b6391"
+        },
+        {
+          "path": "sprites/Enemies/Zombie_4/Walk.png",
+          "sha256": "7e80b1960d0df2ab7a9d7ccaa3d9b38a3db01700bafee5fae47d3d88570dcfc8"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-male-bandit",
+      "output": "apps/client/src/assets/derived/bestiary-male-bandit.png",
+      "sha256": "36bfd1c7fdf3a8647a93b3c7221d1e0c0a6c3cdc17d4d73886773adf2c3fa737",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 8,
+        "attack": 6,
+        "dead": 10
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Male Base/Male Clothing/Boots.png",
+          "sha256": "12d6051b8fd339e29d06b4f298675a292e91b0adfffdafa613c189533feab046"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Clothing/Pants.png",
+          "sha256": "de047029130b36db4232f6c96da464b2856adf23f6481556de2da6b2daf9c2fc"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Clothing/Shirt v2.png",
+          "sha256": "20aa695fedbbeb5959c10680468ec5833ca340a8a235e32a9da14bd781623d03"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Hair/Male Hair3.png",
+          "sha256": "3d11de54e3eaa82b78656c991d8e620df6e71384f89a64927aa12f438ebfa5a4"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Hand/Iron Sword.png",
+          "sha256": "a7c0795e77ad571ddfc22a3faae9e057103af345a5d48b1ed09692ef565d2321"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Mask/Male Bandit Scarf.png",
+          "sha256": "f8e48064995f512bd7bb7cddbd049f26ff0f51c20c32cc63d1ef02258cab8d50"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Skin/Male Skin2.png",
+          "sha256": "e9943c5bde8e5e92f9dc529af0cadebfb669654fd24e124ace901c50141d7ee3"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-male-orc",
+      "output": "apps/client/src/assets/derived/bestiary-male-orc.png",
+      "sha256": "aa5683b65a8e9dfc61744ab5a26c95cb1842f069bc3d71e0a5cd48c673a793cf",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 8,
+        "attack": 6,
+        "dead": 10
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Male Base/Male Clothing/Boots.png",
+          "sha256": "12d6051b8fd339e29d06b4f298675a292e91b0adfffdafa613c189533feab046"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Clothing/Green Pants.png",
+          "sha256": "6e3ca8f23da858705e378661379d78d7c330f42abfd45072a35eab0d23fa390f"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Clothing/Green Shirt v2.png",
+          "sha256": "c00a364bd12321e796316adab1a8c50436848b7afa56c99c25bea9e947c9ac0d"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Hair/Male Hair7.png",
+          "sha256": "97840fb9d1e8ab3e6cea39058775801279f148196f3a5f61f8bcf1c6e9a61848"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Hand/Iron Axe.png",
+          "sha256": "89c1948b9f722c802db98ee58f93af851b90c4a55eb88d0c8a1715361f61a5ca"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Skin/Male Orc skin.png",
+          "sha256": "d75ccccb9d5e16e7ad6a7a823251ffa1827956635a573036c185e1be3badfb30"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-male-deserter",
+      "output": "apps/client/src/assets/derived/bestiary-male-deserter.png",
+      "sha256": "3a6f938a9f878edeca60987a88efb771a582bab85246f2291b03353540d96f58",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 8,
+        "attack": 6,
+        "dead": 10
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Male Base/Male Clothing/Blue Pants.png",
+          "sha256": "8ee4d1d561ebdeb8ad526281aa2e3a3c68dedaf6dfe0da2921589d81b7e2c142"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Clothing/Boots.png",
+          "sha256": "12d6051b8fd339e29d06b4f298675a292e91b0adfffdafa613c189533feab046"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Clothing/Chainmail.png",
+          "sha256": "f5d0fe4b419203222e80e20d2d779b72ce196b9c9c5a42af075950d0d8ac4c5b"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Hair/Male Hair12.png",
+          "sha256": "94fc8b8dc3660781e930b87d804050f92b4cfa9a3cfcd26323711d7ea3c45745"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Hand/Iron Sword.png",
+          "sha256": "a7c0795e77ad571ddfc22a3faae9e057103af345a5d48b1ed09692ef565d2321"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Hat/Guard Helmet.png",
+          "sha256": "6c6bcce83939c86a53d2ad87ee9545e4c06f0d0983afb871f7d03f8930ec6cc8"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Skin/Male Skin3.png",
+          "sha256": "73eeeddb21cb3c1b0d2cd051a3dec490a5923870a51ef8df3fc0df5be6835307"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-male-plague",
+      "output": "apps/client/src/assets/derived/bestiary-male-plague.png",
+      "sha256": "51c37cbbf8759de167d42cdfdde3376f0e372966eea76a535aa8f2f674d2c999",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 8,
+        "attack": 6,
+        "dead": 10
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Male Base/Male Clothing/Boots.png",
+          "sha256": "12d6051b8fd339e29d06b4f298675a292e91b0adfffdafa613c189533feab046"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Clothing/Purple Pants.png",
+          "sha256": "891e17300ad12ce15b8e53ce03a44bf6c7f5eeb8eb371b6af05ef95ae6ccb174"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Clothing/Purple Shirt v2.png",
+          "sha256": "ed12e7275d63e52bfbaa68fb3af3170c1105d106d384df4fc0ed1c922f1c68f7"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Hair/Male Hair1.png",
+          "sha256": "a760b4ae826a3a8483f61c1f63a35aad7f8c57748de80c1791d6bff1f4bd09d3"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Hand/Bronze Axe.png",
+          "sha256": "ca4979032c65a97e2965dc97a193c93b4acc39c3a4d7bb5dfcd51f6c8dfe299d"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Mask/Male Plague Mask.png",
+          "sha256": "0b05d72fc5405aae32cd6472744a9ebbf3fe2727fae5978a7b6c74637beae225"
+        },
+        {
+          "path": "sprites/Enemies/Male Base/Male Skin/Male Ghost skin.png",
+          "sha256": "8aad60f4cc6d5169b32fecd86e631c317489e52f345b85b152237d026151578b"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-female-scout",
+      "output": "apps/client/src/assets/derived/bestiary-female-scout.png",
+      "sha256": "795670f78f7d46bf18e04e07db6893a509741503f00fdb99cabf1f30f54c96db",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 8,
+        "attack": 6,
+        "dead": 10
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Female Base/Female Clothing/Boots.png",
+          "sha256": "e3b269a8be19139ec5a7ddf9daa55df90451a9da7cbc0ed1b08a8c886c257d92"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Clothing/Green Bodice Long Sleeves.png",
+          "sha256": "3823f3963cf781040722b6dacc66b466db588eaf93f61a03469eb9e667d67d8a"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Clothing/Skirt.png",
+          "sha256": "dcb193338aabebfbcca83b5484d14f3d97b75763f1a3133aaa0c3c893b49f8b4"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Hair/Female Hair3.png",
+          "sha256": "1dd191f9100813b21f77a8eecd3c3a3db3938989208cd9b6d6bff16892e1ba30"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Hand/Iron Sword.png",
+          "sha256": "6f6c17037bf4ee07c76e05e0286d5221a51a761b57021d611b22b27de465e741"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Skin/Female Skin2.png",
+          "sha256": "b586498a861962c442b2c1334ddc56c7e2b5a3d847ce47b845988242ae007e79"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-female-guard",
+      "output": "apps/client/src/assets/derived/bestiary-female-guard.png",
+      "sha256": "5f97d8e7d102dafb8dddf2dbc65563ec6f851c45dbf3bbc33003c5aeabb68a2a",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 8,
+        "attack": 6,
+        "dead": 10
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Female Base/Female Clothing/Blue Bodice Long Sleeves.png",
+          "sha256": "ac1b5b8bd4f38c3e41c5f93dc09a6627dc31c3e23db00513418e92edcf368382"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Clothing/Boots.png",
+          "sha256": "e3b269a8be19139ec5a7ddf9daa55df90451a9da7cbc0ed1b08a8c886c257d92"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Clothing/Skirt.png",
+          "sha256": "dcb193338aabebfbcca83b5484d14f3d97b75763f1a3133aaa0c3c893b49f8b4"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Hair/Female Hair12.png",
+          "sha256": "7599cd485e84d54981197ce99cefeb57458af1d3eaa94aaaf4b172e6e3ee4f3c"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Hand/Iron Sword.png",
+          "sha256": "6f6c17037bf4ee07c76e05e0286d5221a51a761b57021d611b22b27de465e741"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Skin/Female Skin3.png",
+          "sha256": "79e133201d43b34ae5126d39d3c72bbcce3d0a16890487b6a7bbec2d32ef7e04"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-female-cultist",
+      "output": "apps/client/src/assets/derived/bestiary-female-cultist.png",
+      "sha256": "406b06d95ac2477a0497f4b18789247017e9754683754fdb7c20579a4cb0cc43",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 8,
+        "attack": 6,
+        "dead": 10
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Female Base/Female Clothing/Boots.png",
+          "sha256": "e3b269a8be19139ec5a7ddf9daa55df90451a9da7cbc0ed1b08a8c886c257d92"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Clothing/Purple Bodice Long Sleeves.png",
+          "sha256": "a694e95220a525c2ca8375c20cad92febd96a6c3f765887b7ffbbcdf32e388b7"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Clothing/Skirt.png",
+          "sha256": "dcb193338aabebfbcca83b5484d14f3d97b75763f1a3133aaa0c3c893b49f8b4"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Hair/Female Hair20.png",
+          "sha256": "71f5fabc41a4d3e334e34672d10985b7e250d27502f126a40c6c501dcd4895a9"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Hand/Bronze Sword.png",
+          "sha256": "ed4b15ddb8a514ba571df5eb6cb4deebe768868a1a4d79f7411032b8489c4abe"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Hat/Witch hat.png",
+          "sha256": "d23221927d3287da3e6b1b87f0474531e8b2a1b62515deb6d0b26a37f67dd319"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Skin/Female Devil skin.png",
+          "sha256": "63f39c8f62772d848f24e661737ed6d99b0723bce7c990f7e80d17ec74ba3a75"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-female-revenant",
+      "output": "apps/client/src/assets/derived/bestiary-female-revenant.png",
+      "sha256": "c8ab52c5946437229b4c04b66f70baf720f01fbe7871c7f5304e97df19e062ea",
+      "width": 1280,
+      "height": 512,
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frames": 32,
+      "sourceActionFrames": {
+        "idle": 5,
+        "walk": 8,
+        "attack": 6,
+        "dead": 10
+      },
+      "pivot": [
+        80,
+        112
+      ],
+      "sources": [
+        {
+          "path": "sprites/Enemies/Female Base/Female Clothing/Boots.png",
+          "sha256": "e3b269a8be19139ec5a7ddf9daa55df90451a9da7cbc0ed1b08a8c886c257d92"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Clothing/Red Bodice Long Sleeves.png",
+          "sha256": "3af0e08379fdd06e9ed899e0076fed071ce6258c5948ed3af8b27609b1b2f965"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Clothing/Skirt.png",
+          "sha256": "dcb193338aabebfbcca83b5484d14f3d97b75763f1a3133aaa0c3c893b49f8b4"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Hair/Female Hair30.png",
+          "sha256": "5d8a86879ac9a5c7b58be336c9678a5abc6ed3440aa4248daf312bd208cfa2da"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Hand/Iron Axe.png",
+          "sha256": "da84633856f5775b164164e4c8396842216923f77d40ef757b45eeed0c7fbeee"
+        },
+        {
+          "path": "sprites/Enemies/Female Base/Female Skin/Female Ghost skin.png",
+          "sha256": "fed8deb5fe55ffa05299ac297008c70ca82e8fc7552297be613f12494d579988"
+        }
+      ],
+      "licenseStatus": "unverified"
+    },
+    {
+      "key": "bestiary-arrow",
+      "output": "apps/client/src/assets/derived/bestiary-arrow.png",
+      "sha256": "3eee4627cee2582b00a390ccccc7811ec93679ddfdc372941d6ff88892efd50a",
+      "width": 10,
+      "height": 1,
+      "sources": [
+        {
+          "path": "sprites/Enemies/Archer/PNG/attack-A4.png",
+          "sha256": "a1ccc1327957296f4dee0cb3937bde9684a46702c44526147fcdead0d5eff347"
+        }
+      ],
+      "licenseStatus": "unverified"
     }
   ]
 }

@@ -73,3 +73,14 @@ it("keeps confirmed group swings separated while their approaches can overlap", 
     expect(swinging.length).toBeLessThanOrEqual(1);
   }
 });
+
+import {ENEMY_TEMPLATES} from '@akai/shared';
+it('fits every common family in the arena with a 16px front body gap',()=>{
+ for(const t of ENEMY_TEMPLATES){const ids=[t.id,t.id,t.id], xs=formation(100,[true,true,true],false,'melee',ids),pose=enemyPose(false,'melee',t.id);
+ expect(bodyGap(100,xs[0]!,HERO_POSE,pose)).toBe(16);
+ xs.forEach(x=>expect(x!-pose.bodyLeft*pose.scale).toBeLessThanOrEqual(384));
+ }
+});
+it('common template metadata cannot change boss geometry',()=>{
+ for(const t of ENEMY_TEMPLATES)expect(enemyPose(true,'melee',t.id)).toEqual(enemyPose(true));
+});
