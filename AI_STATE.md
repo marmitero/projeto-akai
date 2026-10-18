@@ -112,3 +112,12 @@ servidor.bat/scripts/servidor.mjs publicados na main após autorização explíc
 
 
 Publicado na main após autorização explícita em16/10/2026: implementação3e05dd067a27cefe6d1854f96e2ff7924c5685ae. CI principal38987019738 e Windows38987019786 iniciadas (ainda sem resultado no fechamento). CI Windows existente testa jogar.bat, não executa Docker Desktop/servidor.bat. Limitações do teste específico do iniciador online permanecem registradas.
+
+
+## R1 — validação da economia (18/10/2026)
+
+Pedido: validar economia completa e começar implementação se passar. Critérios fixados antes das coortes em docs/plans/hunts-builds/r1/criteria.json. Modelo independente Python3.12 em scripts/economy-r1; nenhum import de runtime. Checkpoint remoto52a902eedca7d575ec1fdefc1bc67a76cb6316b7 na branch validate/economy-r1 preserva o trabalho. Relatório final: docs/plans/hunts-builds/r1/VALIDATION_REPORT.md; resultados, seeds, hashes e cenários adjacentes.
+
+CandidataR0 REPROVADA: oferta de proteção não sustenta a escassez pretendida, XP/campanha aceleradas, jade/Ruby/migração/consumidores antigos ainda sem contrato integral. Amostra de300contas maduras gratuitas:32,7%+20/90dias, meta1–3%. Contas novas também foram simuladas desde saldo zero; fixtures maduras não provam aquisição orgânica. Grade de builds e invariantes não substituem testes reais. Descarte de itens e overflow de evento atuais ainda geram ferro, fora das hunts; pets/forja/tônicos/eventos precisam de revisão conjunta.
+
+11testes do modelo, typecheck, compilaçãoPython e diffcheck aprovados; fontes/mercado finito conservados no escopo simulado. Sem novo teste Windows/online/PostgreSQL, sem migração ou alteração de jogo. Pendências e hipóteses explícitas no relatório. Como a condição do usuário não foi cumprida, R2 NÃO começou. Próximo passoR1.1: recalibrar proteção/late-game, contratos de fontes/consumos, jade/faixas de loja e migração; repetir gates intactos com seed nova. Monetização segue adiada, bosses mantêm etapa própria. Publicar checkpoint e resultados; não ativar curva reprovada.

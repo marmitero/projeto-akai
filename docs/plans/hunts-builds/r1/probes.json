@@ -1,0 +1,221 @@
+{
+  "progression": [
+    {
+      "n": 24,
+      "days": 1,
+      "main100by30": 0.0,
+      "huntsBy30": 0.0,
+      "eligible": 0.0,
+      "legendary": 0.0,
+      "any20": 0.0,
+      "mainMedian": 10,
+      "huntsMedian": {
+        "coal": 11,
+        "iron": 18,
+        "gold": 0
+      },
+      "levelMedian": 127,
+      "attemptsMedian": 1,
+      "scrollsSpentMedian": 0,
+      "balancesMedian": {
+        "coin": 107151,
+        "coal": 103,
+        "iron": 481,
+        "gold": 0,
+        "jade": 0
+      },
+      "earnedMedian": {
+        "coin": 121042,
+        "coal": 106,
+        "iron": 531,
+        "gold": 0,
+        "jade": 0
+      },
+      "conservationErrors": 0,
+      "first20Wilson": [
+        0,
+        0.13797620467497365
+      ]
+    },
+    {
+      "n": 24,
+      "days": 3,
+      "main100by30": 1.0,
+      "huntsBy30": 1.0,
+      "eligible": 1.0,
+      "legendary": 0.041666666666666664,
+      "any20": 0.0,
+      "mainMedian": 114,
+      "huntsMedian": {
+        "coal": 114,
+        "iron": 106,
+        "gold": 48
+      },
+      "levelMedian": 394,
+      "attemptsMedian": 12,
+      "scrollsSpentMedian": 0,
+      "balancesMedian": {
+        "coin": 4035704,
+        "coal": 12169,
+        "iron": 19260,
+        "gold": 939,
+        "jade": 0
+      },
+      "earnedMedian": {
+        "coin": 6140476,
+        "coal": 12560,
+        "iron": 21435,
+        "gold": 939,
+        "jade": 0
+      },
+      "conservationErrors": 0,
+      "first20Wilson": [
+        0,
+        0.13797620467497365
+      ]
+    },
+    {
+      "n": 24,
+      "days": 7,
+      "main100by30": 1.0,
+      "huntsBy30": 1.0,
+      "eligible": 1.0,
+      "legendary": 0.5833333333333334,
+      "any20": 0.0,
+      "mainMedian": 320,
+      "huntsMedian": {
+        "coal": 114,
+        "iron": 106,
+        "gold": 48
+      },
+      "levelMedian": 1000,
+      "attemptsMedian": 47,
+      "scrollsSpentMedian": 0,
+      "balancesMedian": {
+        "coin": 37557490,
+        "coal": 5320,
+        "iron": 2774,
+        "gold": 560,
+        "jade": 12
+      },
+      "earnedMedian": {
+        "coin": 109956908,
+        "coal": 12560,
+        "iron": 21435,
+        "gold": 939,
+        "jade": 12
+      },
+      "conservationErrors": 0,
+      "first20Wilson": [
+        0,
+        0.13797620467497365
+      ]
+    },
+    {
+      "n": 24,
+      "days": 30,
+      "main100by30": 1.0,
+      "huntsBy30": 1.0,
+      "eligible": 1.0,
+      "legendary": 1.0,
+      "any20": 0.0,
+      "mainMedian": 1000,
+      "huntsMedian": {
+        "coal": 589,
+        "iron": 510,
+        "gold": 518
+      },
+      "levelMedian": 1000,
+      "attemptsMedian": 160,
+      "scrollsSpentMedian": 49,
+      "balancesMedian": {
+        "coin": 1175335668,
+        "coal": 282992,
+        "iron": 157709,
+        "gold": 156889,
+        "jade": 66
+      },
+      "earnedMedian": {
+        "coin": 10299467766,
+        "coal": 519171,
+        "iron": 739143,
+        "gold": 202393,
+        "jade": 69
+      },
+      "conservationErrors": 0,
+      "first20Wilson": [
+        0,
+        0.13797620467497365
+      ]
+    }
+  ],
+  "protectionBudgetSensitivity": [
+    {
+      "n": 20000,
+      "scrollBudget": 10,
+      "any20": 0.0,
+      "confidence95": [
+        0,
+        0.00019203605610461493
+      ],
+      "meanAttempts": 20.70515,
+      "meaning": "Upper-bound affordability stress, NOT organic account progression"
+    },
+    {
+      "n": 20000,
+      "scrollBudget": 20,
+      "any20": 0.00155,
+      "confidence95": [
+        0.0010922251960483044,
+        0.002199215548282386
+      ],
+      "meanAttempts": 31.05585,
+      "meaning": "Upper-bound affordability stress, NOT organic account progression"
+    },
+    {
+      "n": 20000,
+      "scrollBudget": 30,
+      "any20": 0.00745,
+      "confidence95": [
+        0.006349197504474787,
+        0.00873997721439387
+      ],
+      "meanAttempts": 41.21945,
+      "meaning": "Upper-bound affordability stress, NOT organic account progression"
+    },
+    {
+      "n": 20000,
+      "scrollBudget": 40,
+      "any20": 0.01795,
+      "confidence95": [
+        0.01620035978334223,
+        0.01988478217834823
+      ],
+      "meanAttempts": 51.3192,
+      "meaning": "Upper-bound affordability stress, NOT organic account progression"
+    },
+    {
+      "n": 20000,
+      "scrollBudget": 60,
+      "any20": 0.0451,
+      "confidence95": [
+        0.042310231178862096,
+        0.048064483224981885
+      ],
+      "meanAttempts": 71.0235,
+      "meaning": "Upper-bound affordability stress, NOT organic account progression"
+    },
+    {
+      "n": 20000,
+      "scrollBudget": 90,
+      "any20": 0.08955,
+      "confidence95": [
+        0.08567116209510967,
+        0.0935864803033466
+      ],
+      "meanAttempts": 99.5692,
+      "meaning": "Upper-bound affordability stress, NOT organic account progression"
+    }
+  ],
+  "note": "Finite scroll budget with unlimited other resources is a ceiling, never an approved new supply rule."
+}

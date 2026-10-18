@@ -1,0 +1,209 @@
+[
+  {
+    "build": "balanced",
+    "starterSword": true,
+    "hunts": {
+      "coal": 10,
+      "iron": 18,
+      "gold": 21
+    },
+    "main": 49,
+    "metrics": {
+      "firstCoalDay": 1,
+      "firstCoalActiveHours": 0.5027777780833333,
+      "firstIronDay": 1,
+      "firstIronActiveHours": 1.0025000005833336,
+      "allBasicHuntsDay": 1,
+      "first3Day": 1
+    }
+  },
+  {
+    "build": "balanced",
+    "starterSword": false,
+    "hunts": {
+      "coal": 20,
+      "iron": 20,
+      "gold": 20
+    },
+    "main": 39,
+    "metrics": {
+      "firstCoalDay": 1,
+      "firstCoalActiveHours": 2.5024966672777773,
+      "firstIronDay": 1,
+      "firstIronActiveHours": 3.0024966678333325,
+      "allBasicHuntsDay": 1
+    }
+  },
+  {
+    "build": "swift",
+    "starterSword": true,
+    "hunts": {
+      "coal": 10,
+      "iron": 16,
+      "gold": 20
+    },
+    "main": 49,
+    "metrics": {
+      "firstCoalDay": 1,
+      "firstCoalActiveHours": 0.5030555558611111,
+      "firstIronDay": 1,
+      "firstIronActiveHours": 1.0027758339166668,
+      "allBasicHuntsDay": 1,
+      "first3Day": 1
+    }
+  },
+  {
+    "build": "swift",
+    "starterSword": false,
+    "hunts": {
+      "coal": 20,
+      "iron": 20,
+      "gold": 20
+    },
+    "main": 39,
+    "metrics": {
+      "firstCoalDay": 1,
+      "firstCoalActiveHours": 2.5024966672777778,
+      "firstIronDay": 1,
+      "firstIronActiveHours": 3.002496667833333,
+      "allBasicHuntsDay": 1
+    }
+  },
+  {
+    "build": "brute",
+    "starterSword": true,
+    "hunts": {
+      "coal": 11,
+      "iron": 18,
+      "gold": 20
+    },
+    "main": 49,
+    "metrics": {
+      "firstCoalDay": 1,
+      "firstCoalActiveHours": 0.5027777780833333,
+      "firstIronDay": 1,
+      "firstIronActiveHours": 1.002500000611111,
+      "allBasicHuntsDay": 1
+    }
+  },
+  {
+    "build": "brute",
+    "starterSword": false,
+    "hunts": {
+      "coal": 20,
+      "iron": 20,
+      "gold": 20
+    },
+    "main": 39,
+    "metrics": {
+      "firstCoalDay": 1,
+      "firstCoalActiveHours": 2.5024966672777773,
+      "firstIronDay": 1,
+      "firstIronActiveHours": 3.0024966678333325,
+      "allBasicHuntsDay": 1
+    }
+  },
+  {
+    "build": "physical",
+    "starterSword": true,
+    "hunts": {
+      "coal": 10,
+      "iron": 17,
+      "gold": 20
+    },
+    "main": 49,
+    "metrics": {
+      "firstCoalDay": 1,
+      "firstCoalActiveHours": 0.5030555558611111,
+      "firstIronDay": 1,
+      "firstIronActiveHours": 1.0027777783611111,
+      "allBasicHuntsDay": 1
+    }
+  },
+  {
+    "build": "physical",
+    "starterSword": false,
+    "hunts": {
+      "coal": 20,
+      "iron": 20,
+      "gold": 20
+    },
+    "main": 39,
+    "metrics": {
+      "firstCoalDay": 1,
+      "firstCoalActiveHours": 2.5024966672777773,
+      "firstIronDay": 1,
+      "firstIronActiveHours": 3.0024966678333325,
+      "allBasicHuntsDay": 1
+    }
+  },
+  {
+    "build": "magic",
+    "starterSword": true,
+    "hunts": {
+      "coal": 10,
+      "iron": 16,
+      "gold": 20
+    },
+    "main": 49,
+    "metrics": {
+      "firstCoalDay": 1,
+      "firstCoalActiveHours": 0.5030555558611111,
+      "firstIronDay": 1,
+      "firstIronActiveHours": 1.0027777783611111,
+      "allBasicHuntsDay": 1
+    }
+  },
+  {
+    "build": "magic",
+    "starterSword": false,
+    "hunts": {
+      "coal": 20,
+      "iron": 20,
+      "gold": 20
+    },
+    "main": 39,
+    "metrics": {
+      "firstCoalDay": 1,
+      "firstCoalActiveHours": 2.5024966672777773,
+      "firstIronDay": 1,
+      "firstIronActiveHours": 3.0024966678333325,
+      "allBasicHuntsDay": 1
+    }
+  },
+  {
+    "build": "critical",
+    "starterSword": true,
+    "hunts": {
+      "coal": 10,
+      "iron": 16,
+      "gold": 20
+    },
+    "main": 49,
+    "metrics": {
+      "firstCoalDay": 1,
+      "firstCoalActiveHours": 0.5030555558611111,
+      "firstIronDay": 1,
+      "firstIronActiveHours": 1.0027777783611111,
+      "allBasicHuntsDay": 1,
+      "first3Day": 1
+    }
+  },
+  {
+    "build": "critical",
+    "starterSword": false,
+    "hunts": {
+      "coal": 20,
+      "iron": 20,
+      "gold": 20
+    },
+    "main": 39,
+    "metrics": {
+      "firstCoalDay": 1,
+      "firstCoalActiveHours": 2.5024966672777773,
+      "firstIronDay": 1,
+      "firstIronActiveHours": 3.0024966678333325,
+      "allBasicHuntsDay": 1
+    }
+  }
+]

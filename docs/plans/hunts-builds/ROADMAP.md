@@ -1,6 +1,6 @@
 # Roadmap proposto — reforma de progressão
 
-18/10/2026. **Só R0 documental foi executada. R1–R9 são futuras; nenhuma está autorizada para começar por esta publicação.** A regra de publicar cada etapa evita perda de progresso, não transforma planejamento em autorização para implementar.
+18/10/2026. **R1 executada após autorização para validar e implementar somente se passar. A candidata foi reprovada; R2 não foi iniciada.** Resultados e correções em [R1 — validação](r1/VALIDATION_REPORT.md). A publicação desta análise não ativa a nova economia.
 
 [Proposta completa](PROPOSAL.md) · [Referências](REFERENCES.md) · [Modelo](CURVE_MODEL.md).
 
@@ -41,4 +41,4 @@ R3 e R4 precisam de trabalho incremental em branch, mantendo o jogo antigo jogá
 5. PreçoRuby, limite da loja e vinculação dos pergaminhos exigem análise de vantagem paga e contas alternativas; não ativar agora.
 6. Política de itens antigos>+15não lendários e conversão de minas/clique/afixos exige decisão explícita antes da migração.
 
-Sem cronograma de calendário contratado. A sequência é por dependências e evidência; não por prometer número de dias sem implementação e playtest. Próximo trabalho sugerido: R1, quando autorizado. O presente pedido entrega R0 e sua publicação documental.
+Sem cronograma de calendário contratado. A sequência é por dependências e evidência; não por prometer número de dias sem implementação e playtest. Próximo trabalho: R1.1, corrigir proteção/XP/fontes e fechar entradas indefinidas, preservando os gates e usando seed nova. R2 continua condicionada à aprovação integral; nenhuma implementação de gameplay começou nesta validação.

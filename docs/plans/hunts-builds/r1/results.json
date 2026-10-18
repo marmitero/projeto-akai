@@ -1,0 +1,1308 @@
+{
+  "version": "r1-integration-v1",
+  "criteria": {
+    "version": "r1-gates-v1",
+    "fixedBeforeExecution": true,
+    "scope": "Proposed economy; offline model, not production or human validation",
+    "gates": {
+      "bootstrap": {
+        "firstCoalMaxActiveHours": 6,
+        "firstIronMaxActiveHours": 6,
+        "zeroRandomDropsMustSucceed": true
+      },
+      "regularProgression": {
+        "horizonDays": 30,
+        "minimumMain100Fraction": 0.9,
+        "minimumCoal5Iron5Gold1Fraction": 0.9
+      },
+      "renewableLegendary": {
+        "horizonDays": 90,
+        "minimumEligibleFraction": 0.8,
+        "minimumLegendaryGivenEligible": 0.8
+      },
+      "matureScarcity": {
+        "horizonDays": 90,
+        "minimumSample": 300,
+        "maximumAny20Fraction": 0.03,
+        "minimumAny20Fraction": 0.01
+      },
+      "paidAdvantage": {
+        "maximumAbsoluteAny20Gap": 0.1,
+        "maximumPaidFreeProgressionRatio": 1.5
+      },
+      "buildDiversity": {
+        "minimumDistinctThroughputWinners": 2,
+        "maximumSingleBuildWinnerShare": 0.8
+      },
+      "sourcesAndConservation": {
+        "resourceLeakage": 0,
+        "negativeBalances": 0,
+        "maximumDailyEconomicHours": 24
+      },
+      "completeness": {
+        "zeroUnspecifiedProductionInputs": true,
+        "note": "Hypothetical jade, shop Ruby funding/prices and new enemy stats must be reported as unresolved. No full approval while these materially control the result."
+      }
+    },
+    "interpretation": "Failure blocks gameplay implementation under the user's conditional authorization. Updating a candidate requires preserving v1 and a fresh holdout seed; not moving these gates after observing results. Passing model gates is not a launch approval."
+  },
+  "assumptions": {
+    "combat": "expected damage, 25% safety reserve; no claim of runtime survival probability",
+    "event": "30 scrolls/week, 30 active minutes; 85% attendance",
+    "jade": "3/day at 10 active minutes, eligibility main100, 85% attendance; future global boss NOT implemented",
+    "paid": "10 scrolls/week assuming externally funded Ruby; price unknown",
+    "itemSalvage": "Coins only, floor(level*rarityMultiplier*.5)",
+    "mature": "Stress fixture: level1000, main/hunts1000, nine level100 items including one legendary weapon, initial resource stock; excludes acquisition time",
+    "enemy": "Hypothetical split magic damage/evasion; current boss base numbers retained",
+    "market": "Closed transfer/conservation test separately; no human demand model; existing 100k listing fee/10% trade tax",
+    "offline": "8h/day only current cleared activity, frozen build; no boss repeats",
+    "sensitivity": "bounded-v2 changes only hunt growth exponent 1.3 to .65; fresh holdout seed"
+  },
+  "bootstrap": [
+    {
+      "noRandomDrops": true,
+      "starterSword": true,
+      "main": 49,
+      "hunts": {
+        "coal": 10,
+        "iron": 18,
+        "gold": 21
+      },
+      "metrics": {
+        "firstCoalDay": 1,
+        "firstCoalActiveHours": 0.5027777780833333,
+        "firstIronDay": 1,
+        "firstIronActiveHours": 1.0025000005833336,
+        "allBasicHuntsDay": 1,
+        "first3Day": 1
+      },
+      "activeHours": 6.000000002722227
+    },
+    {
+      "noRandomDrops": true,
+      "starterSword": false,
+      "main": 39,
+      "hunts": {
+        "coal": 20,
+        "iron": 20,
+        "gold": 20
+      },
+      "metrics": {
+        "firstCoalDay": 1,
+        "firstCoalActiveHours": 2.5024966672777773,
+        "firstIronDay": 1,
+        "firstIronActiveHours": 3.0024966678333325,
+        "allBasicHuntsDay": 1
+      },
+      "activeHours": 6.000000002750001
+    }
+  ],
+  "builds": {
+    "cases": [
+      {
+        "level": 10,
+        "kind": "main",
+        "floor": 10,
+        "winner": "brute",
+        "builds": {
+          "balanced": {
+            "safe": true,
+            "killsPerHour": 360.0
+          },
+          "swift": {
+            "safe": true,
+            "killsPerHour": 300.2251688766575
+          },
+          "brute": {
+            "safe": true,
+            "killsPerHour": 400.0
+          },
+          "physical": {
+            "safe": true,
+            "killsPerHour": 300.0
+          },
+          "magic": {
+            "safe": true,
+            "killsPerHour": 300.0
+          },
+          "critical": {
+            "safe": true,
+            "killsPerHour": 327.27272727272725
+          }
+        }
+      },
+      {
+        "level": 10,
+        "kind": "coal",
+        "floor": 5,
+        "winner": "brute",
+        "builds": {
+          "balanced": {
+            "safe": true,
+            "killsPerHour": 327.27272727272725
+          },
+          "swift": {
+            "safe": true,
+            "killsPerHour": 257.34505683036673
+          },
+          "brute": {
+            "safe": true,
+            "killsPerHour": 360.0
+          },
+          "physical": {
+            "safe": true,
+            "killsPerHour": 276.9230769230769
+          },
+          "magic": {
+            "safe": true,
+            "killsPerHour": 276.9230769230769
+          },
+          "critical": {
+            "safe": true,
+            "killsPerHour": 300.0
+          }
+        }
+      },
+      {
+        "level": 10,
+        "kind": "iron",
+        "floor": 5,
+        "winner": "brute",
+        "builds": {
+          "balanced": {
+            "safe": true,
+            "killsPerHour": 276.9230769230769
+          },
+          "swift": {
+            "safe": true,
+            "killsPerHour": 225.1829611559392
+          },
+          "brute": {
+            "safe": true,
+            "killsPerHour": 300.0
+          },
+          "physical": {
+            "safe": true,
+            "killsPerHour": 225.0
+          },
+          "magic": {
+            "safe": true,
+            "killsPerHour": 225.0
+          },
+          "critical": {
+            "safe": true,
+            "killsPerHour": 257.14285714285717
+          }
+        }
+      },
+      {
+        "level": 10,
+        "kind": "gold",
+        "floor": 5,
+        "winner": "brute",
+        "builds": {
+          "balanced": {
+            "safe": true,
+            "killsPerHour": 240.0
+          },
+          "swift": {
+            "safe": true,
+            "killsPerHour": 180.15313016063655
+          },
+          "brute": {
+            "safe": true,
+            "killsPerHour": 257.14285714285717
+          },
+          "physical": {
+            "safe": true,
+            "killsPerHour": 189.47368421052633
+          },
+          "magic": {
+            "safe": true,
+            "killsPerHour": 189.47368421052633
+          },
+          "critical": {
+            "safe": true,
+            "killsPerHour": 211.76470588235293
+          }
+        }
+      },
+      {
+        "level": 100,
+        "kind": "main",
+        "floor": 100,
+        "winner": "brute",
+        "builds": {
+          "balanced": {
+            "safe": true,
+            "killsPerHour": 171.8705242050988
+          },
+          "swift": {
+            "safe": true,
+            "killsPerHour": 159.71606033717836
+          },
+          "brute": {
+            "safe": true,
+            "killsPerHour": 189.47368421052633
+          },
+          "physical": {
+            "safe": true,
+            "killsPerHour": 156.52173913043478
+          },
+          "magic": {
+            "safe": true,
+            "killsPerHour": 156.52173913043478
+          },
+          "critical": {
+            "safe": true,
+            "killsPerHour": 171.42857142857142
+          }
+        }
+      },
+      {
+        "level": 100,
+        "kind": "coal",
+        "floor": 50,
+        "winner": "balanced",
+        "builds": {
+          "balanced": {
+            "safe": true,
+            "killsPerHour": 400.80160320641284
+          },
+          "swift": {
+            "safe": true,
+            "killsPerHour": 365.8908425653014
+          },
+          "brute": {
+            "safe": true,
+            "killsPerHour": 400.0
+          },
+          "physical": {
+            "safe": true,
+            "killsPerHour": 360.0
+          },
+          "magic": {
+            "safe": true,
+            "killsPerHour": 360.0
+          },
+          "critical": {
+            "safe": true,
+            "killsPerHour": 400.0
+          }
+        }
+      },
+      {
+        "level": 100,
+        "kind": "iron",
+        "floor": 50,
+        "winner": "brute",
+        "builds": {
+          "balanced": {
+            "safe": true,
+            "killsPerHour": 327.98833819241986
+          },
+          "swift": {
+            "safe": true,
+            "killsPerHour": 305.26583566522515
+          },
+          "brute": {
+            "safe": true,
+            "killsPerHour": 360.0
+          },
+          "physical": {
+            "safe": true,
+            "killsPerHour": 300.0
+          },
+          "magic": {
+            "safe": true,
+            "killsPerHour": 300.0
+          },
+          "critical": {
+            "safe": true,
+            "killsPerHour": 327.27272727272725
+          }
+        }
+      },
+      {
+        "level": 100,
+        "kind": "gold",
+        "floor": 50,
+        "winner": "brute",
+        "builds": {
+          "balanced": {
+            "safe": true,
+            "killsPerHour": 277.56360832690825
+          },
+          "swift": {
+            "safe": true,
+            "killsPerHour": 261.87531825125484
+          },
+          "brute": {
+            "safe": true,
+            "killsPerHour": 300.0
+          },
+          "physical": {
+            "safe": true,
+            "killsPerHour": 257.14285714285717
+          },
+          "magic": {
+            "safe": true,
+            "killsPerHour": 257.14285714285717
+          },
+          "critical": {
+            "safe": true,
+            "killsPerHour": 276.9230769230769
+          }
+        }
+      },
+      {
+        "level": 500,
+        "kind": "main",
+        "floor": 500,
+        "winner": "swift",
+        "builds": {
+          "balanced": {
+            "safe": true,
+            "killsPerHour": 153.35463258785944
+          },
+          "swift": {
+            "safe": true,
+            "killsPerHour": 177.3049645390071
+          },
+          "brute": {
+            "safe": true,
+            "killsPerHour": 157.2052401746725
+          },
+          "physical": {
+            "safe": true,
+            "killsPerHour": 144.1268316118184
+          },
+          "magic": {
+            "safe": true,
+            "killsPerHour": 144.1268316118184
+          },
+          "critical": {
+            "safe": true,
+            "killsPerHour": 171.8705242050988
+          }
+        }
+      },
+      {
+        "level": 500,
+        "kind": "coal",
+        "floor": 250,
+        "winner": "swift",
+        "builds": {
+          "balanced": {
+            "safe": true,
+            "killsPerHour": 333.3333333333333
+          },
+          "swift": {
+            "safe": true,
+            "killsPerHour": 375.3127606338616
+          },
+          "brute": {
+            "safe": true,
+            "killsPerHour": 361.2644254892123
+          },
+          "physical": {
+            "safe": true,
+            "killsPerHour": 327.51091703056767
+          },
+          "magic": {
+            "safe": true,
+            "killsPerHour": 327.51091703056767
+          },
+          "critical": {
+            "safe": true,
+            "killsPerHour": 360.75759094097606
+          }
+        }
+      },
+      {
+        "level": 500,
+        "kind": "iron",
+        "floor": 250,
+        "winner": "swift",
+        "builds": {
+          "balanced": {
+            "safe": true,
+            "killsPerHour": 305.73248407643314
+          },
+          "swift": {
+            "safe": true,
+            "killsPerHour": 345.6221198156682
+          },
+          "brute": {
+            "safe": true,
+            "killsPerHour": 301.12923462986197
+          },
+          "physical": {
+            "safe": true,
+            "killsPerHour": 277.1362586605081
+          },
+          "magic": {
+            "safe": true,
+            "killsPerHour": 277.1362586605081
+          },
+          "critical": {
+            "safe": true,
+            "killsPerHour": 327.98833819241986
+          }
+        }
+      },
+      {
+        "level": 500,
+        "kind": "gold",
+        "floor": 250,
+        "winner": "swift",
+        "builds": {
+          "balanced": {
+            "safe": true,
+            "killsPerHour": 244.8979591836735
+          },
+          "swift": {
+            "safe": true,
+            "killsPerHour": 279.3296089385475
+          },
+          "brute": {
+            "safe": true,
+            "killsPerHour": 258.1570455360344
+          },
+          "physical": {
+            "safe": true,
+            "killsPerHour": 240.1921537229784
+          },
+          "magic": {
+            "safe": true,
+            "killsPerHour": 240.1921537229784
+          },
+          "critical": {
+            "safe": true,
+            "killsPerHour": 277.56360832690825
+          }
+        }
+      },
+      {
+        "level": 1000,
+        "kind": "main",
+        "floor": 999,
+        "winner": "swift",
+        "builds": {
+          "balanced": {
+            "safe": true,
+            "killsPerHour": 917.0157364428846
+          },
+          "swift": {
+            "safe": true,
+            "killsPerHour": 1202.270956250696
+          },
+          "brute": {
+            "safe": true,
+            "killsPerHour": 971.5142428785609
+          },
+          "physical": {
+            "safe": true,
+            "killsPerHour": 917.8990311065784
+          },
+          "magic": {
+            "safe": true,
+            "killsPerHour": 917.8990311065784
+          },
+          "critical": {
+            "safe": true,
+            "killsPerHour": 966.4429530201343
+          }
+        }
+      },
+      {
+        "level": 1000,
+        "kind": "coal",
+        "floor": 500,
+        "winner": "swift",
+        "builds": {
+          "balanced": {
+            "safe": true,
+            "killsPerHour": 384.7798204360838
+          },
+          "swift": {
+            "safe": true,
+            "killsPerHour": 510.42109740535943
+          },
+          "brute": {
+            "safe": true,
+            "killsPerHour": 407.055630936228
+          },
+          "physical": {
+            "safe": true,
+            "killsPerHour": 366.6734569158688
+          },
+          "magic": {
+            "safe": true,
+            "killsPerHour": 366.6734569158688
+          },
+          "critical": {
+            "safe": true,
+            "killsPerHour": 405.13166779203243
+          }
+        }
+      },
+      {
+        "level": 1000,
+        "kind": "iron",
+        "floor": 500,
+        "winner": "swift",
+        "builds": {
+          "balanced": {
+            "safe": true,
+            "killsPerHour": 350.7404520654716
+          },
+          "swift": {
+            "safe": true,
+            "killsPerHour": 438.4362440628426
+          },
+          "brute": {
+            "safe": true,
+            "killsPerHour": 333.5804299481097
+          },
+          "physical": {
+            "safe": true,
+            "killsPerHour": 333.5804299481097
+          },
+          "magic": {
+            "safe": true,
+            "killsPerHour": 333.5804299481097
+          },
+          "critical": {
+            "safe": true,
+            "killsPerHour": 331.85840707964604
+          }
+        }
+      },
+      {
+        "level": 1000,
+        "kind": "gold",
+        "floor": 500,
+        "winner": "swift",
+        "builds": {
+          "balanced": {
+            "safe": true,
+            "killsPerHour": 277.17893440098555
+          },
+          "swift": {
+            "safe": true,
+            "killsPerHour": 384.24591738712775
+          },
+          "brute": {
+            "safe": true,
+            "killsPerHour": 282.574568288854
+          },
+          "physical": {
+            "safe": true,
+            "killsPerHour": 282.574568288854
+          },
+          "magic": {
+            "safe": true,
+            "killsPerHour": 282.574568288854
+          },
+          "critical": {
+            "safe": true,
+            "killsPerHour": 281.0304449648712
+          }
+        }
+      }
+    ],
+    "wins": {
+      "balanced": 1,
+      "swift": 8,
+      "brute": 7,
+      "physical": 0,
+      "magic": 0,
+      "critical": 0
+    },
+    "distinctWinners": 3,
+    "largestWinnerShare": 0.5,
+    "viableCases": 16
+  },
+  "profiles": [
+    {
+      "name": "regular",
+      "seed": 20261018,
+      "config": {
+        "variant": "v1",
+        "jade_daily": 3,
+        "weekly_scrolls": 30,
+        "attendance": 0.85
+      },
+      "profile": {
+        "active_hours": 2,
+        "offline_hours": 8
+      },
+      "n": 120,
+      "days": 90,
+      "main100by30": 1.0,
+      "huntsBy30": 1.0,
+      "eligible": 1.0,
+      "legendary": 1.0,
+      "any20": 0.19166666666666668,
+      "mainMedian": 1000,
+      "huntsMedian": {
+        "coal": 584,
+        "iron": 551,
+        "gold": 527
+      },
+      "levelMedian": 1000,
+      "attemptsMedian": 357,
+      "scrollsSpentMedian": 235,
+      "balancesMedian": {
+        "coin": 47221342424,
+        "coal": 247317,
+        "iron": 504669,
+        "gold": 151164,
+        "jade": 180
+      },
+      "earnedMedian": {
+        "coin": 57169558407,
+        "coal": 527216,
+        "iron": 983437,
+        "gold": 200657,
+        "jade": 222
+      },
+      "conservationErrors": 0,
+      "first20Wilson": [
+        0.13125025924951073,
+        0.2712115600420221
+      ]
+    },
+    {
+      "name": "casual",
+      "seed": 20261018,
+      "config": {
+        "variant": "v1",
+        "jade_daily": 3,
+        "weekly_scrolls": 30,
+        "attendance": 0.85
+      },
+      "profile": {
+        "active_hours": 0.5,
+        "offline_hours": 8
+      },
+      "n": 120,
+      "days": 90,
+      "main100by30": 1.0,
+      "huntsBy30": 1.0,
+      "eligible": 1.0,
+      "legendary": 1.0,
+      "any20": 0.10833333333333334,
+      "mainMedian": 1000,
+      "huntsMedian": {
+        "coal": 146,
+        "iron": 137,
+        "gold": 100
+      },
+      "levelMedian": 1000,
+      "attemptsMedian": 248,
+      "scrollsSpentMedian": 139,
+      "balancesMedian": {
+        "coin": 9103832856,
+        "coal": 230958,
+        "iron": 179665,
+        "gold": 88906,
+        "jade": 165
+      },
+      "earnedMedian": {
+        "coin": 19134125927,
+        "coal": 481582,
+        "iron": 780216,
+        "gold": 132475,
+        "jade": 180
+      },
+      "conservationErrors": 0,
+      "first20Wilson": [
+        0.06441141154173535,
+        0.17655360215291446
+      ]
+    },
+    {
+      "name": "hardcore",
+      "seed": 20261018,
+      "config": {
+        "variant": "v1",
+        "jade_daily": 3,
+        "weekly_scrolls": 30,
+        "attendance": 0.85
+      },
+      "profile": {
+        "active_hours": 8,
+        "offline_hours": 8
+      },
+      "n": 120,
+      "days": 90,
+      "main100by30": 1.0,
+      "huntsBy30": 1.0,
+      "eligible": 1.0,
+      "legendary": 1.0,
+      "any20": 0.24166666666666667,
+      "mainMedian": 1000,
+      "huntsMedian": {
+        "coal": 653,
+        "iron": 555,
+        "gold": 537
+      },
+      "levelMedian": 1000,
+      "attemptsMedian": 426,
+      "scrollsSpentMedian": 301,
+      "balancesMedian": {
+        "coin": 99872486738,
+        "coal": 347425,
+        "iron": 387132,
+        "gold": 159280,
+        "jade": 160
+      },
+      "earnedMedian": {
+        "coin": 108626145229,
+        "coal": 658659,
+        "iron": 937455,
+        "gold": 211198,
+        "jade": 225
+      },
+      "conservationErrors": 0,
+      "first20Wilson": [
+        0.17385841217535414,
+        0.3255014904743085
+      ]
+    },
+    {
+      "name": "paid_regular",
+      "seed": 20261018,
+      "config": {
+        "variant": "v1",
+        "jade_daily": 3,
+        "weekly_scrolls": 30,
+        "attendance": 0.85
+      },
+      "profile": {
+        "active_hours": 2,
+        "offline_hours": 8,
+        "paid": 10
+      },
+      "n": 120,
+      "days": 90,
+      "main100by30": 1.0,
+      "huntsBy30": 1.0,
+      "eligible": 1.0,
+      "legendary": 1.0,
+      "any20": 0.19166666666666668,
+      "mainMedian": 1000,
+      "huntsMedian": {
+        "coal": 587,
+        "iron": 564,
+        "gold": 526
+      },
+      "levelMedian": 1000,
+      "attemptsMedian": 468,
+      "scrollsSpentMedian": 347,
+      "balancesMedian": {
+        "coin": 47039822277,
+        "coal": 243889,
+        "iron": 734860,
+        "gold": 150449,
+        "jade": 162
+      },
+      "earnedMedian": {
+        "coin": 57086305708,
+        "coal": 539415,
+        "iron": 1411122,
+        "gold": 201524,
+        "jade": 222
+      },
+      "conservationErrors": 0,
+      "first20Wilson": [
+        0.13125025924951073,
+        0.2712115600420221
+      ]
+    },
+    {
+      "name": "regular_no_offline",
+      "seed": 20261018,
+      "config": {
+        "variant": "v1",
+        "jade_daily": 3,
+        "weekly_scrolls": 30,
+        "attendance": 0.85
+      },
+      "profile": {
+        "active_hours": 2,
+        "offline_hours": 0
+      },
+      "n": 120,
+      "days": 90,
+      "main100by30": 1.0,
+      "huntsBy30": 1.0,
+      "eligible": 1.0,
+      "legendary": 0.95,
+      "any20": 0.075,
+      "mainMedian": 1000,
+      "huntsMedian": {
+        "coal": 596,
+        "iron": 526,
+        "gold": 307
+      },
+      "levelMedian": 1000,
+      "attemptsMedian": 174,
+      "scrollsSpentMedian": 45,
+      "balancesMedian": {
+        "coin": 29212957,
+        "coal": 281628,
+        "iron": 268346,
+        "gold": 22150,
+        "jade": 210
+      },
+      "earnedMedian": {
+        "coin": 7778169242,
+        "coal": 527216,
+        "iron": 793095,
+        "gold": 58125,
+        "jade": 216
+      },
+      "conservationErrors": 0,
+      "first20Wilson": [
+        0.03995711539596095,
+        0.1364091760599356
+      ]
+    },
+    {
+      "name": "mature_free",
+      "seed": 20261018,
+      "config": {
+        "variant": "v1",
+        "jade_daily": 3,
+        "weekly_scrolls": 30,
+        "attendance": 0.85
+      },
+      "profile": {
+        "active_hours": 2,
+        "offline_hours": 8,
+        "mature": true
+      },
+      "n": 300,
+      "days": 90,
+      "main100by30": 1.0,
+      "huntsBy30": 1.0,
+      "eligible": 1.0,
+      "legendary": 1.0,
+      "any20": 0.32666666666666666,
+      "mainMedian": 1000,
+      "huntsMedian": {
+        "coal": 1000,
+        "iron": 1000,
+        "gold": 1000
+      },
+      "levelMedian": 1000,
+      "attemptsMedian": 300,
+      "scrollsSpentMedian": 275,
+      "balancesMedian": {
+        "coin": 67975442466,
+        "coal": 487737,
+        "iron": 751286,
+        "gold": 198498,
+        "jade": 154
+      },
+      "earnedMedian": {
+        "coin": 67982142997,
+        "coal": 559622,
+        "iron": 859138,
+        "gold": 202910,
+        "jade": 228
+      },
+      "conservationErrors": 0,
+      "first20Wilson": [
+        0.2760784389482699,
+        0.3816377910762392
+      ]
+    },
+    {
+      "name": "mature_paid",
+      "seed": 20261018,
+      "config": {
+        "variant": "v1",
+        "jade_daily": 3,
+        "weekly_scrolls": 30,
+        "attendance": 0.85
+      },
+      "profile": {
+        "active_hours": 2,
+        "offline_hours": 8,
+        "mature": true,
+        "paid": 10
+      },
+      "n": 300,
+      "days": 90,
+      "main100by30": 1.0,
+      "huntsBy30": 1.0,
+      "eligible": 1.0,
+      "legendary": 1.0,
+      "any20": 0.4066666666666667,
+      "mainMedian": 1000,
+      "huntsMedian": {
+        "coal": 1000,
+        "iron": 1000,
+        "gold": 1000
+      },
+      "levelMedian": 1000,
+      "attemptsMedian": 315,
+      "scrollsSpentMedian": 297,
+      "balancesMedian": {
+        "coin": 67843073891,
+        "coal": 460666,
+        "iron": 739539,
+        "gold": 181010,
+        "jade": 142
+      },
+      "earnedMedian": {
+        "coin": 67843236921,
+        "coal": 547799,
+        "iron": 898548,
+        "gold": 191090,
+        "jade": 228
+      },
+      "conservationErrors": 0,
+      "first20Wilson": [
+        0.3526017598634227,
+        0.46309159476515926
+      ]
+    },
+    {
+      "name": "mature_no_jade",
+      "seed": 20261018,
+      "config": {
+        "variant": "v1",
+        "jade_daily": 0,
+        "weekly_scrolls": 30,
+        "attendance": 0.85
+      },
+      "profile": {
+        "active_hours": 2,
+        "offline_hours": 8,
+        "mature": true
+      },
+      "n": 300,
+      "days": 90,
+      "main100by30": 1.0,
+      "huntsBy30": 1.0,
+      "eligible": 1.0,
+      "legendary": 1.0,
+      "any20": 0.0,
+      "mainMedian": 1000,
+      "huntsMedian": {
+        "coal": 1000,
+        "iron": 1000,
+        "gold": 1000
+      },
+      "levelMedian": 1000,
+      "attemptsMedian": 72,
+      "scrollsSpentMedian": 52,
+      "balancesMedian": {
+        "coin": 68857837813,
+        "coal": 12911,
+        "iron": 681597,
+        "gold": 1434,
+        "jade": 0
+      },
+      "earnedMedian": {
+        "coin": 68858192364,
+        "coal": 0,
+        "iron": 717262,
+        "gold": 0,
+        "jade": 0
+      },
+      "conservationErrors": 0,
+      "first20Wilson": [
+        0,
+        0.01264297122454535
+      ]
+    },
+    {
+      "name": "mature_half_events",
+      "seed": 20261018,
+      "config": {
+        "variant": "v1",
+        "jade_daily": 3,
+        "weekly_scrolls": 15,
+        "attendance": 0.85
+      },
+      "profile": {
+        "active_hours": 2,
+        "offline_hours": 8,
+        "mature": true
+      },
+      "n": 300,
+      "days": 90,
+      "main100by30": 1.0,
+      "huntsBy30": 1.0,
+      "eligible": 1.0,
+      "legendary": 1.0,
+      "any20": 0.15333333333333332,
+      "mainMedian": 1000,
+      "huntsMedian": {
+        "coal": 1000,
+        "iron": 1000,
+        "gold": 1000
+      },
+      "levelMedian": 1000,
+      "attemptsMedian": 193,
+      "scrollsSpentMedian": 171,
+      "balancesMedian": {
+        "coin": 67297709180,
+        "coal": 520924,
+        "iron": 808729,
+        "gold": 197912,
+        "jade": 194
+      },
+      "earnedMedian": {
+        "coin": 67306255052,
+        "coal": 559622,
+        "iron": 898548,
+        "gold": 200940,
+        "jade": 228
+      },
+      "conservationErrors": 0,
+      "first20Wilson": [
+        0.11696640299091779,
+        0.19846605705810036
+      ]
+    },
+    {
+      "name": "mature_double_jade",
+      "seed": 20261018,
+      "config": {
+        "variant": "v1",
+        "jade_daily": 6,
+        "weekly_scrolls": 30,
+        "attendance": 0.85
+      },
+      "profile": {
+        "active_hours": 2,
+        "offline_hours": 8,
+        "mature": true
+      },
+      "n": 300,
+      "days": 90,
+      "main100by30": 1.0,
+      "huntsBy30": 1.0,
+      "eligible": 1.0,
+      "legendary": 1.0,
+      "any20": 0.32666666666666666,
+      "mainMedian": 1000,
+      "huntsMedian": {
+        "coal": 1000,
+        "iron": 1000,
+        "gold": 1000
+      },
+      "levelMedian": 1000,
+      "attemptsMedian": 304,
+      "scrollsSpentMedian": 278,
+      "balancesMedian": {
+        "coin": 67892526049,
+        "coal": 486579,
+        "iron": 754212,
+        "gold": 198779,
+        "jade": 385
+      },
+      "earnedMedian": {
+        "coin": 67910871236,
+        "coal": 559622,
+        "iron": 859138,
+        "gold": 202910,
+        "jade": 456
+      },
+      "conservationErrors": 0,
+      "first20Wilson": [
+        0.2760784389482699,
+        0.3816377910762392
+      ]
+    },
+    {
+      "name": "mature_unbounded_shop",
+      "seed": 20261018,
+      "config": {
+        "variant": "v1",
+        "jade_daily": 3,
+        "weekly_scrolls": 30,
+        "attendance": 0.85
+      },
+      "profile": {
+        "active_hours": 2,
+        "offline_hours": 8,
+        "mature": true,
+        "paid": 1000
+      },
+      "n": 300,
+      "days": 90,
+      "main100by30": 1.0,
+      "huntsBy30": 1.0,
+      "eligible": 1.0,
+      "legendary": 1.0,
+      "any20": 0.5066666666666667,
+      "mainMedian": 1000,
+      "huntsMedian": {
+        "coal": 1000,
+        "iron": 1000,
+        "gold": 1000
+      },
+      "levelMedian": 1000,
+      "attemptsMedian": 354,
+      "scrollsSpentMedian": 330,
+      "balancesMedian": {
+        "coin": 71064633854,
+        "coal": 420883,
+        "iron": 672560,
+        "gold": 165507,
+        "jade": 112
+      },
+      "earnedMedian": {
+        "coin": 71092373933,
+        "coal": 520212,
+        "iron": 811846,
+        "gold": 173360,
+        "jade": 228
+      },
+      "conservationErrors": 0,
+      "first20Wilson": [
+        0.45036683073695716,
+        0.5627979296467157
+      ]
+    },
+    {
+      "name": "mature_bounded_materials_holdout",
+      "seed": 417028,
+      "config": {
+        "variant": "bounded-v2",
+        "jade_daily": 3,
+        "weekly_scrolls": 30,
+        "attendance": 0.85
+      },
+      "profile": {
+        "active_hours": 2,
+        "offline_hours": 8,
+        "mature": true
+      },
+      "n": 300,
+      "days": 90,
+      "main100by30": 1.0,
+      "huntsBy30": 1.0,
+      "eligible": 1.0,
+      "legendary": 1.0,
+      "any20": 0.31333333333333335,
+      "mainMedian": 1000,
+      "huntsMedian": {
+        "coal": 1000,
+        "iron": 1000,
+        "gold": 1000
+      },
+      "levelMedian": 1000,
+      "attemptsMedian": 323,
+      "scrollsSpentMedian": 298,
+      "balancesMedian": {
+        "coin": 67731388988,
+        "coal": 176987,
+        "iron": 260319,
+        "gold": 4275,
+        "jade": 167
+      },
+      "earnedMedian": {
+        "coin": 67747013847,
+        "coal": 256750,
+        "iron": 412393,
+        "gold": 12586,
+        "jade": 231
+      },
+      "conservationErrors": 0,
+      "first20Wilson": [
+        0.2634843975598567,
+        0.36790231169730697
+      ]
+    }
+  ],
+  "protectionStress": [
+    {
+      "n": 10000,
+      "scrollBudget": 180,
+      "any20": 0.2019,
+      "confidence95": [
+        0.19414750006702042,
+        0.20988143976157686
+      ],
+      "meanAttempts": 177.6961,
+      "meaning": "Upper-bound affordability stress, NOT organic account progression"
+    },
+    {
+      "n": 10000,
+      "scrollBudget": 360,
+      "any20": 0.3978,
+      "confidence95": [
+        0.3882480856175756,
+        0.40743040364939054
+      ],
+      "meanAttempts": 305.3598,
+      "meaning": "Upper-bound affordability stress, NOT organic account progression"
+    },
+    {
+      "n": 10000,
+      "scrollBudget": 390,
+      "any20": 0.4231,
+      "confidence95": [
+        0.4134481221361925,
+        0.4328109368132174
+      ],
+      "meanAttempts": 322.7015,
+      "meaning": "Upper-bound affordability stress, NOT organic account progression"
+    },
+    {
+      "n": 10000,
+      "scrollBudget": 480,
+      "any20": 0.4964,
+      "confidence95": [
+        0.4866036980778649,
+        0.5061990667104039
+      ],
+      "meanAttempts": 372.853,
+      "meaning": "Upper-bound affordability stress, NOT organic account progression"
+    },
+    {
+      "n": 10000,
+      "scrollBudget": 1000,
+      "any20": 0.7698,
+      "confidence95": [
+        0.7614466517015228,
+        0.7779461427776602
+      ],
+      "meanAttempts": 556.7623,
+      "meaning": "Upper-bound affordability stress, NOT organic account progression"
+    }
+  ],
+  "unresolved": [
+    "Jade availability/participation/rewards and future global boss combat",
+    "Ruby scroll prices, funding and commercial limits",
+    "New enemy damage/evasion and gear AGI distribution",
+    "Human market supply/demand/price discovery and collusion",
+    "Legacy migration compensations and rarity grandfathering"
+  ],
+  "elapsedSeconds": 299.71,
+  "gates": {
+    "bootstrap": true,
+    "regularProgression": true,
+    "renewableLegendary": true,
+    "matureScarcity": false,
+    "paidAdvantage": true,
+    "buildDiversity": true,
+    "sourcesAndConservation": true,
+    "completeness": false
+  },
+  "approved": false,
+  "hashes": {
+    "scripts/economy-r1/model.py": "e7169a32c228ea4a0e0e7901ac3825c10cee5f77a2a0ae4bcb2f627e9b318ed6",
+    "docs/plans/hunts-builds/r1/criteria.json": "63fb5382b0c256d1ab0c9c7db8ddbbfa7909b275ed348a0872c7647e394bab31",
+    "docs/plans/hunts-builds/r1/content-baseline.json": "e884dab0617078301690ae19f69f499a7501775e157b5450dadd4481d4e5ccb6"
+  }
+}
