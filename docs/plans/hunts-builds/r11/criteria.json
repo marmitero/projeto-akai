@@ -1,0 +1,20 @@
+{
+  "version": "r11-acceptance-v1",
+  "userChange": "Fastest plausible legal progression to level1000 must take90–120calendar days; high-end requires strong equipment/refinement, not level alone",
+  "fixedBeforeAcceptanceCohorts": true,
+  "clock": "At most24economic hours/day, one activity, offline at most8h/day; best-case24htechnical or16active+8offline",
+  "gates": {
+    "absoluteLowerBoundDays": 90,
+    "bestLegalMaximumLevelMedianDays": [90,120],
+    "bestLegalMaximumLevelBy120Fraction": 0.9,
+    "bootstrapNoRngMaxActiveHoursCoalIron": 6,
+    "endgameAblation": "Max-level common+0 and rare+0 fail final common floor and gold hunt1000; at least one legal epic+12 or legendary+15 fixture succeeds both; no +20 required",
+    "mature20At90DaysFraction": [0.01,0.03],
+    "matureMinimumSample": 300,
+    "paidMaximumAny20AbsoluteGap": 0.1,
+    "resourceLeakage": 0,
+    "accountingOrNegativeBalanceErrors": 0,
+    "completeness": "Undefined jade/market/migration inputs still block gameplay implementation; a model-only pass is partial, never full approval"
+  },
+  "preserved": "Original R1 criteria/results remain intact. No changing failure consequences, Jade sources, equipment rarity caps or commercial activation. Old regular30day main100/basic-hunt gates retained as diagnostics. Calibrate pilot seeds separately from acceptance and holdout."
+}
