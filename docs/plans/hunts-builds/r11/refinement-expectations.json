@@ -1,0 +1,105 @@
+{
+  "method": "Exact birth-death protected from destination8; unlimited funds and intact legendaryL100 base; excludes farming/acquisition",
+  "rows": [
+    {
+      "target": 3,
+      "meanAttempts": 3.159996263951805,
+      "meanScrolls": 0.0,
+      "meanCosts": {
+        "coin": 4804.484892355111,
+        "coal": 90.98655022649793,
+        "iron": 0.0,
+        "gold": 0.0,
+        "jade": 0.0
+      }
+    },
+    {
+      "target": 7,
+      "meanAttempts": 9.250362845366979,
+      "meanScrolls": 0.0,
+      "meanCosts": {
+        "coin": 29261.07142261939,
+        "coal": 472.5415374387742,
+        "iron": 373.33333333333337,
+        "gold": 0.0,
+        "jade": 0.0
+      }
+    },
+    {
+      "target": 12,
+      "meanAttempts": 29.06020773193821,
+      "meanScrolls": 17.82251082251082,
+      "meanCosts": {
+        "coin": 620959.5620578722,
+        "coal": 7419.39922280541,
+        "iron": 20103.424242424244,
+        "gold": 558.5454545454545,
+        "jade": 0.0
+      }
+    },
+    {
+      "target": 15,
+      "meanAttempts": 70.44121910319453,
+      "meanScrolls": 58.27010933730301,
+      "meanCosts": {
+        "coin": 4280807.728101924,
+        "coal": 45876.61416960058,
+        "iron": 143547.12001437298,
+        "gold": 4552.720086237873,
+        "jade": 0.0
+      }
+    },
+    {
+      "target": 20,
+      "meanAttempts": 18375.11260092536,
+      "meanScrolls": 18037.099251832828,
+      "meanCosts": {
+        "coin": 2345334011.6121297,
+        "coal": 22862290.533516277,
+        "iron": 74008398.31669152,
+        "gold": 2416975.1929300185,
+        "jade": 4173.863636363636
+      }
+    }
+  ],
+  "attemptQuantilesTo20": {
+    "0.5": 12748,
+    "0.95": 54972,
+    "0.99": 84486
+  },
+  "scrollBudgetChecks": [
+    {
+      "n": 20000,
+      "scrollBudget": 390,
+      "any20": 0.01835,
+      "confidence95": [
+        0.01658030353723354,
+        0.020304684795612038
+      ],
+      "meanAttempts": 404.48165,
+      "meaning": "Upper-bound affordability stress, NOT organic account progression"
+    },
+    {
+      "n": 20000,
+      "scrollBudget": 520,
+      "any20": 0.02675,
+      "confidence95": [
+        0.024603067383167383,
+        0.029078694743935634
+      ],
+      "meanAttempts": 533.29395,
+      "meaning": "Upper-bound affordability stress, NOT organic account progression"
+    },
+    {
+      "n": 20000,
+      "scrollBudget": 1000,
+      "any20": 0.05195,
+      "confidence95": [
+        0.0489594512865909,
+        0.05511263222328445
+      ],
+      "meanAttempts": 1002.9531,
+      "meaning": "Upper-bound affordability stress, NOT organic account progression"
+    }
+  ]
+}

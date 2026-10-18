@@ -1,0 +1,44 @@
+[
+  {
+    "level": 1,
+    "minimumEffectiveHours": 0.0,
+    "idealCalendarDays": 0.0,
+    "maxEquippableItemLevel": 1
+  },
+  {
+    "level": 100,
+    "minimumEffectiveHours": 18.67,
+    "idealCalendarDays": 0.78,
+    "maxEquippableItemLevel": 10
+  },
+  {
+    "level": 250,
+    "minimumEffectiveHours": 87.18,
+    "idealCalendarDays": 3.63,
+    "maxEquippableItemLevel": 25
+  },
+  {
+    "level": 500,
+    "minimumEffectiveHours": 404.41,
+    "idealCalendarDays": 16.85,
+    "maxEquippableItemLevel": 50
+  },
+  {
+    "level": 750,
+    "minimumEffectiveHours": 1101.34,
+    "idealCalendarDays": 45.89,
+    "maxEquippableItemLevel": 75
+  },
+  {
+    "level": 900,
+    "minimumEffectiveHours": 1754.77,
+    "idealCalendarDays": 73.12,
+    "maxEquippableItemLevel": 90
+  },
+  {
+    "level": 1000,
+    "minimumEffectiveHours": 2304.0,
+    "idealCalendarDays": 96.0,
+    "maxEquippableItemLevel": 100
+  }
+]

@@ -1,0 +1,1439 @@
+{
+  "version": "r11-candidate-2",
+  "criteria": {
+    "version": "r11-acceptance-v1",
+    "userChange": "Fastest plausible legal progression to level1000 must take90\u2013120calendar days; high-end requires strong equipment/refinement, not level alone",
+    "fixedBeforeAcceptanceCohorts": true,
+    "clock": "At most24economic hours/day, one activity, offline at most8h/day; best-case24htechnical or16active+8offline",
+    "gates": {
+      "absoluteLowerBoundDays": 90,
+      "bestLegalMaximumLevelMedianDays": [
+        90,
+        120
+      ],
+      "bestLegalMaximumLevelBy120Fraction": 0.9,
+      "bootstrapNoRngMaxActiveHoursCoalIron": 6,
+      "endgameAblation": "Max-level common+0 and rare+0 fail final common floor and gold hunt1000; at least one legal epic+12 or legendary+15 fixture succeeds both; no +20 required",
+      "mature20At90DaysFraction": [
+        0.01,
+        0.03
+      ],
+      "matureMinimumSample": 300,
+      "paidMaximumAny20AbsoluteGap": 0.1,
+      "resourceLeakage": 0,
+      "accountingOrNegativeBalanceErrors": 0,
+      "completeness": "Undefined jade/market/migration inputs still block gameplay implementation; a model-only pass is partial, never full approval"
+    },
+    "preserved": "Original R1 criteria/results remain intact. No changing failure consequences, Jade sources, equipment rarity caps or commercial activation. Old regular30day main100/basic-hunt gates retained as diagnostics. Calibrate pilot seeds separately from acceptance and holdout."
+  },
+  "config": {
+    "version": "r11-candidate-2",
+    "maxLevel": 1000,
+    "minimumQualifyingCombatHours": 2304,
+    "offlineHours": 8,
+    "xpBandWeight": {
+      "base": 0.05,
+      "scale": 2,
+      "power": 1.7
+    },
+    "commonHpRamp": 2,
+    "commonAttackRamp": 25,
+    "huntHpRamp": 1,
+    "huntAttackRamp": 4,
+    "huntEnrageSeconds": 30,
+    "weeklyScrolls": 30,
+    "paidWeeklyScrolls": 10,
+    "protectedHighSuccess": [
+      0.32,
+      0.27,
+      0.22,
+      0.17,
+      0.12
+    ],
+    "materialExponent": 0.65,
+    "jadeDailyScenario": 3,
+    "coinRewardLateRamp": 0.25,
+    "gearEquipHeroLevelsPerItemLevel": 10,
+    "lateRecipeMultipliers": {
+      "coin": 4,
+      "coal": 4,
+      "iron": 8,
+      "gold": 4,
+      "jade": 1
+    },
+    "xpReference": "min(completed encounter cycle seconds, benchmark cycle seconds) * challenge eligibility",
+    "benchmarkEnhancement": 10,
+    "benchmark": "Epic +10 at stage item level; swift equal-point build, no pets/buffs; legal stats"
+  },
+  "absoluteMinimumDays": 96.0,
+  "summaries": {
+    "best_24h": {
+      "n": 24,
+      "days": 150,
+      "active": 24,
+      "offline": 0,
+      "paid": 0,
+      "seed": 88452001,
+      "mature": false,
+      "maxLevelReached": 24,
+      "maxLevelBy120Fraction": 0.9583333333333334,
+      "maxLevelDays": {
+        "min": 106,
+        "p50": 112,
+        "p90": 118,
+        "p95": 120,
+        "max": 133
+      },
+      "main100By30": 1.0,
+      "basicHuntsBy30": 1.0,
+      "any20": 0.0,
+      "any20Wilson95": [
+        0,
+        0.13797620467497365
+      ],
+      "finalLevelMedian": 1000,
+      "finalMainMedian": 1000,
+      "advancedHunt": 0.7083333333333334
+    },
+    "optimized_16plus8": {
+      "n": 24,
+      "days": 160,
+      "active": 16,
+      "offline": 8,
+      "paid": 0,
+      "seed": 88452001,
+      "mature": false,
+      "maxLevelReached": 24,
+      "maxLevelBy120Fraction": 0.9583333333333334,
+      "maxLevelDays": {
+        "min": 105,
+        "p50": 114,
+        "p90": 118,
+        "p95": 119,
+        "max": 127
+      },
+      "main100By30": 1.0,
+      "basicHuntsBy30": 1.0,
+      "any20": 0.0,
+      "any20Wilson95": [
+        0,
+        0.13797620467497365
+      ],
+      "finalLevelMedian": 1000,
+      "finalMainMedian": 1000,
+      "advancedHunt": 0.7083333333333334
+    },
+    "paid_best_24h": {
+      "n": 24,
+      "days": 150,
+      "active": 24,
+      "offline": 0,
+      "paid": 10,
+      "seed": 88452001,
+      "mature": false,
+      "maxLevelReached": 24,
+      "maxLevelBy120Fraction": 0.9166666666666666,
+      "maxLevelDays": {
+        "min": 106,
+        "p50": 112,
+        "p90": 116,
+        "p95": 117,
+        "max": 133
+      },
+      "main100By30": 1.0,
+      "basicHuntsBy30": 1.0,
+      "any20": 0.0,
+      "any20Wilson95": [
+        0,
+        0.13797620467497365
+      ],
+      "finalLevelMedian": 1000,
+      "finalMainMedian": 1000,
+      "advancedHunt": 0.625
+    },
+    "regular_2plus8": {
+      "n": 24,
+      "days": 365,
+      "active": 2,
+      "offline": 8,
+      "paid": 0,
+      "seed": 88452001,
+      "mature": false,
+      "maxLevelReached": 24,
+      "maxLevelBy120Fraction": 0.0,
+      "maxLevelDays": {
+        "min": 255,
+        "p50": 294,
+        "p90": 333,
+        "p95": 333,
+        "max": 339
+      },
+      "main100By30": 1.0,
+      "basicHuntsBy30": 1.0,
+      "any20": 0.041666666666666664,
+      "any20Wilson95": [
+        0.00739345616550606,
+        0.2024180647865531
+      ],
+      "finalLevelMedian": 1000,
+      "finalMainMedian": 1000,
+      "advancedHunt": 0.8333333333333334
+    },
+    "dedicated_8plus8": {
+      "n": 24,
+      "days": 250,
+      "active": 8,
+      "offline": 8,
+      "paid": 0,
+      "seed": 88452001,
+      "mature": false,
+      "maxLevelReached": 24,
+      "maxLevelBy120Fraction": 0.0,
+      "maxLevelDays": {
+        "min": 161,
+        "p50": 186,
+        "p90": 195,
+        "p95": 205,
+        "max": 230
+      },
+      "main100By30": 1.0,
+      "basicHuntsBy30": 1.0,
+      "any20": 0.0,
+      "any20Wilson95": [
+        0,
+        0.13797620467497365
+      ],
+      "finalLevelMedian": 1000,
+      "finalMainMedian": 1000,
+      "advancedHunt": 0.5833333333333334
+    },
+    "best_holdout": {
+      "n": 24,
+      "days": 150,
+      "active": 24,
+      "offline": 0,
+      "paid": 0,
+      "seed": 99337001,
+      "mature": false,
+      "maxLevelReached": 24,
+      "maxLevelBy120Fraction": 0.875,
+      "maxLevelDays": {
+        "min": 104,
+        "p50": 112,
+        "p90": 120,
+        "p95": 121,
+        "max": 124
+      },
+      "main100By30": 1.0,
+      "basicHuntsBy30": 1.0,
+      "any20": 0.0,
+      "any20Wilson95": [
+        0,
+        0.13797620467497365
+      ],
+      "finalLevelMedian": 1000,
+      "finalMainMedian": 1000,
+      "advancedHunt": 0.7083333333333334
+    },
+    "mature_free": {
+      "n": 300,
+      "days": 90,
+      "active": 2,
+      "offline": 8,
+      "paid": 0,
+      "seed": 88452001,
+      "mature": true,
+      "maxLevelReached": 300,
+      "maxLevelBy120Fraction": 1.0,
+      "maxLevelDays": {
+        "min": 1,
+        "p50": 1,
+        "p90": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "main100By30": 1.0,
+      "basicHuntsBy30": 1.0,
+      "any20": 0.006666666666666667,
+      "any20Wilson95": [
+        0.0018301483579118427,
+        0.023977583250306238
+      ],
+      "finalLevelMedian": 1000,
+      "finalMainMedian": 1000,
+      "advancedHunt": 1.0
+    },
+    "mature_paid": {
+      "n": 300,
+      "days": 90,
+      "active": 2,
+      "offline": 8,
+      "paid": 10,
+      "seed": 88452001,
+      "mature": true,
+      "maxLevelReached": 300,
+      "maxLevelBy120Fraction": 1.0,
+      "maxLevelDays": {
+        "min": 1,
+        "p50": 1,
+        "p90": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "main100By30": 1.0,
+      "basicHuntsBy30": 1.0,
+      "any20": 0.006666666666666667,
+      "any20Wilson95": [
+        0.0018301483579118427,
+        0.023977583250306238
+      ],
+      "finalLevelMedian": 1000,
+      "finalMainMedian": 1000,
+      "advancedHunt": 1.0
+    }
+  },
+  "ablation": [
+    {
+      "build": "balanced",
+      "rarity": 0,
+      "refine": 0,
+      "encounters": {
+        "main999": {
+          "safe": false,
+          "seconds": 97.984,
+          "incomingHpFraction": 2.0562058284372906
+        },
+        "coal750": {
+          "safe": false,
+          "seconds": 30.240000000000002,
+          "incomingHpFraction": 0.09469523413153988
+        },
+        "iron750": {
+          "safe": false,
+          "seconds": 36.596000000000004,
+          "incomingHpFraction": 0.1420428511973098
+        },
+        "gold750": {
+          "safe": false,
+          "seconds": 45.676,
+          "incomingHpFraction": 0.23231897440271126
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 102.88000000000001,
+          "incomingHpFraction": 2.1011804689124025
+        }
+      }
+    },
+    {
+      "build": "balanced",
+      "rarity": 2,
+      "refine": 0,
+      "encounters": {
+        "main999": {
+          "safe": false,
+          "seconds": 76.19200000000001,
+          "incomingHpFraction": 1.1422186174416649
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 22.976,
+          "incomingHpFraction": 0.051665628725986554
+        },
+        "iron750": {
+          "safe": false,
+          "seconds": 28.424,
+          "incomingHpFraction": 0.08219531842770586
+        },
+        "gold750": {
+          "safe": false,
+          "seconds": 35.688,
+          "incomingHpFraction": 0.13527000975531023
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 78.364,
+          "incomingHpFraction": 1.1668392763190947
+        }
+      }
+    },
+    {
+      "build": "balanced",
+      "rarity": 2,
+      "refine": 7,
+      "encounters": {
+        "main999": {
+          "safe": true,
+          "seconds": 62.58,
+          "incomingHpFraction": 0.7092819675923896
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 19.074,
+          "incomingHpFraction": 0.029915302459698964
+        },
+        "iron750": {
+          "safe": false,
+          "seconds": 23.539,
+          "incomingHpFraction": 0.05141692610260759
+        },
+        "gold750": {
+          "safe": false,
+          "seconds": 28.897000000000002,
+          "incomingHpFraction": 0.0837628468871571
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 62.831,
+          "incomingHpFraction": 0.7483973936738371
+        }
+      }
+    },
+    {
+      "build": "balanced",
+      "rarity": 3,
+      "refine": 12,
+      "encounters": {
+        "main999": {
+          "safe": true,
+          "seconds": 44.82599999999999,
+          "incomingHpFraction": 0.2768426898325959
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 13.236,
+          "incomingHpFraction": 0.011846017609173556
+        },
+        "iron750": {
+          "safe": true,
+          "seconds": 15.795,
+          "incomingHpFraction": 0.02073053081605372
+        },
+        "gold750": {
+          "safe": true,
+          "seconds": 19.207,
+          "incomingHpFraction": 0.03411653071441985
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 40.532,
+          "incomingHpFraction": 0.28774797268411045
+        }
+      }
+    },
+    {
+      "build": "balanced",
+      "rarity": 4,
+      "refine": 15,
+      "encounters": {
+        "main999": {
+          "safe": true,
+          "seconds": 33.862,
+          "incomingHpFraction": 0.1289755779045927
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 9.416,
+          "incomingHpFraction": 0.004632821106624954
+        },
+        "iron750": {
+          "safe": true,
+          "seconds": 11.02,
+          "incomingHpFraction": 0.00772136851104159
+        },
+        "gold750": {
+          "safe": true,
+          "seconds": 13.426,
+          "incomingHpFraction": 0.012354189617666546
+        },
+        "gold1000": {
+          "safe": true,
+          "seconds": 27.060000000000002,
+          "incomingHpFraction": 0.12191386570712615
+        }
+      }
+    },
+    {
+      "build": "swift",
+      "rarity": 0,
+      "refine": 0,
+      "encounters": {
+        "main999": {
+          "safe": false,
+          "seconds": 68.05799999999999,
+          "incomingHpFraction": 1.7361639871052719
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 20.948999999999998,
+          "incomingHpFraction": 0.07506395309351285
+        },
+        "iron750": {
+          "safe": false,
+          "seconds": 25.581,
+          "incomingHpFraction": 0.12510658848918813
+        },
+        "gold750": {
+          "safe": false,
+          "seconds": 31.371,
+          "incomingHpFraction": 0.20017054158270098
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 69.585,
+          "incomingHpFraction": 1.773373522649121
+        }
+      }
+    },
+    {
+      "build": "swift",
+      "rarity": 2,
+      "refine": 0,
+      "encounters": {
+        "main999": {
+          "safe": false,
+          "seconds": 54.16199999999999,
+          "incomingHpFraction": 0.9901480813226712
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 16.317,
+          "incomingHpFraction": 0.042286632974454515
+        },
+        "iron750": {
+          "safe": true,
+          "seconds": 19.791,
+          "incomingHpFraction": 0.06796066013751617
+        },
+        "gold750": {
+          "safe": false,
+          "seconds": 24.423,
+          "incomingHpFraction": 0.10632067719291419
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 52.794,
+          "incomingHpFraction": 0.9695261966495695
+        }
+      }
+    },
+    {
+      "build": "swift",
+      "rarity": 2,
+      "refine": 7,
+      "encounters": {
+        "main999": {
+          "safe": true,
+          "seconds": 43.596000000000004,
+          "incomingHpFraction": 0.5244152335056921
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 13.602,
+          "incomingHpFraction": 0.02353936071295924
+        },
+        "iron750": {
+          "safe": true,
+          "seconds": 15.834000000000001,
+          "incomingHpFraction": 0.041193881247678664
+        },
+        "gold750": {
+          "safe": true,
+          "seconds": 19.740000000000002,
+          "incomingHpFraction": 0.0677933588533226
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 41.502,
+          "incomingHpFraction": 0.5905571267472215
+        }
+      }
+    },
+    {
+      "build": "swift",
+      "rarity": 3,
+      "refine": 12,
+      "encounters": {
+        "main999": {
+          "safe": true,
+          "seconds": 30.294000000000004,
+          "incomingHpFraction": 0.20480660124679895
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 9.591000000000001,
+          "incomingHpFraction": 0.008566607105558219
+        },
+        "iron750": {
+          "safe": true,
+          "seconds": 11.112,
+          "incomingHpFraction": 0.014277678509263697
+        },
+        "gold750": {
+          "safe": true,
+          "seconds": 13.14,
+          "incomingHpFraction": 0.022844285614821914
+        },
+        "gold1000": {
+          "safe": true,
+          "seconds": 26.322,
+          "incomingHpFraction": 0.2064935624882408
+        }
+      }
+    },
+    {
+      "build": "swift",
+      "rarity": 4,
+      "refine": 15,
+      "encounters": {
+        "main999": {
+          "safe": true,
+          "seconds": 22.733,
+          "incomingHpFraction": 0.06020416225676491
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 6.987,
+          "incomingHpFraction": 0.003576534525595675
+        },
+        "iron750": {
+          "safe": true,
+          "seconds": 7.873,
+          "incomingHpFraction": 0.004470668156994593
+        },
+        "gold750": {
+          "safe": true,
+          "seconds": 9.202,
+          "incomingHpFraction": 0.00858368286142962
+        },
+        "gold1000": {
+          "safe": true,
+          "seconds": 17.176000000000002,
+          "incomingHpFraction": 0.07586890716966262
+        }
+      }
+    },
+    {
+      "build": "brute",
+      "rarity": 0,
+      "refine": 0,
+      "encounters": {
+        "main999": {
+          "safe": false,
+          "seconds": 95.68599999999998,
+          "incomingHpFraction": 2.0033636579705822
+        },
+        "coal750": {
+          "safe": false,
+          "seconds": 29.298,
+          "incomingHpFraction": 0.08839471750837781
+        },
+        "iron750": {
+          "safe": false,
+          "seconds": 35.141999999999996,
+          "incomingHpFraction": 0.1315251696840669
+        },
+        "gold750": {
+          "safe": false,
+          "seconds": 43.908,
+          "incomingHpFraction": 0.22882257583261936
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 99.426,
+          "incomingHpFraction": 2.0806582958662845
+        }
+      }
+    },
+    {
+      "build": "brute",
+      "rarity": 2,
+      "refine": 0,
+      "encounters": {
+        "main999": {
+          "safe": false,
+          "seconds": 74.258,
+          "incomingHpFraction": 1.1031159816950515
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 22.48,
+          "incomingHpFraction": 0.046966784129126034
+        },
+        "iron750": {
+          "safe": false,
+          "seconds": 27.349999999999998,
+          "incomingHpFraction": 0.07492996072346644
+        },
+        "gold750": {
+          "safe": false,
+          "seconds": 34.168,
+          "incomingHpFraction": 0.13124229223083048
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 75.076,
+          "incomingHpFraction": 1.1675864153762223
+        }
+      }
+    },
+    {
+      "build": "brute",
+      "rarity": 2,
+      "refine": 7,
+      "encounters": {
+        "main999": {
+          "safe": true,
+          "seconds": 62.816,
+          "incomingHpFraction": 0.7045835789648017
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 18.375999999999998,
+          "incomingHpFraction": 0.029909962460415638
+        },
+        "iron750": {
+          "safe": true,
+          "seconds": 22.22,
+          "incomingHpFraction": 0.045941778972001565
+        },
+        "gold750": {
+          "safe": false,
+          "seconds": 27.986,
+          "incomingHpFraction": 0.07974407567858575
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 60.66,
+          "incomingHpFraction": 0.7431289897877302
+        }
+      }
+    },
+    {
+      "build": "brute",
+      "rarity": 3,
+      "refine": 12,
+      "encounters": {
+        "main999": {
+          "safe": true,
+          "seconds": 44.264,
+          "incomingHpFraction": 0.2775943194724338
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 13.208,
+          "incomingHpFraction": 0.011841124767377932
+        },
+        "iron750": {
+          "safe": true,
+          "seconds": 15.064,
+          "incomingHpFraction": 0.0175096914705015
+        },
+        "gold750": {
+          "safe": true,
+          "seconds": 18.776000000000003,
+          "incomingHpFraction": 0.03095838834673493
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 39.192,
+          "incomingHpFraction": 0.2935924109531196
+        }
+      }
+    },
+    {
+      "build": "brute",
+      "rarity": 4,
+      "refine": 15,
+      "encounters": {
+        "main999": {
+          "safe": true,
+          "seconds": 32.841,
+          "incomingHpFraction": 0.11739012297698972
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 10.064,
+          "incomingHpFraction": 0.004630249902079089
+        },
+        "iron750": {
+          "safe": true,
+          "seconds": 10.947,
+          "incomingHpFraction": 0.007628624168254677
+        },
+        "gold750": {
+          "safe": true,
+          "seconds": 13.596,
+          "incomingHpFraction": 0.012559634676716032
+        },
+        "gold1000": {
+          "safe": true,
+          "seconds": 26.841,
+          "incomingHpFraction": 0.12394169025463575
+        }
+      }
+    },
+    {
+      "build": "physical",
+      "rarity": 0,
+      "refine": 0,
+      "encounters": {
+        "main999": {
+          "safe": false,
+          "seconds": 99.582,
+          "incomingHpFraction": 2.0499037179391135
+        },
+        "coal750": {
+          "safe": false,
+          "seconds": 30.272,
+          "incomingHpFraction": 0.09190763142044826
+        },
+        "iron750": {
+          "safe": false,
+          "seconds": 37.089999999999996,
+          "incomingHpFraction": 0.13786144713067242
+        },
+        "gold750": {
+          "safe": false,
+          "seconds": 46.83,
+          "incomingHpFraction": 0.23528353643634764
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 104.29599999999999,
+          "incomingHpFraction": 2.0792299799880287
+        }
+      }
+    },
+    {
+      "build": "physical",
+      "rarity": 2,
+      "refine": 0,
+      "encounters": {
+        "main999": {
+          "safe": false,
+          "seconds": 78.154,
+          "incomingHpFraction": 1.1468680645052145
+        },
+        "coal750": {
+          "safe": false,
+          "seconds": 23.454,
+          "incomingHpFraction": 0.050250998078962016
+        },
+        "iron750": {
+          "safe": false,
+          "seconds": 28.323999999999998,
+          "incomingHpFraction": 0.07994476967107592
+        },
+        "gold750": {
+          "safe": false,
+          "seconds": 36.116,
+          "incomingHpFraction": 0.13156624951582782
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 78.972,
+          "incomingHpFraction": 1.163742662034264
+        }
+      }
+    },
+    {
+      "build": "physical",
+      "rarity": 2,
+      "refine": 7,
+      "encounters": {
+        "main999": {
+          "safe": true,
+          "seconds": 64.738,
+          "incomingHpFraction": 0.7325597176203033
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 19.337,
+          "incomingHpFraction": 0.03279276740577789
+        },
+        "iron750": {
+          "safe": false,
+          "seconds": 23.181,
+          "incomingHpFraction": 0.050100061314382896
+        },
+        "gold750": {
+          "safe": false,
+          "seconds": 28.947,
+          "incomingHpFraction": 0.08161755443215833
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 63.543,
+          "incomingHpFraction": 0.7297591878588202
+        }
+      }
+    },
+    {
+      "build": "physical",
+      "rarity": 3,
+      "refine": 12,
+      "encounters": {
+        "main999": {
+          "safe": true,
+          "seconds": 46.120000000000005,
+          "incomingHpFraction": 0.296951274523142
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 13.208,
+          "incomingHpFraction": 0.011589129086812535
+        },
+        "iron750": {
+          "safe": true,
+          "seconds": 15.992,
+          "incomingHpFraction": 0.020280975901921936
+        },
+        "gold750": {
+          "safe": true,
+          "seconds": 19.704,
+          "incomingHpFraction": 0.0333766917700201
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 41.976,
+          "incomingHpFraction": 0.29563488867490206
+        }
+      }
+    },
+    {
+      "build": "physical",
+      "rarity": 4,
+      "refine": 15,
+      "encounters": {
+        "main999": {
+          "safe": true,
+          "seconds": 36.373,
+          "incomingHpFraction": 0.1382230432426146
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 10.064,
+          "incomingHpFraction": 0.004550636800389665
+        },
+        "iron750": {
+          "safe": true,
+          "seconds": 11.83,
+          "incomingHpFraction": 0.007584394667316109
+        },
+        "gold750": {
+          "safe": true,
+          "seconds": 14.479,
+          "incomingHpFraction": 0.014562037761246928
+        },
+        "gold1000": {
+          "safe": true,
+          "seconds": 28.607,
+          "incomingHpFraction": 0.1289282923339397
+        }
+      }
+    },
+    {
+      "build": "magic",
+      "rarity": 0,
+      "refine": 0,
+      "encounters": {
+        "main999": {
+          "safe": false,
+          "seconds": 99.582,
+          "incomingHpFraction": 2.0499037179391135
+        },
+        "coal750": {
+          "safe": false,
+          "seconds": 30.272,
+          "incomingHpFraction": 0.09190763142044826
+        },
+        "iron750": {
+          "safe": false,
+          "seconds": 37.089999999999996,
+          "incomingHpFraction": 0.13786144713067242
+        },
+        "gold750": {
+          "safe": false,
+          "seconds": 46.83,
+          "incomingHpFraction": 0.23528353643634764
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 104.29599999999999,
+          "incomingHpFraction": 2.0792299799880287
+        }
+      }
+    },
+    {
+      "build": "magic",
+      "rarity": 2,
+      "refine": 0,
+      "encounters": {
+        "main999": {
+          "safe": false,
+          "seconds": 78.154,
+          "incomingHpFraction": 1.1468680645052145
+        },
+        "coal750": {
+          "safe": false,
+          "seconds": 23.454,
+          "incomingHpFraction": 0.050250998078962016
+        },
+        "iron750": {
+          "safe": false,
+          "seconds": 28.323999999999998,
+          "incomingHpFraction": 0.07994476967107592
+        },
+        "gold750": {
+          "safe": false,
+          "seconds": 36.116,
+          "incomingHpFraction": 0.13156624951582782
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 78.972,
+          "incomingHpFraction": 1.163742662034264
+        }
+      }
+    },
+    {
+      "build": "magic",
+      "rarity": 2,
+      "refine": 7,
+      "encounters": {
+        "main999": {
+          "safe": true,
+          "seconds": 64.738,
+          "incomingHpFraction": 0.7325597176203033
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 19.337,
+          "incomingHpFraction": 0.03279276740577789
+        },
+        "iron750": {
+          "safe": false,
+          "seconds": 23.181,
+          "incomingHpFraction": 0.050100061314382896
+        },
+        "gold750": {
+          "safe": false,
+          "seconds": 28.947,
+          "incomingHpFraction": 0.08161755443215833
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 63.543,
+          "incomingHpFraction": 0.7297591878588202
+        }
+      }
+    },
+    {
+      "build": "magic",
+      "rarity": 3,
+      "refine": 12,
+      "encounters": {
+        "main999": {
+          "safe": true,
+          "seconds": 46.120000000000005,
+          "incomingHpFraction": 0.296951274523142
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 13.208,
+          "incomingHpFraction": 0.011589129086812535
+        },
+        "iron750": {
+          "safe": true,
+          "seconds": 15.992,
+          "incomingHpFraction": 0.020280975901921936
+        },
+        "gold750": {
+          "safe": true,
+          "seconds": 19.704,
+          "incomingHpFraction": 0.0333766917700201
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 41.976,
+          "incomingHpFraction": 0.29563488867490206
+        }
+      }
+    },
+    {
+      "build": "magic",
+      "rarity": 4,
+      "refine": 15,
+      "encounters": {
+        "main999": {
+          "safe": true,
+          "seconds": 36.373,
+          "incomingHpFraction": 0.1382230432426146
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 10.064,
+          "incomingHpFraction": 0.004550636800389665
+        },
+        "iron750": {
+          "safe": true,
+          "seconds": 11.83,
+          "incomingHpFraction": 0.007584394667316109
+        },
+        "gold750": {
+          "safe": true,
+          "seconds": 14.479,
+          "incomingHpFraction": 0.014562037761246928
+        },
+        "gold1000": {
+          "safe": true,
+          "seconds": 28.607,
+          "incomingHpFraction": 0.1289282923339397
+        }
+      }
+    },
+    {
+      "build": "critical",
+      "rarity": 0,
+      "refine": 0,
+      "encounters": {
+        "main999": {
+          "safe": false,
+          "seconds": 96.30900000000001,
+          "incomingHpFraction": 2.0467172244359393
+        },
+        "coal750": {
+          "safe": false,
+          "seconds": 29.487,
+          "incomingHpFraction": 0.08887384372927432
+        },
+        "iron750": {
+          "safe": false,
+          "seconds": 35.373,
+          "incomingHpFraction": 0.1348977985176485
+        },
+        "gold750": {
+          "safe": false,
+          "seconds": 44.202,
+          "incomingHpFraction": 0.22345423566217534
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 100.119,
+          "incomingHpFraction": 2.035454721980535
+        }
+      }
+    },
+    {
+      "build": "critical",
+      "rarity": 2,
+      "refine": 0,
+      "encounters": {
+        "main999": {
+          "safe": false,
+          "seconds": 74.727,
+          "incomingHpFraction": 1.113812667069611
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 22.62,
+          "incomingHpFraction": 0.04721097939550816
+        },
+        "iron750": {
+          "safe": false,
+          "seconds": 27.525,
+          "incomingHpFraction": 0.07671784151770074
+        },
+        "gold750": {
+          "safe": false,
+          "seconds": 34.391999999999996,
+          "incomingHpFraction": 0.1284138639557822
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 75.594,
+          "incomingHpFraction": 1.1440036479708164
+        }
+      }
+    },
+    {
+      "build": "critical",
+      "rarity": 2,
+      "refine": 7,
+      "encounters": {
+        "main999": {
+          "safe": true,
+          "seconds": 63.264,
+          "incomingHpFraction": 0.7246461284804556
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 18.503999999999998,
+          "incomingHpFraction": 0.030059210057722212
+        },
+        "iron750": {
+          "safe": true,
+          "seconds": 22.38,
+          "incomingHpFraction": 0.04696751571519095
+        },
+        "gold750": {
+          "safe": false,
+          "seconds": 28.194,
+          "incomingHpFraction": 0.07815394615007776
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 61.14,
+          "incomingHpFraction": 0.7290931306285466
+        }
+      }
+    },
+    {
+      "build": "critical",
+      "rarity": 3,
+      "refine": 12,
+      "encounters": {
+        "main999": {
+          "safe": true,
+          "seconds": 44.606,
+          "incomingHpFraction": 0.2874969730286991
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 13.307,
+          "incomingHpFraction": 0.011893962765692994
+        },
+        "iron750": {
+          "safe": true,
+          "seconds": 15.181000000000001,
+          "incomingHpFraction": 0.01784094414853949
+        },
+        "gold750": {
+          "safe": true,
+          "seconds": 18.929000000000002,
+          "incomingHpFraction": 0.030448544680174067
+        },
+        "gold1000": {
+          "safe": false,
+          "seconds": 39.543,
+          "incomingHpFraction": 0.2888978863555112
+        }
+      }
+    },
+    {
+      "build": "critical",
+      "rarity": 4,
+      "refine": 15,
+      "encounters": {
+        "main999": {
+          "safe": true,
+          "seconds": 33.084,
+          "incomingHpFraction": 0.12442181708360743
+        },
+        "coal750": {
+          "safe": true,
+          "seconds": 10.136,
+          "incomingHpFraction": 0.00464805861080113
+        },
+        "iron750": {
+          "safe": true,
+          "seconds": 11.028,
+          "incomingHpFraction": 0.007746764351335217
+        },
+        "gold750": {
+          "safe": true,
+          "seconds": 13.704,
+          "incomingHpFraction": 0.012394822962136348
+        },
+        "gold1000": {
+          "safe": true,
+          "seconds": 27.084,
+          "incomingHpFraction": 0.1223192689655866
+        }
+      }
+    }
+  ],
+  "bootstrap": [
+    {
+      "build": "balanced",
+      "starter": true,
+      "metrics": {
+        "firstCoalDay": 1,
+        "firstCoalActiveHours": 1.004722222388889,
+        "firstIronDay": 1,
+        "firstIronActiveHours": 1.5047222226666663,
+        "first3Day": 1,
+        "allBasicHuntsDay": 1
+      },
+      "level": 24,
+      "main": 26
+    },
+    {
+      "build": "balanced",
+      "starter": false,
+      "metrics": {
+        "firstCoalDay": 1,
+        "firstCoalActiveHours": 2.5055555557777773,
+        "firstIronDay": 1,
+        "firstIronActiveHours": 3.0052777782777795
+      },
+      "level": 19,
+      "main": 19
+    },
+    {
+      "build": "swift",
+      "starter": true,
+      "metrics": {
+        "firstCoalDay": 1,
+        "firstCoalActiveHours": 1.0055555557222222,
+        "first3Day": 1,
+        "firstIronDay": 1,
+        "firstIronActiveHours": 1.5058333337777774,
+        "first7Day": 1,
+        "allBasicHuntsDay": 1
+      },
+      "level": 23,
+      "main": 21
+    },
+    {
+      "build": "swift",
+      "starter": false,
+      "metrics": {
+        "firstCoalDay": 1,
+        "firstCoalActiveHours": 2.5066666668888886,
+        "firstIronDay": 1,
+        "firstIronActiveHours": 3.007500000361112
+      },
+      "level": 17,
+      "main": 15
+    },
+    {
+      "build": "brute",
+      "starter": true,
+      "metrics": {
+        "firstCoalDay": 1,
+        "firstCoalActiveHours": 1.0044444446111112,
+        "firstIronDay": 1,
+        "firstIronActiveHours": 1.5047222226666663,
+        "allBasicHuntsDay": 1
+      },
+      "level": 24,
+      "main": 25
+    },
+    {
+      "build": "brute",
+      "starter": false,
+      "metrics": {
+        "firstCoalDay": 1,
+        "firstCoalActiveHours": 2.5052777779999995,
+        "firstIronDay": 1,
+        "firstIronActiveHours": 3.0052777782777795
+      },
+      "level": 19,
+      "main": 19
+    },
+    {
+      "build": "physical",
+      "starter": true,
+      "metrics": {
+        "firstCoalDay": 1,
+        "firstCoalActiveHours": 1.0058333335,
+        "firstIronDay": 1,
+        "firstIronActiveHours": 1.5055555559999996,
+        "allBasicHuntsDay": 1
+      },
+      "level": 22,
+      "main": 22
+    },
+    {
+      "build": "physical",
+      "starter": false,
+      "metrics": {
+        "firstCoalDay": 1,
+        "firstCoalActiveHours": 3.0063888890833335,
+        "firstIronDay": 1,
+        "firstIronActiveHours": 3.505277778250002
+      },
+      "level": 17,
+      "main": 17
+    },
+    {
+      "build": "magic",
+      "starter": true,
+      "metrics": {
+        "firstCoalDay": 1,
+        "firstCoalActiveHours": 1.0058333335,
+        "firstIronDay": 1,
+        "firstIronActiveHours": 1.5055555559999996,
+        "allBasicHuntsDay": 1
+      },
+      "level": 22,
+      "main": 22
+    },
+    {
+      "build": "magic",
+      "starter": false,
+      "metrics": {
+        "firstCoalDay": 1,
+        "firstCoalActiveHours": 3.0063888890833335,
+        "firstIronDay": 1,
+        "firstIronActiveHours": 3.505277778250002
+      },
+      "level": 17,
+      "main": 17
+    },
+    {
+      "build": "critical",
+      "starter": true,
+      "metrics": {
+        "firstCoalDay": 1,
+        "firstCoalActiveHours": 1.0055555557222222,
+        "firstIronDay": 1,
+        "firstIronActiveHours": 1.5052777782222218,
+        "allBasicHuntsDay": 1
+      },
+      "level": 23,
+      "main": 22
+    },
+    {
+      "build": "critical",
+      "starter": false,
+      "metrics": {
+        "firstCoalDay": 1,
+        "firstCoalActiveHours": 3.00555555575,
+        "firstIronDay": 1,
+        "firstIronActiveHours": 3.505277778250002
+      },
+      "level": 18,
+      "main": 17
+    }
+  ],
+  "gates": {
+    "absoluteMinimum": true,
+    "bestMedian": true,
+    "bestBy120": true,
+    "holdoutMedian": true,
+    "holdoutBy120": false,
+    "bootstrap": true,
+    "gearAblation": true,
+    "matureScarcity": false,
+    "paidGap": true,
+    "completeness": false
+  },
+  "numericalApproval": false,
+  "implementationApproved": false,
+  "unresolved": [
+    "Future jade boss participation/rewards",
+    "Ruby price/funding, all-source free supply, alt funnel",
+    "Human market liquidity/gear access",
+    "Legacy compensation/overflow/crafting/pets/affixes/migration"
+  ],
+  "elapsedSeconds": 306.43,
+  "hashes": {
+    "scripts/economy-r11/calibrate.py": "6e95ca6d9b88ad8b44e8cc410c4f815c0ad772322672c30ac7c8cbdb672b05a3",
+    "scripts/economy-r1/model.py": "e7169a32c228ea4a0e0e7901ac3825c10cee5f77a2a0ae4bcb2f627e9b318ed6",
+    "docs/plans/hunts-builds/r11/criteria.json": "92814f2932b31b52a5cd89ccd67e998304058cde05d07e1e69f82e7f75605421",
+    "docs/plans/hunts-builds/r1/content-baseline.json": "e884dab0617078301690ae19f69f499a7501775e157b5450dadd4481d4e5ccb6"
+  }
+}
