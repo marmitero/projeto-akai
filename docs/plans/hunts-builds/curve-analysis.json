@@ -1,0 +1,800 @@
+{
+  "status": "PLANNING ONLY; not loaded by the game",
+  "version": "proposal-hunts-builds-v1",
+  "date": "2026-10-18",
+  "method": "Absorbing Markov chain; states0..target-1; N=(I-Q)^-1; expected cost=N*per-attempt-cost; quantiles by cumulative distribution, censored after100000attempts. No acquisition/retention or whole-game balance simulation.",
+  "probabilities": [
+    0.98,
+    0.95,
+    0.92,
+    0.9,
+    0.85,
+    0.8,
+    0.75,
+    0.7,
+    0.65,
+    0.6,
+    0.55,
+    0.5,
+    0.48,
+    0.46,
+    0.44,
+    0.42,
+    0.4,
+    0.38,
+    0.35,
+    0.3
+  ],
+  "conditionalBreak": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.05,
+    0.08,
+    0.12,
+    0.18,
+    0.25,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "costExample": {
+    "itemLevel": 100,
+    "rarity": "legendary",
+    "rarityMultiplier": 2.25,
+    "levelFactor": 4.96
+  },
+  "attemptCosts": [
+    {
+      "target": 1,
+      "pSuccess": 0.98,
+      "pBreakGivenFailure": 0,
+      "coin": 1116,
+      "coal": 23,
+      "iron": 0,
+      "gold": 0,
+      "jade": 0
+    },
+    {
+      "target": 2,
+      "pSuccess": 0.95,
+      "pBreakGivenFailure": 0,
+      "coin": 1474,
+      "coal": 28,
+      "iron": 0,
+      "gold": 0,
+      "jade": 0
+    },
+    {
+      "target": 3,
+      "pSuccess": 0.92,
+      "pBreakGivenFailure": 0,
+      "coin": 1945,
+      "coal": 35,
+      "iron": 0,
+      "gold": 0,
+      "jade": 0
+    },
+    {
+      "target": 4,
+      "pSuccess": 0.9,
+      "pBreakGivenFailure": 0,
+      "coin": 2567,
+      "coal": 44,
+      "iron": 0,
+      "gold": 0,
+      "jade": 0
+    },
+    {
+      "target": 5,
+      "pSuccess": 0.85,
+      "pBreakGivenFailure": 0,
+      "coin": 3389,
+      "coal": 55,
+      "iron": 0,
+      "gold": 0,
+      "jade": 0
+    },
+    {
+      "target": 6,
+      "pSuccess": 0.8,
+      "pBreakGivenFailure": 0,
+      "coin": 4473,
+      "coal": 69,
+      "iron": 112,
+      "gold": 0,
+      "jade": 0
+    },
+    {
+      "target": 7,
+      "pSuccess": 0.75,
+      "pBreakGivenFailure": 0,
+      "coin": 5904,
+      "coal": 86,
+      "iron": 140,
+      "gold": 0,
+      "jade": 0
+    },
+    {
+      "target": 8,
+      "pSuccess": 0.7,
+      "pBreakGivenFailure": 0.05,
+      "coin": 7793,
+      "coal": 107,
+      "iron": 175,
+      "gold": 0,
+      "jade": 0
+    },
+    {
+      "target": 9,
+      "pSuccess": 0.65,
+      "pBreakGivenFailure": 0.08,
+      "coin": 10287,
+      "coal": 134,
+      "iron": 218,
+      "gold": 0,
+      "jade": 0
+    },
+    {
+      "target": 10,
+      "pSuccess": 0.6,
+      "pBreakGivenFailure": 0.12,
+      "coin": 13578,
+      "coal": 167,
+      "iron": 273,
+      "gold": 0,
+      "jade": 0
+    },
+    {
+      "target": 11,
+      "pSuccess": 0.55,
+      "pBreakGivenFailure": 0.18,
+      "coin": 17923,
+      "coal": 208,
+      "iron": 341,
+      "gold": 23,
+      "jade": 0
+    },
+    {
+      "target": 12,
+      "pSuccess": 0.5,
+      "pBreakGivenFailure": 0.25,
+      "coin": 23658,
+      "coal": 260,
+      "iron": 426,
+      "gold": 28,
+      "jade": 0
+    },
+    {
+      "target": 13,
+      "pSuccess": 0.48,
+      "pBreakGivenFailure": 1,
+      "coin": 31229,
+      "coal": 325,
+      "iron": 533,
+      "gold": 35,
+      "jade": 0
+    },
+    {
+      "target": 14,
+      "pSuccess": 0.46,
+      "pBreakGivenFailure": 1,
+      "coin": 41222,
+      "coal": 406,
+      "iron": 666,
+      "gold": 44,
+      "jade": 0
+    },
+    {
+      "target": 15,
+      "pSuccess": 0.44,
+      "pBreakGivenFailure": 1,
+      "coin": 54413,
+      "coal": 508,
+      "iron": 832,
+      "gold": 55,
+      "jade": 0
+    },
+    {
+      "target": 16,
+      "pSuccess": 0.42,
+      "pBreakGivenFailure": 1,
+      "coin": 71825,
+      "coal": 635,
+      "iron": 1040,
+      "gold": 69,
+      "jade": 2
+    },
+    {
+      "target": 17,
+      "pSuccess": 0.4,
+      "pBreakGivenFailure": 1,
+      "coin": 94809,
+      "coal": 793,
+      "iron": 1300,
+      "gold": 86,
+      "jade": 2
+    },
+    {
+      "target": 18,
+      "pSuccess": 0.38,
+      "pBreakGivenFailure": 1,
+      "coin": 125148,
+      "coal": 992,
+      "iron": 1624,
+      "gold": 107,
+      "jade": 2
+    },
+    {
+      "target": 19,
+      "pSuccess": 0.35,
+      "pBreakGivenFailure": 1,
+      "coin": 165195,
+      "coal": 1240,
+      "iron": 2030,
+      "gold": 134,
+      "jade": 3
+    },
+    {
+      "target": 20,
+      "pSuccess": 0.3,
+      "pBreakGivenFailure": 1,
+      "coin": 218057,
+      "coal": 1549,
+      "iron": 2538,
+      "gold": 167,
+      "jade": 3
+    }
+  ],
+  "results": [
+    {
+      "protected": true,
+      "target": 3,
+      "meanAttempts": 3.159996263951805,
+      "stdAttempts": 0.41321214509635357,
+      "quantiles": {
+        "0.5": 3,
+        "0.9": 4,
+        "0.95": 4,
+        "0.99": 5
+      },
+      "probabilityByAttemptBudget": {
+        "100": 1.0,
+        "500": 1.0,
+        "1000": 1.0,
+        "3000": 1.0,
+        "10000": 1.0
+      },
+      "meanDestroyedReplacements": 0.0,
+      "meanCoin": 4804.484892355112,
+      "meanCoal": 90.98655022649793,
+      "meanIron": 0.0,
+      "meanGold": 0.0,
+      "meanJade": 0.0,
+      "meanProtectionScrolls": 0.0,
+      "assumptions": "Starts at +0; protected n>=8 consumes1scroll on every attempt; below8 no protection; unprotected breaks replace with an identical +0 item without acquisition delay/cost; fixed probabilities; no pity or checkpoints; +20 eligibility assumed."
+    },
+    {
+      "protected": true,
+      "target": 5,
+      "meanAttempts": 5.78574221450594,
+      "stdAttempts": 1.3600998549914445,
+      "quantiles": {
+        "0.5": 5,
+        "0.9": 7,
+        "0.95": 9,
+        "0.99": 11
+      },
+      "probabilityByAttemptBudget": {
+        "100": 1.0,
+        "500": 1.0,
+        "1000": 1.0,
+        "3000": 1.0,
+        "10000": 1.0
+      },
+      "meanDestroyedReplacements": 0.0,
+      "meanCoin": 12423.456191019504,
+      "meanCoal": 218.18177614295146,
+      "meanIron": 0.0,
+      "meanGold": 0.0,
+      "meanJade": 0.0,
+      "meanProtectionScrolls": 0.0,
+      "assumptions": "Starts at +0; protected n>=8 consumes1scroll on every attempt; below8 no protection; unprotected breaks replace with an identical +0 item without acquisition delay/cost; fixed probabilities; no pity or checkpoints; +20 eligibility assumed."
+    },
+    {
+      "protected": true,
+      "target": 7,
+      "meanAttempts": 9.250362845366979,
+      "stdAttempts": 2.7596167345206197,
+      "quantiles": {
+        "0.5": 9,
+        "0.9": 13,
+        "0.95": 15,
+        "0.99": 19
+      },
+      "probabilityByAttemptBudget": {
+        "100": 1.0,
+        "500": 1.0,
+        "1000": 1.0,
+        "3000": 1.0,
+        "10000": 1.0
+      },
+      "meanDestroyedReplacements": 0.0,
+      "meanCoin": 29261.07142261939,
+      "meanCoal": 472.5415374387741,
+      "meanIron": 373.3333333333333,
+      "meanGold": 0.0,
+      "meanJade": 0.0,
+      "meanProtectionScrolls": 0.0,
+      "assumptions": "Starts at +0; protected n>=8 consumes1scroll on every attempt; below8 no protection; unprotected breaks replace with an identical +0 item without acquisition delay/cost; fixed probabilities; no pity or checkpoints; +20 eligibility assumed."
+    },
+    {
+      "protected": true,
+      "target": 10,
+      "meanAttempts": 17.709287552373528,
+      "stdAttempts": 7.076630590672982,
+      "quantiles": {
+        "0.5": 16,
+        "0.9": 27,
+        "0.95": 32,
+        "0.99": 42
+      },
+      "probabilityByAttemptBudget": {
+        "100": 0.99999847,
+        "500": 1.0,
+        "1000": 1.0,
+        "3000": 1.0,
+        "10000": 1.0
+      },
+      "meanDestroyedReplacements": 0.0,
+      "meanCoin": 107615.96389644282,
+      "meanCoal": 1506.1458112553241,
+      "meanIron": 2051.4102564102564,
+      "meanGold": 0.0,
+      "meanJade": 0.0,
+      "meanProtectionScrolls": 6.94139194139194,
+      "assumptions": "Starts at +0; protected n>=8 consumes1scroll on every attempt; below8 no protection; unprotected breaks replace with an identical +0 item without acquisition delay/cost; fixed probabilities; no pity or checkpoints; +20 eligibility assumed."
+    },
+    {
+      "protected": true,
+      "target": 12,
+      "meanAttempts": 29.060207731938206,
+      "stdAttempts": 14.60316685836088,
+      "quantiles": {
+        "0.5": 25,
+        "0.9": 48,
+        "0.95": 58,
+        "0.99": 80
+      },
+      "probabilityByAttemptBudget": {
+        "100": 0.99765159,
+        "500": 1.0,
+        "1000": 1.0,
+        "3000": 1.0,
+        "10000": 1.0
+      },
+      "meanDestroyedReplacements": 0.0,
+      "meanCoin": 283487.9256942358,
+      "meanCoal": 3590.3083137145013,
+      "meanIron": 5459.424242424242,
+      "meanGold": 139.63636363636363,
+      "meanJade": 0.0,
+      "meanProtectionScrolls": 17.82251082251082,
+      "assumptions": "Starts at +0; protected n>=8 consumes1scroll on every attempt; below8 no protection; unprotected breaks replace with an identical +0 item without acquisition delay/cost; fixed probabilities; no pity or checkpoints; +20 eligibility assumed."
+    },
+    {
+      "protected": true,
+      "target": 15,
+      "meanAttempts": 70.44121910319454,
+      "stdAttempts": 48.43631633552097,
+      "quantiles": {
+        "0.5": 57,
+        "0.9": 133,
+        "0.95": 167,
+        "0.99": 243
+      },
+      "probabilityByAttemptBudget": {
+        "100": 0.79979501,
+        "500": 0.99995229,
+        "1000": 1.0,
+        "3000": 1.0,
+        "10000": 1.0
+      },
+      "meanDestroyedReplacements": 0.0,
+      "meanCoin": 1292895.7931396537,
+      "meanCoal": 14408.328147322463,
+      "meanIron": 23177.73925020961,
+      "meanGold": 1138.1800215594685,
+      "meanJade": 0.0,
+      "meanProtectionScrolls": 58.270109337303026,
+      "assumptions": "Starts at +0; protected n>=8 consumes1scroll on every attempt; below8 no protection; unprotected breaks replace with an identical +0 item without acquisition delay/cost; fixed probabilities; no pity or checkpoints; +20 eligibility assumed."
+    },
+    {
+      "protected": true,
+      "target": 16,
+      "meanAttempts": 99.00077609476435,
+      "stdAttempts": 73.86949660193163,
+      "quantiles": {
+        "0.5": 77,
+        "0.9": 195,
+        "0.95": 246,
+        "0.99": 364
+      },
+      "probabilityByAttemptBudget": {
+        "100": 0.63897205,
+        "500": 0.99844632,
+        "1000": 0.99999829,
+        "3000": 1.0,
+        "10000": 1.0
+      },
+      "meanDestroyedReplacements": 0.0,
+      "meanCoin": 2175853.8644110356,
+      "meanCoal": 23373.226208488857,
+      "meanIron": 37861.850965898426,
+      "meanGold": 2012.2864243793113,
+      "meanJade": 4.761904761904768,
+      "meanProtectionScrolls": 86.30462159711178,
+      "assumptions": "Starts at +0; protected n>=8 consumes1scroll on every attempt; below8 no protection; unprotected breaks replace with an identical +0 item without acquisition delay/cost; fixed probabilities; no pity or checkpoints; +20 eligibility assumed."
+    },
+    {
+      "protected": true,
+      "target": 18,
+      "meanAttempts": 220.94639579832966,
+      "stdAttempts": 188.62144208803903,
+      "quantiles": {
+        "0.5": 164,
+        "0.9": 466,
+        "0.95": 597,
+        "0.99": 900
+      },
+      "probabilityByAttemptBudget": {
+        "100": 0.30259109,
+        "500": 0.91665973,
+        "1000": 0.99414479,
+        "3000": 0.99999986,
+        "10000": 1.0
+      },
+      "meanDestroyedReplacements": 0.0,
+      "meanCoin": 6614294.935219132,
+      "meanCoal": 66588.6132920405,
+      "meanIron": 108651.76563309127,
+      "meanGold": 6310.074856562911,
+      "meanJade": 41.97994987468682,
+      "meanProtectionScrolls": 206.17769630688343,
+      "assumptions": "Starts at +0; protected n>=8 consumes1scroll on every attempt; below8 no protection; unprotected breaks replace with an identical +0 item without acquisition delay/cost; fixed probabilities; no pity or checkpoints; +20 eligibility assumed."
+    },
+    {
+      "protected": true,
+      "target": 20,
+      "meanAttempts": 708.0329171367796,
+      "stdAttempts": 667.4407244441908,
+      "quantiles": {
+        "0.5": 504,
+        "0.9": 1578,
+        "0.95": 2040,
+        "0.99": 3114
+      },
+      "probabilityByAttemptBudget": {
+        "100": 0.08599967,
+        "500": 0.498058,
+        "1000": 0.7627378,
+        "3000": 0.98815518,
+        "10000": 0.99999967
+      },
+      "meanDestroyedReplacements": 0.0,
+      "meanCoin": 26724322.56889228,
+      "meanCoal": 255567.19419367367,
+      "meanIron": 418196.86668908165,
+      "meanGold": 25300.634267705842,
+      "meanJade": 235.778732545652,
+      "meanProtectionScrolls": 685.3095925739156,
+      "assumptions": "Starts at +0; protected n>=8 consumes1scroll on every attempt; below8 no protection; unprotected breaks replace with an identical +0 item without acquisition delay/cost; fixed probabilities; no pity or checkpoints; +20 eligibility assumed."
+    },
+    {
+      "protected": false,
+      "target": 3,
+      "meanAttempts": 3.159996263951805,
+      "stdAttempts": 0.41321214509635357,
+      "quantiles": {
+        "0.5": 3,
+        "0.9": 4,
+        "0.95": 4,
+        "0.99": 5
+      },
+      "probabilityByAttemptBudget": {
+        "100": 1.0,
+        "500": 1.0,
+        "1000": 1.0,
+        "3000": 1.0,
+        "10000": 1.0
+      },
+      "meanDestroyedReplacements": 0.0,
+      "meanCoin": 4804.484892355112,
+      "meanCoal": 90.98655022649793,
+      "meanIron": 0.0,
+      "meanGold": 0.0,
+      "meanJade": 0.0,
+      "meanProtectionScrolls": 0.0,
+      "assumptions": "Starts at +0; protected n>=8 consumes1scroll on every attempt; below8 no protection; unprotected breaks replace with an identical +0 item without acquisition delay/cost; fixed probabilities; no pity or checkpoints; +20 eligibility assumed."
+    },
+    {
+      "protected": false,
+      "target": 5,
+      "meanAttempts": 5.78574221450594,
+      "stdAttempts": 1.3600998549914445,
+      "quantiles": {
+        "0.5": 5,
+        "0.9": 7,
+        "0.95": 9,
+        "0.99": 11
+      },
+      "probabilityByAttemptBudget": {
+        "100": 1.0,
+        "500": 1.0,
+        "1000": 1.0,
+        "3000": 1.0,
+        "10000": 1.0
+      },
+      "meanDestroyedReplacements": 0.0,
+      "meanCoin": 12423.456191019504,
+      "meanCoal": 218.18177614295146,
+      "meanIron": 0.0,
+      "meanGold": 0.0,
+      "meanJade": 0.0,
+      "meanProtectionScrolls": 0.0,
+      "assumptions": "Starts at +0; protected n>=8 consumes1scroll on every attempt; below8 no protection; unprotected breaks replace with an identical +0 item without acquisition delay/cost; fixed probabilities; no pity or checkpoints; +20 eligibility assumed."
+    },
+    {
+      "protected": false,
+      "target": 7,
+      "meanAttempts": 9.250362845366979,
+      "stdAttempts": 2.7596167345206197,
+      "quantiles": {
+        "0.5": 9,
+        "0.9": 13,
+        "0.95": 15,
+        "0.99": 19
+      },
+      "probabilityByAttemptBudget": {
+        "100": 1.0,
+        "500": 1.0,
+        "1000": 1.0,
+        "3000": 1.0,
+        "10000": 1.0
+      },
+      "meanDestroyedReplacements": 0.0,
+      "meanCoin": 29261.07142261939,
+      "meanCoal": 472.5415374387741,
+      "meanIron": 373.3333333333333,
+      "meanGold": 0.0,
+      "meanJade": 0.0,
+      "meanProtectionScrolls": 0.0,
+      "assumptions": "Starts at +0; protected n>=8 consumes1scroll on every attempt; below8 no protection; unprotected breaks replace with an identical +0 item without acquisition delay/cost; fixed probabilities; no pity or checkpoints; +20 eligibility assumed."
+    },
+    {
+      "protected": false,
+      "target": 10,
+      "meanAttempts": 19.604609028999818,
+      "stdAttempts": 10.035226290785433,
+      "quantiles": {
+        "0.5": 16,
+        "0.9": 33,
+        "0.95": 40,
+        "0.99": 56
+      },
+      "probabilityByAttemptBudget": {
+        "100": 0.99987141,
+        "500": 1.0,
+        "1000": 1.0,
+        "3000": 1.0,
+        "10000": 1.0
+      },
+      "meanDestroyedReplacements": 0.19416849816849815,
+      "meanCoin": 114106.37443989469,
+      "meanCoal": 1608.9171930440393,
+      "meanIron": 2142.0126495726495,
+      "meanGold": 0.0,
+      "meanJade": 0.0,
+      "meanProtectionScrolls": 0.0,
+      "assumptions": "Starts at +0; protected n>=8 consumes1scroll on every attempt; below8 no protection; unprotected breaks replace with an identical +0 item without acquisition delay/cost; fixed probabilities; no pity or checkpoints; +20 eligibility assumed."
+    },
+    {
+      "protected": false,
+      "target": 12,
+      "meanAttempts": 42.28435660302707,
+      "stdAttempts": 30.89113051192978,
+      "quantiles": {
+        "0.5": 32,
+        "0.9": 83,
+        "0.95": 104,
+        "0.99": 154
+      },
+      "probabilityByAttemptBudget": {
+        "100": 0.94392342,
+        "500": 0.99999986,
+        "1000": 1.0,
+        "3000": 1.0,
+        "10000": 1.0
+      },
+      "meanDestroyedReplacements": 1.002949184149184,
+      "meanCoin": 346876.3971434052,
+      "meanCoal": 4520.105380002107,
+      "meanIron": 6573.367112665112,
+      "meanGold": 139.63636363636363,
+      "meanJade": 0.0,
+      "meanProtectionScrolls": 0.0,
+      "assumptions": "Starts at +0; protected n>=8 consumes1scroll on every attempt; below8 no protection; unprotected breaks replace with an identical +0 item without acquisition delay/cost; fixed probabilities; no pity or checkpoints; +20 eligibility assumed."
+    },
+    {
+      "protected": false,
+      "target": 15,
+      "meanAttempts": 452.74576542970794,
+      "stdAttempts": 440.1332572103845,
+      "quantiles": {
+        "0.5": 318,
+        "0.9": 1026,
+        "0.95": 1331,
+        "0.99": 2040
+      },
+      "probabilityByAttemptBudget": {
+        "100": 0.18107935,
+        "500": 0.66996002,
+        "1000": 0.89402034,
+        "3000": 0.9988732,
+        "10000": 1.0
+      },
+      "meanDestroyedReplacements": 19.616654151733158,
+      "meanCoin": 4219227.062164488,
+      "meanCoal": 53031.86532446163,
+      "meanIron": 78328.31761224777,
+      "meanGold": 2139.9493951371373,
+      "meanJade": 0.0,
+      "meanProtectionScrolls": 0.0,
+      "assumptions": "Starts at +0; protected n>=8 consumes1scroll on every attempt; below8 no protection; unprotected breaks replace with an identical +0 item without acquisition delay/cost; fixed probabilities; no pity or checkpoints; +20 eligibility assumed."
+    },
+    {
+      "protected": false,
+      "target": 16,
+      "meanAttempts": 1080.3470605469226,
+      "stdAttempts": 1066.8544868587026,
+      "quantiles": {
+        "0.5": 753,
+        "0.9": 2470,
+        "0.95": 3210,
+        "0.99": 4927
+      },
+      "probabilityByAttemptBudget": {
+        "100": 0.07833267,
+        "500": 0.36650418,
+        "1000": 0.60353419,
+        "3000": 0.93917899,
+        "10000": 0.999914
+      },
+      "meanDestroyedReplacements": 48.08727178984082,
+      "meanCoin": 10216790.624201154,
+      "meanCoal": 127778.2507725276,
+      "meanIron": 188972.18479106596,
+      "meanGold": 5259.403321755086,
+      "meanJade": 4.7619047619047485,
+      "meanProtectionScrolls": 0.0,
+      "assumptions": "Starts at +0; protected n>=8 consumes1scroll on every attempt; below8 no protection; unprotected breaks replace with an identical +0 item without acquisition delay/cost; fixed probabilities; no pity or checkpoints; +20 eligibility assumed."
+    },
+    {
+      "protected": false,
+      "target": 18,
+      "meanAttempts": 7116.75697728258,
+      "stdAttempts": 7101.3503522488145,
+      "quantiles": {
+        "0.5": 4938,
+        "0.9": 16367,
+        "0.95": 21289,
+        "0.99": 32718
+      },
+      "probabilityByAttemptBudget": {
+        "100": 0.01191156,
+        "500": 0.06602947,
+        "1000": 0.12952786,
+        "3000": 0.34318708,
+        "10000": 0.75489875
+      },
+      "meanDestroyedReplacements": 321.942577564751,
+      "meanCoin": 68168808.05395682,
+      "meanCoal": 848474.0182403362,
+      "meanIron": 1256064.3736254685,
+      "meanGold": 35448.70606417916,
+      "meanJade": 49.74937343358528,
+      "meanProtectionScrolls": 0.0,
+      "assumptions": "Starts at +0; protected n>=8 consumes1scroll on every attempt; below8 no protection; unprotected breaks replace with an identical +0 item without acquisition delay/cost; fixed probabilities; no pity or checkpoints; +20 eligibility assumed."
+    },
+    {
+      "protected": false,
+      "target": 20,
+      "meanAttempts": 67791.49502172772,
+      "stdAttempts": 67774.10590569886,
+      "quantiles": {
+        "0.5": 46995
+      },
+      "probabilityByAttemptBudget": {
+        "100": 0.00122554,
+        "500": 0.00710291,
+        "1000": 0.014401,
+        "3000": 0.04306088,
+        "10000": 0.13696479,
+        "100000": 0.7712763
+      },
+      "meanDestroyedReplacements": 3074.643595854267,
+      "meanCoin": 651526885.7518628,
+      "meanCoal": 8097677.792763777,
+      "meanIron": 11990311.177383445,
+      "meanGold": 339439.5815635553,
+      "meanJade": 512.3749850816802,
+      "meanProtectionScrolls": 0.0,
+      "assumptions": "Starts at +0; protected n>=8 consumes1scroll on every attempt; below8 no protection; unprotected breaks replace with an identical +0 item without acquisition delay/cost; fixed probabilities; no pity or checkpoints; +20 eligibility assumed."
+    }
+  ],
+  "aspd": [
+    {
+      "effectiveAgilityFraction": 0,
+      "aspd": 150.0,
+      "intervalMs": 1000,
+      "attacksPerSecond": 1.0
+    },
+    {
+      "effectiveAgilityFraction": 0.1,
+      "aspd": 152.24936530076138,
+      "intervalMs": 956,
+      "attacksPerSecond": 1.0460251046025104
+    },
+    {
+      "effectiveAgilityFraction": 0.25,
+      "aspd": 157.07106781186548,
+      "intervalMs": 859,
+      "attacksPerSecond": 1.1641443538998837
+    },
+    {
+      "effectiveAgilityFraction": 0.5,
+      "aspd": 166.8179283050743,
+      "intervalMs": 664,
+      "attacksPerSecond": 1.5060240963855422
+    },
+    {
+      "effectiveAgilityFraction": 0.75,
+      "aspd": 177.91814577306297,
+      "intervalMs": 442,
+      "attacksPerSecond": 2.262443438914027
+    },
+    {
+      "effectiveAgilityFraction": 0.8,
+      "aspd": 180.26373148810163,
+      "intervalMs": 395,
+      "attacksPerSecond": 2.5316455696202533
+    },
+    {
+      "effectiveAgilityFraction": 0.9,
+      "aspd": 185.06413487131067,
+      "intervalMs": 299,
+      "attacksPerSecond": 3.3444816053511706
+    },
+    {
+      "effectiveAgilityFraction": 0.95,
+      "aspd": 187.51582470625448,
+      "intervalMs": 250,
+      "attacksPerSecond": 4.0
+    },
+    {
+      "effectiveAgilityFraction": 1,
+      "aspd": 190.0,
+      "intervalMs": 200,
+      "attacksPerSecond": 5.0
+    }
+  ]
+}

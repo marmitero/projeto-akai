@@ -88,3 +88,7 @@ Executar com perfil novo, sem fixtures/grants, registrando configVersion, tempo 
 | Mochila cheia | Filtro/equipados/reciclagem, mensagem de conversão em ferro e conforto em tela pequena |
 
 Registrar bloqueadores e tempos observados antes de propor metas/ajustes por faixa. A aprovação desse playtest e o equilíbrio comercial não foram presumidos nesta entrega. Ajustes rotineiros podem ser decididos pelo agente sob a governança vigente; cobrar do usuário somente decisões com impacto financeiro relevante ou mudança profunda de escopo.
+
+## Curvas futuras em estudo — sem efeito no jogo
+
+[Proposta hunts/builds/refino](plans/hunts-builds/PROPOSAL.md) e [análise matemática](plans/hunts-builds/CURVE_MODEL.md),18/10/2026. Probabilidades, custos, treinamento eASPD são candidatos. A cadeia deMarkov mede o refino, não prova economia/progressão completa. Nenhum dado em docs/plans é importado pelo runtime.

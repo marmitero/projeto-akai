@@ -1,5 +1,7 @@
 # Documentação do Projeto Akai
 
+Planejamento futuro (sem implementação): [reforma de hunts, atributos/builds e fortalecimento](plans/hunts-builds/PROPOSAL.md), [roadmap](plans/hunts-builds/ROADMAP.md) e [referências/modelo](plans/hunts-builds/CURVE_MODEL.md). O comportamento atual do jogo permanece nos relatórios publicados.
+
 Entrega atual: [Bestiário comum — 27 fichas](bestiary/BESTIARY.md), [inventário técnico](bestiary/asset-inventory.json) e [implementação/validação](bestiary/BESTIARY_IMPLEMENTATION.md).
 
 Baseline de planejamento — 15/10/2026. **F1–F4 locais; F5 online e F6 comunidade publicadas; F7 mercado publicada com CI aprovada; F8 técnica de teste publicada, monetização externa adiada até a fase final, sem deploy público.** Leia [AI_STATE](../AI_STATE.md) antes de trabalhar. O usuário autorizou publicar F8 e priorizou polimentos em16/10/2026. Pendências em [MONETIZATION_DEFERRED](MONETIZATION_DEFERRED.md), trabalho atual em [POLISH_PLAN](POLISH_PLAN.md). Comandos reais em [DEVELOPMENT](DEVELOPMENT.md); evidências atuais em [STAGE_08_REPORT](STAGE_08_REPORT.md) e regras em [MONETIZATION_SYSTEMS](MONETIZATION_SYSTEMS.md).

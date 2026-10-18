@@ -2,6 +2,14 @@
 
 16/10/2026. **F1–F8 técnicas publicadas; CI F8 aprovada após corrigir clique durante sincronização. Monetização externa adiada por decisão do usuário para a fase final; prioridade atual: polimentos do jogo. F9 não iniciada.** Base F8:3ccfdc436706f77fbc6ba7aa8ac12206a5b63ac3.
 
+## Planejamento futuro — hunts/builds/refino (18/10/2026)
+
+Usuário pediu somente pesquisa, análise, documentação e roadmap, sem implementar. R0 em docs/plans/hunts-builds/PROPOSAL.md, ROADMAP.md, REFERENCES.md, CURVE_MODEL.md e curve-analysis.json. Gameplay publicado do bestiário permanece vigente; nada deste plano está ativo.
+
+Requisitos: substituir clique/minas por hunts de carvão/ferro/ouro, recompensas separadas por atividade, jade apenas boss global futuro, atributos porCoin com materiais nos marcos, AGI/DefF/DefM/Sorte/Destreza, farm de andares concluídos não bosses; reforço+1–3falha mantém,+4–7regride,+8–12risco de quebra,+13–20falha desprotegida quebra; proteção viaRuby/eventos/drop raro da torre converte quebra em−1; +16–20sóLendário+, jade adicional. ASPD5/s só extremo late-game.
+
+Curvas/limites/taxas/orçamento/offline são propostas adicionais, não aprovados como definitivos. Modelo analítico protegido+0→+20:média708tentativas/P952040,sem aquisição/custo de tempo. Detectada necessidade de fonte renovável de lendários na torre comum porque bosses concluídos não repetem; hoje lendários só vêm de bosses. Pesquisa: OpenRPG,rAthena,Ragnarok clássico,Black Desert,MapleStory. Próximo sugerido R1:modelo econômico integrado, somente quando autorizado; não iniciar código nem ativar loja/produto. Monetização segue adiada à fase final; etapa de bosses permanece separada.
+
 ## Entrega atual — bestiário comum (18/10/2026)
 
 27fichas comuns(19visuais+8composições Male/Female), inventário762arquivos/732PNG/19diretórios, catálogo Mais→Bestiário, stats/XP/Coins por papel, identidade opcional no snapshot/diário e projétil visual para arqueiro. Fonte scripts/bestiary-spec.json e gerador prepare-bestiary-assets.py; documentos docs/bestiary/BESTIARY.md e BESTIARY_IMPLEMENTATION.md. Bosses diretos preservados, sem mudança em content.ts ou sprites originais. Sem migração SQL; atualizar cliente e servidor juntos.

@@ -12,3 +12,7 @@ Decisão explícita do usuário em 16/10/2026: publicar a base técnica da Fase 
 | Gates de lançamento | Revisar políticas vigentes na ocasião, privacidade/consentimento, público, licenças, aparelhos, carga, suporte, observabilidade e reconciliação operacional antes de ativar. |
 
 Referências técnicas: [MONETIZATION_SYSTEMS](MONETIZATION_SYSTEMS.md), [ADR-012](ADR/0012-monetization-test-boundary.md), [relatório F8](STAGE_08_REPORT.md). O trabalho atual é o [plano de polimentos](POLISH_PLAN.md); nenhuma conta, gasto, anúncio ou pagamento real foi ativado por esta publicação.
+
+## Catálogo futuro em estudo — proteção de fortalecimento
+
+Em18/10/2026o usuário incluiu no planejamento pergaminhos de proteção porRuby, eventos periódicos e drop muito raro da torre comum. [Proposta e análise](plans/hunts-builds/PROPOSAL.md). A compra preserva equipamento e tem vantagem econômica real; quantidades, renda gratuita, preçoRuby e limites precisam de modelo integrado. Nenhum produto/preço/compra foi ativado, e a integração comercial permanece na fase final.
