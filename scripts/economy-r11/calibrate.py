@@ -10,16 +10,28 @@ import model as m
 OUT=ROOT/'docs/plans/hunts-builds/r11'
 ORIGINAL_ENCOUNTER=m.encounter
 ORIGINAL_COST=m.enhancement_cost
+ORIGINAL_RUN=m.run_account
 ORIGINAL_BASE=copy.deepcopy(m.BASE)
 # Fixed before acceptance cohorts: maximum mastery generation 1 second/second.
 # 96*24 effective hours is an absolute bound, even all hits/crit/loot favorable.
-CONFIG=dict(version='r11-candidate-1',maxLevel=1000,minimumQualifyingCombatHours=2304,offlineHours=8,
+CONFIG=dict(version='r11-candidate-2',maxLevel=1000,minimumQualifyingCombatHours=2304,offlineHours=8,
  xpBandWeight=dict(base=.05,scale=2,power=1.7),commonHpRamp=2,commonAttackRamp=25,
  huntHpRamp=1,huntAttackRamp=4,huntEnrageSeconds=30,weeklyScrolls=30,paidWeeklyScrolls=10,
  protectedHighSuccess=[.32,.27,.22,.17,.12],materialExponent=.65,jadeDailyScenario=3,
  coinRewardLateRamp=.25,gearEquipHeroLevelsPerItemLevel=10,lateRecipeMultipliers=dict(coin=4,coal=4,iron=8,gold=4,jade=1),
  xpReference='min(completed encounter cycle seconds, benchmark cycle seconds) * challenge eligibility',
- benchmark='Epic +12 at stage item level; swift equal-point build, no pets/buffs; legal stats')
+ benchmarkEnhancement=10,benchmark='Epic +10 at stage item level; swift equal-point build, no pets/buffs; legal stats')
+
+@lru_cache(maxsize=200000)
+def cached_item_score(definition,L,rarity,q,enh):
+ d=m.BASE['items'][definition];v=L*L*m.STAT_RARITY[rarity]*q*m.gain(enh)
+ return v*(d['attack']+d['hp']/6+d['defense']*.2/L)
+@lru_cache(maxsize=200000)
+def cached_item_stats(definition,L,rarity,q,enh):
+ d=m.BASE['items'][definition];v=L*L*m.STAT_RARITY[rarity]*q
+ return (d['attack']*v*m.gain(enh),d['hp']*v*m.gain(enh),d['defense']*L*m.STAT_RARITY[rarity]*m.gain(enh))
+def item_score(i):return cached_item_score(i.definition,i.level,i.rarity,i.quality,i.enhancement)
+def item_stats(i):return cached_item_stats(i.definition,i.level,i.rarity,i.quality,i.enhancement)
 
 def configure(hours=2304):
  global THRESHOLDS
@@ -29,6 +41,8 @@ def configure(hours=2304):
  THRESHOLDS[-1]=hours*3600
  m.CURVE['probabilities'][15:]=CONFIG['protectedHighSuccess']
  m.level=hero_level
+ m.Item.score=item_score;m.Item.stats=item_stats
+ m.run_account=run_account
  m.enhancement_cost=enhancement_cost
  m.Account=Account;m.farm=farm;m.encounter=encounter;m.choose=choose;m.advance_block=advance_block
  m.BASE=copy.deepcopy(ORIGINAL_BASE)
@@ -38,6 +52,13 @@ def configure(hours=2304):
   for group in groups:
    for e in group:
     e[0]=math.ceil(e[0]*(1+CONFIG['commonHpRamp']*t*t));e[1]=math.ceil(e[1]*(1+CONFIG['commonAttackRamp']*t**3))
+
+def run_account(a,days,config):
+ if a.active_hours<0 or not 0<=a.offline_hours<=8 or a.active_hours+a.offline_hours>24:raise ValueError('One account cannot produce more than24h/day or8h/offline')
+ result=ORIGINAL_RUN(a,days,config)
+ assert a.clock<=days*86400+.01
+ assert a.mastery_earned<=a.clock+.01
+ return result
 
 def enhancement_cost(n,L,rarity):
  costs=ORIGINAL_COST(n,L,rarity)
@@ -52,7 +73,7 @@ class Account(OriginalAccount):
   super().__post_init__()
   if self.mature:self.xp=THRESHOLDS[-1]
   self.benchmark_cache={};self.unclaimed=[];self.mastery_earned=0.;self.mastery_discarded=0.
-  self.blocked_equipment=0;self.purchased_refine=0
+  self.blocked_equipment=0;self.purchased_refine=0;self.last_item_stage=item_level(hero_level(self.xp))
  def receive(self,item):
   if (item.level-1)*10+1>hero_level(self.xp):
    self.unclaimed.append(item)
@@ -63,8 +84,11 @@ class Account(OriginalAccount):
   if old and old.enhancement>=8 and item.score()<old.score()*1.15:self.stash.append(item);return
   super().receive(item)
  def collect_offline_items(self):
-  items=self.unclaimed;self.unclaimed=[]
-  for item in items:self.receive(item)
+  stage=item_level(hero_level(self.xp))
+  if stage!=self.last_item_stage:
+   items=self.unclaimed;self.unclaimed=[]
+   for item in items:self.receive(item)
+   self.last_item_stage=stage
   super().collect_offline_items()
  def stats(self):
   result=super().stats();result['level']=hero_level(self.xp);return result
@@ -108,7 +132,7 @@ class Account(OriginalAccount):
 def benchmark_stats(L):
  a=Account(-1,0,0,0,'swift');a.xp=THRESHOLDS[L-1];a.train=m.initial_build(L,'swift')
  for slot,name in dict(weapon='sword',shield='shield',chest='armor',head='hat',hands='gloves',feet='boots',neck='pendant',ring1='ring',ring2='ring').items():
-  i=a.item(name,3,item_level(L),1.);i.enhancement=12;a.gear[slot]=i
+  i=a.item(name,3,item_level(L),1.);i.enhancement=CONFIG['benchmarkEnhancement'];a.gear[slot]=i
  return a.stats()
 BENCH={}
 def encounter(stats,kind,floor,variant='r11',damage_multiplier=1):
@@ -129,12 +153,16 @@ def farm(a,kind,floor,seconds,day,config,offline=False,stats=None):
  cycles=int(seconds/e['seconds']);kills=cycles*e['kills'];a.clock+=seconds
  if not offline:a.active_clock+=seconds
  # No parallel XP, no reward for partial/lost encounters or walking/idle transitions.
- L=hero_level(a.xp);ref=floor if kind=='main' else e['reference']
- eligibility=min(1,(ref/max(1,L))**2)
- key=(L,kind,floor)
- if key not in BENCH:BENCH[key]=encounter(benchmark_stats(L),kind,floor)['seconds']
- earned=cycles*min(e['seconds'],BENCH[key])*eligibility
- a.xp=min(THRESHOLDS[-1],a.xp+earned);a.mastery_earned+=earned
+ ref=floor if kind=='main' else e['reference'];remaining=cycles;earned=0.
+ # Integrate each crossed level: an8h batch must not keep the easier starting-level XP rate.
+ while remaining and hero_level(a.xp)<1000:
+  L=hero_level(a.xp);eligibility=min(1,(ref/max(1,L))**2);key=(L,kind,floor)
+  if key not in BENCH:BENCH[key]=encounter(benchmark_stats(L),kind,floor)['seconds']
+  per_victory=min(e['seconds'],BENCH[key])*eligibility
+  required=max(1,math.ceil((THRESHOLDS[L]-a.xp)/per_victory))
+  take=min(remaining,required);credit=min(THRESHOLDS[-1]-a.xp,take*per_victory)
+  a.xp+=credit;earned+=credit;remaining-=take
+ a.mastery_earned+=earned
  assert earned<=seconds+1e-6
  if kind=='main':
   t=max(0,(floor-100)/900);coins=math.floor(cycles*e['coin']/(1+3*t*t));a.grant('coin',coins);a.loot(kills,floor,day,offline)
@@ -200,11 +228,11 @@ def advance_block(a,seconds,day,config):
 
 configure()
 
-def simulate(n=12,days=150,active=16,offline=8,paid=0,seed=2026101901,mature=False,build=None):
+def simulate(n=12,days=150,active=16,offline=8,paid=0,seed=2026101901,mature=False,build=None,quiet=False):
  rows=[]
  for i in range(n):
   a=m.run_account(Account(i,seed+1009*i,active,offline,build or list(m.BUILDS)[i%6],paid=paid,mature=mature),days,dict(variant='r11',weekly_scrolls=30,jade_daily=3,attendance=1 if active>=16 else .85))
-  print('account',i,'level',hero_level(a.xp),'main',a.highest,flush=True)
+  if not quiet:print('account',i,'level',hero_level(a.xp),'main',a.highest,flush=True)
   rows.append(dict(id=i,level=hero_level(a.xp),main=a.highest,hunts=a.hunts,metrics=a.metrics,mastery=a.xp,attempts=a.attempts,balances=a.balances,gear={k:dict(level=v.level,rarity=v.rarity,enhancement=v.enhancement) for k,v in a.gear.items()},clock=a.clock))
  return dict(n=n,days=days,active=active,offline=offline,paid=paid,seed=seed,mature=mature,rows=rows)
 
