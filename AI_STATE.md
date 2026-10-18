@@ -2,6 +2,10 @@
 
 16/10/2026. **F1–F8 técnicas publicadas; CI F8 aprovada após corrigir clique durante sincronização. Monetização externa adiada por decisão do usuário para a fase final; prioridade atual: polimentos do jogo. F9 não iniciada.** Base F8:3ccfdc436706f77fbc6ba7aa8ac12206a5b63ac3.
 
+## Publicação ao concluir cada etapa
+
+Regra permanente solicitada pelo usuário em 18/10/2026: toda etapa concluída deve ser validada, commitada e publicada no GitHub sem nova confirmação. Preservar commits anteriores para rollback por revert, sem apagar histórico ou forçar main. Em etapas longas, enviar checkpoints à branch remota. Se houver falha real de publicação, informar e preservar o trabalho em branch remota quando possível. Publicar código no repositório não autoriza gastos ou deploy público de infraestrutura.
+
 ## Autorização e governança
 
 Usuário pediu prosseguir F8 após publicação F7. Resolver escolhas técnicas/reversíveis sem consultas; reservar gastos relevantes, alterações profundas e atos do titular. Encerrar com feito, completude/faltas, decisões, pendências e próximo passo. Atualizar docs por etapa. Não antecipar F9, contratar serviços ou abrir produção pública.
