@@ -4,8 +4,8 @@ Esta ordem parte do jogo publicado e da calibração econômica em branch. Publi
 
 | Ordem | Fase | Entrega / condição para avançar |
 |---:|---|---|
-|1|Playtest Android e polimentos finais da interface|Testar `celular.bat` no aparelho real: retrato/paisagem, teclado, HUD, toque, retorno do segundo plano e fluidez. Ajustar os problemas encontrados. Concluir P8: chat Global dentro da batalha usando o serviço online existente.|
-|2|Fechar contratos da nova economia|Confirmar oferta de jade/participação futura, fontes/limites/transferência de proteção, descarte/forja/pets/tônicos/afixos e mercado. Definir compensações de minas/clique e destino de itens antigos incompatíveis. Preços/comercialização continuam desligados. Repetir o modelo apenas para entradas alteradas.|
+|1|Playtest Android e polimentos finais da interface|Testar `celular.bat` no aparelho real: retrato/paisagem, teclado, HUD, toque, retorno do segundo plano e fluidez. Ajustar os problemas encontrados. P8 Global embutido concluído nesta etapa; continuar apenas com ajustes encontrados no aparelho.|
+|2|Fechar contratos da nova economia|Contratos fechados em [ECONOMY_RULES](plans/hunts-builds/contracts/ECONOMY_RULES.md): jade/proteção/mercado/aposentadorias/legado. Próximo: validar as entradas alteradas no modelo acoplado e ensaiar R2 desativada; sem aprovação automática de ativação.|
 |3|R2 — Contratos e ensaio de migração|Config/snapshot versionados, IDs/instâncias, atividades, tabelas inteiras de XP, ledger, backups, conversão de estoque/investimento e rollback ensaiados. Não reinterpretar `heroXp` antigo como domínio novo nem perder equipamento existente.|
 |4|R3 — Combate e builds|Força/VIT/AGI/DefF/DefM/Sorte/Destreza; acerto→crítico→mitigação→dano. Orçamento de pontos, velocidade gradual até5APS extremo, inimigos mágicos e efeitos reais em cada modo suportado. Validar FPS/delta/reconexão equivalentes.|
 |5|R4 — Hunts e repetição|Carvão/ferro/ouro com progresso e visual próprios, inimigos entrando na arena, dificuldade crescente e farm de andares não boss já vencidos. Principal geraCoin/XP/equipamentos; hunts sóXP+material. Uma atividade econômica por vez.|

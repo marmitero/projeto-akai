@@ -26,8 +26,7 @@ export function describeBattleReport(r: BattleReport): string {
 
 export function createBattleJournal(
   root: HTMLElement,
-  online: boolean,
-  openCommunity: () => void,
+  onGlobal: (active: boolean) => void,
 ) {
   const tabs = Array.from(
     root.querySelectorAll<HTMLButtonElement>("[data-battle-tab]"),
@@ -35,17 +34,6 @@ export function createBattleJournal(
   const list = root.querySelector<HTMLOListElement>("#battle-system-log")!;
   const empty = root.querySelector<HTMLElement>("#battle-log-empty")!;
   const latest = root.querySelector<HTMLButtonElement>("#battle-log-latest")!;
-  const globalStatus = root.querySelector<HTMLElement>(
-    "#battle-global-status",
-  )!;
-  const globalOpen = root.querySelector<HTMLButtonElement>(
-    "#battle-global-open",
-  )!;
-  globalStatus.textContent = online
-    ? "Converse com outros jogadores no chat da Comunidade."
-    : "Entre no modo online para conversar com outros jogadores.";
-  globalOpen.hidden = !online;
-  globalOpen.addEventListener("click", openCommunity);
   let active = "system",
     signature = "",
     previousIds = new Set<number>(),
@@ -57,6 +45,7 @@ export function createBattleJournal(
   };
   const select = (tab: HTMLButtonElement, focus = false) => {
     active = tab.dataset["battleTab"]!;
+    onGlobal(active === "global");
     for (const button of tabs) {
       const selected = button === tab;
       button.setAttribute("aria-selected", String(selected));

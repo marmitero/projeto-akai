@@ -49,6 +49,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: node --test scripts/tests/mobile-network.test.mjs
+      - run: node scripts/audit-economy-contracts.mjs
       - run: npm run check
       - run: node scripts/simulate-loop.mjs
       - run: node scripts/simulate-rpg.mjs

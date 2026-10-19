@@ -9,6 +9,7 @@ import {
   type CommunityResult,
   type CommunitySnapshot,
   type CommunityIdentity,
+  type GlobalChatSnapshot,
   type PublicPlayer,
 } from "@akai/shared";
 import { OnlineService, OnlineError, digest, type Account } from "./online.js";
@@ -591,6 +592,25 @@ export class CommunityService {
         )
       ).rows[0];
       return { name: row.name, ...(row.guild ? { guild: row.guild } : {}) };
+    });
+  }
+  /** Chat-only read: does not settle combat, tick events or renew raid/boss presence. */
+  async globalChat(token: string): Promise<GlobalChatSnapshot> {
+    return this.online.db.transaction(async (c) => {
+      const id = await this.online.identity(token, c);
+      const account = (await c.query(`SELECT a.snapshot,p.muted_until,p.suspended
+        FROM akai_accounts a LEFT JOIN akai_profiles p ON p.account_id=a.id WHERE a.id=$1`, [id])).rows[0];
+      requireRule(!account.suspended, "COMMUNITY_FORBIDDEN", 403);
+      const rows = (await c.query(`SELECT x.id::text,x.author,p.name,x.text,x.at,g.emblem
+        FROM akai_chat x JOIN akai_profiles p ON p.account_id=x.author
+        LEFT JOIN akai_members m ON m.account_id=x.author LEFT JOIN akai_guilds g ON g.id=m.guild_id
+        WHERE x.guild_id IS NULL AND NOT x.removed AND NOT p.suspended
+        AND NOT EXISTS(SELECT 1 FROM akai_blocks b WHERE b.owner=$1 AND b.target=x.author)
+        ORDER BY x.id DESC LIMIT 50`, [id])).rows;
+      return { accountId: id, canChat: account.snapshot.battle.highest >= 1,
+        mutedUntil: Number(account.muted_until ?? 0), messages: rows.reverse().map(r => ({
+          id: r.id, authorId: r.author, name: r.name, text: r.text, at: Number(r.at), emblem: r.emblem ?? null,
+        })) };
     });
   }
   async read(token: string): Promise<CommunitySnapshot> {

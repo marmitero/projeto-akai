@@ -49,7 +49,7 @@ export function createShell(root: HTMLElement): void {
           <button id="battle-tab-global" data-battle-tab="global" role="tab" aria-controls="battle-global" aria-selected="false" tabindex="-1">Global</button>
           <button id="battle-tab-system" data-battle-tab="system" role="tab" aria-controls="battle-system" aria-selected="true">Sistema</button>
         </div>
-        <div id="battle-global" role="tabpanel" aria-labelledby="battle-tab-global" hidden><p id="battle-global-status"></p><button id="battle-global-open" hidden>Abrir chat da Comunidade</button></div>
+        <div id="battle-global" role="tabpanel" aria-labelledby="battle-tab-global" hidden><p id="battle-global-status"></p><ol id="battle-global-log" role="log" aria-label="Chat Global" aria-live="polite"></ol><button id="battle-global-latest" hidden>Ver recentes</button><form id="battle-global-form" hidden><label class="sr-only" for="battle-global-input">Mensagem ao Global</label><input id="battle-global-input" name="text" maxlength="500" required autocomplete="off" placeholder="Converse com o reino…"><button type="submit">Enviar</button></form></div>
         <div id="battle-system" role="tabpanel" aria-labelledby="battle-tab-system"><p id="battle-log-empty">Os resultados das próximas batalhas aparecerão aqui.</p><ol id="battle-system-log" aria-label="Histórico de batalha" tabindex="0"></ol><button id="battle-log-latest" hidden>Ver recentes</button></div>
       </section>
       <form id="nickname-setup" class="nickname-setup" hidden><label for="starting-name">Seu nick</label><input id="starting-name" name="name" minlength="3" maxlength="24" placeholder="Nome do guerreiro" required><button>Começar</button></form>

@@ -173,3 +173,10 @@ export interface CommunitySnapshot {
   archives: { id: string; start: number; end: number; leaders: string[] }[];
   rewards: { source: string; description: string }[];
 }
+
+export interface GlobalChatSnapshot {
+  accountId: string;
+  canChat: boolean;
+  mutedUntil: number;
+  messages: ChatMessage[];
+}

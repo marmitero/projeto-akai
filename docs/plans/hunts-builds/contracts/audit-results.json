@@ -1,0 +1,32 @@
+{
+  "version": "economy-v2-contract-1",
+  "contractSha256": "5b31d0cdd3f3f299dd3c07f804f38359fbf797d1666ac830b1fb1981272b0a07",
+  "kind": "design-contract-audit",
+  "checks": {
+    "one-clock-and-96-day-absolute-floor": true,
+    "exclusive-material-and-jade-source": true,
+    "paid-and-free-protection-budget-separated": true,
+    "jade-access-does-not-scale-with-wealth-or-population": true,
+    "no-bound-currency-laundering": true,
+    "legacy-and-overflow-do-not-create-hunt-material": true,
+    "all-refinement-targets-have-one-failure-policy": true,
+    "activation-and-commercialization-remain-blocked": true
+  },
+  "derived": {
+    "idealMinimumDays": 96,
+    "regular2plus8MinimumDays": 230.4,
+    "continuous90DayJadeMaximum": 270,
+    "completedWeeks90": 12,
+    "freeWeeklyEventBudget": 30,
+    "paidWeeklyMaximum": 10,
+    "exampleEligibleKills100000ExpectedScrolls": 2
+  },
+  "productionApproved": false,
+  "limits": [
+    "No rerun of organic progression cohorts",
+    "No market liquidity or alternate-account simulation",
+    "No migration performed",
+    "Runtime still uses old economy",
+    "Price in Ruby deferred; paid case must assume full weekly maximum"
+  ]
+}
