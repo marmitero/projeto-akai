@@ -1,0 +1,55 @@
+{
+  "viewports": [
+    {
+      "width": 484,
+      "height": 730,
+      "stageWidth": 464,
+      "stageHeight": 360,
+      "areaWidth": 464,
+      "canvasWidth": 455.671875,
+      "canvasHeight": 356,
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "height": 640,
+      "stageWidth": 304,
+      "stageHeight": 237.5,
+      "areaWidth": 304,
+      "canvasWidth": 298.875,
+      "canvasHeight": 233.5,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "stageWidth": 374,
+      "stageHeight": 292.1875,
+      "areaWidth": 374,
+      "canvasWidth": 368.875,
+      "canvasHeight": 288.1875,
+      "overflow": false
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "stageWidth": 462,
+      "stageHeight": 45,
+      "areaWidth": 462,
+      "canvasWidth": 52.46875,
+      "canvasHeight": 41,
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "stageWidth": 462,
+      "stageHeight": 360.9375,
+      "areaWidth": 462,
+      "canvasWidth": 456.875,
+      "canvasHeight": 356.9375,
+      "overflow": false
+    }
+  ],
+  "pageErrors": []
+}

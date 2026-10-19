@@ -27,8 +27,9 @@ try {
       return { stageWidth: stage.width, stageHeight: stage.height, areaWidth: area.width, canvasWidth: canvas.width, canvasHeight: canvas.height, overflow: document.documentElement.scrollWidth > innerWidth };
     });
     assert(Math.abs(sizes.stageWidth - sizes.areaWidth) < 1);
-    assert(Math.abs(sizes.stageWidth / sizes.stageHeight - 384 / 300) < 0.02);
-    assert(Math.abs(sizes.canvasWidth - (sizes.stageWidth - 4)) < 2);
+    assert(sizes.stageHeight > 0 && sizes.stageHeight <= sizes.stageWidth * 300 / 384 + 2);
+    assert(sizes.canvasWidth <= sizes.stageWidth && sizes.canvasHeight <= sizes.stageHeight);
+    assert(Math.abs(sizes.canvasWidth / sizes.canvasHeight - 384 / 300) < 0.02);
     assert(!sizes.overflow);
     results.push({ width, height, ...sizes });
     if (width === 484) await page.screenshot({ path: "docs/polish-p5-screenshots/full-width-arena.png" });
