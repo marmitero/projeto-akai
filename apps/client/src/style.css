@@ -1315,3 +1315,67 @@ progress {
 #battle-global-log details { display: inline-block; margin-left: 6px; }
 #battle-global-log summary { cursor: pointer; padding: 6px; }
 #battle-global-log details button { min-height: 44px; margin-right: 5px; }
+
+/* Battle uses the available window; only the channel history scrolls. */
+.content[data-view="battle"] {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.content[data-view="battle"] > #visual-area {
+  flex: 0 1 auto;
+  min-height: 0;
+  aspect-ratio: 384 / 300;
+}
+.content[data-view="battle"] .stage-frame {
+  height: 100%;
+  aspect-ratio: auto;
+}
+.content[data-view="battle"] > [data-pane="battle"] {
+  flex: 1 0 190px;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.content[data-view="battle"] .battle-chat {
+  flex: 1;
+  min-height: 0;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.battle-chat-tabs { flex: none; }
+#battle-global, #battle-system {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+#battle-global-log, #battle-system-log {
+  flex: 1;
+  min-height: 0;
+  height: 0;
+}
+#battle-global-status, #battle-global-form,
+#battle-global-latest, #battle-log-latest, #battle-log-empty {
+  flex: none;
+}
+#battle-global-status { line-height: 1.3; }
+#battle-global-form { margin-bottom: 0; }
+#battle-global-input { width: 0; }
+@media (max-height: 500px) {
+  .content[data-view="battle"] > [data-pane="battle"] { flex-basis: 165px; }
+}
+#battle-global, #battle-system { position: relative; }
+#battle-global-latest, #battle-log-latest {
+  position: absolute;
+  right: 4px;
+  width: auto;
+  max-width: 80%;
+  min-height: 36px;
+  z-index: 1;
+}
+#battle-global-latest { bottom: 52px; }
+#battle-log-latest { bottom: 4px; }
