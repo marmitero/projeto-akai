@@ -1,4 +1,4 @@
-param([switch]$NoBrowser, [switch]$SmokeTest, [switch]$PrepareOnly, [switch]$Online)
+param([switch]$NoBrowser, [switch]$SmokeTest, [switch]$PrepareOnly, [switch]$Online, [switch]$Mobile, [string]$LanIp)
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 $root = Split-Path -Parent $PSScriptRoot
@@ -74,6 +74,8 @@ try {
     if ($NoBrowser) { $arguments += '--no-browser' }
     if ($SmokeTest) { $arguments += '--smoke-test' }
     if ($PrepareOnly) { $arguments += '--prepare-only' }
+    if ($Mobile) { $arguments += '--mobile' }
+    if ($LanIp) { $arguments += @('--lan-ip', $LanIp) }
     $launcher = if ($Online) { 'servidor.mjs' } else { 'jogar.mjs' }
     & $node (Join-Path $PSScriptRoot $launcher) @arguments
     exit $LASTEXITCODE

@@ -52,3 +52,6 @@ F5: [execução e segurança online](ONLINE.md), [ADR-009](ADR/0009-authoritativ
 Preview Windows: [LOCAL_PREVIEW](LOCAL_PREVIEW.md) e jogar.bat na raiz.
 
 F6: [sistemas de comunidade](COMMUNITY_SYSTEMS.md), [ADR-010](ADR/0010-community-authority.md), [relatório F6](STAGE_06_REPORT.md).
+
+
+Android: [guia de teste LAN](MOBILE_TEST.md), [implementação/evidências](MOBILE_IMPLEMENTATION.md), [próximas fases recomendadas](PROJECT_NEXT_PHASES.md).

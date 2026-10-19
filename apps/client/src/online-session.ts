@@ -1,3 +1,4 @@
+import { commandId } from './browser-crypto.js';
 import {
   LocalSnapshotSchema,
   type LocalSnapshot,
@@ -136,7 +137,7 @@ export class OnlineSession {
     )
       return false;
     this.pending = {
-      commandId: crypto.randomUUID(),
+      commandId: commandId(),
       expectedVersion: this.version,
       action,
     };

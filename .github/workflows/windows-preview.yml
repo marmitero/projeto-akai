@@ -48,3 +48,11 @@ jobs:
       - name: Play through BAT using cached dependencies and forced local mode
         shell: cmd
         run: jogar.bat -NoBrowser -SmokeTest
+
+      - name: Android LAN through actual BAT with portable Node
+        shell: pwsh
+        run: |
+          $lan = Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.IPAddress -match '^(10\.|192\.168\.|172\.(1[6-9]|2[0-9]|3[01])\.)' -and $_.AddressState -eq 'Preferred' } | Select-Object -First 1 -ExpandProperty IPAddress
+          if (-not $lan) { throw 'No private IPv4 adapter available for LAN smoke.' }
+          & .\jogar.bat -Mobile -NoBrowser -SmokeTest -LanIp $lan
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }

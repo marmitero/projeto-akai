@@ -48,6 +48,7 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
+      - run: node --test scripts/tests/mobile-network.test.mjs
       - run: npm run check
       - run: node scripts/simulate-loop.mjs
       - run: node scripts/simulate-rpg.mjs
@@ -55,6 +56,8 @@ jobs:
       - run: node scripts/simulate-market.mjs
       - run: node scripts/simulate-monetization.mjs
       - run: npx playwright install --with-deps chromium
+      - run: node scripts/smoke-mobile.mjs
+      - run: node scripts/smoke-mobile.mjs --online
       - run: node scripts/smoke-bestiary.mjs
       - run: node scripts/smoke-bestiary.mjs --preview
       - run: npm run test:browser
