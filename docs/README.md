@@ -55,3 +55,5 @@ F6: [sistemas de comunidade](COMMUNITY_SYSTEMS.md), [ADR-010](ADR/0010-community
 
 
 Android: [guia de teste LAN](MOBILE_TEST.md), [implementação/evidências](MOBILE_IMPLEMENTATION.md), [próximas fases recomendadas](PROJECT_NEXT_PHASES.md).
+
+- [Regras fechadas da economia v2](plans/hunts-builds/contracts/ECONOMY_RULES.md) — contratos de design, sem ativação no jogo.

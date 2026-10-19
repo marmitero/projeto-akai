@@ -111,7 +111,7 @@ describe.skipIf(!url)("community real PostgreSQL", () => {
     await db.pool.query("UPDATE akai_chat SET removed=true WHERE author=$1", [a.accountId]);
     expect((await social.globalChat(b.token)).messages).toEqual([]);
     await db.pool.query("UPDATE akai_profiles SET suspended=true WHERE account_id=$1", [b.accountId]);
-    await expect(social.globalChat(b.token)).rejects.toMatchObject({ code: "COMMUNITY_FORBIDDEN" });
+    await expect(social.globalChat(b.token)).rejects.toMatchObject({ code: "UNAUTHENTICATED" });
   });
   async function guild(
     u: Awaited<ReturnType<typeof user>>,
