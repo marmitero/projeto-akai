@@ -26,7 +26,7 @@ try {
         list.hidden=false;list.replaceChildren(...Array.from({length:50},(_,i)=>{const li=document.createElement('li');li.textContent=`Jogador ${i}: ${'Mensagem longa de teste '.repeat(22)}`;return li;}));
         if(channel==='global'){
           document.querySelector('#battle-global-form').hidden=false;
-          document.querySelector('#battle-global-status').textContent='Global · atualização automática';
+          document.querySelector('#battle-global-status').textContent='';
           document.querySelector('#battle-global-latest').hidden=false;
         }else document.querySelector('#battle-log-empty').hidden=true;
       },channel);
@@ -49,7 +49,28 @@ try {
       if(process.env.AKAI_CHAT_SCREENSHOT && width===390 && height===844 && channel==='global') await page.screenshot({path:process.env.AKAI_CHAT_SCREENSHOT});
     }
   }
+  await page.setViewportSize({width:320,height:640});
+  await page.locator('#battle-tab-global').click();
+  const density=await page.evaluate(()=>{
+    const list=document.querySelector('#battle-global-log');
+    list.replaceChildren(...Array.from({length:50},(_,i)=>{
+      const li=document.createElement('li');li.textContent=`Jogador ${i}: Olá! `;
+      const menu=document.createElement('details'),summary=document.createElement('summary');
+      summary.textContent='Opções';menu.append(summary);li.append(menu);return li;
+    }));
+    return {rows:Math.floor(list.clientHeight/list.firstElementChild.getBoundingClientRect().height),
+      tabHeight:document.querySelector('#battle-tab-global').getBoundingClientRect().height,
+      statusHidden:getComputedStyle(document.querySelector('#battle-global-status')).display==='none'};
+  });
+  assert.ok(density.rows>=3,JSON.stringify(density));assert.ok(density.tabHeight<=32);assert.equal(density.statusHidden,true);
+  await page.locator('#battle-tab-guild').click();
+  assert.equal(await page.locator('#battle-guild').isVisible(),true);
+  assert.equal(await page.locator('#battle-global').isVisible(),false);
+  assert.equal(await page.locator('#battle-system').isVisible(),false);
+  assert.equal(await page.locator('#battle-guild-input').isDisabled(),true);
+  await page.locator('#battle-tab-guild').press('ArrowRight');
+  assert.equal(await page.locator('#battle-tab-global').getAttribute('aria-selected'),'true');
   assert.deepEqual(errors,[]);
-  await writeFile(`docs/chat-layout-${preview?'preview':'dev'}.json`,JSON.stringify({fixture:'Local UI with 50 long messages; no claim of online transport or physical keyboard testing',results,pageErrors:errors},null,2)+'\n');
+  await writeFile(`docs/chat-layout-${preview?'preview':'dev'}.json`,JSON.stringify({fixture:'Local UI with 50 long messages; no claim of online transport or physical keyboard testing',results,density,guildPlaceholder:true,pageErrors:errors},null,2)+'\n');
   console.log(`Chat layout passed (${preview?'preview':'dev'}): ${results.length} viewport/channel cases`);
 }finally{await browser?.close();server.kill();}

@@ -48,9 +48,11 @@ export function createShell(root: HTMLElement): void {
         <div class="battle-chat-tabs" role="tablist" aria-label="Canais da batalha">
           <button id="battle-tab-global" data-battle-tab="global" role="tab" aria-controls="battle-global" aria-selected="false" tabindex="-1">Global</button>
           <button id="battle-tab-system" data-battle-tab="system" role="tab" aria-controls="battle-system" aria-selected="true">Sistema</button>
+          <button id="battle-tab-guild" data-battle-tab="guild" role="tab" aria-controls="battle-guild" aria-selected="false" tabindex="-1">Guilda</button>
         </div>
         <div id="battle-global" role="tabpanel" aria-labelledby="battle-tab-global" hidden><p id="battle-global-status"></p><ol id="battle-global-log" role="log" aria-label="Chat Global" aria-live="polite"></ol><button id="battle-global-latest" hidden>Ver recentes</button><form id="battle-global-form" hidden><label class="sr-only" for="battle-global-input">Mensagem ao Global</label><input id="battle-global-input" name="text" maxlength="500" required autocomplete="off" placeholder="Converse com o reino…"><button type="submit">Enviar</button></form></div>
         <div id="battle-system" role="tabpanel" aria-labelledby="battle-tab-system"><p id="battle-log-empty">Os resultados das próximas batalhas aparecerão aqui.</p><ol id="battle-system-log" aria-label="Histórico de batalha" tabindex="0"></ol><button id="battle-log-latest" hidden>Ver recentes</button></div>
+        <div id="battle-guild" role="tabpanel" aria-labelledby="battle-tab-guild" hidden><ol id="battle-guild-log" aria-label="Chat da guilda"><li class="muted">O chat da guilda estará disponível aqui em breve.</li></ol><form id="battle-guild-form"><label class="sr-only" for="battle-guild-input">Mensagem para a guilda</label><input id="battle-guild-input" disabled placeholder="Chat da guilda em breve…"><button type="button" disabled>Enviar</button></form></div>
       </section>
       <form id="nickname-setup" class="nickname-setup" hidden><label for="starting-name">Seu nick</label><input id="starting-name" name="name" minlength="3" maxlength="24" placeholder="Nome do guerreiro" required><button>Começar</button></form>
 

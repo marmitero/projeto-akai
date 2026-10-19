@@ -14,7 +14,7 @@ export function createBattleGlobal(root: HTMLElement, online: boolean) {
   let state: GlobalChatSnapshot | undefined, signature = '';
   let pending: { commandId: string; action: CommunityAction } | undefined;
   const ready = () => online && visible && selected && !document.hidden && !disposed;
-  status.textContent = online ? 'Selecione Global para conversar.' : 'Entre no modo online para conversar com outros jogadores.';
+  status.textContent = online ? '' : 'Entre no modo online para conversar com outros jogadores.';
   const bottom = () => { list.scrollTop = list.scrollHeight; latest.hidden = true; };
   latest.addEventListener('click', bottom);
   list.addEventListener('scroll', () => {
@@ -93,7 +93,7 @@ export function createBattleGlobal(root: HTMLElement, online: boolean) {
         render(await api<GlobalChatSnapshot>('community/chat'));
       }
       if (disposed) return;
-      status.textContent = result?.status === 'rejected' ? `Ação recusada: ${result.code}.` : !state?.canChat ? 'Vença o andar 1 para enviar mensagens.' : (state?.mutedUntil ?? 0) > Date.now() ? 'Envio temporariamente silenciado.' : state?.messages.length ? 'Global · atualização automática' : 'Global · nenhuma mensagem ainda.';
+      status.textContent = result?.status === 'rejected' ? `Ação recusada: ${result.code}.` : !state?.canChat ? 'Vença o andar 1 para enviar mensagens.' : (state?.mutedUntil ?? 0) > Date.now() ? 'Envio temporariamente silenciado.' : '';
     } catch (e) {
       if (disposed) return;
       if (e instanceof ApiFailure && [400, 401, 403, 409].includes(e.status)) {

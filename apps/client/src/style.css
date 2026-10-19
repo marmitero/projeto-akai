@@ -1379,3 +1379,17 @@ progress {
 }
 #battle-global-latest { bottom: 52px; }
 #battle-log-latest { bottom: 4px; }
+
+/* Compact channels leave the message history most of the panel. */
+.battle-chat-tabs { gap: 4px; margin-bottom: 3px; }
+.battle-chat-tabs button { flex: 0 0 auto; min-height: 28px; padding: 3px 12px; font-size: 11px; }
+@media (pointer: coarse) { .battle-chat-tabs button { min-height: 32px; } }
+#battle-global-status:empty { display: none; }
+#battle-global-log li, #battle-system-log li, #battle-guild-log li { padding: 3px 0; line-height: 1.4; }
+#battle-global-log details { margin: 0 0 0 6px; vertical-align: middle; }
+#battle-global-log summary { min-height: 0; padding: 0 4px; font-size: 10px; line-height: 1.4; }
+#battle-guild { position: relative; display: flex; flex-direction: column; flex: 1; min-height: 0; overflow: hidden; }
+#battle-guild-log { flex: 1; min-height: 0; height: 0; overflow-y: auto; list-style: none; margin: 0; padding: 0 3px; overflow-wrap: anywhere; }
+#battle-guild-form { display: flex; flex: none; gap: 6px; margin-top: 6px; }
+#battle-guild-input { width: 0; min-width: 0; flex: 1; font-size: 16px; }
+#battle-guild-form button { min-height: 44px; }
