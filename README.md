@@ -24,4 +24,6 @@ Baixe/extraia a pasta completa do projeto e dê dois cliques em **jogar.bat**. E
 
 Para testar contas online, use **servidor.bat** (requer Docker Desktop instalado). Ele prepara banco, tabelas, API e cliente e abre o navegador, sem comandos manuais de PowerShell. Node portátil e dependências são preparados automaticamente. O banco conserva contas entre execuções. [Guia do modo online](docs/ONLINE.md#iniciar-com-servidorbat-no-windows).
 
+Para testar no **Android na mesma rede Wi-Fi**, execute **celular.bat** no PC (Docker Desktop). Ele abre QR Code/endereço para acessar no Chrome do celular; PC e janela permanecem ligados. API e banco continuam no computador. [Guia Android](docs/MOBILE_TEST.md) · [Próximas fases recomendadas](docs/PROJECT_NEXT_PHASES.md).
+
 Polimentos de batalha P1–P3 publicados: parallax, entrada dos inimigos, HUD compacta com perfil/recursos/varal/HP e críticos autoritativos experimentais5%/1,5×. [Relatório e validação](docs/POLISH_P3_REPORT.md). Monetização permanece adiada até a fase final.

@@ -112,3 +112,14 @@ servidor.bat/scripts/servidor.mjs publicados na main após autorização explíc
 
 
 Publicado na main após autorização explícita em16/10/2026: implementação3e05dd067a27cefe6d1854f96e2ff7924c5685ae. CI principal38987019738 e Windows38987019786 iniciadas (ainda sem resultado no fechamento). CI Windows existente testa jogar.bat, não executa Docker Desktop/servidor.bat. Limitações do teste específico do iniciador online permanecem registradas.
+
+
+## Android LAN — etapa solicitada em18/10/2026
+
+Implementado celular.bat: bootstrapOnline+Mobile, cliente compilado temporário emIPv4 privado/5173, página/__mobilecomQR/link, API127.0.0.1:3000ePostgreSQL127.0.0.1:5432. Não éAPK/PWA ou deploy público. jogar.bat/servidor.bat continuam locais por padrão; jogar.bat -Mobile permite teste de perfil local semDocker. Google e monetização off no LAN; opt-inLAN_PREVIEW eHost/Origin estritos. SHA256/UUIDv4 compatíveis comHTTP porIP, sem mudar saves/fórmulas.
+
+Guia docs/MOBILE_TEST.md, evidências/limites docs/MOBILE_IMPLEMENTATION.md e mobile-local-validation.json, ordem detalhada docs/PROJECT_NEXT_PHASES.md. PR5 registra head/checksWindows ePostgreSQL16; liberar àmain somente com checks aprovados. Teste local deHTTP inseguro comQR decodificado, toque, save/reload e5resoluções passou;85testes sembanco+4Node e tipos/build passaram. Windows executa BATmobile real, onlineSQL executado noLinuxCI. AparelhoAndroid físico/firewall/teclado/bateria não certificados. Não repetir pedidos de publicação; autorização permanente.
+
+Nova economia ainda não ativa: calibraçãoR1.1 publicada em validate/economy-r11, head9033b6061bc619ff8bdb065a901fdfff1fcafe9c, mediana109dias/holdout107, +20em1,67%da coorte madura; completudependente (jade, proteção, mercado e migração). Não incorporar todos esses documentos/experimentos àmain silenciosamente por esta etapa de mobile.
+
+Sequência recomendada ao usuário:1playtestAndroid+polimentos/P8Global embutido;2contratos econômicos e compensações;3R2migração;4R3combate/builds;5R4hunts;6R5refino;7R6/R7corte econômico/offline/consumidores;8bosses/raids/jade emetapaprópria;9beta consolidado;10PWAHTTPS/APK sejustificado;11monetizaçãofinal. PreparaçãoR6/R7pode precederbosses, ativaçãohigh-end depende da fonte definitiva de jade.

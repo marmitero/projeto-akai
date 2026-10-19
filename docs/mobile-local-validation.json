@@ -1,0 +1,120 @@
+{
+  "mode": "local",
+  "transport": "HTTP private-IP origin via fixed loopback test proxy",
+  "security": {
+    "secure": false,
+    "uuid": "undefined",
+    "subtle": "undefined"
+  },
+  "layouts": [
+    {
+      "width": 320,
+      "height": 640,
+      "route": "battle",
+      "body": 320,
+      "canvases": 1
+    },
+    {
+      "width": 320,
+      "height": 640,
+      "route": "mine",
+      "body": 320,
+      "canvases": 1
+    },
+    {
+      "width": 320,
+      "height": 640,
+      "route": "upgrades",
+      "body": 320,
+      "canvases": 1
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "route": "battle",
+      "body": 360,
+      "canvases": 1
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "route": "mine",
+      "body": 360,
+      "canvases": 1
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "route": "upgrades",
+      "body": 360,
+      "canvases": 1
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "route": "battle",
+      "body": 390,
+      "canvases": 1
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "route": "mine",
+      "body": 390,
+      "canvases": 1
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "route": "upgrades",
+      "body": 390,
+      "canvases": 1
+    },
+    {
+      "width": 412,
+      "height": 915,
+      "route": "battle",
+      "body": 412,
+      "canvases": 1
+    },
+    {
+      "width": 412,
+      "height": 915,
+      "route": "mine",
+      "body": 412,
+      "canvases": 1
+    },
+    {
+      "width": 412,
+      "height": 915,
+      "route": "upgrades",
+      "body": 412,
+      "canvases": 1
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "route": "battle",
+      "body": 844,
+      "canvases": 1
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "route": "mine",
+      "body": 844,
+      "canvases": 1
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "route": "upgrades",
+      "body": 844,
+      "canvases": 1
+    }
+  ],
+  "apiResponses": [],
+  "pageErrors": [],
+  "failedAssets": [],
+  "physicalAndroidTested": false
+}

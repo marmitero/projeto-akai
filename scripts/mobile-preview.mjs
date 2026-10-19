@@ -31,7 +31,7 @@ export async function startMobilePreview({ ip, port = 5173, mode = 'online', ope
             let decoded;
             try { decoded = decodeURIComponent(path); } catch { res.writeHead(400).end(); return; }
             if (!mobileRequestAllowed(req, origin)) { res.writeHead(403).end('Rede/origem nao permitida.'); return; }
-            if (decoded.split('/').some(p => p.startsWith('.')) || /\0|\\|^\/(?:@|src\/|node_modules\/)/.test(decoded)) { res.writeHead(404).end(); return; }
+            if (/^\/(?:package(?:-lock)?\.json|compose\.ya?ml|tsconfig[^/]*\.json)$/.test(decoded) || decoded.split('/').some(p => p.startsWith('.')) || /\0|\\|^\/(?:@|src\/|node_modules\/)/.test(decoded)) { res.writeHead(404).end(); return; }
             res.setHeader('X-Content-Type-Options', 'nosniff');
             res.setHeader('Referrer-Policy', 'no-referrer');
             if (path === '/' || path.endsWith('.html') || path === '/__mobile') res.setHeader('Cache-Control','no-store');
