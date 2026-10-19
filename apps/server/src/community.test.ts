@@ -98,6 +98,21 @@ describe.skipIf(!url)("community real PostgreSQL", () => {
     await online.state(u.token);
     return u;
   }
+  it("reads bounded global chat without renewing event presence or settling the account", async () => {
+    const a = await user(), b = await user(), beginner = await user(0, 0);
+    await command(a.token, { type: "chat", scope: "global", text: "<img src=x> literal" });
+    const before = (await db.pool.query("SELECT snapshot,presence_until,state_version FROM akai_accounts WHERE id=$1", [b.accountId])).rows[0];
+    expect((await social.globalChat(b.token)).messages.map(x => x.text)).toEqual(["<img src=x> literal"]);
+    expect((await social.globalChat(beginner.token)).canChat).toBe(false);
+    expect((await db.pool.query("SELECT snapshot,presence_until,state_version FROM akai_accounts WHERE id=$1", [b.accountId])).rows[0]).toEqual(before);
+    await command(b.token, { type: "block", accountId: a.accountId, blocked: true });
+    expect((await social.globalChat(b.token)).messages).toEqual([]);
+    await command(b.token, { type: "block", accountId: a.accountId, blocked: false });
+    await db.pool.query("UPDATE akai_chat SET removed=true WHERE author=$1", [a.accountId]);
+    expect((await social.globalChat(b.token)).messages).toEqual([]);
+    await db.pool.query("UPDATE akai_profiles SET suspended=true WHERE account_id=$1", [b.accountId]);
+    await expect(social.globalChat(b.token)).rejects.toMatchObject({ code: "COMMUNITY_FORBIDDEN" });
+  });
   async function guild(
     u: Awaited<ReturnType<typeof user>>,
     name = "Guild " + n,

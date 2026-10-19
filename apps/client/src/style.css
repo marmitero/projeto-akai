@@ -1217,7 +1217,8 @@ progress {
   color: #ffe2a3;
   border-bottom: 2px solid #c8aa62;
 }
-#battle-system-log {
+#battle-system-log,
+#battle-global-log {
   position: relative;
   list-style: none;
   padding: 0 3px;
@@ -1228,7 +1229,8 @@ progress {
   overscroll-behavior: contain;
   scrollbar-width: thin;
 }
-#battle-system-log li {
+#battle-system-log li,
+#battle-global-log li {
   padding: 5px 0;
   border-bottom: 1px solid #bca1c126;
   line-height: 1.5;
@@ -1304,3 +1306,12 @@ progress {
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
 }
+
+#battle-global-status { margin: 2px 0 5px; font-size: 11px; }
+#battle-global-form { display: flex; gap: 6px; margin-top: 6px; }
+#battle-global-form[hidden] { display: none; }
+#battle-global-input { min-width: 0; flex: 1; font-size: 16px; }
+#battle-global-form button { min-height: 44px; }
+#battle-global-log details { display: inline-block; margin-left: 6px; }
+#battle-global-log summary { cursor: pointer; padding: 6px; }
+#battle-global-log details button { min-height: 44px; margin-right: 5px; }

@@ -1,5 +1,6 @@
 import { createBestiaryUI } from "./ui/bestiary.js";
 import { enemyTemplate } from "@akai/shared";
+import { createBattleGlobal } from "./ui/battle-global.js";
 import { createBattleJournal } from "./ui/battle-journal.js";
 import "./style.css";
 import { createFloorBanner } from "./ui/battle-hud.js";
@@ -105,6 +106,7 @@ async function boot(): Promise<void> {
   const marketUI = createMarketUI(root!, online);
   let onlineName: string | undefined;
   let submittedName: string | undefined;
+  const battleGlobal = createBattleGlobal(root!, online);
   const communityUI = createCommunityUI(
     root!,
     online,
@@ -155,6 +157,7 @@ async function boot(): Promise<void> {
     document.querySelector<HTMLElement>("#floor-banner")!.hidden =
       next !== "battle";
     communityUI.show(next === "community");
+    battleGlobal.show(next === "battle");
     marketUI.show(next === "market");
     premiumUI.show(next === "shop");
     bestiaryUI.show(next === "bestiary");
@@ -243,9 +246,7 @@ async function boot(): Promise<void> {
     if (ok) void persist();
     return ok;
   });
-  const battleJournal = createBattleJournal(root!, online, () =>
-    navigate("community"),
-  );
+  const battleJournal = createBattleJournal(root!, (active) => battleGlobal.select(active));
   let lootSerial = snapshot.rpg.lootSerial;
   const unsubscribe = session.subscribe((state) => {
     visual.setBattle(state);
@@ -657,6 +658,7 @@ async function boot(): Promise<void> {
     session.dispose();
     rpgUI.destroy();
     communityUI.destroy();
+    battleGlobal.destroy();
     marketUI.destroy();
     premiumUI.destroy();
     repository?.close();

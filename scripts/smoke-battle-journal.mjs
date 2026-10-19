@@ -125,7 +125,7 @@ try {
   );
   await page.locator("#battle-tab-global").click();
   assert.equal(await page.locator("#battle-global").isVisible(), true);
-  assert.equal(await page.locator("#battle-global-open").isVisible(), false);
+  assert.equal(await page.locator("#battle-global-form").isVisible(), false);
   await page.locator("#battle-tab-global").press("ArrowRight");
   assert.equal(
     await page.locator("#battle-tab-system").getAttribute("aria-selected"),

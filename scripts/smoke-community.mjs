@@ -293,6 +293,36 @@ try {
     .locator("#player-guild")
     .filter({ hasText: "Guardioes Teste" })
     .waitFor();
+  // Both clients remain in battle while exchanging messages through the embedded channel.
+  await pb.locator("[data-route=battle]").click();
+  for (const p of [pa, pb]) {
+    await p.locator("#battle-tab-global").click();
+    await p.locator("#battle-global-form").waitFor();
+  }
+  await pa.locator("#battle-global-input").fill("Global embutido <img src=x onerror=window.xss=true>");
+  await pa.locator("#battle-global-form button").click();
+  await pb.locator("#battle-global-log li").filter({ hasText: "Global embutido" }).waitFor();
+  assert.equal(await pb.locator("#battle-global-log img").count(), 0);
+  assert.equal(await pb.evaluate(() => window.xss), undefined);
+  assert.equal(await pb.locator("#community-root").isVisible(), false);
+  const count = await pb.locator("#battle-global-log li").count();
+  for (let i = 0; i < 10; i++) {
+    await pb.locator("#battle-tab-system").click();
+    await pb.locator("#battle-tab-global").click();
+  }
+  assert.equal(await pb.locator("#battle-global-log li").count(), count);
+  for (const width of [320, 390, 1280]) {
+    await pb.setViewportSize({ width, height: 844 });
+    assert.equal(await pb.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+  }
+  const row = pb.locator("#battle-global-log li").filter({ hasText: "Global embutido" });
+  await row.locator("summary").click();
+  await row.getByRole("button", { name: "Bloquear", exact: true }).click();
+  await row.waitFor({ state: "detached" });
+  await pa.reload();
+  await pa.locator("#game[data-load-status=ready]").waitFor();
+  await pa.locator("#battle-tab-global").click();
+  await pa.locator("#battle-global-log li").filter({ hasText: "Global embutido" }).waitFor();
   assert.deepEqual(errors, []);
   await writeFile(
     `docs/${process.env.AKAI_COMMUNITY_EVIDENCE ?? "phase6-browser"}-${preview ? "preview" : "dev"}.json`,
@@ -305,6 +335,7 @@ try {
         checks: [
           "hud-confirmed-nick-and-guild-after-reload",
           "chat-literal-XSS",
+          "battle-global-two-accounts-live-send-literal-XSS-block-reload-tabs-mobile-desktop",
           "guild-create-invite-join",
           "emblem-persisted",
           "private-chat",
