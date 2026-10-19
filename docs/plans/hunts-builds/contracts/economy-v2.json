@@ -4,11 +4,11 @@
   "calibrationCommit": "9033b6061bc619ff8bdb065a901fdfff1fcafe9c",
   "calibrationCandidate": "r11-candidate-3",
   "runtimeEnabled": false,
-  "mastery": {"maxLevel":1000,"minimumSeconds":8294400,"dailyEconomicSeconds":86400,"offlineSeconds":28800,"simultaneousActivities":1},
+  "mastery": {"maxLevel":1000,"minimumSeconds":8294400,"dailyEconomicSeconds":86400,"offlineSeconds":28800,"offlineBudgetPeriod":"brasilia-day-and-absence","simultaneousActivities":1},
   "sources": {
     "main":["coin","xp","equipment","protection"],
     "coalHunt":["xp","coal"],"ironHunt":["xp","iron"],"goldHunt":["xp","gold"],
-    "dailyBoss":["jade"],"weeklyEvent":["protection"]
+    "salvage":["coin"],"dailyBoss":["jade"],"weeklyEvent":["protection"]
   },
   "jade":{"dailyPerAccount":3,"claimSeconds":600,"minimumMainFloor":100,"claimEditionsPerDay":1,"tradable":false,"perDamageRankingBonus":0,"requiresKill":false},
   "protection":{"eventWeekly":30,"eventParticipationSeconds":1800,"towerDropPpm":20,"towerMinimumFloor":100,"shopWeeklyMaximum":10,"shopEnabled":false,"tradable":false,"consumedOnSuccess":true,"improvesChance":false,"minimumTarget":8},

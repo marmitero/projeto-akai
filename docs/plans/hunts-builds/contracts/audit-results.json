@@ -1,6 +1,6 @@
 {
   "version": "economy-v2-contract-1",
-  "contractSha256": "0de8adb964b494b6d56748bfde6908d57decc6c2567d5cd982ef219436586e1a",
+  "contractSha256": "5b31d0cdd3f3f299dd3c07f804f38359fbf797d1666ac830b1fb1981272b0a07",
   "kind": "design-contract-audit",
   "checks": {
     "one-clock-and-96-day-absolute-floor": true,
