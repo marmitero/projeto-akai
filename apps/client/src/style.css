@@ -1285,3 +1285,21 @@ progress {
 .bestiary-card h2 {font-size:1.1rem;margin:0 0 6px}.bestiary-card p {font-size:.8rem;line-height:1.5;margin:4px 0;overflow-wrap:anywhere}
 .bestiary-portrait {display:block;width:64px;height:76px;flex:0 0 64px;background-size:1280px 512px;background-position:-48px -40px;background-repeat:no-repeat;image-rendering:pixelated}
 [data-bestiary-floor] {width:90px;max-width:100%;font:inherit;padding:8px}
+
+/* Android/touch playtest: usable controls without changing desktop density. */
+@media (pointer: coarse) {
+  .bottom-nav button,
+  .battle-actions button,
+  #battle-controls button,
+  #battle-journal .journal-tabs button,
+  #close-dialog {
+    min-height: 44px;
+  }
+  input, select, textarea { font-size: 16px; }
+  dialog { max-height: 90dvh; overflow-y: auto; }
+}
+.game-shell {
+  padding-top: env(safe-area-inset-top);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}

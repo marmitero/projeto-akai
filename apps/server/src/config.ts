@@ -1,5 +1,6 @@
 import { z } from "zod";
 const ConfigSchema = z.object({
+  LAN_PREVIEW: z.enum(["true", "false"]).default("false").transform(x => x === "true"),
   NODE_ENV: z
     .enum(["development", "test", "production"])
     .default("development"),
@@ -37,8 +38,15 @@ export function parseServerConfig(
   const config = ConfigSchema.parse(env);
   if (config.PUBLIC_ORIGIN.startsWith("https:") && !config.COOKIE_SECURE)
     throw Error("HTTPS_REQUIRES_SECURE_COOKIE");
+  const origin = new URL(config.PUBLIC_ORIGIN);
+  const octets = origin.hostname.split('.').map(Number);
+  const privateV4 = /^(?:\d{1,3}\.){3}\d{1,3}$/.test(origin.hostname) && octets.every(n=>n>=0&&n<=255) &&
+    (octets[0]===10 || (octets[0]===172 && octets[1]!>=16 && octets[1]!<=31) || (octets[0]===192 && octets[1]===168));
+  if (config.LAN_PREVIEW && (config.NODE_ENV === 'production' || !privateV4 || origin.protocol !== 'http:' || origin.origin !== config.PUBLIC_ORIGIN ||
+      !['127.0.0.1','localhost','::1'].includes(config.HOST) || config.COOKIE_SECURE || config.MONETIZATION_MODE !== 'off' || config.GOOGLE_CLIENT_ID))
+    throw Error('LAN_PREVIEW_REQUIRES_PRIVATE_DEV_ORIGIN_AND_LOOPBACK_API');
   if (
-    !config.COOKIE_SECURE &&
+    !config.LAN_PREVIEW && !config.COOKIE_SECURE &&
     !["localhost", "127.0.0.1", "[::1]"].includes(
       new URL(config.PUBLIC_ORIGIN).hostname,
     )

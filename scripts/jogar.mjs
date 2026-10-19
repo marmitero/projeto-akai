@@ -5,6 +5,8 @@ import { resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { spawn } from 'node:child_process';
 import { once } from 'node:events';
+import { chooseLanAddress } from './mobile-network.mjs';
+import { startMobilePreview } from './mobile-preview.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const clientRoot = resolve(root, 'apps/client');
@@ -12,7 +14,8 @@ const clientRequire = createRequire(resolve(clientRoot, 'package.json'));
 const prepareOnly = process.argv.includes('--prepare-only');
 const smokeTest = process.argv.includes('--smoke-test');
 const noBrowser = smokeTest || process.argv.includes('--no-browser');
-const origin = 'http://127.0.0.1:5173';
+let origin = 'http://127.0.0.1:5173';
+const mobile = process.argv.includes('--mobile');
 let server;
 let closing = false;
 
@@ -40,6 +43,8 @@ async function dependenciesReady() {
     ready = (await readFile(marker, 'utf8')) === fingerprint;
     await access(clientRequire.resolve('vite'));
     await access(clientRequire.resolve('phaser/package.json'));
+    await access(clientRequire.resolve('qrcode'));
+    await access(clientRequire.resolve('@noble/hashes/sha256'));
     await access(resolve(root, 'node_modules/typescript/bin/tsc'));
     const serverRequire = createRequire(resolve(root, 'apps/server/package.json'));
     await access(serverRequire.resolve('tsx'));
@@ -67,8 +72,15 @@ try {
   await run(process.execPath, [resolve(root, 'node_modules/typescript/bin/tsc'), '-p', resolve(root, 'packages/shared/tsconfig.json')]);
   if (prepareOnly) { console.log('AKAI_PREVIEW_PREPARED: dependencias e sprites prontos.'); process.exit(0); }
   const { createServer } = await import(pathToFileURL(clientRequire.resolve('vite')).href);
-  server = await createServer({ root: clientRoot, mode: 'development', clearScreen: false, server: { host: '127.0.0.1', port: 5173, strictPort: true, open: false } });
-  await server.listen();
+  if (mobile) {
+    const at = process.argv.indexOf('--lan-ip');
+    if (at >= 0 && (!process.argv[at+1] || process.argv[at+1].startsWith('--'))) throw Error('Informe o IPv4 apos --lan-ip.');
+    const ip = chooseLanAddress(at < 0 ? undefined : process.argv[at+1]);
+    server = await startMobilePreview({ ip, mode: 'local', openBrowser: !noBrowser }); origin = server.origin;
+  } else {
+    server = await createServer({ root: clientRoot, mode: 'development', clearScreen: false, server: { host: '127.0.0.1', port: 5173, strictPort: true, open: false } });
+    await server.listen();
+  }
   console.log(`\nPronto! Jogue em ${origin}\nMantenha esta janela aberta. Use Ctrl+C para encerrar.\nSeu progresso local fica salvo neste navegador e neste endereco.\n`);
   if (!noBrowser) server.openBrowser();
   if (smokeTest) {
@@ -76,7 +88,7 @@ try {
     const { chromium } = await import('playwright');
     const browser = await chromium.launch({ headless: true, ...(process.env.AKAI_CHROMIUM_EXECUTABLE ? { executablePath: process.env.AKAI_CHROMIUM_EXECUTABLE } : {}) });
     try {
-      const page = await browser.newPage(), errors = [], failedImages = [];
+      const page = await browser.newPage(mobile ? { viewport: { width:390,height:844 }, isMobile:true,hasTouch:true } : {}), errors = [], failedImages = [];
       page.on('pageerror', error => errors.push(String(error)));
       page.on('response', response => { if (response.request().resourceType() === 'image' && response.status() >= 400) failedImages.push(response.url()); });
       await page.goto(origin);

@@ -1,3 +1,4 @@
+import { sha256Hex } from '../browser-crypto.js';
 import {
   LocalSnapshotSchema,
   LegacySnapshotSchema,
@@ -32,13 +33,7 @@ export class CorruptSaveError extends Error {
   }
 }
 async function checksum(payload: unknown): Promise<string> {
-  const hash = await crypto.subtle.digest(
-    "SHA-256",
-    new TextEncoder().encode(JSON.stringify(payload)),
-  );
-  return [...new Uint8Array(hash)]
-    .map((n) => n.toString(16).padStart(2, "0"))
-    .join("");
+  return sha256Hex(new TextEncoder().encode(JSON.stringify(payload)));
 }
 export async function encodeSave(snapshot: LocalSnapshot): Promise<string> {
   const payload = LocalSnapshotSchema.parse(snapshot);

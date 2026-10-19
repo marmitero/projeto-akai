@@ -1,3 +1,4 @@
+import { commandId } from '../browser-crypto.js';
 import {
   CommunityActionSchema,
   EMBLEM_PALETTE,
@@ -120,7 +121,7 @@ export function createCommunityUI(
       status.textContent = "Aguarde a confirmação ou abra a comunidade.";
       return false;
     }
-    pending = { commandId: crypto.randomUUID(), action };
+    pending = { commandId: commandId(), action };
     void refresh();
     return true;
   }

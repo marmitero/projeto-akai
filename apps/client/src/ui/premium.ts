@@ -1,3 +1,4 @@
+import { commandId } from '../browser-crypto.js';
 import {
   PremiumCommandSchema,
   PREMIUM_PRODUCTS,
@@ -84,7 +85,7 @@ export function createPremiumUI(root: HTMLElement, online: boolean) {
     const action = review;
     review = undefined;
     box.hidden = true;
-    send({ ...action, commandId: crypto.randomUUID() });
+    send({ ...action, commandId: commandId() });
   });
   host.querySelector("#premium-dismiss")!.addEventListener("click", () => {
     review = undefined;
@@ -93,7 +94,7 @@ export function createPremiumUI(root: HTMLElement, online: boolean) {
   host
     .querySelector("#premium-restore")!
     .addEventListener("click", () =>
-      send({ type: "restore", commandId: crypto.randomUUID() }),
+      send({ type: "restore", commandId: commandId() }),
     );
   function list(id: string, data: unknown, make: () => HTMLElement[]) {
     const signature = JSON.stringify(data);
@@ -129,7 +130,7 @@ export function createPremiumUI(root: HTMLElement, online: boolean) {
           type: "purchase.verify",
           intentId: intent.id,
           purchaseToken: response.purchaseToken,
-          commandId: crypto.randomUUID(),
+          commandId: commandId(),
         };
         persist();
       } else status.textContent = "Recompensa de teste validada.";
@@ -276,7 +277,7 @@ export function createPremiumUI(root: HTMLElement, online: boolean) {
               send({
                 type: "intent.cancel",
                 intentId: i.id,
-                commandId: crypto.randomUUID(),
+                commandId: commandId(),
               }),
             ),
           );

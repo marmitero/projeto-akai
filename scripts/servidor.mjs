@@ -6,18 +6,21 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createServer as netServer } from 'node:net';
 import { promisify } from 'node:util';
 import { once } from 'node:events';
+import { chooseLanAddress } from './mobile-network.mjs';
+import { startMobilePreview } from './mobile-preview.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const clientRoot = resolve(root, 'apps/client');
 const clientRequire = createRequire(resolve(clientRoot, 'package.json'));
 const execute = promisify(execFile);
-const origin = 'http://localhost:5173';
+let origin = 'http://localhost:5173', mobileIp;
+const mobile = process.argv.includes('--mobile');
 const prepareOnly = process.argv.includes('--prepare-only');
 const smokeTest = process.argv.includes('--smoke-test');
 const noBrowser = smokeTest || process.argv.includes('--no-browser');
 const children = new Set();
 let vite, api, closing = false, startedDb = false;
-const env = { ...process.env, NODE_ENV: 'development', LOG_LEVEL: 'warn', HOST: '127.0.0.1', PORT: '3000', PUBLIC_ORIGIN: origin, COOKIE_SECURE: 'false', VITE_GAME_MODE: 'online', MONETIZATION_MODE: 'off', MONETIZATION_TEST_DATABASE: 'false' };
+const env = { ...process.env, NODE_ENV: 'development', LOG_LEVEL: 'warn', HOST: '127.0.0.1', PORT: '3000', PUBLIC_ORIGIN: origin, COOKIE_SECURE: 'false', VITE_GAME_MODE: 'online', MONETIZATION_MODE: 'off', MONETIZATION_TEST_DATABASE: 'false', LAN_PREVIEW: mobile ? 'true' : 'false' };
 for (const key of ['DATABASE_URL', 'TEST_DATABASE_URL', 'MONETIZATION_KEY', 'PLAY_PACKAGE_NAME', 'PLAY_SERVICE_ACCOUNT_FILE', 'GOOGLE_CLIENT_ID']) delete env[key];
 const wait = ms => new Promise(r => setTimeout(r, ms));
 const compose = ['compose', '-f', resolve(root, 'compose.yaml')];
@@ -89,9 +92,15 @@ for (const signal of ['SIGINT', 'SIGTERM']) process.once(signal, () => { void sh
 try {
   if (Number(process.versions.node.split('.')[0]) !== 24) throw Error('Execute servidor.bat para usar o Node24 portatil.');
   console.log('\nPROJETO AKAI - Online no seu computador\n');
+  if (mobile) {
+    const at = process.argv.indexOf('--lan-ip');
+    if (at >= 0 && (!process.argv[at+1] || process.argv[at+1].startsWith('--'))) throw Error('Informe o IPv4 apos --lan-ip.');
+    mobileIp = chooseLanAddress(at < 0 ? undefined : process.argv[at+1]);
+    origin = `http://${mobileIp}:5173`; env.PUBLIC_ORIGIN = origin;
+  }
   await ensureDocker();
   await portFree(3000, '127.0.0.1');
-  await portFree(5173, 'localhost');
+  await portFree(5173, mobileIp ?? 'localhost');
   await run([resolve(root, 'scripts/jogar.mjs'), '--prepare-only']);
   if (closing) throw Error('Inicio cancelado.');
   const config = JSON.parse((await docker([...compose, 'config', '--format', 'json'])).stdout);
@@ -127,9 +136,12 @@ try {
     const { createServer } = await import(pathToFileURL(clientRequire.resolve('vite')).href);
     // Vite gives explicit process environment precedence over .env files.
     process.env.VITE_GAME_MODE = 'online';
-    vite = await createServer({ root: clientRoot, mode: 'development', clearScreen: false, server: { host: 'localhost', port: 5173, strictPort: true, open: false } });
-    await vite.listen();
-    console.log(`\nPronto! Jogue online em ${origin}\nCrie uma conta de convidado e guarde sua chave de recuperacao.\nMantenha esta janela aberta. Ctrl+C encerra jogo e API.\nO banco permanece no Docker e conserva suas contas.\nEste servidor e somente para teste no seu computador.\n`);
+    if (mobile) vite = await startMobilePreview({ ip: mobileIp, mode: 'online', openBrowser: !noBrowser });
+    else {
+      vite = await createServer({ root: clientRoot, mode: 'development', clearScreen: false, server: { host: 'localhost', port: 5173, strictPort: true, open: false } });
+      await vite.listen();
+    }
+    console.log(`\nPronto! Jogue online em ${origin}\nCrie uma conta de convidado e guarde sua chave de recuperacao.\nMantenha esta janela aberta. Ctrl+C encerra jogo e API.\nO banco permanece no Docker e conserva suas contas.\nEste servidor e somente para teste privado no seu computador/rede local.\n`);
     api.once('exit', () => { if (!closing) { console.error('A API foi encerrada. Reinicie servidor.bat.'); process.exitCode = 1; void shutdown(); } });
     if (!noBrowser) vite.openBrowser();
     if (smokeTest) {

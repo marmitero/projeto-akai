@@ -1,3 +1,4 @@
+import { commandId } from '../browser-crypto.js';
 import {
   MARKET_CURRENCIES,
   MARKET_RESOURCES,
@@ -143,7 +144,7 @@ export function createMarketUI(root: HTMLElement, online: boolean) {
   }
   host.querySelector("#market-confirm")!.addEventListener("click", () => {
     if (!review || pending || !state) return;
-    pending = { commandId: crypto.randomUUID(), action: review };
+    pending = { commandId: commandId(), action: review };
     review = undefined;
     box.hidden = true;
     status.textContent = "Enviando operação…";
