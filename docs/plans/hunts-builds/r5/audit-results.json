@@ -1,0 +1,172 @@
+{
+  "fixture": "Mathematical high-range sensitivity ONLY; executor still blocks16+. One legendary100 item owned atday1, unlimited Coin/materials/low-range attempts; full weekly scroll budget upfront each Monday, no tower scrolls, always protected8+. Not whole-game cohorts or production approval.",
+  "days": 120,
+  "expectationUnlimitedSupply": [
+    {
+      "target": 1,
+      "expectedAdditionalAttempts": 1.0204081632653061,
+      "expectedAttemptsFromZero": 1.0204081632653061
+    },
+    {
+      "target": 2,
+      "expectedAdditionalAttempts": 1.0526315789473684,
+      "expectedAttemptsFromZero": 2.0730397422126745
+    },
+    {
+      "target": 3,
+      "expectedAdditionalAttempts": 1.0869565217391304,
+      "expectedAttemptsFromZero": 3.159996263951805
+    },
+    {
+      "target": 4,
+      "expectedAdditionalAttempts": 1.2318840579710144,
+      "expectedAttemptsFromZero": 4.3918803219228195
+    },
+    {
+      "target": 5,
+      "expectedAdditionalAttempts": 1.39386189258312,
+      "expectedAttemptsFromZero": 5.785742214505939
+    },
+    {
+      "target": 6,
+      "expectedAdditionalAttempts": 1.5984654731457797,
+      "expectedAttemptsFromZero": 7.384207687651719
+    },
+    {
+      "target": 7,
+      "expectedAdditionalAttempts": 1.8661551577152597,
+      "expectedAttemptsFromZero": 9.250362845366979
+    },
+    {
+      "target": 8,
+      "expectedAdditionalAttempts": 2.228352210449397,
+      "expectedAttemptsFromZero": 11.478715055816377
+    },
+    {
+      "target": 9,
+      "expectedAdditionalAttempts": 2.7383434979342907,
+      "expectedAttemptsFromZero": 14.217058553750668
+    },
+    {
+      "target": 10,
+      "expectedAdditionalAttempts": 3.4922289986228603,
+      "expectedAttemptsFromZero": 17.709287552373528
+    },
+    {
+      "target": 11,
+      "expectedAdditionalAttempts": 4.67546008978234,
+      "expectedAttemptsFromZero": 22.38474764215587
+    },
+    {
+      "target": 12,
+      "expectedAdditionalAttempts": 6.67546008978234,
+      "expectedAttemptsFromZero": 29.06020773193821
+    },
+    {
+      "target": 13,
+      "expectedAdditionalAttempts": 9.31508176393087,
+      "expectedAttemptsFromZero": 38.37528949586908
+    },
+    {
+      "target": 14,
+      "expectedAdditionalAttempts": 13.109009027223195,
+      "expectedAttemptsFromZero": 51.48429852309228
+    },
+    {
+      "target": 15,
+      "expectedAdditionalAttempts": 18.95692058010225,
+      "expectedAttemptsFromZero": 70.44121910319453
+    },
+    {
+      "target": 16,
+      "expectedAdditionalAttempts": 43.40845623271727,
+      "expectedAttemptsFromZero": 113.8496753359118
+    },
+    {
+      "target": 17,
+      "expectedAdditionalAttempts": 121.06730759216148,
+      "expectedAttemptsFromZero": 234.91698292807328
+    },
+    {
+      "target": 18,
+      "expectedAdditionalAttempts": 433.7840905540271,
+      "expectedAttemptsFromZero": 668.7010734821004
+    },
+    {
+      "target": 19,
+      "expectedAdditionalAttempts": 2123.769383293191,
+      "expectedAttemptsFromZero": 2792.4704567752915
+    },
+    {
+      "target": 20,
+      "expectedAdditionalAttempts": 15582.642144150068,
+      "expectedAttemptsFromZero": 18375.11260092536
+    }
+  ],
+  "scenarios": [
+    {
+      "jadePerDay": 3,
+      "weeklyScrolls": 30,
+      "population": 512,
+      "reached20": 14,
+      "reached20Pct": 2.734375,
+      "averageAttempts": 553.55078125,
+      "highestDistribution": {
+        "15": 2,
+        "16": 33,
+        "17": 179,
+        "18": 205,
+        "19": 79,
+        "20": 14
+      }
+    },
+    {
+      "jadePerDay": 3,
+      "weeklyScrolls": 40,
+      "population": 512,
+      "reached20": 21,
+      "reached20Pct": 4.1015625,
+      "averageAttempts": 729.908203125,
+      "highestDistribution": {
+        "15": 1,
+        "16": 13,
+        "17": 153,
+        "18": 225,
+        "19": 99,
+        "20": 21
+      }
+    },
+    {
+      "jadePerDay": 453,
+      "weeklyScrolls": 30,
+      "population": 512,
+      "reached20": 14,
+      "reached20Pct": 2.734375,
+      "averageAttempts": 553.55078125,
+      "highestDistribution": {
+        "15": 2,
+        "16": 33,
+        "17": 179,
+        "18": 205,
+        "19": 79,
+        "20": 14
+      }
+    },
+    {
+      "jadePerDay": 453,
+      "weeklyScrolls": 40,
+      "population": 512,
+      "reached20": 22,
+      "reached20Pct": 4.296875,
+      "averageAttempts": 729.939453125,
+      "highestDistribution": {
+        "15": 1,
+        "16": 13,
+        "17": 153,
+        "18": 225,
+        "19": 98,
+        "20": 22
+      }
+    }
+  ]
+}
