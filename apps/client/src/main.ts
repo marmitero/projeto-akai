@@ -1,5 +1,6 @@
 import { createBestiaryUI } from "./ui/bestiary.js";
 import { enemyTemplate } from "@akai/shared";
+import { createCombatLab } from "./ui/combat-lab.js";
 import { createBossBroadcast } from "./ui/boss-broadcast.js";
 import { createBattleGlobal } from "./ui/battle-global.js";
 import { createBattleJournal } from "./ui/battle-journal.js";
@@ -107,6 +108,7 @@ async function boot(): Promise<void> {
   const marketUI = createMarketUI(root!, online);
   let onlineName: string | undefined;
   let submittedName: string | undefined;
+  const combatLab = createCombatLab(root!);
   const battleGlobal = createBattleGlobal(root!, online);
   const bossBroadcast = createBossBroadcast(root!, online);
   const communityUI = createCommunityUI(
@@ -663,6 +665,7 @@ async function boot(): Promise<void> {
     communityUI.destroy();
     battleGlobal.destroy();
     bossBroadcast.destroy();
+    combatLab.destroy();
     marketUI.destroy();
     premiumUI.destroy();
     repository?.close();

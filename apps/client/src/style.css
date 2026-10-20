@@ -1397,3 +1397,13 @@ progress {
 #boss-broadcast { display:flex; align-items:center; gap:6px; flex:none; color:#ffe0a0; background:#33233c; padding:2px 5px; margin-bottom:4px; font:11px/1.3 system-ui,sans-serif; }
 #boss-broadcast span { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 #boss-broadcast button { flex:none; min-height:28px; min-width:28px; padding:0; }
+
+#combat-lab { width:min(95vw,650px); max-height:90dvh; padding:0; overflow:auto; }
+.combat-lab-panel { padding:12px; font:13px/1.45 system-ui,sans-serif; }
+.combat-lab-panel header { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.combat-lab-controls { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.combat-lab-controls label { display:flex; flex-direction:column; min-width:0; }
+.combat-lab-controls input,.combat-lab-controls select { width:100%; min-width:0; min-height:36px; font-size:16px; }
+.combat-lab-panel button { min-height:36px; }
+#lab-hits { max-height:180px; overflow:auto; padding-left:22px; }
+#lab-status,#lab-stats { overflow-wrap:anywhere; }
