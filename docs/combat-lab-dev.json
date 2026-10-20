@@ -1,7 +1,23 @@
 {
   "passed": true,
   "fixture": "Synthetic equal-point builds, no production resource gains",
+  "hunts": [
+    {
+      "kind": "coal",
+      "status": "Vitória · 0.8s · 1 golpes processados. Prévia: 7 carvão · XP qualificado calculado na integração. Sem Coin/equipamento/Jade."
+    },
+    {
+      "kind": "iron",
+      "status": "Vitória · 0.8s · 1 golpes processados. Prévia: 15 ferro · XP qualificado calculado na integração. Sem Coin/equipamento/Jade."
+    },
+    {
+      "kind": "gold",
+      "status": "Vitória · 0.8s · 1 golpes processados. Prévia: 3 ouro · XP qualificado calculado na integração. Sem Coin/equipamento/Jade."
+    }
+  ],
   "checks": [
+    "hunts-exclusive-material-preview",
+    "hunt-scenery-loaded",
     "deterministic-result",
     "magical-enemy",
     "boss-reserved",
@@ -15,7 +31,7 @@
       "height": 640,
       "scrollWidth": 292,
       "clientWidth": 292,
-      "scrollHeight": 855,
+      "scrollHeight": 1151,
       "clientHeight": 576
     },
     {
@@ -23,7 +39,7 @@
       "height": 844,
       "scrollWidth": 362,
       "clientWidth": 362,
-      "scrollHeight": 798,
+      "scrollHeight": 1038,
       "clientHeight": 760
     },
     {
@@ -31,7 +47,7 @@
       "height": 390,
       "scrollWidth": 440,
       "clientWidth": 440,
-      "scrollHeight": 779,
+      "scrollHeight": 1000,
       "clientHeight": 351
     },
     {
@@ -39,7 +55,7 @@
       "height": 800,
       "scrollWidth": 440,
       "clientWidth": 440,
-      "scrollHeight": 779,
+      "scrollHeight": 1000,
       "clientHeight": 720
     }
   ],
