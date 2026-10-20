@@ -10,6 +10,8 @@ import {
   type CommunitySnapshot,
   type CommunityIdentity,
   type GlobalChatSnapshot,
+  type DailyBossBroadcast,
+  JADE_V2,
   type PublicPlayer,
 } from "@akai/shared";
 import { OnlineService, OnlineError, digest, type Account } from "./online.js";
@@ -595,6 +597,18 @@ export class CommunityService {
     });
   }
   /** Chat-only read: does not settle combat, tick events or renew raid/boss presence. */
+  /** Only committed v2 reward records can announce a last-hit prize. */
+  async bossBroadcast(token:string):Promise<DailyBossBroadcast|null> {
+    return this.online.db.transaction(async c=>{
+      await this.online.identity(token,c);
+      const r=(await c.query(`SELECT r.source,r.account_id,r.at,p.name FROM akai_social_rewards r
+        JOIN akai_profiles p ON p.account_id=r.account_id
+        WHERE r.source LIKE 'boss:%:v2:last-hit' AND r.at>=$1 AND NOT p.suspended
+        ORDER BY r.at DESC,r.source DESC LIMIT 1`,[this.online.clock()-86400000])).rows[0];
+      return r?{id:r.source,accountId:r.account_id,name:r.name,jade:JADE_V2.lastHit,at:Number(r.at),
+        text:`${r.name} deu o último golpe no boss diário e ganhou ${JADE_V2.lastHit} jade!`}:null;
+    });
+  }
   async globalChat(token: string): Promise<GlobalChatSnapshot> {
     return this.online.db.transaction(async (c) => {
       const id = await this.online.identity(token, c);

@@ -1,22 +1,192 @@
 {
-  "version": "economy-v2-contract-1",
-  "status": "design-only",
+  "version": "economy-v2-contract-2",
+  "status": "r2-inactive",
   "calibrationCommit": "9033b6061bc619ff8bdb065a901fdfff1fcafe9c",
   "calibrationCandidate": "r11-candidate-3",
   "runtimeEnabled": false,
-  "mastery": {"maxLevel":1000,"minimumSeconds":8294400,"dailyEconomicSeconds":86400,"offlineSeconds":28800,"offlineBudgetPeriod":"brasilia-day-and-absence","simultaneousActivities":1},
-  "sources": {
-    "main":["coin","xp","equipment","protection"],
-    "coalHunt":["xp","coal"],"ironHunt":["xp","iron"],"goldHunt":["xp","gold"],
-    "salvage":["coin"],"dailyBoss":["jade"],"weeklyEvent":["protection"]
+  "mastery": {
+    "maxLevel": 1000,
+    "minimumSeconds": 8294400,
+    "dailyEconomicSeconds": 86400,
+    "offlineSeconds": 28800,
+    "offlineBudgetPeriod": "brasilia-day-and-absence",
+    "simultaneousActivities": 1
   },
-  "jade":{"dailyPerAccount":3,"claimSeconds":600,"minimumMainFloor":100,"claimEditionsPerDay":1,"tradable":false,"perDamageRankingBonus":0,"requiresKill":false},
-  "protection":{"eventWeekly":30,"eventParticipationSeconds":1800,"towerDropPpm":20,"towerMinimumFloor":100,"shopWeeklyMaximum":10,"shopEnabled":false,"tradable":false,"consumedOnSuccess":true,"improvesChance":false,"minimumTarget":8},
-  "refinement":{"safeTargets":[1,2,3],"regressionTargets":[4,5,6,7],"mixedTargets":[8,9,10,11,12],"destructiveTargets":[13,14,15,16,17,18,19,20],"legendaryOnlyFrom":16,"protectedFailureDelta":-1,"highSuccessPpm":[320000,270000,220000,170000,120000],"highRangeEnabled":false},
-  "market":{"currencies":["coin"],"materials":["coal","iron","gold"],"bound":["jade","ruby","protection","legacyCredit"],"listingCoin":100000,"saleTaxBp":1000,"listingHours":72,"cancelCooldownHours":24,"minimumCompletedFloor":10,"equipmentTradable":true,"listedEquipmentMutable":false},
-  "salvage":{"onlyResource":"coin","baseByRarity":[1,1.15,1.35,1.75,2.25],"levelMultiplier":0.5,"usesRefinement":false,"automaticOverflow":false},
-  "legacy":{"archiveImmutable":true,"balancesQuarantined":true,"investmentCreditsSpendable":false,"masteryFromOldXp":false,"oldEnhancementPreservedInArchive":true,"convertedEnhancementMaximum":7,"convertedItemLevelMinimum":1,"convertedItemLevelMaximum":100,"convertedGearRequiresNewLevel":true,"rubyDebtPreserved":true},
-  "retiredForFirstRelease":["passiveMines","clickResource","smelting","crafting","miningPetPower","tonicPower","randomAffixPower","paidRewardMultipliers","eventEquipmentConversionToIron","eventCoinGrants","eventRubyLottery"],
-  "activationRequires":["migrationDryRun","coupledMarketValidation","legacyCohorts","realCombatAndOfflineParity","definitiveBossImplementation","freePlayerPlaytest"],
-  "monetizationEnabled":false
+  "sources": {
+    "main": [
+      "coin",
+      "xp",
+      "equipment",
+      "protection"
+    ],
+    "coalHunt": [
+      "xp",
+      "coal"
+    ],
+    "ironHunt": [
+      "xp",
+      "iron"
+    ],
+    "goldHunt": [
+      "xp",
+      "gold"
+    ],
+    "salvage": [
+      "coin"
+    ],
+    "dailyBoss": [
+      "jade"
+    ],
+    "weeklyEvent": [
+      "protection"
+    ]
+  },
+  "jade": {
+    "dailyPerAccount": 3,
+    "claimSeconds": 600,
+    "minimumMainFloor": 100,
+    "claimEditionsPerDay": 1,
+    "tradable": false,
+    "requiresKill": false,
+    "top10Bonuses": [
+      200,
+      180,
+      160,
+      140,
+      120,
+      100,
+      80,
+      60,
+      40,
+      20
+    ],
+    "lastHitBonus": 250,
+    "bonusesRequireKill": true,
+    "bonusesCumulative": true,
+    "maximumPerAccountPerDay": 453,
+    "tieBreak": "damage-desc-account-id-asc",
+    "broadcastLastHit": true
+  },
+  "protection": {
+    "eventWeekly": 30,
+    "eventParticipationSeconds": 1800,
+    "towerDropPpm": 20,
+    "towerMinimumFloor": 100,
+    "shopWeeklyMaximum": 10,
+    "shopEnabled": false,
+    "tradable": false,
+    "consumedOnSuccess": true,
+    "improvesChance": false,
+    "minimumTarget": 8
+  },
+  "refinement": {
+    "safeTargets": [
+      1,
+      2,
+      3
+    ],
+    "regressionTargets": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "mixedTargets": [
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "destructiveTargets": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "legendaryOnlyFrom": 16,
+    "protectedFailureDelta": -1,
+    "highSuccessPpm": [
+      320000,
+      270000,
+      220000,
+      170000,
+      120000
+    ],
+    "highRangeEnabled": false
+  },
+  "market": {
+    "currencies": [
+      "coin"
+    ],
+    "materials": [
+      "coal",
+      "iron",
+      "gold"
+    ],
+    "bound": [
+      "jade",
+      "ruby",
+      "protection",
+      "legacyCredit"
+    ],
+    "listingCoin": 100000,
+    "saleTaxBp": 1000,
+    "listingHours": 72,
+    "cancelCooldownHours": 24,
+    "minimumCompletedFloor": 10,
+    "equipmentTradable": true,
+    "listedEquipmentMutable": false
+  },
+  "salvage": {
+    "onlyResource": "coin",
+    "baseByRarity": [
+      1,
+      1.15,
+      1.35,
+      1.75,
+      2.25
+    ],
+    "levelMultiplier": 0.5,
+    "usesRefinement": false,
+    "automaticOverflow": false
+  },
+  "legacy": {
+    "archiveImmutable": true,
+    "balancesQuarantined": true,
+    "investmentCreditsSpendable": false,
+    "masteryFromOldXp": false,
+    "oldEnhancementPreservedInArchive": true,
+    "convertedEnhancementMaximum": 7,
+    "convertedItemLevelMinimum": 1,
+    "convertedItemLevelMaximum": 100,
+    "convertedGearRequiresNewLevel": true,
+    "rubyDebtPreserved": true
+  },
+  "retiredForFirstRelease": [
+    "passiveMines",
+    "clickResource",
+    "smelting",
+    "crafting",
+    "miningPetPower",
+    "tonicPower",
+    "randomAffixPower",
+    "paidRewardMultipliers",
+    "eventEquipmentConversionToIron",
+    "eventCoinGrants",
+    "eventRubyLottery"
+  ],
+  "activationRequires": [
+    "migrationDryRun",
+    "coupledMarketValidation",
+    "legacyCohorts",
+    "realCombatAndOfflineParity",
+    "definitiveBossImplementation",
+    "freePlayerPlaytest"
+  ],
+  "monetizationEnabled": false
 }

@@ -1,0 +1,74 @@
+{
+  "version": "r2-audit-1",
+  "kind": "contract-rehearsal-and-jade-supply-sensitivity",
+  "runtimeActivated": false,
+  "xp": {
+    "thresholds": 1000,
+    "totalMs": 8294400000,
+    "maxDifferenceFromOriginalReferenceMs": 0,
+    "sha256": "5ebe065bd8a93d4b756b9cfb721ed3d630daa721eec36d3840e9109b576aada4"
+  },
+  "populations": [
+    {
+      "population": 1,
+      "totalDailyJade": 453,
+      "previousUniformDailyJade": 3,
+      "emissionMultiplier": 151,
+      "repeatedWinner90Days": 40770,
+      "previousWinner90Days": 270
+    },
+    {
+      "population": 2,
+      "totalDailyJade": 636,
+      "previousUniformDailyJade": 6,
+      "emissionMultiplier": 106,
+      "repeatedWinner90Days": 40770,
+      "previousWinner90Days": 270
+    },
+    {
+      "population": 10,
+      "totalDailyJade": 1380,
+      "previousUniformDailyJade": 30,
+      "emissionMultiplier": 46,
+      "repeatedWinner90Days": 40770,
+      "previousWinner90Days": 270
+    },
+    {
+      "population": 100,
+      "totalDailyJade": 1650,
+      "previousUniformDailyJade": 300,
+      "emissionMultiplier": 5.5,
+      "repeatedWinner90Days": 40770,
+      "previousWinner90Days": 270
+    },
+    {
+      "population": 1000,
+      "totalDailyJade": 4350,
+      "previousUniformDailyJade": 3000,
+      "emissionMultiplier": 1.45,
+      "repeatedWinner90Days": 40770,
+      "previousWinner90Days": 270
+    },
+    {
+      "population": 5000,
+      "totalDailyJade": 16350,
+      "previousUniformDailyJade": 15000,
+      "emissionMultiplier": 1.09,
+      "repeatedWinner90Days": 40770,
+      "previousWinner90Days": 270
+    }
+  ],
+  "migration": {
+    "deterministicSourceHash": "9cc0c7c63a51b86fe2ae6ffa96982f31056c99ecfc6792ce7b983191b9702853",
+    "archiveRestoreExact": true,
+    "zeroNewResourceInjection": true,
+    "premiumDebtPreserved": true
+  },
+  "productionApproved": false,
+  "limits": [
+    "Not an integrated progression/refinement/market cohort",
+    "Old +20 rarity estimate is invalid for the new jade distribution",
+    "Boss award plan and broadcast consumer do not activate the future boss reward writer",
+    "No production migration or reset executed"
+  ]
+}

@@ -323,6 +323,14 @@ try {
   await pa.locator("#game[data-load-status=ready]").waitFor();
   await pa.locator("#battle-tab-global").click();
   await pa.locator("#battle-global-log li").filter({ hasText: "Global embutido" }).waitFor();
+  // Transport/render fixture: no claim that the legacy boss grants v2 Jade yet.
+  await db.pool.query("INSERT INTO akai_social_rewards(source,account_id,description,at) VALUES($1,$2,$3,$4)",
+    ['boss:2026-10-20:v2:last-hit',b.accountId,'TEST FIXTURE: committed v2 broadcast',Date.now()]);
+  await pa.locator('#boss-broadcast').filter({hasText:'250 jade'}).waitFor();
+  assert.equal(await pa.locator('#boss-broadcast img').count(),0);
+  assert.equal(await pa.evaluate(()=>document.querySelector('#content').scrollHeight<=document.querySelector('#content').clientHeight+1),true);
+  await pa.locator('#boss-broadcast button').click();
+  assert.equal(await pa.locator('#boss-broadcast').isVisible(),false);
   assert.deepEqual(errors, []);
   await writeFile(
     `docs/${process.env.AKAI_COMMUNITY_EVIDENCE ?? "phase6-browser"}-${preview ? "preview" : "dev"}.json`,
@@ -334,6 +342,7 @@ try {
           "Two server-seeded test accounts; not a human progression playtest.",
         checks: [
           "hud-confirmed-nick-and-guild-after-reload",
+          "confirmed-v2-broadcast-fixture-layout-dismiss",
           "chat-literal-XSS",
           "battle-global-two-accounts-live-send-literal-XSS-block-reload-tabs-mobile-desktop",
           "guild-create-invite-join",

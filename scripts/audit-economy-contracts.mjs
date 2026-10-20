@@ -24,9 +24,11 @@ check('paid-and-free-protection-budget-separated', () => {
   assert.equal(c.protection.towerDropPpm, 20); assert.equal(c.protection.tradable, false);
   assert.equal(c.protection.improvesChance, false); assert.equal(c.protection.shopEnabled, false);
 });
-check('jade-access-does-not-scale-with-wealth-or-population', () => {
+check('jade-base-access-and-explicit-competitive-bonus-budget', () => {
   assert.equal(c.jade.dailyPerAccount, 3); assert.equal(c.jade.claimEditionsPerDay, 1);
-  assert.equal(c.jade.perDamageRankingBonus, 0); assert.equal(c.jade.requiresKill, false);
+  assert.deepEqual(c.jade.top10Bonuses,[200,180,160,140,120,100,80,60,40,20]);
+  assert.equal(c.jade.lastHitBonus,250); assert.equal(c.jade.requiresKill,false);
+  assert.equal(c.jade.maximumPerAccountPerDay,453); assert.equal(c.jade.bonusesRequireKill,true);
   assert.equal(c.jade.tradable, false);
 });
 check('no-bound-currency-laundering', () => {
@@ -54,7 +56,8 @@ const result = {
   version:c.version, contractSha256:createHash('sha256').update(source).digest('hex'),
   kind:'design-contract-audit', checks,
   derived:{idealMinimumDays:96,regular2plus8MinimumDays:c.mastery.minimumSeconds/(10*3600),
-    continuous90DayJadeMaximum:90*c.jade.dailyPerAccount,
+    continuous90DayBaseJadeMaximum:90*c.jade.dailyPerAccount,
+    continuous90DayConcentratedJadeMaximum:90*c.jade.maximumPerAccountPerDay,
     completedWeeks90:Math.floor(90/7),
     freeWeeklyEventBudget:c.protection.eventWeekly,paidWeeklyMaximum:c.protection.shopWeeklyMaximum,
     exampleEligibleKills100000ExpectedScrolls:100000*c.protection.towerDropPpm/1000000},

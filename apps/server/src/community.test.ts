@@ -113,6 +113,18 @@ describe.skipIf(!url)("community real PostgreSQL", () => {
     await db.pool.query("UPDATE akai_profiles SET suspended=true WHERE account_id=$1", [b.accountId]);
     await expect(social.globalChat(b.token)).rejects.toMatchObject({ code: "UNAUTHENTICATED" });
   });
+  it("announces only confirmed v2 last-hit records and leaves state unchanged", async () => {
+    const a=await user(),b=await user();
+    expect(await social.bossBroadcast(a.token)).toBeNull();
+    await db.pool.query("INSERT INTO akai_social_rewards(source,account_id,description,at) VALUES($1,$2,$3,$4)",['boss:2026-10-15:last-hit',b.accountId,'Legacy Coins',now]);
+    expect(await social.bossBroadcast(a.token)).toBeNull();
+    const before=(await db.pool.query('SELECT snapshot,state_version,presence_until FROM akai_accounts WHERE id=$1',[a.accountId])).rows[0];
+    await db.pool.query("INSERT INTO akai_social_rewards(source,account_id,description,at) VALUES($1,$2,$3,$4)",['boss:2026-10-15:v2:last-hit',b.accountId,'TEST FIXTURE: v2 reward read path',now]);
+    const broadcast=await social.bossBroadcast(a.token);
+    expect(broadcast).toMatchObject({accountId:b.accountId,jade:250});expect(broadcast!.text).toContain('250 jade');
+    expect((await db.pool.query('SELECT snapshot,state_version,presence_until FROM akai_accounts WHERE id=$1',[a.accountId])).rows[0]).toEqual(before);
+    now+=86400001;expect(await social.bossBroadcast(a.token)).toBeNull();
+  });
   async function guild(
     u: Awaited<ReturnType<typeof user>>,
     name = "Guild " + n,

@@ -1393,3 +1393,7 @@ progress {
 #battle-guild-form { display: flex; flex: none; gap: 6px; margin-top: 6px; }
 #battle-guild-input { width: 0; min-width: 0; flex: 1; font-size: 16px; }
 #battle-guild-form button { min-height: 44px; }
+
+#boss-broadcast { display:flex; align-items:center; gap:6px; flex:none; color:#ffe0a0; background:#33233c; padding:2px 5px; margin-bottom:4px; font:11px/1.3 system-ui,sans-serif; }
+#boss-broadcast span { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+#boss-broadcast button { flex:none; min-height:28px; min-width:28px; padding:0; }

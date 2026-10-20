@@ -32,6 +32,7 @@ export function createShell(root: HTMLElement): void {
     .join("")}</button></header>
   <main id="content" class="content" data-view="battle" tabindex="-1">
     <p id="offline-summary" class="notice" role="status" hidden></p><p id="tutorial" class="tutorial panel"></p><p id="action-status" role="status" aria-live="polite"></p><header class="page-heading"><div><p id="page-kicker" class="eyebrow">A TORRE</p><h1 id="page-title">Batalha</h1></div><span id="page-badge" class="badge">Andar 1</span></header>
+    <aside id="boss-broadcast" role="status" aria-live="polite" hidden><span></span><button type="button" aria-label="Fechar anúncio do boss">×</button></aside>
     <section id="visual-area" aria-label="Cenário da atividade selecionada">
       <div class="stage-frame"><ol id="floor-banner" class="floor-banner" aria-label="Andares da torre"></ol><div id="game" role="img" aria-label="Combate lateral automático"></div>
         <div id="asset-status" class="loading-message" role="status">Preparando o cenário…</div>
