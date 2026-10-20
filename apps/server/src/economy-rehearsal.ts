@@ -60,8 +60,12 @@ export class EconomyRehearsalService {
  async inspect(runId:string){z.uuid().parse(runId);const r=(await this.db.pool.query('SELECT state,revision,closed,source_hash FROM akai_economy_rehearsals WHERE id=$1',[runId])).rows[0];if(!r)throw Error('RUN_NOT_FOUND');return {...r,state:EconomyRunV6Schema.parse(r.state)};}
  async rollbackArchive(runId:string){z.uuid().parse(runId);const r=(await this.db.pool.query('SELECT archive FROM akai_economy_rehearsals WHERE id=$1',[runId])).rows[0];if(!r)throw Error('RUN_NOT_FOUND');return rehearseEconomyRollback(r.archive as EconomyMigrationPlan);}
  async reconcile(runId:string){
-  const row=await this.inspect(runId),initial=(await this.db.pool.query('SELECT initial_state FROM akai_economy_rehearsals WHERE id=$1',[runId])).rows[0].initial_state as EconomyRunV6;
-  const sums=(await this.db.pool.query('SELECT resource,SUM(delta)::text amount FROM akai_economy_rehearsal_ledger WHERE run_id=$1 GROUP BY resource',[runId])).rows;
-  const diff:string[]=[];for(const k of ['coin','coal','iron','gold','jade','protection','masteryMs'] as const){const v=(s:EconomyRunV6)=>BigInt(k==='masteryMs'?s.economy.masteryMs:k==='protection'?s.economy.protection:s.economy.balances[k]);if(v(row.state)!==v(initial)+BigInt(sums.find(r=>r.resource===k)?.amount??'0'))diff.push(k);}return diff;
+  z.uuid().parse(runId);return this.db.transaction(async c=>{
+   await c.query('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY');
+   const row=(await c.query('SELECT state,initial_state FROM akai_economy_rehearsals WHERE id=$1',[runId])).rows[0];if(!row)throw Error('RUN_NOT_FOUND');
+   const state=EconomyRunV6Schema.parse(row.state),initial=EconomyRunV6Schema.parse(row.initial_state);
+   const sums=(await c.query('SELECT resource,SUM(delta)::text amount FROM akai_economy_rehearsal_ledger WHERE run_id=$1 GROUP BY resource',[runId])).rows;
+   const diff:string[]=[];for(const k of ['coin','coal','iron','gold','jade','protection','masteryMs'] as const){const v=(s:EconomyRunV6)=>BigInt(k==='masteryMs'?s.economy.masteryMs:k==='protection'?s.economy.protection:s.economy.balances[k]);if(v(state)!==v(initial)+BigInt(sums.find(r=>r.resource===k)?.amount??'0'))diff.push(k);}return diff;
+  });
  }
 }

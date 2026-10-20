@@ -3,7 +3,7 @@ import {resolve,dirname} from 'node:path';
 import {randomUUID} from 'node:crypto';
 import {Database} from './database.js';
 import {EconomyRehearsalService} from './economy-rehearsal.js';
-const args=process.argv.slice(2),operation=args[0],arg=(name:string)=>args[args.indexOf(name)+1];
+const args=process.argv.slice(2),operation=args[0],arg=(name:string)=>{const i=args.indexOf(name);if(i<0||!args[i+1]||args[i+1]!.startsWith('--'))throw Error('REQUIRED '+name);return args[i+1]!;};
 if(!process.env.DATABASE_URL)throw Error('DATABASE_URL required; this tool only writes isolated rehearsals, never live balances');
 const db=new Database(process.env.DATABASE_URL),service=new EconomyRehearsalService(db);
 try{

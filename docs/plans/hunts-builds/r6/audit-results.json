@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "fixture": "One deterministic starter policy, seed4213, at most2h simulated. No Ruby, no refino, no equipping loot, only Coin-only force/vitality training levels1..9. Not a campaign cohort or90–120day certification.",
+  "momentsSeconds": {
+    "main": 190,
+    "coal": 1540,
+    "iron": 2430
+  },
+  "final": {
+    "level": 3,
+    "highest": {
+      "main": 5,
+      "coal": 1,
+      "iron": 1,
+      "gold": 0
+    },
+    "attributes": {
+      "force": 8,
+      "vitality": 4,
+      "agility": 0,
+      "physical": 0,
+      "magic": 0,
+      "luck": 0,
+      "dexterity": 0
+    },
+    "balances": {
+      "coin": "286000",
+      "coal": "48000",
+      "iron": "8000",
+      "gold": "0",
+      "jade": "0"
+    },
+    "masteryMs": 1071999,
+    "simulatedMs": 2430000
+  }
+}
