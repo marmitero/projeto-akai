@@ -1,5 +1,6 @@
 import { createBestiaryUI } from "./ui/bestiary.js";
 import { enemyTemplate } from "@akai/shared";
+import { createBossBroadcast } from "./ui/boss-broadcast.js";
 import { createBattleGlobal } from "./ui/battle-global.js";
 import { createBattleJournal } from "./ui/battle-journal.js";
 import "./style.css";
@@ -107,6 +108,7 @@ async function boot(): Promise<void> {
   let onlineName: string | undefined;
   let submittedName: string | undefined;
   const battleGlobal = createBattleGlobal(root!, online);
+  const bossBroadcast = createBossBroadcast(root!, online);
   const communityUI = createCommunityUI(
     root!,
     online,
@@ -158,6 +160,7 @@ async function boot(): Promise<void> {
       next !== "battle";
     communityUI.show(next === "community");
     battleGlobal.show(next === "battle");
+    bossBroadcast.show(next === "battle");
     marketUI.show(next === "market");
     premiumUI.show(next === "shop");
     bestiaryUI.show(next === "bestiary");
@@ -659,6 +662,7 @@ async function boot(): Promise<void> {
     rpgUI.destroy();
     communityUI.destroy();
     battleGlobal.destroy();
+    bossBroadcast.destroy();
     marketUI.destroy();
     premiumUI.destroy();
     repository?.close();

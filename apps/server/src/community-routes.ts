@@ -10,6 +10,7 @@ export async function communityRoutes(
   app.get("/api/v1/community/identity", async (req) =>
     service.identity(sessionToken(req)),
   );
+  app.get("/api/v1/community/broadcast", async (req) => service.bossBroadcast(sessionToken(req)));
   app.get("/api/v1/community/chat", async (req) => service.globalChat(sessionToken(req)));
   app.get("/api/v1/community", async (req) => service.read(sessionToken(req)));
   app.post("/api/v1/community/commands", async (req, reply) => {

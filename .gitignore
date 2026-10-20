@@ -11,3 +11,6 @@ test-results/
 
 # Portable Node downloaded by jogar.bat; never commit runtime binaries.
 .akai-runtime/
+
+# Private economy migration rehearsals must never be committed.
+/backups/
