@@ -1407,3 +1407,12 @@ progress {
 .combat-lab-panel button { min-height:36px; }
 #lab-hits { max-height:180px; overflow:auto; padding-left:22px; }
 #lab-status,#lab-stats { overflow-wrap:anywhere; }
+
+/* R4 preview only: tint is restricted to scenery, never applied to HUD text. */
+#lab-hunt-arena {position:relative;isolation:isolate;overflow:hidden;height:92px;border-radius:8px;background:#253442;margin:8px 0;}
+#lab-hunt-arena[hidden] {display:none;}
+#lab-hunt-arena span {position:absolute;inset:0;background-image:url('../../../sprites/Backgrounds/Normal BG/GandalfHardcore Background layers_layer 1.png');background-repeat:repeat-x;background-size:auto 100%;animation:hunt-preview-travel 12s linear infinite;}
+#lab-hunt-arena::after {content:'';position:absolute;inset:0;background:var(--hunt-tint);opacity:.5;}
+#lab-hunt-arena strong {position:relative;z-index:1;display:block;padding:12px;text-shadow:0 1px 3px #000;color:#fff;}
+@keyframes hunt-preview-travel {to {background-position:-600px 0;}}
+@media (prefers-reduced-motion:reduce) {#lab-hunt-arena span {animation:none;}}
