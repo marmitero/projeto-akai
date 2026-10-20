@@ -1,5 +1,6 @@
 import { createBestiaryUI } from "./ui/bestiary.js";
 import { enemyTemplate } from "@akai/shared";
+import { createEconomyPreview } from "./ui/economy-preview.js";
 import { createRefinementLab } from "./ui/refinement-lab.js";
 import { createCombatLab } from "./ui/combat-lab.js";
 import { createBossBroadcast } from "./ui/boss-broadcast.js";
@@ -111,6 +112,7 @@ async function boot(): Promise<void> {
   let submittedName: string | undefined;
   const combatLab = createCombatLab(root!);
   const refinementLab = createRefinementLab(root!);
+  const economyPreview = createEconomyPreview(root!);
   const battleGlobal = createBattleGlobal(root!, online);
   const bossBroadcast = createBossBroadcast(root!, online);
   const communityUI = createCommunityUI(
@@ -669,6 +671,7 @@ async function boot(): Promise<void> {
     bossBroadcast.destroy();
     combatLab.destroy();
     refinementLab.destroy();
+    economyPreview.destroy();
     marketUI.destroy();
     premiumUI.destroy();
     repository?.close();
