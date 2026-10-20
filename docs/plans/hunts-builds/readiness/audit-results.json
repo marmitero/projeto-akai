@@ -1,0 +1,80 @@
+{
+  "version": "economy-readiness-1",
+  "activationReady": false,
+  "manualIntegrationReviewRequired": true,
+  "market": {
+    "gate": "blocked",
+    "observedLegacyCurrencies": [
+      "coin",
+      "iron",
+      "coal",
+      "gold",
+      "jade"
+    ],
+    "observedLegacyResources": [
+      "iron",
+      "coal",
+      "gold",
+      "jade"
+    ],
+    "requiredCurrencies": [
+      "coin"
+    ],
+    "requiredBound": [
+      "jade",
+      "ruby",
+      "protection",
+      "legacyCredit"
+    ],
+    "allowsJadeListing": true,
+    "acceptsV2Identity": false,
+    "requiredListingFeeCoin": 100000,
+    "interpretation": "Legacy market tests do not certify v2 accounts/IDs, bound resources or v2 escrow. No v2 trading endpoint is connected."
+  },
+  "offline": {
+    "gate": "blocked",
+    "evidenceKind": "source inspection plus PostgreSQL rehearsal test",
+    "rehearsalSkipsGapsOver30s": true,
+    "required": {
+      "perDayMs": 28800000,
+      "perAbsenceMs": 28800000,
+      "timezone": "America/Sao_Paulo",
+      "safeClearedNonBossOnly": true,
+      "frozenBuild": true
+    },
+    "missing": [
+      "daily-and-absence-budget-writer",
+      "midnight-segmentation",
+      "safe-floor-selection",
+      "retry/reconnect-and-two-device-parity",
+      "v2-offline-online-reward-parity"
+    ],
+    "interpretation": "R6 intentionally skips long absences; legacy mine production offline is a different economy. Daytime active simulation cannot certify offline."
+  },
+  "bosses": {
+    "gate": "blocked",
+    "tower30sDeadlineRegression": "passed",
+    "towerBridgeBalance": "not-certified",
+    "dailyJadeArithmetic": "passed",
+    "winnerMaximum453": true,
+    "sourceInspection": {
+      "legacyDailyStillGrantsCoins": true,
+      "legacyDailyInvokesV2Planner": false
+    },
+    "missing": [
+      "daily-v2-atomic-jade-ledger/outbox",
+      "all-day-contribution-edition-and-eligibility",
+      "post-kill-contribution-without-second-bonus",
+      "coupled-high-end/market-balance"
+    ],
+    "highRefinementLocked": true,
+    "interpretation": "Correct planner arithmetic/broadcast read path is not proof of an authoritative daily Jade award writer or balanced bosses."
+  },
+  "next": [
+    "Implement and validate R7 offline/stat consumers",
+    "Integrate and validate v2 Coin-only market/escrow/legacy transition",
+    "Implement and validate R8 boss daily Jade and weekly protection event",
+    "Re-run coupled economy cohorts and free-player playtest before cutover"
+  ],
+  "scope": "Findings audit, not activation approval. Local tests may skip PostgreSQL; CI report supplies the SQL evidence."
+}

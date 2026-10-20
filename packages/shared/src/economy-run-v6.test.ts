@@ -1,5 +1,6 @@
 import {describe,it,expect} from 'vitest';
 import {initialRunV6,advanceRunV6,applyEconomyActionV6,type EconomyRunV6} from './economy-run-v6.js';
+import {advanceCombatV3} from './combat-v3.js';
 import {ECONOMY_XP_V2,masteryLevel} from './economy-v2.js';
 import {presetBuildV3} from './build-presets-v3.js';
 const id='00000000-0000-4000-8000-000000000001';
@@ -19,6 +20,20 @@ describe('R6 integrated economy',()=>{
   const s=strong(9);s.autoAdvance=true;const r=advanceRunV6(s,30000,10000).state;expect(r.log.some(l=>l.text.includes('main 10 '))).toBe(false);
   expect(()=>applyEconomyActionV6(s,{type:'select',activity:'main',floor:10})).toThrow('NOT_REPEATABLE');
   const b=strong(10);b.economy.highest.main=9;const won=advanceRunV6(b,10000,10000).state;expect(won.economy.highest.main).toBe(10);expect(won.economy.floor).not.toBe(10);
+ });
+ it('preserves the legacy exclusive 30s tower boss deadline without granting failed clear loot/XP',()=>{
+  const s=initialRunV6(id);s.economy.masteryMs=ECONOMY_XP_V2[99]!;s.economy.attributes.vitality=594;s.economy.floor=100;s.economy.highest.main=99;
+  const before=s.economy.masteryMs,atLimit=advanceRunV6(s,30000).state;expect(atLimit.paused).toBe(true);expect(atLimit.economy.highest.main).toBe(99);expect(atLimit.killSequence).toBe(0);expect(atLimit.economy.masteryMs).toBe(before);expect(atLimit.economy.balances.coin).toBe('0');
+  expect(atLimit.log.at(-1)).toMatchObject({at:30000,text:'Tempo esgotado main 100'});
+  const after=advanceRunV6(atLimit,31000).state;expect(after.economy.masteryMs).toBe(before);expect(after.killSequence).toBe(0);
+ });
+ it('repairs pre-fix active boss saves without resetting their timeout, rewinding time or minting rewards',()=>{
+  const s=initialRunV6(id);s.economy.masteryMs=ECONOMY_XP_V2[99]!;s.economy.attributes.vitality=594;s.economy.floor=100;s.economy.highest.main=99;
+  const old=advanceRunV6(s,20000).state;old.encounter!.combat.deadlineMs=null;
+  const resumed=advanceRunV6(JSON.parse(JSON.stringify(old)),25000).state;expect(resumed.encounter!.combat.deadlineMs).toBe(30000);
+  const due=advanceRunV6(resumed,30000).state;expect(due.paused).toBe(true);expect(due.economy.highest.main).toBe(99);
+  const overdue=structuredClone(old);overdue.encounter!.combat=advanceCombatV3(overdue.encounter!.combat,31000).state;overdue.encounter!.combatMs=31000;overdue.economy.economicThroughMs=31000;
+  const expired=advanceRunV6(overdue,31000).state;expect(expired.paused).toBe(true);expect(expired.encounter).toBeNull();expect(expired.economy.economicThroughMs).toBe(31000);expect(expired.economy.balances).toEqual(overdue.economy.balances);expect(expired.economy.masteryMs).toBe(overdue.economy.masteryMs);expect(expired.killSequence).toBe(0);expect(old.encounter!.combat.deadlineMs).toBeNull();
  });
  it('sends full-bag loot to the vault with unique identities and no auto salvage',()=>{
   const s=strong(101);while(s.economy.inventory.length<120)s.economy.inventory.push({...s.economy.inventory[0]!,id:`filler-${s.economy.inventory.length}`});
