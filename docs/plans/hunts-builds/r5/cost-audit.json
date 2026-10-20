@@ -1,0 +1,169 @@
+{
+  "passed": true,
+  "recipeQuotes": 8000,
+  "resourcePrices": 40000,
+  "reference": "Independent Python Fraction rational evaluation; prior Python float compared separately",
+  "floatRoundingDifferences": 79,
+  "examples": [
+    {
+      "rarity": "common",
+      "level": 4,
+      "target": 1,
+      "resource": "coin",
+      "exact": 112,
+      "floatReference": 113
+    },
+    {
+      "rarity": "common",
+      "level": 4,
+      "target": 7,
+      "resource": "iron",
+      "exact": 14,
+      "floatReference": 15
+    },
+    {
+      "rarity": "common",
+      "level": 18,
+      "target": 1,
+      "resource": "coin",
+      "exact": 168,
+      "floatReference": 169
+    },
+    {
+      "rarity": "common",
+      "level": 31,
+      "target": 1,
+      "resource": "coin",
+      "exact": 220,
+      "floatReference": 221
+    },
+    {
+      "rarity": "common",
+      "level": 32,
+      "target": 1,
+      "resource": "coin",
+      "exact": 224,
+      "floatReference": 225
+    },
+    {
+      "rarity": "common",
+      "level": 32,
+      "target": 3,
+      "resource": "coal",
+      "exact": 7,
+      "floatReference": 8
+    },
+    {
+      "rarity": "common",
+      "level": 32,
+      "target": 7,
+      "resource": "iron",
+      "exact": 28,
+      "floatReference": 29
+    },
+    {
+      "rarity": "common",
+      "level": 32,
+      "target": 13,
+      "resource": "gold",
+      "exact": 28,
+      "floatReference": 32
+    },
+    {
+      "rarity": "common",
+      "level": 33,
+      "target": 1,
+      "resource": "coin",
+      "exact": 228,
+      "floatReference": 229
+    },
+    {
+      "rarity": "common",
+      "level": 34,
+      "target": 1,
+      "resource": "coin",
+      "exact": 232,
+      "floatReference": 233
+    },
+    {
+      "rarity": "common",
+      "level": 34,
+      "target": 7,
+      "resource": "iron",
+      "exact": 29,
+      "floatReference": 30
+    },
+    {
+      "rarity": "common",
+      "level": 35,
+      "target": 1,
+      "resource": "coin",
+      "exact": 236,
+      "floatReference": 237
+    },
+    {
+      "rarity": "common",
+      "level": 64,
+      "target": 8,
+      "resource": "iron",
+      "exact": 55,
+      "floatReference": 56
+    },
+    {
+      "rarity": "common",
+      "level": 68,
+      "target": 7,
+      "resource": "iron",
+      "exact": 46,
+      "floatReference": 47
+    },
+    {
+      "rarity": "common",
+      "level": 82,
+      "target": 7,
+      "resource": "iron",
+      "exact": 53,
+      "floatReference": 54
+    },
+    {
+      "rarity": "common",
+      "level": 86,
+      "target": 1,
+      "resource": "coin",
+      "exact": 440,
+      "floatReference": 441
+    },
+    {
+      "rarity": "common",
+      "level": 88,
+      "target": 1,
+      "resource": "coin",
+      "exact": 448,
+      "floatReference": 449
+    },
+    {
+      "rarity": "common",
+      "level": 88,
+      "target": 3,
+      "resource": "coal",
+      "exact": 14,
+      "floatReference": 15
+    },
+    {
+      "rarity": "common",
+      "level": 88,
+      "target": 7,
+      "resource": "iron",
+      "exact": 56,
+      "floatReference": 57
+    },
+    {
+      "rarity": "common",
+      "level": 88,
+      "target": 13,
+      "resource": "gold",
+      "exact": 56,
+      "floatReference": 60
+    }
+  ]
+}
