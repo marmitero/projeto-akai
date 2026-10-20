@@ -29,3 +29,9 @@ Testes compartilhados: Brasília/midnight, relógio regressivo, cota por ausênc
 Verificação local inicial: `npm run check` aprovado,136 testes passaram/108 dependentes de PostgreSQL pulados; teste adicional de nível/drop executado depois. A CI PostgreSQL16 e regressões completas devem passar antes da main. Prazo90–120dias, raridade+20 e dificuldade dos bosses avançados não foram revalidados por esta etapa.
 
 Próximo: mercado v2/reconciliação → R8 bosses/Jade/proteção semanal → migração dos consumidores e coortes integradas/playtest → revisão de corte. A entrega R7 não é ativação da economia nova.
+
+## Fechamento validado
+
+Runtime `3689f555412bc9258a7a61e4e787f66530cab525`, árvore `33088b18b7c768d622c5e52205011679f2db9ac9`. [CI completa](https://github.com/marmitero/projeto-akai/actions/runs/39484588493) e [Windows](https://github.com/marmitero/projeto-akai/actions/runs/39484588651) aprovadas:245 testes/27 arquivos com PostgreSQL16 sem skips, incluindo11 transacionais do ensaio e8 compartilhados R7; tipos/build/assets, auditoriasR2–R7/readiness, laboratórios/prévia dev/preview, chat/mobile, bestiário, online/comunidade/mercado e todas regressões. O teste de navegador novo verificou ausência curta com material/cota, sem progresso/Coin indevidos, save/reload e carteira legada preservada.
+
+Fechamento posterior apenas documental: código, scripts, testes, tabelas e JSON de auditoria idênticos ao runtime validado. Publicação PR15 pela autorização permanente. O offline isolado passa seu gate técnico; ativação global continua bloqueada por mercado v2, migração de consumidores, bosses/Jade, capacidade e calibração integrada. Nenhuma conta real alterada; não declarar a economia ativa ou campanha90–120dias certificada.

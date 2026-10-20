@@ -1,5 +1,7 @@
 # Roadmap proposto — reforma de progressão
 
+Estado corrente em20/10/2026: esta tabela é o planejamento originalR0. R2–R6 foram entregues como contratos/laboratórios/ensaio pré-corte; R7 agora implementa offline no runtime/ensaio e simulação explícita na prévia. Consulte [R7](r7/IMPLEMENTATION.md) e `AI_STATE.md` para evidências. Economia real ainda não ativada. Próximos: mercado v2/reconciliação, R8 bosses/Jade/proteção semanal, migração dos consumidores legados e coortes/playtest antes de revisar o corte.
+
 18/10/2026. **Só R0 documental foi executada. R1–R9 são futuras; nenhuma está autorizada para começar por esta publicação.** A regra de publicar cada etapa evita perda de progresso, não transforma planejamento em autorização para implementar.
 
 [Proposta completa](PROPOSAL.md) · [Referências](REFERENCES.md) · [Modelo](CURVE_MODEL.md).
