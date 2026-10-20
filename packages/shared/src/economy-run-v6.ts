@@ -73,7 +73,7 @@ function loot(s:EconomyRunV6,enemyId:string,at:number,entropy?:EconomyEntropyV6)
 function start(s:EconomyRunV6,at:number,wave=1,hp?:number,entropy?:EconomyEntropyV6){
  const previous=s.encounter,activity=s.economy.activity,floor=s.economy.floor;
  const id=wave===1?++s.sequence:previous!.id,reference=activity==='main'?floor:huntEnemyV4(activity,floor).reference;
- const combat=startCombatV3(wave===1?heroStatsV3(s.economy):previous!.combat.actors[0]!.stats,enemies(activity,floor,wave),{seed:1+draw(s,`fight/${id}/${wave}`,4294967295,entropy),floor:reference,at,...(activity!=='main'?{deadlineMs:at+30000}:{})});
+ const combat=startCombatV3(wave===1?heroStatsV3(s.economy):previous!.combat.actors[0]!.stats,enemies(activity,floor,wave),{seed:1+draw(s,`fight/${id}/${wave}`,4294967295,entropy),floor:reference,at,...(activity!=='main'||floor%10===0?{deadlineMs:at+30000}:{})});
  if(hp!==undefined)combat.actors[0]!.hp=Math.min(hp,combat.actors[0]!.stats.maxHp);
  s.encounter={id,activity,floor,wave,combatMs:wave===1?0:previous!.combatMs,reference,combat,rewarded:[]};
 }

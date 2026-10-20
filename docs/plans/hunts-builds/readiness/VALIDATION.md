@@ -1,0 +1,38 @@
+# Validação de mercado, offline e bosses
+
+20/10/2026. Base analisada: R6 publicada `a274b04b06b480aa8fd14d797095b8a9ae8887a9`. **Corte da nova economia não aprovado.** Validar implementações existentes não substitui funcionalidades ainda ausentes. Nesta etapa há uma correção pontual, sem ativação, migração real, rebalanceamento de bosses ou loja.
+
+[Resultados reproduzíveis](audit-results.json): `node scripts/economy-v2/audit-readiness.mjs` após build compartilhado. O script verifica contratos em runtime, reproduz o prazo do boss e registra inspeções de código explicitamente. Código de saída0 significa auditoria executada sem erro, **não** liberação dos gates; consultar `activationReady:false`. Não é ferramenta capaz de aprovar automaticamente uma integração futura desconhecida.
+
+| Área | O que foi validado | Resultado para o corte |
+|---|---|---|
+| Mercado | Parser real aceita Jade como mercadoria e cinco moedas; recusa ID de item v2. Suíte PostgreSQL cobre integridade do mercado legado. | **Bloqueado:** legado não é adaptador v2 Coin-only e não preserva ainda as regras de vínculo/instância/escrow do novo domínio. |
+| Offline | Ensaio R6 pula ausências >30s; teste PostgreSQL confirma ausência de ganho v2 nessa condição. Offline legado produz minas, não combate v2. | **Bloqueado:** faltam orçamento diário e por ausência, virada de Brasília, andar seguro e paridade por reconexão/aparelhos. |
+| Bosses da torre | Reproduzido e corrigido prazo de30s omitido no adaptador R6; primeiro clear e falha são testados. | **Parcial:** prazo corrigido, mas isso não certifica dificuldade/aquisição de toda a campanha. |
+| Boss diário/Jade | Plano matemático cumpre3 de base, ranking200→20, último golpe250, máximo453; vínculo, elegibilidade e empate têm testes. Runtime diário legado ainda grava Coins. | **Bloqueado:** falta fonte autoritativa de Jade com edição diária completa e grants transacionais únicos. |
+
+## Mercado
+
+`MARKET_CURRENCIES` ativo: Coin/ferro/carvão/ouro/Jade. `MARKET_RESOURCES` inclui Jade. `MarketActionSchema` permite anunciar Jade e exige itens com formato legado `item-N`, recusando a identidade de uma peça v2 real. Isso é compatibilidade do jogo antigo, não uma vulnerabilidade nova introduzida nesta etapa. Não alterar o mercado legado silenciosamente enquanto contas reais continuam nessa economia.
+
+Para liberar o domínio novo: adaptar moeda únicaCoin e materiais carvão/ferro/ouro, bloquear Jade/pergaminhos/Ruby/crédito legado, conservar identidade e refino, impedir mutação em escrow e validar compra/oferta/cancelamento/resgate concorrentes no mesmo ledger da economia v2. Antes do corte, resolver anúncios/ofertas antigos com retorno de bens/taxas elegíveis uma única vez e reconciliar com os arquivos de migração. Reavaliar liquidez/custo100.000Coin/anúncio com renda nova; não inferir acessibilidade pelo teste de parser ou pela renda do cenário sintético.
+
+## Offline
+
+O método privado `EconomyRehearsalService.command` ignora a lacuna maior que30s e abandona encontro parcial. É comportamento intencional pré-R7. A suíte antiga testa produção de minas limitada por ausência e ausência sem combate, que não atende ao contrato de farm v2.
+
+R7 precisa implementar até8h por dia **e** por ausência, dia de Brasília, gasto de cada segundo no dia correto, mesma cota entre abas/aparelhos/reconexões, build congelada, andar comum vencido e seguro, sem subir andares/repetir boss/eventos. Exigir cenários de virada de dia, retorno repetido, relógio regressivo, saturação de cota, falta de andar seguro e agenda com backlog sem pular eventos. Campos `offline.day/usedMs` e contratoJSON sozinhos não demonstram execução. Não simular um avanço ativo de8h e apresentar isso como teste offline.
+
+## Bosses: defeito confirmado e corrigido
+
+Reprodução anterior: run v2 no andar100, nível100, Vitalidade594 (orçamento legal), espada inicial, HP suficiente e dano insuficiente para vencer rapidamente. Após31s o guardião ainda estava `fighting`, sem deadline. O jogo legado usa `LOOP.bossMs=30000` e prazo exclusivo. R6 aplicava deadline apenas às hunts, omitindo o boss da torre.
+
+Correção mínima: o início de encontro agora aplica `at+30000` também a andares múltiplos de10 da torre. HP, ATQ, intervalos, loot e chances não mudaram. Teste aos30000ms confirma pausa por timeout, nenhum abate, nenhum Coin/XP ou avanço de andar; reler aos31000ms não concede prêmio. Não confundir essa correção com rebalanceamento da etapaR8.
+
+O boss global legado usa janela22h–22h30, pipeline antigo e contribuição/último golpe emCoins. `planDailyBossJade` calcula a distribuição nova, mas não é escritor transacional de saldo. O broadcast R2 é consumidor de registros v2 confirmados; fixture de leitura não prova fonte real. Faltam janela diária de contribuição, qualificação por600s, edição de contribuição pós-morte sem segundo ranking/último hit, dano efetivo com acerto/crit/stats novos, teto/grant único por conta, ledger/outbox/broadcast atômicos e testes de reinício/concorrência. +16–20 continua bloqueado; não introduzir Jade provisória para fazer validação passar.
+
+## Evidências e limites
+
+Local: typecheck aprovado; suíte dirigida executou19 testes e pulou83 testes dependentes de PostgreSQL. Auditoria funcional detecta as incompatibilidades acima e valida prazo/cálculo Jade. A CI deve executar a suíte com PostgreSQL16 sem skips e as regressões do jogo antes de publicar a correção. Não há migração de conta ou modificação de saldo real. Salvos relatórios/dados de fixtures sem arquivos privados de contas.
+
+Ordem recomendada: R7 offline/consumidores → mercado v2 e reconciliação da migração → R8 bosses/Jade/evento semanal de proteção → coortes integradas90–120dias e playtest gratuito → revisão final do corte. Monetização continua adiada. A correção do prazo pode ser publicada com os demais gates bloqueados; não habilita a economia nova.

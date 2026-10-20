@@ -20,6 +20,12 @@ describe('R6 integrated economy',()=>{
   expect(()=>applyEconomyActionV6(s,{type:'select',activity:'main',floor:10})).toThrow('NOT_REPEATABLE');
   const b=strong(10);b.economy.highest.main=9;const won=advanceRunV6(b,10000,10000).state;expect(won.economy.highest.main).toBe(10);expect(won.economy.floor).not.toBe(10);
  });
+ it('preserves the legacy exclusive 30s tower boss deadline without granting failed clear loot/XP',()=>{
+  const s=initialRunV6(id);s.economy.masteryMs=ECONOMY_XP_V2[99]!;s.economy.attributes.vitality=594;s.economy.floor=100;s.economy.highest.main=99;
+  const before=s.economy.masteryMs,atLimit=advanceRunV6(s,30000).state;expect(atLimit.paused).toBe(true);expect(atLimit.economy.highest.main).toBe(99);expect(atLimit.killSequence).toBe(0);expect(atLimit.economy.masteryMs).toBe(before);expect(atLimit.economy.balances.coin).toBe('0');
+  expect(atLimit.log.at(-1)).toMatchObject({at:30000,text:'Tempo esgotado main 100'});
+  const after=advanceRunV6(atLimit,31000).state;expect(after.economy.masteryMs).toBe(before);expect(after.killSequence).toBe(0);
+ });
  it('sends full-bag loot to the vault with unique identities and no auto salvage',()=>{
   const s=strong(101);while(s.economy.inventory.length<120)s.economy.inventory.push({...s.economy.inventory[0]!,id:`filler-${s.economy.inventory.length}`});
   const r=advanceRunV6(s,15000,10000,()=>0).state;expect(r.economy.vault.length).toBeGreaterThan(0);expect(r.economy.inventory).toHaveLength(120);
