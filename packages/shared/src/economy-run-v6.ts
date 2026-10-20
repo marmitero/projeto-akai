@@ -81,6 +81,12 @@ function start(s:EconomyRunV6,at:number,wave=1,hp?:number,entropy?:EconomyEntrop
 export function advanceRunV6(input:EconomyRunV6,toMs:number,maxEvents=1000,entropy?:EconomyEntropyV6){
  const s=EconomyRunV6Schema.parse(input);time.parse(toMs);z.number().int().min(1).max(100000).parse(maxEvents);
  if(toMs<s.economy.economicThroughMs)throw Error('ECONOMY_CLOCK_REWIND');let processed=0;
+ // Recover active snapshots saved by R6 before the tower-boss deadline fix.
+ const saved=s.encounter;
+ if(saved&&saved.activity==='main'&&saved.floor%10===0&&saved.combat.status==='fighting'&&saved.combat.deadlineMs===null){
+  if(saved.combatMs>=30000){s.paused=true;s.encounter=null;s.nextAt=s.economy.economicThroughMs+3000;log(s,s.economy.economicThroughMs,`Tempo esgotado main ${saved.floor} · encontro antigo`);}
+  else saved.combat.deadlineMs=saved.combat.clockMs-saved.combatMs+30000;
+ }
  while(s.economy.economicThroughMs<toMs){
   if(s.paused){s.economy.economicThroughMs=toMs;break;}
   if(processed>=maxEvents){s.economy.revision++;return {state:s,backlog:true,processed};}
