@@ -32,9 +32,9 @@
     "interpretation": "Legacy market tests do not certify v2 accounts/IDs, bound resources or v2 escrow. No v2 trading endpoint is connected."
   },
   "offline": {
-    "gate": "blocked",
-    "evidenceKind": "source inspection plus PostgreSQL rehearsal test",
-    "rehearsalSkipsGapsOver30s": true,
+    "gate": "validated-isolated-r7-runtime",
+    "evidenceKind": "functional R7 shared tests, PostgreSQL rehearsal concurrency/rollback and full-absence benchmark",
+    "rehearsalUsesR7": true,
     "required": {
       "perDayMs": 28800000,
       "perAbsenceMs": 28800000,
@@ -43,13 +43,9 @@
       "frozenBuild": true
     },
     "missing": [
-      "daily-and-absence-budget-writer",
-      "midnight-segmentation",
-      "safe-floor-selection",
-      "retry/reconnect-and-two-device-parity",
-      "v2-offline-online-reward-parity"
+      "production-account-cutover-and-v2-social-consumers"
     ],
-    "interpretation": "R6 intentionally skips long absences; legacy mine production offline is a different economy. Daytime active simulation cannot certify offline."
+    "interpretation": "R7 implements bounded persisted offline in isolated rehearsal and explicit preview. Legacy live accounts still use their old economy. Does not certify full cutover or v2 arena/event consumers."
   },
   "bosses": {
     "gate": "blocked",
@@ -71,7 +67,7 @@
     "interpretation": "Correct planner arithmetic/broadcast read path is not proof of an authoritative daily Jade award writer or balanced bosses."
   },
   "next": [
-    "Implement and validate R7 offline/stat consumers",
+    "Integrate authoritative v2 stat consumers at cutover; R7 offline isolated runtime validated",
     "Integrate and validate v2 Coin-only market/escrow/legacy transition",
     "Implement and validate R8 boss daily Jade and weekly protection event",
     "Re-run coupled economy cohorts and free-player playtest before cutover"

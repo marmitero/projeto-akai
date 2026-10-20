@@ -1,0 +1,20 @@
+{
+  "version": "r7-offline-audit-1",
+  "passed": true,
+  "fixture": "synthetic level1000 Swift legendary+20 (pure scenario, not acquisition or refinement grant), coal900, maximum-AGI legal point budget, 8h, frozen build, JSON restart each slice",
+  "intervalMs": 200,
+  "attacksPerSecond": 5,
+  "limitMs": 28800000,
+  "budgetMs": 28800000,
+  "events": 78189,
+  "slices": 157,
+  "maxEventsPerRead": 500,
+  "p95SliceMs": 29.301654999999982,
+  "maxSliceMs": 55.5957870000002,
+  "totalMs": 3882.2484180000006,
+  "kills": 4718,
+  "materialMilli": "552006000",
+  "logRows": 60,
+  "maxHitRows": 64,
+  "limits": "Work is bounded per command, not mathematically extrapolated. Full absence is drained by resumable commands. Timing is machine-dependent, not a production SLA. Hunt rewards do not create equipment; tower vault size remains a separate capacity concern. Not a campaign90–120day validation."
+}

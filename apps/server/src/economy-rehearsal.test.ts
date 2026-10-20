@@ -3,7 +3,7 @@ import {randomUUID} from 'node:crypto';
 import {Database} from './database.js';
 import {OnlineService} from './online.js';
 import {EconomyRehearsalService} from './economy-rehearsal.js';
-import {ECONOMY_XP_V2} from '@akai/shared';
+import {ECONOMY_XP_V2,presetBuildV3,OFFLINE_LIMIT_V7} from '@akai/shared';
 const url=process.env.TEST_DATABASE_URL;
 describe.skipIf(!url)('R6 PostgreSQL rehearsal transactions',()=>{
  const db=new Database(url!);let now=1000000;const legacy=new OnlineService(db,()=>now),service=new EconomyRehearsalService(db,()=>now);
@@ -32,8 +32,27 @@ describe.skipIf(!url)('R6 PostgreSQL rehearsal transactions',()=>{
   expect(await service.command(s.id,c)).toEqual(r);expect((await service.inspect(s.id)).state).toEqual(after.state);expect(await service.reconcile(s.id)).toEqual([]);
   expect((await db.pool.query('SELECT snapshot FROM akai_accounts WHERE id=$1',[s.u.accountId])).rows[0].snapshot).toEqual(s.source);
  });
- it('skips inactive gaps instead of silently minting an unvalidated offline budget',async()=>{
+ it('skips absence without an eligible cleared floor rather than granting first-clear offline',async()=>{
   const s=await stage();now+=86400000;await service.command(s.id,command());const r=await service.inspect(s.id);expect(r.state.killSequence).toBe(0);expect(r.state.economy.masteryMs).toBe(0);expect(r.state.economy.economicThroughMs).toBe(now);
+ });
+ async function offlineFixture(){
+  const s=await stage(),run=(await service.inspect(s.id)).state;run.economy=presetBuildV3(1000,'swift','epic9');run.economy.accountId=s.u.accountId;run.economy.economicThroughMs=now;run.economy.activity='coal';run.economy.highest={main:1000,coal:1,iron:0,gold:0};
+  await db.transaction(async c=>{await c.query('UPDATE akai_economy_rehearsals SET state=$2 WHERE id=$1',[s.id,run]);await c.query("INSERT INTO akai_economy_rehearsal_ledger(run_id,sequence,resource,delta,balance) VALUES($1,0,'masteryMs',$2,$2)",[s.id,String(run.economy.masteryMs)]);});return s;
+ }
+ it('R7 serializes two returning devices, replays receipts and reconciles offline grants once',async()=>{
+  const s=await offlineFixture();now+=60000;const a=command(),b=command();const both=await Promise.all([service.command(s.id,a),service.command(s.id,b)]);expect(both.filter(r=>r.status==='applied')).toHaveLength(1);expect(both.filter(r=>r.code==='STALE_REVISION')).toHaveLength(1);
+  const done=await service.inspect(s.id);expect(done.state.killSequence).toBeGreaterThan(0);expect(done.state.economy.offline.usedMs).toBe(60000);expect(done.state.economy.balances.coin).toBe('0');expect(done.state.economy.balances.jade).toBe('0');expect(await service.command(s.id,a)).toEqual(both[0]);expect((await service.inspect(s.id)).state).toEqual(done.state);expect(await service.reconcile(s.id)).toEqual([]);
+  expect((await db.pool.query('SELECT snapshot FROM akai_accounts WHERE id=$1',[s.u.accountId])).rows[0].snapshot).toEqual(s.source);
+ });
+ it('R7 persists bounded backlog, blocks requested mutations and resumes after service restart',async()=>{
+  const s=await offlineFixture();now+=OFFLINE_LIMIT_V7;const first=await service.command(s.id,command(0,{type:'select',activity:'gold',floor:1}));expect(first.status).toBe('settling');const pending=await service.inspect(s.id);expect(pending.state.offlineJob).not.toBeNull();expect(pending.state.economy.activity).toBe('coal');expect(pending.state.economy.balances.gold).toBe('0');
+  const restarted=new EconomyRehearsalService(db,()=>now);const second=await restarted.command(s.id,command(Number(pending.revision)));expect(second.status).toBe('settling');const after=await restarted.inspect(s.id);expect(after.state.economy.offline.usedMs).toBeGreaterThan(pending.state.economy.offline.usedMs);expect(after.state.offlineJob!.stats).toEqual(pending.state.offlineJob!.stats);expect(await restarted.reconcile(s.id)).toEqual([]);
+ });
+ it('R7 rolls back offline quota and loot with a failed outbox transaction',async()=>{
+  const s=await offlineFixture(),before=await service.inspect(s.id);now+=60000;
+  await db.pool.query(`CREATE OR REPLACE FUNCTION akai_r7_test_fail() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF NEW.run_id='${s.id}'::uuid THEN RAISE EXCEPTION 'R7_TEST_OUTBOX_FAILURE'; END IF; RETURN NEW; END $$`);await db.pool.query('CREATE TRIGGER akai_r7_test_fail BEFORE INSERT ON akai_economy_rehearsal_events FOR EACH ROW EXECUTE FUNCTION akai_r7_test_fail()');
+  const cmd=command();try{await expect(service.command(s.id,cmd)).rejects.toThrow('R7_TEST_OUTBOX');}finally{await db.pool.query('DROP TRIGGER akai_r7_test_fail ON akai_economy_rehearsal_events');await db.pool.query('DROP FUNCTION akai_r7_test_fail()');}
+  expect(await service.inspect(s.id)).toEqual(before);expect((await service.command(s.id,cmd)).status).toBe('applied');expect(await service.reconcile(s.id)).toEqual([]);
  });
  it('atomically refines a synthetic funded fixture and never rerolls a replay',async()=>{
   const s=await stage(),row=await service.inspect(s.id),run=row.state;
