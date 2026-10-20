@@ -12,7 +12,8 @@
     "db:reconcile": "node --env-file-if-exists=../../.env --import tsx src/reconcile.ts",
     "community:admin": "node --env-file-if-exists=../../.env --import tsx src/community-admin.ts",
     "market:admin": "node --env-file-if-exists=../../.env --import tsx src/market-admin.ts",
-    "premium:admin": "node --env-file-if-exists=../../.env --import tsx src/premium-admin.ts"
+    "premium:admin": "node --env-file-if-exists=../../.env --import tsx src/premium-admin.ts",
+    "economy:rehearsal": "node --env-file-if-exists=../../.env --import tsx src/economy-rehearsal-cli.ts"
   },
   "dependencies": {
     "@akai/shared": "0.1.0",

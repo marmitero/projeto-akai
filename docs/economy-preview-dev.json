@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "fixture": "Isolated local preview, no real-account currency or migration",
+  "checks": [
+    "starter-fight",
+    "train-debit",
+    "protected-refine",
+    "hunt-material-only",
+    "save-reload",
+    "production-wallet-unchanged",
+    "five-open-close-cycles"
+  ],
+  "layouts": [
+    {
+      "width": 292,
+      "height": 640,
+      "clientWidth": 292,
+      "scrollWidth": 292
+    },
+    {
+      "width": 362,
+      "height": 844,
+      "clientWidth": 362,
+      "scrollWidth": 362
+    },
+    {
+      "width": 440,
+      "height": 390,
+      "clientWidth": 440,
+      "scrollWidth": 440
+    },
+    {
+      "width": 440,
+      "height": 800,
+      "clientWidth": 440,
+      "scrollWidth": 440
+    }
+  ],
+  "pageErrors": []
+}
