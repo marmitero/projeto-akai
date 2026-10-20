@@ -29,6 +29,20 @@ try{
  await page.locator('[data-lab-attribute=force]').fill('1000');await page.locator('[data-lab-attribute=vitality]').fill('1000');await page.locator('[data-lab-attribute=physical]').fill('1000');await page.locator('[data-lab-attribute=magic]').fill('1000');await page.locator('[data-lab-attribute=luck]').fill('1000');await page.locator('[data-lab-attribute=dexterity]').fill('1000');
  await page.locator('#combat-lab-form button[type=submit]').click();assert.ok((await page.locator('#lab-status').textContent()).includes('BUDGET'));
  await page.locator('#lab-preset').click();
+ const hunts=[];
+ for(const kind of ['coal','iron','gold']){
+  await page.locator('#combat-lab [name=activity]').selectOption(kind);
+  await page.locator('#combat-lab [name=floor]').fill('10');
+  await page.locator('#combat-lab-form button[type=submit]').click();
+  const status=await page.locator('#lab-status').textContent();
+  assert.ok(status.includes('Prévia:'));assert.ok(status.includes('Sem Coin/equipamento/Jade'));
+  assert.ok(await page.locator('#lab-hunt-arena').isVisible());assert.ok(await page.locator('#combat-lab [name=enemy]').isDisabled());
+  const url=await page.locator('#lab-hunt-arena span').evaluate(e=>getComputedStyle(e).backgroundImage.match(/url\(["']?(.*?)["']?\)/)?.[1]);
+  assert.ok(url);assert.equal((await page.request.get(url)).status(),200);
+  hunts.push({kind,status});
+ }
+ await page.setViewportSize({width:390,height:844});await page.locator('#combat-lab').screenshot({path:'/tmp/akai-r4-lab.png'});
+ await page.locator('#combat-lab [name=activity]').selectOption('main');assert.ok(await page.locator('#lab-hunt-arena').isHidden());
  const layouts=[];
  for(const [width,height] of [[320,640],[390,844],[844,390],[1280,800]]){
   await page.setViewportSize({width,height});
@@ -39,6 +53,6 @@ try{
  for(let i=0;i<5;i++){await open();await page.locator('#combat-lab').press('Escape');}
  assert.equal(await page.locator('#combat-lab').count(),1);assert.equal(await page.locator('#game canvas').count(),1);
  assert.deepEqual(await page.locator('.resource-wallet [data-balance]').allTextContents(),balances);assert.deepEqual(errors,[]);
- await writeFile(`docs/combat-lab-${preview?'preview':'dev'}.json`,JSON.stringify({passed:true,fixture:'Synthetic equal-point builds, no production resource gains',checks:['deterministic-result','magical-enemy','boss-reserved','budget-error','resource-wallet-unchanged','five-open-close-cycles'],layouts,pageErrors:errors},null,2)+'\n');
+ await writeFile(`docs/combat-lab-${preview?'preview':'dev'}.json`,JSON.stringify({passed:true,fixture:'Synthetic equal-point builds, no production resource gains',hunts,checks:['hunts-exclusive-material-preview','hunt-scenery-loaded','deterministic-result','magical-enemy','boss-reserved','budget-error','resource-wallet-unchanged','five-open-close-cycles'],layouts,pageErrors:errors},null,2)+'\n');
  console.log('Combat lab smoke passed '+(preview?'preview':'dev'));
 }finally{await browser?.close();child.kill();}

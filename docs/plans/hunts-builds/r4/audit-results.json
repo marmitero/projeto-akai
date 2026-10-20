@@ -1,0 +1,2182 @@
+{
+  "fixture": "Synthetic equal-point Epic+9; one fixed seed; not acquisition/XP cohorts",
+  "summary": {
+    "coal": {
+      "victory": 54,
+      "defeat": 10,
+      "timeout": 8
+    },
+    "iron": {
+      "victory": 54,
+      "defeat": 12,
+      "timeout": 6
+    },
+    "gold": {
+      "victory": 44,
+      "defeat": 12,
+      "timeout": 16
+    }
+  },
+  "rows": [
+    {
+      "level": 100,
+      "floor": 10,
+      "kind": "coal",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 997,
+      "remainingHp": 7307,
+      "materialPreview": 7
+    },
+    {
+      "level": 100,
+      "floor": 10,
+      "kind": "coal",
+      "build": "swift",
+      "status": "victory",
+      "ms": 977,
+      "remainingHp": 6557,
+      "materialPreview": 7
+    },
+    {
+      "level": 100,
+      "floor": 10,
+      "kind": "coal",
+      "build": "brute",
+      "status": "victory",
+      "ms": 1000,
+      "remainingHp": 7082,
+      "materialPreview": 7
+    },
+    {
+      "level": 100,
+      "floor": 10,
+      "kind": "coal",
+      "build": "physical",
+      "status": "victory",
+      "ms": 1000,
+      "remainingHp": 8207,
+      "materialPreview": 7
+    },
+    {
+      "level": 100,
+      "floor": 10,
+      "kind": "coal",
+      "build": "magic",
+      "status": "victory",
+      "ms": 1000,
+      "remainingHp": 8207,
+      "materialPreview": 7
+    },
+    {
+      "level": 100,
+      "floor": 10,
+      "kind": "coal",
+      "build": "critical",
+      "status": "victory",
+      "ms": 1000,
+      "remainingHp": 6767,
+      "materialPreview": 7
+    },
+    {
+      "level": 100,
+      "floor": 10,
+      "kind": "iron",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 997,
+      "remainingHp": 7307,
+      "materialPreview": 15
+    },
+    {
+      "level": 100,
+      "floor": 10,
+      "kind": "iron",
+      "build": "swift",
+      "status": "victory",
+      "ms": 977,
+      "remainingHp": 6557,
+      "materialPreview": 15
+    },
+    {
+      "level": 100,
+      "floor": 10,
+      "kind": "iron",
+      "build": "brute",
+      "status": "victory",
+      "ms": 1000,
+      "remainingHp": 7082,
+      "materialPreview": 15
+    },
+    {
+      "level": 100,
+      "floor": 10,
+      "kind": "iron",
+      "build": "physical",
+      "status": "victory",
+      "ms": 1000,
+      "remainingHp": 8207,
+      "materialPreview": 15
+    },
+    {
+      "level": 100,
+      "floor": 10,
+      "kind": "iron",
+      "build": "magic",
+      "status": "victory",
+      "ms": 1000,
+      "remainingHp": 8207,
+      "materialPreview": 15
+    },
+    {
+      "level": 100,
+      "floor": 10,
+      "kind": "iron",
+      "build": "critical",
+      "status": "victory",
+      "ms": 1000,
+      "remainingHp": 6767,
+      "materialPreview": 15
+    },
+    {
+      "level": 100,
+      "floor": 10,
+      "kind": "gold",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 997,
+      "remainingHp": 7307,
+      "materialPreview": 3
+    },
+    {
+      "level": 100,
+      "floor": 10,
+      "kind": "gold",
+      "build": "swift",
+      "status": "victory",
+      "ms": 977,
+      "remainingHp": 6557,
+      "materialPreview": 3
+    },
+    {
+      "level": 100,
+      "floor": 10,
+      "kind": "gold",
+      "build": "brute",
+      "status": "victory",
+      "ms": 1000,
+      "remainingHp": 7082,
+      "materialPreview": 3
+    },
+    {
+      "level": 100,
+      "floor": 10,
+      "kind": "gold",
+      "build": "physical",
+      "status": "victory",
+      "ms": 1000,
+      "remainingHp": 8207,
+      "materialPreview": 3
+    },
+    {
+      "level": 100,
+      "floor": 10,
+      "kind": "gold",
+      "build": "magic",
+      "status": "victory",
+      "ms": 1000,
+      "remainingHp": 8207,
+      "materialPreview": 3
+    },
+    {
+      "level": 100,
+      "floor": 10,
+      "kind": "gold",
+      "build": "critical",
+      "status": "victory",
+      "ms": 1000,
+      "remainingHp": 6767,
+      "materialPreview": 3
+    },
+    {
+      "level": 100,
+      "floor": 100,
+      "kind": "coal",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 16949,
+      "remainingHp": 6811,
+      "materialPreview": 28
+    },
+    {
+      "level": 100,
+      "floor": 100,
+      "kind": "coal",
+      "build": "swift",
+      "status": "victory",
+      "ms": 18563,
+      "remainingHp": 6005,
+      "materialPreview": 28
+    },
+    {
+      "level": 100,
+      "floor": 100,
+      "kind": "coal",
+      "build": "brute",
+      "status": "victory",
+      "ms": 16000,
+      "remainingHp": 6627,
+      "materialPreview": 28
+    },
+    {
+      "level": 100,
+      "floor": 100,
+      "kind": "coal",
+      "build": "physical",
+      "status": "victory",
+      "ms": 18000,
+      "remainingHp": 7775,
+      "materialPreview": 28
+    },
+    {
+      "level": 100,
+      "floor": 100,
+      "kind": "coal",
+      "build": "magic",
+      "status": "victory",
+      "ms": 18000,
+      "remainingHp": 7711,
+      "materialPreview": 28
+    },
+    {
+      "level": 100,
+      "floor": 100,
+      "kind": "coal",
+      "build": "critical",
+      "status": "victory",
+      "ms": 17000,
+      "remainingHp": 6247,
+      "materialPreview": 28
+    },
+    {
+      "level": 100,
+      "floor": 100,
+      "kind": "iron",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 20937,
+      "remainingHp": 6605,
+      "materialPreview": 57
+    },
+    {
+      "level": 100,
+      "floor": 100,
+      "kind": "iron",
+      "build": "swift",
+      "status": "victory",
+      "ms": 21494,
+      "remainingHp": 5774,
+      "materialPreview": 57
+    },
+    {
+      "level": 100,
+      "floor": 100,
+      "kind": "iron",
+      "build": "brute",
+      "status": "victory",
+      "ms": 19000,
+      "remainingHp": 6442,
+      "materialPreview": 57
+    },
+    {
+      "level": 100,
+      "floor": 100,
+      "kind": "iron",
+      "build": "physical",
+      "status": "victory",
+      "ms": 22000,
+      "remainingHp": 7587,
+      "materialPreview": 57
+    },
+    {
+      "level": 100,
+      "floor": 100,
+      "kind": "iron",
+      "build": "magic",
+      "status": "victory",
+      "ms": 22000,
+      "remainingHp": 7377,
+      "materialPreview": 57
+    },
+    {
+      "level": 100,
+      "floor": 100,
+      "kind": "iron",
+      "build": "critical",
+      "status": "victory",
+      "ms": 21000,
+      "remainingHp": 6038,
+      "materialPreview": 57
+    },
+    {
+      "level": 100,
+      "floor": 100,
+      "kind": "gold",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 25922,
+      "remainingHp": 6107,
+      "materialPreview": 14
+    },
+    {
+      "level": 100,
+      "floor": 100,
+      "kind": "gold",
+      "build": "swift",
+      "status": "victory",
+      "ms": 27356,
+      "remainingHp": 5114,
+      "materialPreview": 14
+    },
+    {
+      "level": 100,
+      "floor": 100,
+      "kind": "gold",
+      "build": "brute",
+      "status": "victory",
+      "ms": 24000,
+      "remainingHp": 5927,
+      "materialPreview": 14
+    },
+    {
+      "level": 100,
+      "floor": 100,
+      "kind": "gold",
+      "build": "physical",
+      "status": "victory",
+      "ms": 27000,
+      "remainingHp": 7055,
+      "materialPreview": 14
+    },
+    {
+      "level": 100,
+      "floor": 100,
+      "kind": "gold",
+      "build": "magic",
+      "status": "victory",
+      "ms": 27000,
+      "remainingHp": 7139,
+      "materialPreview": 14
+    },
+    {
+      "level": 100,
+      "floor": 100,
+      "kind": "gold",
+      "build": "critical",
+      "status": "victory",
+      "ms": 26000,
+      "remainingHp": 5519,
+      "materialPreview": 14
+    },
+    {
+      "level": 100,
+      "floor": 500,
+      "kind": "coal",
+      "build": "balanced",
+      "status": "defeat",
+      "ms": 27000,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 500,
+      "kind": "coal",
+      "build": "swift",
+      "status": "defeat",
+      "ms": 23400,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 500,
+      "kind": "coal",
+      "build": "brute",
+      "status": "defeat",
+      "ms": 27000,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 500,
+      "kind": "coal",
+      "build": "physical",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 857,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 500,
+      "kind": "coal",
+      "build": "magic",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 269,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 500,
+      "kind": "coal",
+      "build": "critical",
+      "status": "defeat",
+      "ms": 25200,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 500,
+      "kind": "iron",
+      "build": "balanced",
+      "status": "defeat",
+      "ms": 23400,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 500,
+      "kind": "iron",
+      "build": "swift",
+      "status": "defeat",
+      "ms": 19800,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 500,
+      "kind": "iron",
+      "build": "brute",
+      "status": "defeat",
+      "ms": 21600,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 500,
+      "kind": "iron",
+      "build": "physical",
+      "status": "defeat",
+      "ms": 28800,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 500,
+      "kind": "iron",
+      "build": "magic",
+      "status": "defeat",
+      "ms": 25200,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 500,
+      "kind": "iron",
+      "build": "critical",
+      "status": "defeat",
+      "ms": 21600,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 500,
+      "kind": "gold",
+      "build": "balanced",
+      "status": "defeat",
+      "ms": 16200,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 500,
+      "kind": "gold",
+      "build": "swift",
+      "status": "defeat",
+      "ms": 14400,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 500,
+      "kind": "gold",
+      "build": "brute",
+      "status": "defeat",
+      "ms": 16200,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 500,
+      "kind": "gold",
+      "build": "physical",
+      "status": "defeat",
+      "ms": 21600,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 500,
+      "kind": "gold",
+      "build": "magic",
+      "status": "defeat",
+      "ms": 21600,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 500,
+      "kind": "gold",
+      "build": "critical",
+      "status": "defeat",
+      "ms": 16200,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 900,
+      "kind": "coal",
+      "build": "balanced",
+      "status": "defeat",
+      "ms": 5400,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 900,
+      "kind": "coal",
+      "build": "swift",
+      "status": "defeat",
+      "ms": 5400,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 900,
+      "kind": "coal",
+      "build": "brute",
+      "status": "defeat",
+      "ms": 5400,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 900,
+      "kind": "coal",
+      "build": "physical",
+      "status": "defeat",
+      "ms": 5400,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 900,
+      "kind": "coal",
+      "build": "magic",
+      "status": "defeat",
+      "ms": 5400,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 900,
+      "kind": "coal",
+      "build": "critical",
+      "status": "defeat",
+      "ms": 5400,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 900,
+      "kind": "iron",
+      "build": "balanced",
+      "status": "defeat",
+      "ms": 5400,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 900,
+      "kind": "iron",
+      "build": "swift",
+      "status": "defeat",
+      "ms": 5400,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 900,
+      "kind": "iron",
+      "build": "brute",
+      "status": "defeat",
+      "ms": 5400,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 900,
+      "kind": "iron",
+      "build": "physical",
+      "status": "defeat",
+      "ms": 5400,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 900,
+      "kind": "iron",
+      "build": "magic",
+      "status": "defeat",
+      "ms": 5400,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 900,
+      "kind": "iron",
+      "build": "critical",
+      "status": "defeat",
+      "ms": 5400,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 900,
+      "kind": "gold",
+      "build": "balanced",
+      "status": "defeat",
+      "ms": 5400,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 900,
+      "kind": "gold",
+      "build": "swift",
+      "status": "defeat",
+      "ms": 3600,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 900,
+      "kind": "gold",
+      "build": "brute",
+      "status": "defeat",
+      "ms": 3600,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 900,
+      "kind": "gold",
+      "build": "physical",
+      "status": "defeat",
+      "ms": 5400,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 900,
+      "kind": "gold",
+      "build": "magic",
+      "status": "defeat",
+      "ms": 5400,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 100,
+      "floor": 900,
+      "kind": "gold",
+      "build": "critical",
+      "status": "defeat",
+      "ms": 3600,
+      "remainingHp": 0,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 10,
+      "kind": "coal",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 975,
+      "remainingHp": 123265,
+      "materialPreview": 7
+    },
+    {
+      "level": 500,
+      "floor": 10,
+      "kind": "coal",
+      "build": "swift",
+      "status": "victory",
+      "ms": 824,
+      "remainingHp": 119440,
+      "materialPreview": 7
+    },
+    {
+      "level": 500,
+      "floor": 10,
+      "kind": "coal",
+      "build": "brute",
+      "status": "victory",
+      "ms": 995,
+      "remainingHp": 124210,
+      "materialPreview": 7
+    },
+    {
+      "level": 500,
+      "floor": 10,
+      "kind": "coal",
+      "build": "physical",
+      "status": "victory",
+      "ms": 999,
+      "remainingHp": 128815,
+      "materialPreview": 7
+    },
+    {
+      "level": 500,
+      "floor": 10,
+      "kind": "coal",
+      "build": "magic",
+      "status": "victory",
+      "ms": 999,
+      "remainingHp": 128815,
+      "materialPreview": 7
+    },
+    {
+      "level": 500,
+      "floor": 10,
+      "kind": "coal",
+      "build": "critical",
+      "status": "victory",
+      "ms": 997,
+      "remainingHp": 120565,
+      "materialPreview": 7
+    },
+    {
+      "level": 500,
+      "floor": 10,
+      "kind": "iron",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 975,
+      "remainingHp": 123265,
+      "materialPreview": 15
+    },
+    {
+      "level": 500,
+      "floor": 10,
+      "kind": "iron",
+      "build": "swift",
+      "status": "victory",
+      "ms": 824,
+      "remainingHp": 119440,
+      "materialPreview": 15
+    },
+    {
+      "level": 500,
+      "floor": 10,
+      "kind": "iron",
+      "build": "brute",
+      "status": "victory",
+      "ms": 995,
+      "remainingHp": 124210,
+      "materialPreview": 15
+    },
+    {
+      "level": 500,
+      "floor": 10,
+      "kind": "iron",
+      "build": "physical",
+      "status": "victory",
+      "ms": 999,
+      "remainingHp": 128815,
+      "materialPreview": 15
+    },
+    {
+      "level": 500,
+      "floor": 10,
+      "kind": "iron",
+      "build": "magic",
+      "status": "victory",
+      "ms": 999,
+      "remainingHp": 128815,
+      "materialPreview": 15
+    },
+    {
+      "level": 500,
+      "floor": 10,
+      "kind": "iron",
+      "build": "critical",
+      "status": "victory",
+      "ms": 997,
+      "remainingHp": 120565,
+      "materialPreview": 15
+    },
+    {
+      "level": 500,
+      "floor": 10,
+      "kind": "gold",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 975,
+      "remainingHp": 123265,
+      "materialPreview": 3
+    },
+    {
+      "level": 500,
+      "floor": 10,
+      "kind": "gold",
+      "build": "swift",
+      "status": "victory",
+      "ms": 824,
+      "remainingHp": 119440,
+      "materialPreview": 3
+    },
+    {
+      "level": 500,
+      "floor": 10,
+      "kind": "gold",
+      "build": "brute",
+      "status": "victory",
+      "ms": 995,
+      "remainingHp": 124210,
+      "materialPreview": 3
+    },
+    {
+      "level": 500,
+      "floor": 10,
+      "kind": "gold",
+      "build": "physical",
+      "status": "victory",
+      "ms": 999,
+      "remainingHp": 128815,
+      "materialPreview": 3
+    },
+    {
+      "level": 500,
+      "floor": 10,
+      "kind": "gold",
+      "build": "magic",
+      "status": "victory",
+      "ms": 999,
+      "remainingHp": 128815,
+      "materialPreview": 3
+    },
+    {
+      "level": 500,
+      "floor": 10,
+      "kind": "gold",
+      "build": "critical",
+      "status": "victory",
+      "ms": 997,
+      "remainingHp": 120565,
+      "materialPreview": 3
+    },
+    {
+      "level": 500,
+      "floor": 100,
+      "kind": "coal",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 975,
+      "remainingHp": 123265,
+      "materialPreview": 28
+    },
+    {
+      "level": 500,
+      "floor": 100,
+      "kind": "coal",
+      "build": "swift",
+      "status": "victory",
+      "ms": 824,
+      "remainingHp": 119440,
+      "materialPreview": 28
+    },
+    {
+      "level": 500,
+      "floor": 100,
+      "kind": "coal",
+      "build": "brute",
+      "status": "victory",
+      "ms": 995,
+      "remainingHp": 124210,
+      "materialPreview": 28
+    },
+    {
+      "level": 500,
+      "floor": 100,
+      "kind": "coal",
+      "build": "physical",
+      "status": "victory",
+      "ms": 999,
+      "remainingHp": 128815,
+      "materialPreview": 28
+    },
+    {
+      "level": 500,
+      "floor": 100,
+      "kind": "coal",
+      "build": "magic",
+      "status": "victory",
+      "ms": 999,
+      "remainingHp": 128815,
+      "materialPreview": 28
+    },
+    {
+      "level": 500,
+      "floor": 100,
+      "kind": "coal",
+      "build": "critical",
+      "status": "victory",
+      "ms": 997,
+      "remainingHp": 120565,
+      "materialPreview": 28
+    },
+    {
+      "level": 500,
+      "floor": 100,
+      "kind": "iron",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 975,
+      "remainingHp": 123265,
+      "materialPreview": 57
+    },
+    {
+      "level": 500,
+      "floor": 100,
+      "kind": "iron",
+      "build": "swift",
+      "status": "victory",
+      "ms": 824,
+      "remainingHp": 119440,
+      "materialPreview": 57
+    },
+    {
+      "level": 500,
+      "floor": 100,
+      "kind": "iron",
+      "build": "brute",
+      "status": "victory",
+      "ms": 995,
+      "remainingHp": 124210,
+      "materialPreview": 57
+    },
+    {
+      "level": 500,
+      "floor": 100,
+      "kind": "iron",
+      "build": "physical",
+      "status": "victory",
+      "ms": 999,
+      "remainingHp": 128815,
+      "materialPreview": 57
+    },
+    {
+      "level": 500,
+      "floor": 100,
+      "kind": "iron",
+      "build": "magic",
+      "status": "victory",
+      "ms": 999,
+      "remainingHp": 128815,
+      "materialPreview": 57
+    },
+    {
+      "level": 500,
+      "floor": 100,
+      "kind": "iron",
+      "build": "critical",
+      "status": "victory",
+      "ms": 997,
+      "remainingHp": 120565,
+      "materialPreview": 57
+    },
+    {
+      "level": 500,
+      "floor": 100,
+      "kind": "gold",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 975,
+      "remainingHp": 123265,
+      "materialPreview": 14
+    },
+    {
+      "level": 500,
+      "floor": 100,
+      "kind": "gold",
+      "build": "swift",
+      "status": "victory",
+      "ms": 824,
+      "remainingHp": 119440,
+      "materialPreview": 14
+    },
+    {
+      "level": 500,
+      "floor": 100,
+      "kind": "gold",
+      "build": "brute",
+      "status": "victory",
+      "ms": 995,
+      "remainingHp": 124210,
+      "materialPreview": 14
+    },
+    {
+      "level": 500,
+      "floor": 100,
+      "kind": "gold",
+      "build": "physical",
+      "status": "victory",
+      "ms": 999,
+      "remainingHp": 128815,
+      "materialPreview": 14
+    },
+    {
+      "level": 500,
+      "floor": 100,
+      "kind": "gold",
+      "build": "magic",
+      "status": "victory",
+      "ms": 999,
+      "remainingHp": 128815,
+      "materialPreview": 14
+    },
+    {
+      "level": 500,
+      "floor": 100,
+      "kind": "gold",
+      "build": "critical",
+      "status": "victory",
+      "ms": 997,
+      "remainingHp": 120565,
+      "materialPreview": 14
+    },
+    {
+      "level": 500,
+      "floor": 500,
+      "kind": "coal",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 20475,
+      "remainingHp": 119701,
+      "materialPreview": 80
+    },
+    {
+      "level": 500,
+      "floor": 500,
+      "kind": "coal",
+      "build": "swift",
+      "status": "victory",
+      "ms": 18128,
+      "remainingHp": 115417,
+      "materialPreview": 80
+    },
+    {
+      "level": 500,
+      "floor": 500,
+      "kind": "coal",
+      "build": "brute",
+      "status": "victory",
+      "ms": 19900,
+      "remainingHp": 120601,
+      "materialPreview": 80
+    },
+    {
+      "level": 500,
+      "floor": 500,
+      "kind": "coal",
+      "build": "physical",
+      "status": "victory",
+      "ms": 20979,
+      "remainingHp": 125665,
+      "materialPreview": 80
+    },
+    {
+      "level": 500,
+      "floor": 500,
+      "kind": "coal",
+      "build": "magic",
+      "status": "victory",
+      "ms": 20979,
+      "remainingHp": 125215,
+      "materialPreview": 80
+    },
+    {
+      "level": 500,
+      "floor": 500,
+      "kind": "coal",
+      "build": "critical",
+      "status": "victory",
+      "ms": 18943,
+      "remainingHp": 117253,
+      "materialPreview": 80
+    },
+    {
+      "level": 500,
+      "floor": 500,
+      "kind": "iron",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 25350,
+      "remainingHp": 117325,
+      "materialPreview": 160
+    },
+    {
+      "level": 500,
+      "floor": 500,
+      "kind": "iron",
+      "build": "swift",
+      "status": "victory",
+      "ms": 22248,
+      "remainingHp": 113280,
+      "materialPreview": 160
+    },
+    {
+      "level": 500,
+      "floor": 500,
+      "kind": "iron",
+      "build": "brute",
+      "status": "victory",
+      "ms": 24875,
+      "remainingHp": 118787,
+      "materialPreview": 160
+    },
+    {
+      "level": 500,
+      "floor": 500,
+      "kind": "iron",
+      "build": "physical",
+      "status": "victory",
+      "ms": 26973,
+      "remainingHp": 123931,
+      "materialPreview": 160
+    },
+    {
+      "level": 500,
+      "floor": 500,
+      "kind": "iron",
+      "build": "magic",
+      "status": "victory",
+      "ms": 26973,
+      "remainingHp": 122443,
+      "materialPreview": 160
+    },
+    {
+      "level": 500,
+      "floor": 500,
+      "kind": "iron",
+      "build": "critical",
+      "status": "victory",
+      "ms": 22931,
+      "remainingHp": 115385,
+      "materialPreview": 160
+    },
+    {
+      "level": 500,
+      "floor": 500,
+      "kind": "gold",
+      "build": "balanced",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 114389,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 500,
+      "kind": "gold",
+      "build": "swift",
+      "status": "victory",
+      "ms": 29664,
+      "remainingHp": 108700,
+      "materialPreview": 40
+    },
+    {
+      "level": 500,
+      "floor": 500,
+      "kind": "gold",
+      "build": "brute",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 114970,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 500,
+      "kind": "gold",
+      "build": "physical",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 120135,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 500,
+      "kind": "gold",
+      "build": "magic",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 120695,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 500,
+      "kind": "gold",
+      "build": "critical",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 111283,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 900,
+      "kind": "coal",
+      "build": "balanced",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 74769,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 900,
+      "kind": "coal",
+      "build": "swift",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 62185,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 900,
+      "kind": "coal",
+      "build": "brute",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 75224,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 900,
+      "kind": "coal",
+      "build": "physical",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 85611,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 900,
+      "kind": "coal",
+      "build": "magic",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 80305,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 900,
+      "kind": "coal",
+      "build": "critical",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 70235,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 900,
+      "kind": "iron",
+      "build": "balanced",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 62645,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 900,
+      "kind": "iron",
+      "build": "swift",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 47875,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 900,
+      "kind": "iron",
+      "build": "brute",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 63884,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 900,
+      "kind": "iron",
+      "build": "physical",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 78121,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 900,
+      "kind": "iron",
+      "build": "magic",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 64849,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 900,
+      "kind": "iron",
+      "build": "critical",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 57649,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 900,
+      "kind": "gold",
+      "build": "balanced",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 45677,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 900,
+      "kind": "gold",
+      "build": "swift",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 27835,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 900,
+      "kind": "gold",
+      "build": "brute",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 44116,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 900,
+      "kind": "gold",
+      "build": "physical",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 53313,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 900,
+      "kind": "gold",
+      "build": "magic",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 57569,
+      "materialPreview": 0
+    },
+    {
+      "level": 500,
+      "floor": 900,
+      "kind": "gold",
+      "build": "critical",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 40037,
+      "materialPreview": 0
+    },
+    {
+      "level": 1000,
+      "floor": 10,
+      "kind": "coal",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 868,
+      "remainingHp": 460006,
+      "materialPreview": 7
+    },
+    {
+      "level": 1000,
+      "floor": 10,
+      "kind": "coal",
+      "build": "swift",
+      "status": "victory",
+      "ms": 525,
+      "remainingHp": 456241,
+      "materialPreview": 7
+    },
+    {
+      "level": 1000,
+      "floor": 10,
+      "kind": "coal",
+      "build": "brute",
+      "status": "victory",
+      "ms": 940,
+      "remainingHp": 460006,
+      "materialPreview": 7
+    },
+    {
+      "level": 1000,
+      "floor": 10,
+      "kind": "coal",
+      "build": "physical",
+      "status": "victory",
+      "ms": 940,
+      "remainingHp": 460006,
+      "materialPreview": 7
+    },
+    {
+      "level": 1000,
+      "floor": 10,
+      "kind": "coal",
+      "build": "magic",
+      "status": "victory",
+      "ms": 940,
+      "remainingHp": 460006,
+      "materialPreview": 7
+    },
+    {
+      "level": 1000,
+      "floor": 10,
+      "kind": "coal",
+      "build": "critical",
+      "status": "victory",
+      "ms": 949,
+      "remainingHp": 460006,
+      "materialPreview": 7
+    },
+    {
+      "level": 1000,
+      "floor": 10,
+      "kind": "iron",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 868,
+      "remainingHp": 460006,
+      "materialPreview": 15
+    },
+    {
+      "level": 1000,
+      "floor": 10,
+      "kind": "iron",
+      "build": "swift",
+      "status": "victory",
+      "ms": 525,
+      "remainingHp": 456241,
+      "materialPreview": 15
+    },
+    {
+      "level": 1000,
+      "floor": 10,
+      "kind": "iron",
+      "build": "brute",
+      "status": "victory",
+      "ms": 940,
+      "remainingHp": 460006,
+      "materialPreview": 15
+    },
+    {
+      "level": 1000,
+      "floor": 10,
+      "kind": "iron",
+      "build": "physical",
+      "status": "victory",
+      "ms": 940,
+      "remainingHp": 460006,
+      "materialPreview": 15
+    },
+    {
+      "level": 1000,
+      "floor": 10,
+      "kind": "iron",
+      "build": "magic",
+      "status": "victory",
+      "ms": 940,
+      "remainingHp": 460006,
+      "materialPreview": 15
+    },
+    {
+      "level": 1000,
+      "floor": 10,
+      "kind": "iron",
+      "build": "critical",
+      "status": "victory",
+      "ms": 949,
+      "remainingHp": 460006,
+      "materialPreview": 15
+    },
+    {
+      "level": 1000,
+      "floor": 10,
+      "kind": "gold",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 868,
+      "remainingHp": 460006,
+      "materialPreview": 3
+    },
+    {
+      "level": 1000,
+      "floor": 10,
+      "kind": "gold",
+      "build": "swift",
+      "status": "victory",
+      "ms": 525,
+      "remainingHp": 456241,
+      "materialPreview": 3
+    },
+    {
+      "level": 1000,
+      "floor": 10,
+      "kind": "gold",
+      "build": "brute",
+      "status": "victory",
+      "ms": 940,
+      "remainingHp": 460006,
+      "materialPreview": 3
+    },
+    {
+      "level": 1000,
+      "floor": 10,
+      "kind": "gold",
+      "build": "physical",
+      "status": "victory",
+      "ms": 940,
+      "remainingHp": 460006,
+      "materialPreview": 3
+    },
+    {
+      "level": 1000,
+      "floor": 10,
+      "kind": "gold",
+      "build": "magic",
+      "status": "victory",
+      "ms": 940,
+      "remainingHp": 460006,
+      "materialPreview": 3
+    },
+    {
+      "level": 1000,
+      "floor": 10,
+      "kind": "gold",
+      "build": "critical",
+      "status": "victory",
+      "ms": 949,
+      "remainingHp": 460006,
+      "materialPreview": 3
+    },
+    {
+      "level": 1000,
+      "floor": 100,
+      "kind": "coal",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 868,
+      "remainingHp": 460006,
+      "materialPreview": 28
+    },
+    {
+      "level": 1000,
+      "floor": 100,
+      "kind": "coal",
+      "build": "swift",
+      "status": "victory",
+      "ms": 525,
+      "remainingHp": 456241,
+      "materialPreview": 28
+    },
+    {
+      "level": 1000,
+      "floor": 100,
+      "kind": "coal",
+      "build": "brute",
+      "status": "victory",
+      "ms": 940,
+      "remainingHp": 460006,
+      "materialPreview": 28
+    },
+    {
+      "level": 1000,
+      "floor": 100,
+      "kind": "coal",
+      "build": "physical",
+      "status": "victory",
+      "ms": 940,
+      "remainingHp": 460006,
+      "materialPreview": 28
+    },
+    {
+      "level": 1000,
+      "floor": 100,
+      "kind": "coal",
+      "build": "magic",
+      "status": "victory",
+      "ms": 940,
+      "remainingHp": 460006,
+      "materialPreview": 28
+    },
+    {
+      "level": 1000,
+      "floor": 100,
+      "kind": "coal",
+      "build": "critical",
+      "status": "victory",
+      "ms": 949,
+      "remainingHp": 460006,
+      "materialPreview": 28
+    },
+    {
+      "level": 1000,
+      "floor": 100,
+      "kind": "iron",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 868,
+      "remainingHp": 460006,
+      "materialPreview": 57
+    },
+    {
+      "level": 1000,
+      "floor": 100,
+      "kind": "iron",
+      "build": "swift",
+      "status": "victory",
+      "ms": 525,
+      "remainingHp": 456241,
+      "materialPreview": 57
+    },
+    {
+      "level": 1000,
+      "floor": 100,
+      "kind": "iron",
+      "build": "brute",
+      "status": "victory",
+      "ms": 940,
+      "remainingHp": 460006,
+      "materialPreview": 57
+    },
+    {
+      "level": 1000,
+      "floor": 100,
+      "kind": "iron",
+      "build": "physical",
+      "status": "victory",
+      "ms": 940,
+      "remainingHp": 460006,
+      "materialPreview": 57
+    },
+    {
+      "level": 1000,
+      "floor": 100,
+      "kind": "iron",
+      "build": "magic",
+      "status": "victory",
+      "ms": 940,
+      "remainingHp": 460006,
+      "materialPreview": 57
+    },
+    {
+      "level": 1000,
+      "floor": 100,
+      "kind": "iron",
+      "build": "critical",
+      "status": "victory",
+      "ms": 949,
+      "remainingHp": 460006,
+      "materialPreview": 57
+    },
+    {
+      "level": 1000,
+      "floor": 100,
+      "kind": "gold",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 868,
+      "remainingHp": 460006,
+      "materialPreview": 14
+    },
+    {
+      "level": 1000,
+      "floor": 100,
+      "kind": "gold",
+      "build": "swift",
+      "status": "victory",
+      "ms": 525,
+      "remainingHp": 456241,
+      "materialPreview": 14
+    },
+    {
+      "level": 1000,
+      "floor": 100,
+      "kind": "gold",
+      "build": "brute",
+      "status": "victory",
+      "ms": 940,
+      "remainingHp": 460006,
+      "materialPreview": 14
+    },
+    {
+      "level": 1000,
+      "floor": 100,
+      "kind": "gold",
+      "build": "physical",
+      "status": "victory",
+      "ms": 940,
+      "remainingHp": 460006,
+      "materialPreview": 14
+    },
+    {
+      "level": 1000,
+      "floor": 100,
+      "kind": "gold",
+      "build": "magic",
+      "status": "victory",
+      "ms": 940,
+      "remainingHp": 460006,
+      "materialPreview": 14
+    },
+    {
+      "level": 1000,
+      "floor": 100,
+      "kind": "gold",
+      "build": "critical",
+      "status": "victory",
+      "ms": 949,
+      "remainingHp": 460006,
+      "materialPreview": 14
+    },
+    {
+      "level": 1000,
+      "floor": 500,
+      "kind": "coal",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 4340,
+      "remainingHp": 459412,
+      "materialPreview": 80
+    },
+    {
+      "level": 1000,
+      "floor": 500,
+      "kind": "coal",
+      "build": "swift",
+      "status": "victory",
+      "ms": 2625,
+      "remainingHp": 455880,
+      "materialPreview": 80
+    },
+    {
+      "level": 1000,
+      "floor": 500,
+      "kind": "coal",
+      "build": "brute",
+      "status": "victory",
+      "ms": 4700,
+      "remainingHp": 459709,
+      "materialPreview": 80
+    },
+    {
+      "level": 1000,
+      "floor": 500,
+      "kind": "coal",
+      "build": "physical",
+      "status": "victory",
+      "ms": 4700,
+      "remainingHp": 459715,
+      "materialPreview": 80
+    },
+    {
+      "level": 1000,
+      "floor": 500,
+      "kind": "coal",
+      "build": "magic",
+      "status": "victory",
+      "ms": 4700,
+      "remainingHp": 459715,
+      "materialPreview": 80
+    },
+    {
+      "level": 1000,
+      "floor": 500,
+      "kind": "coal",
+      "build": "critical",
+      "status": "victory",
+      "ms": 4745,
+      "remainingHp": 459707,
+      "materialPreview": 80
+    },
+    {
+      "level": 1000,
+      "floor": 500,
+      "kind": "iron",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 5208,
+      "remainingHp": 459262,
+      "materialPreview": 160
+    },
+    {
+      "level": 1000,
+      "floor": 500,
+      "kind": "iron",
+      "build": "swift",
+      "status": "victory",
+      "ms": 3150,
+      "remainingHp": 455789,
+      "materialPreview": 160
+    },
+    {
+      "level": 1000,
+      "floor": 500,
+      "kind": "iron",
+      "build": "brute",
+      "status": "victory",
+      "ms": 5640,
+      "remainingHp": 459274,
+      "materialPreview": 160
+    },
+    {
+      "level": 1000,
+      "floor": 500,
+      "kind": "iron",
+      "build": "physical",
+      "status": "victory",
+      "ms": 5640,
+      "remainingHp": 459278,
+      "materialPreview": 160
+    },
+    {
+      "level": 1000,
+      "floor": 500,
+      "kind": "iron",
+      "build": "magic",
+      "status": "victory",
+      "ms": 5640,
+      "remainingHp": 459278,
+      "materialPreview": 160
+    },
+    {
+      "level": 1000,
+      "floor": 500,
+      "kind": "iron",
+      "build": "critical",
+      "status": "victory",
+      "ms": 5694,
+      "remainingHp": 459260,
+      "materialPreview": 160
+    },
+    {
+      "level": 1000,
+      "floor": 500,
+      "kind": "gold",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 6076,
+      "remainingHp": 458578,
+      "materialPreview": 40
+    },
+    {
+      "level": 1000,
+      "floor": 500,
+      "kind": "gold",
+      "build": "swift",
+      "status": "victory",
+      "ms": 4200,
+      "remainingHp": 455085,
+      "materialPreview": 40
+    },
+    {
+      "level": 1000,
+      "floor": 500,
+      "kind": "gold",
+      "build": "brute",
+      "status": "victory",
+      "ms": 6580,
+      "remainingHp": 459034,
+      "materialPreview": 40
+    },
+    {
+      "level": 1000,
+      "floor": 500,
+      "kind": "gold",
+      "build": "physical",
+      "status": "victory",
+      "ms": 7520,
+      "remainingHp": 458611,
+      "materialPreview": 40
+    },
+    {
+      "level": 1000,
+      "floor": 500,
+      "kind": "gold",
+      "build": "magic",
+      "status": "victory",
+      "ms": 7520,
+      "remainingHp": 458611,
+      "materialPreview": 40
+    },
+    {
+      "level": 1000,
+      "floor": 500,
+      "kind": "gold",
+      "build": "critical",
+      "status": "victory",
+      "ms": 6643,
+      "remainingHp": 459050,
+      "materialPreview": 40
+    },
+    {
+      "level": 1000,
+      "floor": 900,
+      "kind": "coal",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 19096,
+      "remainingHp": 433406,
+      "materialPreview": 117
+    },
+    {
+      "level": 1000,
+      "floor": 900,
+      "kind": "coal",
+      "build": "swift",
+      "status": "victory",
+      "ms": 12075,
+      "remainingHp": 440231,
+      "materialPreview": 117
+    },
+    {
+      "level": 1000,
+      "floor": 900,
+      "kind": "coal",
+      "build": "brute",
+      "status": "victory",
+      "ms": 20680,
+      "remainingHp": 441393,
+      "materialPreview": 117
+    },
+    {
+      "level": 1000,
+      "floor": 900,
+      "kind": "coal",
+      "build": "physical",
+      "status": "victory",
+      "ms": 21620,
+      "remainingHp": 439206,
+      "materialPreview": 117
+    },
+    {
+      "level": 1000,
+      "floor": 900,
+      "kind": "coal",
+      "build": "magic",
+      "status": "victory",
+      "ms": 21620,
+      "remainingHp": 439206,
+      "materialPreview": 117
+    },
+    {
+      "level": 1000,
+      "floor": 900,
+      "kind": "coal",
+      "build": "critical",
+      "status": "victory",
+      "ms": 19929,
+      "remainingHp": 443974,
+      "materialPreview": 117
+    },
+    {
+      "level": 1000,
+      "floor": 900,
+      "kind": "iron",
+      "build": "balanced",
+      "status": "victory",
+      "ms": 23436,
+      "remainingHp": 416781,
+      "materialPreview": 234
+    },
+    {
+      "level": 1000,
+      "floor": 900,
+      "kind": "iron",
+      "build": "swift",
+      "status": "victory",
+      "ms": 15750,
+      "remainingHp": 428227,
+      "materialPreview": 234
+    },
+    {
+      "level": 1000,
+      "floor": 900,
+      "kind": "iron",
+      "build": "brute",
+      "status": "victory",
+      "ms": 25380,
+      "remainingHp": 430540,
+      "materialPreview": 234
+    },
+    {
+      "level": 1000,
+      "floor": 900,
+      "kind": "iron",
+      "build": "physical",
+      "status": "victory",
+      "ms": 27260,
+      "remainingHp": 427506,
+      "materialPreview": 234
+    },
+    {
+      "level": 1000,
+      "floor": 900,
+      "kind": "iron",
+      "build": "magic",
+      "status": "victory",
+      "ms": 27260,
+      "remainingHp": 427506,
+      "materialPreview": 234
+    },
+    {
+      "level": 1000,
+      "floor": 900,
+      "kind": "iron",
+      "build": "critical",
+      "status": "victory",
+      "ms": 25623,
+      "remainingHp": 429946,
+      "materialPreview": 234
+    },
+    {
+      "level": 1000,
+      "floor": 900,
+      "kind": "gold",
+      "build": "balanced",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 396166,
+      "materialPreview": 0
+    },
+    {
+      "level": 1000,
+      "floor": 900,
+      "kind": "gold",
+      "build": "swift",
+      "status": "victory",
+      "ms": 21000,
+      "remainingHp": 405011,
+      "materialPreview": 58
+    },
+    {
+      "level": 1000,
+      "floor": 900,
+      "kind": "gold",
+      "build": "brute",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 412167,
+      "materialPreview": 0
+    },
+    {
+      "level": 1000,
+      "floor": 900,
+      "kind": "gold",
+      "build": "physical",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 414257,
+      "materialPreview": 0
+    },
+    {
+      "level": 1000,
+      "floor": 900,
+      "kind": "gold",
+      "build": "magic",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 414257,
+      "materialPreview": 0
+    },
+    {
+      "level": 1000,
+      "floor": 900,
+      "kind": "gold",
+      "build": "critical",
+      "status": "timeout",
+      "ms": 30000,
+      "remainingHp": 412992,
+      "materialPreview": 0
+    }
+  ]
+}

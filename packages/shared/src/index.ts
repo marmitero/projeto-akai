@@ -268,3 +268,4 @@ export * from './builds-v3.js';
 export * from './combat-v3.js';
 export * from './enemies-v3.js';
 export * from './build-presets-v3.js';
+export * from './hunts-v4.js';
