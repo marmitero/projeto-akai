@@ -16,3 +16,9 @@
 R4 prepara seleção/progressão/plano e playtest de encontros; **não liga ganhos reais**, mineração permanece até o corteR6. XP qualificado ainda não é creditado: R6 precisa consumir ciclos confirmados com teto de tempo e benchmark, integrar cada nível cruzado, carry e cursor; perdas/tempo incompleto não concedem XP. Não reutilizar o XP por abate antigo. Offline/cota Brasília/fallback seguro/lease entre aparelhos pertencem R6/R7; revisão pura sozinha não é trava distribuída. Repetição de torre aqui é validação do seletor, sem substituir a tela antiga.
 
 A ordem de HP/ATQ é carvão<ferro<ouro, mas defesas específicas podem mudar a dificuldade percebida. Não promete que toda build terá o mesmo ranking de tempo. Faltam coortes integradas de aquisição/refino/XP e teste humano para aprovar90–120dias e conteúdo avançado. PróximoR5: refino/equipamentos; depois integraçãoR6/R7 e bosses/JadeR8. Monetização continua desligada/final.
+
+## Evidências locais
+
+Cinco testes R4 passaram, incluindo invariantes nos1000andares e avanço/replay. `npm run check` passou antes do teste adicional de conclusão:111testes locais aprovados/97PostgreSQLpulados; o teste adicional foi executado depois (5R4aprovados), comtypecheck ebuild atualizados. ACI executa a suíte completa comPostgreSQL16. Laboratóriodev/preview passou nas quatro resoluções320/390/844/1280; testa cada hunt, imagemHTTP200, logs, carteira inalterada e transição de volta à torre. Captura390×844revisada; não certificaAndroid físico.
+
+[Grade216encontros](audit-results.json), níveis100/500/1000, andares10/100/500/900, seisbuilds, épico+9 e seedfixa4213. Carvão54vitórias/10derrotas/8timeouts; ferro54/12/6; ouro44/12/16. Esses resultados mostram barreiras em cenários sem poder suficiente, não aprovam a duração da campanha ou equilíbrio de todas as builds. Gear/pontos são de cenário, sem custos/aquisição. CIinclui a grade e smoke atualizado. Publicação àmain depende dechecks aprovados.

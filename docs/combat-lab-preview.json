@@ -4,15 +4,15 @@
   "hunts": [
     {
       "kind": "coal",
-      "status": "Vitória · 0.8s · 1 golpes processados. Prévia: 7 carvão · XP qualificado calculado na integração. Sem Coin/equipamento/Jade."
+      "status": "Vitória · 0.8s · 1 golpes processados. Prévia: 7 carvão · XP não é concedido nesta simulação. Sem Coin/equipamento/Jade."
     },
     {
       "kind": "iron",
-      "status": "Vitória · 0.8s · 1 golpes processados. Prévia: 15 ferro · XP qualificado calculado na integração. Sem Coin/equipamento/Jade."
+      "status": "Vitória · 0.8s · 1 golpes processados. Prévia: 15 ferro · XP não é concedido nesta simulação. Sem Coin/equipamento/Jade."
     },
     {
       "kind": "gold",
-      "status": "Vitória · 0.8s · 1 golpes processados. Prévia: 3 ouro · XP qualificado calculado na integração. Sem Coin/equipamento/Jade."
+      "status": "Vitória · 0.8s · 1 golpes processados. Prévia: 3 ouro · XP não é concedido nesta simulação. Sem Coin/equipamento/Jade."
     }
   ],
   "checks": [
@@ -47,7 +47,7 @@
       "height": 390,
       "scrollWidth": 440,
       "clientWidth": 440,
-      "scrollHeight": 1000,
+      "scrollHeight": 981,
       "clientHeight": 351
     },
     {
@@ -55,7 +55,7 @@
       "height": 800,
       "scrollWidth": 440,
       "clientWidth": 440,
-      "scrollHeight": 1000,
+      "scrollHeight": 981,
       "clientHeight": 720
     }
   ],
