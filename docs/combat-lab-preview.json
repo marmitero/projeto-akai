@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "fixture": "Synthetic equal-point builds, no production resource gains",
+  "checks": [
+    "deterministic-result",
+    "magical-enemy",
+    "boss-reserved",
+    "budget-error",
+    "resource-wallet-unchanged",
+    "five-open-close-cycles"
+  ],
+  "layouts": [
+    {
+      "width": 292,
+      "height": 640,
+      "scrollWidth": 292,
+      "clientWidth": 292,
+      "scrollHeight": 855,
+      "clientHeight": 576
+    },
+    {
+      "width": 362,
+      "height": 844,
+      "scrollWidth": 362,
+      "clientWidth": 362,
+      "scrollHeight": 798,
+      "clientHeight": 760
+    },
+    {
+      "width": 440,
+      "height": 390,
+      "scrollWidth": 440,
+      "clientWidth": 440,
+      "scrollHeight": 779,
+      "clientHeight": 351
+    },
+    {
+      "width": 440,
+      "height": 800,
+      "scrollWidth": 440,
+      "clientWidth": 440,
+      "scrollHeight": 779,
+      "clientHeight": 720
+    }
+  ],
+  "pageErrors": []
+}
