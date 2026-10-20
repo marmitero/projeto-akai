@@ -141,3 +141,16 @@ Pedido do usuário: campo/Enviar acessíveis sem rolar a tela. Layout da batalha
 ## P8.2 — abas compactas e Guilda visual (19/10/2026)
 
 Global/Sistema/Guilda em abas28pxdesktop/32pxtoquecoarse. Guilda é placeholder explícito, campo/Enviar desativados e nenhum transporte novo; Comunidade continuaMais. Removido status permanente do Global; status vazio não ocupa espaço, erros/reconexão/elegibilidade continuam informados. Linhas compactas e controleOpções sem altura/margem excessivas liberam histórico. Smoke layout passou14casosdev+14preview; teste adicional com50mensagens curtas+Opções mostra4linhas completas em320×640, aba28px, status oculto; Guilda visual e navegação por teclado passaram. Build/tipos/diffcheck passaram e captura390×844 revisada. Nenhuma regra econômica/API alterada. Relatórios chat-layout-dev/preview atualizados. Publicar e confirmar SHA remoto ao concluir.
+
+
+## R2 — continuação autorizada e nova Jade (20/10/2026)
+
+Usuário aprovou seguir implementação restante, alterouJade:base3 + top10linear200/180/.../20 + último golpe250cumulativo; broadcast nome/prêmio na batalha. Máximo453/conta/dia e pool3N+1350emvitóriaN≥10. Substitui proibição antiga de bônusranking; antiga raridade+20de1,67%não aprova nova distribuição. Demais regras autorizadas, correções futuras, monetizaçãofinal.
+
+Implementados contratos inativos EconomyV2Schema/config2, tabelaXP1000inteira congelada (diferença0msreferênciaR1.1), plano determinístico de conversão/cofre/arquivo sem injetar estoque ouXPlegado, dívidaRubyreferenciada, validação+rollback exato do arquivo. CLIeconomy-dry-run read-onlyrepeatableread,nãoaplica,nãomigra,nãoliquida. Escrow/ofertas bloqueiam prontidão; preserva saldos/gastos por motivo sem inventar crédito monetário. Itens sem qualidade explícita normalizados10000comattrsoriginaisarquivados.
+
+planDailyBossJade calcula ranking/grants/broadcast de snapshotfinal autoritativo; não é escritor de saldo. Consumidor/topo batalha/API autenticada lê apenas social_rewards:v2:last-hitconfirmados; legacyCoins não anuncia250jade. Poll15svisível,90sfaixa/fechar; semregistrooculta. Boss atual não concedeJadev2; integraçãoatômicaR8ainda necessária. Não criar fixtures como lootreal. DocsR2IMPLEMENTATION e audit-results detalham6populações e limiteconcentração; auditoria não écoorte de refino.
+
+PR9checkpoint remoto; exigirCI PostgreSQL/online antesmain pois novosleitoresSQL/dryrun. Localtipos/build e99testes passaram,97PGpulados; númerosfinaisconsultarCI. PróximoR3combate/builds, mantendoativaçãooffatéintegração; não declarar nova economia inteira entregue ou contas migradas.
+
+R2validada:headab6ba829bd0411cd14fb2d61f1ef127ab2dfdeef/árvorec773a7472363ff36f7b760aa3fff0e5854d86212. CI39436231165 eWindows39436231501 aprovadas:196testes/21arquivosPGsem skips, auditoriaR2 e todos smokesdev/preview incluindo broadcastfixture. Fechamento apenasdocs; não reexecutar regressões sem mudança de código. PublicarPR9, confirmarSHAremoto. R2é preparação/ensaio; jogo/economia antigos continuamativos, boss não concede prêmiosv2, faixa sómostraregistrosv2confirmados. PróximoR3combate/builds. Não alegar implementação integral da economia nem refino raro validado paraJadecompetitiva.
