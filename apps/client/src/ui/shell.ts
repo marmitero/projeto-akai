@@ -90,7 +90,7 @@ export function createShell(root: HTMLElement): void {
   </nav>
   <dialog id="menu-dialog" aria-labelledby="dialog-title"><div class="dialog-panel panel"><div class="dialog-heading"><h2 id="dialog-title">Seu reino</h2><button id="close-dialog" class="close-button" aria-label="Fechar menu">${icon("close")}</button></div>
     <div id="dialog-menu"><div class="shortcut-row"><button data-shortcut="bag">${icon("bag")}Mochila</button><button data-shortcut="shop">${icon("shop")}Loja</button></div>
-    <button data-shortcut="bestiary">Bestiário</button><button id="combat-lab-open" type="button">Laboratório de builds</button><button data-shortcut="community">Comunidade</button><button data-shortcut="market">Mercado</button>
+    <button data-shortcut="bestiary">Bestiário</button><button id="combat-lab-open" type="button">Laboratório de builds</button><button id="refinement-lab-open" type="button">Laboratório de refino</button><button data-shortcut="community">Comunidade</button><button data-shortcut="market">Mercado</button>
     <h3 id="profile-heading">Perfil local de teste</h3><p class="body-copy">Seu perfil é salvo neste navegador. Escolha como quer ser chamado.</p>
     <p id="profile-title" class="muted" hidden></p><form id="profile-name-form" class="community-form"><label>Nick do jogador<input name="name" minlength="3" maxlength="24" required autocomplete="nickname"></label><button>Salvar nick</button></form><p id="profile-name-status" role="status"></p>
     <label class="motion-setting"><input id="reduce-motion" type="checkbox"> Reduzir movimento e efeitos</label>

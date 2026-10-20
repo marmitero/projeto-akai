@@ -1416,3 +1416,10 @@ progress {
 #lab-hunt-arena strong {position:relative;z-index:1;display:block;padding:12px;text-shadow:0 1px 3px #000;color:#fff;}
 @keyframes hunt-preview-travel {to {background-position:-600px 0;}}
 @media (prefers-reduced-motion:reduce) {#lab-hunt-arena span {animation:none;}}
+
+#refinement-lab {width:min(95vw,650px);max-height:90dvh;padding:0;overflow:auto;}
+#refine-quote,#refine-warning,#refine-status,#refine-wallet {overflow-wrap:anywhere;}
+#refine-warning {color:#ffd291;}
+.refine-protection {display:flex;align-items:center;gap:8px;margin:12px 0;}
+.refine-protection input {width:20px;height:20px;flex-shrink:0;}
+#refine-history {max-height:160px;overflow:auto;padding-left:24px;}

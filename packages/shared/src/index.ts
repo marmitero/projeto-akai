@@ -269,3 +269,5 @@ export * from './combat-v3.js';
 export * from './enemies-v3.js';
 export * from './build-presets-v3.js';
 export * from './hunts-v4.js';
+export * from './refinement-v5.js';
+export * from './protection-v5.js';
