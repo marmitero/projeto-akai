@@ -1,23 +1,25 @@
 import {randomBytes,randomUUID,createHmac,createHash} from 'node:crypto';
 import {z} from 'zod';
 import {initialRunV6,EconomyRunV6Schema,EconomyActionV6Schema,settleElapsedV7,applyEconomyActionV6,type EconomyRunV6} from '@akai/shared';
-import {prepareEconomyMigration,verifyEconomyMigration,rehearseEconomyRollback,canonicalJson,type EconomyMigrationPlan} from './economy-migration.js';
+import {prepareLegacyMarketReconciliation,verifyLegacyMarketReconciliation,prepareEconomyMigration,verifyEconomyMigration,rehearseEconomyRollback,canonicalJson,type EconomyMigrationPlan} from './economy-migration.js';
 import type {Database} from './database.js';
 const hash=(x:unknown)=>createHash('sha256').update(canonicalJson(x)).digest('hex');
 const Command=z.object({commandId:z.uuid(),expectedRevision:z.number().int().nonnegative().safe(),action:z.union([EconomyActionV6Schema,z.object({type:z.literal('settle')}).strict(),z.object({type:z.literal('close')}).strict()])}).strict();
 export class EconomyRehearsalService {
  constructor(readonly db:Database,readonly clock=()=>Date.now()){}
  /** Creates a private copy under locks. Legacy accounts, assets, premium and live ledgers are never edited. */
- async stage(accountId:string,requestId:string){
+ async stage(accountId:string,requestId:string,reconcileLegacyMarket=false){
   z.uuid().parse(accountId);z.uuid().parse(requestId);return this.db.transaction(async c=>{
    await c.query('SELECT pg_advisory_xact_lock(41652006)');
    const row=(await c.query('SELECT snapshot FROM akai_accounts WHERE id=$1 FOR UPDATE',[accountId])).rows[0];if(!row)throw Error('ACCOUNT_NOT_FOUND');
-   const existing=(await c.query('SELECT id FROM akai_economy_rehearsals WHERE account_id=$1 AND request_id=$2',[accountId,requestId])).rows[0];if(existing)return {id:existing.id,created:false};
+   const existing=(await c.query('SELECT id,archive FROM akai_economy_rehearsals WHERE account_id=$1 AND request_id=$2',[accountId,requestId])).rows[0];if(existing){if((existing.archive.version==='legacy-market-reconciliation-1')!==reconcileLegacyMarket)throw Error('REQUEST_MODE_REUSED');return {id:existing.id,created:false};}
    const escrow=(await c.query("SELECT * FROM akai_market_listings WHERE seller=$1 AND status<>'sold' AND NOT claimed ORDER BY id",[accountId])).rows;
    const pendingOffers=(await c.query("SELECT * FROM akai_market_offers WHERE buyer=$1 AND status='pending' ORDER BY id",[accountId])).rows;
    const rubyDebt=(await c.query('SELECT ruby::text FROM akai_premium_debts WHERE account_id=$1',[accountId])).rows[0]?.ruby??'0';
    const spending=(await c.query('SELECT resource,reason,SUM(-delta)::text amount FROM akai_ledger WHERE account_id=$1 AND delta<0 GROUP BY resource,reason ORDER BY resource,reason',[accountId])).rows;
-   const plan=prepareEconomyMigration({accountId,cutoverMs:this.clock(),snapshot:row.snapshot,escrow,pendingOffers,rubyDebt,spending});verifyEconomyMigration(plan);
+   const context={accountId,cutoverMs:this.clock(),snapshot:row.snapshot,escrow,pendingOffers,rubyDebt,spending};
+   const plan=reconcileLegacyMarket?prepareLegacyMarketReconciliation(context):prepareEconomyMigration(context);
+   if('source' in plan)verifyLegacyMarketReconciliation(plan);else verifyEconomyMigration(plan);
    if(plan.blockers.length)throw Error(plan.blockers.join(','));
    const id=randomUUID(),run=initialRunV6(accountId,this.clock());run.economy=plan.projected;
    await c.query('INSERT INTO akai_economy_rehearsals(id,account_id,request_id,source_hash,archive,initial_state,state,secret) VALUES($1,$2,$3,$4,$5,$6,$6,$7)',[id,accountId,requestId,plan.sourceHash,plan,run,randomBytes(32).toString('hex')]);
@@ -45,6 +47,8 @@ export class EconomyRehearsalService {
      // that mutation with a new command ID/revision once settlement has finished.
      result={status:'settling',code:'SETTLEMENT_BACKLOG',revision,backlog:true};
     }else{
+    if(cmd.action.type==='close'){const membership=(await c.query('SELECT w.state FROM akai_market_v2_realms w JOIN akai_market_v2_members m ON m.realm_id=w.id WHERE m.run_id=$1',[runId])).rows[0];
+     if(membership&&(membership.state.listings.some((l:{seller:string;status:string;claimed:boolean})=>l.seller===runId&&l.status!=='sold'&&!l.claimed)||membership.state.offers.some((o:{buyer:string;status:string})=>o.buyer===runId&&o.status==='pending')))throw Error('MARKET_ASSETS_PENDING');}
     if(cmd.action.type!=='settle'&&cmd.action.type!=='close')run=applyEconomyActionV6(run,cmd.action,(key,bound)=>entropy('command/'+cmd.commandId+'/'+key,bound));
     result={status:'applied',revision,backlog:false};
     }
@@ -61,7 +65,7 @@ export class EconomyRehearsalService {
   });
  }
  async inspect(runId:string){z.uuid().parse(runId);const r=(await this.db.pool.query('SELECT state,revision,closed,source_hash FROM akai_economy_rehearsals WHERE id=$1',[runId])).rows[0];if(!r)throw Error('RUN_NOT_FOUND');return {...r,state:EconomyRunV6Schema.parse(r.state)};}
- async rollbackArchive(runId:string){z.uuid().parse(runId);const r=(await this.db.pool.query('SELECT archive FROM akai_economy_rehearsals WHERE id=$1',[runId])).rows[0];if(!r)throw Error('RUN_NOT_FOUND');return rehearseEconomyRollback(r.archive as EconomyMigrationPlan);}
+ async rollbackArchive(runId:string){z.uuid().parse(runId);const r=(await this.db.pool.query('SELECT archive FROM akai_economy_rehearsals WHERE id=$1',[runId])).rows[0];if(!r)throw Error('RUN_NOT_FOUND');return r.archive.version==='legacy-market-reconciliation-1'?verifyLegacyMarketReconciliation(r.archive):rehearseEconomyRollback(r.archive as EconomyMigrationPlan);}
  async reconcile(runId:string){
   z.uuid().parse(runId);return this.db.transaction(async c=>{
    await c.query('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY');

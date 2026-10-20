@@ -8,7 +8,7 @@ if(!process.env.DATABASE_URL)throw Error('DATABASE_URL required; this tool only 
 const db=new Database(process.env.DATABASE_URL),service=new EconomyRehearsalService(db);
 try{
  let result:unknown;
- if(operation==='stage')result=await service.stage(arg('--account')!,args.includes('--request')?arg('--request')!:randomUUID());
+ if(operation==='stage'||operation==='stage-market-reconciled')result=await service.stage(arg('--account')!,args.includes('--request')?arg('--request')!:randomUUID(),operation==='stage-market-reconciled');
  else if(operation==='command'){const payload=JSON.parse(await readFile(arg('--file')!,'utf8'));result=await service.command(arg('--run')!,payload);}
  else if(operation==='report'){const row=await service.inspect(arg('--run')!);result={rehearsalOnly:true,revision:row.revision,closed:row.closed,highest:row.state.economy.highest,balances:row.state.economy.balances,ledgerMismatches:await service.reconcile(arg('--run')!)};}
  else if(operation==='rollback-export'){

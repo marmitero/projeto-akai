@@ -28,6 +28,7 @@ export class Database {
       "utf8",
     );
     const economy = await readFile(new URL("../migrations/005_economy_rehearsal.sql", import.meta.url), "utf8");
+    const marketV2 = await readFile(new URL("../migrations/006_market_v2_rehearsal.sql", import.meta.url), "utf8");
     await this.transaction(async (c) => {
       await c.query("SELECT pg_advisory_xact_lock(41652001)");
       await c.query(sql);
@@ -35,6 +36,7 @@ export class Database {
       await c.query(market);
       await c.query(premium);
       await c.query(economy);
+      await c.query(marketV2);
     });
   }
   async transaction<T>(fn: (c: PoolClient) => Promise<T>): Promise<T> {
