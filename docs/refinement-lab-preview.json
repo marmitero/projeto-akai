@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "fixture": "Synthetic item/wallet only; no real grants or debits",
+  "checks": [
+    "protected-success-debits-scroll",
+    "deterministic-reset",
+    "all-failure-kinds",
+    "high-range-locked",
+    "rarity-cap",
+    "wallet-unchanged",
+    "five-open-close-cycles"
+  ],
+  "cases": [
+    {
+      "n": 0,
+      "outcome": "maintained",
+      "protect": false,
+      "seed": 85,
+      "status": "Falhou: nível mantido · +0 → +0."
+    },
+    {
+      "n": 7,
+      "outcome": "destroyed",
+      "protect": false,
+      "seed": 105,
+      "status": "Falhou: item quebrado · +7."
+    },
+    {
+      "n": 7,
+      "outcome": "regressed",
+      "protect": true,
+      "seed": 3,
+      "status": "Falhou: perdeu 1 nível · +7 → +6."
+    },
+    {
+      "n": 12,
+      "outcome": "destroyed",
+      "protect": false,
+      "seed": 2,
+      "status": "Falhou: item quebrado · +12."
+    }
+  ],
+  "layouts": [
+    {
+      "width": 292,
+      "height": 640,
+      "clientWidth": 292,
+      "scrollWidth": 292
+    },
+    {
+      "width": 362,
+      "height": 844,
+      "clientWidth": 362,
+      "scrollWidth": 362
+    },
+    {
+      "width": 440,
+      "height": 390,
+      "clientWidth": 440,
+      "scrollWidth": 440
+    },
+    {
+      "width": 440,
+      "height": 800,
+      "clientWidth": 440,
+      "scrollWidth": 440
+    }
+  ],
+  "pageErrors": []
+}
