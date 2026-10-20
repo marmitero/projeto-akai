@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
-import { LocalSnapshotSchema, EconomyV2Schema, ECONOMY_V2_CONFIG, initialEconomyV2, type EconomyV2 } from '@akai/shared';
+import { EquipmentSchema, LocalSnapshotSchema, EconomyV2Schema, ECONOMY_V2_CONFIG, initialEconomyV2, type EconomyV2 } from '@akai/shared';
 import type { Database } from './database.js';
 export const MIGRATION_PLAN_VERSION='economy-r2-plan-1';
 const ContextSchema=z.object({
@@ -72,3 +72,31 @@ export async function dryRunEconomyDatabase(db:Database,cutoverMs:number,limit=1
       blockedAccounts:plans.filter(p=>p.blockers.length).length,plans};
   });
 }
+
+/** Pure closeout rehearsal: exact asset/fee receipts, no live wallet writes or spendable legacy credit. */
+export function prepareLegacyMarketReconciliation(input:MigrationContext){
+ const context=ContextSchema.parse(input),base=prepareEconomyMigration({...context,escrow:[],pendingOffers:[]});
+ const owned=new Set(context.snapshot.rpg.inventory.map(i=>i.id)),listingIds=new Set<string>(),receipts:{key:string;kind:string;amount?:string;resource?:string;itemId?:string}[]=[],blockers:string[]=[];
+ const quarantineBalances:Record<string,string>=structuredClone(context.snapshot.balances);const projected=structuredClone(base.projected);
+ for(const raw of context.escrow){
+  const l=z.object({id:z.uuid(),seller:z.uuid(),status:z.enum(['active','cancelled','expired','removed']),claimed:z.literal(false),expires_at:z.coerce.number().int().nonnegative().safe(),asset:z.record(z.string(),z.unknown())}).passthrough().parse(raw);
+  if(l.seller!==context.accountId||listingIds.has(l.id))throw Error('LEGACY_ESCROW_IDENTITY');listingIds.add(l.id);
+  if(l.asset.kind==='item'){
+   const item=EquipmentSchema.parse(l.asset.item);if(owned.has(item.id))throw Error('LEGACY_DUPLICATE_ITEM');owned.add(item.id);
+   const id=context.accountId+'/legacy/'+item.id;projected.vault.push({id,origin:'legacy',definitionId:item.definitionId,rarity:item.rarity,level:item.level,enhancement:Math.min(item.enhancement,7),qualityBp:10000});receipts.push({key:'return/'+l.id,kind:'item-to-vault',itemId:id});
+  }else{
+   const asset=z.object({kind:z.literal('resource'),resource:z.enum(['iron','coal','gold','jade']),quantity:z.string().regex(/^[1-9]\d{0,29}$/)}).passthrough().parse(l.asset);
+   quarantineBalances[asset.resource]=String(BigInt(quarantineBalances[asset.resource]!)+BigInt(asset.quantity));receipts.push({key:'return/'+l.id,kind:'resource-to-quarantine',resource:asset.resource,amount:asset.quantity});
+  }
+  if(l.status==='active'&&l.expires_at>context.cutoverMs){
+   const paid=context.spending.filter(s=>s.resource==='coin'&&s.reason==='market:list:'+l.id).reduce((n,x)=>n+BigInt(x.amount),0n);
+   if(paid!==100000000n)blockers.push('UNPROVEN_LISTING_FEE:'+l.id);
+   else {quarantineBalances.coin=String(BigInt(quarantineBalances.coin!)+paid);receipts.push({key:'fee/'+l.id,kind:'unused-listing-fee-to-quarantine',resource:'coin',amount:String(paid)});}
+  }
+  if(l.status==='removed')blockers.push('REMOVED_LISTING_REQUIRES_REVIEW:'+l.id);
+ }
+ const offers=new Set<string>();for(const raw of context.pendingOffers){const o=z.object({id:z.uuid(),buyer:z.uuid(),listing_id:z.uuid(),status:z.literal('pending'),currency:z.enum(['coin','iron','coal','gold','jade']),price:z.string().regex(/^[1-9]\d{0,29}$/)}).passthrough().parse(raw);if(o.buyer!==context.accountId||offers.has(o.id))throw Error('LEGACY_OFFER_IDENTITY');offers.add(o.id);receipts.push({key:'offer/'+o.id,kind:'close-unreserved-offer-no-refund'});}
+ const source=structuredClone(input),sourceHash=digest(source);
+ return {version:'legacy-market-reconciliation-1' as const,sourceHash,source,projected:EconomyV2Schema.parse(projected),quarantineBalances,receipts,blockers,activationAllowed:false as const,spendableLegacyCredit:false as const,premium:base.premium};
+}
+export function verifyLegacyMarketReconciliation(plan:ReturnType<typeof prepareLegacyMarketReconciliation>){if(digest(plan.source)!==plan.sourceHash||canonicalJson(prepareLegacyMarketReconciliation(plan.source))!==canonicalJson(plan))throw Error('LEGACY_MARKET_PLAN_MISMATCH');return structuredClone(plan.source);}

@@ -1,0 +1,71 @@
+{
+  "version": "market-v2-audit-1",
+  "passed": true,
+  "cycles": 200,
+  "trades": 133,
+  "coinConservationWithFeeSinks": true,
+  "materialConservation": true,
+  "feeMilli": "20000182160",
+  "boundAssetsRejected": true,
+  "income": [
+    {
+      "level": 10,
+      "floor": 9,
+      "highestMain": 10,
+      "gear": "starter",
+      "simulatedSeconds": 3600,
+      "qualifiedCompleted": true,
+      "paused": false,
+      "kills": 1341,
+      "coin": 9387,
+      "feeCoin": 100000,
+      "listingFeeHoursAtThisMeasuredRate": 10.653030787258976,
+      "interpretation": "One-hour realized income in a fixed synthetic build; ratio is not a promise of acquisition time or stationary long-term income."
+    },
+    {
+      "level": 100,
+      "floor": 99,
+      "highestMain": 99,
+      "gear": "epic9",
+      "simulatedSeconds": 3600,
+      "qualifiedCompleted": true,
+      "paused": false,
+      "kills": 1103,
+      "coin": 531822,
+      "feeCoin": 100000,
+      "listingFeeHoursAtThisMeasuredRate": 0.1880328380548379,
+      "interpretation": "One-hour realized income in a fixed synthetic build; ratio is not a promise of acquisition time or stationary long-term income."
+    },
+    {
+      "level": 500,
+      "floor": 499,
+      "highestMain": 499,
+      "gear": "epic9",
+      "simulatedSeconds": 3600,
+      "qualifiedCompleted": true,
+      "paused": false,
+      "kills": 982,
+      "coin": 7711389.072,
+      "feeCoin": 100000,
+      "listingFeeHoursAtThisMeasuredRate": 0.012967832262944599,
+      "interpretation": "One-hour realized income in a fixed synthetic build; ratio is not a promise of acquisition time or stationary long-term income."
+    },
+    {
+      "level": 1000,
+      "floor": 999,
+      "highestMain": 999,
+      "gear": "epic9",
+      "simulatedSeconds": 3600,
+      "qualifiedCompleted": true,
+      "paused": false,
+      "kills": 879,
+      "coin": 11102943.623,
+      "feeCoin": 100000,
+      "listingFeeHoursAtThisMeasuredRate": 0.00900662053195044,
+      "interpretation": "One-hour realized income in a fixed synthetic build; ratio is not a promise of acquisition time or stationary long-term income."
+    }
+  ],
+  "liquidityApproved": false,
+  "activationReady": false,
+  "limits": "Private-cohort transaction audit and synthetic fixed-build income. Does not validate player demand, legacy-population market liquidity, market concentration, item acquisition/refinement, or campaign90–120days. Listing fee remains provisional at100000Coin, not optimized."
+}

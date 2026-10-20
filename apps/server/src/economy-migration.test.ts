@@ -1,7 +1,7 @@
 import {it,expect,describe,beforeAll,afterAll} from 'vitest';
 import {randomUUID} from 'node:crypto';
 import {createLocalSnapshot} from '../../client/src/local/session.js';
-import {createEquipment,ECONOMY_V2_ACTIVE} from '@akai/shared';
+import {createEquipment,ECONOMY_V2_ACTIVE,LocalSnapshotSchema} from '@akai/shared';
 import {prepareEconomyMigration,verifyEconomyMigration,rehearseEconomyRollback,canonicalJson,dryRunEconomyDatabase,type MigrationContext} from './economy-migration.js';
 import {Database} from './database.js';
 import {OnlineService} from './online.js';
@@ -51,4 +51,17 @@ describe.skipIf(!url)('economy dry-run real PostgreSQL',()=>{
     expect((await db.pool.query('SELECT * FROM akai_ledger ORDER BY account_id,sequence')).rows).toEqual(ledger);
     await expect(dryRunEconomyDatabase(db,10000,1)).rejects.toThrow('ACCOUNT_LIMIT_EXCEEDED');
   });
+});
+
+describe('legacy market reconciliation receipts',()=>{
+ it('returns escrow gear to vault, quarantines materials/eligible fees, closes unreserved offers without copying wealth',async()=>{
+  const {prepareLegacyMarketReconciliation,verifyLegacyMarketReconciliation}=await import('./economy-migration.js'),s=source(),item=createEquipment(LocalSnapshotSchema.parse(s.snapshot),'sword',100,'legendary',()=>.5);item.enhancement=20;
+  const listing=randomUUID(),resource=randomUUID(),offer=randomUUID();s.escrow=[{id:listing,seller:s.accountId,status:'active',claimed:false,expires_at:999999,asset:{kind:'item',item}},{id:resource,seller:s.accountId,status:'expired',claimed:false,expires_at:1,asset:{kind:'resource',resource:'jade',quantity:'1000'}}];s.spending.push({resource:'coin',reason:'market:list:'+listing,amount:'100000000'});s.pendingOffers=[{id:offer,buyer:s.accountId,listing_id:randomUUID(),status:'pending',price:'5000',currency:'jade'}];
+  const before=structuredClone(s),plan=prepareLegacyMarketReconciliation(s);expect(plan.blockers).toEqual([]);expect(plan.projected.vault.at(-1)).toMatchObject({id:s.accountId+'/legacy/'+item.id,enhancement:7,level:100});expect(plan.quarantineBalances.jade).toBe('101000');expect(plan.quarantineBalances.coin).toBe(String(BigInt(s.snapshot.balances.coin)+100000000n));expect(Object.values(plan.projected.balances)).toEqual(['0','0','0','0','0']);expect(plan.premium.ruby).toBe('9000');expect(plan.receipts.map(r=>r.key)).toEqual(['return/'+listing,'fee/'+listing,'return/'+resource,'offer/'+offer]);expect(verifyLegacyMarketReconciliation(plan)).toEqual(before);expect(prepareLegacyMarketReconciliation(s)).toEqual(plan);expect(s).toEqual(before);
+  const tamper=structuredClone(plan);tamper.quarantineBalances.coin='999';expect(()=>verifyLegacyMarketReconciliation(tamper)).toThrow('PLAN_MISMATCH');
+ });
+ it('blocks unproved listing fees and rejects duplicate escrow identity',async()=>{
+  const {prepareLegacyMarketReconciliation}=await import('./economy-migration.js'),s=source(),lid=randomUUID(),asset={kind:'resource',resource:'iron',quantity:'1000'};
+  s.escrow=[{id:lid,seller:s.accountId,status:'active',claimed:false,expires_at:999999,asset}];expect(prepareLegacyMarketReconciliation(s).blockers).toEqual(['UNPROVEN_LISTING_FEE:'+lid]);s.escrow.push(structuredClone(s.escrow[0]!));expect(()=>prepareLegacyMarketReconciliation(s)).toThrow('ESCROW_IDENTITY');
+ });
 });
