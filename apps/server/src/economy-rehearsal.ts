@@ -1,6 +1,6 @@
 import {randomBytes,randomUUID,createHmac,createHash} from 'node:crypto';
 import {z} from 'zod';
-import {initialRunV6,EconomyRunV6Schema,EconomyActionV6Schema,advanceRunV6,applyEconomyActionV6,type EconomyRunV6} from '@akai/shared';
+import {initialRunV6,EconomyRunV6Schema,EconomyActionV6Schema,settleElapsedV7,applyEconomyActionV6,type EconomyRunV6} from '@akai/shared';
 import {prepareEconomyMigration,verifyEconomyMigration,rehearseEconomyRollback,canonicalJson,type EconomyMigrationPlan} from './economy-migration.js';
 import type {Database} from './database.js';
 const hash=(x:unknown)=>createHash('sha256').update(canonicalJson(x)).digest('hex');
@@ -39,12 +39,15 @@ export class EconomyRehearsalService {
    try{
     if(cmd.expectedRevision!==Number(row.revision))throw Error('STALE_REVISION');
     const now=this.clock();if(now<run.economy.economicThroughMs)throw Error('ECONOMY_CLOCK_REWIND');
-    // R6 rehearsal is explicit active time only. Absence is skipped, not retroactively minted; R7 owns offline quotas.
-    if(now-run.economy.economicThroughMs>30000){const gap=now-run.economy.economicThroughMs;run.encounter=null;run.nextAt=now;run.economy.economicThroughMs+=gap;}
-    const settled=advanceRunV6(run,now,1000,entropy);run=settled.state;
-    if(settled.backlog&&cmd.action.type!=='settle')throw Error('SETTLEMENT_BACKLOG');
+    const settled=settleElapsedV7(run,now,1000,entropy);run=settled.state;
+    if(settled.backlog){
+     // Commit bounded progress even when a mutation was requested. Caller must retry
+     // that mutation with a new command ID/revision once settlement has finished.
+     result={status:'settling',code:'SETTLEMENT_BACKLOG',revision,backlog:true};
+    }else{
     if(cmd.action.type!=='settle'&&cmd.action.type!=='close')run=applyEconomyActionV6(run,cmd.action,(key,bound)=>entropy('command/'+cmd.commandId+'/'+key,bound));
-    result={status:'applied',revision,backlog:settled.backlog};
+    result={status:'applied',revision,backlog:false};
+    }
    }catch(error){run=before;result={status:'rejected',code:error instanceof Error?error.message:'INVALID_COMMAND',revision};}
    for(const resource of ['coin','coal','iron','gold','jade','protection','masteryMs'] as const){
     const balance=resource==='masteryMs'?BigInt(run.economy.masteryMs):resource==='protection'?BigInt(run.economy.protection):BigInt(run.economy.balances[resource]);

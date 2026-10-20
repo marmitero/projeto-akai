@@ -1,6 +1,6 @@
 import {z} from 'zod';
 import {EconomyV2Schema,initialEconomyV2,masteryLevel,ECONOMY_XP_V2,canEquipV2,type EconomyV2} from './economy-v2.js';
-import {CombatV3Schema,startCombatV3,advanceCombatV3,hitChancePpm,attackDamageV3,type CombatStatsV3} from './combat-v3.js';
+import {CombatStatsV3Schema,CombatV3Schema,startCombatV3,advanceCombatV3,hitChancePpm,attackDamageV3,type CombatStatsV3} from './combat-v3.js';
 import {heroStatsV3,trainAttribute,ATTRIBUTE_IDS} from './builds-v3.js';
 import {presetBuildV3} from './build-presets-v3.js';
 import {encounterEnemies,enemyDefinition} from './bestiary.js';
@@ -14,6 +14,7 @@ const Log=z.object({id:time,at:time,text:z.string()});
 export const EconomyRunV6Schema=z.object({version:z.literal('economy-run-v6-1'),economy:EconomyV2Schema,seed:z.number().int().min(1).max(4294967295),
  sequence:time,killSequence:time,xpCarry:time.max(999999),paused:z.boolean(),autoAdvance:z.boolean(),nextAt:time,
  encounter:z.object({id:time,activity:z.enum(['main','coal','iron','gold']),floor:time.min(1).max(1000),wave:time.min(1).max(3),combatMs:time,reference:time.min(1).max(1000),combat:CombatV3Schema,rewarded:z.array(z.string()).max(3)}).nullable(),
+ offlineJob:z.object({untilMs:time,returnMs:time,activity:z.enum(['main','coal','iron','gold']),floor:time.min(1).max(1000),autoAdvance:z.boolean(),stats:CombatStatsV3Schema}).strict().nullable().default(null),
  log:z.array(Log).max(60),logSequence:time,
 }).strict();
 export type EconomyRunV6=z.infer<typeof EconomyRunV6Schema>;
@@ -70,16 +71,17 @@ function loot(s:EconomyRunV6,enemyId:string,at:number,entropy?:EconomyEntropyV6)
  const item={id:`${s.economy.accountId}/loot/${s.killSequence}`,origin:'tower' as const,definitionId:ITEM_IDS[draw(s,key+'/base',ITEM_IDS.length,entropy)]!,rarity:RARITIES[index]!,level:Math.ceil(encounter.floor/10),enhancement:0,qualityBp:9000+draw(s,key+'/quality',2001,entropy)};
  (s.economy.inventory.length<120?s.economy.inventory:s.economy.vault).push(item);log(s,at,`Equipamento: ${item.definitionId} ${item.rarity}${s.economy.inventory.length>=120?' · confira mochila/cofre':''}`);
 }
-function start(s:EconomyRunV6,at:number,wave=1,hp?:number,entropy?:EconomyEntropyV6){
+function start(s:EconomyRunV6,at:number,wave=1,hp?:number,entropy?:EconomyEntropyV6,frozenStats?:CombatStatsV3){
  const previous=s.encounter,activity=s.economy.activity,floor=s.economy.floor;
  const id=wave===1?++s.sequence:previous!.id,reference=activity==='main'?floor:huntEnemyV4(activity,floor).reference;
- const combat=startCombatV3(wave===1?heroStatsV3(s.economy):previous!.combat.actors[0]!.stats,enemies(activity,floor,wave),{seed:1+draw(s,`fight/${id}/${wave}`,4294967295,entropy),floor:reference,at,...(activity!=='main'||floor%10===0?{deadlineMs:at+30000}:{})});
+ const combat=startCombatV3(wave===1?(frozenStats??heroStatsV3(s.economy)):previous!.combat.actors[0]!.stats,enemies(activity,floor,wave),{seed:1+draw(s,`fight/${id}/${wave}`,4294967295,entropy),floor:reference,at,...(activity!=='main'||floor%10===0?{deadlineMs:at+30000}:{})});
  if(hp!==undefined)combat.actors[0]!.hp=Math.min(hp,combat.actors[0]!.stats.maxHp);
  s.encounter={id,activity,floor,wave,combatMs:wave===1?0:previous!.combatMs,reference,combat,rewarded:[]};
 }
 /** Bounded event work; backlog returns a preserved cursor, never credits skipped time. */
-export function advanceRunV6(input:EconomyRunV6,toMs:number,maxEvents=1000,entropy?:EconomyEntropyV6){
+export function advanceRunV6(input:EconomyRunV6,toMs:number,maxEvents=1000,entropy?:EconomyEntropyV6,frozenStats?:CombatStatsV3){
  const s=EconomyRunV6Schema.parse(input);time.parse(toMs);z.number().int().min(1).max(100000).parse(maxEvents);
+ if(s.offlineJob&&!frozenStats)throw Error('OFFLINE_SETTLEMENT_PENDING');
  if(toMs<s.economy.economicThroughMs)throw Error('ECONOMY_CLOCK_REWIND');let processed=0;
  // Recover active snapshots saved by R6 before the tower-boss deadline fix.
  const saved=s.encounter;
@@ -90,7 +92,7 @@ export function advanceRunV6(input:EconomyRunV6,toMs:number,maxEvents=1000,entro
  while(s.economy.economicThroughMs<toMs){
   if(s.paused){s.economy.economicThroughMs=toMs;break;}
   if(processed>=maxEvents){s.economy.revision++;return {state:s,backlog:true,processed};}
-  if(!s.encounter){if(s.nextAt>=toMs){s.economy.economicThroughMs=toMs;break;}start(s,Math.max(s.nextAt,s.economy.economicThroughMs),1,undefined,entropy);}
+  if(!s.encounter){if(s.nextAt>=toMs){s.economy.economicThroughMs=toMs;break;}start(s,Math.max(s.nextAt,s.economy.economicThroughMs),1,undefined,entropy,frozenStats);}
   const e=s.encounter!,before=e.combat.clockMs,r=advanceCombatV3(e.combat,toMs,Math.min(32,maxEvents-processed));e.combat=r.state;e.combatMs+=r.state.clockMs-before;processed+=r.processed;s.economy.economicThroughMs=r.state.clockMs;
   for(const actor of e.combat.actors.slice(1))if(actor.hp===0&&!e.rewarded.includes(actor.id)){e.rewarded.push(actor.id);loot(s,actor.id,e.combat.hits.filter(h=>h.target===actor.id&&h.damage>0).at(-1)!.at,entropy);}
   if(r.backlog){if(processed<maxEvents)continue;s.economy.revision++;return {state:EconomyRunV6Schema.parse(s),backlog:true,processed};}
@@ -99,7 +101,7 @@ export function advanceRunV6(input:EconomyRunV6,toMs:number,maxEvents=1000,entro
   if(e.combat.status==='victory'&&e.activity==='main'&&e.floor%10!==0&&e.wave<3){s.nextAt=at+3000;const hp=e.combat.actors[0]!.hp;
    // Preserve the completed wave while walking, so the next read cannot start wave1 again.
    if(s.nextAt>=toMs){s.economy.economicThroughMs=toMs;break;}
-   start(s,s.nextAt,e.wave+1,hp,entropy);continue;
+   start(s,s.nextAt,e.wave+1,hp,entropy,frozenStats);continue;
   }
   if(e.combat.status==='victory'){
    const gained=mastery(s,e.combatMs,e.activity,e.floor,e.reference);s.economy.highest[e.activity]=Math.max(s.economy.highest[e.activity],e.floor);log(s,at,`Vitória ${e.activity} ${e.floor} · XP ${gained}ms`);
@@ -121,6 +123,7 @@ export const EconomyActionV6Schema=z.discriminatedUnion('type',[
 ]);
 export type EconomyActionV6=z.infer<typeof EconomyActionV6Schema>;
 export function applyEconomyActionV6(input:EconomyRunV6,inputAction:EconomyActionV6,entropy?:EconomyEntropyV6){
+ if(input.offlineJob)throw Error('OFFLINE_SETTLEMENT_PENDING');
  const s=EconomyRunV6Schema.parse(input),a=EconomyActionV6Schema.parse(inputAction),e=s.economy;
  if(a.type==='select'){
   if(a.activity!=='main'&&e.highest.main<(a.activity==='gold'?20:5))throw Error('HUNT_LOCKED');
