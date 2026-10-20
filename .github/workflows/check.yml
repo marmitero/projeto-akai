@@ -52,12 +52,15 @@ jobs:
       - run: node scripts/audit-economy-contracts.mjs
       - run: npm run check
       - run: node scripts/economy-v2/audit.mjs
+      - run: node scripts/economy-v2/audit-r3.mjs
       - run: node scripts/simulate-loop.mjs
       - run: node scripts/simulate-rpg.mjs
       - run: node scripts/simulate-bestiary.mjs
       - run: node scripts/simulate-market.mjs
       - run: node scripts/simulate-monetization.mjs
       - run: npx playwright install --with-deps chromium
+      - run: node scripts/smoke-combat-lab.mjs
+      - run: node scripts/smoke-combat-lab.mjs --preview
       - run: node scripts/smoke-chat-layout.mjs
       - run: node scripts/smoke-chat-layout.mjs --preview
       - run: node scripts/smoke-mobile.mjs

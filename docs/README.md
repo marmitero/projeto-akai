@@ -59,3 +59,5 @@ Android: [guia de teste LAN](MOBILE_TEST.md), [implementação/evidências](MOBI
 - [Regras fechadas da economia v2](plans/hunts-builds/contracts/ECONOMY_RULES.md) — contratos de design, sem ativação no jogo.
 
 - [R2 — contratos executáveis, ensaio de migração e nova Jade](plans/hunts-builds/r2/IMPLEMENTATION.md).
+
+- [R3 — combate, builds e laboratório](plans/hunts-builds/r3/IMPLEMENTATION.md).

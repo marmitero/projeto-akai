@@ -1,0 +1,2556 @@
+{
+  "version": "r3-audit-1",
+  "scope": "Equal-point synthetic builds; 3 levels × 3 common enemy roles × 6 builds × 5 seeds",
+  "encounters": 270,
+  "frozenSpeedSha256": "9c2612af321f5c5c2028d793f420279a77cf9b515b15d04e452e962d33de0142",
+  "rows": [
+    {
+      "level": 100,
+      "enemyId": "shield-skeleton",
+      "build": "balanced",
+      "weightedPoints": 594,
+      "intervalMs": 997,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 1994,
+          "hp": 7307,
+          "attacks": 2
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 1994,
+          "hp": 7307,
+          "attacks": 2
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 2991,
+          "hp": 7283,
+          "attacks": 4
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 1994,
+          "hp": 7307,
+          "attacks": 2
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 1994,
+          "hp": 7307,
+          "attacks": 2
+        }
+      ]
+    },
+    {
+      "level": 100,
+      "enemyId": "shield-skeleton",
+      "build": "swift",
+      "weightedPoints": 594,
+      "intervalMs": 977,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 2931,
+          "hp": 6531,
+          "attacks": 4
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 4885,
+          "hp": 6505,
+          "attacks": 7
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 3908,
+          "hp": 6531,
+          "attacks": 5
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2931,
+          "hp": 6531,
+          "attacks": 4
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 2931,
+          "hp": 6557,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 100,
+      "enemyId": "shield-skeleton",
+      "build": "brute",
+      "weightedPoints": 594,
+      "intervalMs": 1000,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 7082,
+          "attacks": 2
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 7082,
+          "attacks": 2
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 3000,
+          "hp": 7058,
+          "attacks": 4
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 7082,
+          "attacks": 2
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 7082,
+          "attacks": 2
+        }
+      ]
+    },
+    {
+      "level": 100,
+      "enemyId": "shield-skeleton",
+      "build": "physical",
+      "weightedPoints": 594,
+      "intervalMs": 1000,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 3000,
+          "hp": 8189,
+          "attacks": 4
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 5000,
+          "hp": 8171,
+          "attacks": 7
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 4000,
+          "hp": 8189,
+          "attacks": 5
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 3000,
+          "hp": 8189,
+          "attacks": 4
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3000,
+          "hp": 8207,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 100,
+      "enemyId": "shield-skeleton",
+      "build": "magic",
+      "weightedPoints": 594,
+      "intervalMs": 1000,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 3000,
+          "hp": 8181,
+          "attacks": 4
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 5000,
+          "hp": 8155,
+          "attacks": 7
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 4000,
+          "hp": 8181,
+          "attacks": 5
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 3000,
+          "hp": 8181,
+          "attacks": 4
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3000,
+          "hp": 8207,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 100,
+      "enemyId": "shield-skeleton",
+      "build": "critical",
+      "weightedPoints": 594,
+      "intervalMs": 1000,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 6767,
+          "attacks": 2
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 6767,
+          "attacks": 2
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 3000,
+          "hp": 6742,
+          "attacks": 4
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 6767,
+          "attacks": 2
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 6767,
+          "attacks": 2
+        }
+      ]
+    },
+    {
+      "level": 100,
+      "enemyId": "shadow",
+      "build": "balanced",
+      "weightedPoints": 594,
+      "intervalMs": 997,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 1994,
+          "hp": 7286,
+          "attacks": 3
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 1994,
+          "hp": 7286,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 1994,
+          "hp": 7307,
+          "attacks": 3
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 1994,
+          "hp": 7286,
+          "attacks": 3
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 2991,
+          "hp": 7286,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 100,
+      "enemyId": "shadow",
+      "build": "swift",
+      "weightedPoints": 594,
+      "intervalMs": 977,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 1954,
+          "hp": 6533,
+          "attacks": 3
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 1954,
+          "hp": 6533,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 1954,
+          "hp": 6557,
+          "attacks": 3
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 1954,
+          "hp": 6533,
+          "attacks": 3
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 2931,
+          "hp": 6533,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 100,
+      "enemyId": "shadow",
+      "build": "brute",
+      "weightedPoints": 594,
+      "intervalMs": 1000,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 7059,
+          "attacks": 3
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 7059,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 7082,
+          "attacks": 3
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 7059,
+          "attacks": 3
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3000,
+          "hp": 7059,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 100,
+      "enemyId": "shadow",
+      "build": "physical",
+      "weightedPoints": 594,
+      "intervalMs": 1000,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 8184,
+          "attacks": 3
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 8184,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 8207,
+          "attacks": 3
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 8184,
+          "attacks": 3
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3000,
+          "hp": 8184,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 100,
+      "enemyId": "shadow",
+      "build": "magic",
+      "weightedPoints": 594,
+      "intervalMs": 1000,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 8191,
+          "attacks": 3
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 8191,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 8207,
+          "attacks": 3
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 8191,
+          "attacks": 3
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3000,
+          "hp": 8191,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 100,
+      "enemyId": "shadow",
+      "build": "critical",
+      "weightedPoints": 594,
+      "intervalMs": 1000,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 6745,
+          "attacks": 3
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 6745,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 6767,
+          "attacks": 3
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 6745,
+          "attacks": 3
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3000,
+          "hp": 6745,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 100,
+      "enemyId": "archer",
+      "build": "balanced",
+      "weightedPoints": 594,
+      "intervalMs": 997,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 1994,
+          "hp": 7283,
+          "attacks": 3
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 1994,
+          "hp": 7283,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 1994,
+          "hp": 7307,
+          "attacks": 3
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 1994,
+          "hp": 7283,
+          "attacks": 3
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 2991,
+          "hp": 7283,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 100,
+      "enemyId": "archer",
+      "build": "swift",
+      "weightedPoints": 594,
+      "intervalMs": 977,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 1954,
+          "hp": 6531,
+          "attacks": 3
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 1954,
+          "hp": 6531,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 1954,
+          "hp": 6557,
+          "attacks": 3
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 1954,
+          "hp": 6531,
+          "attacks": 3
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 2931,
+          "hp": 6531,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 100,
+      "enemyId": "archer",
+      "build": "brute",
+      "weightedPoints": 594,
+      "intervalMs": 1000,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 7058,
+          "attacks": 3
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 7058,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 7082,
+          "attacks": 3
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 7058,
+          "attacks": 3
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3000,
+          "hp": 7058,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 100,
+      "enemyId": "archer",
+      "build": "physical",
+      "weightedPoints": 594,
+      "intervalMs": 1000,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 8189,
+          "attacks": 3
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 8189,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 8207,
+          "attacks": 3
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 8189,
+          "attacks": 3
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3000,
+          "hp": 8189,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 100,
+      "enemyId": "archer",
+      "build": "magic",
+      "weightedPoints": 594,
+      "intervalMs": 1000,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 8181,
+          "attacks": 3
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 8181,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 8207,
+          "attacks": 3
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 8181,
+          "attacks": 3
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3000,
+          "hp": 8181,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 100,
+      "enemyId": "archer",
+      "build": "critical",
+      "weightedPoints": 594,
+      "intervalMs": 1000,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 6742,
+          "attacks": 3
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 6742,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 6767,
+          "attacks": 3
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2000,
+          "hp": 6742,
+          "attacks": 3
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3000,
+          "hp": 6742,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 500,
+      "enemyId": "shield-skeleton",
+      "build": "balanced",
+      "weightedPoints": 2994,
+      "intervalMs": 975,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 3900,
+          "hp": 122974,
+          "attacks": 5
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 5850,
+          "hp": 122683,
+          "attacks": 8
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 4875,
+          "hp": 122683,
+          "attacks": 7
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2925,
+          "hp": 122974,
+          "attacks": 4
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3900,
+          "hp": 123265,
+          "attacks": 5
+        }
+      ]
+    },
+    {
+      "level": 500,
+      "enemyId": "shield-skeleton",
+      "build": "swift",
+      "weightedPoints": 2994,
+      "intervalMs": 824,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 3296,
+          "hp": 119112,
+          "attacks": 5
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 4944,
+          "hp": 118784,
+          "attacks": 8
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 3296,
+          "hp": 119112,
+          "attacks": 5
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2472,
+          "hp": 119112,
+          "attacks": 4
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3296,
+          "hp": 119440,
+          "attacks": 5
+        }
+      ]
+    },
+    {
+      "level": 500,
+      "enemyId": "shield-skeleton",
+      "build": "brute",
+      "weightedPoints": 2994,
+      "intervalMs": 995,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 3980,
+          "hp": 123923,
+          "attacks": 5
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 5970,
+          "hp": 123636,
+          "attacks": 8
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 3980,
+          "hp": 123923,
+          "attacks": 5
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2985,
+          "hp": 123923,
+          "attacks": 4
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 2985,
+          "hp": 124210,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 500,
+      "enemyId": "shield-skeleton",
+      "build": "physical",
+      "weightedPoints": 2994,
+      "intervalMs": 999,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 3996,
+          "hp": 128585,
+          "attacks": 5
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 5994,
+          "hp": 128355,
+          "attacks": 8
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 4995,
+          "hp": 128355,
+          "attacks": 7
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 3996,
+          "hp": 128585,
+          "attacks": 5
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3996,
+          "hp": 128815,
+          "attacks": 5
+        }
+      ]
+    },
+    {
+      "level": 500,
+      "enemyId": "shield-skeleton",
+      "build": "magic",
+      "weightedPoints": 2994,
+      "intervalMs": 999,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 3996,
+          "hp": 128494,
+          "attacks": 5
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 5994,
+          "hp": 128173,
+          "attacks": 8
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 4995,
+          "hp": 128173,
+          "attacks": 7
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 3996,
+          "hp": 128494,
+          "attacks": 5
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3996,
+          "hp": 128815,
+          "attacks": 5
+        }
+      ]
+    },
+    {
+      "level": 500,
+      "enemyId": "shield-skeleton",
+      "build": "critical",
+      "weightedPoints": 2994,
+      "intervalMs": 997,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 3988,
+          "hp": 120261,
+          "attacks": 5
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 2991,
+          "hp": 120261,
+          "attacks": 4
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 3988,
+          "hp": 120261,
+          "attacks": 5
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2991,
+          "hp": 120261,
+          "attacks": 4
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 2991,
+          "hp": 120565,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 500,
+      "enemyId": "shadow",
+      "build": "balanced",
+      "weightedPoints": 2994,
+      "intervalMs": 975,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 1950,
+          "hp": 123007,
+          "attacks": 3
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 1950,
+          "hp": 123007,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 1950,
+          "hp": 123265,
+          "attacks": 3
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 1950,
+          "hp": 123007,
+          "attacks": 3
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 1950,
+          "hp": 123007,
+          "attacks": 3
+        }
+      ]
+    },
+    {
+      "level": 500,
+      "enemyId": "shadow",
+      "build": "swift",
+      "weightedPoints": 2994,
+      "intervalMs": 824,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 1648,
+          "hp": 119148,
+          "attacks": 3
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 1648,
+          "hp": 119148,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 1648,
+          "hp": 119440,
+          "attacks": 3
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 1648,
+          "hp": 119148,
+          "attacks": 3
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 1648,
+          "hp": 119148,
+          "attacks": 3
+        }
+      ]
+    },
+    {
+      "level": 500,
+      "enemyId": "shadow",
+      "build": "brute",
+      "weightedPoints": 2994,
+      "intervalMs": 995,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 1990,
+          "hp": 123932,
+          "attacks": 3
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 1990,
+          "hp": 123932,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 1990,
+          "hp": 124210,
+          "attacks": 3
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 1990,
+          "hp": 123932,
+          "attacks": 3
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 1990,
+          "hp": 123932,
+          "attacks": 3
+        }
+      ]
+    },
+    {
+      "level": 500,
+      "enemyId": "shadow",
+      "build": "physical",
+      "weightedPoints": 2994,
+      "intervalMs": 999,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 1998,
+          "hp": 128530,
+          "attacks": 3
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 1998,
+          "hp": 128530,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 1998,
+          "hp": 128815,
+          "attacks": 3
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 1998,
+          "hp": 128530,
+          "attacks": 3
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 1998,
+          "hp": 128530,
+          "attacks": 3
+        }
+      ]
+    },
+    {
+      "level": 500,
+      "enemyId": "shadow",
+      "build": "magic",
+      "weightedPoints": 2994,
+      "intervalMs": 999,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 1998,
+          "hp": 128611,
+          "attacks": 3
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 1998,
+          "hp": 128611,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 1998,
+          "hp": 128815,
+          "attacks": 3
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 1998,
+          "hp": 128611,
+          "attacks": 3
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 1998,
+          "hp": 128611,
+          "attacks": 3
+        }
+      ]
+    },
+    {
+      "level": 500,
+      "enemyId": "shadow",
+      "build": "critical",
+      "weightedPoints": 2994,
+      "intervalMs": 997,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 1994,
+          "hp": 120295,
+          "attacks": 3
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 1994,
+          "hp": 120295,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 1994,
+          "hp": 120565,
+          "attacks": 3
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 1994,
+          "hp": 120295,
+          "attacks": 3
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 1994,
+          "hp": 120295,
+          "attacks": 3
+        }
+      ]
+    },
+    {
+      "level": 500,
+      "enemyId": "archer",
+      "build": "balanced",
+      "weightedPoints": 2994,
+      "intervalMs": 975,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 2925,
+          "hp": 122974,
+          "attacks": 4
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 3900,
+          "hp": 122974,
+          "attacks": 6
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 2925,
+          "hp": 123265,
+          "attacks": 4
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2925,
+          "hp": 122974,
+          "attacks": 4
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 2925,
+          "hp": 122974,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 500,
+      "enemyId": "archer",
+      "build": "swift",
+      "weightedPoints": 2994,
+      "intervalMs": 824,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 2472,
+          "hp": 119112,
+          "attacks": 4
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 4120,
+          "hp": 118784,
+          "attacks": 7
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 2472,
+          "hp": 119112,
+          "attacks": 4
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 1648,
+          "hp": 119440,
+          "attacks": 2
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 2472,
+          "hp": 119440,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 500,
+      "enemyId": "archer",
+      "build": "brute",
+      "weightedPoints": 2994,
+      "intervalMs": 995,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 2985,
+          "hp": 123923,
+          "attacks": 4
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 1990,
+          "hp": 123923,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 2985,
+          "hp": 124210,
+          "attacks": 4
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2985,
+          "hp": 123923,
+          "attacks": 4
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 2985,
+          "hp": 123923,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 500,
+      "enemyId": "archer",
+      "build": "physical",
+      "weightedPoints": 2994,
+      "intervalMs": 999,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 2997,
+          "hp": 128585,
+          "attacks": 4
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 3996,
+          "hp": 128585,
+          "attacks": 6
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 2997,
+          "hp": 128815,
+          "attacks": 4
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2997,
+          "hp": 128585,
+          "attacks": 4
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 2997,
+          "hp": 128585,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 500,
+      "enemyId": "archer",
+      "build": "magic",
+      "weightedPoints": 2994,
+      "intervalMs": 999,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 2997,
+          "hp": 128494,
+          "attacks": 4
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 3996,
+          "hp": 128494,
+          "attacks": 6
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 2997,
+          "hp": 128815,
+          "attacks": 4
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2997,
+          "hp": 128494,
+          "attacks": 4
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 2997,
+          "hp": 128494,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 500,
+      "enemyId": "archer",
+      "build": "critical",
+      "weightedPoints": 2994,
+      "intervalMs": 997,
+      "gearAgility": 0,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 1994,
+          "hp": 120261,
+          "attacks": 3
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 1994,
+          "hp": 120261,
+          "attacks": 3
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 2991,
+          "hp": 120565,
+          "attacks": 4
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2991,
+          "hp": 120261,
+          "attacks": 4
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 2991,
+          "hp": 120261,
+          "attacks": 4
+        }
+      ]
+    },
+    {
+      "level": 1000,
+      "enemyId": "shield-skeleton",
+      "build": "balanced",
+      "weightedPoints": 5994,
+      "intervalMs": 868,
+      "gearAgility": 60,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 6076,
+          "hp": 451478,
+          "attacks": 9
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 6076,
+          "hp": 451478,
+          "attacks": 9
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 6076,
+          "hp": 451478,
+          "attacks": 9
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 5208,
+          "hp": 451478,
+          "attacks": 8
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 5208,
+          "hp": 455742,
+          "attacks": 8
+        }
+      ]
+    },
+    {
+      "level": 1000,
+      "enemyId": "shield-skeleton",
+      "build": "swift",
+      "weightedPoints": 5994,
+      "intervalMs": 525,
+      "gearAgility": 60,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 3675,
+          "hp": 451131,
+          "attacks": 8
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 3675,
+          "hp": 451131,
+          "attacks": 8
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 3150,
+          "hp": 451131,
+          "attacks": 7
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 3675,
+          "hp": 451131,
+          "attacks": 8
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3150,
+          "hp": 451131,
+          "attacks": 7
+        }
+      ]
+    },
+    {
+      "level": 1000,
+      "enemyId": "shield-skeleton",
+      "build": "brute",
+      "weightedPoints": 5994,
+      "intervalMs": 940,
+      "gearAgility": 60,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 6580,
+          "hp": 451670,
+          "attacks": 9
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 5640,
+          "hp": 451670,
+          "attacks": 8
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 6580,
+          "hp": 451670,
+          "attacks": 9
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 5640,
+          "hp": 451670,
+          "attacks": 8
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 5640,
+          "hp": 455838,
+          "attacks": 8
+        }
+      ]
+    },
+    {
+      "level": 1000,
+      "enemyId": "shield-skeleton",
+      "build": "physical",
+      "weightedPoints": 5994,
+      "intervalMs": 940,
+      "gearAgility": 60,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 6580,
+          "hp": 451670,
+          "attacks": 9
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 5640,
+          "hp": 451670,
+          "attacks": 8
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 6580,
+          "hp": 451670,
+          "attacks": 9
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 5640,
+          "hp": 451670,
+          "attacks": 8
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 5640,
+          "hp": 455838,
+          "attacks": 8
+        }
+      ]
+    },
+    {
+      "level": 1000,
+      "enemyId": "shield-skeleton",
+      "build": "magic",
+      "weightedPoints": 5994,
+      "intervalMs": 940,
+      "gearAgility": 60,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 6580,
+          "hp": 451670,
+          "attacks": 9
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 5640,
+          "hp": 451670,
+          "attacks": 8
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 6580,
+          "hp": 451670,
+          "attacks": 9
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 5640,
+          "hp": 451670,
+          "attacks": 8
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 5640,
+          "hp": 455838,
+          "attacks": 8
+        }
+      ]
+    },
+    {
+      "level": 1000,
+      "enemyId": "shield-skeleton",
+      "build": "critical",
+      "weightedPoints": 5994,
+      "intervalMs": 949,
+      "gearAgility": 60,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 6643,
+          "hp": 451442,
+          "attacks": 9
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 5694,
+          "hp": 451442,
+          "attacks": 8
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 6643,
+          "hp": 451442,
+          "attacks": 9
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 5694,
+          "hp": 451442,
+          "attacks": 8
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 5694,
+          "hp": 455724,
+          "attacks": 8
+        }
+      ]
+    },
+    {
+      "level": 1000,
+      "enemyId": "shadow",
+      "build": "balanced",
+      "weightedPoints": 5994,
+      "intervalMs": 868,
+      "gearAgility": 60,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 4340,
+          "hp": 452420,
+          "attacks": 7
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 3472,
+          "hp": 452420,
+          "attacks": 6
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 3472,
+          "hp": 456213,
+          "attacks": 6
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 4340,
+          "hp": 452420,
+          "attacks": 7
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3472,
+          "hp": 452420,
+          "attacks": 6
+        }
+      ]
+    },
+    {
+      "level": 1000,
+      "enemyId": "shadow",
+      "build": "swift",
+      "weightedPoints": 5994,
+      "intervalMs": 525,
+      "gearAgility": 60,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 2625,
+          "hp": 451695,
+          "attacks": 6
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 2625,
+          "hp": 456241,
+          "attacks": 6
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 2625,
+          "hp": 451695,
+          "attacks": 6
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2100,
+          "hp": 451695,
+          "attacks": 5
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 2100,
+          "hp": 451695,
+          "attacks": 5
+        }
+      ]
+    },
+    {
+      "level": 1000,
+      "enemyId": "shadow",
+      "build": "brute",
+      "weightedPoints": 5994,
+      "intervalMs": 940,
+      "gearAgility": 60,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 452036,
+          "attacks": 6
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 452036,
+          "attacks": 6
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 456021,
+          "attacks": 6
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 452036,
+          "attacks": 6
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 452036,
+          "attacks": 6
+        }
+      ]
+    },
+    {
+      "level": 1000,
+      "enemyId": "shadow",
+      "build": "physical",
+      "weightedPoints": 5994,
+      "intervalMs": 940,
+      "gearAgility": 60,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 4700,
+          "hp": 452592,
+          "attacks": 7
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 452592,
+          "attacks": 6
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 456299,
+          "attacks": 6
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 4700,
+          "hp": 452592,
+          "attacks": 7
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 452592,
+          "attacks": 6
+        }
+      ]
+    },
+    {
+      "level": 1000,
+      "enemyId": "shadow",
+      "build": "magic",
+      "weightedPoints": 5994,
+      "intervalMs": 940,
+      "gearAgility": 60,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 4700,
+          "hp": 452592,
+          "attacks": 7
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 452592,
+          "attacks": 6
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 456299,
+          "attacks": 6
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 4700,
+          "hp": 452592,
+          "attacks": 7
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 452592,
+          "attacks": 6
+        }
+      ]
+    },
+    {
+      "level": 1000,
+      "enemyId": "shadow",
+      "build": "critical",
+      "weightedPoints": 5994,
+      "intervalMs": 949,
+      "gearAgility": 60,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 3796,
+          "hp": 452388,
+          "attacks": 6
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 3796,
+          "hp": 452388,
+          "attacks": 6
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 3796,
+          "hp": 456197,
+          "attacks": 6
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 3796,
+          "hp": 452388,
+          "attacks": 6
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3796,
+          "hp": 452388,
+          "attacks": 6
+        }
+      ]
+    },
+    {
+      "level": 1000,
+      "enemyId": "archer",
+      "build": "balanced",
+      "weightedPoints": 5994,
+      "intervalMs": 868,
+      "gearAgility": 60,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 4340,
+          "hp": 451478,
+          "attacks": 7
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 4340,
+          "hp": 451478,
+          "attacks": 7
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 4340,
+          "hp": 451478,
+          "attacks": 7
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 4340,
+          "hp": 451478,
+          "attacks": 7
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 4340,
+          "hp": 455742,
+          "attacks": 7
+        }
+      ]
+    },
+    {
+      "level": 1000,
+      "enemyId": "archer",
+      "build": "swift",
+      "weightedPoints": 5994,
+      "intervalMs": 525,
+      "gearAgility": 60,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 2625,
+          "hp": 451131,
+          "attacks": 6
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 2625,
+          "hp": 456241,
+          "attacks": 6
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 2625,
+          "hp": 451131,
+          "attacks": 6
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 2625,
+          "hp": 451131,
+          "attacks": 6
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 2100,
+          "hp": 451131,
+          "attacks": 5
+        }
+      ]
+    },
+    {
+      "level": 1000,
+      "enemyId": "archer",
+      "build": "brute",
+      "weightedPoints": 5994,
+      "intervalMs": 940,
+      "gearAgility": 60,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 4700,
+          "hp": 451670,
+          "attacks": 7
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 451670,
+          "attacks": 6
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 455838,
+          "attacks": 6
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 4700,
+          "hp": 451670,
+          "attacks": 7
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 451670,
+          "attacks": 6
+        }
+      ]
+    },
+    {
+      "level": 1000,
+      "enemyId": "archer",
+      "build": "physical",
+      "weightedPoints": 5994,
+      "intervalMs": 940,
+      "gearAgility": 60,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 4700,
+          "hp": 451670,
+          "attacks": 7
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 451670,
+          "attacks": 6
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 455838,
+          "attacks": 6
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 4700,
+          "hp": 451670,
+          "attacks": 7
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 451670,
+          "attacks": 6
+        }
+      ]
+    },
+    {
+      "level": 1000,
+      "enemyId": "archer",
+      "build": "magic",
+      "weightedPoints": 5994,
+      "intervalMs": 940,
+      "gearAgility": 60,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 4700,
+          "hp": 451670,
+          "attacks": 7
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 451670,
+          "attacks": 6
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 455838,
+          "attacks": 6
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 4700,
+          "hp": 451670,
+          "attacks": 7
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3760,
+          "hp": 451670,
+          "attacks": 6
+        }
+      ]
+    },
+    {
+      "level": 1000,
+      "enemyId": "archer",
+      "build": "critical",
+      "weightedPoints": 5994,
+      "intervalMs": 949,
+      "gearAgility": 60,
+      "wins": 5,
+      "outcomes": [
+        {
+          "seed": 1101,
+          "status": "victory",
+          "ms": 4745,
+          "hp": 451442,
+          "attacks": 7
+        },
+        {
+          "seed": 2221,
+          "status": "victory",
+          "ms": 3796,
+          "hp": 451442,
+          "attacks": 6
+        },
+        {
+          "seed": 3301,
+          "status": "victory",
+          "ms": 3796,
+          "hp": 455724,
+          "attacks": 6
+        },
+        {
+          "seed": 4411,
+          "status": "victory",
+          "ms": 4745,
+          "hp": 451442,
+          "attacks": 7
+        },
+        {
+          "seed": 5501,
+          "status": "victory",
+          "ms": 3796,
+          "hp": 451442,
+          "attacks": 6
+        }
+      ]
+    }
+  ],
+  "winners": [
+    {
+      "level": 100,
+      "enemyId": "shield-skeleton",
+      "build": "balanced",
+      "wins": 5
+    },
+    {
+      "level": 100,
+      "enemyId": "shadow",
+      "build": "swift",
+      "wins": 5
+    },
+    {
+      "level": 100,
+      "enemyId": "archer",
+      "build": "swift",
+      "wins": 5
+    },
+    {
+      "level": 500,
+      "enemyId": "shield-skeleton",
+      "build": "critical",
+      "wins": 5
+    },
+    {
+      "level": 500,
+      "enemyId": "shadow",
+      "build": "swift",
+      "wins": 5
+    },
+    {
+      "level": 500,
+      "enemyId": "archer",
+      "build": "critical",
+      "wins": 5
+    },
+    {
+      "level": 1000,
+      "enemyId": "shield-skeleton",
+      "build": "swift",
+      "wins": 5
+    },
+    {
+      "level": 1000,
+      "enemyId": "shadow",
+      "build": "swift",
+      "wins": 5
+    },
+    {
+      "level": 1000,
+      "enemyId": "archer",
+      "build": "swift",
+      "wins": 5
+    }
+  ],
+  "productionApproved": false,
+  "limits": [
+    "No item acquisition or resource affordability model",
+    "One enemy per encounter in this grid, not full tower waves",
+    "Not a statistical proof of build balance or human satisfaction",
+    "No boss, PvP, hunt, offline reward or economy activation",
+    "Old R1.1 progression and +20 estimates are not revalidated by this combat grid"
+  ]
+}

@@ -264,3 +264,7 @@ export * from "./bestiary.js";
 
 export * from './economy-v2.js';
 export * from './daily-boss-jade.js';
+export * from './builds-v3.js';
+export * from './combat-v3.js';
+export * from './enemies-v3.js';
+export * from './build-presets-v3.js';
