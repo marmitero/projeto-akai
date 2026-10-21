@@ -49,6 +49,8 @@
         },
         "kills": 12533,
         "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 6442611,
         "listingFeeAffordable": false,
         "censoredBeforeMaxLevel": true
       },
@@ -87,6 +89,8 @@
         },
         "kills": 8310,
         "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 10472416,
         "listingFeeAffordable": false,
         "censoredBeforeMaxLevel": true
       },
@@ -125,6 +129,8 @@
         },
         "kills": 602,
         "offlineUsedMs": 118600,
+        "offlineStoppedByDefeat": true,
+        "offlineMasteryGainedMs": 58000,
         "listingFeeAffordable": false,
         "censoredBeforeMaxLevel": true
       },
@@ -163,6 +169,8 @@
         },
         "kills": 10303,
         "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 7552728,
         "listingFeeAffordable": false,
         "censoredBeforeMaxLevel": true
       },
@@ -201,6 +209,8 @@
         },
         "kills": 10277,
         "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 7533088,
         "listingFeeAffordable": false,
         "censoredBeforeMaxLevel": true
       },
@@ -239,6 +249,8 @@
         },
         "kills": 891,
         "offlineUsedMs": 1317750,
+        "offlineStoppedByDefeat": true,
+        "offlineMasteryGainedMs": 882066,
         "listingFeeAffordable": false,
         "censoredBeforeMaxLevel": true
       },
@@ -277,6 +289,8 @@
         },
         "kills": 10527,
         "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 6686025,
         "listingFeeAffordable": false,
         "censoredBeforeMaxLevel": true
       },
@@ -315,6 +329,8 @@
         },
         "kills": 641,
         "offlineUsedMs": 46000,
+        "offlineStoppedByDefeat": true,
+        "offlineMasteryGainedMs": 0,
         "listingFeeAffordable": false,
         "censoredBeforeMaxLevel": true
       },
@@ -353,6 +369,8 @@
         },
         "kills": 577,
         "offlineUsedMs": 38800,
+        "offlineStoppedByDefeat": true,
+        "offlineMasteryGainedMs": 0,
         "listingFeeAffordable": false,
         "censoredBeforeMaxLevel": true
       },
@@ -391,6 +409,8 @@
         },
         "kills": 9203,
         "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 7355803,
         "listingFeeAffordable": false,
         "censoredBeforeMaxLevel": true
       },
@@ -429,6 +449,8 @@
         },
         "kills": 9171,
         "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 7324033,
         "listingFeeAffordable": false,
         "censoredBeforeMaxLevel": true
       },
@@ -467,6 +489,8 @@
         },
         "kills": 603,
         "offlineUsedMs": 83200,
+        "offlineStoppedByDefeat": true,
+        "offlineMasteryGainedMs": 29000,
         "listingFeeAffordable": false,
         "censoredBeforeMaxLevel": true
       },
@@ -505,6 +529,8 @@
         },
         "kills": 9364,
         "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 6528433,
         "listingFeeAffordable": false,
         "censoredBeforeMaxLevel": true
       },
@@ -543,6 +569,8 @@
         },
         "kills": 726,
         "offlineUsedMs": 170000,
+        "offlineStoppedByDefeat": true,
+        "offlineMasteryGainedMs": 71098,
         "listingFeeAffordable": false,
         "censoredBeforeMaxLevel": true
       },
@@ -581,6 +609,8 @@
         },
         "kills": 6421,
         "offlineUsedMs": 23491000,
+        "offlineStoppedByDefeat": true,
+        "offlineMasteryGainedMs": 8414202,
         "listingFeeAffordable": false,
         "censoredBeforeMaxLevel": true
       },
@@ -619,6 +649,8 @@
         },
         "kills": 9459,
         "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 6868462,
         "listingFeeAffordable": false,
         "censoredBeforeMaxLevel": true
       },
@@ -657,6 +689,8 @@
         },
         "kills": 8855,
         "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 7211469,
         "listingFeeAffordable": false,
         "censoredBeforeMaxLevel": true
       },
@@ -695,6 +729,8 @@
         },
         "kills": 917,
         "offlineUsedMs": 1397000,
+        "offlineStoppedByDefeat": true,
+        "offlineMasteryGainedMs": 756000,
         "listingFeeAffordable": false,
         "censoredBeforeMaxLevel": true
       }
