@@ -45,6 +45,7 @@ export function advanceIntegratedV9(input:IntegratedV9,to:number,mode:'online'|'
   if(reserved.has(run.economy.accountId)||w.events.sessions[run.economy.accountId]?.active){
    if(run.offlineJob)throw Error('EVENT_OFFLINE_CONFLICT');run.economy.economicThroughMs=Math.max(run.economy.economicThroughMs,through);run.encounter=null;run.nextAt=through+3000;
   }else{
+   if(run.economy.economicThroughMs===through&&!run.offlineJob)continue;
    const r=mode==='offline'?settleElapsedV7(run,through,budget):advanceRunV6(run,through,budget);w.market.runs[id]=r.state;backlog ||= r.backlog;
   }
  }
