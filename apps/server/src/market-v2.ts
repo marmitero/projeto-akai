@@ -29,15 +29,17 @@ export class MarketV2Service {
    const changed=new Set<string>([actor]);
    try{
     rule(!row.closed,'REHEARSAL_CLOSED');rule(cmd.expectedRevision===Number(row.revision),'STALE_REVISION');const now=this.clock();world=syncMarketV2(world,now);
+    const social=(await c.query('SELECT e.state FROM akai_boss_v8_realms e JOIN akai_boss_v8_members m ON m.realm_id=e.id WHERE m.run_id=ANY($1::uuid[])',[rows.map(r=>r.id)])).rows;const socialActive=new Set<string>(social.flatMap(e=>Object.entries(e.state.sessions).filter(([,p]:[string,any])=>p.active).map(([id])=>id)));
+
     let backlog=false;
-    for(const r of rows){if(r.closed)continue;const entropy=(key:string,bound:number)=>{const limit=Math.floor(4294967296/bound)*bound;for(let i=0;;i++){const n=createHmac('sha256',Buffer.from(r.secret,'hex')).update(key+'/'+i).digest().readUInt32BE(0);if(n<limit)return n%bound;}};
+    for(const r of rows){if(r.closed||socialActive.has(r.account_id))continue;const entropy=(key:string,bound:number)=>{const limit=Math.floor(4294967296/bound)*bound;for(let i=0;;i++){const n=createHmac('sha256',Buffer.from(r.secret,'hex')).update(key+'/'+i).digest().readUInt32BE(0);if(n<limit)return n%bound;}};
      const settled=settleElapsedV7(world.runs[r.id]!,now,1000,entropy);world.runs[r.id]=settled.state;backlog ||= settled.backlog;
     }
     if(backlog)result={status:'settling',code:'SETTLEMENT_BACKLOG',revision:Number(row.revision)+1};
     else{
      const a=cmd.action,offer='offerId' in a?world.book.offers.find(o=>o.id===a.offerId):undefined,lid='listingId' in a?a.listingId:offer?.listingId,l=world.book.listings.find(l=>l.id===lid);
      const parties=[actor,...(l?[l.seller]:[]),...(a.type==='offer.accept'&&offer?[offer.buyer]:[])];
-     rule(!rows.some(r=>parties.includes(r.id)&&r.closed),'REHEARSAL_CLOSED');
+     rule(!rows.some(r=>parties.includes(r.id)&&r.closed),'REHEARSAL_CLOSED');rule(!rows.some(r=>parties.includes(r.id)&&socialActive.has(r.account_id)),'EVENT_ACTIVITY_ACTIVE');
      const accounts=rows.filter(r=>parties.includes(r.id)).map(r=>before[r.id]!.economy.accountId);
      rule(!(await c.query('SELECT 1 FROM akai_profiles WHERE account_id=ANY($1::uuid[]) AND suspended LIMIT 1',[accounts])).rowCount,'ACCOUNT_SUSPENDED');
      try{const applied=applyMarketV2(world,actor,a,now,randomUUID);world=applied.world;result={status:'applied',code:'OK',revision:Number(row.revision)+1,...(applied.listingId?{listingId:applied.listingId}:{})};}

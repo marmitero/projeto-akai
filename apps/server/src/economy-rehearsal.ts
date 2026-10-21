@@ -40,6 +40,7 @@ export class EconomyRehearsalService {
    const entropy=(key:string,bound:number)=>{const limit=Math.floor(4294967296/bound)*bound;for(let i=0;;i++){const n=createHmac('sha256',Buffer.from(row.secret,'hex')).update(key+'/'+i).digest().readUInt32BE(0);if(n<limit)return n%bound;}};
    try{
     if(cmd.expectedRevision!==Number(row.revision))throw Error('STALE_REVISION');
+    const event=(await c.query('SELECT e.state FROM akai_boss_v8_realms e JOIN akai_boss_v8_members m ON m.realm_id=e.id WHERE m.run_id=$1',[runId])).rows[0];if(event?.state.sessions[run.economy.accountId]?.active)throw Error('EVENT_ACTIVITY_ACTIVE');
     const now=this.clock();if(now<run.economy.economicThroughMs)throw Error('ECONOMY_CLOCK_REWIND');
     const settled=settleElapsedV7(run,now,1000,entropy);run=settled.state;
     if(settled.backlog){

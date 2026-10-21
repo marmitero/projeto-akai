@@ -1443,3 +1443,8 @@ progress {
 #v6-log {max-height:160px;overflow:auto;padding-left:22px;font-size:11px;}
 .v6-attribute {display:flex;justify-content:space-between;gap:8px;margin:6px 0;}
 .v6-attribute span {overflow-wrap:anywhere;min-width:0;}
+
+/* R8 isolated preview: wrap tabs and reward broadcast on narrow screens. */
+.v6-tabs button {flex:1 1 80px;white-space:normal;overflow-wrap:anywhere;}
+#r8-broadcast {padding:6px;background:#33233c;color:#ffe0a0;overflow-wrap:anywhere;}
+#r8-hp {width:100%;}

@@ -1,0 +1,1991 @@
+{
+  "version": "r8-tower-audit-1",
+  "passed": true,
+  "encounters": 216,
+  "all100BossStatsMonotone": true,
+  "lateEpic9": {
+    "wins": 3,
+    "cases": 18,
+    "minHpLossBp": 7838,
+    "maxHpLossBp": 9913
+  },
+  "summaries": [
+    {
+      "gear": "starter",
+      "wins": 18,
+      "defeats": 36,
+      "timeouts": 18
+    },
+    {
+      "gear": "epic9",
+      "wins": 57,
+      "defeats": 0,
+      "timeouts": 15
+    },
+    {
+      "gear": "legendary15",
+      "wins": 72,
+      "defeats": 0,
+      "timeouts": 0
+    }
+  ],
+  "compare": [
+    {
+      "floor": 999,
+      "result": "victory",
+      "ms": 34350
+    },
+    {
+      "floor": 1000,
+      "result": "victory",
+      "ms": 23100
+    }
+  ],
+  "rows": [
+    {
+      "floor": 10,
+      "build": "balanced",
+      "gear": "starter",
+      "seed": 1,
+      "status": "victory",
+      "ms": 10000,
+      "hpLossBp": 1127
+    },
+    {
+      "floor": 10,
+      "build": "balanced",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 7000,
+      "hpLossBp": 676
+    },
+    {
+      "floor": 10,
+      "build": "balanced",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 7000,
+      "hpLossBp": 845
+    },
+    {
+      "floor": 10,
+      "build": "balanced",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "victory",
+      "ms": 9000,
+      "hpLossBp": 687
+    },
+    {
+      "floor": 10,
+      "build": "balanced",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 6000,
+      "hpLossBp": 585
+    },
+    {
+      "floor": 10,
+      "build": "balanced",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 6000,
+      "hpLossBp": 687
+    },
+    {
+      "floor": 10,
+      "build": "balanced",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 8000,
+      "hpLossBp": 647
+    },
+    {
+      "floor": 10,
+      "build": "balanced",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 6000,
+      "hpLossBp": 528
+    },
+    {
+      "floor": 10,
+      "build": "balanced",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 6000,
+      "hpLossBp": 647
+    },
+    {
+      "floor": 10,
+      "build": "swift",
+      "gear": "starter",
+      "seed": 1,
+      "status": "victory",
+      "ms": 14985,
+      "hpLossBp": 2373
+    },
+    {
+      "floor": 10,
+      "build": "swift",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 10989,
+      "hpLossBp": 1864
+    },
+    {
+      "floor": 10,
+      "build": "swift",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 11988,
+      "hpLossBp": 1695
+    },
+    {
+      "floor": 10,
+      "build": "swift",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "victory",
+      "ms": 11988,
+      "hpLossBp": 1502
+    },
+    {
+      "floor": 10,
+      "build": "swift",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 7992,
+      "hpLossBp": 1021
+    },
+    {
+      "floor": 10,
+      "build": "swift",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 7992,
+      "hpLossBp": 1201
+    },
+    {
+      "floor": 10,
+      "build": "swift",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 8991,
+      "hpLossBp": 756
+    },
+    {
+      "floor": 10,
+      "build": "swift",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 6993,
+      "hpLossBp": 644
+    },
+    {
+      "floor": 10,
+      "build": "swift",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 6993,
+      "hpLossBp": 756
+    },
+    {
+      "floor": 10,
+      "build": "brute",
+      "gear": "starter",
+      "seed": 1,
+      "status": "victory",
+      "ms": 9000,
+      "hpLossBp": 923
+    },
+    {
+      "floor": 10,
+      "build": "brute",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 7000,
+      "hpLossBp": 769
+    },
+    {
+      "floor": 10,
+      "build": "brute",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 7000,
+      "hpLossBp": 923
+    },
+    {
+      "floor": 10,
+      "build": "brute",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "victory",
+      "ms": 8000,
+      "hpLossBp": 744
+    },
+    {
+      "floor": 10,
+      "build": "brute",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 6000,
+      "hpLossBp": 634
+    },
+    {
+      "floor": 10,
+      "build": "brute",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 6000,
+      "hpLossBp": 744
+    },
+    {
+      "floor": 10,
+      "build": "brute",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 8000,
+      "hpLossBp": 698
+    },
+    {
+      "floor": 10,
+      "build": "brute",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 5000,
+      "hpLossBp": 336
+    },
+    {
+      "floor": 10,
+      "build": "brute",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 5000,
+      "hpLossBp": 465
+    },
+    {
+      "floor": 10,
+      "build": "physical",
+      "gear": "starter",
+      "seed": 1,
+      "status": "victory",
+      "ms": 15000,
+      "hpLossBp": 1518
+    },
+    {
+      "floor": 10,
+      "build": "physical",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 10000,
+      "hpLossBp": 964
+    },
+    {
+      "floor": 10,
+      "build": "physical",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 11000,
+      "hpLossBp": 1084
+    },
+    {
+      "floor": 10,
+      "build": "physical",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "victory",
+      "ms": 10000,
+      "hpLossBp": 706
+    },
+    {
+      "floor": 10,
+      "build": "physical",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 8000,
+      "hpLossBp": 618
+    },
+    {
+      "floor": 10,
+      "build": "physical",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 8000,
+      "hpLossBp": 706
+    },
+    {
+      "floor": 10,
+      "build": "physical",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 9000,
+      "hpLossBp": 503
+    },
+    {
+      "floor": 10,
+      "build": "physical",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 7000,
+      "hpLossBp": 419
+    },
+    {
+      "floor": 10,
+      "build": "physical",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 7000,
+      "hpLossBp": 503
+    },
+    {
+      "floor": 10,
+      "build": "magic",
+      "gear": "starter",
+      "seed": 1,
+      "status": "victory",
+      "ms": 15000,
+      "hpLossBp": 1687
+    },
+    {
+      "floor": 10,
+      "build": "magic",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 10000,
+      "hpLossBp": 1084
+    },
+    {
+      "floor": 10,
+      "build": "magic",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 11000,
+      "hpLossBp": 1205
+    },
+    {
+      "floor": 10,
+      "build": "magic",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "victory",
+      "ms": 10000,
+      "hpLossBp": 883
+    },
+    {
+      "floor": 10,
+      "build": "magic",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 8000,
+      "hpLossBp": 751
+    },
+    {
+      "floor": 10,
+      "build": "magic",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 8000,
+      "hpLossBp": 883
+    },
+    {
+      "floor": 10,
+      "build": "magic",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 9000,
+      "hpLossBp": 566
+    },
+    {
+      "floor": 10,
+      "build": "magic",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 7000,
+      "hpLossBp": 482
+    },
+    {
+      "floor": 10,
+      "build": "magic",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 7000,
+      "hpLossBp": 566
+    },
+    {
+      "floor": 10,
+      "build": "critical",
+      "gear": "starter",
+      "seed": 1,
+      "status": "victory",
+      "ms": 13000,
+      "hpLossBp": 1935
+    },
+    {
+      "floor": 10,
+      "build": "critical",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 9000,
+      "hpLossBp": 1129
+    },
+    {
+      "floor": 10,
+      "build": "critical",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 9000,
+      "hpLossBp": 1290
+    },
+    {
+      "floor": 10,
+      "build": "critical",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "victory",
+      "ms": 10000,
+      "hpLossBp": 1034
+    },
+    {
+      "floor": 10,
+      "build": "critical",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 7000,
+      "hpLossBp": 661
+    },
+    {
+      "floor": 10,
+      "build": "critical",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 7000,
+      "hpLossBp": 776
+    },
+    {
+      "floor": 10,
+      "build": "critical",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 9000,
+      "hpLossBp": 726
+    },
+    {
+      "floor": 10,
+      "build": "critical",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 6000,
+      "hpLossBp": 591
+    },
+    {
+      "floor": 10,
+      "build": "critical",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 6000,
+      "hpLossBp": 726
+    },
+    {
+      "floor": 100,
+      "build": "balanced",
+      "gear": "starter",
+      "seed": 1,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 4863
+    },
+    {
+      "floor": 100,
+      "build": "balanced",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 5386
+    },
+    {
+      "floor": 100,
+      "build": "balanced",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 4516
+    },
+    {
+      "floor": 100,
+      "build": "balanced",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "victory",
+      "ms": 17946,
+      "hpLossBp": 942
+    },
+    {
+      "floor": 100,
+      "build": "balanced",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 11964,
+      "hpLossBp": 766
+    },
+    {
+      "floor": 100,
+      "build": "balanced",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 13958,
+      "hpLossBp": 706
+    },
+    {
+      "floor": 100,
+      "build": "balanced",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 12961,
+      "hpLossBp": 468
+    },
+    {
+      "floor": 100,
+      "build": "balanced",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 7976,
+      "hpLossBp": 312
+    },
+    {
+      "floor": 100,
+      "build": "balanced",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 8973,
+      "hpLossBp": 312
+    },
+    {
+      "floor": 100,
+      "build": "swift",
+      "gear": "starter",
+      "seed": 1,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 7377
+    },
+    {
+      "floor": 100,
+      "build": "swift",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 8470
+    },
+    {
+      "floor": 100,
+      "build": "swift",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 7648
+    },
+    {
+      "floor": 100,
+      "build": "swift",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "victory",
+      "ms": 17586,
+      "hpLossBp": 1025
+    },
+    {
+      "floor": 100,
+      "build": "swift",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 13678,
+      "hpLossBp": 878
+    },
+    {
+      "floor": 100,
+      "build": "swift",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 15632,
+      "hpLossBp": 878
+    },
+    {
+      "floor": 100,
+      "build": "swift",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 11724,
+      "hpLossBp": 367
+    },
+    {
+      "floor": 100,
+      "build": "swift",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 7816,
+      "hpLossBp": 367
+    },
+    {
+      "floor": 100,
+      "build": "swift",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 10747,
+      "hpLossBp": 367
+    },
+    {
+      "floor": 100,
+      "build": "brute",
+      "gear": "starter",
+      "seed": 1,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 5672
+    },
+    {
+      "floor": 100,
+      "build": "brute",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 6281
+    },
+    {
+      "floor": 100,
+      "build": "brute",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 5266
+    },
+    {
+      "floor": 100,
+      "build": "brute",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "victory",
+      "ms": 17000,
+      "hpLossBp": 1028
+    },
+    {
+      "floor": 100,
+      "build": "brute",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 11000,
+      "hpLossBp": 835
+    },
+    {
+      "floor": 100,
+      "build": "brute",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 14000,
+      "hpLossBp": 771
+    },
+    {
+      "floor": 100,
+      "build": "brute",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 12000,
+      "hpLossBp": 414
+    },
+    {
+      "floor": 100,
+      "build": "brute",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 7000,
+      "hpLossBp": 249
+    },
+    {
+      "floor": 100,
+      "build": "brute",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 9000,
+      "hpLossBp": 332
+    },
+    {
+      "floor": 100,
+      "build": "physical",
+      "gear": "starter",
+      "seed": 1,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 3477
+    },
+    {
+      "floor": 100,
+      "build": "physical",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 3847
+    },
+    {
+      "floor": 100,
+      "build": "physical",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 3229
+    },
+    {
+      "floor": 100,
+      "build": "physical",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "victory",
+      "ms": 19000,
+      "hpLossBp": 888
+    },
+    {
+      "floor": 100,
+      "build": "physical",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 14000,
+      "hpLossBp": 641
+    },
+    {
+      "floor": 100,
+      "build": "physical",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 15000,
+      "hpLossBp": 592
+    },
+    {
+      "floor": 100,
+      "build": "physical",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 13000,
+      "hpLossBp": 403
+    },
+    {
+      "floor": 100,
+      "build": "physical",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 8000,
+      "hpLossBp": 269
+    },
+    {
+      "floor": 100,
+      "build": "physical",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 11000,
+      "hpLossBp": 336
+    },
+    {
+      "floor": 100,
+      "build": "magic",
+      "gear": "starter",
+      "seed": 1,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 3441
+    },
+    {
+      "floor": 100,
+      "build": "magic",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 3811
+    },
+    {
+      "floor": 100,
+      "build": "magic",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 3195
+    },
+    {
+      "floor": 100,
+      "build": "magic",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "victory",
+      "ms": 19000,
+      "hpLossBp": 877
+    },
+    {
+      "floor": 100,
+      "build": "magic",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 14000,
+      "hpLossBp": 635
+    },
+    {
+      "floor": 100,
+      "build": "magic",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 15000,
+      "hpLossBp": 585
+    },
+    {
+      "floor": 100,
+      "build": "magic",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 13000,
+      "hpLossBp": 403
+    },
+    {
+      "floor": 100,
+      "build": "magic",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 8000,
+      "hpLossBp": 269
+    },
+    {
+      "floor": 100,
+      "build": "magic",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 11000,
+      "hpLossBp": 336
+    },
+    {
+      "floor": 100,
+      "build": "critical",
+      "gear": "starter",
+      "seed": 1,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 6524
+    },
+    {
+      "floor": 100,
+      "build": "critical",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 6969
+    },
+    {
+      "floor": 100,
+      "build": "critical",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 5843
+    },
+    {
+      "floor": 100,
+      "build": "critical",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "victory",
+      "ms": 17000,
+      "hpLossBp": 1130
+    },
+    {
+      "floor": 100,
+      "build": "critical",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 12000,
+      "hpLossBp": 864
+    },
+    {
+      "floor": 100,
+      "build": "critical",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 15000,
+      "hpLossBp": 798
+    },
+    {
+      "floor": 100,
+      "build": "critical",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 13000,
+      "hpLossBp": 514
+    },
+    {
+      "floor": 100,
+      "build": "critical",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 7000,
+      "hpLossBp": 257
+    },
+    {
+      "floor": 100,
+      "build": "critical",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 9000,
+      "hpLossBp": 342
+    },
+    {
+      "floor": 500,
+      "build": "balanced",
+      "gear": "starter",
+      "seed": 1,
+      "status": "defeat",
+      "ms": 9000,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 500,
+      "build": "balanced",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "defeat",
+      "ms": 7200,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 500,
+      "build": "balanced",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "defeat",
+      "ms": 7200,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 500,
+      "build": "balanced",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "victory",
+      "ms": 27300,
+      "hpLossBp": 4202
+    },
+    {
+      "floor": 500,
+      "build": "balanced",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 21450,
+      "hpLossBp": 3302
+    },
+    {
+      "floor": 500,
+      "build": "balanced",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 24375,
+      "hpLossBp": 3302
+    },
+    {
+      "floor": 500,
+      "build": "balanced",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 16575,
+      "hpLossBp": 1480
+    },
+    {
+      "floor": 500,
+      "build": "balanced",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 12675,
+      "hpLossBp": 1218
+    },
+    {
+      "floor": 500,
+      "build": "balanced",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 13650,
+      "hpLossBp": 1044
+    },
+    {
+      "floor": 500,
+      "build": "swift",
+      "gear": "starter",
+      "seed": 1,
+      "status": "defeat",
+      "ms": 5400,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 500,
+      "build": "swift",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "defeat",
+      "ms": 3600,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 500,
+      "build": "swift",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "defeat",
+      "ms": 3600,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 500,
+      "build": "swift",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "victory",
+      "ms": 21424,
+      "hpLossBp": 3324
+    },
+    {
+      "floor": 500,
+      "build": "swift",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 18128,
+      "hpLossBp": 3499
+    },
+    {
+      "floor": 500,
+      "build": "swift",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 21424,
+      "hpLossBp": 3499
+    },
+    {
+      "floor": 500,
+      "build": "swift",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 13184,
+      "hpLossBp": 1072
+    },
+    {
+      "floor": 500,
+      "build": "swift",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 9888,
+      "hpLossBp": 975
+    },
+    {
+      "floor": 500,
+      "build": "swift",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 12360,
+      "hpLossBp": 1170
+    },
+    {
+      "floor": 500,
+      "build": "brute",
+      "gear": "starter",
+      "seed": 1,
+      "status": "defeat",
+      "ms": 7200,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 500,
+      "build": "brute",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "defeat",
+      "ms": 7200,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 500,
+      "build": "brute",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "defeat",
+      "ms": 7200,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 500,
+      "build": "brute",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "victory",
+      "ms": 23880,
+      "hpLossBp": 3686
+    },
+    {
+      "floor": 500,
+      "build": "brute",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 21890,
+      "hpLossBp": 3993
+    },
+    {
+      "floor": 500,
+      "build": "brute",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 23880,
+      "hpLossBp": 3379
+    },
+    {
+      "floor": 500,
+      "build": "brute",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 14925,
+      "hpLossBp": 1419
+    },
+    {
+      "floor": 500,
+      "build": "brute",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 11940,
+      "hpLossBp": 1153
+    },
+    {
+      "floor": 500,
+      "build": "brute",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 12935,
+      "hpLossBp": 1064
+    },
+    {
+      "floor": 500,
+      "build": "physical",
+      "gear": "starter",
+      "seed": 1,
+      "status": "defeat",
+      "ms": 10800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 500,
+      "build": "physical",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "defeat",
+      "ms": 9000,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 500,
+      "build": "physical",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "defeat",
+      "ms": 10800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 500,
+      "build": "physical",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "victory",
+      "ms": 29970,
+      "hpLossBp": 4354
+    },
+    {
+      "floor": 500,
+      "build": "physical",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 22977,
+      "hpLossBp": 3537
+    },
+    {
+      "floor": 500,
+      "build": "physical",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 24975,
+      "hpLossBp": 2993
+    },
+    {
+      "floor": 500,
+      "build": "physical",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 16983,
+      "hpLossBp": 1370
+    },
+    {
+      "floor": 500,
+      "build": "physical",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 13986,
+      "hpLossBp": 1209
+    },
+    {
+      "floor": 500,
+      "build": "physical",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 13986,
+      "hpLossBp": 967
+    },
+    {
+      "floor": 500,
+      "build": "magic",
+      "gear": "starter",
+      "seed": 1,
+      "status": "defeat",
+      "ms": 10800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 500,
+      "build": "magic",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "defeat",
+      "ms": 9000,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 500,
+      "build": "magic",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "defeat",
+      "ms": 10800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 500,
+      "build": "magic",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "victory",
+      "ms": 29970,
+      "hpLossBp": 4354
+    },
+    {
+      "floor": 500,
+      "build": "magic",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 22977,
+      "hpLossBp": 3537
+    },
+    {
+      "floor": 500,
+      "build": "magic",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 24975,
+      "hpLossBp": 2993
+    },
+    {
+      "floor": 500,
+      "build": "magic",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 16983,
+      "hpLossBp": 1370
+    },
+    {
+      "floor": 500,
+      "build": "magic",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 13986,
+      "hpLossBp": 1209
+    },
+    {
+      "floor": 500,
+      "build": "magic",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 13986,
+      "hpLossBp": 967
+    },
+    {
+      "floor": 500,
+      "build": "critical",
+      "gear": "starter",
+      "seed": 1,
+      "status": "defeat",
+      "ms": 5400,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 500,
+      "build": "critical",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "defeat",
+      "ms": 5400,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 500,
+      "build": "critical",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "defeat",
+      "ms": 5400,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 500,
+      "build": "critical",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "victory",
+      "ms": 20937,
+      "hpLossBp": 3212
+    },
+    {
+      "floor": 500,
+      "build": "critical",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 18943,
+      "hpLossBp": 3372
+    },
+    {
+      "floor": 500,
+      "build": "critical",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 18943,
+      "hpLossBp": 2890
+    },
+    {
+      "floor": 500,
+      "build": "critical",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 12961,
+      "hpLossBp": 1097
+    },
+    {
+      "floor": 500,
+      "build": "critical",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 10967,
+      "hpLossBp": 1189
+    },
+    {
+      "floor": 500,
+      "build": "critical",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 11964,
+      "hpLossBp": 914
+    },
+    {
+      "floor": 1000,
+      "build": "balanced",
+      "gear": "starter",
+      "seed": 1,
+      "status": "defeat",
+      "ms": 1800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 1000,
+      "build": "balanced",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "defeat",
+      "ms": 1800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 1000,
+      "build": "balanced",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "defeat",
+      "ms": 1800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 1000,
+      "build": "balanced",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 9307
+    },
+    {
+      "floor": 1000,
+      "build": "balanced",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 8461
+    },
+    {
+      "floor": 1000,
+      "build": "balanced",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 8743
+    },
+    {
+      "floor": 1000,
+      "build": "balanced",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 21654,
+      "hpLossBp": 3709
+    },
+    {
+      "floor": 1000,
+      "build": "balanced",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 20050,
+      "hpLossBp": 3709
+    },
+    {
+      "floor": 1000,
+      "build": "balanced",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 20852,
+      "hpLossBp": 2903
+    },
+    {
+      "floor": 1000,
+      "build": "swift",
+      "gear": "starter",
+      "seed": 1,
+      "status": "defeat",
+      "ms": 1800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 1000,
+      "build": "swift",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "defeat",
+      "ms": 1800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 1000,
+      "build": "swift",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "defeat",
+      "ms": 1800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 1000,
+      "build": "swift",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "victory",
+      "ms": 22050,
+      "hpLossBp": 9201
+    },
+    {
+      "floor": 1000,
+      "build": "swift",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 23625,
+      "hpLossBp": 8520
+    },
+    {
+      "floor": 1000,
+      "build": "swift",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 23100,
+      "hpLossBp": 7838
+    },
+    {
+      "floor": 1000,
+      "build": "swift",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 11518,
+      "hpLossBp": 2236
+    },
+    {
+      "floor": 1000,
+      "build": "swift",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 11961,
+      "hpLossBp": 2423
+    },
+    {
+      "floor": 1000,
+      "build": "swift",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 11518,
+      "hpLossBp": 1864
+    },
+    {
+      "floor": 1000,
+      "build": "brute",
+      "gear": "starter",
+      "seed": 1,
+      "status": "defeat",
+      "ms": 1800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 1000,
+      "build": "brute",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "defeat",
+      "ms": 1800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 1000,
+      "build": "brute",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "defeat",
+      "ms": 1800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 1000,
+      "build": "brute",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 9724
+    },
+    {
+      "floor": 1000,
+      "build": "brute",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 8580
+    },
+    {
+      "floor": 1000,
+      "build": "brute",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 8866
+    },
+    {
+      "floor": 1000,
+      "build": "brute",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 22075,
+      "hpLossBp": 3749
+    },
+    {
+      "floor": 1000,
+      "build": "brute",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 20309,
+      "hpLossBp": 3586
+    },
+    {
+      "floor": 1000,
+      "build": "brute",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 20309,
+      "hpLossBp": 3260
+    },
+    {
+      "floor": 1000,
+      "build": "physical",
+      "gear": "starter",
+      "seed": 1,
+      "status": "defeat",
+      "ms": 1800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 1000,
+      "build": "physical",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "defeat",
+      "ms": 1800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 1000,
+      "build": "physical",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "defeat",
+      "ms": 1800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 1000,
+      "build": "physical",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 9373
+    },
+    {
+      "floor": 1000,
+      "build": "physical",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 8270
+    },
+    {
+      "floor": 1000,
+      "build": "physical",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 8546
+    },
+    {
+      "floor": 1000,
+      "build": "physical",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 23841,
+      "hpLossBp": 4117
+    },
+    {
+      "floor": 1000,
+      "build": "physical",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 21192,
+      "hpLossBp": 3484
+    },
+    {
+      "floor": 1000,
+      "build": "physical",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 22075,
+      "hpLossBp": 3484
+    },
+    {
+      "floor": 1000,
+      "build": "magic",
+      "gear": "starter",
+      "seed": 1,
+      "status": "defeat",
+      "ms": 1800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 1000,
+      "build": "magic",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "defeat",
+      "ms": 1800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 1000,
+      "build": "magic",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "defeat",
+      "ms": 1800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 1000,
+      "build": "magic",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 9373
+    },
+    {
+      "floor": 1000,
+      "build": "magic",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 8270
+    },
+    {
+      "floor": 1000,
+      "build": "magic",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 8546
+    },
+    {
+      "floor": 1000,
+      "build": "magic",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 23841,
+      "hpLossBp": 4117
+    },
+    {
+      "floor": 1000,
+      "build": "magic",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 21192,
+      "hpLossBp": 3484
+    },
+    {
+      "floor": 1000,
+      "build": "magic",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 22075,
+      "hpLossBp": 3484
+    },
+    {
+      "floor": 1000,
+      "build": "critical",
+      "gear": "starter",
+      "seed": 1,
+      "status": "defeat",
+      "ms": 1800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 1000,
+      "build": "critical",
+      "gear": "starter",
+      "seed": 4213,
+      "status": "defeat",
+      "ms": 1800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 1000,
+      "build": "critical",
+      "gear": "starter",
+      "seed": 3735928559,
+      "status": "defeat",
+      "ms": 1800,
+      "hpLossBp": 10000
+    },
+    {
+      "floor": 1000,
+      "build": "critical",
+      "gear": "epic9",
+      "seed": 1,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 9913
+    },
+    {
+      "floor": 1000,
+      "build": "critical",
+      "gear": "epic9",
+      "seed": 4213,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 8496
+    },
+    {
+      "floor": 1000,
+      "build": "critical",
+      "gear": "epic9",
+      "seed": 3735928559,
+      "status": "timeout",
+      "ms": 30000,
+      "hpLossBp": 7930
+    },
+    {
+      "floor": 1000,
+      "build": "critical",
+      "gear": "legendary15",
+      "seed": 1,
+      "status": "victory",
+      "ms": 22300,
+      "hpLossBp": 3721
+    },
+    {
+      "floor": 1000,
+      "build": "critical",
+      "gear": "legendary15",
+      "seed": 4213,
+      "status": "victory",
+      "ms": 20516,
+      "hpLossBp": 3560
+    },
+    {
+      "floor": 1000,
+      "build": "critical",
+      "gear": "legendary15",
+      "seed": 3735928559,
+      "status": "victory",
+      "ms": 20516,
+      "hpLossBp": 3236
+    }
+  ],
+  "limits": "All100 stat anchors checked; combat sample4floors×6equal-point-builds×3gear×3seeds. Gear synthetic, not acquisition or affordability. No proof of all100 fights/campaign90–120days, player skill, loot market, daily boss population or+20rarity. Hunts keep independentV4 anchors, legacy live bosses unchanged."
+}

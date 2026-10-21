@@ -1,0 +1,44 @@
+import {beforeAll,afterAll,describe,it,expect} from 'vitest';
+import {randomUUID} from 'node:crypto';
+import {presetBuildV3} from '@akai/shared';
+import {Database} from './database.js';
+import {OnlineService} from './online.js';
+import {EconomyRehearsalService} from './economy-rehearsal.js';
+import {MarketV2Service} from './market-v2.js';
+import {BossEventsV8Service} from './boss-events-v8.js';
+const url=process.env.TEST_DATABASE_URL;
+describe.skipIf(!url)('R8 PostgreSQL grants, presence and exclusivity',()=>{
+ const base=new Database(url!),schema='r8_'+randomUUID().replaceAll('-','');let db:Database,online:OnlineService,economy:EconomyRehearsalService,service:BossEventsV8Service,now=Date.parse('2026-10-21T12:00:00-03:00');
+ const build=presetBuildV3(1000,'swift','legendary20');for(const i of build.inventory)i.enhancement=15;
+ beforeAll(async()=>{await base.pool.query('CREATE SCHEMA '+schema);const u=new URL(url!);u.searchParams.set('options','-csearch_path='+schema);db=new Database(u.toString());await db.migrate();online=new OnlineService(db,()=>now);economy=new EconomyRehearsalService(db,()=>now);service=new BossEventsV8Service(db,()=>now);});
+ afterAll(async()=>{await db?.close();await base.pool.query('DROP SCHEMA '+schema+' CASCADE');await base.close();});
+ async function fixture(count=1){const runs=[];for(let n=0;n<count;n++){const u=await online.guest(),r=await economy.stage(u.accountId,randomUUID()),v=await economy.inspect(r.id);v.state.economy=structuredClone(build);v.state.economy.accountId=u.accountId;for(const i of v.state.economy.inventory){const old=i.id;i.id=u.accountId+'/'+old;for(const slot of Object.keys(v.state.economy.equipped) as (keyof typeof v.state.economy.equipped)[])if(v.state.economy.equipped[slot]===old)v.state.economy.equipped[slot]=i.id;}v.state.economy.economicThroughMs=now;v.state.economy.highest.main=1000;v.state.paused=true;await db.transaction(async c=>{await c.query('UPDATE akai_economy_rehearsals SET state=$2 WHERE id=$1',[r.id,v.state]);await c.query("INSERT INTO akai_economy_rehearsal_ledger VALUES($1,0,'masteryMs',$2,$2)",[r.id,String(v.state.economy.masteryMs)]);});runs.push({...r,u,source:(await db.pool.query('SELECT snapshot FROM akai_accounts WHERE id=$1',[u.accountId])).rows[0].snapshot});}const request=randomUUID(),r=await service.stage(runs.map(r=>r.id),request);return {runs,realm:r.id,request};}
+ async function command(realm:string,run:string,action:Record<string,unknown>){const input={commandId:randomUUID(),expectedRevision:Number((await economy.inspect(run)).revision),action};return {input,result:await service.command(realm,run,input)};}
+ async function play(realm:string,run:string,seconds:number){for(let s=0;s<seconds;s+=10){now+=Math.min(10,seconds-s)*1000;const r=await command(realm,run,{type:'heartbeat'});expect(r.result.status).toBe('applied');}}
+ it('enforces one activity, derives stats privately and refuses client damage/presence claims',async()=>{
+  const f=await fixture(2),r=f.runs[0]!;expect(await service.stage(f.runs.map(r=>r.id),f.request)).toEqual({id:f.realm,created:false});await command(f.realm,r.id,{type:'join',mode:'boss'});
+  let rev=Number((await economy.inspect(r.id)).revision);expect((await economy.command(r.id,{commandId:randomUUID(),expectedRevision:rev,action:{type:'settle'}})).code).toBe('EVENT_ACTIVITY_ACTIVE');
+  const market=new MarketV2Service(db,()=>now),m=await market.stage(f.runs.map(r=>r.id),randomUUID());rev=Number((await economy.inspect(r.id)).revision);expect((await market.command(m.id,r.id,{commandId:randomUUID(),expectedRevision:rev,action:{type:'list.item',itemId:'bad',price:'1000',currency:'coin'}})).code).toBe('EVENT_ACTIVITY_ACTIVE');
+  await expect(service.command(f.realm,r.id,{commandId:randomUUID(),expectedRevision:rev,action:{type:'heartbeat',damage:'999999',qualifiedSeconds:600}})).rejects.toThrow();expect((await service.inspect(f.realm)).daily.hp).toBeGreaterThan(0);
+ });
+ it('grants participation for real elapsed combat once and preserves the live wallet',async()=>{
+  const f=await fixture(),r=f.runs[0]!;await command(f.realm,r.id,{type:'join',mode:'boss'});await play(f.realm,r.id,610);const state=await economy.inspect(r.id);expect(BigInt(state.state.economy.balances.jade)).toBeGreaterThanOrEqual(3000n);expect((await db.pool.query("SELECT * FROM akai_boss_v8_rewards WHERE realm_id=$1 AND kind='participation'",[f.realm])).rows).toHaveLength(1);expect(await economy.reconcile(r.id)).toEqual([]);expect((await db.pool.query('SELECT snapshot FROM akai_accounts WHERE id=$1',[r.u.accountId])).rows[0].snapshot).toEqual(r.source);
+  const c=await command(f.realm,r.id,{type:'heartbeat'}),before=(await economy.inspect(r.id)).state;expect(await service.command(f.realm,r.id,c.input)).toEqual(c.result);expect((await economy.inspect(r.id)).state).toEqual(before);
+ },30000);
+ it('caps overkill and confirms ranking/last-hit/broadcast atomically under concurrent requests',async()=>{
+  const f=await fixture(2);for(const r of f.runs)await command(f.realm,r.id,{type:'join',mode:'boss'});const book=await service.inspect(f.realm);book.daily.hp=1;await db.pool.query('UPDATE akai_boss_v8_realms SET state=$2 WHERE id=$1',[f.realm,book]);now+=10000;
+  const inputs=await Promise.all(f.runs.map(async r=>({commandId:randomUUID(),expectedRevision:Number((await economy.inspect(r.id)).revision),action:{type:'heartbeat'}})));await Promise.all(f.runs.map((r,i)=>service.command(f.realm,r.id,inputs[i])));
+  const done=await service.inspect(f.realm);expect(done.daily.hp).toBe(0);expect(Object.values(done.daily.members).reduce((n,m)=>n+BigInt(m.damage),0n)).toBe(1n);expect((await db.pool.query("SELECT * FROM akai_boss_v8_rewards WHERE realm_id=$1 AND kind='last-hit'",[f.realm])).rows).toHaveLength(1);expect((await db.pool.query('SELECT * FROM akai_boss_v8_broadcasts WHERE realm_id=$1',[f.realm])).rows).toHaveLength(1);expect(done.broadcasts[0]).toMatchObject({jade:250,accountId:done.daily.lastHit});for(const r of f.runs)expect(await economy.reconcile(r.id)).toEqual([]);
+ });
+ it('rolls back the killing hit, Jade, receipt and broadcast after an outbox failure',async()=>{
+  const f=await fixture(),r=f.runs[0]!;await command(f.realm,r.id,{type:'join',mode:'boss'});const book=await service.inspect(f.realm);book.daily.hp=1;await db.pool.query('UPDATE akai_boss_v8_realms SET state=$2 WHERE id=$1',[f.realm,book]);const before=await economy.inspect(r.id);now+=10000;const input={commandId:randomUUID(),expectedRevision:Number(before.revision),action:{type:'heartbeat'}};
+  await db.pool.query(`CREATE OR REPLACE FUNCTION akai_r8_test_fail() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF NEW.realm_id='${f.realm}'::uuid THEN RAISE EXCEPTION 'R8_OUTBOX_FAILURE'; END IF; RETURN NEW; END $$`);await db.pool.query('CREATE TRIGGER akai_r8_test_fail BEFORE INSERT ON akai_boss_v8_events FOR EACH ROW EXECUTE FUNCTION akai_r8_test_fail()');try{await expect(service.command(f.realm,r.id,input)).rejects.toThrow('R8_OUTBOX_FAILURE');}finally{await db.pool.query('DROP TRIGGER akai_r8_test_fail ON akai_boss_v8_events');await db.pool.query('DROP FUNCTION akai_r8_test_fail()');}
+  expect(await economy.inspect(r.id)).toEqual(before);expect(await service.inspect(f.realm)).toEqual(book);expect((await db.pool.query('SELECT COUNT(*)::int n FROM akai_boss_v8_rewards WHERE realm_id=$1',[f.realm])).rows[0].n).toBe(0);expect((await service.command(f.realm,r.id,input)).status).toBe('applied');expect((await economy.inspect(r.id)).state.economy.balances.jade).toBe('450000');
+ });
+ it('does not turn missed heartbeats into offline farm or reset credit when rejoining',async()=>{
+  const f=await fixture(),r=f.runs[0]!;await command(f.realm,r.id,{type:'join',mode:'boss'});now+=3600000;expect((await command(f.realm,r.id,{type:'heartbeat'})).result.code).toBe('EVENT_PRESENCE_EXPIRED');expect((await economy.inspect(r.id)).state.economy.economicThroughMs).toBe(now);await command(f.realm,r.id,{type:'join',mode:'boss'});const state=(await economy.inspect(r.id)).state;expect(state.killSequence).toBe(0);expect(state.economy.masteryMs).toBe(build.masteryMs);await command(f.realm,r.id,{type:'leave'});expect((await command(f.realm,r.id,{type:'sync'})).result.status).toBe('applied');
+ });
+ it('delivers30 weekly bound protection with ledger keys, no Coin/XP or duplicate milestones',async()=>{
+  const f=await fixture(),r=f.runs[0]!;await command(f.realm,r.id,{type:'join',mode:'protection'});await play(f.realm,r.id,1810);const e=(await economy.inspect(r.id)).state.economy;expect(e.protection).toBe(30);expect(e.balances.coin).toBe('0');expect(e.balances.jade).toBe('0');expect(e.masteryMs).toBe(build.masteryMs);expect((await db.pool.query("SELECT * FROM akai_boss_v8_rewards WHERE realm_id=$1 AND kind='weekly'",[f.realm])).rows).toHaveLength(6);expect(await economy.reconcile(r.id)).toEqual([]);
+ },30000);
+});

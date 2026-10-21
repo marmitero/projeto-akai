@@ -1,6 +1,6 @@
 # Validação de mercado, offline e bosses
 
-Atualização mercado v2: o relatório abaixo é histórico da inspeção anterior às entregas. Offline R7 e transações privadas de mercado v2 foram implementados; consulte [R7](../r7/IMPLEMENTATION.md), [mercado v2](../market-v2/IMPLEMENTATION.md) e a auditoria atual. Liquidez/corte real, migração dos consumidores e bosses/Jade continuam pendentes.
+Atualização R8: este relatório registra a inspeção anterior às entregas. Offline R7, mercado v2 e eventos/bosses R8 agora possuem runtimes privados e relatórios próprios: [R7](../r7/IMPLEMENTATION.md), [mercado](../market-v2/IMPLEMENTATION.md), [R8](../r8/IMPLEMENTATION.md). Esses gates técnicos isolados não aprovam corte real, consumidores públicos, liquidez/população/concentração nem campanha90–120dias. Consulte as evidências atuais nesses relatórios e no JSON de readiness.
 
 20/10/2026. Base analisada: R6 publicada `a274b04b06b480aa8fd14d797095b8a9ae8887a9`. **Corte da nova economia não aprovado.** Validar implementações existentes não substitui funcionalidades ainda ausentes. Nesta etapa há uma correção pontual, sem ativação, migração real, rebalanceamento de bosses ou loja.
 

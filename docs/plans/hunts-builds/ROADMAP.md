@@ -1,6 +1,6 @@
 # Roadmap proposto — reforma de progressão
 
-Estado corrente em20/10/2026: esta tabela é o planejamento originalR0. R2–R7 foram entregues como contratos/laboratórios/ensaios pré-corte, incluindo o offline isolado. [Mercado v2](market-v2/IMPLEMENTATION.md) implementa agora transações privadas e plano de reconciliação, com prévia de duas carteiras fictícias; liquidez e corte real ainda não aprovados. Consulte AI_STATE.md para evidências. Próximos: R8 bosses/Jade/proteção semanal, migração dos consumidores, coortes/mercado/legado/capacidade/playtest e revisão do corte. Economia real permanece desativada.
+Estado corrente em21/10/2026: a tabela é o planejamento originalR0. R2–R7 e mercado v2 foram entregues como contratos/laboratórios/ensaios pré-corte; [R8](r8/IMPLEMENTATION.md) implementa bosses da torre v2 e eventos diários/semanais em coortes privadas. Economia real segue desativada. Próximos: migração dos consumidores v2/ensaio operacional, coortes acopladas de campanha/Jade/mercado/legado/capacidade, calibragem e playtest gratuito, depois revisão de ativação. Monetização somente na fase final.
 
 18/10/2026. **Só R0 documental foi executada. R1–R9 são futuras; nenhuma está autorizada para começar por esta publicação.** A regra de publicar cada etapa evita perda de progresso, não transforma planejamento em autorização para implementar.
 

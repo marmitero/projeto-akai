@@ -1,4 +1,5 @@
 import {z} from 'zod';
+import {towerBossV8} from './bosses-v8.js';
 import {EconomyV2Schema,initialEconomyV2,masteryLevel,ECONOMY_XP_V2,canEquipV2,type EconomyV2} from './economy-v2.js';
 import {CombatStatsV3Schema,CombatV3Schema,startCombatV3,advanceCombatV3,hitChancePpm,attackDamageV3,type CombatStatsV3} from './combat-v3.js';
 import {heroStatsV3,trainAttribute,ATTRIBUTE_IDS} from './builds-v3.js';
@@ -8,7 +9,7 @@ import {commonEnemyV3} from './enemies-v3.js';
 import {huntEnemyV4} from './hunts-v4.js';
 import {refineItemV5} from './refinement-v5.js';
 import {planTowerProtectionV5} from './protection-v5.js';
-import {ITEMS,ITEM_IDS,RARITIES,floorDefinition,SLOT_IDS} from './content.js';
+import {ITEMS,ITEM_IDS,RARITIES,SLOT_IDS} from './content.js';
 const time=z.number().int().nonnegative().safe();
 const Log=z.object({id:time,at:time,text:z.string()});
 export const EconomyRunV6Schema=z.object({version:z.literal('economy-run-v6-1'),economy:EconomyV2Schema,seed:z.number().int().min(1).max(4294967295),
@@ -27,7 +28,7 @@ function log(s:EconomyRunV6,at:number,text:string){s.log.push({id:++s.logSequenc
 export function initialRunV6(accountId:string,at=0,seed=4213):EconomyRunV6{return EconomyRunV6Schema.parse({version:'economy-run-v6-1',economy:initialEconomyV2(accountId,at),seed,sequence:0,killSequence:0,xpCarry:0,paused:false,autoAdvance:true,nextAt:at,encounter:null,log:[],logSequence:0});}
 function enemies(activity:EconomyV2['activity'],floor:number,wave:number){
  if(activity!=='main'){const h=huntEnemyV4(activity,floor);return [{id:h.id,stats:h.stats}];}
- if(floor%10===0){const b=floorDefinition(floor);return [{id:'tower-guardian',stats:{attack:b.attack,maxHp:b.hp,physicalDefense:0,magicDefense:0,intervalMs:b.interval,dexterity:0,evasion:floor,criticalPpm:0,physicalShareBp:10000}}];}
+ if(floor%10===0)return [{id:'tower-guardian',stats:towerBossV8(floor).stats}];
  return encounterEnemies(floor,wave).map((t,i)=>({id:`enemy-${i}-${t.id}`,stats:commonEnemyV3(floor,t.id).stats}));
 }
 const benchmarkCache=new Map<string,number>(),heroCache=new Map<number,CombatStatsV3>();
