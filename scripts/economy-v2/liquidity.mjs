@@ -63,10 +63,11 @@ function nextQuote(e){
  const item=items.sort((a,b)=>a.enhancement-b.enhancement||a.id.localeCompare(b.id))[0];
  return item?{item,quote:refinementQuoteV5(item,item.enhancement>=7&&e.protection>0)}:null;
 }
-function reserve(e){
+export function reserve(e,purchases=[]){
  const next=nextQuote(e),budget=Object.fromEntries(resources.map(k=>[k,0n]));
- if(next)for(let enhancement=next.item.enhancement;enhancement<Math.min(15,next.item.enhancement+3);enhancement++){
-  const q=refinementQuoteV5({...next.item,enhancement},true);
+ const targets=purchases.length?purchases.map(p=>({item:e.inventory.find(i=>i.id===p.itemId),target:p.target})):next?[{item:next.item,target:Math.min(15,next.item.enhancement+3)}]:[];
+ for(const {item,target} of targets)if(item)for(let enhancement=item.enhancement;enhancement<target;enhancement++){
+  const q=refinementQuoteV5({...item,enhancement},enhancement>=7);
   for(const k of resources)budget[k]+=BigInt(q.cost[k])*8n;
  }
  return budget;
@@ -75,7 +76,7 @@ function replayBoss(run){return [1,4213,3735928559].map(seed=>{
  const result=advanceCombatV3(startCombatV3(heroStatsV3(run.economy),[{id:'tower-guardian',stats:towerBossV8(1000).stats}],{seed,floor:1000,deadlineMs:30000}),30000,10000);
  assert.equal(result.backlog,false);return {seed,status:result.state.status,ms:result.state.clockMs};
 });}
-export async function acquiredInputs(){
+export async function acquiredInputs(supplyMode='tower'){
  const base='docs/plans/hunts-builds/campaign-v10',files=(await readdir(base+'/samples')).filter(f=>f.endsWith('.json.gz')).sort();
  const report=JSON.parse(await readFile(base+'/results.json','utf8')),inputs=[];
  for(const [index,file] of files.entries()){
@@ -83,7 +84,9 @@ export async function acquiredInputs(){
   assert.equal(report.rows.find(r=>r.file===file)?.archiveSha256,sha(bytes));
   const id=`10000000-0000-4000-8000-${String(index+1).padStart(12,'0')}`;
   const run=rekeyRun(c.run,id),initial=structuredClone(run.economy);
-  const farm=farmOwned(run,'main',c.safe.main,6*HOUR);
+  const activity=supplyMode==='specialized'&&index<3?resources[index]:'main';
+  const floor=activity==='main'?c.safe.main:Math.max(1,Math.floor(run.economy.highest[activity]*0.7));
+  const farm=farmOwned(run,activity,floor,6*HOUR);
   const rates={};
   // Counterfactual one-hour measurements are price references, never credited to the market wallets.
   for(const activity of ['main',...resources]){
@@ -102,7 +105,7 @@ export async function acquiredInputs(){
   let prepared=farm.run;
   for(const item of [...prepared.economy.vault])if(prepared.economy.inventory.length<120&&masteryLevel(prepared.economy.masteryMs)>=1+(item.level-1)*10)prepared=applyEconomyActionV6(prepared,{type:'claim',itemId:item.id});
   const firstFeeDay=c.rows.find(r=>BigInt(r.balances.coin)>=BigInt(MARKET_V2_RULES.listingMilli))?.day??null;
-  inputs.push({file,archiveSha256:sha(bytes),id,originalId:c.run.economy.accountId,initial,run:prepared,rates,firstFeeDay,farm:{durationMs:6*HOUR,events:farm.events,kills:farm.kills,pausedByCombat:farm.pausedByCombat,coinEarnedMilli:String(BigInt(prepared.economy.balances.coin)-BigInt(initial.balances.coin)),newItems:owned(prepared.economy).length-owned(initial).length},campaign:{grossCoinMilli:c.gross.coin,spentCoinMilli:c.spent.coin,endingCoinMilli:initial.balances.coin},brute:c.build==='brute'});
+  inputs.push({file,archiveSha256:sha(bytes),id,originalId:c.run.economy.accountId,initial,run:prepared,rates,firstFeeDay,farm:{activity,floor,durationMs:6*HOUR,events:farm.events,kills:farm.kills,pausedByCombat:farm.pausedByCombat,coinEarnedMilli:String(BigInt(prepared.economy.balances.coin)-BigInt(initial.balances.coin)),earnedMilli:Object.fromEntries(currencies.map(k=>[k,String(BigInt(prepared.economy.balances[k])-BigInt(initial.balances[k]))])),newItems:owned(prepared.economy).length-owned(initial).length},campaign:{grossCoinMilli:c.gross.coin,spentCoinMilli:c.spent.coin,endingCoinMilli:initial.balances.coin},brute:c.build==='brute'});
  }
  assert.equal(inputs.length,7);return inputs;
 }
@@ -131,21 +134,6 @@ export function runMarket(inputs,multiplier){
   if(payment<ask){act(buyer,{type:'offer',listingId:listing.id,price:String(payment),currency:'coin'});metrics.offered++;act(listing.seller,{type:'offer.accept',offerId:world.book.offers.at(-1).id});}
   else act(buyer,{type:'buy',listingId:listing.id});return true;
  }
- // Material quantities are real eight-quotes-per-level deficits over three target levels, sellers retain their own same three-level reserves.
- for(const resource of resources)for(const buyer of inputs){
-  const e=world.runs[buyer.id].economy,wanted=reserve(e)[resource]-BigInt(e.balances[resource]);if(wanted<=0n)continue;
-  let deficit=wanted;
-  for(const seller of inputs.filter(i=>i.id!==buyer.id)){
-   const se=world.runs[seller.id].economy,available=BigInt(se.balances[resource])-reserve(se)[resource];if(available<=0n||deficit<=0n)continue;
-   const quantity=available<deficit?available:deficit;
-   const sellerRate=seller.rates[resource].milli,buyerRate=buyer.rates[resource].milli;if(!sellerRate||!buyerRate)continue;
-   const opportunity=Number(quantity)*seller.rates.coin.milli/sellerRate;
-   const ask=milli(opportunity*multiplier+Number(MARKET_V2_RULES.listingMilli)/0.9);
-   const listing=list(seller.id,{type:'list.resource',resource,quantity:String(quantity),price:ask,currency:'coin'});if(!listing)continue;
-   const willingness=Number(quantity)*buyer.rates.coin.milli/buyerRate;
-   if(purchase(buyer.id,listing,willingness)){metrics.resourceTrades++;metrics.resourcePurchases.push({buyer:buyer.id,seller:seller.id,resource,quantity:String(quantity),price:world.book.trades.at(-1).price});deficit-=quantity;}
-  }
- }
  // Retained real loot only. Buyers evaluate equal-refinement potential, not just current +0 stats.
  for(const seller of inputs){
   const e=world.runs[seller.id].economy;
@@ -162,6 +150,21 @@ export function runMarket(inputs,multiplier){
     const willingness=buyer.rates.coin.milli*Math.min(1,u.relativeGain*4);
     if(purchase(buyer.id,listing,willingness)){metrics.itemTrades++;metrics.itemPurchases.push({buyer:buyer.id,itemId:item.id,target:u.target,slot:u.slot,projectedGain:u.gain,price:world.book.trades.at(-1).price});break;}
    }
+  }
+ }
+ // Material purchases follow actual item purchases, funding those upgrade plans first.
+ for(const resource of resources)for(const buyer of inputs){
+  const e=world.runs[buyer.id].economy,wanted=reserve(e,metrics.itemPurchases.filter(p=>p.buyer===buyer.id))[resource]-BigInt(e.balances[resource]);if(wanted<=0n)continue;
+  let deficit=wanted;
+  for(const seller of inputs.filter(i=>i.id!==buyer.id)){
+   const se=world.runs[seller.id].economy,available=BigInt(se.balances[resource])-reserve(se,metrics.itemPurchases.filter(p=>p.buyer===seller.id))[resource];if(available<=0n||deficit<=0n)continue;
+   const quantity=available<deficit?available:deficit;
+   const sellerRate=seller.rates[resource].milli,buyerRate=buyer.rates[resource].milli;if(!sellerRate||!buyerRate)continue;
+   const opportunity=Number(quantity)*seller.rates.coin.milli/sellerRate;
+   const ask=milli(opportunity*multiplier+Number(MARKET_V2_RULES.listingMilli)/0.9);
+   const listing=list(seller.id,{type:'list.resource',resource,quantity:String(quantity),price:ask,currency:'coin'});if(!listing)continue;
+   const willingness=Number(quantity)*buyer.rates.coin.milli/buyerRate;
+   if(purchase(buyer.id,listing,willingness)){metrics.resourceTrades++;metrics.resourcePurchases.push({buyer:buyer.id,seller:seller.id,resource,quantity:String(quantity),price:world.book.trades.at(-1).price});deficit-=quantity;}
   }
  }
  // First reconcile market conservation independently; then perform actual paid RNG upgrades.
@@ -210,19 +213,27 @@ export function runMarket(inputs,multiplier){
  metrics.sellThrough=metrics.listed?(metrics.resourceTrades+metrics.itemTrades)/metrics.listed:0;
  metrics.openingCoinMilli=String(opening.balances.coin);metrics.endingCoinMilli=String(totals(world).balances.coin);
  metrics.marketBurnShare=Number(BigInt(metrics.listingFeeMilli)+BigInt(metrics.saleTaxMilli))/Number(opening.balances.coin);
+ metrics.volumeToOpeningCoin=Number(BigInt(metrics.grossVolumeMilli))/Number(opening.balances.coin);
+ const concentration=key=>{const volumes=inputs.map(i=>sum(world.book.trades.filter(t=>t[key]===i.id).map(t=>t.price)));const total=sum(volumes);return total?Number(volumes.reduce((a,b)=>a>b?a:b,0n))/Number(total):0;};
+ metrics.largestBuyerVolumeShare=concentration('buyer');metrics.largestSellerVolumeShare=concentration('seller');
+ const walletShare=w=>Number(Object.values(w.runs).map(r=>BigInt(r.economy.balances.coin)).reduce((a,b)=>a>b?a:b,0n))/Number(totals(w).balances.coin);
+ metrics.largestEndingWalletShare=walletShare(world);
  metrics.bruteAfter=replayBoss(world.runs[inputs.find(i=>i.brute).id]);
  metrics.bruteActualEquipment=world.runs[inputs.find(i=>i.brute).id].economy.inventory.filter(i=>Object.values(world.runs[inputs.find(i=>i.brute).id].economy.equipped).includes(i.id));
+ metrics.endingBalancesMilli=Object.fromEntries(inputs.map(i=>[i.id,world.runs[i.id].economy.balances]));
+ metrics.purchasedItemResults=metrics.itemPurchases.map(p=>({buyer:p.buyer,target:p.target,item:owned(world.runs[p.buyer].economy).find(i=>i.id===p.itemId),equipped:Object.values(world.runs[p.buyer].economy.equipped).includes(p.itemId)}));
  metrics.equippedPurchasedItems=metrics.itemPurchases.filter(p=>Object.values(world.runs[p.buyer].economy.equipped).includes(p.itemId)).length;
  metrics.conservationPassed=true;metrics.finalWorldSha256=sha(JSON.stringify(world));
  return {metrics,world};
 }
 export async function experiment(){
  assert.equal(ECONOMY_V2_ACTIVE,false);const inputs=await acquiredInputs();
+ const specializedInputs=await acquiredInputs('specialized');
  const scenarios=[0.25,1,4].map(multiplier=>runMarket(inputs,multiplier).metrics);
  const sourceFiles=['scripts/economy-v2/liquidity.mjs',...(await readdir('packages/shared/src')).filter(f=>f.endsWith('.ts')&&!f.endsWith('.test.ts')).sort().map(f=>'packages/shared/src/'+f)];
  const source=createHash('sha256');for(const f of sourceFiles)source.update(f).update(await readFile(f));
  return {version:'acquired-liquidity-v11-1',sourceHash:source.digest('hex'),campaignSourceHash:JSON.parse(await readFile('docs/plans/hunts-builds/campaign-v10/results.json','utf8')).sourceHash,
  rules:MARKET_V2_RULES,accounts:inputs.map(({run,initial,rates,...i})=>({...i,rates,openingBalancesMilli:initial.balances,preparedBalancesMilli:run.economy.balances})),
- scenarios,integrityPassed:true,liquidityApproved:false,activationReady:false,
- limits:['Seven reidentified independent end-of-campaign worlds, not a sampled coupled population or trade-assisted campaign','Six additional active hours of real safe-floor tower farming retain loot; no item or money is granted','One-hour forked Coin/material measurements price opportunity cost; failed probes retreat by 10% until one hour survives, diagnostic earnings never enter wallets','Finite eight-quotes-per-level material demand/reserves for three next levels, 5% wallet purchase cap; ask multipliers and utility are policy hypotheses, not discovered player preferences','Trading observation with paused characters; 73h book expiry is not credited as farm, XP or offline presence','No replacement/refarming/price discovery after expiry; no infinite buyer or NPC market maker','Endgame slices do not validate early-game entry, population, P95 fill time, real inflation or long-run sink equilibrium','+16–20, Jade population, public consumer cutover and monetization remain disabled']};
+ scenarios,specialized:{scope:'Independent alternative of the same seven acquired wallets; first three produce coal/iron/gold for six hours, other four farm tower; never combine alternative worlds or their money',accounts:specializedInputs.map(({run,initial,rates,...i})=>({...i,rates,openingBalancesMilli:initial.balances,preparedBalancesMilli:run.economy.balances})),scenarios:[0.25,1,4].map(m=>runMarket(specializedInputs,m).metrics)},integrityPassed:true,liquidityApproved:false,activationReady:false,
+ limits:['Seven reidentified independent end-of-campaign worlds, not a sampled coupled population or trade-assisted campaign','Six additional hours of real farming, tower-only or specialized material supply; deaths stop farming, no item or money is granted','One-hour forked Coin/material measurements price opportunity cost; failed probes retreat by 10% until one hour survives, diagnostic earnings never enter wallets','Finite eight-quotes-per-level material demand/reserves for bought-item targets or three next equipped levels, 5% wallet purchase cap; ask multipliers and utility are policy hypotheses, not discovered player preferences','Trading observation with paused characters; 73h book expiry is not credited as farm, XP or offline presence','No replacement/refarming/price discovery after expiry; no infinite buyer or NPC market maker','Endgame slices do not validate early-game entry, population, P95 fill time, real inflation or long-run sink equilibrium','+16–20, Jade population, public consumer cutover and monetization remain disabled']};
 }

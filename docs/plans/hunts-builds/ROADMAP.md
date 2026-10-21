@@ -50,3 +50,7 @@ V9 encerrada: consumidores de ensaio integrados e coortes funcionais validados;2
 ## Fase 1 de validação adquirida — V10
 
 A amostra de campanha completa foi executada em[campaign-v10/RESULTS.md](campaign-v10/RESULTS.md): sete trajetórias de120dias, três seeds do cenário máximo concluindo nível1000em106,58–106,92dias e torre1000em104,65–105,96dias. A rotina casual e a pendência de Força no andar979 permanecem nos resultados. A próxima fase é a liquidez com carteiras/equipamentos conquistados, incluindo o estoque/fluxo deCoin; depois população do boss global, consumidores públicos autenticados, capacidade/corte/rollback, playtest gratuito e ativação controlada. Monetização fica para o final. Nenhum resultado desta amostra ativa a economia real ou libera+16–20.
+
+## Fase 2 — liquidez adquirida (V11)
+
+Ensaio reproduzível publicado em[liquidity-v11/RESULTS.md](liquidity-v11/RESULTS.md): sete carteiras conquistadas, oferta por combate/hunts e seis sensibilidades de produção/preço, transações e refinos pagos com reconciliação exata. Integridade aprovada; liquidez de população, equilíbrio deCoin e utilidade adquirida ainda exigem calibragem. Força segue bloqueada no encontro final. A próxima fase é população do boss/Jade; os bloqueios V11 continuam obrigatórios antes da ativação. Não confundir conclusão da auditoria com aprovação econômica.

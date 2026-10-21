@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {initialRunV6,initialMarketV2,applyMarketV2,ECONOMY_XP_V2} from '../../packages/shared/dist/index.js';
-import {rekeyRun,totals,assertConservation,utility} from '../economy-v2/liquidity.mjs';
+import {rekeyRun,totals,assertConservation,utility,reserve} from '../economy-v2/liquidity.mjs';
 const id=n=>`30000000-0000-4000-8000-${String(n).padStart(12,'0')}`;
 test('joining independent worlds rekeys every ownership reference reversibly without granting assets',()=>{
  const source=initialRunV6(id(1));const copy=rekeyRun(source,id(2));
@@ -28,4 +28,11 @@ test('buying utility respects level requirements and the shield lost with a two-
  const twoHanded={...e.inventory[0],definitionId:'greatsword',level:1,qualityBp:11000};
  // Discovering an invalid definition would fail the test rather than silently skipping its penalty.
  assert.equal(utility(e,twoHanded),null);
+});
+
+test('material plan for a purchased +0 item quotes the unprotected early levels and paid protected late levels',()=>{
+ const e=initialRunV6(id(1)).economy;
+ const result=reserve(e,[{itemId:e.inventory[0].id,target:12}]);
+ assert.ok(result.coal>0n);assert.ok(result.iron>0n);assert.ok(result.gold>0n);
+ assert.deepEqual(Object.keys(result),['coal','iron','gold']);
 });

@@ -1,0 +1,3374 @@
+{
+  "version": "acquired-liquidity-v11-1",
+  "sourceHash": "54639e3c351a41e1cce8c42eacd4b56b7da4d6832db0def491aafc1b51b74e58",
+  "campaignSourceHash": "e53da017e142a366cbc7f456332bb76c0d99260c654cc7973de493c4a9916cd5",
+  "rules": {
+    "listingMilli": "100000000",
+    "taxBp": 1000,
+    "ttlMs": 259200000,
+    "cancelMs": 86400000,
+    "minimumFloor": 10,
+    "maxListingsPerSeller": 20
+  },
+  "accounts": [
+    {
+      "file": "best-balanced-4213.json.gz",
+      "archiveSha256": "181362fa72b89a15e6897901b3af193395756c177c82451c9a4639d19c137b09",
+      "id": "10000000-0000-4000-8000-000000000001",
+      "originalId": "00000000-0000-4000-8000-000000000001",
+      "firstFeeDay": 3,
+      "farm": {
+        "activity": "main",
+        "floor": 999,
+        "durationMs": 21600000,
+        "events": 34019,
+        "kills": 4858,
+        "pausedByCombat": false,
+        "coinEarnedMilli": "61358224367",
+        "earnedMilli": {
+          "coin": "61358224367",
+          "coal": "0",
+          "iron": "0",
+          "gold": "0",
+          "jade": "0"
+        },
+        "newItems": 22
+      },
+      "campaign": {
+        "grossCoinMilli": "19868796597086",
+        "spentCoinMilli": "8976121629000",
+        "endingCoinMilli": "10892674968086"
+      },
+      "brute": false,
+      "rates": {
+        "coin": {
+          "milli": 10193600935,
+          "kills": 807,
+          "pausedByCombat": false,
+          "floor": 999,
+          "probes": [
+            {
+              "floor": 999,
+              "kills": 807,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "coal": {
+          "milli": 19125000,
+          "kills": 153,
+          "pausedByCombat": false,
+          "floor": 1000,
+          "probes": [
+            {
+              "floor": 1000,
+              "kills": 153,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "iron": {
+          "milli": 31877000,
+          "kills": 127,
+          "pausedByCombat": false,
+          "floor": 1000,
+          "probes": [
+            {
+              "floor": 1000,
+              "kills": 127,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "gold": {
+          "milli": 7257000,
+          "kills": 123,
+          "pausedByCombat": false,
+          "floor": 931,
+          "probes": [
+            {
+              "floor": 931,
+              "kills": 123,
+              "pausedByCombat": false
+            }
+          ]
+        }
+      },
+      "openingBalancesMilli": {
+        "coin": "10892674968086",
+        "coal": "520000",
+        "iron": "300000",
+        "gold": "330000",
+        "jade": "0"
+      },
+      "preparedBalancesMilli": {
+        "coin": "10954033192453",
+        "coal": "520000",
+        "iron": "300000",
+        "gold": "330000",
+        "jade": "0"
+      }
+    },
+    {
+      "file": "best-brute-4213.json.gz",
+      "archiveSha256": "8b4fc6925e2b5223608b014513b9485149050c6ab975e16f3c12ff42ceeec6c7",
+      "id": "10000000-0000-4000-8000-000000000002",
+      "originalId": "00000000-0000-4000-8000-000000000001",
+      "firstFeeDay": 3,
+      "farm": {
+        "activity": "main",
+        "floor": 978,
+        "durationMs": 21600000,
+        "events": 31604,
+        "kills": 4116,
+        "pausedByCombat": false,
+        "coinEarnedMilli": "51945867189",
+        "earnedMilli": {
+          "coin": "51945867189",
+          "coal": "0",
+          "iron": "0",
+          "gold": "0",
+          "jade": "0"
+        },
+        "newItems": 15
+      },
+      "campaign": {
+        "grossCoinMilli": "20068541656331",
+        "spentCoinMilli": "11847126786000",
+        "endingCoinMilli": "8221414870331"
+      },
+      "brute": true,
+      "rates": {
+        "coin": {
+          "milli": 8643821464,
+          "kills": 685,
+          "pausedByCombat": false,
+          "floor": 978,
+          "probes": [
+            {
+              "floor": 978,
+              "kills": 685,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "coal": {
+          "milli": 15250000,
+          "kills": 122,
+          "pausedByCombat": false,
+          "floor": 1000,
+          "probes": [
+            {
+              "floor": 1000,
+              "kills": 122,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "iron": {
+          "milli": 33744000,
+          "kills": 148,
+          "pausedByCombat": false,
+          "floor": 867,
+          "probes": [
+            {
+              "floor": 964,
+              "kills": 11,
+              "pausedByCombat": true
+            },
+            {
+              "floor": 867,
+              "kills": 148,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "gold": {
+          "milli": 8003000,
+          "kills": 151,
+          "pausedByCombat": false,
+          "floor": 791,
+          "probes": [
+            {
+              "floor": 879,
+              "kills": 11,
+              "pausedByCombat": true
+            },
+            {
+              "floor": 791,
+              "kills": 151,
+              "pausedByCombat": false
+            }
+          ]
+        }
+      },
+      "openingBalancesMilli": {
+        "coin": "8221414870331",
+        "coal": "890000",
+        "iron": "714000",
+        "gold": "29000",
+        "jade": "0"
+      },
+      "preparedBalancesMilli": {
+        "coin": "8273360737520",
+        "coal": "890000",
+        "iron": "714000",
+        "gold": "29000",
+        "jade": "0"
+      }
+    },
+    {
+      "file": "best-swift-1.json.gz",
+      "archiveSha256": "1a84ac7aafbe69c1570172b6575ae0fece4d56d3e45e8f8fb06e15c4c6105b3e",
+      "id": "10000000-0000-4000-8000-000000000003",
+      "originalId": "00000000-0000-4000-8000-000000000001",
+      "firstFeeDay": 1,
+      "farm": {
+        "activity": "main",
+        "floor": 999,
+        "durationMs": 21600000,
+        "events": 39348,
+        "kills": 7058,
+        "pausedByCombat": false,
+        "coinEarnedMilli": "89144074632",
+        "earnedMilli": {
+          "coin": "89144074632",
+          "coal": "0",
+          "iron": "0",
+          "gold": "0",
+          "jade": "0"
+        },
+        "newItems": 37
+      },
+      "campaign": {
+        "grossCoinMilli": "27360407922244",
+        "spentCoinMilli": "3503615862000",
+        "endingCoinMilli": "23856792060244"
+      },
+      "brute": false,
+      "rates": {
+        "coin": {
+          "milli": 14827716961,
+          "kills": 1174,
+          "pausedByCombat": false,
+          "floor": 999,
+          "probes": [
+            {
+              "floor": 999,
+              "kills": 1174,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "coal": {
+          "milli": 29375000,
+          "kills": 235,
+          "pausedByCombat": false,
+          "floor": 1000,
+          "probes": [
+            {
+              "floor": 1000,
+              "kills": 235,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "iron": {
+          "milli": 49447000,
+          "kills": 197,
+          "pausedByCombat": false,
+          "floor": 1000,
+          "probes": [
+            {
+              "floor": 1000,
+              "kills": 197,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "gold": {
+          "milli": 14850000,
+          "kills": 275,
+          "pausedByCombat": false,
+          "floor": 801,
+          "probes": [
+            {
+              "floor": 801,
+              "kills": 275,
+              "pausedByCombat": false
+            }
+          ]
+        }
+      },
+      "openingBalancesMilli": {
+        "coin": "23856792060244",
+        "coal": "1478000",
+        "iron": "3994000",
+        "gold": "449000",
+        "jade": "0"
+      },
+      "preparedBalancesMilli": {
+        "coin": "23945936134876",
+        "coal": "1478000",
+        "iron": "3994000",
+        "gold": "449000",
+        "jade": "0"
+      }
+    },
+    {
+      "file": "best-swift-3735928559.json.gz",
+      "archiveSha256": "5858b0b7f5c2c18103e0fa3e83c4c777d96b50dc9d166b7f8a2e3d8bd6c737af",
+      "id": "10000000-0000-4000-8000-000000000004",
+      "originalId": "00000000-0000-4000-8000-000000000001",
+      "firstFeeDay": 1,
+      "farm": {
+        "activity": "main",
+        "floor": 999,
+        "durationMs": 21600000,
+        "events": 43788,
+        "kills": 5554,
+        "pausedByCombat": false,
+        "coinEarnedMilli": "70147152044",
+        "earnedMilli": {
+          "coin": "70147152044",
+          "coal": "0",
+          "iron": "0",
+          "gold": "0",
+          "jade": "0"
+        },
+        "newItems": 32
+      },
+      "campaign": {
+        "grossCoinMilli": "25645457970201",
+        "spentCoinMilli": "3498932259000",
+        "endingCoinMilli": "22146525711201"
+      },
+      "brute": false,
+      "rates": {
+        "coin": {
+          "milli": 11659411529,
+          "kills": 923,
+          "pausedByCombat": false,
+          "floor": 999,
+          "probes": [
+            {
+              "floor": 999,
+              "kills": 923,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "coal": {
+          "milli": 21750000,
+          "kills": 174,
+          "pausedByCombat": false,
+          "floor": 1000,
+          "probes": [
+            {
+              "floor": 1000,
+              "kills": 174,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "iron": {
+          "milli": 35893000,
+          "kills": 143,
+          "pausedByCombat": false,
+          "floor": 1000,
+          "probes": [
+            {
+              "floor": 1000,
+              "kills": 143,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "gold": {
+          "milli": 13600000,
+          "kills": 272,
+          "pausedByCombat": false,
+          "floor": 707,
+          "probes": [
+            {
+              "floor": 707,
+              "kills": 272,
+              "pausedByCombat": false
+            }
+          ]
+        }
+      },
+      "openingBalancesMilli": {
+        "coin": "22146525711201",
+        "coal": "255000",
+        "iron": "1462000",
+        "gold": "146000",
+        "jade": "0"
+      },
+      "preparedBalancesMilli": {
+        "coin": "22216672863245",
+        "coal": "255000",
+        "iron": "1462000",
+        "gold": "146000",
+        "jade": "0"
+      }
+    },
+    {
+      "file": "best-swift-4213.json.gz",
+      "archiveSha256": "facee9bb6f7fd4d8fad9a8d1d40a1805a51f90ef851e4dcf343d8231788b00bd",
+      "id": "10000000-0000-4000-8000-000000000005",
+      "originalId": "00000000-0000-4000-8000-000000000001",
+      "firstFeeDay": 1,
+      "farm": {
+        "activity": "main",
+        "floor": 999,
+        "durationMs": 21600000,
+        "events": 43649,
+        "kills": 5475,
+        "pausedByCombat": false,
+        "coinEarnedMilli": "69150406770",
+        "earnedMilli": {
+          "coin": "69150406770",
+          "coal": "0",
+          "iron": "0",
+          "gold": "0",
+          "jade": "0"
+        },
+        "newItems": 35
+      },
+      "campaign": {
+        "grossCoinMilli": "26466609208852",
+        "spentCoinMilli": "3498596068000",
+        "endingCoinMilli": "22968013140852"
+      },
+      "brute": false,
+      "rates": {
+        "coin": {
+          "milli": 11583583473,
+          "kills": 917,
+          "pausedByCombat": false,
+          "floor": 999,
+          "probes": [
+            {
+              "floor": 999,
+              "kills": 917,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "coal": {
+          "milli": 21250000,
+          "kills": 170,
+          "pausedByCombat": false,
+          "floor": 1000,
+          "probes": [
+            {
+              "floor": 1000,
+              "kills": 170,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "iron": {
+          "milli": 35391000,
+          "kills": 141,
+          "pausedByCombat": false,
+          "floor": 1000,
+          "probes": [
+            {
+              "floor": 1000,
+              "kills": 141,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "gold": {
+          "milli": 13279000,
+          "kills": 271,
+          "pausedByCombat": false,
+          "floor": 702,
+          "probes": [
+            {
+              "floor": 702,
+              "kills": 271,
+              "pausedByCombat": false
+            }
+          ]
+        }
+      },
+      "openingBalancesMilli": {
+        "coin": "22968013140852",
+        "coal": "1569000",
+        "iron": "647000",
+        "gold": "597000",
+        "jade": "0"
+      },
+      "preparedBalancesMilli": {
+        "coin": "23037163547622",
+        "coal": "1569000",
+        "iron": "647000",
+        "gold": "597000",
+        "jade": "0"
+      }
+    },
+    {
+      "file": "casual-swift-4213.json.gz",
+      "archiveSha256": "7d94450847aab0b3b841dbd7ec60557f3f977a60f41456797955c28aea0e9925",
+      "id": "10000000-0000-4000-8000-000000000006",
+      "originalId": "00000000-0000-4000-8000-000000000001",
+      "firstFeeDay": 2,
+      "farm": {
+        "activity": "main",
+        "floor": 741,
+        "durationMs": 21600000,
+        "events": 37814,
+        "kills": 5048,
+        "pausedByCombat": false,
+        "coinEarnedMilli": "54891025618",
+        "earnedMilli": {
+          "coin": "54891025618",
+          "coal": "0",
+          "iron": "0",
+          "gold": "0",
+          "jade": "0"
+        },
+        "newItems": 31
+      },
+      "campaign": {
+        "grossCoinMilli": "7278015626518",
+        "spentCoinMilli": "1345836313000",
+        "endingCoinMilli": "5932179313518"
+      },
+      "brute": false,
+      "rates": {
+        "coin": {
+          "milli": 9089120326,
+          "kills": 836,
+          "pausedByCombat": false,
+          "floor": 741,
+          "probes": [
+            {
+              "floor": 741,
+              "kills": 836,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "coal": {
+          "milli": 15402000,
+          "kills": 151,
+          "pausedByCombat": false,
+          "floor": 730,
+          "probes": [
+            {
+              "floor": 812,
+              "kills": 1,
+              "pausedByCombat": true
+            },
+            {
+              "floor": 730,
+              "kills": 151,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "iron": {
+          "milli": 28665000,
+          "kills": 147,
+          "pausedByCombat": false,
+          "floor": 681,
+          "probes": [
+            {
+              "floor": 757,
+              "kills": 1,
+              "pausedByCombat": true
+            },
+            {
+              "floor": 681,
+              "kills": 147,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "gold": {
+          "milli": 10323000,
+          "kills": 279,
+          "pausedByCombat": false,
+          "floor": 457,
+          "probes": [
+            {
+              "floor": 457,
+              "kills": 279,
+              "pausedByCombat": false
+            }
+          ]
+        }
+      },
+      "openingBalancesMilli": {
+        "coin": "5932179313518",
+        "coal": "766000",
+        "iron": "127000",
+        "gold": "703000",
+        "jade": "0"
+      },
+      "preparedBalancesMilli": {
+        "coin": "5987070339136",
+        "coal": "766000",
+        "iron": "127000",
+        "gold": "703000",
+        "jade": "0"
+      }
+    },
+    {
+      "file": "regular-swift-4213.json.gz",
+      "archiveSha256": "617ba1d2cae72e58f8930154723ef5e0cd23e406b08f285ef5d4bf61b375549b",
+      "id": "10000000-0000-4000-8000-000000000007",
+      "originalId": "00000000-0000-4000-8000-000000000001",
+      "firstFeeDay": 1,
+      "farm": {
+        "activity": "main",
+        "floor": 999,
+        "durationMs": 21600000,
+        "events": 41881,
+        "kills": 6413,
+        "pausedByCombat": false,
+        "coinEarnedMilli": "80996791489",
+        "earnedMilli": {
+          "coin": "80996791489",
+          "coal": "0",
+          "iron": "0",
+          "gold": "0",
+          "jade": "0"
+        },
+        "newItems": 33
+      },
+      "campaign": {
+        "grossCoinMilli": "25086758847322",
+        "spentCoinMilli": "3508663302000",
+        "endingCoinMilli": "21578095545322"
+      },
+      "brute": false,
+      "rates": {
+        "coin": {
+          "milli": 13478096905,
+          "kills": 1067,
+          "pausedByCombat": false,
+          "floor": 999,
+          "probes": [
+            {
+              "floor": 999,
+              "kills": 1067,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "coal": {
+          "milli": 26250000,
+          "kills": 210,
+          "pausedByCombat": false,
+          "floor": 1000,
+          "probes": [
+            {
+              "floor": 1000,
+              "kills": 210,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "iron": {
+          "milli": 43674000,
+          "kills": 174,
+          "pausedByCombat": false,
+          "floor": 1000,
+          "probes": [
+            {
+              "floor": 1000,
+              "kills": 174,
+              "pausedByCombat": false
+            }
+          ]
+        },
+        "gold": {
+          "milli": 10730000,
+          "kills": 185,
+          "pausedByCombat": false,
+          "floor": 903,
+          "probes": [
+            {
+              "floor": 903,
+              "kills": 185,
+              "pausedByCombat": false
+            }
+          ]
+        }
+      },
+      "openingBalancesMilli": {
+        "coin": "21578095545322",
+        "coal": "402000",
+        "iron": "1589000",
+        "gold": "655000",
+        "jade": "0"
+      },
+      "preparedBalancesMilli": {
+        "coin": "21659092336811",
+        "coal": "402000",
+        "iron": "1589000",
+        "gold": "655000",
+        "jade": "0"
+      }
+    }
+  ],
+  "scenarios": [
+    {
+      "multiplier": 0.25,
+      "attempted": 4,
+      "listed": 4,
+      "resourceTrades": 0,
+      "itemTrades": 4,
+      "offered": 0,
+      "feeBlocked": 0,
+      "unaffordable": 0,
+      "noUtility": 110,
+      "refinements": 48,
+      "refinementOutcomes": {
+        "Refino: regressed": 10,
+        "Refino: success": 37,
+        "Refino: maintained": 1
+      },
+      "refinementSpentMilli": {
+        "coin": "235923000",
+        "coal": "3181000",
+        "iron": "5505000",
+        "gold": "80000",
+        "jade": "0"
+      },
+      "scrollsConsumed": 14,
+      "expired": 0,
+      "listingFeeMilli": "400000000",
+      "saleTaxMilli": "106226600",
+      "grossVolumeMilli": "1062265988",
+      "paidBuyerIds": [
+        "10000000-0000-4000-8000-000000000004",
+        "10000000-0000-4000-8000-000000000005",
+        "10000000-0000-4000-8000-000000000002",
+        "10000000-0000-4000-8000-000000000007"
+      ],
+      "itemPurchases": [
+        {
+          "buyer": "10000000-0000-4000-8000-000000000004",
+          "itemId": "10000000-0000-4000-8000-000000000003/loot/2594281",
+          "target": 15,
+          "slot": "weapon",
+          "projectedGain": 55892.5,
+          "price": "265566497"
+        },
+        {
+          "buyer": "10000000-0000-4000-8000-000000000005",
+          "itemId": "10000000-0000-4000-8000-000000000003/loot/2595383",
+          "target": 15,
+          "slot": "weapon",
+          "projectedGain": 44104,
+          "price": "265566497"
+        },
+        {
+          "buyer": "10000000-0000-4000-8000-000000000002",
+          "itemId": "10000000-0000-4000-8000-000000000003/loot/2594139",
+          "target": 15,
+          "slot": "weapon",
+          "projectedGain": 33286,
+          "price": "265566497"
+        },
+        {
+          "buyer": "10000000-0000-4000-8000-000000000007",
+          "itemId": "10000000-0000-4000-8000-000000000003/loot/2596847",
+          "target": 15,
+          "slot": "weapon",
+          "projectedGain": 6089,
+          "price": "265566497"
+        }
+      ],
+      "resourcePurchases": [],
+      "bruteBefore": [
+        {
+          "seed": 1,
+          "status": "defeat",
+          "ms": 21600
+        },
+        {
+          "seed": 4213,
+          "status": "defeat",
+          "ms": 25200
+        },
+        {
+          "seed": 3735928559,
+          "status": "defeat",
+          "ms": 28800
+        }
+      ],
+      "sellThrough": 1,
+      "openingCoinMilli": "116073329151663",
+      "endingCoinMilli": "116072587002063",
+      "marketBurnShare": 0.000004361265449176162,
+      "volumeToOpeningCoin": 0.000009151680198747714,
+      "largestBuyerVolumeShare": 0.25,
+      "largestSellerVolumeShare": 1,
+      "largestEndingWalletShare": 0.20630523488580807,
+      "bruteAfter": [
+        {
+          "seed": 1,
+          "status": "defeat",
+          "ms": 21600
+        },
+        {
+          "seed": 4213,
+          "status": "defeat",
+          "ms": 25200
+        },
+        {
+          "seed": 3735928559,
+          "status": "defeat",
+          "ms": 28800
+        }
+      ],
+      "bruteActualEquipment": [
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/802323",
+          "origin": "tower",
+          "definitionId": "hat",
+          "rarity": "legendary",
+          "level": 73,
+          "enhancement": 9,
+          "qualityBp": 9166
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/904392",
+          "origin": "tower",
+          "definitionId": "axe",
+          "rarity": "legendary",
+          "level": 76,
+          "enhancement": 15,
+          "qualityBp": 10888
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1002252",
+          "origin": "tower",
+          "definitionId": "boots",
+          "rarity": "legendary",
+          "level": 80,
+          "enhancement": 9,
+          "qualityBp": 9868
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1522647",
+          "origin": "tower",
+          "definitionId": "armor",
+          "rarity": "epic",
+          "level": 93,
+          "enhancement": 9,
+          "qualityBp": 9644
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1532801",
+          "origin": "tower",
+          "definitionId": "shield",
+          "rarity": "epic",
+          "level": 93,
+          "enhancement": 9,
+          "qualityBp": 9758
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1549776",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "rare",
+          "level": 93,
+          "enhancement": 9,
+          "qualityBp": 10799
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1748160",
+          "origin": "tower",
+          "definitionId": "gloves",
+          "rarity": "epic",
+          "level": 96,
+          "enhancement": 9,
+          "qualityBp": 9588
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1823586",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "rare",
+          "level": 96,
+          "enhancement": 9,
+          "qualityBp": 10534
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1877848",
+          "origin": "tower",
+          "definitionId": "pendant",
+          "rarity": "rare",
+          "level": 96,
+          "enhancement": 9,
+          "qualityBp": 10356
+        }
+      ],
+      "endingBalancesMilli": {
+        "10000000-0000-4000-8000-000000000001": {
+          "coin": "10954023738453",
+          "coal": "404000",
+          "iron": "110000",
+          "gold": "330000",
+          "jade": "0"
+        },
+        "10000000-0000-4000-8000-000000000002": {
+          "coin": "8273058716023",
+          "coal": "330000",
+          "iron": "137000",
+          "gold": "29000",
+          "jade": "0"
+        },
+        "10000000-0000-4000-8000-000000000003": {
+          "coin": "23946382325264",
+          "coal": "163000",
+          "iron": "626000",
+          "gold": "369000",
+          "jade": "0"
+        },
+        "10000000-0000-4000-8000-000000000004": {
+          "coin": "22216391326748",
+          "coal": "1000",
+          "iron": "1202000",
+          "gold": "146000",
+          "jade": "0"
+        },
+        "10000000-0000-4000-8000-000000000005": {
+          "coin": "23036861627125",
+          "coal": "1034000",
+          "iron": "9000",
+          "gold": "597000",
+          "jade": "0"
+        },
+        "10000000-0000-4000-8000-000000000006": {
+          "coin": "5987070339136",
+          "coal": "766000",
+          "iron": "127000",
+          "gold": "703000",
+          "jade": "0"
+        },
+        "10000000-0000-4000-8000-000000000007": {
+          "coin": "21658798929314",
+          "coal": "1000",
+          "iron": "1117000",
+          "gold": "655000",
+          "jade": "0"
+        }
+      },
+      "purchasedItemResults": [
+        {
+          "buyer": "10000000-0000-4000-8000-000000000004",
+          "target": 15,
+          "item": {
+            "id": "10000000-0000-4000-8000-000000000003/loot/2594281",
+            "origin": "tower",
+            "definitionId": "greatsword",
+            "rarity": "uncommon",
+            "level": 100,
+            "enhancement": 5,
+            "qualityBp": 10840
+          },
+          "equipped": false
+        },
+        {
+          "buyer": "10000000-0000-4000-8000-000000000005",
+          "target": 15,
+          "item": {
+            "id": "10000000-0000-4000-8000-000000000003/loot/2595383",
+            "origin": "tower",
+            "definitionId": "axe",
+            "rarity": "epic",
+            "level": 100,
+            "enhancement": 6,
+            "qualityBp": 9880
+          },
+          "equipped": false
+        },
+        {
+          "buyer": "10000000-0000-4000-8000-000000000002",
+          "target": 15,
+          "item": {
+            "id": "10000000-0000-4000-8000-000000000003/loot/2594139",
+            "origin": "tower",
+            "definitionId": "axe",
+            "rarity": "epic",
+            "level": 100,
+            "enhancement": 8,
+            "qualityBp": 9772
+          },
+          "equipped": false
+        },
+        {
+          "buyer": "10000000-0000-4000-8000-000000000007",
+          "target": 15,
+          "item": {
+            "id": "10000000-0000-4000-8000-000000000003/loot/2596847",
+            "origin": "tower",
+            "definitionId": "bow",
+            "rarity": "uncommon",
+            "level": 100,
+            "enhancement": 8,
+            "qualityBp": 10928
+          },
+          "equipped": false
+        }
+      ],
+      "equippedPurchasedItems": 0,
+      "conservationPassed": true,
+      "finalWorldSha256": "d1e0dfc3bbf9ae35e2abd1f2e8b9ca416eeabad3702c01dd6906cc53d9fb9e2d"
+    },
+    {
+      "multiplier": 1,
+      "attempted": 4,
+      "listed": 4,
+      "resourceTrades": 0,
+      "itemTrades": 4,
+      "offered": 0,
+      "feeBlocked": 0,
+      "unaffordable": 0,
+      "noUtility": 110,
+      "refinements": 48,
+      "refinementOutcomes": {
+        "Refino: regressed": 10,
+        "Refino: success": 37,
+        "Refino: maintained": 1
+      },
+      "refinementSpentMilli": {
+        "coin": "235923000",
+        "coal": "3181000",
+        "iron": "5505000",
+        "gold": "80000",
+        "jade": "0"
+      },
+      "scrollsConsumed": 14,
+      "expired": 0,
+      "listingFeeMilli": "400000000",
+      "saleTaxMilli": "291573064",
+      "grossVolumeMilli": "2915730608",
+      "paidBuyerIds": [
+        "10000000-0000-4000-8000-000000000004",
+        "10000000-0000-4000-8000-000000000005",
+        "10000000-0000-4000-8000-000000000002",
+        "10000000-0000-4000-8000-000000000007"
+      ],
+      "itemPurchases": [
+        {
+          "buyer": "10000000-0000-4000-8000-000000000004",
+          "itemId": "10000000-0000-4000-8000-000000000003/loot/2594281",
+          "target": 15,
+          "slot": "weapon",
+          "projectedGain": 55892.5,
+          "price": "728932652"
+        },
+        {
+          "buyer": "10000000-0000-4000-8000-000000000005",
+          "itemId": "10000000-0000-4000-8000-000000000003/loot/2595383",
+          "target": 15,
+          "slot": "weapon",
+          "projectedGain": 44104,
+          "price": "728932652"
+        },
+        {
+          "buyer": "10000000-0000-4000-8000-000000000002",
+          "itemId": "10000000-0000-4000-8000-000000000003/loot/2594139",
+          "target": 15,
+          "slot": "weapon",
+          "projectedGain": 33286,
+          "price": "728932652"
+        },
+        {
+          "buyer": "10000000-0000-4000-8000-000000000007",
+          "itemId": "10000000-0000-4000-8000-000000000003/loot/2596847",
+          "target": 15,
+          "slot": "weapon",
+          "projectedGain": 6089,
+          "price": "728932652"
+        }
+      ],
+      "resourcePurchases": [],
+      "bruteBefore": [
+        {
+          "seed": 1,
+          "status": "defeat",
+          "ms": 21600
+        },
+        {
+          "seed": 4213,
+          "status": "defeat",
+          "ms": 25200
+        },
+        {
+          "seed": 3735928559,
+          "status": "defeat",
+          "ms": 28800
+        }
+      ],
+      "sellThrough": 1,
+      "openingCoinMilli": "116073329151663",
+      "endingCoinMilli": "116072401655599",
+      "marketBurnShare": 0.000005958070377187004,
+      "volumeToOpeningCoin": 0.00002511972930655126,
+      "largestBuyerVolumeShare": 0.25,
+      "largestSellerVolumeShare": 1,
+      "largestEndingWalletShare": 0.2063199356766718,
+      "bruteAfter": [
+        {
+          "seed": 1,
+          "status": "defeat",
+          "ms": 21600
+        },
+        {
+          "seed": 4213,
+          "status": "defeat",
+          "ms": 25200
+        },
+        {
+          "seed": 3735928559,
+          "status": "defeat",
+          "ms": 28800
+        }
+      ],
+      "bruteActualEquipment": [
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/802323",
+          "origin": "tower",
+          "definitionId": "hat",
+          "rarity": "legendary",
+          "level": 73,
+          "enhancement": 9,
+          "qualityBp": 9166
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/904392",
+          "origin": "tower",
+          "definitionId": "axe",
+          "rarity": "legendary",
+          "level": 76,
+          "enhancement": 15,
+          "qualityBp": 10888
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1002252",
+          "origin": "tower",
+          "definitionId": "boots",
+          "rarity": "legendary",
+          "level": 80,
+          "enhancement": 9,
+          "qualityBp": 9868
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1522647",
+          "origin": "tower",
+          "definitionId": "armor",
+          "rarity": "epic",
+          "level": 93,
+          "enhancement": 9,
+          "qualityBp": 9644
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1532801",
+          "origin": "tower",
+          "definitionId": "shield",
+          "rarity": "epic",
+          "level": 93,
+          "enhancement": 9,
+          "qualityBp": 9758
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1549776",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "rare",
+          "level": 93,
+          "enhancement": 9,
+          "qualityBp": 10799
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1748160",
+          "origin": "tower",
+          "definitionId": "gloves",
+          "rarity": "epic",
+          "level": 96,
+          "enhancement": 9,
+          "qualityBp": 9588
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1823586",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "rare",
+          "level": 96,
+          "enhancement": 9,
+          "qualityBp": 10534
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1877848",
+          "origin": "tower",
+          "definitionId": "pendant",
+          "rarity": "rare",
+          "level": 96,
+          "enhancement": 9,
+          "qualityBp": 10356
+        }
+      ],
+      "endingBalancesMilli": {
+        "10000000-0000-4000-8000-000000000001": {
+          "coin": "10954023738453",
+          "coal": "404000",
+          "iron": "110000",
+          "gold": "330000",
+          "jade": "0"
+        },
+        "10000000-0000-4000-8000-000000000002": {
+          "coin": "8272595349868",
+          "coal": "330000",
+          "iron": "137000",
+          "gold": "29000",
+          "jade": "0"
+        },
+        "10000000-0000-4000-8000-000000000003": {
+          "coin": "23948050443420",
+          "coal": "163000",
+          "iron": "626000",
+          "gold": "369000",
+          "jade": "0"
+        },
+        "10000000-0000-4000-8000-000000000004": {
+          "coin": "22215927960593",
+          "coal": "1000",
+          "iron": "1202000",
+          "gold": "146000",
+          "jade": "0"
+        },
+        "10000000-0000-4000-8000-000000000005": {
+          "coin": "23036398260970",
+          "coal": "1034000",
+          "iron": "9000",
+          "gold": "597000",
+          "jade": "0"
+        },
+        "10000000-0000-4000-8000-000000000006": {
+          "coin": "5987070339136",
+          "coal": "766000",
+          "iron": "127000",
+          "gold": "703000",
+          "jade": "0"
+        },
+        "10000000-0000-4000-8000-000000000007": {
+          "coin": "21658335563159",
+          "coal": "1000",
+          "iron": "1117000",
+          "gold": "655000",
+          "jade": "0"
+        }
+      },
+      "purchasedItemResults": [
+        {
+          "buyer": "10000000-0000-4000-8000-000000000004",
+          "target": 15,
+          "item": {
+            "id": "10000000-0000-4000-8000-000000000003/loot/2594281",
+            "origin": "tower",
+            "definitionId": "greatsword",
+            "rarity": "uncommon",
+            "level": 100,
+            "enhancement": 5,
+            "qualityBp": 10840
+          },
+          "equipped": false
+        },
+        {
+          "buyer": "10000000-0000-4000-8000-000000000005",
+          "target": 15,
+          "item": {
+            "id": "10000000-0000-4000-8000-000000000003/loot/2595383",
+            "origin": "tower",
+            "definitionId": "axe",
+            "rarity": "epic",
+            "level": 100,
+            "enhancement": 6,
+            "qualityBp": 9880
+          },
+          "equipped": false
+        },
+        {
+          "buyer": "10000000-0000-4000-8000-000000000002",
+          "target": 15,
+          "item": {
+            "id": "10000000-0000-4000-8000-000000000003/loot/2594139",
+            "origin": "tower",
+            "definitionId": "axe",
+            "rarity": "epic",
+            "level": 100,
+            "enhancement": 8,
+            "qualityBp": 9772
+          },
+          "equipped": false
+        },
+        {
+          "buyer": "10000000-0000-4000-8000-000000000007",
+          "target": 15,
+          "item": {
+            "id": "10000000-0000-4000-8000-000000000003/loot/2596847",
+            "origin": "tower",
+            "definitionId": "bow",
+            "rarity": "uncommon",
+            "level": 100,
+            "enhancement": 8,
+            "qualityBp": 10928
+          },
+          "equipped": false
+        }
+      ],
+      "equippedPurchasedItems": 0,
+      "conservationPassed": true,
+      "finalWorldSha256": "14f8c5c0ae95c3c938f239de47fc4824da2b16b9414f17bb34496a28c1407906"
+    },
+    {
+      "multiplier": 4,
+      "attempted": 4,
+      "listed": 4,
+      "resourceTrades": 0,
+      "itemTrades": 3,
+      "offered": 0,
+      "feeBlocked": 0,
+      "unaffordable": 0,
+      "noUtility": 112,
+      "refinements": 38,
+      "refinementOutcomes": {
+        "Refino: regressed": 9,
+        "Refino: success": 29
+      },
+      "refinementSpentMilli": {
+        "coin": "216032000",
+        "coal": "2878000",
+        "iron": "5193000",
+        "gold": "80000",
+        "jade": "0"
+      },
+      "scrollsConsumed": 12,
+      "expired": 1,
+      "listingFeeMilli": "400000000",
+      "saleTaxMilli": "774719184",
+      "grossVolumeMilli": "7747191816",
+      "paidBuyerIds": [
+        "10000000-0000-4000-8000-000000000004",
+        "10000000-0000-4000-8000-000000000005",
+        "10000000-0000-4000-8000-000000000002"
+      ],
+      "itemPurchases": [
+        {
+          "buyer": "10000000-0000-4000-8000-000000000004",
+          "itemId": "10000000-0000-4000-8000-000000000003/loot/2594281",
+          "target": 15,
+          "slot": "weapon",
+          "projectedGain": 55892.5,
+          "price": "2582397272"
+        },
+        {
+          "buyer": "10000000-0000-4000-8000-000000000005",
+          "itemId": "10000000-0000-4000-8000-000000000003/loot/2595383",
+          "target": 15,
+          "slot": "weapon",
+          "projectedGain": 44104,
+          "price": "2582397272"
+        },
+        {
+          "buyer": "10000000-0000-4000-8000-000000000002",
+          "itemId": "10000000-0000-4000-8000-000000000003/loot/2594139",
+          "target": 15,
+          "slot": "weapon",
+          "projectedGain": 33286,
+          "price": "2582397272"
+        }
+      ],
+      "resourcePurchases": [],
+      "bruteBefore": [
+        {
+          "seed": 1,
+          "status": "defeat",
+          "ms": 21600
+        },
+        {
+          "seed": 4213,
+          "status": "defeat",
+          "ms": 25200
+        },
+        {
+          "seed": 3735928559,
+          "status": "defeat",
+          "ms": 28800
+        }
+      ],
+      "sellThrough": 0.75,
+      "openingCoinMilli": "116073329151663",
+      "endingCoinMilli": "116071938400479",
+      "marketBurnShare": 0.000010120491869972091,
+      "volumeToOpeningCoin": 0.00006674394430332409,
+      "largestBuyerVolumeShare": 0.3333333333333333,
+      "largestSellerVolumeShare": 1,
+      "largestEndingWalletShare": 0.20635822136325377,
+      "bruteAfter": [
+        {
+          "seed": 1,
+          "status": "defeat",
+          "ms": 21600
+        },
+        {
+          "seed": 4213,
+          "status": "defeat",
+          "ms": 25200
+        },
+        {
+          "seed": 3735928559,
+          "status": "defeat",
+          "ms": 28800
+        }
+      ],
+      "bruteActualEquipment": [
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/802323",
+          "origin": "tower",
+          "definitionId": "hat",
+          "rarity": "legendary",
+          "level": 73,
+          "enhancement": 9,
+          "qualityBp": 9166
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/904392",
+          "origin": "tower",
+          "definitionId": "axe",
+          "rarity": "legendary",
+          "level": 76,
+          "enhancement": 15,
+          "qualityBp": 10888
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1002252",
+          "origin": "tower",
+          "definitionId": "boots",
+          "rarity": "legendary",
+          "level": 80,
+          "enhancement": 9,
+          "qualityBp": 9868
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1522647",
+          "origin": "tower",
+          "definitionId": "armor",
+          "rarity": "epic",
+          "level": 93,
+          "enhancement": 9,
+          "qualityBp": 9644
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1532801",
+          "origin": "tower",
+          "definitionId": "shield",
+          "rarity": "epic",
+          "level": 93,
+          "enhancement": 9,
+          "qualityBp": 9758
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1549776",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "rare",
+          "level": 93,
+          "enhancement": 9,
+          "qualityBp": 10799
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1748160",
+          "origin": "tower",
+          "definitionId": "gloves",
+          "rarity": "epic",
+          "level": 96,
+          "enhancement": 9,
+          "qualityBp": 9588
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1823586",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "rare",
+          "level": 96,
+          "enhancement": 9,
+          "qualityBp": 10534
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002/loot/1877848",
+          "origin": "tower",
+          "definitionId": "pendant",
+          "rarity": "rare",
+          "level": 96,
+          "enhancement": 9,
+          "qualityBp": 10356
+        }
+      ],
+      "endingBalancesMilli": {
+        "10000000-0000-4000-8000-000000000001": {
+          "coin": "10954023738453",
+          "coal": "404000",
+          "iron": "110000",
+          "gold": "330000",
+          "jade": "0"
+        },
+        "10000000-0000-4000-8000-000000000002": {
+          "coin": "8270741885248",
+          "coal": "330000",
+          "iron": "137000",
+          "gold": "29000",
+          "jade": "0"
+        },
+        "10000000-0000-4000-8000-000000000003": {
+          "coin": "23952398758508",
+          "coal": "163000",
+          "iron": "626000",
+          "gold": "369000",
+          "jade": "0"
+        },
+        "10000000-0000-4000-8000-000000000004": {
+          "coin": "22214074495973",
+          "coal": "1000",
+          "iron": "1202000",
+          "gold": "146000",
+          "jade": "0"
+        },
+        "10000000-0000-4000-8000-000000000005": {
+          "coin": "23034544796350",
+          "coal": "1034000",
+          "iron": "9000",
+          "gold": "597000",
+          "jade": "0"
+        },
+        "10000000-0000-4000-8000-000000000006": {
+          "coin": "5987070339136",
+          "coal": "766000",
+          "iron": "127000",
+          "gold": "703000",
+          "jade": "0"
+        },
+        "10000000-0000-4000-8000-000000000007": {
+          "coin": "21659084386811",
+          "coal": "304000",
+          "iron": "1429000",
+          "gold": "655000",
+          "jade": "0"
+        }
+      },
+      "purchasedItemResults": [
+        {
+          "buyer": "10000000-0000-4000-8000-000000000004",
+          "target": 15,
+          "item": {
+            "id": "10000000-0000-4000-8000-000000000003/loot/2594281",
+            "origin": "tower",
+            "definitionId": "greatsword",
+            "rarity": "uncommon",
+            "level": 100,
+            "enhancement": 5,
+            "qualityBp": 10840
+          },
+          "equipped": false
+        },
+        {
+          "buyer": "10000000-0000-4000-8000-000000000005",
+          "target": 15,
+          "item": {
+            "id": "10000000-0000-4000-8000-000000000003/loot/2595383",
+            "origin": "tower",
+            "definitionId": "axe",
+            "rarity": "epic",
+            "level": 100,
+            "enhancement": 6,
+            "qualityBp": 9880
+          },
+          "equipped": false
+        },
+        {
+          "buyer": "10000000-0000-4000-8000-000000000002",
+          "target": 15,
+          "item": {
+            "id": "10000000-0000-4000-8000-000000000003/loot/2594139",
+            "origin": "tower",
+            "definitionId": "axe",
+            "rarity": "epic",
+            "level": 100,
+            "enhancement": 8,
+            "qualityBp": 9772
+          },
+          "equipped": false
+        }
+      ],
+      "equippedPurchasedItems": 0,
+      "conservationPassed": true,
+      "finalWorldSha256": "c95e9df425c9db83f3ca5f4004c6d9fc1a0e5dd2e8a85a7178763d7b1956abc9"
+    }
+  ],
+  "specialized": {
+    "scope": "Independent alternative of the same seven acquired wallets; first three produce coal/iron/gold for six hours, other four farm tower; never combine alternative worlds or their money",
+    "accounts": [
+      {
+        "file": "best-balanced-4213.json.gz",
+        "archiveSha256": "181362fa72b89a15e6897901b3af193395756c177c82451c9a4639d19c137b09",
+        "id": "10000000-0000-4000-8000-000000000001",
+        "originalId": "00000000-0000-4000-8000-000000000001",
+        "firstFeeDay": 3,
+        "farm": {
+          "activity": "coal",
+          "floor": 700,
+          "durationMs": 21600000,
+          "events": 24910,
+          "kills": 2057,
+          "pausedByCombat": false,
+          "coinEarnedMilli": "0",
+          "earnedMilli": {
+            "coin": "0",
+            "coal": "203643000",
+            "iron": "0",
+            "gold": "0",
+            "jade": "0"
+          },
+          "newItems": 0
+        },
+        "campaign": {
+          "grossCoinMilli": "19868796597086",
+          "spentCoinMilli": "8976121629000",
+          "endingCoinMilli": "10892674968086"
+        },
+        "brute": false,
+        "rates": {
+          "coin": {
+            "milli": 10181729661,
+            "kills": 806,
+            "pausedByCombat": false,
+            "floor": 999,
+            "probes": [
+              {
+                "floor": 999,
+                "kills": 806,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "coal": {
+            "milli": 19125000,
+            "kills": 153,
+            "pausedByCombat": false,
+            "floor": 1000,
+            "probes": [
+              {
+                "floor": 1000,
+                "kills": 153,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "iron": {
+            "milli": 31626000,
+            "kills": 126,
+            "pausedByCombat": false,
+            "floor": 1000,
+            "probes": [
+              {
+                "floor": 1000,
+                "kills": 126,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "gold": {
+            "milli": 7257000,
+            "kills": 123,
+            "pausedByCombat": false,
+            "floor": 931,
+            "probes": [
+              {
+                "floor": 931,
+                "kills": 123,
+                "pausedByCombat": false
+              }
+            ]
+          }
+        },
+        "openingBalancesMilli": {
+          "coin": "10892674968086",
+          "coal": "520000",
+          "iron": "300000",
+          "gold": "330000",
+          "jade": "0"
+        },
+        "preparedBalancesMilli": {
+          "coin": "10892674968086",
+          "coal": "204163000",
+          "iron": "300000",
+          "gold": "330000",
+          "jade": "0"
+        }
+      },
+      {
+        "file": "best-brute-4213.json.gz",
+        "archiveSha256": "8b4fc6925e2b5223608b014513b9485149050c6ab975e16f3c12ff42ceeec6c7",
+        "id": "10000000-0000-4000-8000-000000000002",
+        "originalId": "00000000-0000-4000-8000-000000000001",
+        "firstFeeDay": 3,
+        "farm": {
+          "activity": "iron",
+          "floor": 674,
+          "durationMs": 21600000,
+          "events": 25902,
+          "kills": 1599,
+          "pausedByCombat": false,
+          "coinEarnedMilli": "0",
+          "earnedMilli": {
+            "coin": "0",
+            "coal": "0",
+            "iron": "310206000",
+            "gold": "0",
+            "jade": "0"
+          },
+          "newItems": 0
+        },
+        "campaign": {
+          "grossCoinMilli": "20068541656331",
+          "spentCoinMilli": "11847126786000",
+          "endingCoinMilli": "8221414870331"
+        },
+        "brute": true,
+        "rates": {
+          "coin": {
+            "milli": 8632036376,
+            "kills": 684,
+            "pausedByCombat": false,
+            "floor": 978,
+            "probes": [
+              {
+                "floor": 978,
+                "kills": 684,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "coal": {
+            "milli": 18837000,
+            "kills": 161,
+            "pausedByCombat": false,
+            "floor": 900,
+            "probes": [
+              {
+                "floor": 1000,
+                "kills": 68,
+                "pausedByCombat": true
+              },
+              {
+                "floor": 900,
+                "kills": 161,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "iron": {
+            "milli": 33744000,
+            "kills": 148,
+            "pausedByCombat": false,
+            "floor": 867,
+            "probes": [
+              {
+                "floor": 964,
+                "kills": 1,
+                "pausedByCombat": true
+              },
+              {
+                "floor": 867,
+                "kills": 148,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "gold": {
+            "milli": 8003000,
+            "kills": 151,
+            "pausedByCombat": false,
+            "floor": 791,
+            "probes": [
+              {
+                "floor": 879,
+                "kills": 92,
+                "pausedByCombat": true
+              },
+              {
+                "floor": 791,
+                "kills": 151,
+                "pausedByCombat": false
+              }
+            ]
+          }
+        },
+        "openingBalancesMilli": {
+          "coin": "8221414870331",
+          "coal": "890000",
+          "iron": "714000",
+          "gold": "29000",
+          "jade": "0"
+        },
+        "preparedBalancesMilli": {
+          "coin": "8221414870331",
+          "coal": "890000",
+          "iron": "310920000",
+          "gold": "29000",
+          "jade": "0"
+        }
+      },
+      {
+        "file": "best-swift-1.json.gz",
+        "archiveSha256": "1a84ac7aafbe69c1570172b6575ae0fece4d56d3e45e8f8fb06e15c4c6105b3e",
+        "id": "10000000-0000-4000-8000-000000000003",
+        "originalId": "00000000-0000-4000-8000-000000000001",
+        "firstFeeDay": 1,
+        "farm": {
+          "activity": "gold",
+          "floor": 560,
+          "durationMs": 21600000,
+          "events": 30132,
+          "kills": 3043,
+          "pausedByCombat": false,
+          "coinEarnedMilli": "0",
+          "earnedMilli": {
+            "coin": "0",
+            "coal": "0",
+            "iron": "0",
+            "gold": "130849000",
+            "jade": "0"
+          },
+          "newItems": 0
+        },
+        "campaign": {
+          "grossCoinMilli": "27360407922244",
+          "spentCoinMilli": "3503615862000",
+          "endingCoinMilli": "23856792060244"
+        },
+        "brute": false,
+        "rates": {
+          "coin": {
+            "milli": 14853982211,
+            "kills": 1176,
+            "pausedByCombat": false,
+            "floor": 999,
+            "probes": [
+              {
+                "floor": 999,
+                "kills": 1176,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "coal": {
+            "milli": 29250000,
+            "kills": 234,
+            "pausedByCombat": false,
+            "floor": 1000,
+            "probes": [
+              {
+                "floor": 1000,
+                "kills": 234,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "iron": {
+            "milli": 49196000,
+            "kills": 196,
+            "pausedByCombat": false,
+            "floor": 1000,
+            "probes": [
+              {
+                "floor": 1000,
+                "kills": 196,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "gold": {
+            "milli": 14850000,
+            "kills": 275,
+            "pausedByCombat": false,
+            "floor": 801,
+            "probes": [
+              {
+                "floor": 801,
+                "kills": 275,
+                "pausedByCombat": false
+              }
+            ]
+          }
+        },
+        "openingBalancesMilli": {
+          "coin": "23856792060244",
+          "coal": "1478000",
+          "iron": "3994000",
+          "gold": "449000",
+          "jade": "0"
+        },
+        "preparedBalancesMilli": {
+          "coin": "23856792060244",
+          "coal": "1478000",
+          "iron": "3994000",
+          "gold": "131298000",
+          "jade": "0"
+        }
+      },
+      {
+        "file": "best-swift-3735928559.json.gz",
+        "archiveSha256": "5858b0b7f5c2c18103e0fa3e83c4c777d96b50dc9d166b7f8a2e3d8bd6c737af",
+        "id": "10000000-0000-4000-8000-000000000004",
+        "originalId": "00000000-0000-4000-8000-000000000001",
+        "firstFeeDay": 1,
+        "farm": {
+          "activity": "main",
+          "floor": 999,
+          "durationMs": 21600000,
+          "events": 43788,
+          "kills": 5554,
+          "pausedByCombat": false,
+          "coinEarnedMilli": "70147152044",
+          "earnedMilli": {
+            "coin": "70147152044",
+            "coal": "0",
+            "iron": "0",
+            "gold": "0",
+            "jade": "0"
+          },
+          "newItems": 32
+        },
+        "campaign": {
+          "grossCoinMilli": "25645457970201",
+          "spentCoinMilli": "3498932259000",
+          "endingCoinMilli": "22146525711201"
+        },
+        "brute": false,
+        "rates": {
+          "coin": {
+            "milli": 11659411529,
+            "kills": 923,
+            "pausedByCombat": false,
+            "floor": 999,
+            "probes": [
+              {
+                "floor": 999,
+                "kills": 923,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "coal": {
+            "milli": 21750000,
+            "kills": 174,
+            "pausedByCombat": false,
+            "floor": 1000,
+            "probes": [
+              {
+                "floor": 1000,
+                "kills": 174,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "iron": {
+            "milli": 35893000,
+            "kills": 143,
+            "pausedByCombat": false,
+            "floor": 1000,
+            "probes": [
+              {
+                "floor": 1000,
+                "kills": 143,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "gold": {
+            "milli": 13600000,
+            "kills": 272,
+            "pausedByCombat": false,
+            "floor": 707,
+            "probes": [
+              {
+                "floor": 707,
+                "kills": 272,
+                "pausedByCombat": false
+              }
+            ]
+          }
+        },
+        "openingBalancesMilli": {
+          "coin": "22146525711201",
+          "coal": "255000",
+          "iron": "1462000",
+          "gold": "146000",
+          "jade": "0"
+        },
+        "preparedBalancesMilli": {
+          "coin": "22216672863245",
+          "coal": "255000",
+          "iron": "1462000",
+          "gold": "146000",
+          "jade": "0"
+        }
+      },
+      {
+        "file": "best-swift-4213.json.gz",
+        "archiveSha256": "facee9bb6f7fd4d8fad9a8d1d40a1805a51f90ef851e4dcf343d8231788b00bd",
+        "id": "10000000-0000-4000-8000-000000000005",
+        "originalId": "00000000-0000-4000-8000-000000000001",
+        "firstFeeDay": 1,
+        "farm": {
+          "activity": "main",
+          "floor": 999,
+          "durationMs": 21600000,
+          "events": 43649,
+          "kills": 5475,
+          "pausedByCombat": false,
+          "coinEarnedMilli": "69150406770",
+          "earnedMilli": {
+            "coin": "69150406770",
+            "coal": "0",
+            "iron": "0",
+            "gold": "0",
+            "jade": "0"
+          },
+          "newItems": 35
+        },
+        "campaign": {
+          "grossCoinMilli": "26466609208852",
+          "spentCoinMilli": "3498596068000",
+          "endingCoinMilli": "22968013140852"
+        },
+        "brute": false,
+        "rates": {
+          "coin": {
+            "milli": 11583583473,
+            "kills": 917,
+            "pausedByCombat": false,
+            "floor": 999,
+            "probes": [
+              {
+                "floor": 999,
+                "kills": 917,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "coal": {
+            "milli": 21250000,
+            "kills": 170,
+            "pausedByCombat": false,
+            "floor": 1000,
+            "probes": [
+              {
+                "floor": 1000,
+                "kills": 170,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "iron": {
+            "milli": 35391000,
+            "kills": 141,
+            "pausedByCombat": false,
+            "floor": 1000,
+            "probes": [
+              {
+                "floor": 1000,
+                "kills": 141,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "gold": {
+            "milli": 13279000,
+            "kills": 271,
+            "pausedByCombat": false,
+            "floor": 702,
+            "probes": [
+              {
+                "floor": 702,
+                "kills": 271,
+                "pausedByCombat": false
+              }
+            ]
+          }
+        },
+        "openingBalancesMilli": {
+          "coin": "22968013140852",
+          "coal": "1569000",
+          "iron": "647000",
+          "gold": "597000",
+          "jade": "0"
+        },
+        "preparedBalancesMilli": {
+          "coin": "23037163547622",
+          "coal": "1569000",
+          "iron": "647000",
+          "gold": "597000",
+          "jade": "0"
+        }
+      },
+      {
+        "file": "casual-swift-4213.json.gz",
+        "archiveSha256": "7d94450847aab0b3b841dbd7ec60557f3f977a60f41456797955c28aea0e9925",
+        "id": "10000000-0000-4000-8000-000000000006",
+        "originalId": "00000000-0000-4000-8000-000000000001",
+        "firstFeeDay": 2,
+        "farm": {
+          "activity": "main",
+          "floor": 741,
+          "durationMs": 21600000,
+          "events": 37814,
+          "kills": 5048,
+          "pausedByCombat": false,
+          "coinEarnedMilli": "54891025618",
+          "earnedMilli": {
+            "coin": "54891025618",
+            "coal": "0",
+            "iron": "0",
+            "gold": "0",
+            "jade": "0"
+          },
+          "newItems": 31
+        },
+        "campaign": {
+          "grossCoinMilli": "7278015626518",
+          "spentCoinMilli": "1345836313000",
+          "endingCoinMilli": "5932179313518"
+        },
+        "brute": false,
+        "rates": {
+          "coin": {
+            "milli": 9089120326,
+            "kills": 836,
+            "pausedByCombat": false,
+            "floor": 741,
+            "probes": [
+              {
+                "floor": 741,
+                "kills": 836,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "coal": {
+            "milli": 15402000,
+            "kills": 151,
+            "pausedByCombat": false,
+            "floor": 730,
+            "probes": [
+              {
+                "floor": 812,
+                "kills": 1,
+                "pausedByCombat": true
+              },
+              {
+                "floor": 730,
+                "kills": 151,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "iron": {
+            "milli": 28665000,
+            "kills": 147,
+            "pausedByCombat": false,
+            "floor": 681,
+            "probes": [
+              {
+                "floor": 757,
+                "kills": 1,
+                "pausedByCombat": true
+              },
+              {
+                "floor": 681,
+                "kills": 147,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "gold": {
+            "milli": 10323000,
+            "kills": 279,
+            "pausedByCombat": false,
+            "floor": 457,
+            "probes": [
+              {
+                "floor": 457,
+                "kills": 279,
+                "pausedByCombat": false
+              }
+            ]
+          }
+        },
+        "openingBalancesMilli": {
+          "coin": "5932179313518",
+          "coal": "766000",
+          "iron": "127000",
+          "gold": "703000",
+          "jade": "0"
+        },
+        "preparedBalancesMilli": {
+          "coin": "5987070339136",
+          "coal": "766000",
+          "iron": "127000",
+          "gold": "703000",
+          "jade": "0"
+        }
+      },
+      {
+        "file": "regular-swift-4213.json.gz",
+        "archiveSha256": "617ba1d2cae72e58f8930154723ef5e0cd23e406b08f285ef5d4bf61b375549b",
+        "id": "10000000-0000-4000-8000-000000000007",
+        "originalId": "00000000-0000-4000-8000-000000000001",
+        "firstFeeDay": 1,
+        "farm": {
+          "activity": "main",
+          "floor": 999,
+          "durationMs": 21600000,
+          "events": 41881,
+          "kills": 6413,
+          "pausedByCombat": false,
+          "coinEarnedMilli": "80996791489",
+          "earnedMilli": {
+            "coin": "80996791489",
+            "coal": "0",
+            "iron": "0",
+            "gold": "0",
+            "jade": "0"
+          },
+          "newItems": 33
+        },
+        "campaign": {
+          "grossCoinMilli": "25086758847322",
+          "spentCoinMilli": "3508663302000",
+          "endingCoinMilli": "21578095545322"
+        },
+        "brute": false,
+        "rates": {
+          "coin": {
+            "milli": 13478096905,
+            "kills": 1067,
+            "pausedByCombat": false,
+            "floor": 999,
+            "probes": [
+              {
+                "floor": 999,
+                "kills": 1067,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "coal": {
+            "milli": 26250000,
+            "kills": 210,
+            "pausedByCombat": false,
+            "floor": 1000,
+            "probes": [
+              {
+                "floor": 1000,
+                "kills": 210,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "iron": {
+            "milli": 43674000,
+            "kills": 174,
+            "pausedByCombat": false,
+            "floor": 1000,
+            "probes": [
+              {
+                "floor": 1000,
+                "kills": 174,
+                "pausedByCombat": false
+              }
+            ]
+          },
+          "gold": {
+            "milli": 10730000,
+            "kills": 185,
+            "pausedByCombat": false,
+            "floor": 903,
+            "probes": [
+              {
+                "floor": 903,
+                "kills": 185,
+                "pausedByCombat": false
+              }
+            ]
+          }
+        },
+        "openingBalancesMilli": {
+          "coin": "21578095545322",
+          "coal": "402000",
+          "iron": "1589000",
+          "gold": "655000",
+          "jade": "0"
+        },
+        "preparedBalancesMilli": {
+          "coin": "21659092336811",
+          "coal": "402000",
+          "iron": "1589000",
+          "gold": "655000",
+          "jade": "0"
+        }
+      }
+    ],
+    "scenarios": [
+      {
+        "multiplier": 0.25,
+        "attempted": 19,
+        "listed": 19,
+        "resourceTrades": 17,
+        "itemTrades": 2,
+        "offered": 0,
+        "feeBlocked": 0,
+        "unaffordable": 0,
+        "noUtility": 65,
+        "refinements": 204,
+        "refinementOutcomes": {
+          "Refino: success": 121,
+          "Refino: regressed": 83
+        },
+        "refinementSpentMilli": {
+          "coin": "3830105000",
+          "coal": "43749000",
+          "iron": "128507000",
+          "gold": "3868000",
+          "jade": "0"
+        },
+        "scrollsConsumed": 168,
+        "expired": 0,
+        "listingFeeMilli": "1900000000",
+        "saleTaxMilli": "3488443734",
+        "grossVolumeMilli": "34884437274",
+        "paidBuyerIds": [
+          "10000000-0000-4000-8000-000000000004",
+          "10000000-0000-4000-8000-000000000005",
+          "10000000-0000-4000-8000-000000000002",
+          "10000000-0000-4000-8000-000000000003",
+          "10000000-0000-4000-8000-000000000006",
+          "10000000-0000-4000-8000-000000000007",
+          "10000000-0000-4000-8000-000000000001"
+        ],
+        "itemPurchases": [
+          {
+            "buyer": "10000000-0000-4000-8000-000000000004",
+            "itemId": "10000000-0000-4000-8000-000000000007/loot/2381991",
+            "target": 15,
+            "slot": "weapon",
+            "projectedGain": 19005.5,
+            "price": "251507954"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000005",
+            "itemId": "10000000-0000-4000-8000-000000000007/loot/2390489",
+            "target": 15,
+            "slot": "weapon",
+            "projectedGain": 7570.899999999994,
+            "price": "251507954"
+          }
+        ],
+        "resourcePurchases": [
+          {
+            "buyer": "10000000-0000-4000-8000-000000000002",
+            "seller": "10000000-0000-4000-8000-000000000001",
+            "resource": "coal",
+            "quantity": "12806000",
+            "price": "1815519347"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000003",
+            "seller": "10000000-0000-4000-8000-000000000001",
+            "resource": "coal",
+            "quantity": "13154000",
+            "price": "1861836235"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000004",
+            "seller": "10000000-0000-4000-8000-000000000001",
+            "resource": "coal",
+            "quantity": "26777000",
+            "price": "3674982682"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000005",
+            "seller": "10000000-0000-4000-8000-000000000001",
+            "resource": "coal",
+            "quantity": "29495000",
+            "price": "4036733548"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000006",
+            "seller": "10000000-0000-4000-8000-000000000001",
+            "resource": "coal",
+            "quantity": "9266000",
+            "price": "1344364798"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000007",
+            "seller": "10000000-0000-4000-8000-000000000001",
+            "resource": "coal",
+            "quantity": "9182000",
+            "price": "1333184860"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000001",
+            "seller": "10000000-0000-4000-8000-000000000002",
+            "resource": "iron",
+            "quantity": "35460000",
+            "price": "2378862489"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000003",
+            "seller": "10000000-0000-4000-8000-000000000002",
+            "resource": "iron",
+            "quantity": "41926000",
+            "price": "2792378575"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000004",
+            "seller": "10000000-0000-4000-8000-000000000002",
+            "resource": "iron",
+            "quantity": "81490000",
+            "price": "5322590517"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000005",
+            "seller": "10000000-0000-4000-8000-000000000002",
+            "resource": "iron",
+            "quantity": "94649000",
+            "price": "6164139879"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000006",
+            "seller": "10000000-0000-4000-8000-000000000002",
+            "resource": "iron",
+            "quantity": "14347000",
+            "price": "1028635900"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000001",
+            "seller": "10000000-0000-4000-8000-000000000003",
+            "resource": "gold",
+            "quantity": "822000",
+            "price": "316666219"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000002",
+            "seller": "10000000-0000-4000-8000-000000000003",
+            "resource": "gold",
+            "quantity": "1347000",
+            "price": "447951415"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000004",
+            "seller": "10000000-0000-4000-8000-000000000003",
+            "resource": "gold",
+            "quantity": "2542000",
+            "price": "746781529"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000005",
+            "seller": "10000000-0000-4000-8000-000000000003",
+            "resource": "gold",
+            "quantity": "2475000",
+            "price": "730027037"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000006",
+            "seller": "10000000-0000-4000-8000-000000000003",
+            "resource": "gold",
+            "quantity": "321000",
+            "price": "191382632"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000007",
+            "seller": "10000000-0000-4000-8000-000000000003",
+            "resource": "gold",
+            "quantity": "337000",
+            "price": "195383704"
+          }
+        ],
+        "bruteBefore": [
+          {
+            "seed": 1,
+            "status": "defeat",
+            "ms": 21600
+          },
+          {
+            "seed": 4213,
+            "status": "defeat",
+            "ms": 25200
+          },
+          {
+            "seed": 3735928559,
+            "status": "defeat",
+            "ms": 28800
+          }
+        ],
+        "sellThrough": 1,
+        "openingCoinMilli": "115870880985475",
+        "endingCoinMilli": "115861662436741",
+        "marketBurnShare": 0.00004650386437189054,
+        "volumeToOpeningCoin": 0.0003010630192616982,
+        "largestBuyerVolumeShare": 0.32055579197588063,
+        "largestSellerVolumeShare": 0.5070056661966609,
+        "largestEndingWalletShare": 0.20588057639633645,
+        "bruteAfter": [
+          {
+            "seed": 1,
+            "status": "defeat",
+            "ms": 23400
+          },
+          {
+            "seed": 4213,
+            "status": "defeat",
+            "ms": 25200
+          },
+          {
+            "seed": 3735928559,
+            "status": "defeat",
+            "ms": 28800
+          }
+        ],
+        "bruteActualEquipment": [
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/802323",
+            "origin": "tower",
+            "definitionId": "hat",
+            "rarity": "legendary",
+            "level": 73,
+            "enhancement": 9,
+            "qualityBp": 9166
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/904392",
+            "origin": "tower",
+            "definitionId": "axe",
+            "rarity": "legendary",
+            "level": 76,
+            "enhancement": 15,
+            "qualityBp": 10888
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1002252",
+            "origin": "tower",
+            "definitionId": "boots",
+            "rarity": "legendary",
+            "level": 80,
+            "enhancement": 12,
+            "qualityBp": 9868
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1522647",
+            "origin": "tower",
+            "definitionId": "armor",
+            "rarity": "epic",
+            "level": 93,
+            "enhancement": 9,
+            "qualityBp": 9644
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1532801",
+            "origin": "tower",
+            "definitionId": "shield",
+            "rarity": "epic",
+            "level": 93,
+            "enhancement": 9,
+            "qualityBp": 9758
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1549776",
+            "origin": "tower",
+            "definitionId": "ring",
+            "rarity": "rare",
+            "level": 93,
+            "enhancement": 9,
+            "qualityBp": 10799
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1748160",
+            "origin": "tower",
+            "definitionId": "gloves",
+            "rarity": "epic",
+            "level": 96,
+            "enhancement": 9,
+            "qualityBp": 9588
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1823586",
+            "origin": "tower",
+            "definitionId": "ring",
+            "rarity": "rare",
+            "level": 96,
+            "enhancement": 9,
+            "qualityBp": 10534
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1877848",
+            "origin": "tower",
+            "definitionId": "pendant",
+            "rarity": "rare",
+            "level": 96,
+            "enhancement": 9,
+            "qualityBp": 10356
+          }
+        ],
+        "endingBalancesMilli": {
+          "10000000-0000-4000-8000-000000000001": {
+            "coin": "10901682532699",
+            "coal": "99455000",
+            "iron": "22730000",
+            "gold": "720000",
+            "jade": "0"
+          },
+          "10000000-0000-4000-8000-000000000002": {
+            "coin": "8234398442192",
+            "coal": "11732000",
+            "iron": "37255000",
+            "gold": "1204000",
+            "jade": "0"
+          },
+          "10000000-0000-4000-8000-000000000003": {
+            "coin": "23853665844714",
+            "coal": "11906000",
+            "iron": "37496000",
+            "gold": "123194000",
+            "jade": "0"
+          },
+          "10000000-0000-4000-8000-000000000004": {
+            "coin": "22205346831563",
+            "coal": "12427000",
+            "iron": "39146000",
+            "gold": "1336000",
+            "jade": "0"
+          },
+          "10000000-0000-4000-8000-000000000005": {
+            "coin": "23024665900204",
+            "coal": "15507000",
+            "iron": "52264000",
+            "gold": "1860000",
+            "jade": "0"
+          },
+          "10000000-0000-4000-8000-000000000006": {
+            "coin": "5984094352806",
+            "coal": "5261000",
+            "iron": "212000",
+            "gold": "584000",
+            "jade": "0"
+          },
+          "10000000-0000-4000-8000-000000000007": {
+            "coin": "21657808532563",
+            "coal": "9486000",
+            "iron": "1429000",
+            "gold": "992000",
+            "jade": "0"
+          }
+        },
+        "purchasedItemResults": [
+          {
+            "buyer": "10000000-0000-4000-8000-000000000004",
+            "target": 15,
+            "item": {
+              "id": "10000000-0000-4000-8000-000000000007/loot/2381991",
+              "origin": "tower",
+              "definitionId": "greatsword",
+              "rarity": "common",
+              "level": 100,
+              "enhancement": 15,
+              "qualityBp": 10312
+            },
+            "equipped": true
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000005",
+            "target": 15,
+            "item": {
+              "id": "10000000-0000-4000-8000-000000000007/loot/2390489",
+              "origin": "tower",
+              "definitionId": "bow",
+              "rarity": "uncommon",
+              "level": 100,
+              "enhancement": 12,
+              "qualityBp": 9682
+            },
+            "equipped": false
+          }
+        ],
+        "equippedPurchasedItems": 1,
+        "conservationPassed": true,
+        "finalWorldSha256": "d57c1b834d06114fd23e69a7ef88e78dbfec5718c619085f8c57572056d5c1ed"
+      },
+      {
+        "multiplier": 1,
+        "attempted": 19,
+        "listed": 19,
+        "resourceTrades": 16,
+        "itemTrades": 2,
+        "offered": 8,
+        "feeBlocked": 0,
+        "unaffordable": 0,
+        "noUtility": 66,
+        "refinements": 204,
+        "refinementOutcomes": {
+          "Refino: success": 121,
+          "Refino: regressed": 83
+        },
+        "refinementSpentMilli": {
+          "coin": "3830105000",
+          "coal": "43749000",
+          "iron": "128507000",
+          "gold": "3868000",
+          "jade": "0"
+        },
+        "scrollsConsumed": 168,
+        "expired": 1,
+        "listingFeeMilli": "1900000000",
+        "saleTaxMilli": "13004771622",
+        "grossVolumeMilli": "130047716131",
+        "paidBuyerIds": [
+          "10000000-0000-4000-8000-000000000004",
+          "10000000-0000-4000-8000-000000000005",
+          "10000000-0000-4000-8000-000000000002",
+          "10000000-0000-4000-8000-000000000003",
+          "10000000-0000-4000-8000-000000000006",
+          "10000000-0000-4000-8000-000000000007",
+          "10000000-0000-4000-8000-000000000001"
+        ],
+        "itemPurchases": [
+          {
+            "buyer": "10000000-0000-4000-8000-000000000004",
+            "itemId": "10000000-0000-4000-8000-000000000007/loot/2381991",
+            "target": 15,
+            "slot": "weapon",
+            "projectedGain": 19005.5,
+            "price": "672698483"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000005",
+            "itemId": "10000000-0000-4000-8000-000000000007/loot/2390489",
+            "target": 15,
+            "slot": "weapon",
+            "projectedGain": 7570.899999999994,
+            "price": "672698483"
+          }
+        ],
+        "resourcePurchases": [
+          {
+            "buyer": "10000000-0000-4000-8000-000000000002",
+            "seller": "10000000-0000-4000-8000-000000000001",
+            "resource": "coal",
+            "quantity": "12806000",
+            "price": "5868336669"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000003",
+            "seller": "10000000-0000-4000-8000-000000000001",
+            "resource": "coal",
+            "quantity": "13154000",
+            "price": "6679975454"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000004",
+            "seller": "10000000-0000-4000-8000-000000000001",
+            "resource": "coal",
+            "quantity": "26777000",
+            "price": "14354209771"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000005",
+            "seller": "10000000-0000-4000-8000-000000000001",
+            "resource": "coal",
+            "quantity": "29495000",
+            "price": "15813600855"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000006",
+            "seller": "10000000-0000-4000-8000-000000000001",
+            "resource": "coal",
+            "quantity": "9266000",
+            "price": "5044125859"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000007",
+            "seller": "10000000-0000-4000-8000-000000000001",
+            "resource": "coal",
+            "quantity": "9182000",
+            "price": "4714509935"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000001",
+            "seller": "10000000-0000-4000-8000-000000000002",
+            "resource": "iron",
+            "quantity": "35460000",
+            "price": "9182116621"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000003",
+            "seller": "10000000-0000-4000-8000-000000000002",
+            "resource": "iron",
+            "quantity": "41926000",
+            "price": "10836180964"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000004",
+            "seller": "10000000-0000-4000-8000-000000000002",
+            "resource": "iron",
+            "quantity": "81490000",
+            "price": "20957028735"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000005",
+            "seller": "10000000-0000-4000-8000-000000000002",
+            "resource": "iron",
+            "quantity": "94649000",
+            "price": "24323226182"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000006",
+            "seller": "10000000-0000-4000-8000-000000000002",
+            "resource": "iron",
+            "quantity": "14347000",
+            "price": "3781210267"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000001",
+            "seller": "10000000-0000-4000-8000-000000000003",
+            "resource": "gold",
+            "quantity": "822000",
+            "price": "933331541"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000002",
+            "seller": "10000000-0000-4000-8000-000000000003",
+            "resource": "gold",
+            "quantity": "1347000",
+            "price": "1452874297"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000004",
+            "seller": "10000000-0000-4000-8000-000000000003",
+            "resource": "gold",
+            "quantity": "2542000",
+            "price": "2179281185"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000005",
+            "seller": "10000000-0000-4000-8000-000000000003",
+            "resource": "gold",
+            "quantity": "2475000",
+            "price": "2159000610"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000007",
+            "seller": "10000000-0000-4000-8000-000000000003",
+            "resource": "gold",
+            "quantity": "337000",
+            "price": "423310220"
+          }
+        ],
+        "bruteBefore": [
+          {
+            "seed": 1,
+            "status": "defeat",
+            "ms": 21600
+          },
+          {
+            "seed": 4213,
+            "status": "defeat",
+            "ms": 25200
+          },
+          {
+            "seed": 3735928559,
+            "status": "defeat",
+            "ms": 28800
+          }
+        ],
+        "sellThrough": 0.9473684210526315,
+        "openingCoinMilli": "115870880985475",
+        "endingCoinMilli": "115852146108853",
+        "marketBurnShare": 0.00012863259082209264,
+        "volumeToOpeningCoin": 0.0011223502835652223,
+        "largestBuyerVolumeShare": 0.33040584954769087,
+        "largestSellerVolumeShare": 0.5311878195493598,
+        "largestEndingWalletShare": 0.20582157818196742,
+        "bruteAfter": [
+          {
+            "seed": 1,
+            "status": "defeat",
+            "ms": 23400
+          },
+          {
+            "seed": 4213,
+            "status": "defeat",
+            "ms": 25200
+          },
+          {
+            "seed": 3735928559,
+            "status": "defeat",
+            "ms": 28800
+          }
+        ],
+        "bruteActualEquipment": [
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/802323",
+            "origin": "tower",
+            "definitionId": "hat",
+            "rarity": "legendary",
+            "level": 73,
+            "enhancement": 9,
+            "qualityBp": 9166
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/904392",
+            "origin": "tower",
+            "definitionId": "axe",
+            "rarity": "legendary",
+            "level": 76,
+            "enhancement": 15,
+            "qualityBp": 10888
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1002252",
+            "origin": "tower",
+            "definitionId": "boots",
+            "rarity": "legendary",
+            "level": 80,
+            "enhancement": 12,
+            "qualityBp": 9868
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1522647",
+            "origin": "tower",
+            "definitionId": "armor",
+            "rarity": "epic",
+            "level": 93,
+            "enhancement": 9,
+            "qualityBp": 9644
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1532801",
+            "origin": "tower",
+            "definitionId": "shield",
+            "rarity": "epic",
+            "level": 93,
+            "enhancement": 9,
+            "qualityBp": 9758
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1549776",
+            "origin": "tower",
+            "definitionId": "ring",
+            "rarity": "rare",
+            "level": 93,
+            "enhancement": 9,
+            "qualityBp": 10799
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1748160",
+            "origin": "tower",
+            "definitionId": "gloves",
+            "rarity": "epic",
+            "level": 96,
+            "enhancement": 9,
+            "qualityBp": 9588
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1823586",
+            "origin": "tower",
+            "definitionId": "ring",
+            "rarity": "rare",
+            "level": 96,
+            "enhancement": 9,
+            "qualityBp": 10534
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1877848",
+            "origin": "tower",
+            "definitionId": "pendant",
+            "rarity": "rare",
+            "level": 96,
+            "enhancement": 9,
+            "qualityBp": 10356
+          }
+        ],
+        "endingBalancesMilli": {
+          "10000000-0000-4000-8000-000000000001": {
+            "coin": "10928829936610",
+            "coal": "99455000",
+            "iron": "22730000",
+            "gold": "720000",
+            "jade": "0"
+          },
+          "10000000-0000-4000-8000-000000000002": {
+            "coin": "8275594541854",
+            "coal": "11732000",
+            "iron": "37255000",
+            "gold": "1204000",
+            "jade": "0"
+          },
+          "10000000-0000-4000-8000-000000000003": {
+            "coin": "23844871547892",
+            "coal": "11906000",
+            "iron": "37496000",
+            "gold": "123515000",
+            "jade": "0"
+          },
+          "10000000-0000-4000-8000-000000000004": {
+            "coin": "22177179476071",
+            "coal": "12427000",
+            "iron": "39146000",
+            "gold": "1336000",
+            "jade": "0"
+          },
+          "10000000-0000-4000-8000-000000000005": {
+            "coin": "22992879782492",
+            "coal": "15507000",
+            "iron": "52264000",
+            "gold": "1860000",
+            "jade": "0"
+          },
+          "10000000-0000-4000-8000-000000000006": {
+            "coin": "5977833400010",
+            "coal": "5261000",
+            "iron": "212000",
+            "gold": "263000",
+            "jade": "0"
+          },
+          "10000000-0000-4000-8000-000000000007": {
+            "coin": "21654957423924",
+            "coal": "9486000",
+            "iron": "1429000",
+            "gold": "992000",
+            "jade": "0"
+          }
+        },
+        "purchasedItemResults": [
+          {
+            "buyer": "10000000-0000-4000-8000-000000000004",
+            "target": 15,
+            "item": {
+              "id": "10000000-0000-4000-8000-000000000007/loot/2381991",
+              "origin": "tower",
+              "definitionId": "greatsword",
+              "rarity": "common",
+              "level": 100,
+              "enhancement": 15,
+              "qualityBp": 10312
+            },
+            "equipped": true
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000005",
+            "target": 15,
+            "item": {
+              "id": "10000000-0000-4000-8000-000000000007/loot/2390489",
+              "origin": "tower",
+              "definitionId": "bow",
+              "rarity": "uncommon",
+              "level": 100,
+              "enhancement": 12,
+              "qualityBp": 9682
+            },
+            "equipped": false
+          }
+        ],
+        "equippedPurchasedItems": 1,
+        "conservationPassed": true,
+        "finalWorldSha256": "e96fb15c6d1e2d69b64c8c0c9b3760af23961e66b0748de120c44b3ddd772e98"
+      },
+      {
+        "multiplier": 4,
+        "attempted": 19,
+        "listed": 19,
+        "resourceTrades": 0,
+        "itemTrades": 2,
+        "offered": 1,
+        "feeBlocked": 0,
+        "unaffordable": 0,
+        "noUtility": 82,
+        "refinements": 30,
+        "refinementOutcomes": {
+          "Refino: success": 24,
+          "Refino: regressed": 6
+        },
+        "refinementSpentMilli": {
+          "coin": "184060000",
+          "coal": "2357000",
+          "iron": "4777000",
+          "gold": "80000",
+          "jade": "0"
+        },
+        "scrollsConsumed": 12,
+        "expired": 17,
+        "listingFeeMilli": "1900000000",
+        "saleTaxMilli": "449598223",
+        "grossVolumeMilli": "4495982221",
+        "paidBuyerIds": [
+          "10000000-0000-4000-8000-000000000004",
+          "10000000-0000-4000-8000-000000000005"
+        ],
+        "itemPurchases": [
+          {
+            "buyer": "10000000-0000-4000-8000-000000000004",
+            "itemId": "10000000-0000-4000-8000-000000000007/loot/2381991",
+            "target": 15,
+            "slot": "weapon",
+            "projectedGain": 19005.5,
+            "price": "2357460596"
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000005",
+            "itemId": "10000000-0000-4000-8000-000000000007/loot/2390489",
+            "target": 15,
+            "slot": "weapon",
+            "projectedGain": 7570.899999999994,
+            "price": "2138521625"
+          }
+        ],
+        "resourcePurchases": [],
+        "bruteBefore": [
+          {
+            "seed": 1,
+            "status": "defeat",
+            "ms": 21600
+          },
+          {
+            "seed": 4213,
+            "status": "defeat",
+            "ms": 25200
+          },
+          {
+            "seed": 3735928559,
+            "status": "defeat",
+            "ms": 28800
+          }
+        ],
+        "sellThrough": 0.10526315789473684,
+        "openingCoinMilli": "115870880985475",
+        "endingCoinMilli": "115868347327252",
+        "marketBurnShare": 0.000020277728131665228,
+        "volumeToOpeningCoin": 0.00003880165735137195,
+        "largestBuyerVolumeShare": 0.5243482914564666,
+        "largestSellerVolumeShare": 1,
+        "largestEndingWalletShare": 0.2058897371416386,
+        "bruteAfter": [
+          {
+            "seed": 1,
+            "status": "defeat",
+            "ms": 21600
+          },
+          {
+            "seed": 4213,
+            "status": "defeat",
+            "ms": 25200
+          },
+          {
+            "seed": 3735928559,
+            "status": "defeat",
+            "ms": 28800
+          }
+        ],
+        "bruteActualEquipment": [
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/802323",
+            "origin": "tower",
+            "definitionId": "hat",
+            "rarity": "legendary",
+            "level": 73,
+            "enhancement": 9,
+            "qualityBp": 9166
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/904392",
+            "origin": "tower",
+            "definitionId": "axe",
+            "rarity": "legendary",
+            "level": 76,
+            "enhancement": 15,
+            "qualityBp": 10888
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1002252",
+            "origin": "tower",
+            "definitionId": "boots",
+            "rarity": "legendary",
+            "level": 80,
+            "enhancement": 10,
+            "qualityBp": 9868
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1522647",
+            "origin": "tower",
+            "definitionId": "armor",
+            "rarity": "epic",
+            "level": 93,
+            "enhancement": 9,
+            "qualityBp": 9644
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1532801",
+            "origin": "tower",
+            "definitionId": "shield",
+            "rarity": "epic",
+            "level": 93,
+            "enhancement": 9,
+            "qualityBp": 9758
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1549776",
+            "origin": "tower",
+            "definitionId": "ring",
+            "rarity": "rare",
+            "level": 93,
+            "enhancement": 9,
+            "qualityBp": 10799
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1748160",
+            "origin": "tower",
+            "definitionId": "gloves",
+            "rarity": "epic",
+            "level": 96,
+            "enhancement": 9,
+            "qualityBp": 9588
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1823586",
+            "origin": "tower",
+            "definitionId": "ring",
+            "rarity": "rare",
+            "level": 96,
+            "enhancement": 9,
+            "qualityBp": 10534
+          },
+          {
+            "id": "10000000-0000-4000-8000-000000000002/loot/1877848",
+            "origin": "tower",
+            "definitionId": "pendant",
+            "rarity": "rare",
+            "level": 96,
+            "enhancement": 9,
+            "qualityBp": 10356
+          }
+        ],
+        "endingBalancesMilli": {
+          "10000000-0000-4000-8000-000000000001": {
+            "coin": "10892065514086",
+            "coal": "204047000",
+            "iron": "110000",
+            "gold": "330000",
+            "jade": "0"
+          },
+          "10000000-0000-4000-8000-000000000002": {
+            "coin": "8220883466331",
+            "coal": "498000",
+            "iron": "310279000",
+            "gold": "29000",
+            "jade": "0"
+          },
+          "10000000-0000-4000-8000-000000000003": {
+            "coin": "23856103574244",
+            "coal": "432000",
+            "iron": "1066000",
+            "gold": "131218000",
+            "jade": "0"
+          },
+          "10000000-0000-4000-8000-000000000004": {
+            "coin": "22214299527649",
+            "coal": "2000",
+            "iron": "1188000",
+            "gold": "146000",
+            "jade": "0"
+          },
+          "10000000-0000-4000-8000-000000000005": {
+            "coin": "23034994134997",
+            "coal": "1117000",
+            "iron": "63000",
+            "gold": "597000",
+            "jade": "0"
+          },
+          "10000000-0000-4000-8000-000000000006": {
+            "coin": "5987070339136",
+            "coal": "766000",
+            "iron": "127000",
+            "gold": "703000",
+            "jade": "0"
+          },
+          "10000000-0000-4000-8000-000000000007": {
+            "coin": "21662930770809",
+            "coal": "304000",
+            "iron": "1429000",
+            "gold": "655000",
+            "jade": "0"
+          }
+        },
+        "purchasedItemResults": [
+          {
+            "buyer": "10000000-0000-4000-8000-000000000004",
+            "target": 15,
+            "item": {
+              "id": "10000000-0000-4000-8000-000000000007/loot/2381991",
+              "origin": "tower",
+              "definitionId": "greatsword",
+              "rarity": "common",
+              "level": 100,
+              "enhancement": 6,
+              "qualityBp": 10312
+            },
+            "equipped": false
+          },
+          {
+            "buyer": "10000000-0000-4000-8000-000000000005",
+            "target": 15,
+            "item": {
+              "id": "10000000-0000-4000-8000-000000000007/loot/2390489",
+              "origin": "tower",
+              "definitionId": "bow",
+              "rarity": "uncommon",
+              "level": 100,
+              "enhancement": 8,
+              "qualityBp": 9682
+            },
+            "equipped": false
+          }
+        ],
+        "equippedPurchasedItems": 0,
+        "conservationPassed": true,
+        "finalWorldSha256": "52ab6b3b015c7099991bf8a0d0d0322df6389b03de46dfd936799fbae36cca63"
+      }
+    ]
+  },
+  "integrityPassed": true,
+  "liquidityApproved": false,
+  "activationReady": false,
+  "limits": [
+    "Seven reidentified independent end-of-campaign worlds, not a sampled coupled population or trade-assisted campaign",
+    "Six additional hours of real farming, tower-only or specialized material supply; deaths stop farming, no item or money is granted",
+    "One-hour forked Coin/material measurements price opportunity cost; failed probes retreat by 10% until one hour survives, diagnostic earnings never enter wallets",
+    "Finite eight-quotes-per-level material demand/reserves for bought-item targets or three next equipped levels, 5% wallet purchase cap; ask multipliers and utility are policy hypotheses, not discovered player preferences",
+    "Trading observation with paused characters; 73h book expiry is not credited as farm, XP or offline presence",
+    "No replacement/refarming/price discovery after expiry; no infinite buyer or NPC market maker",
+    "Endgame slices do not validate early-game entry, population, P95 fill time, real inflation or long-run sink equilibrium",
+    "+16–20, Jade population, public consumer cutover and monetization remain disabled"
+  ]
+}
