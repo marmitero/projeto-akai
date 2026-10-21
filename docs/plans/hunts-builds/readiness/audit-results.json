@@ -58,9 +58,9 @@
     "interpretation": "R7 implements bounded persisted offline in isolated rehearsal and explicit preview. Legacy live accounts still use their old economy. Does not certify full cutover or v2 arena/event consumers."
   },
   "bosses": {
-    "gate": "blocked",
+    "gate": "validated-private-r8-population-pending",
     "tower30sDeadlineRegression": "passed",
-    "towerBridgeBalance": "not-certified",
+    "towerBridgeBalance": "v8-sample-calibrated-not-campaign-certified",
     "dailyJadeArithmetic": "passed",
     "winnerMaximum453": true,
     "sourceInspection": {
@@ -68,18 +68,16 @@
       "legacyDailyInvokesV2Planner": false
     },
     "missing": [
-      "daily-v2-atomic-jade-ledger/outbox",
-      "all-day-contribution-edition-and-eligibility",
-      "post-kill-contribution-without-second-bonus",
-      "coupled-high-end/market-balance"
+      "production-global-sharding-and-live-consumer-cutover",
+      "population/alt-concentration-and-coupled-high-end/market-balance"
     ],
     "highRefinementLocked": true,
-    "interpretation": "Correct planner arithmetic/broadcast read path is not proof of an authoritative daily Jade award writer or balanced bosses."
+    "interpretation": "R8 adds a private PostgreSQL writer/ledger/broadcast and weekly protection event, validated by event-clock and transaction tests. Legacy live daily remains separate; full population/campaign balance and cutover are not approved."
   },
   "next": [
     "Integrate authoritative v2 stat consumers at cutover; R7 offline isolated runtime validated",
     "Review coupled v2 market liquidity/concentration and execute legacy transition only at authorized cutover",
-    "Implement and validate R8 boss daily Jade and weekly protection event",
+    "Validate R8 population/concentration and integrate live social consumers at cutover",
     "Re-run coupled economy cohorts and free-player playtest before cutover"
   ],
   "scope": "Findings audit, not activation approval. Local tests may skip PostgreSQL; CI report supplies the SQL evidence."
