@@ -38,7 +38,9 @@
     "test:premium": "npm run build:shared && vitest run apps/server/src/premium.test.ts apps/server/src/premium-providers.test.ts",
     "simulate:monetization": "npm run build:shared && node scripts/simulate-monetization.mjs",
     "test:browser:premium": "npm run build && node scripts/smoke-premium.mjs",
-    "test:browser:premium:preview": "VITE_GAME_MODE=online npm run build && node scripts/smoke-premium.mjs --preview"
+    "test:browser:premium:preview": "VITE_GAME_MODE=online npm run build && node scripts/smoke-premium.mjs --preview",
+    "simulate:campaign": "npm run build:shared && node scripts/economy-v2/campaign.mjs",
+    "test:campaign": "npm run build:shared && node --test scripts/tests/campaign.test.mjs"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

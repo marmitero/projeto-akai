@@ -1,7 +1,7 @@
 import {z} from 'zod';
 import {towerBossV8} from './bosses-v8.js';
 import {EconomyV2Schema,initialEconomyV2,masteryLevel,ECONOMY_XP_V2,canEquipV2,type EconomyV2} from './economy-v2.js';
-import {CombatStatsV3Schema,CombatV3Schema,startCombatV3,advanceCombatV3,hitChancePpm,attackDamageV3,type CombatStatsV3} from './combat-v3.js';
+import {CombatStatsV3Schema,CombatV3Schema,startCombatV3,advanceOwnedCombatV3,hitChancePpm,attackDamageV3,type CombatStatsV3} from './combat-v3.js';
 import {heroStatsV3,trainAttribute,ATTRIBUTE_IDS} from './builds-v3.js';
 import {presetBuildV3} from './build-presets-v3.js';
 import {encounterEnemies,enemyDefinition} from './bestiary.js';
@@ -94,7 +94,7 @@ export function advanceRunV6(input:EconomyRunV6,toMs:number,maxEvents=1000,entro
   if(s.paused){s.economy.economicThroughMs=toMs;break;}
   if(processed>=maxEvents){s.economy.revision++;return {state:s,backlog:true,processed};}
   if(!s.encounter){if(s.nextAt>=toMs){s.economy.economicThroughMs=toMs;break;}start(s,Math.max(s.nextAt,s.economy.economicThroughMs),1,undefined,entropy,frozenStats);}
-  const e=s.encounter!,before=e.combat.clockMs,r=advanceCombatV3(e.combat,toMs,Math.min(32,maxEvents-processed));e.combat=r.state;e.combatMs+=r.state.clockMs-before;processed+=r.processed;s.economy.economicThroughMs=r.state.clockMs;
+  const e=s.encounter!,before=e.combat.clockMs,r=advanceOwnedCombatV3(e.combat,toMs,Math.min(32,maxEvents-processed));e.combat=r.state;e.combatMs+=r.state.clockMs-before;processed+=r.processed;s.economy.economicThroughMs=r.state.clockMs;
   for(const actor of e.combat.actors.slice(1))if(actor.hp===0&&!e.rewarded.includes(actor.id)){e.rewarded.push(actor.id);loot(s,actor.id,e.combat.hits.filter(h=>h.target===actor.id&&h.damage>0).at(-1)!.at,entropy);}
   if(r.backlog){if(processed<maxEvents)continue;s.economy.revision++;return {state:EconomyRunV6Schema.parse(s),backlog:true,processed};}
   if(e.combat.status==='fighting')break;

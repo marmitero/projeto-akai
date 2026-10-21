@@ -38,7 +38,12 @@ export function startCombatV3(hero:CombatStatsV3,enemies:{id:string;stats:Combat
 export function advanceCombatV3(input:CombatV3,toMs:number,maxEvents=10000){
   CombatV3Schema.parse(input);time.parse(toMs);z.number().int().min(1).max(100000).parse(maxEvents);
   if(toMs<input.clockMs)throw Error('COMBAT_CLOCK_REWIND');
-  const s=structuredClone(input);let processed=0;
+  const result=advanceOwnedCombatV3(structuredClone(input),toMs,maxEvents);
+  if(!result.backlog)result.state=CombatV3Schema.parse(result.state);return result;
+}
+/** Internal hot loop: caller owns a validated clone. Never use on caller-owned snapshots. */
+export function advanceOwnedCombatV3(s:CombatV3,toMs:number,maxEvents:number){
+  let processed=0;
   while(s.status==='fighting'){
     const hero=s.actors[0]!,alive=s.actors.slice(1).filter(a=>a.hp>0);
     if(hero.hp===0){s.status='defeat';break;}if(!alive.length){s.status='victory';break;}
@@ -54,5 +59,5 @@ export function advanceCombatV3(input:CombatV3,toMs:number,maxEvents=10000){
     target.hp-=damage;due.a.nextAt+=due.a.stats.intervalMs;s.sequence++;processed++;
     s.hits.push({sequence:s.sequence,at:s.clockMs,attacker:due.a.id,target:target.id,hit,critical,damage});if(s.hits.length>64)s.hits.shift();
   }
-  return {state:CombatV3Schema.parse(s),backlog:false,processed};
+  return {state:s,backlog:false,processed};
 }

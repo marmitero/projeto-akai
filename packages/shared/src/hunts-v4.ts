@@ -6,9 +6,15 @@ import {HUNT_MATERIAL_V4} from './hunt-material-v4.js';
 export const HUNT_IDS=['coal','iron','gold'] as const;
 export type HuntV4=typeof HUNT_IDS[number];
 export const HUNT_THEMES_V4={coal:{name:'Hunt de carvão',tint:'#4b395b',magicBp:3000},iron:{name:'Hunt de ferro',tint:'#466b81',magicBp:1000},gold:{name:'Hunt de ouro',tint:'#997228',magicBp:6000}} as const;
+const huntCache=new Map<string,ReturnType<typeof calculateHunt>>();
 /** Independent hunt anchors; never calls a tower boss encounter/reward handler. */
 export function huntEnemyV4(kind:HuntV4,floor:number){
  z.enum(HUNT_IDS).parse(kind);z.number().int().min(1).max(1000).parse(floor);
+ const key=kind+'/'+floor;
+ if(!huntCache.has(key))huntCache.set(key,calculateHunt(kind,floor));
+ const result=huntCache.get(key)!;return {...result,stats:{...result.stats}};
+}
+function calculateHunt(kind:HuntV4,floor:number){
  const reference=10*Math.ceil(floor/10),x=BigInt(Math.max(0,floor-100)),den=900n;
  const multiplier={coal:100n,iron:125n,gold:160n}[kind];
  const ceil=(a:bigint,b:bigint)=>Number((a+b-1n)/b);
