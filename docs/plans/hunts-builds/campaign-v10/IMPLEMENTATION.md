@@ -25,3 +25,7 @@ A política limita materiais a25% da presença ativa diária e recua após derro
 - Cada derrota consecutiva recua a partir do andar realmente perdido; não fica repetindo um andar inseguro calculado sempre pelo maior já concluído.
 
 As observações preliminares estão em `preliminary-results.json`, incluindo contas incompletas e interrupções para correção. Não formam comparação A/B controlada nem certificam a calibragem; as sete campanhas finais recomeçam do zero com o controlador corrigido e o mesmo hash de fonte. Os checkpoints comprimidos em `samples/` preservam RNG, snapshot, série diária e extratos. Podem ser descomprimidos com gzip/zlib e retomados pelo CLI; a retomada rejeita fonte diferente.
+
+## Resultado da execução
+
+As sete campanhas de120dias foram concluídas, incluindo a retomada de checkpoints. O auditor passou com `--require-target`: máximo106,58–106,92dias e torre1000em104,65–105,96nos três seeds de Agilidade. A rotina16+8atingiu máximo108e torre109,51; Equilibrada111,37/116,42; Força111,49mas torre979; casualnível731/andar741sem máximo. Os casos incompletos permanecem nos dados. Ver[RESULTS.md](RESULTS.md) e[results.json](results.json). Fontes/gastos/proteção/tempos/SHAconciliados; teste de corrupção rejeita fonte, tempo, carteira, status de conclusão ou entregas semanais alterados. A auditoria de prontidão lê e verifica esta campanha, aprova somente a amostra e mantém ativação falsa com a revisão física e demais gates pendentes.

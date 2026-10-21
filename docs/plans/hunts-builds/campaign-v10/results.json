@@ -1,0 +1,1946 @@
+{
+  "version": "acquired-campaign-v10-1",
+  "sourceHash": "e53da017e142a366cbc7f456332bb76c0d99260c654cc7973de493c4a9916cd5",
+  "config": "economy-v2-config-3",
+  "days": 120,
+  "accounts": 7,
+  "worlds": "Seven independent single-account campaigns; not a coupled market/boss population",
+  "initial": {
+    "level": 1,
+    "gear": "single starter sword",
+    "externalCoin": 0,
+    "externalMaterials": 0,
+    "externalXP": 0,
+    "externalProtection": 0,
+    "paidMultipliers": 0,
+    "marketTrades": 0,
+    "jade": 0
+  },
+  "reconciliationPassed": true,
+  "qualifiedXPMinimumDays": 96,
+  "bestCase90To120WithTower1000": true,
+  "activationReady": false,
+  "highEndDiagnostics": {
+    "scope": "Isolated paired tower1000 replays from earned final snapshots; unrefined removes enhancements, no-gear removes equipment. No rewards, XP, grants or campaign kills are created by these diagnostic fights.",
+    "rows": [
+      {
+        "campaignSeed": 1,
+        "actualLevel": 1000,
+        "variant": "earned",
+        "stats": {
+          "attack": 351476,
+          "maxHp": 452315,
+          "physicalDefense": 1884,
+          "magicDefense": 1884,
+          "intervalMs": 518,
+          "dexterity": 750,
+          "evasion": 0,
+          "criticalPpm": 20000,
+          "physicalShareBp": 10000,
+          "gearAgility": 68
+        },
+        "wins": 3,
+        "outcomes": [
+          {
+            "seed": 1,
+            "status": "victory",
+            "ms": 15022,
+            "hp": 178507
+          },
+          {
+            "seed": 4213,
+            "status": "victory",
+            "ms": 14504,
+            "hp": 224142
+          },
+          {
+            "seed": 3735928559,
+            "status": "victory",
+            "ms": 15540,
+            "hp": 239354
+          }
+        ]
+      },
+      {
+        "campaignSeed": 1,
+        "actualLevel": 1000,
+        "variant": "unrefined",
+        "stats": {
+          "attack": 224903,
+          "maxHp": 341410,
+          "physicalDefense": 1497,
+          "magicDefense": 1497,
+          "intervalMs": 579,
+          "dexterity": 750,
+          "evasion": 0,
+          "criticalPpm": 20000,
+          "physicalShareBp": 10000,
+          "gearAgility": 0
+        },
+        "wins": 0,
+        "outcomes": [
+          {
+            "seed": 1,
+            "status": "defeat",
+            "ms": 18000,
+            "hp": 0
+          },
+          {
+            "seed": 4213,
+            "status": "defeat",
+            "ms": 18000,
+            "hp": 0
+          },
+          {
+            "seed": 3735928559,
+            "status": "defeat",
+            "ms": 21600,
+            "hp": 0
+          }
+        ]
+      },
+      {
+        "campaignSeed": 1,
+        "actualLevel": 1000,
+        "variant": "no-gear",
+        "stats": {
+          "attack": 3502,
+          "maxHp": 21325,
+          "physicalDefense": 376,
+          "magicDefense": 376,
+          "intervalMs": 579,
+          "dexterity": 750,
+          "evasion": 0,
+          "criticalPpm": 20000,
+          "physicalShareBp": 10000,
+          "gearAgility": 0
+        },
+        "wins": 0,
+        "outcomes": [
+          {
+            "seed": 1,
+            "status": "defeat",
+            "ms": 1800,
+            "hp": 0
+          },
+          {
+            "seed": 4213,
+            "status": "defeat",
+            "ms": 1800,
+            "hp": 0
+          },
+          {
+            "seed": 3735928559,
+            "status": "defeat",
+            "ms": 1800,
+            "hp": 0
+          }
+        ]
+      },
+      {
+        "campaignSeed": 4213,
+        "actualLevel": 1000,
+        "variant": "earned",
+        "stats": {
+          "attack": 248452,
+          "maxHp": 387493,
+          "physicalDefense": 1653,
+          "magicDefense": 1653,
+          "intervalMs": 546,
+          "dexterity": 750,
+          "evasion": 0,
+          "criticalPpm": 20000,
+          "physicalShareBp": 10000,
+          "gearAgility": 37
+        },
+        "wins": 1,
+        "outcomes": [
+          {
+            "seed": 1,
+            "status": "defeat",
+            "ms": 19800,
+            "hp": 0
+          },
+          {
+            "seed": 4213,
+            "status": "defeat",
+            "ms": 21600,
+            "hp": 0
+          },
+          {
+            "seed": 3735928559,
+            "status": "victory",
+            "ms": 21840,
+            "hp": 8653
+          }
+        ]
+      },
+      {
+        "campaignSeed": 4213,
+        "actualLevel": 1000,
+        "variant": "unrefined",
+        "stats": {
+          "attack": 160462,
+          "maxHp": 293269,
+          "physicalDefense": 1326,
+          "magicDefense": 1326,
+          "intervalMs": 579,
+          "dexterity": 750,
+          "evasion": 0,
+          "criticalPpm": 20000,
+          "physicalShareBp": 10000,
+          "gearAgility": 0
+        },
+        "wins": 0,
+        "outcomes": [
+          {
+            "seed": 1,
+            "status": "defeat",
+            "ms": 14400,
+            "hp": 0
+          },
+          {
+            "seed": 4213,
+            "status": "defeat",
+            "ms": 14400,
+            "hp": 0
+          },
+          {
+            "seed": 3735928559,
+            "status": "defeat",
+            "ms": 18000,
+            "hp": 0
+          }
+        ]
+      },
+      {
+        "campaignSeed": 4213,
+        "actualLevel": 1000,
+        "variant": "no-gear",
+        "stats": {
+          "attack": 3502,
+          "maxHp": 21325,
+          "physicalDefense": 376,
+          "magicDefense": 376,
+          "intervalMs": 579,
+          "dexterity": 750,
+          "evasion": 0,
+          "criticalPpm": 20000,
+          "physicalShareBp": 10000,
+          "gearAgility": 0
+        },
+        "wins": 0,
+        "outcomes": [
+          {
+            "seed": 1,
+            "status": "defeat",
+            "ms": 1800,
+            "hp": 0
+          },
+          {
+            "seed": 4213,
+            "status": "defeat",
+            "ms": 1800,
+            "hp": 0
+          },
+          {
+            "seed": 3735928559,
+            "status": "defeat",
+            "ms": 1800,
+            "hp": 0
+          }
+        ]
+      },
+      {
+        "campaignSeed": 3735928559,
+        "actualLevel": 1000,
+        "variant": "earned",
+        "stats": {
+          "attack": 251214,
+          "maxHp": 416377,
+          "physicalDefense": 1632,
+          "magicDefense": 1632,
+          "intervalMs": 538,
+          "dexterity": 750,
+          "evasion": 0,
+          "criticalPpm": 20000,
+          "physicalShareBp": 10000,
+          "gearAgility": 46
+        },
+        "wins": 3,
+        "outcomes": [
+          {
+            "seed": 1,
+            "status": "victory",
+            "ms": 20982,
+            "hp": 36204
+          },
+          {
+            "seed": 4213,
+            "status": "victory",
+            "ms": 23134,
+            "hp": 36204
+          },
+          {
+            "seed": 3735928559,
+            "status": "victory",
+            "ms": 21520,
+            "hp": 52045
+          }
+        ]
+      },
+      {
+        "campaignSeed": 3735928559,
+        "actualLevel": 1000,
+        "variant": "unrefined",
+        "stats": {
+          "attack": 163869,
+          "maxHp": 310786,
+          "physicalDefense": 1311,
+          "magicDefense": 1311,
+          "intervalMs": 579,
+          "dexterity": 750,
+          "evasion": 0,
+          "criticalPpm": 20000,
+          "physicalShareBp": 10000,
+          "gearAgility": 0
+        },
+        "wins": 0,
+        "outcomes": [
+          {
+            "seed": 1,
+            "status": "defeat",
+            "ms": 14400,
+            "hp": 0
+          },
+          {
+            "seed": 4213,
+            "status": "defeat",
+            "ms": 16200,
+            "hp": 0
+          },
+          {
+            "seed": 3735928559,
+            "status": "defeat",
+            "ms": 19800,
+            "hp": 0
+          }
+        ]
+      },
+      {
+        "campaignSeed": 3735928559,
+        "actualLevel": 1000,
+        "variant": "no-gear",
+        "stats": {
+          "attack": 3502,
+          "maxHp": 21325,
+          "physicalDefense": 376,
+          "magicDefense": 376,
+          "intervalMs": 579,
+          "dexterity": 750,
+          "evasion": 0,
+          "criticalPpm": 20000,
+          "physicalShareBp": 10000,
+          "gearAgility": 0
+        },
+        "wins": 0,
+        "outcomes": [
+          {
+            "seed": 1,
+            "status": "defeat",
+            "ms": 1800,
+            "hp": 0
+          },
+          {
+            "seed": 4213,
+            "status": "defeat",
+            "ms": 1800,
+            "hp": 0
+          },
+          {
+            "seed": 3735928559,
+            "status": "defeat",
+            "ms": 1800,
+            "hp": 0
+          }
+        ]
+      }
+    ]
+  },
+  "reviewBeforeActivation": [
+    "brute/best/seed4213: maximum at day111.48958333333333, tower stopped at979; review acquired gear, weapon selection and late build performance"
+  ],
+  "best": {
+    "samples": 3,
+    "maxDays": [
+      106.91666666666667,
+      106.88541666666667,
+      106.57638888888889
+    ],
+    "tower1000Days": [
+      104.95138888888889,
+      105.9619212962963,
+      104.64930555555556
+    ],
+    "allPassed": true
+  },
+  "rows": [
+    {
+      "file": "best-swift-1.json.gz",
+      "archiveSha256": "1a84ac7aafbe69c1570172b6575ae0fece4d56d3e45e8f8fb06e15c4c6105b3e",
+      "sha256": "d3b22a3f8fdee7a820020ecc3d922f73a3d052e3453f225bce6edd1b6e5570f1",
+      "schedule": "best",
+      "build": "swift",
+      "seed": 1,
+      "days": 120,
+      "level": 1000,
+      "highest": {
+        "main": 1000,
+        "coal": 1000,
+        "iron": 1000,
+        "gold": 801
+      },
+      "maxObservedDay": 106.91666666666667,
+      "tower1000ObservedDay": 104.95138888888889,
+      "maxInWindow": true,
+      "highEnd": true,
+      "highEndCensored": false,
+      "censored": false,
+      "reason": null,
+      "diagnostics": {
+        "last30CalendarDaysQualifiedXP": 15.207357534722222,
+        "last30DaysMainFloors": 52,
+        "protectionDepleted": false,
+        "unspentAttributePoints": 0,
+        "lastRecordedFrontierFailures": {
+          "coal": 1799825764106,
+          "main": 1801424419200,
+          "iron": 1799846733000
+        }
+      },
+      "milestones": {
+        "level10": 0.1597222222222222,
+        "level50": 0.6666666666666666,
+        "weekly:2026-10-19": 1.020949074074074,
+        "level100": 1.4028935185185185,
+        "level200": 3.2881944444444446,
+        "weekly:2026-10-26": 7.020949074074074,
+        "weekly:2026-11-02": 14.020949074074075,
+        "level500": 19.381944444444443,
+        "weekly:2026-11-09": 21.020949074074075,
+        "weekly:2026-11-16": 28.020949074074075,
+        "weekly:2026-11-23": 35.020949074074075,
+        "weekly:2026-11-30": 42.020949074074075,
+        "weekly:2026-12-07": 49.020949074074075,
+        "weekly:2026-12-14": 56.020949074074075,
+        "level800": 60.517361111111114,
+        "weekly:2026-12-21": 63.020949074074075,
+        "weekly:2026-12-28": 70.02094907407407,
+        "weekly:2027-01-04": 77.02094907407407,
+        "weekly:2027-01-11": 84.02094907407407,
+        "weekly:2027-01-18": 91.02094907407407,
+        "weekly:2027-01-25": 98.02094907407407,
+        "weekly:2027-02-01": 105.02094907407407,
+        "level1000": 106.91666666666667,
+        "weekly:2027-02-08": 112.02094907407407,
+        "weekly:2027-02-15": 119.02094907407407
+      },
+      "grossMilli": {
+        "coin": "27360407922244",
+        "coal": "200024000",
+        "iron": "499168000",
+        "gold": "26155000",
+        "jade": "0"
+      },
+      "spentMilli": {
+        "coin": "3503615862000",
+        "coal": "198546000",
+        "iron": "495174000",
+        "gold": "25706000",
+        "jade": "0"
+      },
+      "balancesMilli": {
+        "coin": "23856792060244",
+        "coal": "1478000",
+        "iron": "3994000",
+        "gold": "449000",
+        "jade": "0"
+      },
+      "earnedScrolls": 592,
+      "weeklyScrolls": 540,
+      "towerScrolls": 52,
+      "spentScrolls": 229,
+      "protection": 363,
+      "drops": {
+        "common": 9816,
+        "uncommon": 2636,
+        "rare": 656,
+        "epic": 90,
+        "legendary": 47
+      },
+      "actions": {
+        "train": 3598,
+        "equip": 162,
+        "salvage": 13237,
+        "refine": 1431
+      },
+      "refinements": {
+        "success": 1190,
+        "maintained": 23,
+        "regressed": 218,
+        "destroyed": 0
+      },
+      "defeats": 73,
+      "timeouts": 299,
+      "attackEvents": 17556405,
+      "timeMs": {
+        "activeFarm": 10267745336,
+        "offline": 0,
+        "events": 32580000,
+        "idle": 67674664
+      },
+      "equipped": [
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1501953",
+          "origin": "tower",
+          "definitionId": "boots",
+          "rarity": "legendary",
+          "level": 87,
+          "enhancement": 9,
+          "qualityBp": 10784
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1766108",
+          "origin": "tower",
+          "definitionId": "axe",
+          "rarity": "legendary",
+          "level": 93,
+          "enhancement": 15,
+          "qualityBp": 10228
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2195364",
+          "origin": "tower",
+          "definitionId": "pendant",
+          "rarity": "rare",
+          "level": 100,
+          "enhancement": 9,
+          "qualityBp": 10733
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2197834",
+          "origin": "tower",
+          "definitionId": "armor",
+          "rarity": "legendary",
+          "level": 100,
+          "enhancement": 9,
+          "qualityBp": 9080
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2206467",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "rare",
+          "level": 100,
+          "enhancement": 9,
+          "qualityBp": 10668
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2221381",
+          "origin": "tower",
+          "definitionId": "shield",
+          "rarity": "rare",
+          "level": 100,
+          "enhancement": 9,
+          "qualityBp": 9687
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2292355",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "legendary",
+          "level": 100,
+          "enhancement": 9,
+          "qualityBp": 9593
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2392866",
+          "origin": "tower",
+          "definitionId": "hat",
+          "rarity": "legendary",
+          "level": 100,
+          "enhancement": 9,
+          "qualityBp": 9530
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2485533",
+          "origin": "tower",
+          "definitionId": "gloves",
+          "rarity": "legendary",
+          "level": 100,
+          "enhancement": 9,
+          "qualityBp": 9403
+        }
+      ],
+      "inventory": 9,
+      "vault": 0,
+      "attributes": {
+        "force": 749,
+        "vitality": 749,
+        "agility": 599,
+        "physical": 188,
+        "magic": 188,
+        "luck": 375,
+        "dexterity": 750
+      },
+      "stats": {
+        "attack": 351476,
+        "maxHp": 452315,
+        "physicalDefense": 1884,
+        "magicDefense": 1884,
+        "intervalMs": 518,
+        "dexterity": 750,
+        "evasion": 0,
+        "criticalPpm": 20000,
+        "physicalShareBp": 10000,
+        "gearAgility": 68
+      }
+    },
+    {
+      "file": "best-swift-4213.json.gz",
+      "archiveSha256": "facee9bb6f7fd4d8fad9a8d1d40a1805a51f90ef851e4dcf343d8231788b00bd",
+      "sha256": "2c94848ecc4bfdad53e1905c1c2345324bcbd03398b128515240818a28c3cb89",
+      "schedule": "best",
+      "build": "swift",
+      "seed": 4213,
+      "days": 120,
+      "level": 1000,
+      "highest": {
+        "main": 1000,
+        "coal": 1000,
+        "iron": 1000,
+        "gold": 702
+      },
+      "maxObservedDay": 106.88541666666667,
+      "tower1000ObservedDay": 105.9619212962963,
+      "maxInWindow": true,
+      "highEnd": true,
+      "highEndCensored": false,
+      "censored": false,
+      "reason": null,
+      "diagnostics": {
+        "last30CalendarDaysQualifiedXP": 15.26774699074074,
+        "last30DaysMainFloors": 53,
+        "protectionDepleted": false,
+        "unspentAttributePoints": 0,
+        "lastRecordedFrontierFailures": {
+          "main": 1801511734600,
+          "coal": 1798307843550,
+          "iron": 1800407698173
+        }
+      },
+      "milestones": {
+        "level10": 0.15625,
+        "level50": 0.6909722222222222,
+        "weekly:2026-10-19": 1.020949074074074,
+        "level100": 1.3924768518518518,
+        "level200": 3.3541666666666665,
+        "weekly:2026-10-26": 7.020949074074074,
+        "weekly:2026-11-02": 14.020949074074075,
+        "level500": 19.506944444444443,
+        "weekly:2026-11-09": 21.020949074074075,
+        "weekly:2026-11-16": 28.020949074074075,
+        "weekly:2026-11-23": 35.020949074074075,
+        "weekly:2026-11-30": 42.020949074074075,
+        "weekly:2026-12-07": 49.020949074074075,
+        "weekly:2026-12-14": 56.020949074074075,
+        "level800": 60.427083333333336,
+        "weekly:2026-12-21": 63.020949074074075,
+        "weekly:2026-12-28": 70.02094907407407,
+        "weekly:2027-01-04": 77.02094907407407,
+        "weekly:2027-01-11": 84.02094907407407,
+        "weekly:2027-01-18": 91.02094907407407,
+        "weekly:2027-01-25": 98.02094907407407,
+        "weekly:2027-02-01": 105.02094907407407,
+        "level1000": 106.88541666666667,
+        "weekly:2027-02-08": 112.02094907407407,
+        "weekly:2027-02-15": 119.02094907407407
+      },
+      "grossMilli": {
+        "coin": "26466609208852",
+        "coal": "147945000",
+        "iron": "331864000",
+        "gold": "21035000",
+        "jade": "0"
+      },
+      "spentMilli": {
+        "coin": "3498596068000",
+        "coal": "146376000",
+        "iron": "331217000",
+        "gold": "20438000",
+        "jade": "0"
+      },
+      "balancesMilli": {
+        "coin": "22968013140852",
+        "coal": "1569000",
+        "iron": "647000",
+        "gold": "597000",
+        "jade": "0"
+      },
+      "earnedScrolls": 599,
+      "weeklyScrolls": 540,
+      "towerScrolls": 59,
+      "spentScrolls": 177,
+      "protection": 422,
+      "drops": {
+        "common": 9353,
+        "uncommon": 2496,
+        "rare": 574,
+        "epic": 74,
+        "legendary": 42
+      },
+      "actions": {
+        "train": 3598,
+        "equip": 152,
+        "salvage": 12531,
+        "refine": 1396
+      },
+      "refinements": {
+        "success": 1164,
+        "maintained": 33,
+        "regressed": 199,
+        "destroyed": 0
+      },
+      "defeats": 91,
+      "timeouts": 276,
+      "attackEvents": 17806658,
+      "timeMs": {
+        "activeFarm": 10268351306,
+        "offline": 0,
+        "events": 32580000,
+        "idle": 67068694
+      },
+      "equipped": [
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/902881",
+          "origin": "tower",
+          "definitionId": "axe",
+          "rarity": "legendary",
+          "level": 74,
+          "enhancement": 15,
+          "qualityBp": 10888
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1529794",
+          "origin": "tower",
+          "definitionId": "shield",
+          "rarity": "epic",
+          "level": 88,
+          "enhancement": 9,
+          "qualityBp": 9758
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1789366",
+          "origin": "tower",
+          "definitionId": "pendant",
+          "rarity": "rare",
+          "level": 93,
+          "enhancement": 9,
+          "qualityBp": 10965
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1906721",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "rare",
+          "level": 95,
+          "enhancement": 9,
+          "qualityBp": 9335
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2000908",
+          "origin": "tower",
+          "definitionId": "gloves",
+          "rarity": "rare",
+          "level": 97,
+          "enhancement": 9,
+          "qualityBp": 10985
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2074598",
+          "origin": "tower",
+          "definitionId": "hat",
+          "rarity": "epic",
+          "level": 98,
+          "enhancement": 9,
+          "qualityBp": 9146
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2181585",
+          "origin": "tower",
+          "definitionId": "armor",
+          "rarity": "rare",
+          "level": 100,
+          "enhancement": 9,
+          "qualityBp": 10110
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2203925",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "rare",
+          "level": 100,
+          "enhancement": 9,
+          "qualityBp": 10527
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2332218",
+          "origin": "tower",
+          "definitionId": "boots",
+          "rarity": "legendary",
+          "level": 100,
+          "enhancement": 9,
+          "qualityBp": 10630
+        }
+      ],
+      "inventory": 9,
+      "vault": 0,
+      "attributes": {
+        "force": 749,
+        "vitality": 749,
+        "agility": 599,
+        "physical": 188,
+        "magic": 188,
+        "luck": 375,
+        "dexterity": 750
+      },
+      "stats": {
+        "attack": 248452,
+        "maxHp": 387493,
+        "physicalDefense": 1653,
+        "magicDefense": 1653,
+        "intervalMs": 546,
+        "dexterity": 750,
+        "evasion": 0,
+        "criticalPpm": 20000,
+        "physicalShareBp": 10000,
+        "gearAgility": 37
+      }
+    },
+    {
+      "file": "best-swift-3735928559.json.gz",
+      "archiveSha256": "5858b0b7f5c2c18103e0fa3e83c4c777d96b50dc9d166b7f8a2e3d8bd6c737af",
+      "sha256": "4f6a6c2dc7d641858b19cba18669643eb272f02c7949e972b794d6e090d46fd9",
+      "schedule": "best",
+      "build": "swift",
+      "seed": 3735928559,
+      "days": 120,
+      "level": 1000,
+      "highest": {
+        "main": 1000,
+        "coal": 1000,
+        "iron": 1000,
+        "gold": 707
+      },
+      "maxObservedDay": 106.57638888888889,
+      "tower1000ObservedDay": 104.64930555555556,
+      "maxInWindow": true,
+      "highEnd": true,
+      "highEndCensored": false,
+      "censored": false,
+      "reason": null,
+      "diagnostics": {
+        "last30CalendarDaysQualifiedXP": 15.07065369212963,
+        "last30DaysMainFloors": 53,
+        "protectionDepleted": false,
+        "unspentAttributePoints": 0,
+        "lastRecordedFrontierFailures": {
+          "main": 1801398324600,
+          "coal": 1797534823293,
+          "iron": 1799814995265
+        }
+      },
+      "milestones": {
+        "level10": 0.15625,
+        "level50": 0.6840277777777778,
+        "weekly:2026-10-19": 1.020949074074074,
+        "level100": 1.3542824074074074,
+        "level200": 3.2291666666666665,
+        "weekly:2026-10-26": 7.020949074074074,
+        "weekly:2026-11-02": 14.020949074074075,
+        "level500": 19.225694444444443,
+        "weekly:2026-11-09": 21.020949074074075,
+        "weekly:2026-11-16": 28.020949074074075,
+        "weekly:2026-11-23": 35.020949074074075,
+        "weekly:2026-11-30": 42.020949074074075,
+        "weekly:2026-12-07": 49.020949074074075,
+        "weekly:2026-12-14": 56.020949074074075,
+        "level800": 60.25347222222222,
+        "weekly:2026-12-21": 63.020949074074075,
+        "weekly:2026-12-28": 70.02094907407407,
+        "weekly:2027-01-04": 77.02094907407407,
+        "weekly:2027-01-11": 84.02094907407407,
+        "weekly:2027-01-18": 91.02094907407407,
+        "weekly:2027-01-25": 98.02094907407407,
+        "weekly:2027-02-01": 105.02094907407407,
+        "level1000": 106.57638888888889,
+        "weekly:2027-02-08": 112.02094907407407,
+        "weekly:2027-02-15": 119.02094907407407
+      },
+      "grossMilli": {
+        "coin": "25645457970201",
+        "coal": "149290000",
+        "iron": "348359000",
+        "gold": "21284000",
+        "jade": "0"
+      },
+      "spentMilli": {
+        "coin": "3498932259000",
+        "coal": "149035000",
+        "iron": "346897000",
+        "gold": "21138000",
+        "jade": "0"
+      },
+      "balancesMilli": {
+        "coin": "22146525711201",
+        "coal": "255000",
+        "iron": "1462000",
+        "gold": "146000",
+        "jade": "0"
+      },
+      "earnedScrolls": 594,
+      "weeklyScrolls": 540,
+      "towerScrolls": 54,
+      "spentScrolls": 148,
+      "protection": 446,
+      "drops": {
+        "common": 8921,
+        "uncommon": 2383,
+        "rare": 594,
+        "epic": 55,
+        "legendary": 43
+      },
+      "actions": {
+        "train": 3598,
+        "equip": 144,
+        "salvage": 11988,
+        "refine": 1219
+      },
+      "refinements": {
+        "success": 1048,
+        "maintained": 26,
+        "regressed": 145,
+        "destroyed": 0
+      },
+      "defeats": 113,
+      "timeouts": 264,
+      "attackEvents": 18151372,
+      "timeMs": {
+        "activeFarm": 10262783351,
+        "offline": 0,
+        "events": 32580000,
+        "idle": 72636649
+      },
+      "equipped": [
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1102030",
+          "origin": "tower",
+          "definitionId": "spear",
+          "rarity": "legendary",
+          "level": 79,
+          "enhancement": 15,
+          "qualityBp": 10540
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1407218",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "legendary",
+          "level": 87,
+          "enhancement": 9,
+          "qualityBp": 9197
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1608647",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "epic",
+          "level": 91,
+          "enhancement": 9,
+          "qualityBp": 10595
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1720785",
+          "origin": "tower",
+          "definitionId": "shield",
+          "rarity": "rare",
+          "level": 93,
+          "enhancement": 9,
+          "qualityBp": 10744
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1825144",
+          "origin": "tower",
+          "definitionId": "boots",
+          "rarity": "rare",
+          "level": 95,
+          "enhancement": 9,
+          "qualityBp": 10724
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1999854",
+          "origin": "tower",
+          "definitionId": "pendant",
+          "rarity": "rare",
+          "level": 98,
+          "enhancement": 9,
+          "qualityBp": 9964
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2016041",
+          "origin": "tower",
+          "definitionId": "armor",
+          "rarity": "epic",
+          "level": 98,
+          "enhancement": 9,
+          "qualityBp": 9725
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2186409",
+          "origin": "tower",
+          "definitionId": "hat",
+          "rarity": "legendary",
+          "level": 100,
+          "enhancement": 9,
+          "qualityBp": 10280
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2281252",
+          "origin": "tower",
+          "definitionId": "gloves",
+          "rarity": "epic",
+          "level": 100,
+          "enhancement": 9,
+          "qualityBp": 10278
+        }
+      ],
+      "inventory": 9,
+      "vault": 0,
+      "attributes": {
+        "force": 749,
+        "vitality": 749,
+        "agility": 599,
+        "physical": 188,
+        "magic": 188,
+        "luck": 375,
+        "dexterity": 750
+      },
+      "stats": {
+        "attack": 251214,
+        "maxHp": 416377,
+        "physicalDefense": 1632,
+        "magicDefense": 1632,
+        "intervalMs": 538,
+        "dexterity": 750,
+        "evasion": 0,
+        "criticalPpm": 20000,
+        "physicalShareBp": 10000,
+        "gearAgility": 46
+      }
+    },
+    {
+      "file": "regular-swift-4213.json.gz",
+      "archiveSha256": "617ba1d2cae72e58f8930154723ef5e0cd23e406b08f285ef5d4bf61b375549b",
+      "sha256": "104a10767b6c32f4772a3131e094a68dfdc4cef0b2ace3eeaa2dde451324304e",
+      "schedule": "regular",
+      "build": "swift",
+      "seed": 4213,
+      "days": 120,
+      "level": 1000,
+      "highest": {
+        "main": 1000,
+        "coal": 1000,
+        "iron": 1000,
+        "gold": 903
+      },
+      "maxObservedDay": 108,
+      "tower1000ObservedDay": 109.51388888888889,
+      "maxInWindow": true,
+      "highEnd": true,
+      "highEndCensored": false,
+      "censored": false,
+      "reason": null,
+      "diagnostics": {
+        "last30CalendarDaysQualifiedXP": 16.31153560185185,
+        "last30DaysMainFloors": 59,
+        "protectionDepleted": false,
+        "unspentAttributePoints": 0,
+        "lastRecordedFrontierFailures": {
+          "main": 1801818322800,
+          "coal": 1799432733000,
+          "iron": 1799819913600
+        }
+      },
+      "milestones": {
+        "level10": 0.15625,
+        "level50": 1,
+        "weekly:2026-10-19": 1.020949074074074,
+        "level100": 1.4445601851851853,
+        "level200": 3.46875,
+        "weekly:2026-10-26": 7.020949074074074,
+        "weekly:2026-11-02": 14.020949074074075,
+        "level500": 19.541666666666668,
+        "weekly:2026-11-09": 21.020949074074075,
+        "weekly:2026-11-16": 28.020949074074075,
+        "weekly:2026-11-23": 35.020949074074075,
+        "weekly:2026-11-30": 42.020949074074075,
+        "weekly:2026-12-07": 49.020949074074075,
+        "weekly:2026-12-14": 56.020949074074075,
+        "level800": 61.322916666666664,
+        "weekly:2026-12-21": 63.020949074074075,
+        "weekly:2026-12-28": 70.02094907407407,
+        "weekly:2027-01-04": 77.02094907407407,
+        "weekly:2027-01-11": 84.02094907407407,
+        "weekly:2027-01-18": 91.02094907407407,
+        "weekly:2027-01-25": 98.02094907407407,
+        "weekly:2027-02-01": 105.02094907407407,
+        "level1000": 108,
+        "weekly:2027-02-08": 112.02094907407407,
+        "weekly:2027-02-15": 119.02094907407407
+      },
+      "grossMilli": {
+        "coin": "25086758847322",
+        "coal": "258672000",
+        "iron": "676396000",
+        "gold": "31877000",
+        "jade": "0"
+      },
+      "spentMilli": {
+        "coin": "3508663302000",
+        "coal": "258270000",
+        "iron": "674807000",
+        "gold": "31222000",
+        "jade": "0"
+      },
+      "balancesMilli": {
+        "coin": "21578095545322",
+        "coal": "402000",
+        "iron": "1589000",
+        "gold": "655000",
+        "jade": "0"
+      },
+      "earnedScrolls": 589,
+      "weeklyScrolls": 540,
+      "towerScrolls": 49,
+      "spentScrolls": 437,
+      "protection": 152,
+      "drops": {
+        "common": 8974,
+        "uncommon": 2402,
+        "rare": 567,
+        "epic": 68,
+        "legendary": 48
+      },
+      "actions": {
+        "train": 3598,
+        "equip": 157,
+        "salvage": 11997,
+        "refine": 1660
+      },
+      "refinements": {
+        "success": 1317,
+        "maintained": 19,
+        "regressed": 324,
+        "destroyed": 0
+      },
+      "defeats": 103,
+      "timeouts": 489,
+      "attackEvents": 17852145,
+      "timeMs": {
+        "activeFarm": 6766374700,
+        "offline": 3398686680,
+        "events": 32580000,
+        "idle": 170358620
+      },
+      "equipped": [
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1533147",
+          "origin": "tower",
+          "definitionId": "sword",
+          "rarity": "legendary",
+          "level": 90,
+          "enhancement": 15,
+          "qualityBp": 9667
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1881518",
+          "origin": "tower",
+          "definitionId": "gloves",
+          "rarity": "rare",
+          "level": 97,
+          "enhancement": 9,
+          "qualityBp": 10599
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2087464",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "rare",
+          "level": 100,
+          "enhancement": 9,
+          "qualityBp": 10548
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2227381",
+          "origin": "tower",
+          "definitionId": "armor",
+          "rarity": "epic",
+          "level": 100,
+          "enhancement": 9,
+          "qualityBp": 10726
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2237980",
+          "origin": "tower",
+          "definitionId": "hat",
+          "rarity": "rare",
+          "level": 100,
+          "enhancement": 9,
+          "qualityBp": 10456
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2261732",
+          "origin": "tower",
+          "definitionId": "pendant",
+          "rarity": "legendary",
+          "level": 100,
+          "enhancement": 9,
+          "qualityBp": 10789
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2313620",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "epic",
+          "level": 100,
+          "enhancement": 9,
+          "qualityBp": 10398
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2314111",
+          "origin": "tower",
+          "definitionId": "shield",
+          "rarity": "legendary",
+          "level": 100,
+          "enhancement": 9,
+          "qualityBp": 9262
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/2333268",
+          "origin": "tower",
+          "definitionId": "boots",
+          "rarity": "legendary",
+          "level": 100,
+          "enhancement": 9,
+          "qualityBp": 10630
+        }
+      ],
+      "inventory": 63,
+      "vault": 0,
+      "attributes": {
+        "force": 749,
+        "vitality": 749,
+        "agility": 599,
+        "physical": 188,
+        "magic": 188,
+        "luck": 375,
+        "dexterity": 750
+      },
+      "stats": {
+        "attack": 305522,
+        "maxHp": 483894,
+        "physicalDefense": 1848,
+        "magicDefense": 1848,
+        "intervalMs": 522,
+        "dexterity": 750,
+        "evasion": 0,
+        "criticalPpm": 20000,
+        "physicalShareBp": 10000,
+        "gearAgility": 64
+      }
+    },
+    {
+      "file": "casual-swift-4213.json.gz",
+      "archiveSha256": "7d94450847aab0b3b841dbd7ec60557f3f977a60f41456797955c28aea0e9925",
+      "sha256": "4d665895b560d412616db5f4cfb111964ee36a57c3e2c12678125f84d706f7d3",
+      "schedule": "casual",
+      "build": "swift",
+      "seed": 4213,
+      "days": 120,
+      "level": 731,
+      "highest": {
+        "main": 741,
+        "coal": 812,
+        "iron": 757,
+        "gold": 457
+      },
+      "maxObservedDay": null,
+      "tower1000ObservedDay": null,
+      "maxInWindow": false,
+      "highEnd": false,
+      "highEndCensored": true,
+      "censored": true,
+      "reason": "The10h/day eligible presence budget cannot reach the96qualified-day minimum within120calendar days",
+      "diagnostics": {
+        "last30CalendarDaysQualifiedXP": 11.065754953703705,
+        "last30DaysMainFloors": 86,
+        "protectionDepleted": false,
+        "unspentAttributePoints": 18,
+        "lastRecordedFrontierFailures": {
+          "main": 1801884628200,
+          "coal": 1802142144599,
+          "iron": 1802402164119
+        }
+      },
+      "milestones": {
+        "level10": 0.4166666666666667,
+        "weekly:2026-10-19": 1.020949074074074,
+        "level50": 2.4166666666666665,
+        "level100": 4.416666666666667,
+        "weekly:2026-10-26": 7.020949074074074,
+        "level200": 9.416666666666666,
+        "weekly:2026-11-02": 14.020949074074075,
+        "weekly:2026-11-09": 21.020949074074075,
+        "weekly:2026-11-16": 28.020949074074075,
+        "weekly:2026-11-23": 35.020949074074075,
+        "weekly:2026-11-30": 42.020949074074075,
+        "level500": 48.416666666666664,
+        "weekly:2026-12-07": 49.020949074074075,
+        "weekly:2026-12-14": 56.020949074074075,
+        "weekly:2026-12-21": 63.020949074074075,
+        "weekly:2026-12-28": 70.02094907407407,
+        "weekly:2027-01-04": 77.02094907407407,
+        "weekly:2027-01-11": 84.02094907407407,
+        "weekly:2027-01-18": 91.02094907407407,
+        "weekly:2027-01-25": 98.02094907407407,
+        "weekly:2027-02-01": 105.02094907407407,
+        "weekly:2027-02-08": 112.02094907407407,
+        "weekly:2027-02-15": 119.02094907407407
+      },
+      "grossMilli": {
+        "coin": "7278015626518",
+        "coal": "75537000",
+        "iron": "164505000",
+        "gold": "10361000",
+        "jade": "0"
+      },
+      "spentMilli": {
+        "coin": "1345836313000",
+        "coal": "74771000",
+        "iron": "164378000",
+        "gold": "9658000",
+        "jade": "0"
+      },
+      "balancesMilli": {
+        "coin": "5932179313518",
+        "coal": "766000",
+        "iron": "127000",
+        "gold": "703000",
+        "jade": "0"
+      },
+      "earnedScrolls": 561,
+      "weeklyScrolls": 540,
+      "towerScrolls": 21,
+      "spentScrolls": 72,
+      "protection": 489,
+      "drops": {
+        "common": 3592,
+        "uncommon": 976,
+        "rare": 205,
+        "epic": 27,
+        "legendary": 22
+      },
+      "actions": {
+        "train": 2618,
+        "equip": 142,
+        "salvage": 4769,
+        "refine": 1055
+      },
+      "refinements": {
+        "success": 921,
+        "maintained": 25,
+        "regressed": 109,
+        "destroyed": 0
+      },
+      "defeats": 21,
+      "timeouts": 541,
+      "attackEvents": 6594165,
+      "timeMs": {
+        "activeFarm": 718406837,
+        "offline": 3456000000,
+        "events": 32580000,
+        "idle": 6161013163
+      },
+      "equipped": [
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/385859",
+          "origin": "tower",
+          "definitionId": "armor",
+          "rarity": "legendary",
+          "level": 52,
+          "enhancement": 9,
+          "qualityBp": 9677
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/490357",
+          "origin": "tower",
+          "definitionId": "hat",
+          "rarity": "rare",
+          "level": 57,
+          "enhancement": 9,
+          "qualityBp": 9428
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/606257",
+          "origin": "tower",
+          "definitionId": "shield",
+          "rarity": "rare",
+          "level": 62,
+          "enhancement": 9,
+          "qualityBp": 10108
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/608167",
+          "origin": "tower",
+          "definitionId": "pendant",
+          "rarity": "epic",
+          "level": 62,
+          "enhancement": 9,
+          "qualityBp": 10099
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/743179",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "rare",
+          "level": 67,
+          "enhancement": 9,
+          "qualityBp": 10594
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/743480",
+          "origin": "tower",
+          "definitionId": "boots",
+          "rarity": "rare",
+          "level": 67,
+          "enhancement": 9,
+          "qualityBp": 10208
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/854004",
+          "origin": "tower",
+          "definitionId": "gloves",
+          "rarity": "uncommon",
+          "level": 71,
+          "enhancement": 9,
+          "qualityBp": 10351
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/856348",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "epic",
+          "level": 71,
+          "enhancement": 9,
+          "qualityBp": 9719
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/862330",
+          "origin": "tower",
+          "definitionId": "axe",
+          "rarity": "rare",
+          "level": 71,
+          "enhancement": 9,
+          "qualityBp": 10955
+        }
+      ],
+      "inventory": 54,
+      "vault": 0,
+      "attributes": {
+        "force": 545,
+        "vitality": 545,
+        "agility": 436,
+        "physical": 137,
+        "magic": 137,
+        "luck": 273,
+        "dexterity": 545
+      },
+      "stats": {
+        "attack": 118531,
+        "maxHp": 157349,
+        "physicalDefense": 983,
+        "magicDefense": 983,
+        "intervalMs": 717,
+        "dexterity": 545,
+        "evasion": 0,
+        "criticalPpm": 15920,
+        "physicalShareBp": 10000,
+        "gearAgility": 0
+      }
+    },
+    {
+      "file": "best-balanced-4213.json.gz",
+      "archiveSha256": "181362fa72b89a15e6897901b3af193395756c177c82451c9a4639d19c137b09",
+      "sha256": "321df4e53167a7d07c9bc22d942165eba67b45f6669fed213bf603eec452b740",
+      "schedule": "best",
+      "build": "balanced",
+      "seed": 4213,
+      "days": 120,
+      "level": 1000,
+      "highest": {
+        "main": 1000,
+        "coal": 1000,
+        "iron": 1000,
+        "gold": 931
+      },
+      "maxObservedDay": 111.37152777777777,
+      "tower1000ObservedDay": 116.41666666666667,
+      "maxInWindow": true,
+      "highEnd": true,
+      "highEndCensored": false,
+      "censored": false,
+      "reason": null,
+      "diagnostics": {
+        "last30CalendarDaysQualifiedXP": 18.114917337962964,
+        "last30DaysMainFloors": 71,
+        "protectionDepleted": false,
+        "unspentAttributePoints": 0,
+        "lastRecordedFrontierFailures": {
+          "main": 1802415028200,
+          "coal": 1802322333000,
+          "iron": 1802413833000,
+          "gold": 1801873833000
+        }
+      },
+      "milestones": {
+        "level10": 0.1527777777777778,
+        "level50": 0.6458333333333334,
+        "weekly:2026-10-19": 1.020949074074074,
+        "level100": 1.3195601851851853,
+        "level200": 3.329861111111111,
+        "weekly:2026-10-26": 7.020949074074074,
+        "weekly:2026-11-02": 14.020949074074075,
+        "level500": 20.73611111111111,
+        "weekly:2026-11-09": 21.020949074074075,
+        "weekly:2026-11-16": 28.020949074074075,
+        "weekly:2026-11-23": 35.020949074074075,
+        "weekly:2026-11-30": 42.020949074074075,
+        "weekly:2026-12-07": 49.020949074074075,
+        "weekly:2026-12-14": 56.020949074074075,
+        "weekly:2026-12-21": 63.020949074074075,
+        "level800": 63.79525462962963,
+        "weekly:2026-12-28": 70.02094907407407,
+        "weekly:2027-01-04": 77.02094907407407,
+        "weekly:2027-01-11": 84.02094907407407,
+        "weekly:2027-01-18": 91.02094907407407,
+        "weekly:2027-01-25": 98.02094907407407,
+        "weekly:2027-02-01": 105.02094907407407,
+        "level1000": 111.37152777777777,
+        "weekly:2027-02-08": 112.02094907407407,
+        "weekly:2027-02-15": 119.02094907407407
+      },
+      "grossMilli": {
+        "coin": "19868796597086",
+        "coal": "330619000",
+        "iron": "842189000",
+        "gold": "51482000",
+        "jade": "0"
+      },
+      "spentMilli": {
+        "coin": "8976121629000",
+        "coal": "330099000",
+        "iron": "841889000",
+        "gold": "51152000",
+        "jade": "0"
+      },
+      "balancesMilli": {
+        "coin": "10892674968086",
+        "coal": "520000",
+        "iron": "300000",
+        "gold": "330000",
+        "jade": "0"
+      },
+      "earnedScrolls": 583,
+      "weeklyScrolls": 540,
+      "towerScrolls": 43,
+      "spentScrolls": 229,
+      "protection": 354,
+      "drops": {
+        "common": 7365,
+        "uncommon": 1998,
+        "rare": 486,
+        "epic": 61,
+        "legendary": 40
+      },
+      "actions": {
+        "train": 5282,
+        "equip": 155,
+        "salvage": 9942,
+        "refine": 1275
+      },
+      "refinements": {
+        "success": 1075,
+        "maintained": 28,
+        "regressed": 172,
+        "destroyed": 0
+      },
+      "defeats": 57,
+      "timeouts": 1671,
+      "attackEvents": 15227915,
+      "timeMs": {
+        "activeFarm": 9989743745,
+        "offline": 0,
+        "events": 32580000,
+        "idle": 345676255
+      },
+      "equipped": [
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1263749",
+          "origin": "tower",
+          "definitionId": "pendant",
+          "rarity": "epic",
+          "level": 87,
+          "enhancement": 9,
+          "qualityBp": 9956
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1282472",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "rare",
+          "level": 87,
+          "enhancement": 9,
+          "qualityBp": 10958
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1323784",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "rare",
+          "level": 88,
+          "enhancement": 9,
+          "qualityBp": 10113
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1332216",
+          "origin": "tower",
+          "definitionId": "armor",
+          "rarity": "epic",
+          "level": 89,
+          "enhancement": 9,
+          "qualityBp": 9204
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1427222",
+          "origin": "tower",
+          "definitionId": "gloves",
+          "rarity": "epic",
+          "level": 91,
+          "enhancement": 9,
+          "qualityBp": 9794
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1443359",
+          "origin": "tower",
+          "definitionId": "boots",
+          "rarity": "legendary",
+          "level": 91,
+          "enhancement": 9,
+          "qualityBp": 9280
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1531695",
+          "origin": "tower",
+          "definitionId": "shield",
+          "rarity": "epic",
+          "level": 93,
+          "enhancement": 9,
+          "qualityBp": 9758
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1619102",
+          "origin": "tower",
+          "definitionId": "hat",
+          "rarity": "legendary",
+          "level": 94,
+          "enhancement": 9,
+          "qualityBp": 9605
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1880888",
+          "origin": "tower",
+          "definitionId": "axe",
+          "rarity": "legendary",
+          "level": 95,
+          "enhancement": 15,
+          "qualityBp": 10858
+        }
+      ],
+      "inventory": 9,
+      "vault": 0,
+      "attributes": {
+        "force": 1000,
+        "vitality": 1000,
+        "agility": 178,
+        "physical": 886,
+        "magic": 887,
+        "luck": 444,
+        "dexterity": 887
+      },
+      "stats": {
+        "attack": 344808,
+        "maxHp": 367434,
+        "physicalDefense": 3153,
+        "magicDefense": 3155,
+        "intervalMs": 874,
+        "dexterity": 887,
+        "evasion": 0,
+        "criticalPpm": 22760,
+        "physicalShareBp": 10000,
+        "gearAgility": 50
+      }
+    },
+    {
+      "file": "best-brute-4213.json.gz",
+      "archiveSha256": "8b4fc6925e2b5223608b014513b9485149050c6ab975e16f3c12ff42ceeec6c7",
+      "sha256": "61c4b3bef29102ede3a06a2a9fc36526769c184ff9d4072a182f4ec5951726a9",
+      "schedule": "best",
+      "build": "brute",
+      "seed": 4213,
+      "days": 120,
+      "level": 1000,
+      "highest": {
+        "main": 979,
+        "coal": 1000,
+        "iron": 964,
+        "gold": 879
+      },
+      "maxObservedDay": 111.48958333333333,
+      "tower1000ObservedDay": null,
+      "maxInWindow": true,
+      "highEnd": false,
+      "highEndCensored": true,
+      "censored": false,
+      "reason": "Maximum observed but tower1000 not conquered by day120",
+      "diagnostics": {
+        "last30CalendarDaysQualifiedXP": 18.77089611111111,
+        "last30DaysMainFloors": 50,
+        "protectionDepleted": false,
+        "unspentAttributePoints": 0,
+        "lastRecordedFrontierFailures": {
+          "main": 1802737240000,
+          "coal": 1801932933000,
+          "iron": 1802012685962,
+          "gold": 1801935790080
+        }
+      },
+      "milestones": {
+        "level10": 0.15625,
+        "level50": 0.6388888888888888,
+        "weekly:2026-10-19": 1.020949074074074,
+        "level100": 1.3056712962962962,
+        "level200": 3.2430555555555554,
+        "weekly:2026-10-26": 7.020949074074074,
+        "weekly:2026-11-02": 14.020949074074075,
+        "level500": 20.40277777777778,
+        "weekly:2026-11-09": 21.020949074074075,
+        "weekly:2026-11-16": 28.020949074074075,
+        "weekly:2026-11-23": 35.020949074074075,
+        "weekly:2026-11-30": 42.020949074074075,
+        "weekly:2026-12-07": 49.020949074074075,
+        "weekly:2026-12-14": 56.020949074074075,
+        "weekly:2026-12-21": 63.020949074074075,
+        "level800": 63.614699074074075,
+        "weekly:2026-12-28": 70.02094907407407,
+        "weekly:2027-01-04": 77.02094907407407,
+        "weekly:2027-01-11": 84.02094907407407,
+        "weekly:2027-01-18": 91.02094907407407,
+        "weekly:2027-01-25": 98.02094907407407,
+        "weekly:2027-02-01": 105.02094907407407,
+        "level1000": 111.48958333333333,
+        "weekly:2027-02-08": 112.02094907407407,
+        "weekly:2027-02-15": 119.02094907407407
+      },
+      "grossMilli": {
+        "coin": "20068541656331",
+        "coal": "394303000",
+        "iron": "1017377000",
+        "gold": "62675000",
+        "jade": "0"
+      },
+      "spentMilli": {
+        "coin": "11847126786000",
+        "coal": "393413000",
+        "iron": "1016663000",
+        "gold": "62646000",
+        "jade": "0"
+      },
+      "balancesMilli": {
+        "coin": "8221414870331",
+        "coal": "890000",
+        "iron": "714000",
+        "gold": "29000",
+        "jade": "0"
+      },
+      "earnedScrolls": 583,
+      "weeklyScrolls": 540,
+      "towerScrolls": 43,
+      "spentScrolls": 220,
+      "protection": 363,
+      "drops": {
+        "common": 7422,
+        "uncommon": 1982,
+        "rare": 468,
+        "epic": 60,
+        "legendary": 36
+      },
+      "actions": {
+        "train": 5730,
+        "equip": 174,
+        "salvage": 9960,
+        "refine": 1416
+      },
+      "refinements": {
+        "success": 1202,
+        "maintained": 23,
+        "regressed": 191,
+        "destroyed": 0
+      },
+      "defeats": 132,
+      "timeouts": 2033,
+      "attackEvents": 14517209,
+      "timeMs": {
+        "activeFarm": 9903113649,
+        "offline": 0,
+        "events": 32580000,
+        "idle": 432306351
+      },
+      "equipped": [
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/802323",
+          "origin": "tower",
+          "definitionId": "hat",
+          "rarity": "legendary",
+          "level": 73,
+          "enhancement": 9,
+          "qualityBp": 9166
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/904392",
+          "origin": "tower",
+          "definitionId": "axe",
+          "rarity": "legendary",
+          "level": 76,
+          "enhancement": 15,
+          "qualityBp": 10888
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1002252",
+          "origin": "tower",
+          "definitionId": "boots",
+          "rarity": "legendary",
+          "level": 80,
+          "enhancement": 9,
+          "qualityBp": 9868
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1522647",
+          "origin": "tower",
+          "definitionId": "armor",
+          "rarity": "epic",
+          "level": 93,
+          "enhancement": 9,
+          "qualityBp": 9644
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1532801",
+          "origin": "tower",
+          "definitionId": "shield",
+          "rarity": "epic",
+          "level": 93,
+          "enhancement": 9,
+          "qualityBp": 9758
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1549776",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "rare",
+          "level": 93,
+          "enhancement": 9,
+          "qualityBp": 10799
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1748160",
+          "origin": "tower",
+          "definitionId": "gloves",
+          "rarity": "epic",
+          "level": 96,
+          "enhancement": 9,
+          "qualityBp": 9588
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1823586",
+          "origin": "tower",
+          "definitionId": "ring",
+          "rarity": "rare",
+          "level": 96,
+          "enhancement": 9,
+          "qualityBp": 10534
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001/loot/1877848",
+          "origin": "tower",
+          "definitionId": "pendant",
+          "rarity": "rare",
+          "level": 96,
+          "enhancement": 9,
+          "qualityBp": 10356
+        }
+      ],
+      "inventory": 9,
+      "vault": 0,
+      "attributes": {
+        "force": 1000,
+        "vitality": 1000,
+        "agility": 66,
+        "physical": 1000,
+        "magic": 664,
+        "luck": 1000,
+        "dexterity": 1000
+      },
+      "stats": {
+        "attack": 259402,
+        "maxHp": 353118,
+        "physicalDefense": 3307,
+        "magicDefense": 2635,
+        "intervalMs": 957,
+        "dexterity": 1000,
+        "evasion": 0,
+        "criticalPpm": 45000,
+        "physicalShareBp": 10000,
+        "gearAgility": 32
+      }
+    }
+  ],
+  "limits": [
+    "Small deterministic sample, not a population/P95 or mathematical proof of optimal play",
+    "Five-minute active controller; observed active milestones have up to five minutes uncertainty, offline milestones up to eight hours",
+    "All failed/incomplete final accounts remain censored; no extrapolated success dates",
+    "No market liquidity, collective Jade population, Ruby, protected+16–20 or future raids certified",
+    "Builds start with equal rules and purchase budgets earned by play, not synthetic equal end-level fixtures",
+    "Sources and sinks are currency aggregates; Coin combines combat and salvage, spending combines training and refinement",
+    "Only existing tower1000 is the high-end completion gate; hunt floors are measured, not assumed all conquered",
+    "Public authenticated consumers, operational cutover/rollback, capacity and free playtest remain required"
+  ]
+}

@@ -46,3 +46,7 @@ R3 e R4 precisam de trabalho incremental em branch, mantendo o jogo antigo jogá
 Sem cronograma de calendário contratado. A sequência é por dependências e evidência; não por prometer número de dias sem implementação e playtest. Próximo trabalho sugerido: R1, quando autorizado. O presente pedido entrega R0 e sua publicação documental.
 
 V9 encerrada: consumidores de ensaio integrados e coortes funcionais validados;285testes SQL e CI/Windows/regressões completas aprovados no runtime4874740. Economia real off. A próxima validação de campanha adquirida está definida em [CAMPAIGN_GATE](consumers-v9/CAMPAIGN_GATE.md); ela ainda precisa demonstrar a meta90–120dias e precede a ativação, junto aos gates públicos/operacionais descritos no relatório.
+
+## Fase 1 de validação adquirida — V10
+
+A amostra de campanha completa foi executada em[campaign-v10/RESULTS.md](campaign-v10/RESULTS.md): sete trajetórias de120dias, três seeds do cenário máximo concluindo nível1000em106,58–106,92dias e torre1000em104,65–105,96dias. A rotina casual e a pendência de Força no andar979 permanecem nos resultados. A próxima fase é a liquidez com carteiras/equipamentos conquistados, incluindo o estoque/fluxo deCoin; depois população do boss global, consumidores públicos autenticados, capacidade/corte/rollback, playtest gratuito e ativação controlada. Monetização fica para o final. Nenhum resultado desta amostra ativa a economia real ou libera+16–20.
