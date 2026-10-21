@@ -12,6 +12,7 @@ test('weekly protection is earned by real exclusive presence, with no XP/materia
  const before=structuredClone(c.run);weekly(c);
  assert.equal(c.run.killSequence,before.killSequence);assert.equal(c.run.economy.masteryMs,before.economy.masteryMs);assert.deepEqual(c.run.economy.balances,before.economy.balances);assert.equal(c.run.economy.protection-before.economy.protection,30);assert.ok(c.eventMs>=1800000);assert.equal(c.earnedScrolls,30);assert.equal(c.run.encounter,null);
  const earned=JSON.stringify(c);weekly(c);assert.equal(JSON.stringify(c),earned);snapshot(c);
+ c.run.paused=true;farm(c,START+7*DAY+3600000);weekly(c);assert.equal(c.earnedScrolls,60);assert.equal(c.run.economy.protection-before.economy.protection,60);assert.equal(c.delivered.length,12);assert.ok(c.eventMs>=3600000);snapshot(c);
 });
 test('offline settlement duration survives civil-midnight quota reset and bounded JSON resume',()=>{
  const c=initialCampaign();for(let n=0;n<24;n++){manage(c);policy(c);farm(c,START+(n+1)*300000);}
@@ -29,4 +30,10 @@ test('hunt cache returns independent stats; public combat validates and does not
 test('voluntary casual downtime is not treated as a new defeat or renewed six-hour frontier cooldown',()=>{
  const c=initialCampaign({schedule:'casual'});c.run.paused=true;c.run.autoAdvance=false;c.run.economy.economicThroughMs=START+DAY;c.idleMs=DAY;policy(c);
  assert.equal(c.failed.main,undefined);assert.equal(c.run.paused,false);assert.equal(c.run.autoAdvance,true);snapshot(c);
+});
+
+test('each observed defeat retreats from the actually failed floor, including consecutive losses',()=>{
+ const c=initialCampaign();farm(c,START+3600000);assert.equal(c.run.paused,true);const failed=c.run.economy.floor;policy(c);assert.ok(c.run.economy.floor<failed);
+ // Controller-only fixture for a second loss at the retreated floor; no grants or campaign result.
+ const floor=c.run.economy.floor;c.run.paused=true;c.run.log.push({id:++c.run.logSequence,at:c.run.economy.economicThroughMs,text:'Derrota main '+floor});if(c.run.log.length>60)c.run.log.shift();policy(c);assert.equal(c.run.economy.floor,Math.max(1,floor-2));
 });

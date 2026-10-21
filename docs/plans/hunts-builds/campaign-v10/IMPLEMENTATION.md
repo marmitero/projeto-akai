@@ -17,3 +17,11 @@ Resultados finais, hashes e limites serão registrados após a execução. Econo
 A referência de XP muda de épico+9 para comum+7, ainda sintética **apenas para calcular o teto**, nunca concedida às contas. Na torre normal, os6s de transição entre as três ondas são incluídos no crédito da vitória; caminhar isoladamente, perder, pausar ou transitar entre ciclos não concede XP. O crédito continua limitado ao tempo qualificado e ao quadrado da referência do encontro versus nível. A tabela de96dias qualificados permanece igual. A configuração é versionada como `economy-v2-config-3`: snapshots privados config2 são rejeitados, sem conversão silenciosa. Não migra/reseta nenhuma conta real, que permanece no legado.
 
 A política limita materiais a25% da presença ativa diária e recua após derrota registrada, sem tratar a pausa voluntária da rotina casual como uma nova derrota. Ela não é apresentada como estratégia ótima comprovada. Reexecuções finais e campanhas preliminares serão distinguidas por hash de fonte; preliminares interrompidas não entram na estimativa de conclusão.
+
+## Regressões do controlador do ensaio
+
+- A pausa voluntária casual não pode renovar o cooldown de derrota. Agora só uma nova linha de derrota/timeout observada o faz, com o horário original da falha.
+- O evento semanal só termina com seis entregas **da semana atual**. O teste novo foi executado contra o controlador anterior e falhou com30emvezde60pergaminhos após duas semanas; a versão corrigida passou, com presença exclusiva e sem duplicar farm. O motor V8 do jogo já reiniciava a semana corretamente; a falha era a condição de parada do ensaio.
+- Cada derrota consecutiva recua a partir do andar realmente perdido; não fica repetindo um andar inseguro calculado sempre pelo maior já concluído.
+
+As observações preliminares estão em `preliminary-results.json`, incluindo contas incompletas e interrupções para correção. Não formam comparação A/B controlada nem certificam a calibragem; as sete campanhas finais recomeçam do zero com o controlador corrigido e o mesmo hash de fonte. Os checkpoints comprimidos em `samples/` preservam RNG, snapshot, série diária e extratos. Podem ser descomprimidos com gzip/zlib e retomados pelo CLI; a retomada rejeita fonte diferente.

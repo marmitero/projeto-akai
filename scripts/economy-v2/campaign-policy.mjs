@@ -9,7 +9,7 @@ export function initialCampaign({seed=4213,schedule='best',build='swift'}={}){
  return {version:'acquired-campaign-v10-1',seed,schedule,build,run:initialRunV6(account,START,seed),events:null,delivered:[],day:0,
   gross:Object.fromEntries(currencies.map(k=>[k,'0'])),spent:Object.fromEntries(currencies.map(k=>[k,'0'])),actions:{train:0,equip:0,salvage:0,refine:0},refinements:{success:0,maintained:0,regressed:0,destroyed:0},
   drops:{common:0,uncommon:0,rare:0,epic:0,legendary:0},earnedScrolls:0,spentScrolls:0,activeFarmMs:0,offlineMs:0,eventMs:0,idleMs:0,attackEvents:0,defeats:0,timeouts:0,firstMaxDay:null,firstTower1000Day:null,milestones:{},rows:[],
-  failed:{},lastExplore:{main:0,coal:0,iron:0,gold:0},safe:{main:1,coal:1,iron:1,gold:1},proof:{},need:null};
+  failed:{},retreat:{main:1,coal:1,iron:1,gold:1},lastExplore:{main:0,coal:0,iron:0,gold:0},safe:{main:1,coal:1,iron:1,gold:1},proof:{},need:null};
 }
 const now=c=>c.run.economy.economicThroughMs;
 function reconcile(c,before,kind){
@@ -69,7 +69,7 @@ function select(c,activity,floor,auto){if(c.run.autoAdvance!==auto)act(c,{type:'
 export function policy(c){
  const e=c.run.economy,t=now(c),level=masteryLevel(e.masteryMs);
  const last=c.run.log.at(-1);
- if(c.run.paused&&last&&/^(Derrota|Tempo esgotado)/.test(last.text)&&last.id>(c.observedFailureLog??0)){c.observedFailureLog=last.id;c.failed[e.activity]=last.at;c.safe[e.activity]=Math.max(1,Math.min(c.safe[e.activity],e.floor-2));if(e.activity==='main'&&c.safe.main%10===0)c.safe.main--;}
+ if(c.run.paused&&last&&/^(Derrota|Tempo esgotado)/.test(last.text)&&last.id>(c.observedFailureLog??0)){c.observedFailureLog=last.id;c.failed[e.activity]=last.at;c.retreat[e.activity]=Math.max(1,e.floor-2);if(e.activity==='main'&&c.retreat.main%10===0)c.retreat.main--;c.safe[e.activity]=Math.max(1,Math.min(c.safe[e.activity],e.floor-2));if(e.activity==='main'&&c.safe.main%10===0)c.safe.main--;}
  let activity=c.need&&c.need.resource!=='coin'&&e.highest.main>=(c.need.resource==='gold'?20:5)?c.need.resource:'main';
  const activeHours=c.schedule==='casual'?2:c.schedule==='regular'?16:24;
  if((c.materialMsToday??0)>=activeHours*3600000/4)activity='main';
@@ -80,7 +80,7 @@ export function policy(c){
   if(e.activity===activity&&c.run.autoAdvance&&!c.run.paused)return;
   select(c,activity,Math.min(1000,e.highest[activity]+1),true);return;
  }
- let floor=Math.max(1,e.highest[activity]-(c.failed[activity]&&t-c.failed[activity]<6*3600000?2:0));
+ let floor=Math.max(1,c.failed[activity]&&t-c.failed[activity]<6*3600000?Math.min(e.highest[activity],c.retreat[activity]):e.highest[activity]);
  if(activity==='main'&&floor%10===0)floor--;
  select(c,activity,Math.max(1,floor),false);
 }
@@ -91,14 +91,14 @@ export function weekly(c){
  do{r=advanceBossEventsV8(book,now(c));book=r.state;}while(r.backlog);
  book=joinBossEventV8(book,{accountId:account,name:'Campanha',highestFloor:c.run.economy.highest.main,suspended:false},'protection',heroStatsV3(c.run.economy),c.run.seed);
  const start=now(c);c.run.encounter=null;
- for(let n=0;n<200&&book.weekly[account]?.delivered!==6;n++){
+ for(let n=0;n<200&&!(book.weekly[account]?.week===week&&book.weekly[account]?.delivered===6);n++){
   r=advanceBossEventsV8(book,book.clockMs+10000);assert.equal(r.backlog,false);book=heartbeatBossEventV8(r.state,account);
  }
  book=leaveBossEventV8(book,account);const before=structuredClone(c.run.economy);
  for(const g of book.grants)if(!c.delivered.includes(g.key)){assert.equal(g.kind,'weekly');c.run.economy.protection+=g.amount;c.delivered.push(g.key);}
  c.run.economy.economicThroughMs=book.clockMs;c.run.nextAt=book.clockMs+3000;reconcile(c,before,'farm');
  c.events=book;c.eventMs+=now(c)-start;c.milestones['weekly:'+week]=(now(c)-START)/DAY;
- assert.equal(book.weekly[account].delivered,6);
+ assert.equal(book.weekly[account].week,week);assert.equal(book.weekly[account].delivered,6);
 }
 function recordMilestones(c){const e=c.run.economy,level=masteryLevel(e.masteryMs),day=(now(c)-START)/DAY;
  for(const n of [10,50,100,200,500,800,1000])if(level>=n)c.milestones['level'+n]??=day;
