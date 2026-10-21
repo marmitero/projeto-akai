@@ -23,3 +23,11 @@ Coortes de entrada e tardias foram executadas novamente, com os mesmos resultado
 Os consumidores de leitura continuam sem RNG/segredos/carteiras alheias; CLI usa snapshot SQL consistente e somente leitura. Não foi criada rota pública ou conversão de patrimônio. As validações completas dev/preview/Windows/PostgreSQL estão em andamento nesta branch; nenhuma falha conhecida será integrada à main.
 
 **Pendente por escopo, não esquecido nesta revisão:** campanha adquirida90–120dias, liquidez/demanda/população global, consumidores sociais autenticados e corte/rollback/capacidade/playtest. São gates explícitos de ativação em [CAMPAIGN_GATE](CAMPAIGN_GATE.md); não são certificados por estes testes funcionais. O ensaio V9 não é uma ativação parcial das contas reais.
+
+## Fechamento aprovado
+
+Runtime `ab7ea81a0e9288ebfa5eae3712e64b4abca97c4e`, árvore `81bb1796dba4a1f7742383209eb3842a9bb34b13`. [CI39672784128](https://github.com/marmitero/projeto-akai/actions/runs/39672784128) e [Windows39672783938](https://github.com/marmitero/projeto-akai/actions/runs/39672783938) aprovadas. **290testes/33arquivos com PostgreSQL16, sem skips**, incluindo os11shared de integração. Typecheck, assets, builds, auditorias R2–R8/mercado/V9/readiness e todas as regressões de navegador dev/preview passaram.
+
+O browser ampliado confirmou compra direta e oferta→retirada/recusa/aceite na mesma carteira, preço/taxa/líquido,80hsimuladas com expiração de anúncio e oferta, resgate de carvão, controles fora de evento, Jade453/broadcast250, proteção semanal, ausência exclusiva, reload e layouts320/390/844/1280. Mobile/local/online/comunidade/mercado/loja legados passaram nas duas modalidades pertinentes. Não foi realizado teste em aparelho Android físico nesta revisão.
+
+Publicação pela [PR19](https://github.com/marmitero/projeto-akai/pull/19). O fechamento acrescenta somente documentação; runtime, testes, scripts, SQL e JSON permanecem iguais aos validados. A revisão do ensaio está concluída, sem falha conhecida nas validações executadas. Os gates de ativação continuam pendentes conforme o protocolo, com `ECONOMY_V2_ACTIVE=false`, monetização e +16–20 desligados.
