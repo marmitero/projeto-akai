@@ -51,6 +51,7 @@ jobs:
       - run: node --test scripts/tests/mobile-network.test.mjs
       - run: node scripts/audit-economy-contracts.mjs
       - run: npm run check
+      - run: npm run test:campaign
       - run: node scripts/economy-v2/audit.mjs
       - run: node scripts/economy-v2/audit-r3.mjs
       - run: node scripts/economy-v2/audit-r4.mjs

@@ -34,9 +34,9 @@ function enemies(activity:EconomyV2['activity'],floor:number,wave:number){
 const benchmarkCache=new Map<string,number>(),heroCache=new Map<number,CombatStatsV3>();
 function benchmark(level:number,activity:EconomyV2['activity'],floor:number){
  const key=`${level}/${activity}/${floor}`;if(benchmarkCache.has(key))return benchmarkCache.get(key)!;
- if(!heroCache.has(level)){if(heroCache.size>=128)heroCache.delete(heroCache.keys().next().value!);heroCache.set(level,heroStatsV3(presetBuildV3(level,'swift','epic9')));}
+ if(!heroCache.has(level)){if(heroCache.size>=128)heroCache.delete(heroCache.keys().next().value!);const reference=presetBuildV3(level,'swift','epic9');for(const item of reference.inventory){item.rarity='common';item.enhancement=7;}heroCache.set(level,heroStatsV3(reference));}
  const hero=heroCache.get(level)!,waves=activity==='main'&&floor%10!==0?3:1,reference=activity==='main'?floor:huntEnemyV4(activity,floor).reference;
- let ms=0;
+ let ms=(waves-1)*3000;
  for(let wave=1;wave<=waves;wave++)for(const e of enemies(activity,floor,wave)){
   const normal=BigInt(Math.min(e.stats.maxHp,attackDamageV3(hero,e.stats,reference,false))),critical=BigInt(Math.min(e.stats.maxHp,attackDamageV3(hero,e.stats,reference,true)));
   const expected=(normal*BigInt(100000-hero.criticalPpm)+critical*BigInt(hero.criticalPpm))*BigInt(hitChancePpm(hero,e.stats));
@@ -105,7 +105,8 @@ export function advanceRunV6(input:EconomyRunV6,toMs:number,maxEvents=1000,entro
    start(s,s.nextAt,e.wave+1,hp,entropy,frozenStats);continue;
   }
   if(e.combat.status==='victory'){
-   const gained=mastery(s,e.combatMs,e.activity,e.floor,e.reference);s.economy.highest[e.activity]=Math.max(s.economy.highest[e.activity],e.floor);log(s,at,`Vitória ${e.activity} ${e.floor} · XP ${gained}ms`);
+   const qualifiedMs=e.combatMs+(e.activity==='main'&&e.floor%10!==0?6000:0);
+   const gained=mastery(s,qualifiedMs,e.activity,e.floor,e.reference);s.economy.highest[e.activity]=Math.max(s.economy.highest[e.activity],e.floor);log(s,at,`Vitória ${e.activity} ${e.floor} · XP ${gained}ms`);
    if(s.autoAdvance&&e.floor<1000){let next=e.floor+1;if(e.activity==='main'&&next%10===0&&next<=s.economy.highest.main)next=next<1000?next+1:e.floor;s.economy.floor=next;}
    // Already cleared bosses can never be farmed again.
    else if(e.activity==='main'&&e.floor%10===0)s.economy.floor=Math.max(1,e.floor-1);

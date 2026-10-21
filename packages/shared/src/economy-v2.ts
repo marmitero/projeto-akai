@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { ITEM_IDS, ITEMS, RARITIES, SLOT_IDS } from './content.js';
 import { ECONOMY_XP_V2 } from './economy-xp-v2.js';
 export { ECONOMY_XP_V2 } from './economy-xp-v2.js';
-export const ECONOMY_V2_CONFIG = 'economy-v2-config-2' as const;
+export const ECONOMY_V2_CONFIG = 'economy-v2-config-3' as const;
 export const ECONOMY_V2_ACTIVE = false as const;
 export const JADE_V2 = Object.freeze({participation:3,seconds:600,minimumFloor:100,lastHit:250,top10:[200,180,160,140,120,100,80,60,40,20] as const});
 const integer=z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);

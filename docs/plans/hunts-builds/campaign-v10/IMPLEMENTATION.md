@@ -11,3 +11,9 @@ Comandos: `npm run simulate:campaign -- --seed=4213 --schedule=best --build=swif
 A otimização do processamento remove validações/clones repetidos do interior de um snapshot já validado e de propriedade do motor R6, preservando validação nas fronteiras públicas. Hunts usam cache de tabelas puras, retornando cópias para impedir contaminação entre contas. A regra de combate/recompensas não muda com essas otimizações. O total de tempo offline liquidado é retornado separadamente da quota civil, pois a quota é corretamente zerada na virada de dia e não serve como contador histórico.
 
 Resultados finais, hashes e limites serão registrados após a execução. Economia real, monetização e +16–20 permanecem desligados; sucesso de uma simulação não autoriza corte de produção.
+
+## Candidato de calibragem config3
+
+A referência de XP muda de épico+9 para comum+7, ainda sintética **apenas para calcular o teto**, nunca concedida às contas. Na torre normal, os6s de transição entre as três ondas são incluídos no crédito da vitória; caminhar isoladamente, perder, pausar ou transitar entre ciclos não concede XP. O crédito continua limitado ao tempo qualificado e ao quadrado da referência do encontro versus nível. A tabela de96dias qualificados permanece igual. A configuração é versionada como `economy-v2-config-3`: snapshots privados config2 são rejeitados, sem conversão silenciosa. Não migra/reseta nenhuma conta real, que permanece no legado.
+
+A política limita materiais a25% da presença ativa diária e recua após derrota registrada, sem tratar a pausa voluntária da rotina casual como uma nova derrota. Ela não é apresentada como estratégia ótima comprovada. Reexecuções finais e campanhas preliminares serão distinguidas por hash de fonte; preliminares interrompidas não entram na estimativa de conclusão.
