@@ -1454,3 +1454,4 @@ progress {
 #iv9-attributes {display:flex;flex-wrap:wrap;gap:4px;}
 #iv9-log {max-height:160px;overflow:auto;font-size:11px;padding-left:22px;}
 #iv9-item-info {font-size:11px;}
+#iv9-attributes button {max-width:100%;white-space:normal;text-align:left;}
