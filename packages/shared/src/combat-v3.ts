@@ -60,7 +60,7 @@ export function advanceOwnedCombatV3(s:CombatV3,toMs:number,maxEvents:number){
     s.clockMs=due.a.nextAt;
     const target=due.i===0?s.actors[firstAlive]!:hero;
     const hit=roll(s)<hitChancePpm(due.a.stats,target.stats),critical=hit&&roll(s)<due.a.stats.criticalPpm;
-    const key=due.a.id+'/'+target.id+'/'+critical;
+    const key=due.i+'/'+(due.i===0?firstAlive:0)+'/'+critical;
     if(hit&&!damages.has(key))damages.set(key,attackDamageV3(due.a.stats,target.stats,s.equivalentFloor,critical));
     const damage=hit?Math.min(target.hp,damages.get(key)!):0;
     target.hp-=damage;due.a.nextAt+=due.a.stats.intervalMs;s.sequence++;processed++;

@@ -22,6 +22,12 @@ describe('campaign hot-loop replay',()=>{
    expect(createHash('sha256').update(JSON.stringify(state)).digest('hex')).toBe(hash);
   }
  },30000);
+ it('keeps damage caches distinct for actor IDs containing separators',()=>{
+  const hero={attack:100,maxHp:1000,physicalDefense:0,magicDefense:0,intervalMs:1000,dexterity:10000,evasion:0,criticalPpm:0,physicalShareBp:10000};
+  const enemies=[{id:'foo/hero',stats:{...hero,attack:1,intervalMs:5000}},{id:'hero/foo',stats:{...hero,attack:999}}];
+  const result=advanceCombatV3(startCombatV3(hero,enemies,{seed:4213,floor:1}),1000).state;
+  expect(result.hits.map(h=>h.damage)).toEqual([100,999]);expect(result.actors[0]!.hp).toBe(1);
+ });
  it('cannot poison another hunt/account by mutating a cached returned enemy',()=>{
   const before=huntEnemyV4('gold',1000);huntEnemyV4('gold',1000).stats.attack=1;expect(huntEnemyV4('gold',1000)).toEqual(before);expect(()=>huntEnemyV4('coal',1001)).toThrow();
  });
