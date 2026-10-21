@@ -53,4 +53,8 @@ Também continuam pendentes a revisão física apontada pela amostra, populaçã
 
 ## Validação técnica
 
-Regressões locais e auditorias passaram. A CI final com PostgreSQL 16, navegadores dev/preview/mobile e Windows será registrada após a publicação do candidato completo.
+Candidato validado: `8b009ef193d94481201d6f89f27e5563fbb94db2`, árvore `7cfaaafc55043b6501d792ac8fa5e22ef507d45e`. [CI 39690887554](https://github.com/marmitero/projeto-akai/actions/runs/39690887554) e [Windows 39690887504](https://github.com/marmitero/projeto-akai/actions/runs/39690887504) aprovadas: **293 testes em 34 arquivos com PostgreSQL 16, sem skips**, mais 6 testes de campanha, 1 de integridade dos relatórios e 4 de rede mobile. Typecheck, assets, builds, auditorias R2–R8/mercado/V9/V10/prontidão e os fluxos de navegador em desenvolvimento/produção passaram, incluindo viewport mobile. Não houve teste em aparelho Android físico.
+
+Cinco mutações também foram rejeitadas ao gerar um relatório novo, sem depender do SHA de referência anterior: fonte, tempo exclusivo, saldo (com a última linha diária alterada para permanecer consistente), status de conclusão e entrega semanal. A regressão semanal foi demonstrada falhando no controlador anterior (`30 != 60`) e passando após a correção.
+
+O fechamento posterior altera somente documentação. Runtime, testes, scripts, SQL, dados JSON e checkpoints permanecem idênticos aos validados na CI. Publicação pelo [PR 20](https://github.com/marmitero/projeto-akai/pull/20).

@@ -29,3 +29,7 @@ As observações preliminares estão em `preliminary-results.json`, incluindo co
 ## Resultado da execução
 
 As sete campanhas de120dias foram concluídas, incluindo a retomada de checkpoints. O auditor passou com `--require-target`: máximo106,58–106,92dias e torre1000em104,65–105,96nos três seeds de Agilidade. A rotina16+8atingiu máximo108e torre109,51; Equilibrada111,37/116,42; Força111,49mas torre979; casualnível731/andar741sem máximo. Os casos incompletos permanecem nos dados. Ver[RESULTS.md](RESULTS.md) e[results.json](results.json). Fontes/gastos/proteção/tempos/SHAconciliados; teste de corrupção rejeita fonte, tempo, carteira, status de conclusão ou entregas semanais alterados. A auditoria de prontidão lê e verifica esta campanha, aprova somente a amostra e mantém ativação falsa com a revisão física e demais gates pendentes.
+
+## Fechamento técnico
+
+Candidato8b009ef193d94481201d6f89f27e5563fbb94db2/árvore7cfaaafc55043b6501d792ac8fa5e22ef507d45e aprovado na CI39690887554 e Windows39690887504:293testes/34arquivos PostgreSQL16 semskips,6nodecampanha,1nodeintegridade,4noderede e regressões completas de navegador dev/preview/mobile. Corrupções sem SHA de referência também rejeitadas. Publicação PR20; fechamento apenas em documentação, mantendo todos os arquivos executáveis/testes/SQL/JSON/checkpoints idênticos ao candidato validado. Economiareal/+16–20/monetizaçãooff; pendências e próxima fase emRESULTS.md.
