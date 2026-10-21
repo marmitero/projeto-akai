@@ -277,3 +277,5 @@ export * from './offline-v7.js';
 export * from './market-v2.js';
 export * from './bosses-v8.js';
 export * from './boss-events-v8.js';
+export * from './consumers-v9.js';
+export * from './integrated-v9.js';

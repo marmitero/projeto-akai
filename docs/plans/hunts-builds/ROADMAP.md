@@ -1,6 +1,6 @@
 # Roadmap proposto — reforma de progressão
 
-Estado corrente em21/10/2026: a tabela é o planejamento originalR0. R2–R7 e mercado v2 foram entregues como contratos/laboratórios/ensaios pré-corte; [R8](r8/IMPLEMENTATION.md) implementa bosses da torre v2 e eventos diários/semanais em coortes privadas. Economia real segue desativada. Próximos: migração dos consumidores v2/ensaio operacional, coortes acopladas de campanha/Jade/mercado/legado/capacidade, calibragem e playtest gratuito, depois revisão de ativação. Monetização somente na fase final.
+Estado corrente em21/10/2026: a tabela é o planejamento originalR0. R2–R7 e mercado v2 foram entregues como contratos/laboratórios/ensaios pré-corte; [R8](r8/IMPLEMENTATION.md) implementa bosses da torre v2 e eventos diários/semanais em coortes privadas. Economia real segue desativada. V9 integra consumidores de leitura e um ensaio de carteira única com coortes de entrada/tardias, sem ativar contas reais (ver consumers-v9/IMPLEMENTATION.md). Próximos: campanha longa adquirindo equipamento/refino e liquidez/população, consumidores sociais autenticados/ensaio operacional/capacidade, calibragem e playtest gratuito, depois revisão de ativação. Monetização somente na fase final.
 
 18/10/2026. **Só R0 documental foi executada. R1–R9 são futuras; nenhuma está autorizada para começar por esta publicação.** A regra de publicar cada etapa evita perda de progresso, não transforma planejamento em autorização para implementar.
 
@@ -44,3 +44,5 @@ R3 e R4 precisam de trabalho incremental em branch, mantendo o jogo antigo jogá
 6. Política de itens antigos>+15não lendários e conversão de minas/clique/afixos exige decisão explícita antes da migração.
 
 Sem cronograma de calendário contratado. A sequência é por dependências e evidência; não por prometer número de dias sem implementação e playtest. Próximo trabalho sugerido: R1, quando autorizado. O presente pedido entrega R0 e sua publicação documental.
+
+V9 encerrada: consumidores de ensaio integrados e coortes funcionais validados;285testes SQL e CI/Windows/regressões completas aprovados no runtime4874740. Economia real off. A próxima validação de campanha adquirida está definida em [CAMPAIGN_GATE](consumers-v9/CAMPAIGN_GATE.md); ela ainda precisa demonstrar a meta90–120dias e precede a ativação, junto aos gates públicos/operacionais descritos no relatório.

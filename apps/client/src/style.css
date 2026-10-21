@@ -1448,3 +1448,9 @@ progress {
 .v6-tabs button {flex:1 1 80px;white-space:normal;overflow-wrap:anywhere;}
 #r8-broadcast {padding:6px;background:#33233c;color:#ffe0a0;overflow-wrap:anywhere;}
 #r8-hp {width:100%;}
+#integrated-v9-preview {min-width:0;overflow-wrap:anywhere;}
+#integrated-v9-preview select,#integrated-v9-preview input[type=number],#integrated-v9-preview progress {max-width:100%;}
+#integrated-v9-preview select {width:100%;}
+#iv9-attributes {display:flex;flex-wrap:wrap;gap:4px;}
+#iv9-log {max-height:160px;overflow:auto;font-size:11px;padding-left:22px;}
+#iv9-item-info {font-size:11px;}

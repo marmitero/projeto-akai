@@ -176,10 +176,16 @@ try {
     await p.locator(`[data-market-tab=${name}]`).click();
   }
   async function confirm(p) {
+    // Observe the authoritative receipt, not only a status that the next poll replaces.
+    const receipt = p.waitForResponse(r => r.url().endsWith('/api/v1/market/commands') && r.request().method() === 'POST');
     await p.locator("#market-confirm").click();
+    const response = await receipt;
+    assert.equal(response.ok(), true, 'Market command HTTP ' + response.status());
+    const result = await response.json();
+    assert.equal(result.status, 'applied', 'Market command rejected: ' + JSON.stringify(result));
     await p
       .locator("#market-status")
-      .filter({ hasText: "Operação confirmada." })
+      .filter({ hasText: /Operação confirmada\.|Mercado sincronizado\./ })
       .waitFor();
   }
   await tab(pa, "sell");

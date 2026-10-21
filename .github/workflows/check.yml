@@ -59,6 +59,7 @@ jobs:
       - run: node scripts/economy-v2/audit-r7.mjs
       - run: node scripts/economy-v2/audit-market-v2.mjs
       - run: node scripts/economy-v2/audit-r8.mjs
+      - run: node scripts/economy-v2/audit-consumers-v9.mjs
       - run: node scripts/economy-v2/audit-readiness.mjs
       - run: node scripts/simulate-loop.mjs
       - run: node scripts/simulate-rpg.mjs

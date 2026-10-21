@@ -1,0 +1,777 @@
+{
+  "version": "consumers-cohorts-v9-1",
+  "integrationPassed": true,
+  "activationReady": false,
+  "early": {
+    "accounts": 18,
+    "seeds": [
+      1,
+      4213,
+      3735928559
+    ],
+    "policies": 3,
+    "initialLevel": 1,
+    "externalCurrencyOrGear": 0,
+    "entryPassed": true,
+    "rows": [
+      {
+        "policy": "force-vitality",
+        "seed": 1,
+        "account": "00000000-0000-4000-8000-000000000001",
+        "entrySeconds": {
+          "main": 200,
+          "coal": 2440,
+          "iron": 3340
+        },
+        "entryPassed": true,
+        "level": 15,
+        "highest": {
+          "main": 6,
+          "coal": 1,
+          "iron": 1,
+          "gold": 0
+        },
+        "balances": {
+          "coin": "59237000",
+          "coal": "44000",
+          "iron": "8000",
+          "gold": "0",
+          "jade": "0"
+        },
+        "attributes": {
+          "force": 8,
+          "vitality": 4,
+          "agility": 0,
+          "physical": 0,
+          "magic": 0,
+          "luck": 0,
+          "dexterity": 0
+        },
+        "kills": 12533,
+        "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 6442611,
+        "listingFeeAffordable": false,
+        "censoredBeforeMaxLevel": true
+      },
+      {
+        "policy": "force-vitality",
+        "seed": 2,
+        "account": "00000000-0000-4000-8000-000000000002",
+        "entrySeconds": {
+          "main": 180,
+          "coal": 1540,
+          "iron": 2440
+        },
+        "entryPassed": true,
+        "level": 23,
+        "highest": {
+          "main": 13,
+          "coal": 1,
+          "iron": 1,
+          "gold": 0
+        },
+        "balances": {
+          "coin": "81345000",
+          "coal": "48000",
+          "iron": "104000",
+          "gold": "0",
+          "jade": "0"
+        },
+        "attributes": {
+          "force": 9,
+          "vitality": 5,
+          "agility": 0,
+          "physical": 0,
+          "magic": 0,
+          "luck": 0,
+          "dexterity": 0
+        },
+        "kills": 8310,
+        "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 10472416,
+        "listingFeeAffordable": false,
+        "censoredBeforeMaxLevel": true
+      },
+      {
+        "policy": "force-vitality",
+        "seed": 4213,
+        "account": "00000000-0000-4000-8000-000000000001",
+        "entrySeconds": {
+          "main": 190,
+          "coal": 1540,
+          "iron": 2430
+        },
+        "entryPassed": true,
+        "level": 3,
+        "highest": {
+          "main": 14,
+          "coal": 1,
+          "iron": 1,
+          "gold": 0
+        },
+        "balances": {
+          "coin": "1415000",
+          "coal": "48000",
+          "iron": "104000",
+          "gold": "0",
+          "jade": "0"
+        },
+        "attributes": {
+          "force": 8,
+          "vitality": 4,
+          "agility": 0,
+          "physical": 0,
+          "magic": 0,
+          "luck": 0,
+          "dexterity": 0
+        },
+        "kills": 602,
+        "offlineUsedMs": 118600,
+        "offlineStoppedByDefeat": true,
+        "offlineMasteryGainedMs": 58000,
+        "listingFeeAffordable": false,
+        "censoredBeforeMaxLevel": true
+      },
+      {
+        "policy": "force-vitality",
+        "seed": 4214,
+        "account": "00000000-0000-4000-8000-000000000002",
+        "entrySeconds": {
+          "main": 180,
+          "coal": 2140,
+          "iron": 3040
+        },
+        "entryPassed": true,
+        "level": 17,
+        "highest": {
+          "main": 7,
+          "coal": 1,
+          "iron": 1,
+          "gold": 0
+        },
+        "balances": {
+          "coin": "58553000",
+          "coal": "48000",
+          "iron": "8000",
+          "gold": "0",
+          "jade": "0"
+        },
+        "attributes": {
+          "force": 8,
+          "vitality": 4,
+          "agility": 0,
+          "physical": 0,
+          "magic": 0,
+          "luck": 0,
+          "dexterity": 0
+        },
+        "kills": 10303,
+        "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 7552728,
+        "listingFeeAffordable": false,
+        "censoredBeforeMaxLevel": true
+      },
+      {
+        "policy": "force-vitality",
+        "seed": 3735928559,
+        "account": "00000000-0000-4000-8000-000000000001",
+        "entrySeconds": {
+          "main": 190,
+          "coal": 2140,
+          "iron": 3040
+        },
+        "entryPassed": true,
+        "level": 17,
+        "highest": {
+          "main": 7,
+          "coal": 1,
+          "iron": 1,
+          "gold": 0
+        },
+        "balances": {
+          "coin": "58400000",
+          "coal": "48000",
+          "iron": "8000",
+          "gold": "0",
+          "jade": "0"
+        },
+        "attributes": {
+          "force": 8,
+          "vitality": 4,
+          "agility": 0,
+          "physical": 0,
+          "magic": 0,
+          "luck": 0,
+          "dexterity": 0
+        },
+        "kills": 10277,
+        "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 7533088,
+        "listingFeeAffordable": false,
+        "censoredBeforeMaxLevel": true
+      },
+      {
+        "policy": "force-vitality",
+        "seed": 3735928560,
+        "account": "00000000-0000-4000-8000-000000000002",
+        "entrySeconds": {
+          "main": 190,
+          "coal": 1840,
+          "iron": 2450
+        },
+        "entryPassed": true,
+        "level": 4,
+        "highest": {
+          "main": 13,
+          "coal": 1,
+          "iron": 1,
+          "gold": 0
+        },
+        "balances": {
+          "coin": "4395000",
+          "coal": "44000",
+          "iron": "8000",
+          "gold": "0",
+          "jade": "0"
+        },
+        "attributes": {
+          "force": 8,
+          "vitality": 4,
+          "agility": 0,
+          "physical": 0,
+          "magic": 0,
+          "luck": 0,
+          "dexterity": 0
+        },
+        "kills": 891,
+        "offlineUsedMs": 1317750,
+        "offlineStoppedByDefeat": true,
+        "offlineMasteryGainedMs": 882066,
+        "listingFeeAffordable": false,
+        "censoredBeforeMaxLevel": true
+      },
+      {
+        "policy": "balanced-entry",
+        "seed": 1,
+        "account": "00000000-0000-4000-8000-000000000001",
+        "entrySeconds": {
+          "main": 200,
+          "coal": 2440,
+          "iron": 3340
+        },
+        "entryPassed": true,
+        "level": 15,
+        "highest": {
+          "main": 6,
+          "coal": 1,
+          "iron": 1,
+          "gold": 0
+        },
+        "balances": {
+          "coin": "49664000",
+          "coal": "44000",
+          "iron": "8000",
+          "gold": "0",
+          "jade": "0"
+        },
+        "attributes": {
+          "force": 7,
+          "vitality": 3,
+          "agility": 0,
+          "physical": 2,
+          "magic": 0,
+          "luck": 0,
+          "dexterity": 0
+        },
+        "kills": 10527,
+        "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 6686025,
+        "listingFeeAffordable": false,
+        "censoredBeforeMaxLevel": true
+      },
+      {
+        "policy": "balanced-entry",
+        "seed": 2,
+        "account": "00000000-0000-4000-8000-000000000002",
+        "entrySeconds": {
+          "main": 180,
+          "coal": 1540,
+          "iron": 2440
+        },
+        "entryPassed": true,
+        "level": 4,
+        "highest": {
+          "main": 15,
+          "coal": 1,
+          "iron": 1,
+          "gold": 0
+        },
+        "balances": {
+          "coin": "1192000",
+          "coal": "48000",
+          "iron": "104000",
+          "gold": "0",
+          "jade": "0"
+        },
+        "attributes": {
+          "force": 9,
+          "vitality": 5,
+          "agility": 0,
+          "physical": 2,
+          "magic": 0,
+          "luck": 0,
+          "dexterity": 0
+        },
+        "kills": 641,
+        "offlineUsedMs": 46000,
+        "offlineStoppedByDefeat": true,
+        "offlineMasteryGainedMs": 0,
+        "listingFeeAffordable": false,
+        "censoredBeforeMaxLevel": true
+      },
+      {
+        "policy": "balanced-entry",
+        "seed": 4213,
+        "account": "00000000-0000-4000-8000-000000000001",
+        "entrySeconds": {
+          "main": 190,
+          "coal": 1540,
+          "iron": 2440
+        },
+        "entryPassed": true,
+        "level": 3,
+        "highest": {
+          "main": 14,
+          "coal": 1,
+          "iron": 1,
+          "gold": 0
+        },
+        "balances": {
+          "coin": "1359000",
+          "coal": "48000",
+          "iron": "104000",
+          "gold": "0",
+          "jade": "0"
+        },
+        "attributes": {
+          "force": 7,
+          "vitality": 3,
+          "agility": 0,
+          "physical": 2,
+          "magic": 0,
+          "luck": 0,
+          "dexterity": 0
+        },
+        "kills": 577,
+        "offlineUsedMs": 38800,
+        "offlineStoppedByDefeat": true,
+        "offlineMasteryGainedMs": 0,
+        "listingFeeAffordable": false,
+        "censoredBeforeMaxLevel": true
+      },
+      {
+        "policy": "balanced-entry",
+        "seed": 4214,
+        "account": "00000000-0000-4000-8000-000000000002",
+        "entrySeconds": {
+          "main": 180,
+          "coal": 2140,
+          "iron": 3040
+        },
+        "entryPassed": true,
+        "level": 16,
+        "highest": {
+          "main": 7,
+          "coal": 1,
+          "iron": 1,
+          "gold": 0
+        },
+        "balances": {
+          "coin": "52309000",
+          "coal": "48000",
+          "iron": "8000",
+          "gold": "0",
+          "jade": "0"
+        },
+        "attributes": {
+          "force": 7,
+          "vitality": 3,
+          "agility": 0,
+          "physical": 2,
+          "magic": 0,
+          "luck": 0,
+          "dexterity": 0
+        },
+        "kills": 9203,
+        "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 7355803,
+        "listingFeeAffordable": false,
+        "censoredBeforeMaxLevel": true
+      },
+      {
+        "policy": "balanced-entry",
+        "seed": 3735928559,
+        "account": "00000000-0000-4000-8000-000000000001",
+        "entrySeconds": {
+          "main": 190,
+          "coal": 2140,
+          "iron": 3040
+        },
+        "entryPassed": true,
+        "level": 16,
+        "highest": {
+          "main": 7,
+          "coal": 1,
+          "iron": 1,
+          "gold": 0
+        },
+        "balances": {
+          "coin": "52121000",
+          "coal": "48000",
+          "iron": "8000",
+          "gold": "0",
+          "jade": "0"
+        },
+        "attributes": {
+          "force": 7,
+          "vitality": 3,
+          "agility": 0,
+          "physical": 2,
+          "magic": 0,
+          "luck": 0,
+          "dexterity": 0
+        },
+        "kills": 9171,
+        "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 7324033,
+        "listingFeeAffordable": false,
+        "censoredBeforeMaxLevel": true
+      },
+      {
+        "policy": "balanced-entry",
+        "seed": 3735928560,
+        "account": "00000000-0000-4000-8000-000000000002",
+        "entrySeconds": {
+          "main": 190,
+          "coal": 1840,
+          "iron": 2450
+        },
+        "entryPassed": true,
+        "level": 3,
+        "highest": {
+          "main": 14,
+          "coal": 1,
+          "iron": 1,
+          "gold": 0
+        },
+        "balances": {
+          "coin": "1652000",
+          "coal": "44000",
+          "iron": "8000",
+          "gold": "0",
+          "jade": "0"
+        },
+        "attributes": {
+          "force": 7,
+          "vitality": 3,
+          "agility": 0,
+          "physical": 2,
+          "magic": 0,
+          "luck": 0,
+          "dexterity": 0
+        },
+        "kills": 603,
+        "offlineUsedMs": 83200,
+        "offlineStoppedByDefeat": true,
+        "offlineMasteryGainedMs": 29000,
+        "listingFeeAffordable": false,
+        "censoredBeforeMaxLevel": true
+      },
+      {
+        "policy": "agility-entry",
+        "seed": 1,
+        "account": "00000000-0000-4000-8000-000000000001",
+        "entrySeconds": {
+          "main": 200,
+          "coal": 2440,
+          "iron": 3340
+        },
+        "entryPassed": true,
+        "level": 15,
+        "highest": {
+          "main": 6,
+          "coal": 1,
+          "iron": 1,
+          "gold": 0
+        },
+        "balances": {
+          "coin": "44853000",
+          "coal": "44000",
+          "iron": "8000",
+          "gold": "0",
+          "jade": "0"
+        },
+        "attributes": {
+          "force": 4,
+          "vitality": 2,
+          "agility": 1,
+          "physical": 0,
+          "magic": 0,
+          "luck": 0,
+          "dexterity": 0
+        },
+        "kills": 9364,
+        "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 6528433,
+        "listingFeeAffordable": false,
+        "censoredBeforeMaxLevel": true
+      },
+      {
+        "policy": "agility-entry",
+        "seed": 2,
+        "account": "00000000-0000-4000-8000-000000000002",
+        "entrySeconds": {
+          "main": 180,
+          "coal": 1540,
+          "iron": 2740
+        },
+        "entryPassed": true,
+        "level": 4,
+        "highest": {
+          "main": 12,
+          "coal": 1,
+          "iron": 1,
+          "gold": 0
+        },
+        "balances": {
+          "coin": "3041000",
+          "coal": "48000",
+          "iron": "24000",
+          "gold": "0",
+          "jade": "0"
+        },
+        "attributes": {
+          "force": 4,
+          "vitality": 2,
+          "agility": 1,
+          "physical": 0,
+          "magic": 0,
+          "luck": 0,
+          "dexterity": 0
+        },
+        "kills": 726,
+        "offlineUsedMs": 170000,
+        "offlineStoppedByDefeat": true,
+        "offlineMasteryGainedMs": 71098,
+        "listingFeeAffordable": false,
+        "censoredBeforeMaxLevel": true
+      },
+      {
+        "policy": "agility-entry",
+        "seed": 4213,
+        "account": "00000000-0000-4000-8000-000000000001",
+        "entrySeconds": {
+          "main": 190,
+          "coal": 1540,
+          "iron": 2440
+        },
+        "entryPassed": true,
+        "level": 19,
+        "highest": {
+          "main": 12,
+          "coal": 1,
+          "iron": 1,
+          "gold": 0
+        },
+        "balances": {
+          "coin": "56133000",
+          "coal": "48000",
+          "iron": "32000",
+          "gold": "0",
+          "jade": "0"
+        },
+        "attributes": {
+          "force": 5,
+          "vitality": 3,
+          "agility": 2,
+          "physical": 0,
+          "magic": 0,
+          "luck": 0,
+          "dexterity": 0
+        },
+        "kills": 6421,
+        "offlineUsedMs": 23491000,
+        "offlineStoppedByDefeat": true,
+        "offlineMasteryGainedMs": 8414202,
+        "listingFeeAffordable": false,
+        "censoredBeforeMaxLevel": true
+      },
+      {
+        "policy": "agility-entry",
+        "seed": 4214,
+        "account": "00000000-0000-4000-8000-000000000002",
+        "entrySeconds": {
+          "main": 180,
+          "coal": 2140,
+          "iron": 4240
+        },
+        "entryPassed": true,
+        "level": 17,
+        "highest": {
+          "main": 7,
+          "coal": 1,
+          "iron": 1,
+          "gold": 0
+        },
+        "balances": {
+          "coin": "54208000",
+          "coal": "48000",
+          "iron": "8000",
+          "gold": "0",
+          "jade": "0"
+        },
+        "attributes": {
+          "force": 5,
+          "vitality": 3,
+          "agility": 2,
+          "physical": 0,
+          "magic": 0,
+          "luck": 0,
+          "dexterity": 0
+        },
+        "kills": 9459,
+        "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 6868462,
+        "listingFeeAffordable": false,
+        "censoredBeforeMaxLevel": true
+      },
+      {
+        "policy": "agility-entry",
+        "seed": 3735928559,
+        "account": "00000000-0000-4000-8000-000000000001",
+        "entrySeconds": {
+          "main": 190,
+          "coal": 2140,
+          "iron": 3040
+        },
+        "entryPassed": true,
+        "level": 16,
+        "highest": {
+          "main": 7,
+          "coal": 1,
+          "iron": 1,
+          "gold": 0
+        },
+        "balances": {
+          "coin": "51132000",
+          "coal": "48000",
+          "iron": "8000",
+          "gold": "0",
+          "jade": "0"
+        },
+        "attributes": {
+          "force": 4,
+          "vitality": 2,
+          "agility": 1,
+          "physical": 0,
+          "magic": 0,
+          "luck": 0,
+          "dexterity": 0
+        },
+        "kills": 8855,
+        "offlineUsedMs": 28800000,
+        "offlineStoppedByDefeat": false,
+        "offlineMasteryGainedMs": 7211469,
+        "listingFeeAffordable": false,
+        "censoredBeforeMaxLevel": true
+      },
+      {
+        "policy": "agility-entry",
+        "seed": 3735928560,
+        "account": "00000000-0000-4000-8000-000000000002",
+        "entrySeconds": {
+          "main": 190,
+          "coal": 1840,
+          "iron": 2450
+        },
+        "entryPassed": true,
+        "level": 4,
+        "highest": {
+          "main": 11,
+          "coal": 1,
+          "iron": 1,
+          "gold": 0
+        },
+        "balances": {
+          "coin": "5009000",
+          "coal": "44000",
+          "iron": "8000",
+          "gold": "0",
+          "jade": "0"
+        },
+        "attributes": {
+          "force": 4,
+          "vitality": 2,
+          "agility": 1,
+          "physical": 0,
+          "magic": 0,
+          "luck": 0,
+          "dexterity": 0
+        },
+        "kills": 917,
+        "offlineUsedMs": 1397000,
+        "offlineStoppedByDefeat": true,
+        "offlineMasteryGainedMs": 756000,
+        "listingFeeAffordable": false,
+        "censoredBeforeMaxLevel": true
+      }
+    ]
+  },
+  "late": {
+    "members": 12,
+    "fixture": "Synthetic level1000/swift/legendary15 and2millionCoin each; NOT acquired progression",
+    "actualCombatAndLeases": true,
+    "totalJade": 1386,
+    "perMemberJade": [
+      43,
+      23,
+      203,
+      163,
+      183,
+      3,
+      143,
+      123,
+      83,
+      313,
+      3,
+      103
+    ],
+    "topRecipientShareBp": 2258,
+    "broadcasts": 1,
+    "weeklyScrollsPerMember": 5,
+    "marketCoinBurnMilli": "120000000",
+    "materialConservation": true
+  },
+  "timeGate": {
+    "qualifiedMinimumDays": 96,
+    "campaign90To120DaysApproved": false,
+    "reason": "Minimum qualified XP clock only; no full120-day acquisition/cost/demand campaign was run. Early samples are censored and synthetic late fixtures are excluded from progression claims."
+  },
+  "blockingGates": [
+    "Full paid-free campaign with earned equipment/refinement/materials and high-end achievements in90–120days",
+    "Market population demand/liquidity/concentration, provisional100k listing fee",
+    "Global daily population/sharding/alternate-account and last-hit concentration",
+    "Authenticated live consumers/arena/guild season migration and operational cutover/rollback",
+    "Capacity and free-player playtest"
+  ],
+  "scope": "Deterministic integration cohorts. No activation, no live-account writes, no store, no+16–20 unlock."
+}
