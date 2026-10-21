@@ -16,10 +16,10 @@
       "simulatedSeconds": 3600,
       "qualifiedCompleted": true,
       "paused": false,
-      "kills": 1341,
-      "coin": 9387,
+      "kills": 1356,
+      "coin": 9493,
       "feeCoin": 100000,
-      "listingFeeHoursAtThisMeasuredRate": 10.653030787258976,
+      "listingFeeHoursAtThisMeasuredRate": 10.534077741493732,
       "interpretation": "One-hour realized income in a fixed synthetic build; ratio is not a promise of acquisition time or stationary long-term income."
     },
     {

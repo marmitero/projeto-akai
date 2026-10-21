@@ -21,3 +21,7 @@ A integração V9 não autoriza a ativação. O próximo ensaio deve fechar a di
 - Ensaio de corte/backup/restauração e reconciliação final do legado/mercado; capacidade e playtest gratuito. Monetização permanece para a fase final.
 
 Não há aprovação automática nem novo gasto/infraestrutura autorizado por este protocolo. Ele define o trabalho necessário para uma próxima etapa de calibragem e corte, sem alterar regras durante a validação V9.
+
+## Execução da fase 1 / config3
+
+A campanha adquirida foi executada em[campaign-v10/RESULTS.md](../campaign-v10/RESULTS.md), com sete trajetórias de120dias e todos os estados/ganhos/gastos preservados. Os três seeds de Agilidade atingiram máximo em106,58–106,92dias e torre1000em104,65–105,96dias; a rotina casual e a pendência tardia de Força continuam explícitas. A regra config3 remunera os6s internos de transição apenas na vitória concluída; caminhar isolado/perder/pausar continua sem XP. O piso96dias permanece. Isso fecha a evidência de tempo/conquistas desta amostra, sem remover gates de mercado/população/consumidores/capacidade/corte/playtest ou autorizar ativação.

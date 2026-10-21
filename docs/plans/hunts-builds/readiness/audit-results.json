@@ -1,20 +1,51 @@
 {
-  "version": "economy-readiness-2",
+  "version": "economy-readiness-3",
   "consumers": {
-    "gate": "validated-private-unified-consumers-cohort-campaign-pending",
+    "gate": "validated-private-unified-consumers-acquired-campaign-sampled",
     "earlyAccounts": 18,
     "earlyEntryPassed": true,
     "lateSyntheticMembers": 12,
     "qualifiedMinimumDays": 96,
-    "campaignApproved": false,
+    "campaignApproved": true,
+    "campaign": {
+      "config": "economy-v2-config-3",
+      "accounts": 7,
+      "days": 120,
+      "sourceHash": "e53da017e142a366cbc7f456332bb76c0d99260c654cc7973de493c4a9916cd5",
+      "best": {
+        "samples": 3,
+        "maxDays": [
+          106.91666666666667,
+          106.88541666666667,
+          106.57638888888889
+        ],
+        "tower1000Days": [
+          104.95138888888889,
+          105.9619212962963,
+          104.64930555555556
+        ],
+        "allPassed": true
+      },
+      "evidence": "campaign-v10/results.json",
+      "limits": [
+        "Small deterministic sample, not a population/P95 or mathematical proof of optimal play",
+        "Five-minute active controller; observed active milestones have up to five minutes uncertainty, offline milestones up to eight hours",
+        "All failed/incomplete final accounts remain censored; no extrapolated success dates",
+        "No market liquidity, collective Jade population, Ruby, protected+16–20 or future raids certified",
+        "Builds start with equal rules and purchase budgets earned by play, not synthetic equal end-level fixtures",
+        "Sources and sinks are currency aggregates; Coin combines combat and salvage, spending combines training and refinement",
+        "Only existing tower1000 is the high-end completion gate; hunt floors are measured, not assumed all conquered",
+        "Public authenticated consumers, operational cutover/rollback, capacity and free playtest remain required"
+      ]
+    },
     "missing": [
-      "Full paid-free campaign with earned equipment/refinement/materials and high-end achievements in90–120days",
       "Market population demand/liquidity/concentration, provisional100k listing fee",
       "Global daily population/sharding/alternate-account and last-hit concentration",
       "Authenticated live consumers/arena/guild season migration and operational cutover/rollback",
-      "Capacity and free-player playtest"
+      "Capacity and free-player playtest",
+      "brute/best/seed4213: maximum at day111.48958333333333, tower stopped at979; review acquired gear, weapon selection and late build performance"
     ],
-    "interpretation": "Single-wallet rehearsal and allow-list SQL projection are integrated. Public authenticated/social consumers and full acquired-progression cohorts remain activation gates."
+    "interpretation": "Single-wallet rehearsal and acquired campaigns are independently audited. A sampled campaign pass does not activate public authenticated/social consumers, population, market liquidity or operational cutover."
   },
   "activationReady": false,
   "manualIntegrationReviewRequired": true,
@@ -76,7 +107,7 @@
   "bosses": {
     "gate": "validated-private-r8-population-pending",
     "tower30sDeadlineRegression": "passed",
-    "towerBridgeBalance": "v8-sample-calibrated-not-campaign-certified",
+    "towerBridgeBalance": "v10-acquired-tower1000-sample",
     "dailyJadeArithmetic": "passed",
     "winnerMaximum453": true,
     "sourceInspection": {
@@ -88,10 +119,10 @@
       "population/alt-concentration-and-coupled-high-end/market-balance"
     ],
     "highRefinementLocked": true,
-    "interpretation": "R8 adds a private PostgreSQL writer/ledger/broadcast and weekly protection event, validated by event-clock and transaction tests. Legacy live daily remains separate; full population/campaign balance and cutover are not approved."
+    "interpretation": "R8 writer and tower are covered by acquired V10 samples; collective population, other build/gear policies, public consumers and cutover remain unapproved."
   },
   "next": [
-    "Run full acquired-progression campaign cohorts; private unified consumers are validated, public authenticated arena/guild/season cutover remains pending",
+    "Review v2 market liquidity with earned wallets; campaign sample passed, activation remains blocked",
     "Review coupled v2 market liquidity/concentration and execute legacy transition only at authorized cutover",
     "Validate R8 population/concentration and integrate live social consumers at cutover",
     "Re-run coupled economy cohorts and free-player playtest before cutover"

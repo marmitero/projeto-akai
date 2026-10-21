@@ -36,7 +36,7 @@ export function beginOfflineV7(input:EconomyRunV6,returnMs:number){
 /** At most maxEvents attack events per call. Save state+quota+ledger atomically, resume with
  * the same job after restart. No stochastic cycle multiplication or reroll at collection. */
 export function drainOfflineV7(input:EconomyRunV6,maxEvents=1000,entropy?:EconomyEntropyV6){
- let s=EconomyRunV6Schema.parse(input);z.number().int().min(1).max(100000).parse(maxEvents);let processed=0;
+ let s=EconomyRunV6Schema.parse(input);z.number().int().min(1).max(100000).parse(maxEvents);let processed=0,settledMs=0;
  while(s.offlineJob){
   const job=s.offlineJob,cursor=s.economy.economicThroughMs;
   if(cursor>=job.untilMs||s.paused){s=finish(s);break;}
@@ -46,15 +46,15 @@ export function drainOfflineV7(input:EconomyRunV6,maxEvents=1000,entropy?:Econom
    // No replay of a partial fight after unqualified time; retain the frozen build.
    s.economy.economicThroughMs=boundary;s.encounter=null;s.nextAt=boundary+3000;continue;
   }
-  if(processed>=maxEvents)return {state:s,backlog:true,processed};
+  if(processed>=maxEvents)return {state:s,backlog:true,processed,settledMs};
   const end=Math.min(boundary,cursor+available),r=advanceRunV6(s,end,maxEvents-processed,entropy,job.stats);
   s=r.state;processed+=r.processed;
   const through=s.paused?Math.min(s.economy.economicThroughMs,s.nextAt-3000):s.economy.economicThroughMs;
-  s.economy.offline.usedMs+=through-cursor;
+  s.economy.offline.usedMs+=through-cursor;settledMs+=through-cursor;
   if(s.paused){s=finish(s);break;}
-  if(r.backlog)return {state:s,backlog:true,processed};
+  if(r.backlog)return {state:s,backlog:true,processed,settledMs};
  }
- return {state:EconomyRunV6Schema.parse(s),backlog:false,processed};
+ return {state:EconomyRunV6Schema.parse(s),backlog:false,processed,settledMs};
 }
 /** Server clock only. Resume pending work before accepting build/activity mutations. */
 export function settleElapsedV7(input:EconomyRunV6,now:number,maxEvents=1000,entropy?:EconomyEntropyV6){

@@ -1,7 +1,7 @@
 import {z} from 'zod';
 import {towerBossV8} from './bosses-v8.js';
 import {EconomyV2Schema,initialEconomyV2,masteryLevel,ECONOMY_XP_V2,canEquipV2,type EconomyV2} from './economy-v2.js';
-import {CombatStatsV3Schema,CombatV3Schema,startCombatV3,advanceCombatV3,hitChancePpm,attackDamageV3,type CombatStatsV3} from './combat-v3.js';
+import {CombatStatsV3Schema,CombatV3Schema,startCombatV3,advanceOwnedCombatV3,hitChancePpm,attackDamageV3,type CombatStatsV3} from './combat-v3.js';
 import {heroStatsV3,trainAttribute,ATTRIBUTE_IDS} from './builds-v3.js';
 import {presetBuildV3} from './build-presets-v3.js';
 import {encounterEnemies,enemyDefinition} from './bestiary.js';
@@ -34,9 +34,9 @@ function enemies(activity:EconomyV2['activity'],floor:number,wave:number){
 const benchmarkCache=new Map<string,number>(),heroCache=new Map<number,CombatStatsV3>();
 function benchmark(level:number,activity:EconomyV2['activity'],floor:number){
  const key=`${level}/${activity}/${floor}`;if(benchmarkCache.has(key))return benchmarkCache.get(key)!;
- if(!heroCache.has(level)){if(heroCache.size>=128)heroCache.delete(heroCache.keys().next().value!);heroCache.set(level,heroStatsV3(presetBuildV3(level,'swift','epic9')));}
+ if(!heroCache.has(level)){if(heroCache.size>=128)heroCache.delete(heroCache.keys().next().value!);const reference=presetBuildV3(level,'swift','epic9');for(const item of reference.inventory){item.rarity='common';item.enhancement=7;}heroCache.set(level,heroStatsV3(reference));}
  const hero=heroCache.get(level)!,waves=activity==='main'&&floor%10!==0?3:1,reference=activity==='main'?floor:huntEnemyV4(activity,floor).reference;
- let ms=0;
+ let ms=(waves-1)*3000;
  for(let wave=1;wave<=waves;wave++)for(const e of enemies(activity,floor,wave)){
   const normal=BigInt(Math.min(e.stats.maxHp,attackDamageV3(hero,e.stats,reference,false))),critical=BigInt(Math.min(e.stats.maxHp,attackDamageV3(hero,e.stats,reference,true)));
   const expected=(normal*BigInt(100000-hero.criticalPpm)+critical*BigInt(hero.criticalPpm))*BigInt(hitChancePpm(hero,e.stats));
@@ -94,7 +94,7 @@ export function advanceRunV6(input:EconomyRunV6,toMs:number,maxEvents=1000,entro
   if(s.paused){s.economy.economicThroughMs=toMs;break;}
   if(processed>=maxEvents){s.economy.revision++;return {state:s,backlog:true,processed};}
   if(!s.encounter){if(s.nextAt>=toMs){s.economy.economicThroughMs=toMs;break;}start(s,Math.max(s.nextAt,s.economy.economicThroughMs),1,undefined,entropy,frozenStats);}
-  const e=s.encounter!,before=e.combat.clockMs,r=advanceCombatV3(e.combat,toMs,Math.min(32,maxEvents-processed));e.combat=r.state;e.combatMs+=r.state.clockMs-before;processed+=r.processed;s.economy.economicThroughMs=r.state.clockMs;
+  const e=s.encounter!,before=e.combat.clockMs,r=advanceOwnedCombatV3(e.combat,toMs,Math.min(32,maxEvents-processed));e.combat=r.state;e.combatMs+=r.state.clockMs-before;processed+=r.processed;s.economy.economicThroughMs=r.state.clockMs;
   for(const actor of e.combat.actors.slice(1))if(actor.hp===0&&!e.rewarded.includes(actor.id)){e.rewarded.push(actor.id);loot(s,actor.id,e.combat.hits.filter(h=>h.target===actor.id&&h.damage>0).at(-1)!.at,entropy);}
   if(r.backlog){if(processed<maxEvents)continue;s.economy.revision++;return {state:EconomyRunV6Schema.parse(s),backlog:true,processed};}
   if(e.combat.status==='fighting')break;
@@ -105,7 +105,8 @@ export function advanceRunV6(input:EconomyRunV6,toMs:number,maxEvents=1000,entro
    start(s,s.nextAt,e.wave+1,hp,entropy,frozenStats);continue;
   }
   if(e.combat.status==='victory'){
-   const gained=mastery(s,e.combatMs,e.activity,e.floor,e.reference);s.economy.highest[e.activity]=Math.max(s.economy.highest[e.activity],e.floor);log(s,at,`Vitória ${e.activity} ${e.floor} · XP ${gained}ms`);
+   const qualifiedMs=e.combatMs+(e.activity==='main'&&e.floor%10!==0?6000:0);
+   const gained=mastery(s,qualifiedMs,e.activity,e.floor,e.reference);s.economy.highest[e.activity]=Math.max(s.economy.highest[e.activity],e.floor);log(s,at,`Vitória ${e.activity} ${e.floor} · XP ${gained}ms`);
    if(s.autoAdvance&&e.floor<1000){let next=e.floor+1;if(e.activity==='main'&&next%10===0&&next<=s.economy.highest.main)next=next<1000?next+1:e.floor;s.economy.floor=next;}
    // Already cleared bosses can never be farmed again.
    else if(e.activity==='main'&&e.floor%10===0)s.economy.floor=Math.max(1,e.floor-1);

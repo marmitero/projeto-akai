@@ -1,0 +1,303 @@
+{
+  "version": "campaign-v10-preliminary-observations-1",
+  "certifiesBalance": false,
+  "controlledABComparison": false,
+  "notes": [
+    "Original config2 baseline120days: best915, regular920, casual64. Controller bugs prevent a controlled balance comparison.",
+    "These observations are retained for transparency; all seven locked-controller final runs, including failures, are reported separately.",
+    "The original unoptimized and optimized config2 engine produced exactly equal first10daily snapshots at seed4213.",
+    "The rollover regression was reproduced against the previous controller:30!=60; corrected controller earns both weeks through real exclusive event presence."
+  ],
+  "rows": [
+    {
+      "fileLabel": "akai-campaign-optimized.json",
+      "rawSha256": "2fb83972f63a0863da173b56b9481bfec96f3567a7d75f7398bbd1cead57a447",
+      "sourceHash": null,
+      "config": "economy-v2-config-2",
+      "schedule": "best",
+      "build": "swift",
+      "seed": 4213,
+      "daysObserved": 120,
+      "level": 915,
+      "highest": {
+        "main": 927,
+        "coal": 1000,
+        "iron": 990,
+        "gold": 618
+      },
+      "firstMaxDay": null,
+      "firstTower1000Day": null,
+      "earnedScrolls": 78,
+      "refinements": {
+        "success": 1060,
+        "maintained": 24,
+        "regressed": 132,
+        "destroyed": 0
+      },
+      "censoredBeforeMax": true,
+      "excludedFromCertification": true,
+      "reason": "Preliminary controller incorrectly treated old weekly delivery=6 as current-week completion; corrected regression30!=60. Earlier casual controller also confused voluntary pause with defeat. Interrupted runs were stopped for controller fixes, not excluded as unlucky outcomes."
+    },
+    {
+      "fileLabel": "akai-campaign-regular-4213.json",
+      "rawSha256": "802e2baf93eca7df40114e35b7c99e2cb0868e33b078be642dcc0081ea499ef0",
+      "sourceHash": null,
+      "config": "economy-v2-config-2",
+      "schedule": "regular",
+      "build": "swift",
+      "seed": 4213,
+      "daysObserved": 120,
+      "level": 920,
+      "highest": {
+        "main": 928,
+        "coal": 730,
+        "iron": 638,
+        "gold": 622
+      },
+      "firstMaxDay": null,
+      "firstTower1000Day": null,
+      "earnedScrolls": 85,
+      "refinements": {
+        "success": 1042,
+        "maintained": 16,
+        "regressed": 145,
+        "destroyed": 0
+      },
+      "censoredBeforeMax": true,
+      "excludedFromCertification": true,
+      "reason": "Preliminary controller incorrectly treated old weekly delivery=6 as current-week completion; corrected regression30!=60. Earlier casual controller also confused voluntary pause with defeat. Interrupted runs were stopped for controller fixes, not excluded as unlucky outcomes."
+    },
+    {
+      "fileLabel": "akai-campaign-casual-4213.json",
+      "rawSha256": "b25ee3ea485ca02ce5eaf07f456eafb19d5833952645601f02c8c5cd4a6cbb8f",
+      "sourceHash": null,
+      "config": "economy-v2-config-2",
+      "schedule": "casual",
+      "build": "swift",
+      "seed": 4213,
+      "daysObserved": 120,
+      "level": 64,
+      "highest": {
+        "main": 7,
+        "coal": 12,
+        "iron": 30,
+        "gold": 0
+      },
+      "firstMaxDay": null,
+      "firstTower1000Day": null,
+      "earnedScrolls": 30,
+      "refinements": {
+        "success": 27,
+        "maintained": 2,
+        "regressed": 0,
+        "destroyed": 0
+      },
+      "censoredBeforeMax": true,
+      "excludedFromCertification": true,
+      "reason": "Preliminary controller incorrectly treated old weekly delivery=6 as current-week completion; corrected regression30!=60. Earlier casual controller also confused voluntary pause with defeat. Interrupted runs were stopped for controller fixes, not excluded as unlucky outcomes."
+    },
+    {
+      "fileLabel": "akai-final-balanced-4213.json",
+      "rawSha256": "fc10fba4a860942f961db4376705765e670d135158a3515214d23112ac91590d",
+      "sourceHash": "055721afbe3876cac433f05e6717ddc00e63d9e162bc352dfe81b5d6a24ec259",
+      "config": "economy-v2-config-3",
+      "schedule": "best",
+      "build": "balanced",
+      "seed": 4213,
+      "daysObserved": 79,
+      "level": 869,
+      "highest": {
+        "main": 859,
+        "coal": 920,
+        "iron": 850,
+        "gold": 764
+      },
+      "firstMaxDay": null,
+      "firstTower1000Day": null,
+      "earnedScrolls": 61,
+      "refinements": {
+        "success": 967,
+        "maintained": 22,
+        "regressed": 119,
+        "destroyed": 0
+      },
+      "censoredBeforeMax": true,
+      "excludedFromCertification": true,
+      "reason": "Preliminary controller incorrectly treated old weekly delivery=6 as current-week completion; corrected regression30!=60. Earlier casual controller also confused voluntary pause with defeat. Interrupted runs were stopped for controller fixes, not excluded as unlucky outcomes."
+    },
+    {
+      "fileLabel": "akai-final-best-1.json",
+      "rawSha256": "af51e8d7528127e47e2ea01370b17c777e7ac583ef7a1e85040134b5ad009741",
+      "sourceHash": "055721afbe3876cac433f05e6717ddc00e63d9e162bc352dfe81b5d6a24ec259",
+      "config": "economy-v2-config-3",
+      "schedule": "best",
+      "build": "swift",
+      "seed": 1,
+      "daysObserved": 72,
+      "level": 858,
+      "highest": {
+        "main": 869,
+        "coal": 938,
+        "iron": 866,
+        "gold": 571
+      },
+      "firstMaxDay": null,
+      "firstTower1000Day": null,
+      "earnedScrolls": 57,
+      "refinements": {
+        "success": 959,
+        "maintained": 23,
+        "regressed": 109,
+        "destroyed": 0
+      },
+      "censoredBeforeMax": true,
+      "excludedFromCertification": true,
+      "reason": "Preliminary controller incorrectly treated old weekly delivery=6 as current-week completion; corrected regression30!=60. Earlier casual controller also confused voluntary pause with defeat. Interrupted runs were stopped for controller fixes, not excluded as unlucky outcomes."
+    },
+    {
+      "fileLabel": "akai-final-best-3735928559.json",
+      "rawSha256": "17f44a1b0fc32deb274ab7203a938571813053503d77096665e1d426b2794a0f",
+      "sourceHash": "055721afbe3876cac433f05e6717ddc00e63d9e162bc352dfe81b5d6a24ec259",
+      "config": "economy-v2-config-3",
+      "schedule": "best",
+      "build": "swift",
+      "seed": 3735928559,
+      "daysObserved": 72,
+      "level": 857,
+      "highest": {
+        "main": 866,
+        "coal": 992,
+        "iron": 953,
+        "gold": 576
+      },
+      "firstMaxDay": null,
+      "firstTower1000Day": null,
+      "earnedScrolls": 55,
+      "refinements": {
+        "success": 1044,
+        "maintained": 30,
+        "regressed": 158,
+        "destroyed": 0
+      },
+      "censoredBeforeMax": true,
+      "excludedFromCertification": true,
+      "reason": "Preliminary controller incorrectly treated old weekly delivery=6 as current-week completion; corrected regression30!=60. Earlier casual controller also confused voluntary pause with defeat. Interrupted runs were stopped for controller fixes, not excluded as unlucky outcomes."
+    },
+    {
+      "fileLabel": "akai-final-best-4213.json",
+      "rawSha256": "9b956176e3f48717963302b4184a457a2b17b33098c7f69110379cd38fd925b8",
+      "sourceHash": "055721afbe3876cac433f05e6717ddc00e63d9e162bc352dfe81b5d6a24ec259",
+      "config": "economy-v2-config-3",
+      "schedule": "best",
+      "build": "swift",
+      "seed": 4213,
+      "daysObserved": 71,
+      "level": 854,
+      "highest": {
+        "main": 849,
+        "coal": 931,
+        "iron": 862,
+        "gold": 561
+      },
+      "firstMaxDay": null,
+      "firstTower1000Day": null,
+      "earnedScrolls": 62,
+      "refinements": {
+        "success": 966,
+        "maintained": 20,
+        "regressed": 118,
+        "destroyed": 0
+      },
+      "censoredBeforeMax": true,
+      "excludedFromCertification": true,
+      "reason": "Preliminary controller incorrectly treated old weekly delivery=6 as current-week completion; corrected regression30!=60. Earlier casual controller also confused voluntary pause with defeat. Interrupted runs were stopped for controller fixes, not excluded as unlucky outcomes."
+    },
+    {
+      "fileLabel": "akai-final-brute-4213.json",
+      "rawSha256": "6f38960df24674feaa2bd775f5ceb58a559af6655b781ae3bd9a73263856eb6e",
+      "sourceHash": "055721afbe3876cac433f05e6717ddc00e63d9e162bc352dfe81b5d6a24ec259",
+      "config": "economy-v2-config-3",
+      "schedule": "best",
+      "build": "brute",
+      "seed": 4213,
+      "daysObserved": 83,
+      "level": 879,
+      "highest": {
+        "main": 879,
+        "coal": 945,
+        "iron": 872,
+        "gold": 797
+      },
+      "firstMaxDay": null,
+      "firstTower1000Day": null,
+      "earnedScrolls": 64,
+      "refinements": {
+        "success": 926,
+        "maintained": 18,
+        "regressed": 113,
+        "destroyed": 0
+      },
+      "censoredBeforeMax": true,
+      "excludedFromCertification": true,
+      "reason": "Preliminary controller incorrectly treated old weekly delivery=6 as current-week completion; corrected regression30!=60. Earlier casual controller also confused voluntary pause with defeat. Interrupted runs were stopped for controller fixes, not excluded as unlucky outcomes."
+    },
+    {
+      "fileLabel": "akai-final-casual-4213.json",
+      "rawSha256": "32e72fb8e144b596a68f7de0986bcedef8d08cf778666078fca28a35d364ffc8",
+      "sourceHash": "055721afbe3876cac433f05e6717ddc00e63d9e162bc352dfe81b5d6a24ec259",
+      "config": "economy-v2-config-3",
+      "schedule": "casual",
+      "build": "swift",
+      "seed": 4213,
+      "daysObserved": 120,
+      "level": 711,
+      "highest": {
+        "main": 719,
+        "coal": 763,
+        "iron": 703,
+        "gold": 425
+      },
+      "firstMaxDay": null,
+      "firstTower1000Day": null,
+      "earnedScrolls": 51,
+      "refinements": {
+        "success": 903,
+        "maintained": 26,
+        "regressed": 121,
+        "destroyed": 0
+      },
+      "censoredBeforeMax": true,
+      "excludedFromCertification": true,
+      "reason": "Preliminary controller incorrectly treated old weekly delivery=6 as current-week completion; corrected regression30!=60. Earlier casual controller also confused voluntary pause with defeat. Interrupted runs were stopped for controller fixes, not excluded as unlucky outcomes."
+    },
+    {
+      "fileLabel": "akai-final-regular-4213.json",
+      "rawSha256": "bd81b7ac8a8fa820f8d7e0365cbeb67b273cf650cfa58225e1a4acc86cec8afe",
+      "sourceHash": "055721afbe3876cac433f05e6717ddc00e63d9e162bc352dfe81b5d6a24ec259",
+      "config": "economy-v2-config-3",
+      "schedule": "regular",
+      "build": "swift",
+      "seed": 4213,
+      "daysObserved": 76,
+      "level": 864,
+      "highest": {
+        "main": 849,
+        "coal": 919,
+        "iron": 863,
+        "gold": 571
+      },
+      "firstMaxDay": null,
+      "firstTower1000Day": null,
+      "earnedScrolls": 66,
+      "refinements": {
+        "success": 1002,
+        "maintained": 27,
+        "regressed": 129,
+        "destroyed": 0
+      },
+      "censoredBeforeMax": true,
+      "excludedFromCertification": true,
+      "reason": "Preliminary controller incorrectly treated old weekly delivery=6 as current-week completion; corrected regression30!=60. Earlier casual controller also confused voluntary pause with defeat. Interrupted runs were stopped for controller fixes, not excluded as unlucky outcomes."
+    }
+  ]
+}

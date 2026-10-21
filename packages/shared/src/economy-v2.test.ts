@@ -13,6 +13,7 @@ describe('economy v2 inactive contracts',()=>{
   });
   it('has one starter instance, zero inherited resources and gates gear by mastery',()=>{
     const s=initialEconomyV2(id(1),1234);
+    expect(()=>EconomyV2Schema.parse({...s,configVersion:'economy-v2-config-2'})).toThrow();
     expect(Object.values(s.balances)).toEqual(['0','0','0','0','0']);
     expect(canEquipV2(s,s.inventory[0]!.id)).toBe(true);
     s.inventory[0]!.level=100;expect(canEquipV2(s,s.inventory[0]!.id)).toBe(false);

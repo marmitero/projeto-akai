@@ -38,21 +38,33 @@ export function startCombatV3(hero:CombatStatsV3,enemies:{id:string;stats:Combat
 export function advanceCombatV3(input:CombatV3,toMs:number,maxEvents=10000){
   CombatV3Schema.parse(input);time.parse(toMs);z.number().int().min(1).max(100000).parse(maxEvents);
   if(toMs<input.clockMs)throw Error('COMBAT_CLOCK_REWIND');
-  const s=structuredClone(input);let processed=0;
+  const result=advanceOwnedCombatV3(structuredClone(input),toMs,maxEvents);
+  if(!result.backlog)result.state=CombatV3Schema.parse(result.state);return result;
+}
+const ownedDamageCache=new WeakMap<CombatV3,Map<string,number>>();
+/** Internal hot loop: caller owns a validated clone. Never use on caller-owned snapshots. */
+export function advanceOwnedCombatV3(s:CombatV3,toMs:number,maxEvents:number){
+  let processed=0;
+  let damages=ownedDamageCache.get(s);if(!damages){damages=new Map();ownedDamageCache.set(s,damages);}
   while(s.status==='fighting'){
-    const hero=s.actors[0]!,alive=s.actors.slice(1).filter(a=>a.hp>0);
-    if(hero.hp===0){s.status='defeat';break;}if(!alive.length){s.status='victory';break;}
-    const due=s.actors.map((a,i)=>({a,i})).filter(x=>x.a.hp>0).sort((a,b)=>a.a.nextAt-b.a.nextAt||a.i-b.i)[0]!;
+    const hero=s.actors[0]!;
+    if(hero.hp===0){s.status='defeat';break;}
+    let firstAlive=-1,dueIndex=0;
+    for(let i=1;i<s.actors.length;i++){const a=s.actors[i]!;if(a.hp<=0)continue;if(firstAlive<0)firstAlive=i;if(a.nextAt<s.actors[dueIndex]!.nextAt)dueIndex=i;}
+    if(firstAlive<0){s.status='victory';break;}
+    const due={a:s.actors[dueIndex]!,i:dueIndex};
     // Deadline is exclusive: an attack at the exact deadline cannot rescue the fight.
     if(s.deadlineMs!==null&&s.deadlineMs<=Math.min(toMs,due.a.nextAt)){s.clockMs=s.deadlineMs;s.status='timeout';break;}
     if(due.a.nextAt>toMs){s.clockMs=toMs;break;}
     if(processed>=maxEvents)return {state:s,backlog:true,processed};
     s.clockMs=due.a.nextAt;
-    const target=due.i===0?alive[0]!:hero;
+    const target=due.i===0?s.actors[firstAlive]!:hero;
     const hit=roll(s)<hitChancePpm(due.a.stats,target.stats),critical=hit&&roll(s)<due.a.stats.criticalPpm;
-    const damage=hit?Math.min(target.hp,attackDamageV3(due.a.stats,target.stats,s.equivalentFloor,critical)):0;
+    const key=due.i+'/'+(due.i===0?firstAlive:0)+'/'+critical;
+    if(hit&&!damages.has(key))damages.set(key,attackDamageV3(due.a.stats,target.stats,s.equivalentFloor,critical));
+    const damage=hit?Math.min(target.hp,damages.get(key)!):0;
     target.hp-=damage;due.a.nextAt+=due.a.stats.intervalMs;s.sequence++;processed++;
     s.hits.push({sequence:s.sequence,at:s.clockMs,attacker:due.a.id,target:target.id,hit,critical,damage});if(s.hits.length>64)s.hits.shift();
   }
-  return {state:CombatV3Schema.parse(s),backlog:false,processed};
+  return {state:s,backlog:false,processed};
 }
