@@ -124,3 +124,15 @@ Somente modo sandbox instala POST `/api/v1/premium/sandbox` com `{intentId}`: em
 ### Identidade compacta do cabeçalho (polimento P2)
 
 `GET /api/v1/community/identity`, com a mesma sessão/header de leitura, devolve `{name,guild?}` apenas da conta autenticada. É uma leitura sem concessões, criação de perfil ou atualização de presença: não avança combate nem renova boss/raid. O cabeçalho consulta a cada15s enquanto visível; a comunidade aberta conserva seu fluxo próprio. Alteração de nick continua usando o comando `profile` idempotente existente. Não há novo armazenamento de saldo, endpoint administrativo ou migração.
+
+## V13/V14 — ensaio autenticado isolado
+
+Rotas abaixo existem somente com V13_HTTP_TEST/V13_TEST_DATABASE e banco isolado local/LAN não production. Não substituem as rotas legadas acima nem migram saldos.
+
+- GET `/api/v1/test-v2/state`: sessão determina conta/run; DTO próprio, eventos e mercado canônicos. Economia em transação REPEATABLE READ READ ONLY, sem presença ou ganhos. Sem parâmetros de conta/run/realm. Mercado: anúncios públicos elegíveis e resgates próprios, ofertas/histórico somente das partes; IDs privados de run/realm não são transmitidos. Expiração projetada pelo relógio do servidor.
+- POST `/api/v1/test-v2/events` e `/economy`: envelope strict `{commandId,expectedRevision,action}`; intenções nativas de evento e economia, sem close administrativo. Conflitos retornam recibos rejeitados; valores, tempo, dano e RNG são autoritativos.
+- POST `/api/v1/test-v2/market`: mesmo envelope e regras MarketV2CommandSchema. `list.item`, `list.resource`, `buy`, `offer`, `offer.accept/reject/withdraw`, `cancel`, `claim`, `sync`. Preço/quantidade são strings de milésimos; somente Coin precifica, materiais carvão/ferro/ouro. Conta/run/mercado derivam da sessão e dos pins fixados pelo operador; nenhum ID de ator/realm no payload. Mercado precisa de bind-market com roster exatoV13 de2–20runs.
+
+Mesmos cookies HttpOnly, Origin/header CSRF e limites HTTP; comandos v2 compartilham limite60/min/sessão. Escritores revalidam sessão após locks e antes de replay. Aplicado e processamento parcial retornam recibo; recusa de domínio422 com commandId/status/code, conteúdo divergente no mesmo UUID409; erros de autenticação401/403. Sem pin de mercado409; flags off404. Backlog confirma progresso limitado, sem executar a compra/anúncio; nova intenção somente após concluir e revisar. Resposta desconhecida deve repetir o mesmo UUID/payload. Uma recusa stale exige atualização e nova decisão, sem compra automática.
+
+Operação/limites em [authenticated-market-v14/IMPLEMENTATION.md](plans/hunts-builds/authenticated-market-v14/IMPLEMENTATION.md). Economia real, +16–20 e monetização continuam desativados.

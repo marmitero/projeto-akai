@@ -76,10 +76,17 @@ describe.skipIf(!url)('V14 authenticated market on the canonical test wallet',()
   await db.pool.query('INSERT INTO akai_profiles(account_id,name,joined_at,suspended) VALUES($1,$2,$3,true)',[users[0]!.accountId,'V14seller',now]);expect((await act(1,{type:'buy',listingId:l.id})).json().code).toBe('ACCOUNT_SUSPENDED');await db.pool.query('UPDATE akai_profiles SET suspended=false WHERE account_id=$1',[users[0]!.accountId]);
   expect((await service.command(users[0]!.token,await input(0,{type:'join',mode:'protection'}))).status).toBe('applied');expect((await act(1,{type:'buy',listingId:l.id})).json().code).toBe('EVENT_ACTIVITY_ACTIVE');await reconciled();
  });
- it('rechecks a revoked session after locks even on a queued receipt replay',async()=>{
+ it.each(['session','member'])('rechecks revoked %s access after locks even on a queued receipt replay',async(kind)=>{
   const body=await input(0,{type:'sync'});await post(0,body);const before=await market.inspect(realm),hold=await db.pool.connect();await hold.query('BEGIN');await hold.query('SELECT id FROM akai_market_v2_realms WHERE id=$1 FOR UPDATE',[realm]);
   let seen!:()=>void;const resolved=new Promise<void>(r=>{seen=r;});const identity=online.identity.bind(online);vi.spyOn(online,'identity').mockImplementation(async(token,c)=>{const id=await identity(token,c);seen();return id;});const pending=post(0,body);
-  try{await resolved;await db.pool.query('UPDATE akai_sessions SET revoked=true WHERE account_id=$1',[users[0]!.accountId]);await hold.query('COMMIT');expect((await pending).statusCode).toBe(401);}finally{await hold.query('ROLLBACK');hold.release();}expect(await market.inspect(realm)).toEqual(before);
+  try{await resolved;if(kind==='session')await db.pool.query('UPDATE akai_sessions SET revoked=true WHERE account_id=$1',[users[0]!.accountId]);else await service.setEnabled(users[0]!.accountId,false);await hold.query('COMMIT');expect((await pending).statusCode).toBe(kind==='session'?401:403);}finally{await hold.query('ROLLBACK');hold.release();}expect(await market.inspect(realm)).toEqual(before);
+ });
+ it('samples market time after a queued lock and cannot rewind its persisted cursor',async()=>{
+  const body=await input(0,{type:'sync'}),hold=await db.pool.connect();await hold.query('BEGIN');await hold.query('SELECT id FROM akai_market_v2_realms WHERE id=$1 FOR UPDATE',[realm]);const pending=post(0,body);
+  try{
+   let waiting=false;for(let i=0;i<200;i++){const r=await base.pool.query("SELECT 1 FROM pg_stat_activity WHERE application_name=$1 AND wait_event_type='Lock' AND query LIKE 'SELECT state FROM akai_market_v2_realms%'",[schema]);if(r.rowCount){waiting=true;break;}await new Promise(r=>setTimeout(r,10));}expect(waiting).toBe(true);
+   now+=10000;const book=(await hold.query('SELECT state FROM akai_market_v2_realms WHERE id=$1',[realm])).rows[0].state;book.clockMs=now+10000;await hold.query('UPDATE akai_market_v2_realms SET state=$2 WHERE id=$1',[realm,book]);await hold.query('COMMIT');expect((await pending).json().status).toBe('applied');expect((await market.inspect(realm)).book.clockMs).toBe(book.clockMs);await reconciled();
+  }finally{await hold.query('ROLLBACK');hold.release();}
  });
  it('rolls back transfer, fees, ledger and receipt on outbox failure and safely retries',async()=>{
   const l=await listing(),body=await input(1,{type:'buy',listingId:l.id}),before=await market.inspect(realm);
