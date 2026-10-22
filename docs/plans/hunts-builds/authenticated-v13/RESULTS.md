@@ -22,11 +22,24 @@ Testes novos cobrem configuração fail-closed, propriedade da conta, DTO sem se
 
 Smoke de navegador usa duas sessões e viewports desktop/mobile: ingresso real pela UI, uma morte/broadcast compartilhado, Jade privada após tempo de combate autoritativo, carteira Jade legada intacta e nenhuma chave privada/overflow. O relógio acelerado existe apenas no processo do teste; não é rota nem payload disponível ao cliente.
 
-Local: tipos/check completo aprovado (169 testes e132PG omitidos antes do oitavo caso SQL), onze testes integrados anteriores também passaram isoladamente. Uma primeira rodada local teve timeout por carga no teste integrado legado; repetição dirigida e check completo passaram sem alterar esse teste ou ampliar seu limite. Campanhas V10, mercado V11 e população V12 foram reproduzidos sem mudança nos artefatos/fontes compartilhadas. A primeira CI passou os302testes comPostgreSQL16/sem skips e os replays, mas o novo smoke avançou o relógio20s sem renovar lease15s e o servidor recusou corretamente o heartbeat. Sequência do ensaio corrigida para renovar em10s antes dos avanços seguintes; cliente também refaz até3vezes somente heartbeat/sync/settle após revisão obsoleta, mantendo compras/treinos sem retry automático; runtime de presença preservado. Nova CI completa em execução; não declarar aprovação remota antes do fechamento.
+### Resultado final
+
+Candidato `f370e682ac32c6d6ff82c79bc07e9de1ff6341ac`, árvore `e18bf4710bcfb5690f8345e172b5b484a054dcd4`, PR23: https://github.com/marmitero/projeto-akai/pull/23.
+
+- CI [39762989855](https://github.com/marmitero/projeto-akai/actions/runs/39762989855): success.303testes/35arquivos, PostgreSQL16, sem skips; incluem10casos novos (1configuração e9SQL).
+- Windows [39762990067](https://github.com/marmitero/projeto-akai/actions/runs/39762990067): success; verificações BAT/LAN preservadas.
+- Testes Node adicionais:6campanha,1integridade,4liquidez,4população e4rede. Auditorias e replays V10/V11/V12 passaram, sem mudança nas fontes compartilhadas ou artefatos certificados.
+- Browser dev e build/preview: duas sessões, desktop/mobile, mesma autoridade, um broadcast, retry seguro após revisão obsoleta, DTO redigido e Jade isolada. Ambos imprimiram todas as verificações authenticatedV13 como true. Regressões anteriores também passaram. Sem teste em aparelho Android físico.
+
+O primeiro smoke remoto identificou erro no driver: avançava20s sem renovar lease15s; a recusa do servidor era correta. Corrigido para renovar em10s antes dos avanços seguintes. A revisão também cobriu disputa de revisão entre sessões: somente heartbeat/sync/settle repetem com atualização de estado, no máximo três vezes; compras/treinos não repetem automaticamente. Regressão SQL adicional força espera pelo lock enquanto outro escritor adianta o mundo; clock amostrado depois do lock impede recuo.
+
+Localmente, um check anterior passou169testes/132skipsPG. Rodadas posteriores sob carga tiveram timeouts em testes integrados legados; limites e testes não foram afrouxados. Tipos e testes dirigidos passaram. A evidência final completa é a CI do candidato acima, com PostgreSQL e sem skips.
+
+O fechamento posterior modifica somente IMPLEMENTATION.md, RESULTS.md e AI_STATE.md, sem alterar código, SQL, scripts, testes ou JSON. Esta aprovação cobre o ensaio autenticado limitado, não população pública, migração ou ativação econômica.
 
 ## Sequência
 
-1. Validar PostgreSQL/HTTP/browser e publicar esta etapa, mantendo flags off.
+1. Publicar o candidato validado, mantendo flags off.
 2. Completar consumidores autenticados de mercado/arena/guilda/temporadas em etapas delimitadas, usando a mesma identidade e carteira, sem reativar fontes antigas no v2.
 3. Resolver janela competitiva/HP/Jade/refino e pendências deCoin/build; ampliar autoridade/retencão/capacidade com ensaio entre instâncias e orçamento de prêmios único.
 4. Ensaio de corte/backup/reconciliação/rollback e playtest gratuito; depois revisão de ativação. Monetização por último.

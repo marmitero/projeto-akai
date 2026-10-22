@@ -1,6 +1,6 @@
 # Fase 4 — consumidores autenticados e autoridade única de eventos (V13)
 
-Implementação concluída; validação remota em andamento. Entrega HTTP autenticado de teste para progresso v2 e eventos, com uma única autoridade canônica por banco de ensaio. Não migra contas reais, não ativa economia v2/+16–20/monetização e não certifica capacidade de milhares de jogadores.
+Implementação e validação remota concluídas na PR23. Entrega HTTP autenticado de teste para progresso v2 e eventos, com uma única autoridade canônica por banco de ensaio. Não migra contas reais, não ativa economia v2/+16–20/monetização e não certifica capacidade de milhares de jogadores.
 
 ## Contratos
 
@@ -20,7 +20,7 @@ Mais → Ensaio online v2, somente no modo online quando auth/config anuncia o t
 ## Operação em banco isolado
 
 1. `npm run build` e migrations usuais (`npm run db:migrate -w @akai/server`).
-2. Criar runs privados para as contas de teste com a CLI `economy-rehearsal-cli.js stage --account UUID`; progredir no ensaio antes dos andares exigidos. Sem atribuir equipamento/fundos sintéticos a conta real.
+2. Criar runs privados para as contas de teste com a CLI `economy-rehearsal-cli.js stage --account UUID`; progredir no ensaio antes dos andares exigidos (boss: torre principal100; proteção: torre principal1). Sem atribuir equipamento/fundos sintéticos a conta real.
 3. `node apps/server/dist/boss-events-v8-cli.js stage --file private-run-ids.json`; roster1–20 e contas distintas.
 4. `node apps/server/dist/authenticated-v13-cli.js bind --realm UUID`; depois `disable --account UUID` ou `enable --account UUID` quando necessário. O realm não pode ser substituído depois do bind.
 5. Habilitar as duas variáveis de teste no `.env` do banco isolado e iniciar `servidor.bat`. Entrar com a mesma conta autenticada incluída no roster e abrir o menu. Contas não incluídas recebem403; servidor sem flags retorna404. Não criar fixtures sintéticas pelas rotas públicas.
@@ -28,3 +28,7 @@ Mais → Ensaio online v2, somente no modo online quando auth/config anuncia o t
 ## Validação exigida
 
 Configuração fail-closed; sessão ausente/revogada, não membro e tentativa de escolher outro personagem; nenhuma chave seed/secret/arquivo fonte no DTO; pin de autoridade única; presença/dano autoritativos; uma morte/prêmio/broadcast entre duas sessões; replay sem duplicação; revogação enquanto aguarda lock, inclusive replay de recibo; rollback de outbox sem débito/crédito parcial; carteira legada preservada. Browser desktop/mobile em dev/build, mesmo HP e broadcast, Jade isolada, sem overflow. Campanhas V10/mercado V11/população V12 precisam continuar reproduzíveis.
+
+## Evidência de fechamento
+
+Candidato `f370e682ac32c6d6ff82c79bc07e9de1ff6341ac`, árvore `e18bf4710bcfb5690f8345e172b5b484a054dcd4`: CI39762989855 e Windows39762990067 aprovadas. São303testes/35arquivos com PostgreSQL16 sem skips, replays V10/V11/V12 e browser dev/preview desktop/mobile. Evidências e limites em RESULTS.md. Fechamento posterior altera somente três documentos; código validado preservado.
