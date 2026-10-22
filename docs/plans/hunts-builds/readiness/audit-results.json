@@ -1,5 +1,5 @@
 {
-  "version": "economy-readiness-3",
+  "version": "economy-readiness-4",
   "consumers": {
     "gate": "validated-private-unified-consumers-acquired-campaign-sampled",
     "earlyAccounts": 18,
@@ -86,7 +86,47 @@
       "production-cutover-closeout-and-consumer-migration",
       "coupled-liquidity/concentration/legacy-population-review"
     ],
-    "interpretation": "V2 isolated adapter exists; live legacy market remains unchanged. Legacy closeout is a verifiable receipt rehearsal, not executed refunds. Fixed-build income exposes provisional listing-fee affordability; cohort liquidity not approved."
+    "interpretation": "V11 replays acquired wallets with real additional loot/material supply and exact transaction/refinement reconciliation. Small policy-dependent slices do not approve population liquidity, Coin sink equilibrium, early access or activation; live legacy market remains unchanged.",
+    "acquiredLiquidity": {
+      "evidence": "liquidity-v11/results.json",
+      "sourceHash": "54639e3c351a41e1cce8c42eacd4b56b7da4d6832db0def491aafc1b51b74e58",
+      "integrityPassed": true,
+      "liquidityApproved": false,
+      "towerOnly": [
+        {
+          "priceMultiplier": 0.25,
+          "trades": 4,
+          "burnShare": 0.000004361265449176162
+        },
+        {
+          "priceMultiplier": 1,
+          "trades": 4,
+          "burnShare": 0.000005958070377187004
+        },
+        {
+          "priceMultiplier": 4,
+          "trades": 3,
+          "burnShare": 0.000010120491869972091
+        }
+      ],
+      "specialized": [
+        {
+          "priceMultiplier": 0.25,
+          "trades": 19,
+          "burnShare": 0.00004650386437189054
+        },
+        {
+          "priceMultiplier": 1,
+          "trades": 18,
+          "burnShare": 0.00012863259082209264
+        },
+        {
+          "priceMultiplier": 4,
+          "trades": 2,
+          "burnShare": 0.000020277728131665228
+        }
+      ]
+    }
   },
   "offline": {
     "gate": "validated-isolated-r7-runtime",
@@ -122,7 +162,7 @@
     "interpretation": "R8 writer and tower are covered by acquired V10 samples; collective population, other build/gear policies, public consumers and cutover remain unapproved."
   },
   "next": [
-    "Review v2 market liquidity with earned wallets; campaign sample passed, activation remains blocked",
+    "Resolve V11 Coin stock/sinks, useful-item conversion and physical build blockers; sampled market integrity passed, liquidity remains blocked",
     "Review coupled v2 market liquidity/concentration and execute legacy transition only at authorized cutover",
     "Validate R8 population/concentration and integrate live social consumers at cutover",
     "Re-run coupled economy cohorts and free-player playtest before cutover"

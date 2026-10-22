@@ -40,7 +40,9 @@
     "test:browser:premium": "npm run build && node scripts/smoke-premium.mjs",
     "test:browser:premium:preview": "VITE_GAME_MODE=online npm run build && node scripts/smoke-premium.mjs --preview",
     "simulate:campaign": "npm run build:shared && node scripts/economy-v2/campaign.mjs",
-    "test:campaign": "npm run build:shared && node --test scripts/tests/campaign.test.mjs"
+    "test:campaign": "npm run build:shared && node --test scripts/tests/campaign.test.mjs",
+    "test:liquidity": "npm run build:shared && node --test scripts/tests/liquidity.test.mjs",
+    "audit:liquidity": "npm run build:shared && node scripts/economy-v2/audit-liquidity.mjs --verify"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
