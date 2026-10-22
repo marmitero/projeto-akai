@@ -24,7 +24,7 @@ export function createAuthenticatedGuildsV16(host:HTMLElement,options:{view:()=>
    const select=$<HTMLSelectElement>('[data-v16-player]'),selected=select.value;select.replaceChildren(...g.players.filter(p=>!p.inGuild).map(p=>{const o=document.createElement('option');o.value=p.accountId;o.textContent=`${p.name} (${p.accountId.slice(0,8)})`;return o;}));if(g.players.some(p=>p.accountId===selected&&!p.inGuild))select.value=selected;
    $('[data-v16-outgoing]').replaceChildren(...g.outgoing.map(i=>{const p=document.createElement('p');p.append(document.createTextNode(`${i.name} (${i.accountId.slice(0,8)}) `),button('Revogar',{type:'revoke',accountId:i.accountId}));return p;}));
    if(editorGuild!==own.id){editorGuild=own.id;pixels=[...own.emblem];paint();}
-   $('[data-v16-chat]').replaceChildren(...g.chat.map(m=>{const p=document.createElement('p');p.dataset.v16Message=m.id;p.textContent=`${m.name} (${m.authorId.slice(0,8)}): ${m.text}`;return p;}));
+   $('[data-v16-chat]').replaceChildren(...g.chat.map(m=>{const p=document.createElement('p');p.dataset.v16ChatId=m.id;p.textContent=`${m.name} (${m.authorId.slice(0,8)}): ${m.text}`;return p;}));
    $('[data-v16-history]').replaceChildren(...g.history.map(h=>{const p=document.createElement('p');p.textContent=`+${h.amount} XP · ${h.source}`;return p;}));
   }else{editorGuild='';for(const selector of ['[data-v16-chat]','[data-v16-members]','[data-v16-outgoing]','[data-v16-history]','[data-v16-badge]','[data-v16-emblem]'])$(selector).replaceChildren();}
   controls();if(!g.eligible||BigInt(v.consumer.balances.coin)<500000n)$<HTMLButtonElement>('[data-v16-create]').disabled=true;
