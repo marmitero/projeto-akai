@@ -77,4 +77,4 @@ Concluída no ensaio: PR26,354testes/40arquivos PG16 sem skips,16SQL+3contrato n
 
 ## Fase 8 — temporadas autenticadas V17
 
-Em validação na PR27: calendário Brasília, acompanhamento explícito sem retroatividade, fechamento com guarda de arena/vínculo, arquivo imutável arena/guildas e Coin nativo único por semana/fonte/conta. [Contrato](authenticated-seasons-v17/IMPLEMENTATION.md). Boss/dano diário/guerra/bônus de domínio continuam próximas fatias; não importar XP legado. Gates de ativação permanecem.
+Concluída no ensaio de arena/guildas, PR27,369testes/42arquivosPG16 sem skips, CI39842436517/Windows39842436246 e browser dev/preview aprovados: calendário Brasília, acompanhamento explícito sem retroatividade, fechamento com guarda de arena/vínculo, arquivo imutável arena/guildas e Coin nativo único por semana/fonte/conta. [Contrato](authenticated-seasons-v17/IMPLEMENTATION.md). Boss/dano diário/guerra/bônus de domínio continuam próximas fatias; não importar XP legado. Gates de ativação permanecem.

@@ -1,8 +1,6 @@
-Estado em andamento: [V17 temporadas autenticadas](plans/hunts-builds/authenticated-seasons-v17/IMPLEMENTATION.md), PR27 em validação. V16 abaixo é a última entrega concluída.
-
 # Documentação do Projeto Akai
 
-Estado atual da reforma: R2–R8 e V9–V16 entregues em contratos/laboratórios/ensaios. A [Fase7/V16 — guildas autenticadas](plans/hunts-builds/authenticated-guilds-v16/RESULTS.md) integra gestão/chat/brasão/evolução e XP nativo da arena à identidade/carteira v2, com354testes PostgreSQL e CI/Windows/browser aprovados. Economia real, +16–20 e monetização permanecem desativados. Próximo: temporadas/arquivo/fechamento e integrações de guilda de boss/guerra/bônus sob calendário/calibragem. [AI_STATE](../AI_STATE.md) registra o estado canônico.
+Estado atual da reforma: R2–R8 e V9–V17 entregues em contratos/laboratórios/ensaios. A [Fase8/V17 — temporadas autenticadas](plans/hunts-builds/authenticated-seasons-v17/RESULTS.md) integra calendário Brasília, arquivo arena/guildas e prêmios Coin únicos à carteira v2, com369testes PostgreSQL e CI/Windows/browser dev/preview aprovados. Economia real,+16–20 e monetização permanecem desativados. Próximo: arquivo diário/XP de boss, guerra, bônus calibrados e playtest gratuito. [AI_STATE](../AI_STATE.md) registra o estado canônico.
 
 Planejamento original da reforma: [reforma de hunts, atributos/builds e fortalecimento](plans/hunts-builds/PROPOSAL.md), [roadmap](plans/hunts-builds/ROADMAP.md) e [referências/modelo](plans/hunts-builds/CURVE_MODEL.md). O comportamento atual do jogo permanece nos relatórios publicados.
 
@@ -71,3 +69,6 @@ Android: [guia de teste LAN](MOBILE_TEST.md), [implementação/evidências](MOBI
 
 - [Guildas autenticadas V16 — contrato e operação](plans/hunts-builds/authenticated-guilds-v16/IMPLEMENTATION.md)
 - [Guildas V16 — evidências e limites](plans/hunts-builds/authenticated-guilds-v16/RESULTS.md)
+
+- [Temporadas autenticadas V17 — contrato e operação](plans/hunts-builds/authenticated-seasons-v17/IMPLEMENTATION.md)
+- [Temporadas V17 — evidências e limites](plans/hunts-builds/authenticated-seasons-v17/RESULTS.md)
