@@ -1455,3 +1455,6 @@ progress {
 #iv9-log {max-height:160px;overflow:auto;font-size:11px;padding-left:22px;}
 #iv9-item-info {font-size:11px;}
 #iv9-attributes button {max-width:100%;white-space:normal;text-align:left;}
+
+#authenticated-v13 {width:min(96vw,780px);max-height:92dvh;padding:0;overflow:auto;}
+#authenticated-v13 p,#authenticated-v13 li {overflow-wrap:anywhere;}

@@ -1,3 +1,4 @@
+import { createAuthenticatedV13 } from "./ui/authenticated-v13.js";
 import { createBestiaryUI } from "./ui/bestiary.js";
 import { enemyTemplate } from "@akai/shared";
 import { createEconomyPreview } from "./ui/economy-preview.js";
@@ -113,6 +114,7 @@ async function boot(): Promise<void> {
   const combatLab = createCombatLab(root!);
   const refinementLab = createRefinementLab(root!);
   const economyPreview = createEconomyPreview(root!);
+  const authenticatedV13 = createAuthenticatedV13(root!,online);
   const battleGlobal = createBattleGlobal(root!, online);
   const bossBroadcast = createBossBroadcast(root!, online);
   const communityUI = createCommunityUI(
@@ -672,6 +674,7 @@ async function boot(): Promise<void> {
     combatLab.destroy();
     refinementLab.destroy();
     economyPreview.destroy();
+    authenticatedV13.destroy();
     marketUI.destroy();
     premiumUI.destroy();
     repository?.close();

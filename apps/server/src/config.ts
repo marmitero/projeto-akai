@@ -1,5 +1,7 @@
 import { z } from "zod";
 const ConfigSchema = z.object({
+  V13_HTTP_TEST: z.enum(["true", "false"]).default("false").transform(x => x === "true"),
+  V13_TEST_DATABASE: z.enum(["true", "false"]).default("false"),
   LAN_PREVIEW: z.enum(["true", "false"]).default("false").transform(x => x === "true"),
   NODE_ENV: z
     .enum(["development", "test", "production"])
@@ -69,5 +71,7 @@ export function parseServerConfig(
     )
       throw Error("PLAY_TEST_CONFIGURATION_REQUIRED");
   }
+  if (config.V13_HTTP_TEST && (config.NODE_ENV === 'production' || config.V13_TEST_DATABASE !== 'true' || !config.DATABASE_URL || config.MONETIZATION_MODE !== 'off' || !['127.0.0.1','localhost','::1'].includes(config.HOST) || (!config.LAN_PREVIEW && !['localhost','127.0.0.1','[::1]'].includes(origin.hostname))))
+    throw Error('V13_REQUIRES_ISOLATED_LOCAL_TEST_DATABASE');
   return config;
 }
