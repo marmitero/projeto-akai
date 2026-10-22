@@ -1,6 +1,6 @@
 # V18 — arquivo diário do boss e XP de guilda
 
-Em implementação no ensaio V13 canônico. Economia real,+16–20,monetização e activationReady permanecemoff. Núcleo compartilhado R8/Jade/HP/combate/tempo qualificado não é alterado. SQL013 e subpath shared/boss-archive-v18 acrescentam arquivo durável antes de substituir a edição, fonte própria de XP de guilda e ranking semanal de dano sem prêmio adicional.
+Implementada e validada no ensaio V13 canônico; [evidências finais](RESULTS.md). Economia real,+16–20,monetização e activationReady permanecemoff. Núcleo compartilhado R8/Jade/HP/combate/tempo qualificado não é alterado. SQL013 e subpath shared/boss-archive-v18 acrescentam arquivo durável antes de substituir a edição, fonte própria de XP de guilda e ranking semanal de dano sem prêmio adicional.
 
 Primeira entrada autenticada no boss registra vínculo/instante de entrada na guilda e dano já existente como baseline. Guilda deve estar ativa e vínculo anteceder o primeiro instante do dia de Brasília; entrada sem vínculo não se torna elegível ao trocar de guilda depois. Ao fechar, exige mesma guilda e mesmo joined_at, conta canônica admitida/não suspensa/runaberta. Dano anterior à captura, overkill, contribuição pós-morte e proteção não rendem XP. Arquivo mantém dano efetivo e contribuição separados.
 
