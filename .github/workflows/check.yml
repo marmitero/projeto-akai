@@ -5,7 +5,7 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     services:
       postgres:
         image: postgres:16
@@ -65,6 +65,8 @@ jobs:
       - run: node --test scripts/tests/campaign-audit.test.mjs
       - run: node --test scripts/tests/liquidity.test.mjs
       - run: node scripts/economy-v2/audit-liquidity.mjs --verify
+      - run: node --test scripts/tests/population.test.mjs
+      - run: node scripts/economy-v2/audit-population.mjs --verify
       - run: node scripts/economy-v2/audit-readiness.mjs
       - run: node scripts/simulate-loop.mjs
       - run: node scripts/simulate-rpg.mjs

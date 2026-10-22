@@ -54,3 +54,7 @@ A amostra de campanha completa foi executada em[campaign-v10/RESULTS.md](campaig
 ## Fase 2 — liquidez adquirida (V11)
 
 Ensaio reproduzível publicado em[liquidity-v11/RESULTS.md](liquidity-v11/RESULTS.md): sete carteiras conquistadas, oferta por combate/hunts e seis sensibilidades de produção/preço, transações e refinos pagos com reconciliação exata. Integridade aprovada; liquidez de população, equilíbrio deCoin e utilidade adquirida ainda exigem calibragem. Força segue bloqueada no encontro final. A próxima fase é população do boss/Jade; os bloqueios V11 continuam obrigatórios antes da ativação. Não confundir conclusão da auditoria com aprovação econômica.
+
+## Fase 3 — população e Jade (V12)
+
+[population-v12/RESULTS.md](population-v12/RESULTS.md) avalia combate nativo de1–20atores com atributos conquistados, concentração/chegadas tardias, HPs hipotéticos e teto de emissão global versus coortes independentes. Integridade não equivale a população pública aprovada; valores3/escada200–20/último250 e runtime intactos. Próxima fase: consumidores autenticados e autoridade global de edição/conta/HP/ranking/grants; depois capacidade, corte/backup/rollback, calibragem/playtest e revisão de ativação. Bloqueios deCoin/mercado/Força/Jade extremo permanecem, monetização por último.
