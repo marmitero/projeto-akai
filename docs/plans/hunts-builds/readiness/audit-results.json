@@ -1,5 +1,5 @@
 {
-  "version": "economy-readiness-4",
+  "version": "economy-readiness-5",
   "consumers": {
     "gate": "validated-private-unified-consumers-acquired-campaign-sampled",
     "earlyAccounts": 18,
@@ -159,7 +159,21 @@
       "population/alt-concentration-and-coupled-high-end/market-balance"
     ],
     "highRefinementLocked": true,
-    "interpretation": "R8 writer and tower are covered by acquired V10 samples; collective population, other build/gear policies, public consumers and cutover remain unapproved."
+    "interpretation": "V12 native1–20 cohorts use recorded acquired V10 stats. Damage/reward reconciliation passed, but rapid endgame kills, globally unique HP/ranking/reward authority, owner concentration, grant retention, Jade/refinement coupling and public authenticated consumers remain blocked. Large-population projections are accounting ceilings, not throughput or rollout approval.",
+    "acquiredPopulation": {
+      "evidence": "population-v12/results.json",
+      "sourceHash": "7fec168f8af89696e813209fc925324541947542086bdb04ede4ea94b66e30b7",
+      "integrityPassed": true,
+      "populationApproved": false,
+      "nativeCohortLimit": 20,
+      "lateTwentyKillMs": [
+        17742,
+        17616,
+        17858
+      ],
+      "competitiveBeforeBaseQualification": true,
+      "globalRewardBudgetPending": true
+    }
   },
   "next": [
     "Resolve V11 Coin stock/sinks, useful-item conversion and physical build blockers; sampled market integrity passed, liquidity remains blocked",

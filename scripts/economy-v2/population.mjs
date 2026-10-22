@@ -68,7 +68,7 @@ export async function experiment(){
  }
  const mixed=Array.from({length:20},(_,i)=>member((i<5?early:i<15?middle:late)[i%7],i,{joinMs:i<5?0:i<15?60000:300000}));
  run('staggered-entry-middle-late',mixed,{durationMs:1300000});
- run('lease-expired',Array.from({length:20},(_,i)=>member(late[i%7],i,{heartbeatUntilMs:0}))); 
+ run('lease-expired',Array.from({length:20},(_,i)=>member(late[i%7],i,{heartbeatUntilMs:0})));
  run('leave-and-rejoin',Array.from({length:7},(_,i)=>member(late[i],i,{leaveMs:100000,rejoinMs:500000})),{durationMs:1300000});
  run('10-account-coalition',Array.from({length:20},(_,i)=>member(late[i%7],i,{owner:i<10?'coalition':`independent-${i}`})));
  const hpSensitivity=[];

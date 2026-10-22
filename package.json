@@ -42,7 +42,9 @@
     "simulate:campaign": "npm run build:shared && node scripts/economy-v2/campaign.mjs",
     "test:campaign": "npm run build:shared && node --test scripts/tests/campaign.test.mjs",
     "test:liquidity": "npm run build:shared && node --test scripts/tests/liquidity.test.mjs",
-    "audit:liquidity": "npm run build:shared && node scripts/economy-v2/audit-liquidity.mjs --verify"
+    "audit:liquidity": "npm run build:shared && node scripts/economy-v2/audit-liquidity.mjs --verify",
+    "test:population": "npm run build:shared && node --test scripts/tests/population.test.mjs",
+    "audit:population": "npm run build:shared && node scripts/economy-v2/audit-population.mjs --verify"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

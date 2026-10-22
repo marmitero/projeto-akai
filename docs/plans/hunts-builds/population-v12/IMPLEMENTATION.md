@@ -20,4 +20,4 @@ Simulação privada com o motor R8 e atributos efetivamente registrados nas camp
 
 Este script usa apenas funções públicas puras compartilhadas. O adaptador PostgreSQL ainda é privado e limitado a20runs; a simulação não entrega autorização pública, coordenação global de shards, detecção de contas alternativas, migração ou capacidade de produção. Regras/recompensas/curvas do runtime permanecem idênticas, preservando os fingerprints V10/V11.
 
-Estado: ensaio em execução; fechamento e decisões em RESULTS.md. Integridade técnica não aprova automaticamente população pública, fonte/consumo de Jade ou ativação.
+Estado: ensaio executado; fechamento e decisões em RESULTS.md. Integridade técnica não aprova automaticamente população pública, fonte/consumo de Jade ou ativação.
