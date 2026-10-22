@@ -1,3 +1,4 @@
+import {creditArenaGuildV16} from './guilds-v16.js';
 import {ArenaV15CommandSchema,ARENA_V15_RULES,duelV15,type ArenaV15View} from '@akai/shared/arena-v15';
 import {createHash,createHmac,randomInt,randomUUID} from 'node:crypto';
 import type {PoolClient} from 'pg';
@@ -30,6 +31,7 @@ export class ArenaV15Service {
  async command(actorRun:string,input:unknown){
   const cmd=ArenaV15CommandSchema.parse(input),hash=createHash('sha256').update(canonicalJson(cmd)).digest('hex');
   return this.db.transaction(async c=>{
+   await c.query('SELECT pg_advisory_xact_lock(41652016)');
    await c.query('SELECT pg_advisory_xact_lock(41652015)');
    const world=(await c.query('SELECT revision,clock_ms FROM akai_arena_v15_world FOR UPDATE')).rows[0],rows=await this.roster(c,true),actor=rows.find(r=>r.id===actorRun);rule(actor,'V13_NOT_ENROLLED');
    if(this.authorize)await this.authorize(c,actor!.account_id);
@@ -74,6 +76,7 @@ export class ArenaV15Service {
      else await c.query('UPDATE akai_arena_v15_entries SET trophies=GREATEST(0,trophies-10) WHERE season_id=$1 AND account_id=$2',[season.id,actor!.account_id]);
      await c.query('INSERT INTO akai_arena_v15_players VALUES($1,$2) ON CONFLICT(account_id) DO UPDATE SET next_at=$2',[actor!.account_id,now+60000]);
      await c.query('INSERT INTO akai_arena_v15_matches VALUES($1,$2,$3,$4,$5,$6,$7)',[id,season.id,actor!.account_id,defender!.account_id,now,outcome.won,{config:ARENA_V15_RULES.version,seed,floor,attackerStats:statsA,defenderStats:statsB,attackerRevision:Number(actor!.revision),defenderRevision:Number(defender!.revision),attackerPosition:own,defenderPosition:other,result:outcome}]);
+     if(outcome.won)await creditArenaGuildV16(c,actor!.account_id,id,now);
      changed.add(defender!.id);arenaRevision++;result={status:'applied',code:'OK',revision:Number(actor!.revision)+1,arenaRevision,matchId:id};
     }
    }catch(e){
