@@ -1,5 +1,6 @@
 import {randomUUID,createHash,createHmac} from 'node:crypto';
 import {z} from 'zod';
+import type {PoolClient} from 'pg';
 import {initialBossEventsV8,BossEventsV8Schema,advanceBossEventsV8,joinBossEventV8,heartbeatBossEventV8,leaveBossEventV8,heroStatsV3,EconomyRunV6Schema,settleElapsedV7} from '@akai/shared';
 import {canonicalJson} from './economy-migration.js';
 import type {Database} from './database.js';
@@ -8,7 +9,7 @@ const Command=z.object({commandId:z.uuid(),expectedRevision:z.number().int().non
 const rule=(ok:unknown,code:string)=>{if(!ok)throw Error(code);};
 /** Private operator adapter. Clock, stats, seeds, damage and grants never come from clients. */
 export class BossEventsV8Service{
- constructor(readonly db:Database,readonly clock=()=>Date.now()){}
+ constructor(readonly db:Database,readonly clock=()=>Date.now(),readonly authorize?:(c:PoolClient,accountId:string)=>Promise<void>){}
  async stage(input:string[],requestId:string){const ids=z.array(z.uuid()).min(1).max(20).parse(input).sort();z.uuid().parse(requestId);rule(new Set(ids).size===ids.length,'DUPLICATE_RUN');return this.db.transaction(async c=>{
   await c.query('SELECT pg_advisory_xact_lock(41652011)');const old=(await c.query('SELECT id,roster_hash FROM akai_boss_v8_realms WHERE request_id=$1',[requestId])).rows[0];if(old){rule(old.roster_hash===hash(ids),'REQUEST_ID_REUSED');return {id:old.id,created:false};}
   const rows=(await c.query('SELECT id,account_id,closed FROM akai_economy_rehearsals WHERE id=ANY($1::uuid[]) ORDER BY id FOR UPDATE',[ids])).rows;rule(rows.length===ids.length&&!rows.some(r=>r.closed),'INVALID_MEMBER');rule(new Set(rows.map(r=>r.account_id)).size===ids.length,'DUPLICATE_ACCOUNT');
@@ -16,8 +17,10 @@ export class BossEventsV8Service{
  });}
  async command(realmId:string,actor:string,input:unknown){z.uuid().parse(realmId);z.uuid().parse(actor);const now=this.clock(),cmd=Command.parse(input),payloadHash=hash({realmId,actor,cmd});return this.db.transaction(async c=>{
   const realm=(await c.query('SELECT state FROM akai_boss_v8_realms WHERE id=$1 FOR UPDATE',[realmId])).rows[0];rule(realm,'EVENT_REALM_NOT_FOUND');
-  const prior=(await c.query('SELECT payload_hash,result FROM akai_boss_v8_commands WHERE run_id=$1 AND command_id=$2',[actor,cmd.commandId])).rows[0];if(prior){rule(prior.payload_hash===payloadHash,'COMMAND_ID_REUSED');return prior.result;}
+
   const rows=(await c.query('SELECT r.* FROM akai_economy_rehearsals r JOIN akai_boss_v8_members m ON m.run_id=r.id WHERE m.realm_id=$1 ORDER BY r.id FOR UPDATE OF r',[realmId])).rows,row=rows.find(r=>r.id===actor);rule(row,'MEMBER_NOT_FOUND');
+  if(this.authorize)await this.authorize(c,row.account_id);
+  const prior=(await c.query('SELECT payload_hash,result FROM akai_boss_v8_commands WHERE run_id=$1 AND command_id=$2',[actor,cmd.commandId])).rows[0];if(prior){rule(prior.payload_hash===payloadHash,'COMMAND_ID_REUSED');return prior.result;}
   const before=Object.fromEntries(rows.map(r=>[r.id,EconomyRunV6Schema.parse(r.state)])),runs=structuredClone(before),book=BossEventsV8Schema.parse(realm.state);let state=book;
   let result:{status:string;code:string;revision:number};const revision=Number(row.revision)+1;
   if(row.closed||cmd.expectedRevision!==Number(row.revision))result={status:'rejected',code:row.closed?'REHEARSAL_CLOSED':'STALE_REVISION',revision};

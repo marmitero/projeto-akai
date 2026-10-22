@@ -1,0 +1,30 @@
+# Fase 4 — consumidores autenticados e autoridade única de eventos (V13)
+
+Etapa em implementação/validação. Entrega HTTP autenticado de teste para progresso v2 e eventos, com uma única autoridade canônica por banco de ensaio. Não migra contas reais, não ativa economia v2/+16–20/monetização e não certifica capacidade de milhares de jogadores.
+
+## Contratos
+
+- SQL008 fixa um único realm R8 em `akai_v13_world`, imutável; operador vincula o roster existente por CLI. Identidade conta→run fica fixa e única; somente enabled permite retirar/restaurar acesso. Não há autoinscrição, escolha de sala, cópia de HP/prêmio ou reset público.
+- HTTP desligado por padrão; habilitação exige `V13_HTTP_TEST=true`, `V13_TEST_DATABASE=true`, DATABASE_URL, NODE_ENV não production, API em loopback, origem local ou LAN_PREVIEW permitido, monetização off. Não habilitar em banco real. Migração cria somente tabelas vazias.
+- GET `/api/v1/test-v2/state`: sessão existente, projeção permitida do próprio run/carteira/inventário/stats e ranking/HP/broadcast da autoridade canônica. Consulta econômica REPEATABLE READ READ ONLY; não liquida farm nem cria presença/recompensas. Não aceita account/run/realm em query. Contadores antiabuso HTTP continuam escrevendo seus próprios registros.
+- POST `/api/v1/test-v2/events`: `{commandId,expectedRevision,action}`; action é join boss/protection, heartbeat, leave ou sync. Mesmos cookies HttpOnly, origem/CSRF, limites e envelope de erro do servidor. Clock, stats, dano e seeds nunca vêm do cliente.
+- Resolução inicial por sessão é repetida dentro da transação R8 depois dos locks, antes de consultar recibos antigos. A sessão e a autorização do membro ficam bloqueadas em leitura durante a escrita; revogação enquanto o pedido aguarda não entrega recompensa nem recibo a sessão inválida.
+- Escrita reutiliza os mesmos runs, revisões, ledger/outbox/grants/broadcast R8. Uma pool canônica, um HP e uma escada por edição, compartilhados pelas sessões admitidas; salas privadas adicionais não são selecionáveis pelo HTTP. Replay/idempotência, exclusividade v2 e rollback continuam no motor existente.
+- Limite inicial permanece20participantes e snapshot até10000grants. Não é sharding público ou retenção/capacidade definitiva. A CLI privada R8 ainda serve outros ensaios, sem transformá-los em novas edições públicas. O operador deve usar somente a pool canônica neste teste autenticado.
+- Consumidores de economia/mercado são leitura; comandos gerais de economia/mercado, arena, guilda e temporadas permanecem etapas seguintes. A conta atual continua legada e separada; nunca somar essa carteira ao ensaio.
+
+## Cliente
+
+Mais → Ensaio online v2, somente no modo online. Exibe saldo próprio, HP/qualificação, ranking e broadcast; entra/sai do boss ou proteção e permite continuar processamento limitado. Heartbeats acontecem apenas com a janela aberta e página visível. Fechar/ocultar interrompe a presença após o lease; GET não concede presença. Dados de nomes/mensagens usam textContent. A prévia local existente permanece independente.
+
+## Operação em banco isolado
+
+1. `npm run build` e migrations usuais (`npm run db:migrate -w @akai/server`).
+2. Criar runs privados para as contas de teste com a CLI `economy-rehearsal-cli.js stage --account UUID`; progredir no ensaio antes dos andares exigidos. Sem atribuir equipamento/fundos sintéticos a conta real.
+3. `node apps/server/dist/boss-events-v8-cli.js stage --file private-run-ids.json`; roster1–20 e contas distintas.
+4. `node apps/server/dist/authenticated-v13-cli.js bind --realm UUID`; depois `disable --account UUID` ou `enable --account UUID` quando necessário. O realm não pode ser substituído depois do bind.
+5. Habilitar as duas variáveis de teste no `.env` do banco isolado e iniciar `servidor.bat`. Entrar com a mesma conta autenticada incluída no roster e abrir o menu. Contas não incluídas recebem403; servidor sem flags retorna404. Não criar fixtures sintéticas pelas rotas públicas.
+
+## Validação exigida
+
+Configuração fail-closed; sessão ausente/revogada, não membro e tentativa de escolher outro personagem; nenhuma chave seed/secret/arquivo fonte no DTO; pin de autoridade única; presença/dano autoritativos; uma morte/prêmio/broadcast entre duas sessões; replay sem duplicação; revogação enquanto aguarda lock, inclusive replay de recibo; rollback de outbox sem débito/crédito parcial; carteira legada preservada. Browser desktop/mobile em dev/build, mesmo HP e broadcast, Jade isolada, sem overflow. Campanhas V10/mercado V11/população V12 precisam continuar reproduzíveis.

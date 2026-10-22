@@ -1,5 +1,6 @@
 import type { FastifyInstance, FastifyRequest } from "fastify";
 import { z } from "zod";
+import { authenticatedV13Routes } from "./authenticated-v13-routes.js";
 import { premiumRoutes } from "./premium-routes.js";
 import { marketRoutes } from "./market-routes.js";
 import { communityRoutes } from "./community-routes.js";
@@ -44,6 +45,7 @@ export async function onlineRoutes(
       throw new OnlineError("ORIGIN_REJECTED", 403);
     await service.authLimit(`http:${req.ip}`, 600);
   });
+  if(config.V13_HTTP_TEST)await authenticatedV13Routes(app,service);
   await communityRoutes(app, service);
   await marketRoutes(app, service);
   await premiumRoutes(app, service, config);
