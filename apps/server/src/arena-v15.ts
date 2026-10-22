@@ -1,3 +1,4 @@
+import {seasonOpenV17} from './seasons-v17.js';
 import {creditArenaGuildV16} from './guilds-v16.js';
 import {ArenaV15CommandSchema,ARENA_V15_RULES,duelV15,type ArenaV15View} from '@akai/shared/arena-v15';
 import {createHash,createHmac,randomInt,randomUUID} from 'node:crypto';
@@ -45,7 +46,7 @@ export class ArenaV15Service {
    const changed=new Set<string>([actorRun]);let arenaRevision=Number(world.revision),result:Receipt;
    await c.query('SAVEPOINT arena_action');
    try{
-    rule(cmd.expectedRevision===Number(actor!.revision),'STALE_REVISION');rule(cmd.arenaRevision===arenaRevision,'STALE_ARENA_REVISION');rule(cmd.seasonId===season.id,'ARENA_SEASON_CHANGED');rule(this.eligible(actor!),'COMPLETE_FLOOR_FIVE');
+    rule(await seasonOpenV17(c,now),'SEASON_CLOSE_REQUIRED');rule(cmd.expectedRevision===Number(actor!.revision),'STALE_REVISION');rule(cmd.arenaRevision===arenaRevision,'STALE_ARENA_REVISION');rule(cmd.seasonId===season.id,'ARENA_SEASON_CHANGED');rule(this.eligible(actor!),'COMPLETE_FLOOR_FIVE');
     const eventRows=(await c.query('SELECT state FROM akai_boss_v8_realms WHERE id IN (SELECT realm_id FROM akai_boss_v8_members WHERE run_id=ANY($1::uuid[]))',[rows.map(r=>r.id)])).rows;
     const active=new Set<string>(eventRows.flatMap(e=>Object.entries(e.state.sessions).filter(([,s]:[string,any])=>s.active).map(([id])=>id)));
     rule(!active.has(actor!.account_id),'EVENT_ACTIVITY_ACTIVE');

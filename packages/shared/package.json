@@ -1,6 +1,31 @@
 {
-  "name": "@akai/shared", "version": "0.1.0", "private": true, "type": "module",
-  "exports": {"./guilds-v16": {"types": "./dist/guilds-v16/index.d.ts", "import": "./dist/guilds-v16/index.js"}, ".": {"types": "./dist/index.d.ts", "import": "./dist/index.js"}, "./arena-v15": {"types": "./dist/arena-v15/index.d.ts", "import": "./dist/arena-v15/index.js"}},
-  "scripts": {"build": "tsc -p tsconfig.json", "typecheck": "tsc -p tsconfig.json --noEmit"},
-  "dependencies": {"zod": "^4.0.0"}
+  "name": "@akai/shared",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./guilds-v16": {
+      "types": "./dist/guilds-v16/index.d.ts",
+      "import": "./dist/guilds-v16/index.js"
+    },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./arena-v15": {
+      "types": "./dist/arena-v15/index.d.ts",
+      "import": "./dist/arena-v15/index.js"
+    },
+    "./seasons-v17": {
+      "types": "./dist/seasons-v17/index.d.ts",
+      "import": "./dist/seasons-v17/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "zod": "^4.0.0"
+  }
 }

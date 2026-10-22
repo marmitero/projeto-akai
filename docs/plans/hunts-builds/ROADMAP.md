@@ -74,3 +74,7 @@ Concluída para ensaio isolado: [contrato](authenticated-arena-v15/IMPLEMENTATIO
 ## Fase 7 — guildas autenticadas V16
 
 Concluída no ensaio: PR26,354testes/40arquivos PG16 sem skips,16SQL+3contrato novos,19Node e CI39833412716/Windows39833412946/browser dev/preview aprovados. [contrato](authenticated-guilds-v16/IMPLEMENTATION.md), [evidências](authenticated-guilds-v16/RESULTS.md). Gestão/chat privado/brasão/evolução com mesma identidade/carteira e XP nativo de arena. Sem grants/bonificações de personagem ou migração das guildas reais. Próximo: temporadas/arquivo/fechamento e integrações de guilda restantes sob calendário/calibragem, preservando gates de ativação.
+
+## Fase 8 — temporadas autenticadas V17
+
+Concluída no ensaio de arena/guildas, PR27,369testes/42arquivosPG16 sem skips, CI39842436517/Windows39842436246 e browser dev/preview aprovados: calendário Brasília, acompanhamento explícito sem retroatividade, fechamento com guarda de arena/vínculo, arquivo imutável arena/guildas e Coin nativo único por semana/fonte/conta. [Contrato](authenticated-seasons-v17/IMPLEMENTATION.md). Boss/dano diário/guerra/bônus de domínio continuam próximas fatias; não importar XP legado. Gates de ativação permanecem.

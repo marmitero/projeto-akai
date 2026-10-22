@@ -74,6 +74,7 @@ jobs:
       - run: node scripts/simulate-market.mjs
       - run: node scripts/simulate-monetization.mjs
       - run: npx playwright install --with-deps chromium
+      - run: node scripts/smoke-authenticated-seasons-v17.mjs
       - run: node scripts/smoke-authenticated-guilds-v16.mjs
       - run: node scripts/smoke-combat-lab.mjs
       - run: node scripts/smoke-combat-lab.mjs --preview
@@ -105,3 +106,4 @@ jobs:
       - run: node scripts/smoke-authenticated-market-v14.mjs --preview
       - run: node scripts/smoke-authenticated-arena-v15.mjs --preview
       - run: node scripts/smoke-authenticated-guilds-v16.mjs --preview
+      - run: node scripts/smoke-authenticated-seasons-v17.mjs --preview
