@@ -26,3 +26,5 @@ Ao alterar decisão, criar sucessor ou histórico explícito; atualizar GDD/API/
 - [ADR-014 — Guildas autenticadas no ensaio v2](0014-authenticated-guilds-v16.md).
 
 - [ADR-015 — Fechamento de temporadas autenticadas v2](0015-authenticated-seasons-v17.md).
+
+- [ADR-016 — Arquivo diário e XP de guilda do boss v2](0016-boss-archive-guild-v18.md).

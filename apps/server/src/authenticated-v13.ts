@@ -1,3 +1,4 @@
+import {readBossArchiveV18} from './boss-archive-v18.js';
 import {SeasonsV17Service} from './seasons-v17.js';
 import {GuildsV16Service} from './guilds-v16.js';
 import {z} from 'zod';
@@ -59,7 +60,7 @@ export class AuthenticatedV13Service {
    const own=economyConsumersV9(EconomyRunV6Schema.parse(row.state),undefined,book,m.run).market!;
    consumer.market={...own,listings:own.listings.filter(l=>l.seller===m.run||eligible(l.seller)).map(l=>({...l,seller:publicId(l.seller)})),offers:own.offers.map(o=>({...o,buyer:publicId(o.buyer)})),trades:own.trades.map(t=>({...t,buyer:publicId(t.buyer),seller:publicId(t.seller)}))};
   }
-  return {version:'authenticated-v13-1',rehearsalOnly:true,liveAccountModified:false,capacity:20,revision:Number(row.revision),consumer,seasons:await new SeasonsV17Service(this.online.db,this.online.clock).read(c,m.account),guilds:await new GuildsV16Service(this.online.db,this.online.clock).read(c,m.account),arena:await new ArenaV15Service(this.online.db,this.online.clock).read(c,m.account)};
+  return {version:'authenticated-v13-1',rehearsalOnly:true,liveAccountModified:false,capacity:20,revision:Number(row.revision),consumer,bossArchive:await readBossArchiveV18(c,m.realm,m.account,this.online.clock()),seasons:await new SeasonsV17Service(this.online.db,this.online.clock).read(c,m.account),guilds:await new GuildsV16Service(this.online.db,this.online.clock).read(c,m.account),arena:await new ArenaV15Service(this.online.db,this.online.clock).read(c,m.account)};
  });}
  async command(token:string,input:unknown,kind:'events'|'economy'|'market'|'arena'|'guilds'|'seasons'='events'){
   if(kind==='economy')z.object({commandId:z.uuid(),expectedRevision:z.number().int().nonnegative().safe(),action:z.union([EconomyActionV6Schema,z.object({type:z.literal('settle')}).strict()])}).strict().parse(input);

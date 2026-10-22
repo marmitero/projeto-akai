@@ -1,3 +1,4 @@
+import {advanceArchivedBossV18,bindBossGuildV18,closeBossArchiveV18} from './boss-archive-v18.js';
 import {randomUUID,createHash,createHmac} from 'node:crypto';
 import {z} from 'zod';
 import type {PoolClient} from 'pg';
@@ -16,19 +17,23 @@ export class BossEventsV8Service{
   const id=randomUUID();await c.query('INSERT INTO akai_boss_v8_realms VALUES($1,$2,$3,$4)',[id,requestId,hash(ids),initialBossEventsV8(this.clock())]);for(const r of rows)await c.query('INSERT INTO akai_boss_v8_members VALUES($1,$2,$3)',[id,r.id,r.account_id]);return {id,created:true};
  });}
  async command(realmId:string,actor:string,input:unknown){z.uuid().parse(realmId);z.uuid().parse(actor);const cmd=Command.parse(input),payloadHash=hash({realmId,actor,cmd});return this.db.transaction(async c=>{
+  await c.query('SELECT pg_advisory_xact_lock(41652016)');
+  const canonical=!!(await c.query('SELECT 1 FROM akai_v13_world WHERE realm_id=$1',[realmId])).rowCount;
   const realm=(await c.query('SELECT state FROM akai_boss_v8_realms WHERE id=$1 FOR UPDATE',[realmId])).rows[0];rule(realm,'EVENT_REALM_NOT_FOUND');
 
   const rows=(await c.query('SELECT r.* FROM akai_economy_rehearsals r JOIN akai_boss_v8_members m ON m.run_id=r.id WHERE m.realm_id=$1 ORDER BY r.id FOR UPDATE OF r',[realmId])).rows,row=rows.find(r=>r.id===actor);rule(row,'MEMBER_NOT_FOUND');
   if(this.authorize)await this.authorize(c,row.account_id);
   const prior=(await c.query('SELECT payload_hash,result FROM akai_boss_v8_commands WHERE run_id=$1 AND command_id=$2',[actor,cmd.commandId])).rows[0];if(prior){rule(prior.payload_hash===payloadHash,'COMMAND_ID_REUSED');return prior.result;}
-  const now=Math.max(this.clock(),Number(realm.state.clockMs));
+  if(canonical)await c.query('SELECT account_id FROM akai_v13_members WHERE run_id=ANY($1::uuid[]) ORDER BY account_id FOR SHARE',[rows.map(r=>r.id)]);
+  const clocks=canonical?(await c.query('SELECT clock_ms FROM akai_guild_v16_world UNION ALL SELECT clock_ms FROM akai_arena_v15_world UNION ALL SELECT clock_ms FROM akai_season_v17_world')).rows:[];
+  const now=Math.max(this.clock(),Number(realm.state.clockMs),...clocks.map(r=>Number(r.clock_ms)));
   const before=Object.fromEntries(rows.map(r=>[r.id,EconomyRunV6Schema.parse(r.state)])),runs=structuredClone(before),book=BossEventsV8Schema.parse(realm.state);let state=book;
   let result:{status:string;code:string;revision:number};const revision=Number(row.revision)+1;
   if(row.closed||cmd.expectedRevision!==Number(row.revision))result={status:'rejected',code:row.closed?'REHEARSAL_CLOSED':'STALE_REVISION',revision};
   else{
    const profiles=(await c.query('SELECT account_id,name,suspended FROM akai_profiles WHERE account_id=ANY($1::uuid[])',[rows.map(r=>r.account_id)])).rows;
-   for(const m of Object.values(state.daily.members)){const p=profiles.find(x=>x.account_id===m.accountId);m.suspended=!!p?.suspended;}
-   const advanced=advanceBossEventsV8(state,now,30);state=advanced.state;
+   for(const m of Object.values(state.daily.members)){const p=profiles.find(x=>x.account_id===m.accountId);m.suspended=!!p?.suspended||(canonical&&!(await c.query('SELECT 1 FROM akai_v13_members m JOIN akai_economy_rehearsals r ON r.id=m.run_id WHERE m.account_id=$1 AND m.enabled AND NOT r.closed',[m.accountId])).rowCount);}
+   const advanced=canonical?await advanceArchivedBossV18(state,now,s=>closeBossArchiveV18(c,realmId,s,now)):advanceBossEventsV8(state,now,30);state=advanced.state;
    for(const r of rows)if(book.sessions[r.account_id]?.active){runs[r.id]!.economy.economicThroughMs=Math.max(runs[r.id]!.economy.economicThroughMs,state.clockMs);runs[r.id]!.encounter=null;runs[r.id]!.nextAt=state.clockMs+3000;}
    if(advanced.backlog)result={status:'settling',code:'EVENT_BACKLOG',revision};
    else{
@@ -39,7 +44,7 @@ export class BossEventsV8Service{
       const entropy=(key:string,bound:number)=>{const limit=Math.floor(4294967296/bound)*bound;for(let i=0;;i++){const n=createHmac('sha256',Buffer.from(row.secret,'hex')).update(key+'/'+i).digest().readUInt32BE(0);if(n<limit)return n%bound;}};
       const settled=settleElapsedV7(run,now,1000,entropy);runs[actor]=settled.state;
       if(settled.backlog)result={status:'settling',code:'SETTLEMENT_BACKLOG',revision};
-      else{state=joinBossEventV8(state,{accountId:account,name:(p?.name??'Viajante').slice(0,24),highestFloor:settled.state.economy.highest.main,suspended:!!p?.suspended},action.mode,heroStatsV3(settled.state.economy),1+entropy('event/'+cmd.commandId,4294967295));runs[actor]!.encounter=null;runs[actor]!.nextAt=now+3000;result={status:'applied',code:'OK',revision};}
+      else{state=joinBossEventV8(state,{accountId:account,name:(p?.name??'Viajante').slice(0,24),highestFloor:settled.state.economy.highest.main,suspended:!!p?.suspended},action.mode,heroStatsV3(settled.state.economy),1+entropy('event/'+cmd.commandId,4294967295));if(canonical&&this.authorize&&action.mode==='boss')await bindBossGuildV18(c,realmId,account,state);runs[actor]!.encounter=null;runs[actor]!.nextAt=now+3000;result={status:'applied',code:'OK',revision};}
      }else{if(action.type==='heartbeat')state=heartbeatBossEventV8(state,account);else if(action.type==='leave')state=leaveBossEventV8(state,account);result={status:'applied',code:'OK',revision};}
     }catch(e){result={status:'rejected',code:e instanceof Error?e.message:'INVALID_ACTION',revision};}
    }
@@ -52,6 +57,7 @@ export class BossEventsV8Service{
    for(const k of ['coin','coal','iron','gold','jade','protection','masteryMs'] as const){const v=(s:typeof run)=>BigInt(k==='masteryMs'?s.economy.masteryMs:k==='protection'?s.economy.protection:s.economy.balances[k]),balance=v(run),delta=balance-v(old);if(delta)await c.query('INSERT INTO akai_economy_rehearsal_ledger VALUES($1,$2,$3,$4,$5)',[r.id,rev,k,String(delta),String(balance)]);}
    await c.query('UPDATE akai_economy_rehearsals SET state=$2,revision=$3 WHERE id=$1',[r.id,run,rev]);await c.query('INSERT INTO akai_economy_rehearsal_events VALUES($1,$2,$3,$4)',[r.id,rev,randomUUID(),{kind:'event-v8',realmId,...result}]);
   }
+  if(canonical)await c.query('UPDATE akai_guild_v16_world SET clock_ms=GREATEST(clock_ms,$1)',[now]);
   await c.query('UPDATE akai_boss_v8_realms SET state=$2 WHERE id=$1',[realmId,state]);await c.query('INSERT INTO akai_boss_v8_commands VALUES($1,$2,$3,$4,$5)',[actor,cmd.commandId,realmId,payloadHash,result]);await c.query('INSERT INTO akai_boss_v8_events VALUES($1,$2,$3,$4,$5)',[randomUUID(),realmId,actor,cmd.commandId,{...result,action:cmd.action.type}]);return result;
  });}
  async inspect(realmId:string){z.uuid().parse(realmId);const row=(await this.db.pool.query('SELECT state FROM akai_boss_v8_realms WHERE id=$1',[realmId])).rows[0];rule(row,'EVENT_REALM_NOT_FOUND');return BossEventsV8Schema.parse(row.state);}

@@ -1,3 +1,4 @@
+import {bossCloseRequiredV18,seasonBossRankingV18} from './boss-archive-v18.js';
 import {createHash,randomUUID} from 'node:crypto';
 import type {PoolClient} from 'pg';
 import {EconomyRunV6Schema} from '@akai/shared';
@@ -25,7 +26,8 @@ export class SeasonsV17Service {
   // Sample only after all writer locks; guild/arena clocks participate in the common watermark.
   const clocks=(await c.query('SELECT clock_ms FROM akai_guild_v16_world UNION ALL SELECT clock_ms FROM akai_arena_v15_world')).rows;
   const now=Math.max(this.clock(),Number(w.clock_ms),...clocks.map(r=>Number(r.clock_ms))),revision=Number(actor.revision)+1;
-  const stale=cmd.expectedRevision!==Number(actor.revision)?'STALE_REVISION':cmd.seasonRevision!==Number(w.revision)?'STALE_SEASON_REVISION':null;
+  let stale=cmd.expectedRevision!==Number(actor.revision)?'STALE_REVISION':cmd.seasonRevision!==Number(w.revision)?'STALE_SEASON_REVISION':null;
+  if(!stale&&w.period&&now>=w.period.end&&await bossCloseRequiredV18(c,now,w.period.end))stale='BOSS_CLOSE_REQUIRED';
   const grants=new Map<string,bigint>();let period=w.period,seasonRevision=Number(w.revision),closed:string|null=null;
   if(!stale){
    if(period&&now>=period.end){
@@ -33,7 +35,7 @@ export class SeasonsV17Service {
     const participants=new Set((await c.query('SELECT attacker,defender FROM akai_arena_v15_matches WHERE season_id=$1 AND at>=$2 AND at<$3',[period.id,period.trackedFrom,period.end])).rows.flatMap(r=>[r.attacker,r.defender]));
     const arena=(await c.query('SELECT account_id,position,trophies FROM akai_arena_v15_entries WHERE season_id=$1 ORDER BY trophies DESC,account_id',[period.id])).rows.filter(r=>ids.includes(r.account_id)).map(r=>({accountId:r.account_id as string,name:names.get(r.account_id) as string,position:Number(r.position),trophies:Number(r.trophies),participated:participants.has(r.account_id)}));
     const guilds=(await c.query(`SELECT g.id,g.name,SUM(p.amount)::text points FROM akai_guild_v16_credits p JOIN akai_guild_v16_guilds g ON g.id=p.guild_id WHERE g.active AND p.at>=$1 AND p.at<$2 AND EXISTS(SELECT 1 FROM akai_guild_v16_members m WHERE m.guild_id=g.id AND m.account_id=ANY($3::uuid[])) GROUP BY g.id,g.name ORDER BY SUM(p.amount) DESC,g.id`,[period.trackedFrom,period.end,ids])).rows as SeasonV17Archive['guilds'];
-    const archive:SeasonV17Archive={...period,closedAt:now,arena,guilds};await c.query('INSERT INTO akai_season_v17_archives VALUES($1,$2)',[period.id,archive]);closed=period.id;
+    const archive:SeasonV17Archive={...period,closedAt:now,arena,guilds,boss:await seasonBossRankingV18(c,period.trackedFrom,period.end,ids)};await c.query('INSERT INTO akai_season_v17_archives VALUES($1,$2)',[period.id,archive]);closed=period.id;
     const reward=async(account:string,source:'arena'|'guild',coin:bigint)=>{await c.query('INSERT INTO akai_season_v17_rewards VALUES($1,$2,$3,$4)',[period.id,source,account,String(coin)]);grants.set(account,(grants.get(account)??0n)+coin);};
     for(const [i,r]of arena.filter(r=>r.participated).slice(0,3).entries())await reward(r.accountId,'arena',[500000n,300000n,100000n][i]!);
     for(const [i,g]of guilds.slice(0,3).entries())for(const m of (await c.query('SELECT account_id FROM akai_guild_v16_members WHERE guild_id=$1 AND joined_at<=$2 AND account_id=ANY($3::uuid[]) ORDER BY account_id',[g.id,period.end-86400000,ids])).rows)await reward(m.account_id,'guild',[300000n,200000n,100000n][i]!);

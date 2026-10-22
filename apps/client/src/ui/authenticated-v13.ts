@@ -1,3 +1,5 @@
+import {createAuthenticatedBossArchiveV18} from './authenticated-boss-archive-v18.js';
+import type {BossArchiveV18View} from '@akai/shared/boss-archive-v18';
 import {createAuthenticatedSeasonsV17} from './authenticated-seasons-v17.js';
 import type {SeasonV17View} from '@akai/shared/seasons-v17';
 import {createAuthenticatedGuildsV16} from './authenticated-guilds-v16.js';
@@ -9,7 +11,7 @@ import {attributeCost} from '@akai/shared';
 import type {economyConsumersV9} from '@akai/shared';
 import {api,ApiFailure} from '../online-session.js';
 import {commandId} from '../browser-crypto.js';
-type View={revision:number;rehearsalOnly:true;seasons:SeasonV17View;arena:ArenaV15View;guilds:GuildV16View;consumer:ReturnType<typeof economyConsumersV9>};
+type View={revision:number;rehearsalOnly:true;bossArchive:BossArchiveV18View;seasons:SeasonV17View;arena:ArenaV15View;guilds:GuildV16View;consumer:ReturnType<typeof economyConsumersV9>};
 type Receipt={status:string;code?:string;revision:number;commandId:string};
 export function createAuthenticatedV13(root:HTMLElement,online:boolean){
  if(!online)return {destroy(){}};
@@ -23,8 +25,9 @@ export function createAuthenticatedV13(root:HTMLElement,online:boolean){
  const arena=createAuthenticatedArenaV15(dialog.querySelector('.combat-lab-panel')!,{view:()=>view,busy:()=>busy,blocked:()=>market.blocked()||!!guilds?.blocked()||!!seasons?.blocked(),setBusy:(v)=>{busy=v;controls();market.render();arena.render();guilds.render();seasons.render();},refresh});
  const guilds=createAuthenticatedGuildsV16(dialog.querySelector('.combat-lab-panel')!,{view:()=>view,busy:()=>busy,blocked:()=>market.blocked()||arena.blocked()||!!seasons?.blocked(),setBusy:(v)=>{busy=v;controls();market.render();arena.render();guilds.render();seasons.render();},refresh});
  const seasons=createAuthenticatedSeasonsV17(dialog.querySelector('.combat-lab-panel')!,{view:()=>view,busy:()=>busy,blocked:()=>market.blocked()||arena.blocked()||guilds.blocked(),setBusy:(v)=>{busy=v;controls();market.render();arena.render();guilds.render();seasons.render();},refresh});
+ const bossArchive=createAuthenticatedBossArchiveV18(dialog.querySelector('.combat-lab-panel')!);
  const money=(n:string)=>{const v=BigInt(n);return String(v/1000n)+(v%1000n?','+String(v%1000n).padStart(3,'0'):'');};
- function render(){market.render();arena.render();guilds.render();seasons.render();if(!view)return;const c=view.consumer,e=c.event;
+ function render(){bossArchive.render(view?.bossArchive);market.render();arena.render();guilds.render();seasons.render();if(!view)return;const c=view.consumer,e=c.event;
   dialog.querySelector('[data-v13-wallet]')!.textContent=`Nível ${c.level} · Coin ${money(c.balances.coin)} · Jade ${money(c.balances.jade)} · Proteção ${c.protection}`;
   dialog.querySelector('[data-v13-hp]')!.textContent=e?`Boss: ${e.hp.toLocaleString('pt-BR')} / ${e.maxHp.toLocaleString('pt-BR')} HP · Participação: ${Math.floor(e.qualifiedMs/1000)}s / 600s`:'';
   dialog.querySelector('[data-v13-progress]')!.textContent=`${c.activity} · Andar ${c.floor} · Torre conquistada ${c.highest.main} · ${c.paused?'Pausado':'Em combate'} · ${c.log.at(-1)?.text??''}`;
@@ -34,7 +37,7 @@ export function createAuthenticatedV13(root:HTMLElement,online:boolean){
   dialog.querySelector('[data-v13-broadcast]')!.textContent=e?.broadcasts.at(-1)?.text??'';
  }
  function error(e:unknown){status.textContent=e instanceof ApiFailure?({NOT_FOUND:'Ensaio indisponível neste servidor.',V13_NOT_ENROLLED:'Sua conta ainda não foi incluída no ensaio.',UNAUTHENTICATED:'Sua sessão expirou. Entre novamente.'}[e.code]??e.code):'Não foi possível consultar o ensaio.';}
- async function refresh(){const generation=++readGeneration;try{const next=await api<View>('test-v2/state');if(disposed||generation!==readGeneration)return;view=next;render();}catch(e){if(!disposed&&generation===readGeneration){view=undefined;market.render();arena.render();guilds.render();seasons.render();error(e);}}finally{if(!disposed)controls();}}
+ async function refresh(){const generation=++readGeneration;try{const next=await api<View>('test-v2/state');if(disposed||generation!==readGeneration)return;view=next;render();}catch(e){if(!disposed&&generation===readGeneration){view=undefined;bossArchive.render(undefined);market.render();arena.render();guilds.render();seasons.render();error(e);}}finally{if(!disposed)controls();}}
  async function command(action:string,kind:'events'|'economy'='events'){if(busy||!view||market.blocked()||arena.blocked()||guilds.blocked()||seasons.blocked())return;busy=true;status.textContent='Enviando…';controls();try{
   let input:unknown=action==='boss'||action==='protection'?{type:'join',mode:action}:{type:action};
   if(kind==='economy'){if(action==='select')input={type:'select',activity:dialog.querySelector<HTMLSelectElement>('[data-v13-activity]')!.value,floor:Number(dialog.querySelector<HTMLInputElement>('[data-v13-floor]')!.value)};else if(action==='pause')input={type:'pause',paused:true};else if(action==='train')input={type:'train',attribute:dialog.querySelector<HTMLSelectElement>('[data-v13-attribute]')!.value};}
@@ -54,5 +57,5 @@ export function createAuthenticatedV13(root:HTMLElement,online:boolean){
  dialog.querySelector('[data-v13-attribute]')!.addEventListener('change',render);
  const timer=setInterval(()=>{if(dialog.open&&!document.hidden&&!busy&&view&&!market.blocked()&&!arena.blocked()&&!guilds.blocked()&&!seasons.blocked()){if(view.consumer.event?.active)void command('heartbeat');else if(!view.consumer.paused)void command('settle','economy');else void refresh();}},10000);
  void api<{v13HttpTest?:boolean}>('auth/config').then(c=>{if(!disposed)open.hidden=!c.v13HttpTest;}).catch(()=>{});
- controls();return {destroy(){disposed=true;market.destroy();arena.destroy();guilds.destroy();seasons.destroy();clearInterval(timer);open.removeEventListener('click',show);open.remove();dialog.remove();}};
+ controls();return {destroy(){disposed=true;market.destroy();arena.destroy();guilds.destroy();seasons.destroy();bossArchive.destroy();clearInterval(timer);open.removeEventListener('click',show);open.remove();dialog.remove();}};
 }

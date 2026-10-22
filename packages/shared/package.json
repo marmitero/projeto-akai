@@ -19,6 +19,10 @@
     "./seasons-v17": {
       "types": "./dist/seasons-v17/index.d.ts",
       "import": "./dist/seasons-v17/index.js"
+    },
+    "./boss-archive-v18": {
+      "types": "./dist/boss-archive-v18/index.d.ts",
+      "import": "./dist/boss-archive-v18/index.js"
     }
   },
   "scripts": {

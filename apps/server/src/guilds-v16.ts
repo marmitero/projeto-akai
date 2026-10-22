@@ -1,3 +1,4 @@
+import {bossCloseRequiredV18} from './boss-archive-v18.js';
 import {seasonOpenV17} from './seasons-v17.js';
 import {createHash,createHmac,randomUUID} from 'node:crypto';
 import type {PoolClient} from 'pg';
@@ -27,7 +28,7 @@ export class GuildsV16Service{
   const invites=(await c.query('SELECT i.guild_id,g.name,i.expires_at FROM akai_guild_v16_invites i JOIN akai_guild_v16_guilds g ON g.id=i.guild_id WHERE i.account_id=$1 AND g.active AND i.expires_at>$2 ORDER BY g.name',[account,now])).rows.map(r=>({guildId:r.guild_id as string,name:r.name as string,expiresAt:Number(r.expires_at)}));
   const outgoing=admin?(await c.query('SELECT account_id,expires_at FROM akai_guild_v16_invites WHERE guild_id=$1 AND expires_at>$2 ORDER BY account_id',[own.guild_id,now])).rows.map(r=>({accountId:r.account_id as string,name:names.get(r.account_id)??'Viajante',expiresAt:Number(r.expires_at)})):[];
   const chat=own?(await c.query('SELECT x.* FROM akai_guild_v16_chat x WHERE guild_id=$1 AND id>$2 AND NOT EXISTS(SELECT 1 FROM akai_blocks b WHERE b.owner=$3 AND b.target=x.author) ORDER BY id DESC LIMIT 50',[own.guild_id,own.chat_after,account])).rows.reverse().map(r=>({id:String(r.id),authorId:r.author as string,name:names.get(r.author)??'Viajante',text:r.text as string,at:Number(r.at)})):[];
-  const history=own?(await c.query('SELECT source,amount,at FROM akai_guild_v16_credits WHERE guild_id=$1 ORDER BY at DESC,source DESC LIMIT 50',[own.guild_id])).rows.map(r=>({source:r.source as string,amount:String(r.amount),at:Number(r.at)})):[];
+  const history=own?(await c.query('SELECT source,amount,at FROM akai_guild_v16_credits WHERE guild_id=$1 ORDER BY at DESC,source DESC LIMIT 50',[own.guild_id])).rows.map(r=>({source:String(r.source).replace(/^boss:[^:]+:(\d{4}-\d{2}-\d{2}):guild-v18$/,'boss:$1:guild-v18'),amount:String(r.amount),at:Number(r.at)})):[];
   const nextChatAt=Number((await c.query('SELECT next_at FROM akai_guild_v16_chat_limits WHERE account_id=$1',[account])).rows[0]?.next_at??0);
   return{version:GUILD_V16_RULES.version,revision:Number(w.revision),serverNow:now,rehearsalOnly:true,eligible:this.available(actor!)&&EconomyRunV6Schema.parse(actor!.state).economy.highest.main>=5,directory,invites,outgoing,chat,history,nextChatAt,
    players:admin?rows.filter(r=>this.available(r)&&r.account_id!==account).map(r=>({accountId:r.account_id,name:r.name,inGuild:memberships.some(m=>m.account_id===r.account_id)})):[],
@@ -40,7 +41,7 @@ export class GuildsV16Service{
   const now=Math.max(this.clock(),Number(w.clock_ms)),before=EconomyRunV6Schema.parse(actor!.state),account=actor!.account_id;let run=structuredClone(before),guildRevision=Number(w.revision),result:{status:string;code:string;revision:number;guildRevision:number};const revision=Number(actor!.revision)+1;
   const guildBefore=(await this.member(c,account))?.guild_id??null;
   await c.query('SAVEPOINT guild_action');try{
-   rule(await seasonOpenV17(c,now),'SEASON_CLOSE_REQUIRED');rule(cmd.expectedRevision===Number(actor!.revision),'STALE_REVISION');rule(cmd.guildRevision===guildRevision,'STALE_GUILD_REVISION');const a=cmd.action,m=await this.member(c,account),admin=m&&['leader','officer'].includes(m.role);
+   rule(!await bossCloseRequiredV18(c,now),'BOSS_CLOSE_REQUIRED');rule(await seasonOpenV17(c,now),'SEASON_CLOSE_REQUIRED');rule(cmd.expectedRevision===Number(actor!.revision),'STALE_REVISION');rule(cmd.guildRevision===guildRevision,'STALE_GUILD_REVISION');const a=cmd.action,m=await this.member(c,account),admin=m&&['leader','officer'].includes(m.role);
    if(a.type==='create'||a.type==='upgrade'){
     const active=(await c.query('SELECT e.state FROM akai_boss_v8_realms e JOIN akai_boss_v8_members b ON b.realm_id=e.id WHERE b.run_id=$1',[actorRun])).rows[0]?.state.sessions[account]?.active;rule(!active,'EVENT_ACTIVITY_ACTIVE');
     const entropy=(key:string,bound:number)=>{const limit=Math.floor(4294967296/bound)*bound;for(let i=0;;i++){const n=createHmac('sha256',Buffer.from(actor!.secret,'hex')).update(key+'/'+i).digest().readUInt32BE(0);if(n<limit)return n%bound;}};const settled=settleElapsedV7(run,now,1000,entropy);run=settled.state;

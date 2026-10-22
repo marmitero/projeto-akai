@@ -36,8 +36,8 @@ try{
   await page.locator('#more').click();await page.locator('#authenticated-v13-open').click();await page.locator('[data-v13-wallet]').filter({hasText:'Nível 1000'}).waitFor();await page.locator('[data-v13-action="boss"]').click();await page.waitForFunction(()=>document.querySelector('[data-v13-status]')?.textContent==='Atualizado.');pages.push(page);
  }
  const book=await boss.inspect(realm);book.daily.hp=1;await db.pool.query('UPDATE akai_boss_v8_realms SET state=$2 WHERE id=$1',[realm,book]);now+=10000;
- await pages[0].locator('[data-v13-action="sync"]').click();await pages[0].locator('[data-v13-broadcast]').filter({hasText:'250 jade'}).waitFor();// Participant1 advanced the shared world: participant2 now has a stale revision.
- await pages[1].locator('[data-v13-action="sync"]').click();await pages[1].waitForFunction(()=>document.querySelector('[data-v13-status]')?.textContent==='Atualizado.');await pages[1].locator('[data-v13-broadcast]').filter({hasText:'250 jade'}).waitFor();
+ await pages[0].getByRole('button',{name:'Concluir processamento',exact:true}).click();await pages[0].locator('[data-v13-broadcast]').filter({hasText:'250 jade'}).waitFor();// Participant1 advanced the shared world: participant2 now has a stale revision.
+ await pages[1].getByRole('button',{name:'Concluir processamento',exact:true}).click();await pages[1].waitForFunction(()=>document.querySelector('[data-v13-status]')?.textContent==='Atualizado.');await pages[1].locator('[data-v13-broadcast]').filter({hasText:'250 jade'}).waitFor();
  assert.ok((await db.pool.query("SELECT 1 FROM akai_boss_v8_commands WHERE run_id=$1 AND result->>'code'='STALE_REVISION'",[users[1].run])).rowCount>0,'Fixture must exercise stale-revision retry');
  assert.equal(await pages[0].locator('[data-v13-broadcast]').innerText(),await pages[1].locator('[data-v13-broadcast]').innerText());
  for(const page of pages)await page.locator('[data-v13-close]').click();

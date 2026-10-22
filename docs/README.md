@@ -1,6 +1,6 @@
 # Documentação do Projeto Akai
 
-Estado atual da reforma: R2–R8 e V9–V17 entregues em contratos/laboratórios/ensaios. A [Fase8/V17 — temporadas autenticadas](plans/hunts-builds/authenticated-seasons-v17/RESULTS.md) integra calendário Brasília, arquivo arena/guildas e prêmios Coin únicos à carteira v2, com369testes PostgreSQL e CI/Windows/browser dev/preview aprovados. Economia real,+16–20 e monetização permanecem desativados. Próximo: arquivo diário/XP de boss, guerra, bônus calibrados e playtest gratuito. [AI_STATE](../AI_STATE.md) registra o estado canônico.
+V18 concluída para ensaio isolado, PR28: arquivo diário do boss, XP de guilda por dano efetivo limitado e ranking semanal de dano sem prêmio adicional. Candidato d40e4f2e1f2a87604f78b326e8e488398db95107, árvore bdce7a14bc007151eff4f08554a6b67504315a33. CI39855629455 completa aprovada:392testes/45arquivos PostgreSQL16 sem skips, auditorias e browser dev/preview. Windows39855629447/39855619800 aprovados no mesmo SHA, BAT local/LAN. Fechamento posterior somente Markdown. Economia real,+16–20/monetizaçãooff, activationReadyfalse. [Resultados](plans/hunts-builds/boss-archive-v18/RESULTS.md). Próximo: guerra autenticada, bônus calibrados e playtest adquirido.
 
 Planejamento original da reforma: [reforma de hunts, atributos/builds e fortalecimento](plans/hunts-builds/PROPOSAL.md), [roadmap](plans/hunts-builds/ROADMAP.md) e [referências/modelo](plans/hunts-builds/CURVE_MODEL.md). O comportamento atual do jogo permanece nos relatórios publicados.
 
