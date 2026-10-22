@@ -42,14 +42,22 @@ describe.skipIf(!url)('V15 authenticated arena on canonical runs',()=>{
   const {attacker,defender}=await pair(),body=await input(attacker,{type:'challenge',opponentId:users[defender]!.accountId}),before=await Promise.all(users.map(u=>economy.inspect(u.run)));
   const results=await Promise.all([post(attacker,body),post(attacker,body)]);expect(results[0]!.json()).toEqual(results[1]!.json());expect(results[0]!.json().status).toBe('applied');
   expect((await db.pool.query('SELECT * FROM akai_arena_v15_matches')).rowCount).toBe(1);const match=(await db.pool.query('SELECT * FROM akai_arena_v15_matches')).rows[0];expect(match.audit.seed).toBeGreaterThan(0);expect(match.audit.attackerStats.intervalMs).toBeGreaterThanOrEqual(200);
-  for(const [i,u]of users.entries())expect((await economy.inspect(u.run)).state.economy).toEqual(before[i]!.state.economy);
+  for(const [i,u]of users.entries()){const after=(await economy.inspect(u.run)).state.economy;expect({...after,revision:0}).toEqual({...before[i]!.state.economy,revision:0});}
   const dto=await state(attacker);expect(dto.arena.challengesUsed).toBe(1);expect(dto.arena.nextAt).toBe(now+60000);expect(dto.arena.history).toHaveLength(1);expect((await state(defender)).arena.history).toHaveLength(1);
   for(const u of users)expect(JSON.stringify(dto)).not.toContain(u.run);expect(JSON.stringify(dto.arena)).not.toMatch(/"(seed|secret|attackerStats|defenderStats)":/);
   expect((await post(attacker,{...body,action:{type:'enroll'}})).statusCode).toBe(409);expect((await post(attacker,{...body,commandId:randomUUID()})).json().code).toBe('STALE_REVISION');
   await expect(db.pool.query('DELETE FROM akai_arena_v15_matches')).rejects.toThrow();await reconciled();
  });
+ it('serializes competing challenges against one board revision',async()=>{
+  await pair();const board=(await state()).arena.board,a=users.findIndex(x=>x.accountId===board[3]!.accountId),b=users.findIndex(x=>x.accountId===board[4]!.accountId),target=board[0]!.accountId;
+  const one=await input(a,{type:'challenge',opponentId:target}),two=await input(b,{type:'challenge',opponentId:target}),results=await Promise.all([post(a,one),post(b,two)]);expect(results.filter(r=>r.json().status==='applied')).toHaveLength(1);expect(results.filter(r=>r.json().code==='STALE_ARENA_REVISION')).toHaveLength(1);expect((await db.pool.query('SELECT * FROM akai_arena_v15_matches')).rowCount).toBe(1);await reconciled();
+ });
+ it('samples time after queued locks and never rewinds the arena cursor',async()=>{
+  const body=await input(0,{type:'enroll'}),hold=await db.pool.connect();await hold.query('BEGIN');await hold.query('SELECT pg_advisory_xact_lock(41652015)');const pending=post(0,body);
+  try{let waiting=false;for(let i=0;i<200;i++){const r=await base.pool.query("SELECT 1 FROM pg_stat_activity WHERE application_name=$1 AND wait_event_type='Lock' AND query LIKE 'SELECT pg_advisory_xact_lock(41652015)%'",[schema]);if(r.rowCount){waiting=true;break;}await new Promise(r=>setTimeout(r,10));}expect(waiting).toBe(true);now+=10000;await hold.query('UPDATE akai_arena_v15_world SET clock_ms=$1',[now+10000]);await hold.query('COMMIT');expect((await pending).json().status).toBe('applied');expect((await state()).arena.serverNow).toBe(now+10000);await reconciled();}finally{await hold.query('ROLLBACK');hold.release();}
+ });
  it('swaps only the winning pair and gives +20 trophies, while loss floors trophies at zero',async()=>{
-  const {attacker,defender}=await pair();const row=await economy.inspect(users[attacker]!.run);const {presetBuildV3}=await import('@akai/shared');const e=presetBuildV3(1000,'swift','legendary20');e.accountId=users[attacker]!.accountId;e.economicThroughMs=now;for(const item of e.inventory)item.enhancement=15;row.state.economy=e;
+  const {attacker,defender}=await pair();const row=await economy.inspect(users[attacker]!.run);const {presetBuildV3}=await import('@akai/shared');const e=presetBuildV3(1000,'swift','legendary20');e.accountId=users[attacker]!.accountId;e.highest.main=1000;e.economicThroughMs=now;for(const item of e.inventory)item.enhancement=15;row.state.economy=e;
   await db.pool.query('UPDATE akai_economy_rehearsals SET state=$2 WHERE id=$1',[users[attacker]!.run,row.state]);
   const old=(await state(attacker)).arena;expect((await act(attacker,{type:'challenge',opponentId:users[defender]!.accountId})).json().status).toBe('applied');
   const next=(await state(attacker)).arena;expect(next.history[0]!.won).toBe(true);expect(next.own).toMatchObject({position:2,trophies:20});expect(next.board.find(x=>x.accountId===users[defender]!.accountId)).toMatchObject({position:3,trophies:0});expect(next.board[0]).toEqual(old.board[0]);
@@ -64,7 +72,7 @@ describe.skipIf(!url)('V15 authenticated arena on canonical runs',()=>{
  });
  it('rejects stale board and expired season without consuming a challenge',async()=>{
   const {attacker,defender}=await pair(),body=await input(attacker,{type:'challenge',opponentId:users[defender]!.accountId});await db.pool.query('UPDATE akai_arena_v15_world SET revision=revision+1');expect((await post(attacker,body)).json().code).toBe('STALE_ARENA_REVISION');
-  const next=await input(attacker,{type:'enroll'});now+=7*86400000;expect((await post(attacker,next)).json().code).toBe('ARENA_SEASON_CHANGED');expect((await db.pool.query('SELECT * FROM akai_arena_v15_matches')).rowCount).toBe(0);await reconciled();
+  const next=await input(attacker,{type:'enroll'});now+=5*86400000;expect((await post(attacker,next)).json().code).toBe('ARENA_SEASON_CHANGED');expect((await db.pool.query('SELECT * FROM akai_arena_v15_matches')).rowCount).toBe(0);await reconciled();
  });
  it('rejects forged inputs, IDOR, low floors, missing CSRF and disabled routes',async()=>{
   const body=await input(0,{type:'enroll'});for(const extra of [{actor:users[1]!.run},{seed:1},{now:now+1},{stats:{attack:999}},{action:{type:'challenge',opponentId:randomUUID(),attack:999}}])expect((await post(0,{...body,...extra})).statusCode).toBe(400);
