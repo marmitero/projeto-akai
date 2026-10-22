@@ -15,7 +15,7 @@ import {buildServer} from '../apps/server/dist/app.js';
 import {parseServerConfig} from '../apps/server/dist/config.js';
 import {presetBuildV3} from '../packages/shared/dist/index.js';
 if(!process.env.TEST_DATABASE_URL)throw Error('TEST_DATABASE_URL must be isolated');
-const preview=process.argv.includes('--preview'),port=preview?4190:5190,origin=`http://localhost:${port}`,schema='browser_v16_'+randomUUID().replaceAll('-','');
+const preview=process.argv.includes('--preview'),port=preview?4191:5190,origin=`http://localhost:${port}`,schema='browser_v16_'+randomUUID().replaceAll('-','');
 const base=new Database(process.env.TEST_DATABASE_URL);let db,app,child,browser,now=Date.parse('2026-10-21T18:00:00-03:00');
 try{
  await base.pool.query('CREATE SCHEMA '+schema);const u=new URL(process.env.TEST_DATABASE_URL);u.searchParams.set('options','-csearch_path='+schema);db=new Database(u.toString());await db.migrate();
