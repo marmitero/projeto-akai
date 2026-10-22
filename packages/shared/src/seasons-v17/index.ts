@@ -1,0 +1,4 @@
+import {z} from 'zod';
+export const SeasonV17CommandSchema=z.object({commandId:z.uuid(),expectedRevision:z.number().int().nonnegative().safe(),seasonRevision:z.number().int().nonnegative().safe(),action:z.object({type:z.literal('sync')}).strict()}).strict();
+export type SeasonV17Archive={id:string;start:number;end:number;trackedFrom:number;closedAt:number;arena:Array<{accountId:string;name:string;position:number;trophies:number;participated:boolean}>;guilds:Array<{id:string;name:string;points:string}>};
+export type SeasonV17View={version:'seasons-v17-1';revision:number;current:{id:string;start:number;end:number};tracked:{id:string;start:number;end:number;trackedFrom:number}|null;closeRequired:boolean;archives:SeasonV17Archive[];rewards:Array<{seasonId:string;source:'arena'|'guild';coin:string}>;rehearsalOnly:true};
