@@ -57,6 +57,7 @@ export class BossEventsV8Service{
    for(const k of ['coin','coal','iron','gold','jade','protection','masteryMs'] as const){const v=(s:typeof run)=>BigInt(k==='masteryMs'?s.economy.masteryMs:k==='protection'?s.economy.protection:s.economy.balances[k]),balance=v(run),delta=balance-v(old);if(delta)await c.query('INSERT INTO akai_economy_rehearsal_ledger VALUES($1,$2,$3,$4,$5)',[r.id,rev,k,String(delta),String(balance)]);}
    await c.query('UPDATE akai_economy_rehearsals SET state=$2,revision=$3 WHERE id=$1',[r.id,run,rev]);await c.query('INSERT INTO akai_economy_rehearsal_events VALUES($1,$2,$3,$4)',[r.id,rev,randomUUID(),{kind:'event-v8',realmId,...result}]);
   }
+  if(canonical)await c.query('UPDATE akai_guild_v16_world SET clock_ms=GREATEST(clock_ms,$1)',[now]);
   await c.query('UPDATE akai_boss_v8_realms SET state=$2 WHERE id=$1',[realmId,state]);await c.query('INSERT INTO akai_boss_v8_commands VALUES($1,$2,$3,$4,$5)',[actor,cmd.commandId,realmId,payloadHash,result]);await c.query('INSERT INTO akai_boss_v8_events VALUES($1,$2,$3,$4,$5)',[randomUUID(),realmId,actor,cmd.commandId,{...result,action:cmd.action.type}]);return result;
  });}
  async inspect(realmId:string){z.uuid().parse(realmId);const row=(await this.db.pool.query('SELECT state FROM akai_boss_v8_realms WHERE id=$1',[realmId])).rows[0];rule(row,'EVENT_REALM_NOT_FOUND');return BossEventsV8Schema.parse(row.state);}

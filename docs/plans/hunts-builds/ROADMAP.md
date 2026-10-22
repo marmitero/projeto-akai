@@ -78,3 +78,7 @@ Concluída no ensaio: PR26,354testes/40arquivos PG16 sem skips,16SQL+3contrato n
 ## Fase 8 — temporadas autenticadas V17
 
 Concluída no ensaio de arena/guildas, PR27,369testes/42arquivosPG16 sem skips, CI39842436517/Windows39842436246 e browser dev/preview aprovados: calendário Brasília, acompanhamento explícito sem retroatividade, fechamento com guarda de arena/vínculo, arquivo imutável arena/guildas e Coin nativo único por semana/fonte/conta. [Contrato](authenticated-seasons-v17/IMPLEMENTATION.md). Boss/dano diário/guerra/bônus de domínio continuam próximas fatias; não importar XP legado. Gates de ativação permanecem.
+
+## Fase 9 — boss/guildas/arquivo V18
+
+Em validação, PR28: arquivo diário antes do resetR8, fonte XPguilda por dano efetivo limitado/identidade/vínculo/baseline, guarda de calendário e ranking semanal de dano sem prêmio novo. [Contrato](boss-archive-v18/IMPLEMENTATION.md), reanálise dos17cenários adquiridosV12 sem alterar artefatos. Bônus de domínio/guerra/playtest adquirido e gates continuam próximos passos, economiareal/+16–20/monetizaçãooff.

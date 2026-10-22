@@ -73,4 +73,7 @@ describe.skipIf(!url)('V18 canonical daily boss archive and guild XP',()=>{
  it.each(['suspended','disabled','closed'])('does not credit an unavailable contributor: %s',async kind=>{
   const f=await fixture();if(kind==='disabled')await service.setEnabled(users[0]!.accountId,false);else if(kind==='closed')await db.pool.query('UPDATE akai_economy_rehearsals SET closed=true WHERE id=$1',[users[0]!.run]);else await db.pool.query('INSERT INTO akai_profiles(account_id,name,joined_at,suspended) VALUES($1,$2,$3,true) ON CONFLICT(account_id) DO UPDATE SET suspended=true',[users[0]!.accountId,'Suspenso',now]);now=f.end;expect((await event(1)).json().status).toBe('applied');expect((await db.pool.query('SELECT xp FROM akai_guild_v16_guilds WHERE id=$1',[f.id])).rows[0].xp).toBe('0');expect((await state(1)).bossArchive.archives[0]!.contributors[0]!.guildXp).toBe(0);
  });
+ it('shares the persisted boss clock with guild/season reads after wall-clock rollback',async()=>{
+  await eligibleGuild();const first=now;now+=1000;expect((await event()).json().status).toBe('applied');now=first;expect((await state()).guilds.serverNow).toBe(first+1000);await reconciled();
+ });
 });

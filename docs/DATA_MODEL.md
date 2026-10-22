@@ -127,3 +127,7 @@ Mundo singleton(revisão/cursor), guildas(nome ativo único case-insensitive, n�
 ## Temporadas autenticadas V17 — SQL012
 
 Mundo singleton(revisão/cursor/periodJSON com id/start/end/trackedFrom), archives(PKsemana/payload congelado), rewards(PKsemana/fonte/conta, Coin positivo), commands(PKconta/UUID/hash/receipt), events(uniqueconta/comando). Arquivos/prêmios/recibos/outbox append-only. Pagamento altera somente carteira canônica e ledger R6 na mesma transação; fontes arena/guild não são recursos legados. Nova inscrição da arena mantém força/maiorandar/carteira/guildaXP e histórico anterior. Não há importação retroativa. [ADR-015](ADR/0015-authenticated-seasons-v17.md).
+
+## Boss diário V18 — SQL013
+
+akai_boss_v18_bindings(PKrealm/data/conta, guilda/ingresso/eligibilidade/baseline_damage) e akai_boss_v18_archives(PKrealm/data, end_ms/payload). Ambas append-only. Bindings registram primeira entrada autenticada; arquivo público omite dados de binding. Crédito em akai_guild_v16_credits com fonte boss:realm:data:guild-v18, data endMs−1, guildaXP e revisão/cursor na transação R8 de carteira/recibo/outbox. Arquivo anterior preservado antes do reset do estado diário R8; dias vazios não são fabricados. [ADR-016](ADR/0016-boss-archive-guild-v18.md).

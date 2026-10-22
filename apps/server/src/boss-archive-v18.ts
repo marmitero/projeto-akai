@@ -6,6 +6,7 @@ const contributed=(s:BossEventsV8)=>Object.values(s.daily.members).some(m=>BigIn
 export async function bossCloseRequiredV18(c:PoolClient,now:number,through=now){const r=(await c.query('SELECT r.state FROM akai_boss_v8_realms r JOIN akai_v13_world w ON w.realm_id=r.id')).rows[0];if(!r)return false;const s=r.state as BossEventsV8;return Math.max(now,s.clockMs)>=s.daily.endMs&&s.daily.endMs<=through&&contributed(s);}
 /** Clock stays bounded to the same native 30 windows; archive before the native day replacement. */
 export async function advanceArchivedBossV18(input:BossEventsV8,to:number,close:(s:BossEventsV8)=>Promise<void>,maximum=30){
+ if(to<input.clockMs)throw Error('EVENT_CLOCK_REWIND');
  let s=structuredClone(input),windows=0;const end=s.daily.endMs;
  if(to<end)return advanceBossEventsV8(s,to,maximum);
  // Advance exactly the native absolute-second/lease windows, without splitting the final ms.
