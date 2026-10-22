@@ -34,7 +34,7 @@ export function createAuthenticatedV13(root:HTMLElement,online:boolean){
  open.addEventListener('click',show);dialog.querySelector('[data-v13-close]')!.addEventListener('click',()=>dialog.close());dialog.querySelector('[data-v13-refresh]')!.addEventListener('click',()=>void refresh());for(const b of dialog.querySelectorAll<HTMLButtonElement>('[data-v13-action]'))b.addEventListener('click',()=>void command(b.dataset.v13Action!));
  for(const b of dialog.querySelectorAll<HTMLButtonElement>('[data-v13-economy]'))b.addEventListener('click',()=>void command(b.dataset.v13Economy!,'economy'));
  dialog.querySelector('[data-v13-attribute]')!.addEventListener('change',render);
- const timer=setInterval(()=>{if(dialog.open&&!document.hidden&&!busy&&view){if(view.consumer.event?.active)void command('heartbeat');else if(!view.consumer.paused)void command('settle','economy');}},10000);
+ const timer=setInterval(()=>{if(dialog.open&&!document.hidden&&!busy&&view){if(view.consumer.event?.active)void command('heartbeat');else if(!view.consumer.paused)void command('settle','economy');else void refresh();}},10000);
  void api<{v13HttpTest?:boolean}>('auth/config').then(c=>{if(!disposed)open.hidden=!c.v13HttpTest;}).catch(()=>{});
  controls();return {destroy(){disposed=true;clearInterval(timer);open.removeEventListener('click',show);open.remove();dialog.remove();}};
 }

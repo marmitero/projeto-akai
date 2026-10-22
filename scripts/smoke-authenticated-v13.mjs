@@ -40,7 +40,7 @@ try{
  assert.equal(await pages[0].locator('[data-v13-broadcast]').innerText(),await pages[1].locator('[data-v13-broadcast]').innerText());
  for(const page of pages)await page.locator('[data-v13-close]').click();
  // Accelerated server clock belongs only to this synthetic test process, not an HTTP field.
- for(let i=0;i<62;i++){now+=10000;for(const user of users){const view=await service.read(user.token);const r=await service.command(user.token,{commandId:randomUUID(),expectedRevision:view.revision,action:{type:'heartbeat'}});assert.equal(r.status,'applied');}}
+ for(let i=0;i<63;i++){if(i>0)now+=10000;for(const user of users){const view=await service.read(user.token);const r=await service.command(user.token,{commandId:randomUUID(),expectedRevision:view.revision,action:{type:'heartbeat'}});assert.equal(r.status,'applied',r.code??'Unexpected heartbeat result');}}
  for(const [i,page]of pages.entries()){
   await page.locator('#more').click();await page.locator('#authenticated-v13-open').click();
   await page.locator('[data-v13-refresh]').click();await page.waitForFunction(()=>!document.querySelector('[data-v13-wallet]')?.textContent?.includes('Jade 0'));
