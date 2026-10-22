@@ -18,7 +18,7 @@ HP100milhões, regra de qualificação600s,3de participação, escada200–20 e 
 
 ## Validação
 
-Testes novos cobrem configuração fail-closed, propriedade da conta, DTO sem segredos, pin de uma autoridade, atividade exclusiva, ganho e gasto nativos, preço impossível recusado, morte concorrente, recibo idempotente/conteúdo divergente, revogação durante espera, rollback por outbox e ausência de rota quando desligada. Fixtures técnicas criam apenas contas sintéticas em schemas PostgreSQL isolados; não representam campanha/economia aprovada.
+Testes novos cobrem configuração fail-closed, propriedade da conta, DTO sem segredos, pin de uma autoridade, atividade exclusiva, ganho e gasto nativos, preço impossível recusado, morte concorrente, recibo idempotente/conteúdo divergente, revogação durante espera, relógio monotônico após espera por lock, rollback por outbox e ausência de rota quando desligada. Fixtures técnicas criam apenas contas sintéticas em schemas PostgreSQL isolados; não representam campanha/economia aprovada.
 
 Smoke de navegador usa duas sessões e viewports desktop/mobile: ingresso real pela UI, uma morte/broadcast compartilhado, Jade privada após tempo de combate autoritativo, carteira Jade legada intacta e nenhuma chave privada/overflow. O relógio acelerado existe apenas no processo do teste; não é rota nem payload disponível ao cliente.
 

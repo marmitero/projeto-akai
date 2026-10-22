@@ -22,7 +22,7 @@ describe.skipIf(!url)('V13 authenticated canonical event HTTP',()=>{
  let members:Array<{user:Awaited<ReturnType<OnlineService['guest']>>;run:string;source:unknown}>;
  const headers=(token?:string)=>({'x-akai-client':'1',origin:'http://localhost:5173',...(token?{cookie:'akai_session='+token}:{})});
  beforeEach(async()=>{
-  now=Date.parse('2026-10-21T18:00:00-03:00');base=new Database(url!);schema='v13_'+randomUUID().replaceAll('-','');await base.pool.query('CREATE SCHEMA '+schema);const u=new URL(url!);u.searchParams.set('options','-csearch_path='+schema);db=new Database(u.toString());await db.migrate();online=new OnlineService(db,()=>now);economy=new EconomyRehearsalService(db,()=>now);boss=new BossEventsV8Service(db,()=>now);api=new AuthenticatedV13Service(online);members=[];
+  now=Date.parse('2026-10-21T18:00:00-03:00');base=new Database(url!);schema='v13_'+randomUUID().replaceAll('-','');await base.pool.query('CREATE SCHEMA '+schema);const u=new URL(url!);u.searchParams.set('options','-csearch_path='+schema);u.searchParams.set('application_name',schema);db=new Database(u.toString());await db.migrate();online=new OnlineService(db,()=>now);economy=new EconomyRehearsalService(db,()=>now);boss=new BossEventsV8Service(db,()=>now);api=new AuthenticatedV13Service(online);members=[];
   for(let i=0;i<3;i++){
    const user=await online.guest(),run=(await economy.stage(user.accountId,randomUUID())).id;
    const snapshot=(await economy.inspect(run)).state,e=presetBuildV3(1000,'swift','legendary20');e.accountId=user.accountId;e.highest.main=1000;e.economicThroughMs=now;
@@ -85,6 +85,16 @@ describe.skipIf(!url)('V13 authenticated canonical event HTTP',()=>{
   const before=(await state()).json().consumer,quote=attributeCost('force',1);expect(BigInt(before.balances.coin)).toBeGreaterThanOrEqual(BigInt(quote.coin));expect((await act({type:'train',attribute:'force'})).json().status).toBe('applied');const after=(await state()).json().consumer;expect(after.attributes.force).toBe(1);expect(BigInt(after.balances.coin)).toBe(BigInt(before.balances.coin)-BigInt(quote.coin));
   expect((await act({type:'train',attribute:'force',cost:'0'})).statusCode).toBe(400);expect((await act({type:'close'})).statusCode).toBe(400);
   await command(0,{type:'join',mode:'boss'});expect((await act({type:'pause',paused:true})).json().code).toBe('EVENT_ACTIVITY_ACTIVE');expect(await economy.reconcile(members[0]!.run)).toEqual([]);
+ });
+ it('samples event time after acquiring the shared lock and never rewinds another writer',async()=>{
+  const hold=await db.pool.connect();await hold.query('BEGIN');await hold.query('SELECT id FROM akai_boss_v8_realms WHERE id=$1 FOR UPDATE',[realm]);
+  const payload={commandId:randomUUID(),expectedRevision:(await state()).json().revision,action:{type:'sync'}};
+  const pending=app.inject({method:'POST',url:'/api/v1/test-v2/events',headers:headers(members[0]!.user.token),payload});
+  try{
+   let waiting=false;for(let i=0;i<200;i++){const r=await base.pool.query("SELECT 1 FROM pg_stat_activity WHERE application_name=$1 AND wait_event_type='Lock' AND query LIKE 'SELECT state FROM akai_boss_v8_realms%'",[schema]);if(r.rowCount){waiting=true;break;}await new Promise(r=>setTimeout(r,10));}expect(waiting).toBe(true);
+   now+=10000;const b=(await hold.query('SELECT state FROM akai_boss_v8_realms WHERE id=$1',[realm])).rows[0].state;b.clockMs=now;await hold.query('UPDATE akai_boss_v8_realms SET state=$2 WHERE id=$1',[realm,b]);await hold.query('COMMIT');
+   expect((await pending).json().status).toBe('applied');expect((await boss.inspect(realm)).clockMs).toBe(now);
+  }finally{await hold.query('ROLLBACK');hold.release();}
  });
  it('does not register authenticated test routes unless explicitly enabled',async()=>{
   const off=buildServer(parseServerConfig({}),false,{service:online});try{expect((await off.inject({url:'/api/v1/test-v2/state',headers:headers(members[0]!.user.token)})).statusCode).toBe(404);}finally{await off.close();}
