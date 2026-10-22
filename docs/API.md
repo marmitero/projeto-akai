@@ -142,3 +142,9 @@ Operação/limites em [authenticated-market-v14/IMPLEMENTATION.md](plans/hunts-b
 `GET /api/v1/test-v2/state` inclui `arena`: semana/revisão/clock, elegibilidade, própria posição/troféus, classificação pública, até cinco oponentes acima, cooldown, quota móvel e últimos50duelos próprios. Somente leitura; sem seeds/stats/run IDs alheios.
 
 `POST /api/v1/test-v2/arena`: `{commandId,expectedRevision,arenaRevision,seasonId,action}`; `action:{type:'enroll'}` ou `{type:'challenge',opponentId:UUID público}`. Sessão/CSRF/flags V13 obrigatórios. Recibos applied/rejected/settling, replay idempotente,409UUIDreusado,422recusa de domínio. Sem recompensas econômicas. Contrato e operação em [V15](plans/hunts-builds/authenticated-arena-v15/IMPLEMENTATION.md).
+
+### Guildas autenticadas V16 (ensaio)
+
+GET /api/v1/test-v2/state inclui guilds: revisão/cursor, guilda própria/membros/brasão/nível/XP/custos, diretório público, convites próprios, convites enviados/candidatos administrativos e chat privado pós-ingresso. Sem runs, seeds ou carteiras de terceiros; GET não inscreve, liquida farm ou concede XP.
+
+POST /api/v1/test-v2/guilds aceita {commandId,expectedRevision,guildRevision,action}, ações create(name), invite(accountId), accept/decline(guildId), revoke(accountId), leave, role(accountId,role), emblem(pixels256), upgrade, chat(text). Sessão/CSRF/flags V13; applied/rejected/settling,422domínio,409UUIDreusado, replay durável. Ator/guilda própria/custos/XP/tempo são determinados pelo servidor. [Contrato/operação](plans/hunts-builds/authenticated-guilds-v16/IMPLEMENTATION.md).

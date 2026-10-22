@@ -66,3 +66,6 @@ Android: [guia de teste LAN](MOBILE_TEST.md), [implementação/evidências](MOBI
 
 - [Arena autenticada V15 — contrato e operação de teste](plans/hunts-builds/authenticated-arena-v15/IMPLEMENTATION.md)
 - [Arena V15 — evidências e limites](plans/hunts-builds/authenticated-arena-v15/RESULTS.md)
+
+- [Guildas autenticadas V16 — contrato e operação](plans/hunts-builds/authenticated-guilds-v16/IMPLEMENTATION.md)
+- [Guildas V16 — evidências e limites](plans/hunts-builds/authenticated-guilds-v16/RESULTS.md)
