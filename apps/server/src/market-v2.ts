@@ -1,13 +1,14 @@
 import {createHash,createHmac,randomUUID} from 'node:crypto';
 import {z} from 'zod';
+import type {PoolClient} from 'pg';
 import {EconomyRunV6Schema,MarketV2CommandSchema,MarketV2BookSchema,initialMarketV2,syncMarketV2,applyMarketV2,settleElapsedV7,MARKET_V2_RULES,type MarketV2World} from '@akai/shared';
 import {canonicalJson} from './economy-migration.js';
 import type {Database} from './database.js';
 const hash=(v:unknown)=>createHash('sha256').update(canonicalJson(v)).digest('hex');
 const rule=(ok:unknown,code:string)=>{if(!ok)throw Error(code);};
-/** Operator-only private-cohort adapter, never registered as an HTTP route. */
+/** Private-cohort writer; HTTP callers must supply transactional authorization hooks. */
 export class MarketV2Service {
- constructor(readonly db:Database,readonly clock=()=>Date.now()){}
+ constructor(readonly db:Database,readonly clock=()=>Date.now(),readonly authorize?:(c:PoolClient,accountId:string)=>Promise<void>,readonly authorizeParties?:(c:PoolClient,accounts:string[])=>Promise<void>){}
  async stage(input:string[],requestId:string){
   const ids=z.array(z.uuid()).min(2).max(20).parse(input).sort();z.uuid().parse(requestId);rule(new Set(ids).size===ids.length,'DUPLICATE_MEMBER');
   return this.db.transaction(async c=>{
@@ -21,14 +22,15 @@ export class MarketV2Service {
   z.uuid().parse(realmId);z.uuid().parse(actor);const cmd=MarketV2CommandSchema.parse(input),payloadHash=hash({realmId,actor,cmd});
   return this.db.transaction(async c=>{
    const realm=(await c.query('SELECT state FROM akai_market_v2_realms WHERE id=$1 FOR UPDATE',[realmId])).rows[0];rule(realm,'MARKET_REALM_NOT_FOUND');
-   const prior=(await c.query('SELECT realm_id,payload_hash,result FROM akai_market_v2_commands WHERE run_id=$1 AND command_id=$2',[actor,cmd.commandId])).rows[0];if(prior){rule(prior.realm_id===realmId&&prior.payload_hash===payloadHash,'COMMAND_ID_REUSED');return prior.result;}
    const rows=(await c.query('SELECT r.* FROM akai_economy_rehearsals r JOIN akai_market_v2_members m ON m.run_id=r.id WHERE m.realm_id=$1 ORDER BY r.id FOR UPDATE OF r',[realmId])).rows;
    const row=rows.find(r=>r.id===actor);rule(row,'MEMBER_NOT_FOUND');
+   if(this.authorize)await this.authorize(c,row.account_id);
+   const prior=(await c.query('SELECT realm_id,payload_hash,result FROM akai_market_v2_commands WHERE run_id=$1 AND command_id=$2',[actor,cmd.commandId])).rows[0];if(prior){rule(prior.realm_id===realmId&&prior.payload_hash===payloadHash,'COMMAND_ID_REUSED');return prior.result;}
    const before=Object.fromEntries(rows.map(r=>[r.id,EconomyRunV6Schema.parse(r.state)]));let world:MarketV2World={book:MarketV2BookSchema.parse(realm.state),runs:structuredClone(before)};
    let result:{status:string;code:string;revision:number;listingId?:string};
    const changed=new Set<string>([actor]);
    try{
-    rule(!row.closed,'REHEARSAL_CLOSED');rule(cmd.expectedRevision===Number(row.revision),'STALE_REVISION');const now=this.clock();world=syncMarketV2(world,now);
+    rule(!row.closed,'REHEARSAL_CLOSED');rule(cmd.expectedRevision===Number(row.revision),'STALE_REVISION');const now=Math.max(this.clock(),world.book.clockMs);world=syncMarketV2(world,now);
     const social=(await c.query('SELECT e.state FROM akai_boss_v8_realms e JOIN akai_boss_v8_members m ON m.realm_id=e.id WHERE m.run_id=ANY($1::uuid[])',[rows.map(r=>r.id)])).rows;const socialActive=new Set<string>(social.flatMap(e=>Object.entries(e.state.sessions).filter(([,p]:[string,any])=>p.active).map(([id])=>id)));
 
     let backlog=false;
@@ -41,6 +43,7 @@ export class MarketV2Service {
      const parties=[actor,...(l?[l.seller]:[]),...(a.type==='offer.accept'&&offer?[offer.buyer]:[])];
      rule(!rows.some(r=>parties.includes(r.id)&&r.closed),'REHEARSAL_CLOSED');rule(!rows.some(r=>parties.includes(r.id)&&socialActive.has(r.account_id)),'EVENT_ACTIVITY_ACTIVE');
      const accounts=rows.filter(r=>parties.includes(r.id)).map(r=>before[r.id]!.economy.accountId);
+     if(this.authorizeParties)await this.authorizeParties(c,accounts);
      rule(!(await c.query('SELECT 1 FROM akai_profiles WHERE account_id=ANY($1::uuid[]) AND suspended LIMIT 1',[accounts])).rowCount,'ACCOUNT_SUSPENDED');
      try{const applied=applyMarketV2(world,actor,a,now,randomUUID);world=applied.world;result={status:'applied',code:'OK',revision:Number(row.revision)+1,...(applied.listingId?{listingId:applied.listingId}:{})};}
      catch(e){result={status:'rejected',code:e instanceof z.ZodError?'INVALID_MARKET_STATE':e instanceof Error?e.message:'INVALID_ACTION',revision:Number(row.revision)+1};}

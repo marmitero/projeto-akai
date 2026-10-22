@@ -62,3 +62,7 @@ Ensaio reproduzível publicado em[liquidity-v11/RESULTS.md](liquidity-v11/RESULT
 ## Fase 4 — consumidores autenticados V13
 
 [authenticated-v13/RESULTS.md](authenticated-v13/RESULTS.md): HTTP autenticado de ensaio, própria carteira/run e eventos compartilhados em autoridade única fixada pelo operador; interface online para teste admitido, off por padrão. Mercado em leitura; produção pública, retenção/escala, demais consumidores sociais e corte permanecem pendentes. Próxima etapa: completar consumidores autenticados de mercado/arena/guilda/temporadas sem misturar carteiras, depois capacidade/corte/backup/rollback/calibragem/playtest e revisão de ativação. Monetização continua por último.
+
+## Fase 5 — mercado autenticado V14
+
+Implementação/validação em [authenticated-market-v14/IMPLEMENTATION.md](authenticated-market-v14/IMPLEMENTATION.md). Reutiliza carteira única e motor transacional do mercado privado com sessão/pin; sem corte de contas reais ou mudança de taxas. Próximos consumidores autenticados: arena, guilda e temporadas. Gates econômicos/operacionais continuam obrigatórios; monetização por último.

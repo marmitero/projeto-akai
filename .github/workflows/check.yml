@@ -81,6 +81,7 @@ jobs:
       - run: node scripts/smoke-economy-preview.mjs
       - run: node scripts/smoke-economy-preview.mjs --preview
       - run: node scripts/smoke-authenticated-v13.mjs
+      - run: node scripts/smoke-authenticated-market-v14.mjs
       - run: node scripts/smoke-chat-layout.mjs
       - run: node scripts/smoke-chat-layout.mjs --preview
       - run: node scripts/smoke-mobile.mjs
@@ -99,3 +100,4 @@ jobs:
       - run: node scripts/smoke-market.mjs --preview
       - run: node scripts/smoke-premium.mjs --preview
       - run: node scripts/smoke-authenticated-v13.mjs --preview
+      - run: node scripts/smoke-authenticated-market-v14.mjs --preview
