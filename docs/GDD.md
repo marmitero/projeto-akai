@@ -86,3 +86,5 @@ F5 adiciona modo online isolado: contas começam do zero, mesmas regras RPG da c
 ## Atualização F6 — 15/10/2026
 
 F6 implementa chat/guildas/brasões/arena/rankings/temporadas/boss diário e eventos relâmpago/guerra em desenvolvimento. Regras adotadas atualizam as propostas acima: capacidade20–38, força10ATQ+HP+20DEF, empate favorece defesa, troca de posições, janelas/calendário/recompensas e papéis definidos em COMMUNITY_SYSTEMS/ADR-010. Valores são experimentais e testados tecnicamente, sem alegar equilíbrio humano ou publicação pública. Sem bots, merge de saldo local, pagamentos ou mercado.
+
+Arena v2 autenticada de ensaio: usa os atributos/equipamentos atuais v2, intervalos reais v3 e ataques simultâneos; rankings semanais e recibos próprios. Mantém cinco alvos acima,60s/20por24h, troca de posições/+20troféus, derrota−10mínimozero e defesa no empate. Sem fontes econômicas ou pontos/prêmios de guilda/temporada nesta fase. Operação e limites em [V15](plans/hunts-builds/authenticated-arena-v15/IMPLEMENTATION.md) e [ADR-013](ADR/0013-authenticated-arena-v15.md); economia real/+16–20/monetização permanecem off.

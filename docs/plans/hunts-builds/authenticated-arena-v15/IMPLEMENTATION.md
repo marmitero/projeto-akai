@@ -1,6 +1,6 @@
 # Fase 6 / V15 — arena autenticada de teste
 
-Implementação em validação. Continuação autorizada da V14; não ativa economia real, capacidade pública ou monetização.
+Implementação e validação concluídas para o ensaio isolado. Continuação autorizada da V14; não ativa economia real, capacidade pública ou monetização.
 
 ## Identidade e operação
 
@@ -25,3 +25,9 @@ A revisão na interface congela personagem, board, semana e alvo antes da confir
 ## Limites
 
 Autoridade de ensaio1–20, sem sharding global, aprovação de liquidez/população, corte de contas ou prêmios competitivos econômicos. Não certifica balanceamento PvP de todas as builds nem dispositivo Android físico. Regras antigas de arena, guilda e temporadas não são migradas nesta fase. Economia real/+16–20/monetização off; activationReady=false.
+
+O adaptador puro tem export separado `@akai/shared/arena-v15`; não altera o entrypoint ou os módulos usados pela campanha econômica adquirida. Auditorias V10/V11/V12 continuam verificando seus hashes e artefatos originais; o código novo de arena é coberto pelos testes V15, não por aqueles hashes de campanha.
+
+## Fechamento
+
+Candidato `ad04f77a90287787a0fde737db5eea572791e3e8`, árvore `66d01441d5f32bf8763b1a83dee9d949392ccf55`. CI39818218318 e Windows39818218329 aprovadas:335testes/38arquivos PostgreSQL16 sem skips,13SQL+6combate novos,19Node adicionais, auditorias e browser dev/preview desktop/mobile emulado completos. Sem Android físico. Evidências, fixtures corrigidas e limites em [RESULTS.md](RESULTS.md). Fechamento somente documental após validação, sem alterar runtime/SQL/testes/scripts/JSON.

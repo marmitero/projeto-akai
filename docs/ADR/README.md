@@ -20,3 +20,5 @@ Ao alterar decisão, criar sucessor ou histórico explícito; atualizar GDD/API/
 - [ADR-009 — Autoridade online, identidade e persistência](0009-authoritative-online.md).
 
 - [ADR-010 — Comunidade e calendário autoritativos](0010-community-authority.md).
+
+- [ADR-013 — Arena v2 autenticada no ensaio canônico](0013-authenticated-arena-v15.md).
