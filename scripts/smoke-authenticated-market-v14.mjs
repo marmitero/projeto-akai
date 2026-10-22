@@ -58,6 +58,7 @@ try{
  await confirm(seller,offer());await refresh(buyer);await confirm(buyer,buyer.locator('[data-v14-action="offer.reject"]'));
  await refresh(seller);await confirm(seller,offer());await confirm(seller,seller.locator('[data-v14-action="offer.withdraw"]'));
  await confirm(seller,offer());await refresh(buyer);await confirm(buyer,buyer.locator('[data-v14-action="offer.accept"]'));assert.deepEqual((await service.read(users[0].token)).consumer.inventory.find(i=>i.id===itemId),original);
+ await refresh(seller); // The counterpart's accepted offer changed this account's revision; review fresh data before a new listing.
  const cancel=await list(seller,'resource:iron','1000');await confirm(seller,seller.locator(`[data-listing-id="${cancel.listingId}"] [data-v14-action="cancel"]`));await confirm(seller,seller.locator(`[data-listing-id="${cancel.listingId}"] [data-v14-action="claim"]`));await seller.locator('[data-v14-asset]').selectOption('resource:iron');await seller.locator('[data-v14-price]').fill('1000');const rejected=await confirm(seller,seller.locator('[data-v14-list]'),'rejected');assert.equal(rejected.code,'RELIST_COOLDOWN');
  // Explicitly assert the rejection receipt instead of accepting a helper failure as evidence.
  const cooldown=(await market.inspect(marketRealm)).book.listings.length;assert.equal(cooldown,3);
