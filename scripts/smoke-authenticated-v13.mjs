@@ -36,7 +36,9 @@ try{
   await page.locator('#more').click();await page.locator('#authenticated-v13-open').click();await page.locator('[data-v13-wallet]').filter({hasText:'Nível 1000'}).waitFor();await page.locator('[data-v13-action="boss"]').click();await page.waitForFunction(()=>document.querySelector('[data-v13-status]')?.textContent==='Atualizado.');pages.push(page);
  }
  const book=await boss.inspect(realm);book.daily.hp=1;await db.pool.query('UPDATE akai_boss_v8_realms SET state=$2 WHERE id=$1',[realm,book]);now+=10000;
- await pages[0].locator('[data-v13-action="sync"]').click();await pages[0].locator('[data-v13-broadcast]').filter({hasText:'250 jade'}).waitFor();await pages[1].locator('[data-v13-refresh]').click();await pages[1].locator('[data-v13-broadcast]').filter({hasText:'250 jade'}).waitFor();
+ await pages[0].locator('[data-v13-action="sync"]').click();await pages[0].locator('[data-v13-broadcast]').filter({hasText:'250 jade'}).waitFor();// Participant1 advanced the shared world: participant2 now has a stale revision.
+ await pages[1].locator('[data-v13-action="sync"]').click();await pages[1].waitForFunction(()=>document.querySelector('[data-v13-status]')?.textContent==='Atualizado.');await pages[1].locator('[data-v13-broadcast]').filter({hasText:'250 jade'}).waitFor();
+ assert.ok((await db.pool.query("SELECT 1 FROM akai_boss_v8_commands WHERE run_id=$1 AND result->>'code'='STALE_REVISION'",[users[1].run])).rowCount>0,'Fixture must exercise stale-revision retry');
  assert.equal(await pages[0].locator('[data-v13-broadcast]').innerText(),await pages[1].locator('[data-v13-broadcast]').innerText());
  for(const page of pages)await page.locator('[data-v13-close]').click();
  // Accelerated server clock belongs only to this synthetic test process, not an HTTP field.
@@ -48,5 +50,5 @@ try{
   const legacy=await page.evaluate(async()=>{const r=await fetch('/api/v1/state',{headers:{'X-Akai-Client':'1'}});return r.json();});assert.equal(legacy.snapshot.balances.jade,'0');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   assert.deepEqual(await economy.reconcile(users[i].run),[]);
  }
- assert.deepEqual(errors,[]);console.log(JSON.stringify({authenticatedV13:true,preview,twoSessionsOneWorld:true,oneBroadcast:true,redacted:true,isolatedJade:true,desktopAndMobile:true}));
+ assert.deepEqual(errors,[]);console.log(JSON.stringify({authenticatedV13:true,preview,twoSessionsOneWorld:true,oneBroadcast:true,safeStaleRetry:true,redacted:true,isolatedJade:true,desktopAndMobile:true}));
 }finally{await browser?.close();if(child&&child.exitCode===null){child.kill('SIGTERM');await new Promise(r=>child.once('exit',r));}await app?.close();await db?.close();await base.pool.query('DROP SCHEMA IF EXISTS '+schema+' CASCADE');await base.close();}

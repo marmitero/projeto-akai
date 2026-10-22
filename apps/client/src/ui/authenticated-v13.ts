@@ -24,10 +24,17 @@ export function createAuthenticatedV13(root:HTMLElement,online:boolean){
  }
  function error(e:unknown){status.textContent=e instanceof ApiFailure?({NOT_FOUND:'Ensaio indisponível neste servidor.',V13_NOT_ENROLLED:'Sua conta ainda não foi incluída no ensaio.',UNAUTHENTICATED:'Sua sessão expirou. Entre novamente.'}[e.code]??e.code):'Não foi possível consultar o ensaio.';}
  async function refresh(){const generation=++readGeneration;try{const next=await api<View>('test-v2/state');if(disposed||generation!==readGeneration)return;view=next;render();}catch(e){if(!disposed&&generation===readGeneration){view=undefined;error(e);}}finally{if(!disposed)controls();}}
- async function command(action:string,kind:'events'|'economy'='events'){if(busy||!view)return;busy=true;controls();try{
+ async function command(action:string,kind:'events'|'economy'='events'){if(busy||!view)return;busy=true;status.textContent='Enviando…';controls();try{
   let input:unknown=action==='boss'||action==='protection'?{type:'join',mode:action}:{type:action};
   if(kind==='economy'){if(action==='select')input={type:'select',activity:dialog.querySelector<HTMLSelectElement>('[data-v13-activity]')!.value,floor:Number(dialog.querySelector<HTMLInputElement>('[data-v13-floor]')!.value)};else if(action==='pause')input={type:'pause',paused:true};else if(action==='train')input={type:'train',attribute:dialog.querySelector<HTMLSelectElement>('[data-v13-attribute]')!.value};}
-  const receipt=await api<Receipt>('test-v2/'+kind,{commandId:commandId(),expectedRevision:view.revision,action:input});
+  let receipt:Receipt|undefined;
+  for(let attempt=0;attempt<3;attempt++){
+   if(!view||disposed)break;
+   receipt=await api<Receipt>('test-v2/'+kind,{commandId:commandId(),expectedRevision:view.revision,action:input});
+   if(receipt.status!=='rejected'||receipt.code!=='STALE_REVISION'||!['heartbeat','sync','settle'].includes(action)||attempt===2)break;
+   await refresh();
+  }
+  if(!receipt)return;
   if(!disposed)status.textContent=receipt.status==='applied'?'Atualizado.':receipt.status==='settling'?'Processando. Use Concluir processamento para continuar.':({STALE_REVISION:'O estado mudou. Atualize e tente novamente.',EVENT_PRESENCE_EXPIRED:'Sua presença terminou. Entre novamente.',EVENT_LOCKED:'Conclua o andar necessário para participar.'}[receipt.code??'']??receipt.code??'Atualizado.');
  }catch(e){if(!disposed)error(e);}finally{await refresh();busy=false;controls();}}
  const show=()=>{root.querySelector<HTMLDialogElement>('#menu-dialog')!.close();dialog.showModal();status.textContent='Consultando…';void refresh();};

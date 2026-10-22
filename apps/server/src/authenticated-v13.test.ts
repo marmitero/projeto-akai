@@ -14,7 +14,7 @@ describe('V13 configuration',()=>{
   expect(parseServerConfig({}).V13_HTTP_TEST).toBe(false);
   const enabled={DATABASE_URL:'postgres://test',V13_HTTP_TEST:'true',V13_TEST_DATABASE:'true'};
   expect(parseServerConfig(enabled).V13_HTTP_TEST).toBe(true);
-  for(const extra of [{V13_TEST_DATABASE:'false'},{NODE_ENV:'production'},{HOST:'0.0.0.0'},{PUBLIC_ORIGIN:'https://example.com',COOKIE_SECURE:'true'}])expect(()=>parseServerConfig({...enabled,...extra})).toThrow();
+  for(const extra of [{DATABASE_URL:undefined},{MONETIZATION_MODE:'sandbox',MONETIZATION_TEST_DATABASE:'true',MONETIZATION_KEY:'a'.repeat(64)},{V13_TEST_DATABASE:'false'},{NODE_ENV:'production'},{HOST:'0.0.0.0'},{PUBLIC_ORIGIN:'https://example.com',COOKIE_SECURE:'true'}])expect(()=>parseServerConfig({...enabled,...extra})).toThrow();
  });
 });
 describe.skipIf(!url)('V13 authenticated canonical event HTTP',()=>{

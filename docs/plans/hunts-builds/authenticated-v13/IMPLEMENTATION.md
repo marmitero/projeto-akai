@@ -15,7 +15,7 @@ Implementação concluída; validação remota em andamento. Entrega HTTP autent
 
 ## Cliente
 
-Mais → Ensaio online v2, somente no modo online quando auth/config anuncia o teste habilitado. Exibe saldo próprio, HP/qualificação, ranking e broadcast; permite torre/hunts, pausa e treino de atributos com preço visível; entra/sai do boss ou proteção e permite continuar processamento limitado. Heartbeats/atualizações acontecem apenas com a janela aberta e página visível. Fechar/ocultar interrompe a presença após o lease; GET não concede presença. Dados de nomes/mensagens usam textContent. A prévia local existente permanece independente.
+Mais → Ensaio online v2, somente no modo online quando auth/config anuncia o teste habilitado. Exibe saldo próprio, HP/qualificação, ranking e broadcast; permite torre/hunts, pausa e treino de atributos com preço visível; entra/sai do boss ou proteção e permite continuar processamento limitado. Heartbeats/atualizações acontecem apenas com a janela aberta e página visível. Fechar/ocultar interrompe a presença após o lease; GET não concede presença. Dados de nomes/mensagens usam textContent. Heartbeat/sync/settle podem atualizar uma revisão obsoleta e tentar novamente no máximo três vezes; compras/treinos/alterações de atividade não são repetidos automaticamente, preservando a decisão de preço e alvo. Observadores pausados consultam GET sem criar presença. A prévia local existente permanece independente.
 
 ## Operação em banco isolado
 
