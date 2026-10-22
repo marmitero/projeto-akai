@@ -71,12 +71,14 @@ jobs:
       - run: node --test scripts/tests/population.test.mjs
       - run: node scripts/economy-v2/audit-population.mjs --verify
       - run: node scripts/economy-v2/audit-readiness.mjs
+      - run: node scripts/economy-v2/audit-guild-boss-v18.mjs
       - run: node scripts/simulate-loop.mjs
       - run: node scripts/simulate-rpg.mjs
       - run: node scripts/simulate-bestiary.mjs
       - run: node scripts/simulate-market.mjs
       - run: node scripts/simulate-monetization.mjs
       - run: npx playwright install --with-deps chromium
+      - run: node scripts/smoke-boss-archive-v18.mjs
       - run: node scripts/smoke-authenticated-seasons-v17.mjs
       - run: node scripts/smoke-authenticated-guilds-v16.mjs
       - run: node scripts/smoke-combat-lab.mjs
@@ -110,3 +112,4 @@ jobs:
       - run: node scripts/smoke-authenticated-arena-v15.mjs --preview
       - run: node scripts/smoke-authenticated-guilds-v16.mjs --preview
       - run: node scripts/smoke-authenticated-seasons-v17.mjs --preview
+      - run: node scripts/smoke-boss-archive-v18.mjs --preview
