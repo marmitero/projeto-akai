@@ -1,12 +1,13 @@
 import {randomBytes,randomUUID,createHmac,createHash} from 'node:crypto';
 import {z} from 'zod';
+import type {PoolClient} from 'pg';
 import {initialRunV6,EconomyRunV6Schema,EconomyActionV6Schema,settleElapsedV7,applyEconomyActionV6,type EconomyRunV6} from '@akai/shared';
 import {prepareLegacyMarketReconciliation,verifyLegacyMarketReconciliation,prepareEconomyMigration,verifyEconomyMigration,rehearseEconomyRollback,canonicalJson,type EconomyMigrationPlan} from './economy-migration.js';
 import type {Database} from './database.js';
 const hash=(x:unknown)=>createHash('sha256').update(canonicalJson(x)).digest('hex');
 const Command=z.object({commandId:z.uuid(),expectedRevision:z.number().int().nonnegative().safe(),action:z.union([EconomyActionV6Schema,z.object({type:z.literal('settle')}).strict(),z.object({type:z.literal('close')}).strict()])}).strict();
 export class EconomyRehearsalService {
- constructor(readonly db:Database,readonly clock=()=>Date.now()){}
+ constructor(readonly db:Database,readonly clock=()=>Date.now(),readonly authorize?:(c:PoolClient,accountId:string)=>Promise<void>){}
  /** Creates a private copy under locks. Legacy accounts, assets, premium and live ledgers are never edited. */
  async stage(accountId:string,requestId:string,reconcileLegacyMarket=false){
   z.uuid().parse(accountId);z.uuid().parse(requestId);return this.db.transaction(async c=>{
@@ -31,6 +32,7 @@ export class EconomyRehearsalService {
   z.uuid().parse(runId);const cmd=Command.parse(input),payloadHash=hash(cmd);
   return this.db.transaction(async c=>{
    const row=(await c.query('SELECT * FROM akai_economy_rehearsals WHERE id=$1 FOR UPDATE',[runId])).rows[0];if(!row)throw Error('RUN_NOT_FOUND');
+   if(this.authorize)await this.authorize(c,row.account_id);
    const prior=(await c.query('SELECT payload_hash,result FROM akai_economy_rehearsal_commands WHERE run_id=$1 AND command_id=$2',[runId,cmd.commandId])).rows[0];
    if(prior){if(prior.payload_hash!==payloadHash)throw Error('COMMAND_ID_REUSED');return prior.result;}
    if(row.closed)throw Error('REHEARSAL_CLOSED');

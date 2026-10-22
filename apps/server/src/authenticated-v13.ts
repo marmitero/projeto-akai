@@ -1,8 +1,9 @@
 import {z} from 'zod';
 import type {PoolClient} from 'pg';
-import {EconomyRunV6Schema,BossEventsV8Schema,MarketV2BookSchema,economyConsumersV9} from '@akai/shared';
+import {EconomyRunV6Schema,BossEventsV8Schema,MarketV2BookSchema,economyConsumersV9,EconomyActionV6Schema} from '@akai/shared';
 import {OnlineService,OnlineError,digest} from './online.js';
 import {BossEventsV8Service} from './boss-events-v8.js';
+import {EconomyRehearsalService} from './economy-rehearsal.js';
 const requireRule=(ok:unknown,code:string,status=403)=>{if(!ok)throw new OnlineError(code,status);};
 /** Session identity and canonical membership, never a run/account/realm chosen by the caller. */
 export class AuthenticatedV13Service {
@@ -33,14 +34,18 @@ export class AuthenticatedV13Service {
   const market=(await c.query('SELECT r.state FROM akai_market_v2_realms r JOIN akai_market_v2_members m ON m.realm_id=r.id WHERE m.run_id=$1',[m.run])).rows[0];
   return {version:'authenticated-v13-1',rehearsalOnly:true,liveAccountModified:false,capacity:20,revision:Number(row.revision),consumer:economyConsumersV9(EconomyRunV6Schema.parse(row.state),BossEventsV8Schema.parse(event.state),market?MarketV2BookSchema.parse(market.state):undefined,m.run)};
  });}
- async command(token:string,input:unknown){
+ async command(token:string,input:unknown,kind:'events'|'economy'='events'){
+  if(kind==='economy')z.object({commandId:z.uuid(),expectedRevision:z.number().int().nonnegative().safe(),action:z.union([EconomyActionV6Schema,z.object({type:z.literal('settle')}).strict()])}).strict().parse(input);
   // Resolve once, then repeat authorization INSIDE the authoritative writer transaction after locks,
   // including on idempotent receipt replay. Revoked sessions/members cannot retrieve old receipts.
   const m=await this.online.db.transaction(c=>this.membership(c,token));
-  const writer=new BossEventsV8Service(this.online.db,this.online.clock,async(c,account)=>{
+  const authorize=async(c:PoolClient,account:string)=>{
    const current=await this.membership(c,token,true);
    requireRule(current.account===account&&current.run===m.run&&current.realm===m.realm,'FORBIDDEN');
-  });
-  return writer.command(m.realm,m.run,input);
+  };
+  try{return kind==='events'?await new BossEventsV8Service(this.online.db,this.online.clock,authorize).command(m.realm,m.run,input):await new EconomyRehearsalService(this.online.db,this.online.clock,authorize).command(m.run,input);}catch(e){
+   if(e instanceof Error&&e.message==='COMMAND_ID_REUSED')throw new OnlineError('COMMAND_ID_REUSED',409);
+   throw e;
+  }
  }
 }

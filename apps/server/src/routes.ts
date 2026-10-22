@@ -75,6 +75,7 @@ export async function onlineRoutes(
   });
   app.get("/api/v1/auth/config", async () => ({
     googleClientId: config.GOOGLE_CLIENT_ID ?? null,
+    v13HttpTest: config.V13_HTTP_TEST,
   }));
   app.post("/api/v1/auth/google/nonce", async (req) => {
     if (!config.GOOGLE_CLIENT_ID)

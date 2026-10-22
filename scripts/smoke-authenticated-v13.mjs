@@ -38,11 +38,13 @@ try{
  const book=await boss.inspect(realm);book.daily.hp=1;await db.pool.query('UPDATE akai_boss_v8_realms SET state=$2 WHERE id=$1',[realm,book]);now+=10000;
  await pages[0].locator('[data-v13-action="sync"]').click();await pages[0].locator('[data-v13-broadcast]').filter({hasText:'250 jade'}).waitFor();await pages[1].locator('[data-v13-refresh]').click();await pages[1].locator('[data-v13-broadcast]').filter({hasText:'250 jade'}).waitFor();
  assert.equal(await pages[0].locator('[data-v13-broadcast]').innerText(),await pages[1].locator('[data-v13-broadcast]').innerText());
+ for(const page of pages)await page.locator('[data-v13-close]').click();
  // Accelerated server clock belongs only to this synthetic test process, not an HTTP field.
  for(let i=0;i<62;i++){now+=10000;for(const user of users){const view=await service.read(user.token);const r=await service.command(user.token,{commandId:randomUUID(),expectedRevision:view.revision,action:{type:'heartbeat'}});assert.equal(r.status,'applied');}}
  for(const [i,page]of pages.entries()){
+  await page.locator('#more').click();await page.locator('#authenticated-v13-open').click();
   await page.locator('[data-v13-refresh]').click();await page.waitForFunction(()=>!document.querySelector('[data-v13-wallet]')?.textContent?.includes('Jade 0'));
-  const dto=await page.evaluate(async()=>{const r=await fetch('/api/v1/test-v2/state',{headers:{'X-Akai-Client':'1'}});return r.json();});assert.equal(dto.consumer.accountId,users[i].accountId);assert.doesNotMatch(JSON.stringify(dto),/"(seed|secret|runs|sessions|offlineJob|archive)":/);
+  const dto=await page.evaluate(async()=>{const r=await fetch('/api/v1/test-v2/state',{headers:{'X-Akai-Client':'1'}});return r.json();});assert.equal(dto.consumer.accountId,users[i].accountId);assert.ok(BigInt(dto.consumer.balances.jade)>=3000n);assert.doesNotMatch(JSON.stringify(dto),/"(seed|secret|runs|sessions|offlineJob|archive)":/);
   const legacy=await page.evaluate(async()=>{const r=await fetch('/api/v1/state',{headers:{'X-Akai-Client':'1'}});return r.json();});assert.equal(legacy.snapshot.balances.jade,'0');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   assert.deepEqual(await economy.reconcile(users[i].run),[]);
  }

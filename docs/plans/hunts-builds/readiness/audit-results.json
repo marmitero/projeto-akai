@@ -1,7 +1,7 @@
 {
-  "version": "economy-readiness-5",
+  "version": "economy-readiness-6",
   "consumers": {
-    "gate": "validated-private-unified-consumers-acquired-campaign-sampled",
+    "gate": "authenticated-isolated-http-production-consumers-pending",
     "earlyAccounts": 18,
     "earlyEntryPassed": true,
     "lateSyntheticMembers": 12,
@@ -45,7 +45,22 @@
       "Capacity and free-player playtest",
       "brute/best/seed4213: maximum at day111.48958333333333, tower stopped at979; review acquired gear, weapon selection and late build performance"
     ],
-    "interpretation": "Single-wallet rehearsal and acquired campaigns are independently audited. A sampled campaign pass does not activate public authenticated/social consumers, population, market liquidity or operational cutover."
+    "interpretation": "Single-wallet rehearsal and acquired campaigns are independently audited. A sampled campaign pass does not activate public authenticated/social consumers, population, market liquidity or operational cutover.",
+    "authenticatedHttp": {
+      "version": "v13",
+      "evidence": "authenticated-v13/IMPLEMENTATION.md",
+      "testOnly": true,
+      "defaultEnabled": false,
+      "liveAccountCutover": false,
+      "canonicalEventAuthorities": 1,
+      "capacity": 20,
+      "ownRead": true,
+      "ownEconomyCommands": true,
+      "eventCommands": true,
+      "marketWrite": false,
+      "publicPopulationApproved": false,
+      "productionEnabled": false
+    }
   },
   "activationReady": false,
   "manualIntegrationReviewRequired": true,

@@ -58,3 +58,7 @@ Ensaio reproduzível publicado em[liquidity-v11/RESULTS.md](liquidity-v11/RESULT
 ## Fase 3 — população e Jade (V12)
 
 [population-v12/RESULTS.md](population-v12/RESULTS.md) avalia combate nativo de1–20atores com atributos conquistados, concentração/chegadas tardias, HPs hipotéticos e teto de emissão global versus coortes independentes. Integridade não equivale a população pública aprovada; valores3/escada200–20/último250 e runtime intactos. Próxima fase: consumidores autenticados e autoridade global de edição/conta/HP/ranking/grants; depois capacidade, corte/backup/rollback, calibragem/playtest e revisão de ativação. Bloqueios deCoin/mercado/Força/Jade extremo permanecem, monetização por último.
+
+## Fase 4 — consumidores autenticados V13
+
+[authenticated-v13/RESULTS.md](authenticated-v13/RESULTS.md): HTTP autenticado de ensaio, própria carteira/run e eventos compartilhados em autoridade única fixada pelo operador; interface online para teste admitido, off por padrão. Mercado em leitura; produção pública, retenção/escala, demais consumidores sociais e corte permanecem pendentes. Próxima etapa: completar consumidores autenticados de mercado/arena/guilda/temporadas sem misturar carteiras, depois capacidade/corte/backup/rollback/calibragem/playtest e revisão de ativação. Monetização continua por último.

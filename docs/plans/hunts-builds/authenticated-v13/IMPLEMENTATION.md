@@ -1,6 +1,6 @@
 # Fase 4 — consumidores autenticados e autoridade única de eventos (V13)
 
-Etapa em implementação/validação. Entrega HTTP autenticado de teste para progresso v2 e eventos, com uma única autoridade canônica por banco de ensaio. Não migra contas reais, não ativa economia v2/+16–20/monetização e não certifica capacidade de milhares de jogadores.
+Implementação concluída; validação remota em andamento. Entrega HTTP autenticado de teste para progresso v2 e eventos, com uma única autoridade canônica por banco de ensaio. Não migra contas reais, não ativa economia v2/+16–20/monetização e não certifica capacidade de milhares de jogadores.
 
 ## Contratos
 
@@ -11,11 +11,11 @@ Etapa em implementação/validação. Entrega HTTP autenticado de teste para pro
 - Resolução inicial por sessão é repetida dentro da transação R8 depois dos locks, antes de consultar recibos antigos. A sessão e a autorização do membro ficam bloqueadas em leitura durante a escrita; revogação enquanto o pedido aguarda não entrega recompensa nem recibo a sessão inválida.
 - Escrita reutiliza os mesmos runs, revisões, ledger/outbox/grants/broadcast R8. Uma pool canônica, um HP e uma escada por edição, compartilhados pelas sessões admitidas; salas privadas adicionais não são selecionáveis pelo HTTP. Replay/idempotência, exclusividade v2 e rollback continuam no motor existente.
 - Limite inicial permanece20participantes e snapshot até10000grants. Não é sharding público ou retenção/capacidade definitiva. A CLI privada R8 ainda serve outros ensaios, sem transformá-los em novas edições públicas. O operador deve usar somente a pool canônica neste teste autenticado.
-- Consumidores de economia/mercado são leitura; comandos gerais de economia/mercado, arena, guilda e temporadas permanecem etapas seguintes. A conta atual continua legada e separada; nunca somar essa carteira ao ensaio.
+- POST `/api/v1/test-v2/economy`: ações nativas R6 e settle sobre o próprio run, com a mesma revalidação de sessão dentro da transação. Fechamento administrativo close não é aceito. Preços, recursos, limites e RNG são calculados pelo servidor; exclusividade de evento bloqueia treino/farm simultâneo. Mercado permanece em leitura; sua escrita, arena, guilda e temporadas são etapas seguintes. A conta atual continua legada e separada; nunca somar essa carteira ao ensaio.
 
 ## Cliente
 
-Mais → Ensaio online v2, somente no modo online. Exibe saldo próprio, HP/qualificação, ranking e broadcast; entra/sai do boss ou proteção e permite continuar processamento limitado. Heartbeats acontecem apenas com a janela aberta e página visível. Fechar/ocultar interrompe a presença após o lease; GET não concede presença. Dados de nomes/mensagens usam textContent. A prévia local existente permanece independente.
+Mais → Ensaio online v2, somente no modo online quando auth/config anuncia o teste habilitado. Exibe saldo próprio, HP/qualificação, ranking e broadcast; permite torre/hunts, pausa e treino de atributos com preço visível; entra/sai do boss ou proteção e permite continuar processamento limitado. Heartbeats/atualizações acontecem apenas com a janela aberta e página visível. Fechar/ocultar interrompe a presença após o lease; GET não concede presença. Dados de nomes/mensagens usam textContent. A prévia local existente permanece independente.
 
 ## Operação em banco isolado
 

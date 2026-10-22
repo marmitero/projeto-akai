@@ -1,6 +1,6 @@
 import {beforeEach,afterEach,describe,it,expect,vi} from 'vitest';
 import {randomUUID} from 'node:crypto';
-import {presetBuildV3} from '@akai/shared';
+import {presetBuildV3,attributeCost} from '@akai/shared';
 import {Database} from './database.js';
 import {OnlineService} from './online.js';
 import {EconomyRehearsalService} from './economy-rehearsal.js';
@@ -57,6 +57,7 @@ describe.skipIf(!url)('V13 authenticated canonical event HTTP',()=>{
   for(let i=0;i<62;i++){now+=10000;expect((await command(0,{type:'heartbeat'})).response.json().status).toBe('applied');}
   const view=(await state()).json();expect(view.consumer.balances.jade).toBe('453000');expect(view.consumer.event.broadcasts).toHaveLength(1);expect(view.consumer.event.broadcasts[0].jade).toBe(250);
   const receipt=await command(0,{type:'heartbeat'}),before=await economy.inspect(members[0]!.run);expect((await app.inject({method:'POST',url:'/api/v1/test-v2/events',headers:headers(members[0]!.user.token),payload:receipt.body})).json()).toEqual(receipt.response.json());expect(await economy.inspect(members[0]!.run)).toEqual(before);
+  const reused=await app.inject({method:'POST',url:'/api/v1/test-v2/events',headers:headers(members[0]!.user.token),payload:{...receipt.body,action:{type:'leave'}}});expect(reused.statusCode).toBe(409);expect(await economy.inspect(members[0]!.run)).toEqual(before);
   expect(await economy.reconcile(members[0]!.run)).toEqual([]);for(const m of members)expect((await db.pool.query('SELECT snapshot FROM akai_accounts WHERE id=$1',[m.user.accountId])).rows[0].snapshot).toEqual(m.source);
  },30000);
  it('serializes two participants through one death, ranking and broadcast',async()=>{
@@ -75,6 +76,14 @@ describe.skipIf(!url)('V13 authenticated canonical event HTTP',()=>{
   await db.pool.query("CREATE FUNCTION v13_fail() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RAISE EXCEPTION 'V13_OUTBOX'; END $$");await db.pool.query('CREATE TRIGGER v13_fail BEFORE INSERT ON akai_boss_v8_events FOR EACH ROW EXECUTE FUNCTION v13_fail()');
   const failed=await command(0,{type:'heartbeat'});expect(failed.response.statusCode).toBe(500);expect(await economy.inspect(members[0]!.run)).toEqual(before);expect(await boss.inspect(realm)).toEqual(b);
   await db.pool.query('DROP TRIGGER v13_fail ON akai_boss_v8_events');const retry=await app.inject({method:'POST',url:'/api/v1/test-v2/events',headers:headers(members[0]!.user.token),payload:failed.body});expect(retry.json().status).toBe('applied');expect((await state()).json().consumer.balances.jade).toBe('450000');
+ });
+ it('plays the same v2 run and buys an attribute with earned Coin, excluding event time and operator close',async()=>{
+  const run=(await economy.inspect(members[0]!.run)).state;for(const key of Object.keys(run.economy.attributes) as (keyof typeof run.economy.attributes)[])run.economy.attributes[key]=0;await db.pool.query('UPDATE akai_economy_rehearsals SET state=$2 WHERE id=$1',[members[0]!.run,run]);
+  const act=async(action:Record<string,unknown>)=>app.inject({method:'POST',url:'/api/v1/test-v2/economy',headers:headers(members[0]!.user.token),payload:{commandId:randomUUID(),expectedRevision:(await state()).json().revision,action}});
+  expect((await act({type:'select',activity:'main',floor:1})).json().status).toBe('applied');for(let i=0;i<12;i++){now+=10000;expect((await act({type:'settle'})).json().status).toBe('applied');}
+  const before=(await state()).json().consumer,quote=attributeCost('force',1);expect(BigInt(before.balances.coin)).toBeGreaterThanOrEqual(BigInt(quote.coin));expect((await act({type:'train',attribute:'force'})).json().status).toBe('applied');const after=(await state()).json().consumer;expect(after.attributes.force).toBe(1);expect(BigInt(after.balances.coin)).toBe(BigInt(before.balances.coin)-BigInt(quote.coin));
+  expect((await act({type:'train',attribute:'force',cost:'0'})).statusCode).toBe(400);expect((await act({type:'close'})).statusCode).toBe(400);
+  await command(0,{type:'join',mode:'boss'});expect((await act({type:'pause',paused:true})).json().code).toBe('EVENT_ACTIVITY_ACTIVE');expect(await economy.reconcile(members[0]!.run)).toEqual([]);
  });
  it('does not register authenticated test routes unless explicitly enabled',async()=>{
   const off=buildServer(parseServerConfig({}),false,{service:online});try{expect((await off.inject({url:'/api/v1/test-v2/state',headers:headers(members[0]!.user.token)})).statusCode).toBe(404);}finally{await off.close();}
