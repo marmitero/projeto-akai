@@ -65,4 +65,4 @@ Ensaio reproduzível publicado em[liquidity-v11/RESULTS.md](liquidity-v11/RESULT
 
 ## Fase 5 — mercado autenticado V14
 
-Implementação/validação em [authenticated-market-v14/IMPLEMENTATION.md](authenticated-market-v14/IMPLEMENTATION.md). Reutiliza carteira única e motor transacional do mercado privado com sessão/pin; sem corte de contas reais ou mudança de taxas. Próximos consumidores autenticados: arena, guilda e temporadas. Gates econômicos/operacionais continuam obrigatórios; monetização por último.
+Concluída para ensaio isolado na [PR24](https://github.com/marmitero/projeto-akai/pull/24), com316testes PostgreSQL/36arquivos,13SQL novos e browser dev/preview/Windows aprovados; detalhes em [authenticated-market-v14/IMPLEMENTATION.md](authenticated-market-v14/IMPLEMENTATION.md). Reutiliza carteira única e motor transacional do mercado privado com sessão/pin; sem corte de contas reais ou mudança de taxas. Próximos consumidores autenticados: arena, guilda e temporadas. Gates econômicos/operacionais continuam obrigatórios; monetização por último.

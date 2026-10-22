@@ -1,6 +1,6 @@
 # Fase 5 / V14 — mercado autenticado de teste
 
-Etapa autorizada após a revisão da PR23. Em implementação/validação na branch feat/authenticated-market-v14; não é aprovação da economia real, de liquidez ou de capacidade pública.
+Etapa autorizada após a revisão da PR23. Implementação e validação concluídas na PR24; não é aprovação da economia real, de liquidez ou de capacidade pública.
 
 ## Contrato
 
@@ -14,7 +14,7 @@ GET state permanece REPEATABLE READ READ ONLY para economia. Só projeta mercado
 
 ## Interface e recuperação
 
-Mais→Ensaio online v2→Mercado online v2 de teste. Anunciar equipamento/material; preço e quantidade até três casas decimais convertidos com BigInt; busca, filtros e páginas de20anúncios; comprar, ofertar, retirar/aceitar/recusar, cancelar, resgatar e histórico próprio até50transações. Revisão explícita mostra preço/imposto/líquido e custo de anúncio antes de confirmar; texto externo usa textContent.
+Mais→Ensaio online v2→Mercado online v2 de teste. Anunciar equipamento/material; preço e quantidade até três casas decimais convertidos com BigInt; busca, filtros e páginas de20anúncios; comprar, ofertar, retirar/aceitar/recusar, cancelar, resgatar e histórico próprio até50transações. Revisão explícita identifica o bem e mostra preço/imposto/líquido e custo de anúncio antes de confirmar; texto externo usa textContent.
 
 Comando financeiro é salvo em sessionStorage por conta antes do envio; resposta perdida/recarga reenvia o mesmo UUID e payload. Recibo aplicado/rejeitado/settling encerra a intenção. Stale não cria nova compra automática; exige revisar e confirmar novamente. Durante resultado desconhecido, demais mutações ficam bloqueadas. Sem saldo/item otimista, dados legados importados ou concessões pela interface. HTTP sem pin não permite negociar.
 
@@ -23,3 +23,19 @@ Comando financeiro é salvo em sessionStorage por conta antes do envio; resposta
 Testes SQL isolados: identidade/CSRF/flags, roster/pin, concorrência/replay/hash, revogação durante espera, DTO/projeção expirada sem escrita, ofertas/fundos, cancelamento/resgate/cooldown, evento/suspensão/desabilitação, backlog e rollback integral da outbox/ledger/fee/receipt. Browser dev/preview, desktop/mobile, ida/volta da mesma instância, todas as ofertas, resposta perdida com reload, resgate/expiração e carteira legada preservada. Regressões V13 e auditorias/replays V10/V11/V12 mantidos.
 
 Sem alteração de fórmulas, fontes, taxas ou artefatos certificados de campanha/liquidez/população. Arena/guilda/temporadas autenticadas, capacidade/retenção, calibragem Coin/Força/HP/Jade, corte/backup/rollback e playtest continuam pendentes. Economia real/+16–20/monetização off.
+
+## Preparar o playtest
+
+Com DATABASE_URL apontando para o mesmo banco isolado da V13 e o roster de eventos já vinculado:
+
+1. Executar build e migrações usuais: `npm run build` e `npm run db:migrate -w @akai/server`.
+2. Preparar um arquivo privado com o array dos mesmos2–20UUIDs de run da autoridade de eventos. Não publicar esse arquivo.
+3. `node apps/server/dist/market-v2-cli.js stage --file private-run-ids.json --request UUID`.
+4. Usar o ID de mercado retornado: `node apps/server/dist/authenticated-v13-cli.js bind-market --realm MARKET_UUID`.
+5. Manter as flags de teste V13 explicitamente configuradas no ambiente isolado e iniciar `servidor.bat`. Entrar com conta já admitida e abrir Mais→Ensaio online v2→Mercado online v2 de teste.
+
+Repetir bind para o mesmo mercado é idempotente; outro mercado/roster é recusado. O comando não cria saldo, run, equipamento ou participante. Permissões temporárias continuam em enable/disable --account UUID da CLI V13. O mercado legado e o ensaio têm destinos distintos e nunca somam saldos.
+
+## Fechamento
+
+Candidato `000ed61d0fbd07d49e7760d8ee6aff8cc0f035a4`, árvore `afdee3e56447fdaf082fb6c8687a93dd1eea90ec`, [PR24](https://github.com/marmitero/projeto-akai/pull/24). [CI39810570092](https://github.com/marmitero/projeto-akai/actions/runs/39810570092) e [Windows39810570094](https://github.com/marmitero/projeto-akai/actions/runs/39810570094). aprovadas:316testes/36arquivos PostgreSQL16 sem skips,13SQL novos,19Node, auditorias/replays e browser dev/preview desktop/mobile completos. Windows BAT/LAN aprovado. Evidências, falha inicial de fixture corrigida e limites em [RESULTS.md](RESULTS.md). Fechamento posterior somente documental, sem alterar o candidato validado.
