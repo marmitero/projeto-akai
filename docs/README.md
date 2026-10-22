@@ -63,3 +63,6 @@ Android: [guia de teste LAN](MOBILE_TEST.md), [implementação/evidências](MOBI
 - [R2 — contratos executáveis, ensaio de migração e nova Jade](plans/hunts-builds/r2/IMPLEMENTATION.md).
 
 - [R3 — combate, builds e laboratório](plans/hunts-builds/r3/IMPLEMENTATION.md).
+
+- [Arena autenticada V15 — contrato e operação de teste](plans/hunts-builds/authenticated-arena-v15/IMPLEMENTATION.md)
+- [Arena V15 — evidências e limites](plans/hunts-builds/authenticated-arena-v15/RESULTS.md)

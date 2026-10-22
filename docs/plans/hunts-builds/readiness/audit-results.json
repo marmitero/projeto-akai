@@ -47,8 +47,8 @@
     ],
     "interpretation": "Single-wallet rehearsal and acquired campaigns are independently audited. A sampled campaign pass does not activate public authenticated/social consumers, population, market liquidity or operational cutover.",
     "authenticatedHttp": {
-      "version": "v14",
-      "evidence": "authenticated-market-v14/IMPLEMENTATION.md",
+      "version": "v15",
+      "evidence": "authenticated-arena-v15/IMPLEMENTATION.md",
       "testOnly": true,
       "defaultEnabled": false,
       "liveAccountCutover": false,
@@ -58,6 +58,8 @@
       "ownEconomyCommands": true,
       "eventCommands": true,
       "marketWrite": true,
+      "arenaWrite": true,
+      "arenaEconomicRewards": false,
       "canonicalMarketAuthorities": 1,
       "publicPopulationApproved": false,
       "productionEnabled": false

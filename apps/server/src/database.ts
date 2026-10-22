@@ -32,6 +32,7 @@ export class Database {
     const bossV8 = await readFile(new URL("../migrations/007_boss_events_v8.sql", import.meta.url), "utf8");
     const authenticatedV13 = await readFile(new URL("../migrations/008_authenticated_v13.sql", import.meta.url), "utf8");
     const authenticatedMarketV14 = await readFile(new URL("../migrations/009_authenticated_market_v14.sql", import.meta.url), "utf8");
+    const arenaV15 = await readFile(new URL("../migrations/010_authenticated_arena_v15.sql", import.meta.url), "utf8");
     await this.transaction(async (c) => {
       await c.query("SELECT pg_advisory_xact_lock(41652001)");
       await c.query(sql);
@@ -43,6 +44,7 @@ export class Database {
       await c.query(bossV8);
       await c.query(authenticatedV13);
       await c.query(authenticatedMarketV14);
+      await c.query(arenaV15);
     });
   }
   async transaction<T>(fn: (c: PoolClient) => Promise<T>): Promise<T> {

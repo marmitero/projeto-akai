@@ -108,3 +108,5 @@ Autorizada após publicaçãoF7. Catálogo/Loja, contratos/migração004, Purcha
 ## Fase 5 de integração v2 — mercado autenticado (22/10/2026)
 
 [PR24](https://github.com/marmitero/projeto-akai/pull/24), [resultados](plans/hunts-builds/authenticated-market-v14/RESULTS.md): mercado do ensaio com sessão, pin/roster canônico, mesma carteira/revisão, intenção recuperável e operações completas na UI online.316testes PostgreSQL/36arquivos e browser dev/preview/Windows passaram. Próximo: arena autenticada, depois guildas/temporadas. Calibragem/liquidez/população/capacidade/corte/backup/rollback/playtest continuam gates; economia real/+16–20/monetização off.
+
+V15 arena autenticada em validação: ranking semanal/duelos v2 sem grants econômicos, mesma admissão V13. Após validar, guildas/temporadas autenticadas. Economia real, +16–20 e monetização continuam off. [Contrato V15](plans/hunts-builds/authenticated-arena-v15/IMPLEMENTATION.md).
