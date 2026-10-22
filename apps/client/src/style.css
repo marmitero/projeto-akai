@@ -1458,3 +1458,8 @@ progress {
 
 #authenticated-v13 {width:min(96vw,780px);max-height:92dvh;padding:0;overflow:auto;}
 #authenticated-v13 p,#authenticated-v13 li {overflow-wrap:anywhere;}
+
+#authenticated-market-v14 { min-width: 0; overflow-wrap: anywhere; }
+#authenticated-market-v14 input, #authenticated-market-v14 select { max-width: 100%; min-width: 0; }
+#authenticated-market-v14 article { margin-block: .5rem; }
+#authenticated-market-v14 [data-v14-review] { border: 1px solid var(--gold, #c9a65c); padding: .6rem; }

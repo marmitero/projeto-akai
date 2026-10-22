@@ -1,6 +1,8 @@
 # Documentação do Projeto Akai
 
-Planejamento futuro (sem implementação): [reforma de hunts, atributos/builds e fortalecimento](plans/hunts-builds/PROPOSAL.md), [roadmap](plans/hunts-builds/ROADMAP.md) e [referências/modelo](plans/hunts-builds/CURVE_MODEL.md). O comportamento atual do jogo permanece nos relatórios publicados.
+Estado atual da reforma: R2–R8 e V9–V14 foram entregues em contratos/laboratórios/ensaios. A [Fase5/V14 — mercado autenticado](plans/hunts-builds/authenticated-market-v14/RESULTS.md) integra negociações à carteira de teste, com CI/Windows/browser aprovados. Economia real, +16–20 e monetização permanecem desativados. Próximo: consumidores de arena/guildas/temporadas e gates econômicos/operacionais. [AI_STATE](../AI_STATE.md) registra o estado canônico.
+
+Planejamento original da reforma: [reforma de hunts, atributos/builds e fortalecimento](plans/hunts-builds/PROPOSAL.md), [roadmap](plans/hunts-builds/ROADMAP.md) e [referências/modelo](plans/hunts-builds/CURVE_MODEL.md). O comportamento atual do jogo permanece nos relatórios publicados.
 
 Entrega atual: [Bestiário comum — 27 fichas](bestiary/BESTIARY.md), [inventário técnico](bestiary/asset-inventory.json) e [implementação/validação](bestiary/BESTIARY_IMPLEMENTATION.md).
 

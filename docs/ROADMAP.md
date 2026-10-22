@@ -104,3 +104,7 @@ Autorizada após publicaçãoF7. Catálogo/Loja, contratos/migração004, Purcha
 ## Proposta futura de reforma — R0 documental,18/10/2026
 
 [Roadmap específico R0–R9](plans/hunts-builds/ROADMAP.md): hunts, atributos/builds, fortalecimento de alto risco, mercado e migração. Somente pesquisa/documentação foi solicitada e executada. Essa proposta não substitui o jogo publicado nem autoriza implementação automática. Fonte de jade fica na etapa própria de bosses; lojaRuby continua na fase final.
+
+## Fase 5 de integração v2 — mercado autenticado (22/10/2026)
+
+[PR24](https://github.com/marmitero/projeto-akai/pull/24), [resultados](plans/hunts-builds/authenticated-market-v14/RESULTS.md): mercado do ensaio com sessão, pin/roster canônico, mesma carteira/revisão, intenção recuperável e operações completas na UI online.316testes PostgreSQL/36arquivos e browser dev/preview/Windows passaram. Próximo: arena autenticada, depois guildas/temporadas. Calibragem/liquidez/população/capacidade/corte/backup/rollback/playtest continuam gates; economia real/+16–20/monetização off.
