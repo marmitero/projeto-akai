@@ -8,11 +8,14 @@ export async function bossCloseRequiredV18(c:PoolClient,now:number,through=now){
 export async function advanceArchivedBossV18(input:BossEventsV8,to:number,close:(s:BossEventsV8)=>Promise<void>,maximum=30){
  let s=structuredClone(input),windows=0;const end=s.daily.endMs;
  if(to<end)return advanceBossEventsV8(s,to,maximum);
- if(s.clockMs<end-1){const r=advanceBossEventsV8(s,end-1,maximum);s=r.state;windows+=r.windows;if(r.backlog)return{state:s,windows,backlog:true};}
- if(s.clockMs<end){
-  const active=Object.entries(s.sessions).some(([id,p])=>p.active&&p.until>s.clockMs&&!s.daily.members[id]?.suspended);
-  if(active){if(windows>=maximum)return{state:s,windows,backlog:true};const r=advanceBossEventsV8(s,end,maximum-windows);s=r.state;windows+=r.windows;if(r.backlog)return{state:s,windows,backlog:true};}
-  else s.clockMs=end;
+ // Advance exactly the native absolute-second/lease windows, without splitting the final ms.
+ // Splitting a window could shift the timestamp of a qualification grant by one millisecond.
+ while(s.clockMs<end){
+  for(const [id,p]of Object.entries(s.sessions))if(p.until<=s.clockMs||s.daily.members[id]?.suspended){p.active=false;p.combat=null;}
+  const active=Object.values(s.sessions).filter(p=>p.active);
+  if(!active.length){s.clockMs=end;break;}
+  if(windows>=maximum)return{state:s,windows,backlog:true};
+  const target=Math.min(end,(Math.floor(s.clockMs/1000)+1)*1000,...active.map(p=>p.until)),r=advanceBossEventsV8(s,target,1);s=r.state;windows+=r.windows;
  }
  if(contributed(s))await close(s);
  s.daily=initialBossEventsV8(end).daily;for(const p of Object.values(s.sessions)){p.active=false;p.combat=null;}
