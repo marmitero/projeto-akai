@@ -123,3 +123,7 @@ Runs/ledger/outbox R6 preservam apenas deltas nativos R7; arena não concede rec
 ## Guildas autenticadas V16 — SQL011
 
 Mundo singleton(revisão/cursor), guildas(nome ativo único case-insensitive, nível1–10, XP numeric38), membros(PKconta, índice líder único porguilda, joined_at/chat_after), convites(PKguilda/conta e expiração), chat(bigserial/guilda/autor/tempo), limitechat porconta, créditos(PKfonte/conta), recibos(PKconta/UUID) e outbox(uniqueconta/comando). Chat/créditos/recibos/outbox append-only. Entradas sociais derivam somente de V13; SQLlegada não é migrada. Custos gravam ledger R6 na mesma transação; crédito de arena é XP de guilda, sem delta de carteira. [ADR-014](ADR/0014-authenticated-guilds-v16.md).
+
+## Temporadas autenticadas V17 — SQL012
+
+Mundo singleton(revisão/cursor/periodJSON com id/start/end/trackedFrom), archives(PKsemana/payload congelado), rewards(PKsemana/fonte/conta, Coin positivo), commands(PKconta/UUID/hash/receipt), events(uniqueconta/comando). Arquivos/prêmios/recibos/outbox append-only. Pagamento altera somente carteira canônica e ledger R6 na mesma transação; fontes arena/guild não são recursos legados. Nova inscrição da arena mantém força/maiorandar/carteira/guildaXP e histórico anterior. Não há importação retroativa. [ADR-015](ADR/0015-authenticated-seasons-v17.md).

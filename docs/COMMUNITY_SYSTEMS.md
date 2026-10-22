@@ -109,3 +109,7 @@ A seção Arena acima descreve o domínio legado. A arena do ensaio V13 usa os m
 ## Guildas do ensaio autenticado V16
 
 Painel Mais→Ensaio online v2→Guildas online v2 de teste: criação/evolução pela carteira v2, convites/recusa/revogação, cargos/transferência/remoção/saída/encerramento e brasão fixo. Chat literal restrito à entrada atual usa cursor de mensagem para não vazar histórico em reentrada no mesmo ms; bloqueios e mute da conta respeitados. Fonte atual1XP por vitória nativa de arena após24h, única por match/conta; sem walletgrants. Bônus/XP de boss/guerra e temporadas não são importados do legado. Operação/moderação/retensão públicas permanecem gates. [Contrato V16](plans/hunts-builds/authenticated-guilds-v16/IMPLEMENTATION.md) e [ADR-014](ADR/0014-authenticated-guilds-v16.md).
+
+## Temporadas v2 V17 — ensaio autenticado
+
+Calendário de Brasília, acompanhamento explícito sem retroatividade, arquivo imutável e fechamento confirmado no painel Temporadas. Prêmios nativos Coin arena500/300/100entre participantes de duelo e guildas300/200/100por membro com24h na fronteira; critérios/locks/recuperação em [V17](plans/hunts-builds/authenticated-seasons-v17/IMPLEMENTATION.md). Após a fronteira, arena/gestão de guilda aguardam fechamento; recibos prévios continuam recuperáveis. O arquivo mantém rankings ativos selecionados, nomes congelados e intervalo efetivamente acompanhado. Histórico de dano de boss/guerra/bônus de progressão continuam próximos passos; regras legadas acima não são automaticamente aplicadas ao domínio por tempo v2.
