@@ -1,6 +1,6 @@
 # Documentação do Projeto Akai
 
-Estado atual da reforma: R2–R8 e V9–V14 foram entregues em contratos/laboratórios/ensaios. A [Fase5/V14 — mercado autenticado](plans/hunts-builds/authenticated-market-v14/RESULTS.md) integra negociações à carteira de teste, com CI/Windows/browser aprovados. Economia real, +16–20 e monetização permanecem desativados. Próximo: consumidores de arena/guildas/temporadas e gates econômicos/operacionais. [AI_STATE](../AI_STATE.md) registra o estado canônico.
+Estado atual da reforma: R2–R8 e V9–V15 entregues em contratos/laboratórios/ensaios. A [Fase6/V15 — arena autenticada](plans/hunts-builds/authenticated-arena-v15/RESULTS.md) integra duelos/ranking semanal à identidade v2 de teste, com335testes PostgreSQL e CI/Windows/browser aprovados. Economia real, +16–20 e monetização permanecem desativados. Próximo: guildas/temporadas autenticadas e gates econômicos/operacionais. [AI_STATE](../AI_STATE.md) registra o estado canônico.
 
 Planejamento original da reforma: [reforma de hunts, atributos/builds e fortalecimento](plans/hunts-builds/PROPOSAL.md), [roadmap](plans/hunts-builds/ROADMAP.md) e [referências/modelo](plans/hunts-builds/CURVE_MODEL.md). O comportamento atual do jogo permanece nos relatórios publicados.
 
@@ -63,3 +63,6 @@ Android: [guia de teste LAN](MOBILE_TEST.md), [implementação/evidências](MOBI
 - [R2 — contratos executáveis, ensaio de migração e nova Jade](plans/hunts-builds/r2/IMPLEMENTATION.md).
 
 - [R3 — combate, builds e laboratório](plans/hunts-builds/r3/IMPLEMENTATION.md).
+
+- [Arena autenticada V15 — contrato e operação de teste](plans/hunts-builds/authenticated-arena-v15/IMPLEMENTATION.md)
+- [Arena V15 — evidências e limites](plans/hunts-builds/authenticated-arena-v15/RESULTS.md)

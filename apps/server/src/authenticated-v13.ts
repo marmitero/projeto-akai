@@ -4,6 +4,7 @@ import {EconomyRunV6Schema,BossEventsV8Schema,MarketV2BookSchema,economyConsumer
 import {OnlineService,OnlineError,digest} from './online.js';
 import {BossEventsV8Service} from './boss-events-v8.js';
 import {EconomyRehearsalService} from './economy-rehearsal.js';
+import {ArenaV15Service} from './arena-v15.js';
 import {MarketV2Service} from './market-v2.js';
 const requireRule=(ok:unknown,code:string,status=403)=>{if(!ok)throw new OnlineError(code,status);};
 /** Session identity and canonical membership, never a run/account/realm chosen by the caller. */
@@ -56,9 +57,9 @@ export class AuthenticatedV13Service {
    const own=economyConsumersV9(EconomyRunV6Schema.parse(row.state),undefined,book,m.run).market!;
    consumer.market={...own,listings:own.listings.filter(l=>l.seller===m.run||eligible(l.seller)).map(l=>({...l,seller:publicId(l.seller)})),offers:own.offers.map(o=>({...o,buyer:publicId(o.buyer)})),trades:own.trades.map(t=>({...t,buyer:publicId(t.buyer),seller:publicId(t.seller)}))};
   }
-  return {version:'authenticated-v13-1',rehearsalOnly:true,liveAccountModified:false,capacity:20,revision:Number(row.revision),consumer};
+  return {version:'authenticated-v13-1',rehearsalOnly:true,liveAccountModified:false,capacity:20,revision:Number(row.revision),consumer,arena:await new ArenaV15Service(this.online.db,this.online.clock).read(c,m.account)};
  });}
- async command(token:string,input:unknown,kind:'events'|'economy'|'market'='events'){
+ async command(token:string,input:unknown,kind:'events'|'economy'|'market'|'arena'='events'){
   if(kind==='economy')z.object({commandId:z.uuid(),expectedRevision:z.number().int().nonnegative().safe(),action:z.union([EconomyActionV6Schema,z.object({type:z.literal('settle')}).strict()])}).strict().parse(input);
   // Resolve once, then repeat authorization INSIDE the authoritative writer transaction after locks,
   // including on idempotent receipt replay. Revoked sessions/members cannot retrieve old receipts.
@@ -67,6 +68,7 @@ export class AuthenticatedV13Service {
    const current=await this.membership(c,token,true);
    requireRule(current.account===account&&current.run===m.run&&current.realm===m.realm,'FORBIDDEN');
   };
+  if(kind==='arena'){try{return await new ArenaV15Service(this.online.db,this.online.clock,authorize).command(m.run,input);}catch(e){if(e instanceof Error&&e.message==='COMMAND_ID_REUSED')throw new OnlineError('COMMAND_ID_REUSED',409);throw e;}}
   if(kind==='market'){
    const resolveMarket=async(c:PoolClient)=>{
     const r=(await c.query('SELECT p.realm_id FROM akai_v14_market p JOIN akai_market_v2_members m ON m.realm_id=p.realm_id WHERE m.run_id=$1',[m.run])).rows[0];

@@ -66,3 +66,7 @@ Ensaio reproduzível publicado em[liquidity-v11/RESULTS.md](liquidity-v11/RESULT
 ## Fase 5 — mercado autenticado V14
 
 Concluída para ensaio isolado na [PR24](https://github.com/marmitero/projeto-akai/pull/24), com316testes PostgreSQL/36arquivos,13SQL novos e browser dev/preview/Windows aprovados; detalhes em [authenticated-market-v14/IMPLEMENTATION.md](authenticated-market-v14/IMPLEMENTATION.md). Reutiliza carteira única e motor transacional do mercado privado com sessão/pin; sem corte de contas reais ou mudança de taxas. Próximos consumidores autenticados: arena, guilda e temporadas. Gates econômicos/operacionais continuam obrigatórios; monetização por último.
+
+## Fase 6 — arena autenticada V15
+
+Concluída para ensaio isolado: [contrato](authenticated-arena-v15/IMPLEMENTATION.md), [evidências](authenticated-arena-v15/RESULTS.md). Duelo/ranking semanal próprios, sem fontes econômicas novas. 335testes/38arquivos PostgreSQL16 sem skips,13SQL+6combate novos,19Node e CI39818218318/Windows39818218329/browser dev/preview aprovados. Próxima etapa guildas/temporadas autenticadas; gates de ativação preservados.

@@ -136,3 +136,9 @@ Rotas abaixo existem somente com V13_HTTP_TEST/V13_TEST_DATABASE e banco isolado
 Mesmos cookies HttpOnly, Origin/header CSRF e limites HTTP; comandos v2 compartilham limite60/min/sessão. Escritores revalidam sessão após locks e antes de replay. Aplicado e processamento parcial retornam recibo; recusa de domínio422 com commandId/status/code, conteúdo divergente no mesmo UUID409; erros de autenticação401/403. Sem pin de mercado409; flags off404. Backlog confirma progresso limitado, sem executar a compra/anúncio; nova intenção somente após concluir e revisar. Resposta desconhecida deve repetir o mesmo UUID/payload. Uma recusa stale exige atualização e nova decisão, sem compra automática.
 
 Operação/limites em [authenticated-market-v14/IMPLEMENTATION.md](plans/hunts-builds/authenticated-market-v14/IMPLEMENTATION.md). Economia real, +16–20 e monetização continuam desativados.
+
+### Arena autenticada V15 (ensaio)
+
+`GET /api/v1/test-v2/state` inclui `arena`: semana/revisão/clock, elegibilidade, própria posição/troféus, classificação pública, até cinco oponentes acima, cooldown, quota móvel e últimos50duelos próprios. Somente leitura; sem seeds/stats/run IDs alheios.
+
+`POST /api/v1/test-v2/arena`: `{commandId,expectedRevision,arenaRevision,seasonId,action}`; `action:{type:'enroll'}` ou `{type:'challenge',opponentId:UUID público}`. Sessão/CSRF/flags V13 obrigatórios. Recibos applied/rejected/settling, replay idempotente,409UUIDreusado,422recusa de domínio. Sem recompensas econômicas. Contrato e operação em [V15](plans/hunts-builds/authenticated-arena-v15/IMPLEMENTATION.md).
