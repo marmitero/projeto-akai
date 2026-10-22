@@ -119,3 +119,7 @@ No mesmo banco isolado V13, sem alterar snapshots/arena/carteiras legadas:
 | akai_arena_v15_events | Outbox imutável, única por conta/comando |
 
 Runs/ledger/outbox R6 preservam apenas deltas nativos R7; arena não concede recursos. Admissão/IDs privados derivam dos pins V13, sem novo roster público. Histórico não é apagado na troca de semana. [Contrato V15](plans/hunts-builds/authenticated-arena-v15/IMPLEMENTATION.md), [ADR-013](ADR/0013-authenticated-arena-v15.md).
+
+## Guildas autenticadas V16 — SQL011
+
+Mundo singleton(revisão/cursor), guildas(nome ativo único case-insensitive, nível1–10, XP numeric38), membros(PKconta, índice líder único porguilda, joined_at/chat_after), convites(PKguilda/conta e expiração), chat(bigserial/guilda/autor/tempo), limitechat porconta, créditos(PKfonte/conta), recibos(PKconta/UUID) e outbox(uniqueconta/comando). Chat/créditos/recibos/outbox append-only. Entradas sociais derivam somente de V13; SQLlegada não é migrada. Custos gravam ledger R6 na mesma transação; crédito de arena é XP de guilda, sem delta de carteira. [ADR-014](ADR/0014-authenticated-guilds-v16.md).

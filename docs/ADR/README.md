@@ -22,3 +22,5 @@ Ao alterar decisão, criar sucessor ou histórico explícito; atualizar GDD/API/
 - [ADR-010 — Comunidade e calendário autoritativos](0010-community-authority.md).
 
 - [ADR-013 — Arena v2 autenticada no ensaio canônico](0013-authenticated-arena-v15.md).
+
+- [ADR-014 — Guildas autenticadas no ensaio v2](0014-authenticated-guilds-v16.md).

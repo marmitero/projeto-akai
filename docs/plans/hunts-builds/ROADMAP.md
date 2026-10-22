@@ -70,3 +70,7 @@ Concluída para ensaio isolado na [PR24](https://github.com/marmitero/projeto-ak
 ## Fase 6 — arena autenticada V15
 
 Concluída para ensaio isolado: [contrato](authenticated-arena-v15/IMPLEMENTATION.md), [evidências](authenticated-arena-v15/RESULTS.md). Duelo/ranking semanal próprios, sem fontes econômicas novas. 335testes/38arquivos PostgreSQL16 sem skips,13SQL+6combate novos,19Node e CI39818218318/Windows39818218329/browser dev/preview aprovados. Próxima etapa guildas/temporadas autenticadas; gates de ativação preservados.
+
+## Fase 7 — guildas autenticadas V16
+
+Concluída no ensaio: PR26,354testes/40arquivos PG16 sem skips,16SQL+3contrato novos,19Node e CI39833412716/Windows39833412946/browser dev/preview aprovados. [contrato](authenticated-guilds-v16/IMPLEMENTATION.md), [evidências](authenticated-guilds-v16/RESULTS.md). Gestão/chat privado/brasão/evolução com mesma identidade/carteira e XP nativo de arena. Sem grants/bonificações de personagem ou migração das guildas reais. Próximo: temporadas/arquivo/fechamento e integrações de guilda restantes sob calendário/calibragem, preservando gates de ativação.

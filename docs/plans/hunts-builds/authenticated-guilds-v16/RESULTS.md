@@ -1,0 +1,29 @@
+# V16 — resultados e limites
+
+Concluída para ensaio isolado em22/10/2026, [PR26](https://github.com/marmitero/projeto-akai/pull/26). Candidato `26f74695a7a4ed0fe8eb13a2e5c0e6d3ed5d8de1`, árvore `20ba14791de60b637b3f2dbc754074c182192a24`. [CI39833412716](https://github.com/marmitero/projeto-akai/actions/runs/39833412716) e [Windows39833412946](https://github.com/marmitero/projeto-akai/actions/runs/39833412946) aprovadas. Execuções de push39833405240/Windows39833405237 também aprovadas. Fechamento posterior somente documental, sem alterar runtime/SQL/testes/scripts/JSON validados.
+
+## Evidências
+
+- 354testes/40arquivos com PostgreSQL16, sem skips; novos16SQL+3contrato compartilhado.
+- Gestão: criação500Coin, nome único case-insensitive, receipt/replay concorrente sem segundo débito; convites privados/24h/expiração projetada sem escrita/recusa/revogação; aceite concorrente sem duplo vínculo e disputa pela última vaga; papéis, transferência atômica, oficial só remove membro comum, líder transfere antes de sair e encerra somente como último membro; brasão256pixels com paleta fixa/líder; evolução com custo1000×nível, XP acumulado100×nível não consumido, capacidade20–38.
+- Segurança/consistência: schema estrito contra ator/custo/XP/clock forjados, sessão/CSRF/queryIDs/defaultoff/andar5/fundos; DTO sem runs/seeds/carteiras e sem chat/convites de terceiros; candidato administrativo só líder/oficial; desabilitação de destinatários; revogação de sessão/membro durante espera antes de replay; clock após lock com cursor; gasto bloqueado durante evento; R7backlog sem criar guilda; outboxfail reverte Coin/guilda/vínculo/recibo/ledger; reconciliação e snapshots legados preservados.
+- XP: fonte nativa arena:match única por conta, vínculo24h, sem crédito recente ou duplicado. Vitória real pelo HTTP autenticado da arena gera1XP; falha da outbox da arena reverte também XP/credit e permite retry seguro. Sem Coin/Jade/XP do personagem concedidos pela guilda.
+- Chat: texto literal/controles,3s, mute/bloqueios, somente vínculo atual, cursor pós-ingresso impede histórico anterior mesmo com saída/reentrada no mesmo ms. Audit privado registra ação, horário e guilda anterior/posterior. Históricos/credits/recibos/outbox append-only.
+- Browser dev e preview: duas contas, desktop1280×900/mobile390×844 emulados; resposta perdida na criação +reload reenvia mesmo UUID e debita500Coin uma vez; convite/aceite, mensagens literais sem HTML executado, brasão salvo, promoção/transferência, evolução por1000Coin com XP preservado, stale após chat concorrente exige nova revisão, saída/reentrada sem histórico antigo, recusa de saída do líder e encerramento final. DTO redigido, carteiras reconciliadas e Coin/Jade legados intactos; sem overflow/erros de página.
+- Types/build/assets,19Node adicionais (6campanha,1integridade,4liquidez,4população,4rede), auditorias/replays V10/V11/V12 e regressões combate/refino/economia/V13/V14/V15/chat/mobile/bestiário/navegação/online/comunidade/mercado/premium dev/preview aprovadas. Windows executou BATs reais e fluxo LAN. Sem Android físico testado.
+
+## Ocorrências e correções
+
+Checkpoint inicial415f11d preservado na branch:353testes passaram; browser detectou colisão entre textarea e mensagens no atributo data-v16-message, afetando o segundo envio. Campos separados: mensagens usam data-v16-chat-id; corrigido antes de integração. Rodadas intermediárias preservadas no histórico. Acrescentados cenários de última vaga, rollback do XP junto ao match, fundos insuficientes e audit de ação/vínculo; painel limpa dados privados ao sair.
+
+Candidato128c2ade passou354testes e browserdev. Push39828153984 foi cancelado no limite25min após preparação lenta do Chromium, antes de concluir toda a suíte; não é evidência completa. PR39830051766 passou todas as regressões anteriores, mas o último V16preview não abriu:4190 era bloqueada pelo Fetch. Reproduzido localmente como bad port; o servidor estava pronto. Driver mudou somente para4191, verificada com servidor/fetch local. Comparação128c2ade→26f74695a7a4ed0fe8eb13a2e5c0e6d3ed5d8de1 contém somente essa mudança no script de teste, sem alteração do jogo. Rodadas finais de push e PR passaram integralmente, incluindo o preview. Não declarar as rodadas anteriores verdes.
+
+Uma execução local prévia teve178aprovados/174SQLignorados por ausência de PostgreSQL, antes dos dois últimos casos; tipos posteriores passaram. Evidência completa é a CI final354/zero skips. Nenhum artefato numérico/hashes V10/V11/V12 foi reescrito; readiness mudou só metadados do consumidor.
+
+## Decisões e limites
+
+Mesma identidade/run/carteira v2; guildas próprias de ensaio, sem migrar as guildas reais. Custos e regra de1XP por vitória de ataque após24h seguem o contrato. Arena obtém advisoryguild antes dos próprios locks; XP e match atômicos. Interface congela ação/revisões e persiste mesma intenção; stale/settling exige nova decisão, sem repetição automática de gasto. Export próprio @akai/shared/guilds-v16 preserva o núcleo econômico adquirido.
+
+Builds fortes, XP100 para testar evolução e18contas extras inseridas diretamente no banco para a vaga final são fixtures técnicas isoladas, sem admissão HTTP ou progressão adquirida; não certificam capacidade pública. Fonte real de arena é verificada separadamente. Sem banco de guilda, prêmio econômico, bônus de personagem ou fonte Jade nova.
+
+Sem decisão obrigatória do usuário para encerrar. Próximo: temporadas/arquivo/fechamento v2 e integração/calibragem das fontes de guilda de boss/guerra e bônus. Balanceamento de guildas/PvP, playtest gratuito, Coin/Força/HP/Jade/refino, liquidez/população, capacidade/retenção/moderação e corte/backup/reconciliação/rollback continuam gates. Economia real/+16–20/monetizaçãooff, activationReady=false. Publicação é código GitHub para ensaio local/LAN, sem infraestrutura pública.

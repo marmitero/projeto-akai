@@ -1,0 +1,22 @@
+-- Canonical V13 test guilds. No live guild migration, rewards or season bonuses.
+CREATE TABLE IF NOT EXISTS akai_guild_v16_world(singleton boolean PRIMARY KEY DEFAULT true CHECK(singleton),revision bigint NOT NULL DEFAULT 0 CHECK(revision>=0),clock_ms bigint NOT NULL DEFAULT 0 CHECK(clock_ms>=0));
+INSERT INTO akai_guild_v16_world(singleton) VALUES(true) ON CONFLICT DO NOTHING;
+CREATE TABLE IF NOT EXISTS akai_guild_v16_guilds(id uuid PRIMARY KEY,name text NOT NULL CHECK(length(name) BETWEEN 3 AND 24),leader uuid NOT NULL REFERENCES akai_accounts(id),level integer NOT NULL DEFAULT 1 CHECK(level BETWEEN 1 AND 10),xp numeric(38,0) NOT NULL DEFAULT 0 CHECK(xp>=0),emblem jsonb NOT NULL,active boolean NOT NULL DEFAULT true);
+CREATE UNIQUE INDEX IF NOT EXISTS akai_guild_v16_name ON akai_guild_v16_guilds(lower(name)) WHERE active;
+CREATE TABLE IF NOT EXISTS akai_guild_v16_members(account_id uuid PRIMARY KEY REFERENCES akai_accounts(id),guild_id uuid NOT NULL REFERENCES akai_guild_v16_guilds(id),role text NOT NULL CHECK(role IN ('leader','officer','member')),joined_at bigint NOT NULL,chat_after bigint NOT NULL DEFAULT 0);
+CREATE UNIQUE INDEX IF NOT EXISTS akai_guild_v16_leader ON akai_guild_v16_members(guild_id) WHERE role='leader';
+CREATE TABLE IF NOT EXISTS akai_guild_v16_invites(guild_id uuid NOT NULL REFERENCES akai_guild_v16_guilds(id),account_id uuid NOT NULL REFERENCES akai_accounts(id),expires_at bigint NOT NULL,PRIMARY KEY(guild_id,account_id));
+CREATE TABLE IF NOT EXISTS akai_guild_v16_chat(id bigserial PRIMARY KEY,guild_id uuid NOT NULL REFERENCES akai_guild_v16_guilds(id),author uuid NOT NULL REFERENCES akai_accounts(id),text text NOT NULL CHECK(length(text) BETWEEN 1 AND 500),at bigint NOT NULL);
+CREATE INDEX IF NOT EXISTS akai_guild_v16_chat_scope ON akai_guild_v16_chat(guild_id,id);
+CREATE TABLE IF NOT EXISTS akai_guild_v16_chat_limits(account_id uuid PRIMARY KEY REFERENCES akai_accounts(id),next_at bigint NOT NULL);
+CREATE TABLE IF NOT EXISTS akai_guild_v16_credits(source text NOT NULL,account_id uuid NOT NULL REFERENCES akai_accounts(id),guild_id uuid NOT NULL REFERENCES akai_guild_v16_guilds(id),amount numeric(38,0) NOT NULL CHECK(amount>0),at bigint NOT NULL,PRIMARY KEY(source,account_id));
+CREATE TABLE IF NOT EXISTS akai_guild_v16_commands(account_id uuid NOT NULL REFERENCES akai_accounts(id),command_id uuid NOT NULL,payload_hash text NOT NULL,result jsonb NOT NULL,PRIMARY KEY(account_id,command_id));
+CREATE TABLE IF NOT EXISTS akai_guild_v16_events(id uuid PRIMARY KEY,account_id uuid NOT NULL REFERENCES akai_accounts(id),command_id uuid NOT NULL,payload jsonb NOT NULL,UNIQUE(account_id,command_id));
+DROP TRIGGER IF EXISTS akai_guild_v16_credits_immutable ON akai_guild_v16_credits;
+CREATE TRIGGER akai_guild_v16_credits_immutable BEFORE UPDATE OR DELETE ON akai_guild_v16_credits FOR EACH STATEMENT EXECUTE FUNCTION akai_no_history_change();
+DROP TRIGGER IF EXISTS akai_guild_v16_commands_immutable ON akai_guild_v16_commands;
+CREATE TRIGGER akai_guild_v16_commands_immutable BEFORE UPDATE OR DELETE ON akai_guild_v16_commands FOR EACH STATEMENT EXECUTE FUNCTION akai_no_history_change();
+DROP TRIGGER IF EXISTS akai_guild_v16_events_immutable ON akai_guild_v16_events;
+CREATE TRIGGER akai_guild_v16_events_immutable BEFORE UPDATE OR DELETE ON akai_guild_v16_events FOR EACH STATEMENT EXECUTE FUNCTION akai_no_history_change();
+DROP TRIGGER IF EXISTS akai_guild_v16_chat_immutable ON akai_guild_v16_chat;
+CREATE TRIGGER akai_guild_v16_chat_immutable BEFORE UPDATE OR DELETE ON akai_guild_v16_chat FOR EACH STATEMENT EXECUTE FUNCTION akai_no_history_change();
