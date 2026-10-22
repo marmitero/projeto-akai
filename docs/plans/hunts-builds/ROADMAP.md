@@ -73,4 +73,4 @@ Concluída para ensaio isolado: [contrato](authenticated-arena-v15/IMPLEMENTATIO
 
 ## Fase 7 — guildas autenticadas V16
 
-Em validação: [contrato](authenticated-guilds-v16/IMPLEMENTATION.md), [evidências](authenticated-guilds-v16/RESULTS.md). Gestão/chat privado/brasão/evolução com mesma identidade/carteira e XP nativo de arena. Sem grants/bonificações de personagem ou migração das guildas reais. Próximo: temporadas/arquivo/fechamento e integrações de guilda restantes sob calendário/calibragem, preservando gates de ativação.
+Concluída no ensaio: PR26,354testes/40arquivos PG16 sem skips,16SQL+3contrato novos,19Node e CI39833412716/Windows39833412946/browser dev/preview aprovados. [contrato](authenticated-guilds-v16/IMPLEMENTATION.md), [evidências](authenticated-guilds-v16/RESULTS.md). Gestão/chat privado/brasão/evolução com mesma identidade/carteira e XP nativo de arena. Sem grants/bonificações de personagem ou migração das guildas reais. Próximo: temporadas/arquivo/fechamento e integrações de guilda restantes sob calendário/calibragem, preservando gates de ativação.

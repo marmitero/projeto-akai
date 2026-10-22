@@ -31,3 +31,7 @@ O adaptador puro tem export separado `@akai/shared/arena-v15`; não altera o ent
 ## Fechamento
 
 Candidato `ad04f77a90287787a0fde737db5eea572791e3e8`, árvore `66d01441d5f32bf8763b1a83dee9d949392ccf55`. CI39818218318 e Windows39818218329 aprovadas:335testes/38arquivos PostgreSQL16 sem skips,13SQL+6combate novos,19Node adicionais, auditorias e browser dev/preview desktop/mobile emulado completos. Sem Android físico. Evidências, fixtures corrigidas e limites em [RESULTS.md](RESULTS.md). Fechamento somente documental após validação, sem alterar runtime/SQL/testes/scripts/JSON.
+
+## Integração posterior V16
+
+Vitórias de ataque passam a creditar1XP à guilda v2 após24h no vínculo atual, uma vez por match/conta, atômico com o duelo. Arena obtém advisoryguild41652016 antes de41652015/runs. Sem Coin/Jade/XP do personagem ou prêmio sazonal. O contrato original V15 acima registra a etapa anterior; ver [V16](../authenticated-guilds-v16/IMPLEMENTATION.md) e [ADR-014](../../../ADR/0014-authenticated-guilds-v16.md) para a integração atual.

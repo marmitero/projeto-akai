@@ -1,6 +1,6 @@
 # Fase 7 / V16 — guildas autenticadas de teste
 
-Implementação em validação, autorizada após a arena V15. Consumidor de gestão, chat privado e XP de arena sobre a identidade/run/carteira canônica V13. Sem corte das guildas legadas ou economia real.
+Implementação e validação concluídas, autorizadas após a arena V15. Consumidor de gestão, chat privado e XP de arena sobre a identidade/run/carteira canônica V13. Sem corte das guildas legadas ou economia real.
 
 ## Contrato de produto
 
@@ -26,4 +26,10 @@ Revisão da interface congela ação, alvo e revisões. SessionStorage por conta
 
 ## Limites
 
-Não certifica equilíbrio de progressão de guilda, concentração, população/retensão, temporadas ou infraestrutura pública. +16–20/economia real/monetizaçãooff; activationReady=false. Export próprio @akai/shared/guilds-v16 não altera módulos/entrypoint ou artefatos certificados V10/V11/V12. Evidências em [RESULTS.md](RESULTS.md).
+Não certifica equilíbrio de progressão de guilda, concentração, população/retenção, temporadas ou infraestrutura pública. +16–20/economia real/monetizaçãooff; activationReady=false. Export próprio @akai/shared/guilds-v16 não altera módulos/entrypoint ou artefatos certificados V10/V11/V12. Evidências em [RESULTS.md](RESULTS.md).
+
+## Fechamento e recuperação de backlog
+
+PR26, candidato26f74695a7a4ed0fe8eb13a2e5c0e6d3ed5d8de1, árvore20ba14791de60b637b3f2dbc754074c182192a24. CI39833412716/Windows39833412946 e push39833405240/Windows39833405237 aprovadas:354testes/40arquivos PostgreSQL16 sem skips,16SQL+3contrato novos,19Node, auditorias e regressões browser dev/preview completas. Sem Android físico. [RESULTS](RESULTS.md) registra falhas corrigidas e cancelamento anterior; fechamento posterior sóMarkdown.
+
+Se uma criação/evolução retornar settling, usar Batalha e melhorias de teste→Atualizar batalha para continuar a liquidação R7, ou revisar uma nova tentativa limitada. O recibo settling não cobrou o custo nem criou/evoluiu a guilda. Concluir processamento do evento não substitui a liquidação nativa da batalha; a nova ação financeira exige nova revisão/UUID após o progresso.
