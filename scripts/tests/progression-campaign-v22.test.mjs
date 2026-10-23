@@ -1,0 +1,8 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {compareCampaignV22} from '../economy-v2/progression-campaign-metrics-v22.mjs';
+const unfinished={masteryMs:10000,level:100,floor:110,maxDay:null,towerDay:null},finished={masteryMs:8294400000,level:1000,floor:1000,maxDay:108,towerDay:109};
+test('a local XP benefit cannot hide a slower observed tower milestone',()=>{const r=compareCampaignV22({...finished,maxDay:105,towerDay:110},finished);assert.equal(r.nonRegression,false);assert.equal(r.meaningfulBenefit,true);});
+test('censored completion is not promoted to success or improvement',()=>{assert.equal(compareCampaignV22(unfinished,finished).nonRegression,false);assert.equal(compareCampaignV22(unfinished,finished).meaningfulBenefit,false);assert.throws(()=>compareCampaignV22({...unfinished,maxDay:100},unfinished));assert.throws(()=>compareCampaignV22({...finished,towerDay:null},finished));});
+test('all endpoint gates remain independent from a 1 percent primary benefit',()=>{const r=compareCampaignV22({...unfinished,masteryMs:10100,floor:109},unfinished);assert.equal(r.meaningfulBenefit,true);assert.equal(r.nonRegression,false);assert.equal(compareCampaignV22(finished,finished).meaningfulBenefit,false);assert.equal(compareCampaignV22({...finished,maxDay:106},finished).nonRegression,true);});
+test('invalid milestones and endpoint numbers are rejected',()=>{for(const changes of [{maxDay:NaN},{maxDay:121},{masteryMs:-1},{level:1.1},{level:1001},{floor:1001},{masteryMs:8294400001}])assert.throws(()=>compareCampaignV22({...finished,...changes},finished));});

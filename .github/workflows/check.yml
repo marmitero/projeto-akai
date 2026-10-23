@@ -71,6 +71,7 @@ jobs:
       - run: node --test scripts/tests/population.test.mjs
       - run: node scripts/economy-v2/audit-population.mjs --verify
       - run: node scripts/economy-v2/audit-readiness.mjs
+      - run: node scripts/economy-v2/audit-progression-bonus-v20.mjs --verify
       - run: node scripts/economy-v2/audit-guild-wars-v19.mjs
       - run: node scripts/economy-v2/audit-guild-boss-v18.mjs
       - run: node scripts/simulate-loop.mjs
