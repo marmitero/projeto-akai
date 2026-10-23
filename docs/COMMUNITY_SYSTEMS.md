@@ -121,3 +121,7 @@ Arquivo diário durável antes do resetR8, com dano efetivo/contribuição/parti
 ## Ensaio de guerra V19
 
 [Contrato nativo v2](plans/hunts-builds/authenticated-guild-wars-v19/IMPLEMENTATION.md): snapshots v2 e dueloV15, desempate racional exato, gestão congelada na janela, prêmios500/250/100Coin somente atacantes elegíveis e100XP guilda vencedora com fonte única. Não importa grants/bônus legados; economia real/monetizaçãooff. Implementação validada no ensaio, PR29,412testes/47arquivosPG16 sem skips e browser dev/preview/Windows aprovados. [Evidências](plans/hunts-builds/authenticated-guild-wars-v19/RESULTS.md).
+
+## Candidata de bônus de domínio V20
+
+Guilda10/7/5/3/1% e evento online30% passam a ser candidatos de redução da penalidade de referência, limitados a tempo de vitória/benchmark; soma≤40%, sem multiplicar segundos. Apenas laboratório/cotação, sem efeito na comunidade ou ensaio. [Definição e limites](plans/hunts-builds/progression-bonus-v20/IMPLEMENTATION.md).

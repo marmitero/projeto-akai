@@ -27,6 +27,10 @@
     "./guild-wars-v19": {
       "types": "./dist/guild-wars-v19/index.d.ts",
       "import": "./dist/guild-wars-v19/index.js"
+    },
+    "./progression-bonus-v20": {
+      "types": "./dist/progression-bonus-v20/index.d.ts",
+      "import": "./dist/progression-bonus-v20/index.js"
     }
   },
   "scripts": {

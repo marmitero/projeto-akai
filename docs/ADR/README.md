@@ -30,3 +30,5 @@ Ao alterar decisão, criar sucessor ou histórico explícito; atualizar GDD/API/
 - [ADR-016 — Arquivo diário e XP de guilda do boss v2](0016-boss-archive-guild-v18.md).
 
 - [ADR-017 — guerra autenticada V19](0017-authenticated-guild-wars-v19.md).
+
+- [ADR-018 — Bônus de domínio sem multiplicar tempo](0018-progression-bonus-v20.md).
