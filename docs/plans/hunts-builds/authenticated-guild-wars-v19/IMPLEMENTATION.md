@@ -1,6 +1,6 @@
 # V19 — guerra de guildas autenticada
 
-Em implementação/validação no ensaio canônico V13, sem corte de contas/guildas reais. Economia real,+16–20/monetizaçãooff, activationReadyfalse. Bônus de progressão ficam para etapa posterior.
+Implementada e validada no ensaio canônico V13; [evidências finais](RESULTS.md), sem corte de contas/guildas reais. Economia real,+16–20/monetizaçãooff, activationReadyfalse. Bônus de progressão ficam para etapa posterior.
 
 Líder inscreve/atualiza antes de domingo18h Brasília, com dois membros disponíveis de24h. Usa somente atributos v2 adquiridos no servidor no instante da inscrição, sem liquidar ou fabricar tempo de farm. Atualizar recongela elenco/nomes/atributos/nível da guilda. Abertura explícita por sync filtra vínculo exato/conta disponível/guilda ativa, exige dois restantes e pareia nível decrescente/UUID. Ímpar fica sem confronto/prêmio. No máximo um confronto por guilda/semana. Domingo18h–19h cada participante pode atacar uma vez; alvo é índice do elenco ordenado porUUID com módulo no adversário. DueloV15 nativo, seed do servidor privada, maior andar congelado como referência. Evento ativo de atacante/alvo bloqueia ataque. Não concede segundos qualificados nem materiais.
 
@@ -12,4 +12,12 @@ POST /api/v1/test-v2/wars: commandId,expectedRevision,warRevision,seasonId,actio
 
 UI Mais→Ensaio online v2→Guerra de guildas: revisão/confirmação com payload congelado, sessionStorage por conta antes do POST, recarga/retry conservaUUID, outros painéis bloqueados enquanto há intenção pendente. Texto de usuário via textContent. Receipts rejeitados liberam intenção para nova revisão. Sem custo para inscrever/atacar/processar. Sincronização é explícita, não promessa de fechamento automático durante ausência.
 
-Validação: SQL transacional/concorrência/rollback/privacidade/calendário/restart; domínio pareamento/frações/entrada estrita; browser dev/preview desktop/mobile emulado, resposta perdida/reload e reconciliação. Evidências finais ainda pendentes. Não certifica Android físico, playtest humano, escala/retensão/moderação ou implantação pública. Não há decisão obrigatória do usuário.
+Validação: SQL transacional/concorrência/rollback/privacidade/calendário/restart; domínio pareamento/frações/entrada estrita; browser dev/preview desktop/mobile emulado, resposta perdida/reload e reconciliação. 412testes/47arquivos PostgreSQL16 sem skips, CI PR39878174935/push39878169657 e Windows39878174938/39878169667 aprovados no candidato9351eeef; regressões dev/preview completas. Não certifica Android físico, playtest humano, escala/retensão/moderação ou implantação pública. Não há decisão obrigatória do usuário.
+
+## Operação do ensaio
+
+1. Preparar banco isolado e contas admitidas no mesmo roster canônico V13; compilar e executar as migrações usuais, incluindo014, antes de iniciar o servidor atualizado. Não há migração de guildas reais nem novo roster.
+2. Formar duas guildas, cada uma com dois membros e24h de vínculo. Antes de domingo18h Brasília, líder abre Mais→Ensaio online v2→Guerra de guildas, revisa e confirma inscrição. Atualização antes do limite substitui o snapshot.
+3. Na abertura, revisar/confirmar processamento e conferir confronto/alvo. Bye ou elenco removido não gera prêmio. Durante18h–19h, revisar/confirmar o único ataque; sair de outro evento quando necessário. A gestão fica bloqueada durante a janela.
+4. Após19h, qualquer conta admitida disponível pode processar fechamento. Conferir arquivo, próprios prêmios, históricoXP da guilda e carteira reconciliada. Recarga/retry usa mesmoUUID. Depois disso, concluir eventual temporada pendente.
+5. Teste automatizado com TEST_DATABASE_URL isolada: após build, node scripts/smoke-authenticated-guild-wars-v19.mjs; para --preview, compilar cliente com VITE_GAME_MODE=online. Relógio/idade/builds sintéticos existem somente no driver, sem campos HTTP administrativos.

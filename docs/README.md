@@ -1,6 +1,6 @@
 # Documentação do Projeto Akai
 
-V18 concluída para ensaio isolado, PR28: arquivo diário do boss, XP de guilda por dano efetivo limitado e ranking semanal de dano sem prêmio adicional. Candidato d40e4f2e1f2a87604f78b326e8e488398db95107, árvore bdce7a14bc007151eff4f08554a6b67504315a33. CI39855629455 completa aprovada:392testes/45arquivos PostgreSQL16 sem skips, auditorias e browser dev/preview. Windows39855629447/39855619800 aprovados no mesmo SHA, BAT local/LAN. Fechamento posterior somente Markdown. Economia real,+16–20/monetizaçãooff, activationReadyfalse. [Resultados](plans/hunts-builds/boss-archive-v18/RESULTS.md). Próximo: guerra autenticada, bônus calibrados e playtest adquirido.
+V19 concluída para ensaio isolado, [PR29](https://github.com/marmitero/projeto-akai/pull/29). Candidato `9351eeef911ecb124b724c9d470e40180cf1c449`, árvore `17e9e663f7b0cfa21f7548d9c1e5754ec83ff9a2`. [CI PR39878174935](https://github.com/marmitero/projeto-akai/actions/runs/39878174935) e [push39878169657](https://github.com/marmitero/projeto-akai/actions/runs/39878169657) completas aprovadas:412testes/47arquivos PostgreSQL16 sem skips, auditorias e regressões browser dev/preview. [Windows39878174938](https://github.com/marmitero/projeto-akai/actions/runs/39878174938)/39878169667 aprovados no mesmo SHA. Fechamento posterior somente Markdown, preservando código/SQL/testes/scripts/JSON do candidato. Guerra autenticada: snapshots v2, um ataque por participante, arquivo/prêmios únicos. [Resultados](plans/hunts-builds/authenticated-guild-wars-v19/RESULTS.md). Próximo: bônus calibrados e playtest adquiridoPvP/guildas. Economiareal/+16–20/monetizaçãooff, activationReadyfalse.
 
 Planejamento original da reforma: [reforma de hunts, atributos/builds e fortalecimento](plans/hunts-builds/PROPOSAL.md), [roadmap](plans/hunts-builds/ROADMAP.md) e [referências/modelo](plans/hunts-builds/CURVE_MODEL.md). O comportamento atual do jogo permanece nos relatórios publicados.
 
@@ -73,4 +73,3 @@ Android: [guia de teste LAN](MOBILE_TEST.md), [implementação/evidências](MOBI
 - [Temporadas autenticadas V17 — contrato e operação](plans/hunts-builds/authenticated-seasons-v17/IMPLEMENTATION.md)
 - [Temporadas V17 — evidências e limites](plans/hunts-builds/authenticated-seasons-v17/RESULTS.md)
 
-Etapa atual em implementação: [V19 guerra autenticada](plans/hunts-builds/authenticated-guild-wars-v19/IMPLEMENTATION.md). V18 permanece última entrega validada; não presumir CI V19 concluída.

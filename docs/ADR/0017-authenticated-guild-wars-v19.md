@@ -1,6 +1,6 @@
 # ADR-017 — guerra autenticada v2 com snapshots e fechamento único
 
-Aceita tecnicamente para ensaio isolado,22/10/2026; validação em andamento.
+Aceita para ensaio isolado,22/10/2026; validação completa em [RESULTS](../plans/hunts-builds/authenticated-guild-wars-v19/RESULTS.md), PR29.
 
 Contexto: V16/V17/V18 fornecem identidade/carteira/guilda/temporadas e boss, mas guerra legada usa atributos/grants incompatíveis com domínio por tempo. Usuário autorizou a próxima fase.
 
