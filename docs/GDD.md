@@ -94,3 +94,7 @@ Guildas autenticadas V16 do ensaio: criação500Coin/andar5, convites24h, cargos
 V17 adiciona ao ensaio autenticado temporadas semanais de Brasília, arquivo de arena/guildas e prêmios Coin únicos na mesma carteira v2. Início explícito sem retroatividade e fechamento antes de novas mutações competitivas. Não aplica bônus de XP legado ao domínio por tempo. [Contrato](plans/hunts-builds/authenticated-seasons-v17/IMPLEMENTATION.md).
 
 V18 integra arquivo diário do boss, XP nativo de guilda por dano efetivo elegível e ranking semanal de dano ao ensaio autenticado, sem alterar Jade/combate/domínio. Fonte limitada/versionada, baseline e vínculo antes da edição, fechamento atômico e guarda de boss pendente antes de gestão/temporada. Bônus de personagem/guerra e playtest adquirido seguem pendentes. [V18](plans/hunts-builds/boss-archive-v18/IMPLEMENTATION.md).
+
+## Guerra v2 de ensaio V19
+
+Guerra autenticada tem painel próprio com inscrição/atributos v2 congelados, pareamento semanal, um ataque/participante e arquivo/prêmios únicos. Bônus de domínio não são importados. [Contrato](plans/hunts-builds/authenticated-guild-wars-v19/IMPLEMENTATION.md); balanceamento/playtest e ativação permanecem gates.

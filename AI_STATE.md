@@ -327,3 +327,7 @@ SQL013 e subpath shared/boss-archive-v18 preservam root/core/hashes adquiridos, 
 23novos testes,19Node adicionais e reanálise17cenáriosV12+20distribuições extremas aprovados, sem certificar balanceamento/vínculos adquiridos. Ocorrências corrigidas antes de integrar: fixture highest.main, grants na fronteira, driver temporal/heartbeat, privacidade da fonte e seletor V13. Evidências completas em docs/plans/hunts-builds/boss-archive-v18/RESULTS.md; ADR016/contrato/domínios atualizados.
 
 Nenhuma decisão obrigatória do usuário. Próximos: guerra de guildas autenticada; bônus de progressão compatíveis com tempo qualificado e calibragem; playtest gratuitoPvP/guildas adquirido. GatesCoin/Força/HP/Jade/refino/liquidez/população/capacidade/retenção/moderação/corte/backup/reconciliação/rollback preservados. Sem infraestrutura pública, Android físico ou playtest humano.
+
+## Fase 10 / V19 — guerra de guildas autenticada (em validação,22/10/2026)
+
+Implementação em feat/authenticated-guild-wars-v19: inscrição/snapshots v2, dueloV15/pareamento, arquivo/prêmios únicos, vínculo/calendário e UI recuperável. Contrato/ADR017 e testes próprios. CI SQL/browser final pendente; não declarar completa. Economiareal/+16–20/monetizaçãooff/activationReadyfalse. Próximos bônus calibrados e playtest adquirido. Nenhuma decisão obrigatória do usuário.

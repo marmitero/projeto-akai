@@ -84,3 +84,7 @@ Concluída no ensaio de arena/guildas, PR27,369testes/42arquivosPG16 sem skips, 
 V18 concluída para ensaio isolado, PR28: arquivo diário do boss, XP de guilda por dano efetivo limitado e ranking semanal de dano sem prêmio adicional. Candidato d40e4f2e1f2a87604f78b326e8e488398db95107, árvore bdce7a14bc007151eff4f08554a6b67504315a33. CI39855629455 completa aprovada:392testes/45arquivos PostgreSQL16 sem skips, auditorias e browser dev/preview. Windows39855629447/39855619800 aprovados no mesmo SHA, BAT local/LAN. Fechamento posterior somente Markdown. Economia real,+16–20/monetizaçãooff, activationReadyfalse. [Resultados](boss-archive-v18/RESULTS.md).
 
 Nenhuma decisão obrigatória do usuário. Próximos: guerra de guildas autenticada; bônus de progressão compatíveis com tempo qualificado e calibragem; playtest gratuitoPvP/guildas adquirido. GatesCoin/Força/HP/Jade/refino/liquidez/população/capacidade/retenção/moderação/corte/backup/reconciliação/rollback preservados. Sem infraestrutura pública, Android físico ou playtest humano.
+
+## Fase 10 — guerra de guildas autenticada V19
+
+Em implementação/validação: [contrato](authenticated-guild-wars-v19/IMPLEMENTATION.md), snapshot v2/duelo nativo/fechamento único. Sem bônus de personagem; gates preservados.

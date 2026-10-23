@@ -1,0 +1,145 @@
+{
+  "version": "guild-wars-v19-1",
+  "integrityPassed": true,
+  "balanceApproved": false,
+  "activationReady": false,
+  "scenarios": [
+    {
+      "accounts": 2,
+      "matched": false,
+      "allAttackersUpperCoin": 0,
+      "maximumCoinPerAccount": 0,
+      "maximumWinnerXp": 0
+    },
+    {
+      "accounts": 3,
+      "matched": false,
+      "allAttackersUpperCoin": 0,
+      "maximumCoinPerAccount": 0,
+      "maximumWinnerXp": 0
+    },
+    {
+      "accounts": 4,
+      "matched": true,
+      "allAttackersUpperCoin": 2000,
+      "maximumCoinPerAccount": 500,
+      "maximumWinnerXp": 100
+    },
+    {
+      "accounts": 5,
+      "matched": true,
+      "allAttackersUpperCoin": 2500,
+      "maximumCoinPerAccount": 500,
+      "maximumWinnerXp": 100
+    },
+    {
+      "accounts": 6,
+      "matched": true,
+      "allAttackersUpperCoin": 3000,
+      "maximumCoinPerAccount": 500,
+      "maximumWinnerXp": 100
+    },
+    {
+      "accounts": 7,
+      "matched": true,
+      "allAttackersUpperCoin": 3500,
+      "maximumCoinPerAccount": 500,
+      "maximumWinnerXp": 100
+    },
+    {
+      "accounts": 8,
+      "matched": true,
+      "allAttackersUpperCoin": 4000,
+      "maximumCoinPerAccount": 500,
+      "maximumWinnerXp": 200
+    },
+    {
+      "accounts": 9,
+      "matched": true,
+      "allAttackersUpperCoin": 4500,
+      "maximumCoinPerAccount": 500,
+      "maximumWinnerXp": 200
+    },
+    {
+      "accounts": 10,
+      "matched": true,
+      "allAttackersUpperCoin": 5000,
+      "maximumCoinPerAccount": 500,
+      "maximumWinnerXp": 200
+    },
+    {
+      "accounts": 11,
+      "matched": true,
+      "allAttackersUpperCoin": 5500,
+      "maximumCoinPerAccount": 500,
+      "maximumWinnerXp": 200
+    },
+    {
+      "accounts": 12,
+      "matched": true,
+      "allAttackersUpperCoin": 6000,
+      "maximumCoinPerAccount": 500,
+      "maximumWinnerXp": 300
+    },
+    {
+      "accounts": 13,
+      "matched": true,
+      "allAttackersUpperCoin": 6500,
+      "maximumCoinPerAccount": 500,
+      "maximumWinnerXp": 300
+    },
+    {
+      "accounts": 14,
+      "matched": true,
+      "allAttackersUpperCoin": 7000,
+      "maximumCoinPerAccount": 500,
+      "maximumWinnerXp": 300
+    },
+    {
+      "accounts": 15,
+      "matched": true,
+      "allAttackersUpperCoin": 7500,
+      "maximumCoinPerAccount": 500,
+      "maximumWinnerXp": 300
+    },
+    {
+      "accounts": 16,
+      "matched": true,
+      "allAttackersUpperCoin": 8000,
+      "maximumCoinPerAccount": 500,
+      "maximumWinnerXp": 400
+    },
+    {
+      "accounts": 17,
+      "matched": true,
+      "allAttackersUpperCoin": 8500,
+      "maximumCoinPerAccount": 500,
+      "maximumWinnerXp": 400
+    },
+    {
+      "accounts": 18,
+      "matched": true,
+      "allAttackersUpperCoin": 9000,
+      "maximumCoinPerAccount": 500,
+      "maximumWinnerXp": 400
+    },
+    {
+      "accounts": 19,
+      "matched": true,
+      "allAttackersUpperCoin": 9500,
+      "maximumCoinPerAccount": 500,
+      "maximumWinnerXp": 400
+    },
+    {
+      "accounts": 20,
+      "matched": true,
+      "allAttackersUpperCoin": 10000,
+      "maximumCoinPerAccount": 500,
+      "maximumWinnerXp": 500
+    }
+  ],
+  "cohort20CoinCeiling": 10000,
+  "perAccountCoinCeiling": 500,
+  "winnerGuildXp": 100,
+  "interpretation": "Conservative accounting ceilings, not acquired social histories, duel balance, matchmaking or additional budget approval. One match per guild/week, one attack/reward per account; byes and nonattackers receive zero. Existing V17 season rewards remain independent and must be included in coupled playtest. No Jade/protection/mastery or legacy grant conversion."
+}

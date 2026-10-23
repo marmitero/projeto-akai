@@ -23,6 +23,10 @@
     "./boss-archive-v18": {
       "types": "./dist/boss-archive-v18/index.d.ts",
       "import": "./dist/boss-archive-v18/index.js"
+    },
+    "./guild-wars-v19": {
+      "types": "./dist/guild-wars-v19/index.d.ts",
+      "import": "./dist/guild-wars-v19/index.js"
     }
   },
   "scripts": {

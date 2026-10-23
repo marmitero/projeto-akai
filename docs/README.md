@@ -72,3 +72,5 @@ Android: [guia de teste LAN](MOBILE_TEST.md), [implementação/evidências](MOBI
 
 - [Temporadas autenticadas V17 — contrato e operação](plans/hunts-builds/authenticated-seasons-v17/IMPLEMENTATION.md)
 - [Temporadas V17 — evidências e limites](plans/hunts-builds/authenticated-seasons-v17/RESULTS.md)
+
+Etapa atual em implementação: [V19 guerra autenticada](plans/hunts-builds/authenticated-guild-wars-v19/IMPLEMENTATION.md). V18 permanece última entrega validada; não presumir CI V19 concluída.
