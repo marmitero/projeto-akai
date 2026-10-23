@@ -140,6 +140,8 @@
   ],
   "cohort20CoinCeiling": 10000,
   "perAccountCoinCeiling": 500,
+  "withExistingV17PerAccountCeiling": 1300,
+  "withExistingV17Cohort20Ceiling": 16900,
   "winnerGuildXp": 100,
   "interpretation": "Conservative accounting ceilings, not acquired social histories, duel balance, matchmaking or additional budget approval. One match per guild/week, one attack/reward per account; byes and nonattackers receive zero. Existing V17 season rewards remain independent and must be included in coupled playtest. No Jade/protection/mastery or legacy grant conversion."
 }

@@ -57,13 +57,13 @@ describe.skipIf(!url)('V19 authenticated guild wars',()=>{
   const w=await fixture(),body=await input();await act();expect((await post(0,body)).json().code).toBe('STALE_REVISION');expect((await post(0,{...body,action:{type:'enroll'}})).statusCode).toBe(409);now=w.close;expect(await act(0,'attack')).toMatchObject({code:'WAR_NOT_ACTIVE'});expect((await state()).wars.archives).toEqual([]);await act();await reconciled();
  });
  it('skips dormant weeks and survives restart with append-only archive and one reward',async()=>{
-  const w=await fixture();now=w.open;await act();await act(0,'attack');now=w.close+35*86400000;await act();const restarted=new AuthenticatedV13Service(new OnlineService(db,()=>now));expect((await restarted.read(users[0]!.token)).wars.archives).toHaveLength(1);await act();expect((await state()).wars.archives).toHaveLength(1);expect((await db.pool.query('SELECT count(*) FROM akai_war_v19_rewards')).rows[0].count).toBe('1');await expect(db.pool.query('DELETE FROM akai_war_v19_archives')).rejects.toThrow();await reconciled();
+  const w=await fixture();now=w.open;await act();await act(0,'attack');now=w.close+35*86400000;await db.pool.query('UPDATE akai_sessions SET expires_at=$1',[now+86400000]);await act();const restarted=new AuthenticatedV13Service(new OnlineService(db,()=>now));expect((await restarted.read(users[0]!.token)).wars.archives).toHaveLength(1);await act();expect((await state()).wars.archives).toHaveLength(1);expect((await db.pool.query('SELECT count(*) FROM akai_war_v19_rewards')).rows[0].count).toBe('1');await expect(db.pool.query('DELETE FROM akai_war_v19_archives')).rejects.toThrow();await reconciled();
  });
  it('waits for war before closing a tracked season, dates winner XP in the original week',async()=>{
   await service.command(users[0]!.token,{commandId:randomUUID(),expectedRevision:(await state()).revision,seasonRevision:0,action:{type:'sync'}},'seasons');const w=await fixture();now=w.open;await act();await act(0,'attack');now=Date.parse('2026-10-26T00:00:00-03:00');let s=await state();expect(await service.command(users[0]!.token,{commandId:randomUUID(),expectedRevision:s.revision,seasonRevision:s.seasons.revision,action:{type:'sync'}},'seasons')).toMatchObject({code:'WAR_CLOSE_REQUIRED'});await act();s=await state();expect(await service.command(users[0]!.token,{commandId:randomUUID(),expectedRevision:s.revision,seasonRevision:s.seasons.revision,action:{type:'sync'}},'seasons')).toMatchObject({status:'applied'});for(const credit of(await db.pool.query("SELECT at FROM akai_guild_v16_credits WHERE source LIKE 'war:%'")).rows)expect(Number(credit.at)).toBe(w.close-1);await reconciled();
  });
- it('excludes suspended, disabled and closed fighters at opening or settlement',async()=>{
-  const w=await fixture();now=w.open;await act();await act(0,'attack');await service.setEnabled(users[0]!.accountId,false);now=w.close;await act(2);expect((await db.pool.query('SELECT count(*) FROM akai_war_v19_rewards')).rows[0].count).toBe('0');await reconciled();
+ it.each(['disabled','suspended','closed'])('excludes %s fighters at settlement',async(mode)=>{
+  const w=await fixture();now=w.open;await act();await act(0,'attack');if(mode==='disabled')await service.setEnabled(users[0]!.accountId,false);else if(mode==='closed')await db.pool.query('UPDATE akai_economy_rehearsals SET closed=true WHERE id=$1',[users[0]!.run]);else await db.pool.query('INSERT INTO akai_profiles(account_id,name,joined_at,suspended) VALUES($1,$2,$3,true) ON CONFLICT(account_id) DO UPDATE SET suspended=true',[users[0]!.accountId,'Suspenso',now]);now=w.close;await act(2);expect((await db.pool.query('SELECT count(*) FROM akai_war_v19_rewards')).rows[0].count).toBe('0');await reconciled();
  });
  it('does not reward nonattackers or invent a winner for an empty confrontation',async()=>{
   const w=await fixture();now=w.close;await act();const a=(await state()).wars.archives[0]!;expect(a.matches).toHaveLength(1);expect(a.matches[0]!.winner).toBeNull();expect((await db.pool.query('SELECT count(*) FROM akai_war_v19_rewards')).rows[0].count).toBe('0');expect((await db.pool.query("SELECT count(*) FROM akai_guild_v16_credits WHERE source LIKE 'war:%'")).rows[0].count).toBe('0');await reconciled();
@@ -74,6 +74,17 @@ describe.skipIf(!url)('V19 authenticated guild wars',()=>{
  });
  it('uses persisted shared time when wall clock regresses',async()=>{
   const w=await fixture();now=w.open;await act();now=w.open-10000;expect((await state()).wars.phase).toBe('active');expect(await guild(1,{type:'leave'})).toMatchObject({code:'WAR_PROCESS_REQUIRED'});now=w.close;await act();now=w.open;expect((await state()).wars.phase).toBe('finished');await reconciled();
+ });
+
+ it('credits exactly100XP to the winning guild with no duplicated source',async()=>{
+  const w=await fixture();now=w.open;await act();const p=(await db.pool.query('SELECT period FROM akai_war_v19_world')).rows[0].period,m=p.matches[0],a=m.teams[0].roster[0],b=m.teams[1].roster[0];
+  // Explicit score fixture tests payout mapping; separate case validates authoritative native duel/seed.
+  const attack=(accountId:string,targetId:string,side:number,hpB:number)=>({accountId,targetId,side,maxHp:10,result:{version:'arena-v15-1',won:false,hpA:1,hpB,elapsedMs:120000,attacks:10,reason:'timeout_defender'}});
+  m.attacks=[attack(a.accountId,b.accountId,0,1),attack(b.accountId,a.accountId,1,5)];await db.pool.query('UPDATE akai_war_v19_world SET period=$1',[p]);now=w.close;await act();const credits=(await db.pool.query("SELECT * FROM akai_guild_v16_credits WHERE source LIKE 'war:%'")).rows;expect(credits).toHaveLength(1);expect(Number(credits[0].amount)).toBe(100);expect(Number(credits[0].at)).toBe(w.close-1);expect(credits[0].guild_id).toBe(m.teams[0].id);await act();expect((await db.pool.query('SELECT xp FROM akai_guild_v16_guilds WHERE id=$1',[m.teams[0].id])).rows[0].xp).toBe('100');await reconciled();
+ });
+
+ it('pays250Coin per eligible attacker on exact draw without winner XP',async()=>{
+  const w=await fixture();now=w.open;await act();const p=(await db.pool.query('SELECT period FROM akai_war_v19_world')).rows[0].period,m=p.matches[0];m.attacks=m.teams.map((t:any,side:number)=>({accountId:t.roster[0].accountId,targetId:m.teams[1-side].roster[0].accountId,side,maxHp:10,result:{version:'arena-v15-1',won:false,hpA:1,hpB:5,elapsedMs:120000,attacks:10,reason:'timeout_defender'}}));await db.pool.query('UPDATE akai_war_v19_world SET period=$1',[p]);now=w.close;await act();expect((await db.pool.query('SELECT coin::text FROM akai_war_v19_rewards')).rows.map(r=>r.coin)).toEqual(['250000','250000']);expect((await db.pool.query("SELECT count(*) FROM akai_guild_v16_credits WHERE source LIKE 'war:%'")).rows[0].count).toBe('0');await reconciled();
  });
 
 });
