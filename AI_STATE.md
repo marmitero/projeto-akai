@@ -343,3 +343,12 @@ Nenhuma decisão obrigatória do usuário. Próximo: bônus de progressão compa
 ## Fase 11 / V20 — bônus compatíveis com domínio (em validação,23/10/2026)
 
 Definição/calibração isoladas: subpath progression-bonus-v20 apenas cotação, sem consumidor, SQL, endpoint ou efeito em personagens. Reduz penalidade de referência até o teto de vitória/benchmark, não multiplica tempo qualificado. Guilda10/7/5/3/1%+evento30%, soma≤40%; integral segmentada e carry.2.007diagnósticos de sete campanhas adquiridas,1.964vitórias/43não vitórias; zero bônus idêntico ao nativo; nominal40% gera15,68%no crédito agregado da amostra, não prazo populacional.9testes novos passaram. CI e campanhas longitudinais pendentes; runtimeEnabled/balanceApproved/activationReadyfalse. Contrato progression-bonus-v20, ADR018. Usuário autorizou validar a etapa e seguir; próximo laboratório de campanhas contrafactuais, sem ativação.
+
+
+## V22 — recalibração experimental concluída (23/10/2026)
+
+Código isolado publicado na PR30, checkpoint 21f07e493164a445f36b42d531dfb25927807a84. Resultado e reprodução em docs/plans/hunts-builds/progression-bonus-v22/RESULTS.md e IMPLEMENTATION.md. Sete campanhas locais completas: integridade aprovada, não regressão em 6/7 e benefício primário experimental mínimo de 1% em 2/7. O caso negativo permanece no painel. Candidata reprovada para integração; runtimeEnabled/balanceApproved/activationReady=false. Jogo, fontes nativas, carteiras, SQL e endpoints preservados.
+
+Próximo: instrumentar tempo qualificado/transições, atividades, compras e RNG; ampliar seeds e janelas online antes de nova candidata e qualquer consumidor autoritativo no ensaio. Guildas/rank são contrafactuais; não houve população acoplada ou playtest humano. Economia real/+16–20/monetização off. Publicar apenas resumo de testes/conclusões e documentação de código; dados completos ficam locais.
+
+CI completa do código 21f07e4: run40031972102 aprovada (431 testes/49 arquivos, PostgreSQL16, sem skips, auditorias e regressões dev/preview); Windows/LAN aprovado no mesmo SHA. Campanhas de120dias e testes Node de métricas/corrupção foram validados localmente, não reexecutados pela CI.
