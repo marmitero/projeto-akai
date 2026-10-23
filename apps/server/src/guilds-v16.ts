@@ -1,3 +1,4 @@
+import {warGuildOpenV19} from './guild-wars-v19.js';
 import {bossCloseRequiredV18} from './boss-archive-v18.js';
 import {seasonOpenV17} from './seasons-v17.js';
 import {createHash,createHmac,randomUUID} from 'node:crypto';
@@ -41,7 +42,7 @@ export class GuildsV16Service{
   const now=Math.max(this.clock(),Number(w.clock_ms)),before=EconomyRunV6Schema.parse(actor!.state),account=actor!.account_id;let run=structuredClone(before),guildRevision=Number(w.revision),result:{status:string;code:string;revision:number;guildRevision:number};const revision=Number(actor!.revision)+1;
   const guildBefore=(await this.member(c,account))?.guild_id??null;
   await c.query('SAVEPOINT guild_action');try{
-   rule(!await bossCloseRequiredV18(c,now),'BOSS_CLOSE_REQUIRED');rule(await seasonOpenV17(c,now),'SEASON_CLOSE_REQUIRED');rule(cmd.expectedRevision===Number(actor!.revision),'STALE_REVISION');rule(cmd.guildRevision===guildRevision,'STALE_GUILD_REVISION');const a=cmd.action,m=await this.member(c,account),admin=m&&['leader','officer'].includes(m.role);
+   rule(await warGuildOpenV19(c,now),'WAR_PROCESS_REQUIRED');rule(!await bossCloseRequiredV18(c,now),'BOSS_CLOSE_REQUIRED');rule(await seasonOpenV17(c,now),'SEASON_CLOSE_REQUIRED');rule(cmd.expectedRevision===Number(actor!.revision),'STALE_REVISION');rule(cmd.guildRevision===guildRevision,'STALE_GUILD_REVISION');const a=cmd.action,m=await this.member(c,account),admin=m&&['leader','officer'].includes(m.role);
    if(a.type==='create'||a.type==='upgrade'){
     const active=(await c.query('SELECT e.state FROM akai_boss_v8_realms e JOIN akai_boss_v8_members b ON b.realm_id=e.id WHERE b.run_id=$1',[actorRun])).rows[0]?.state.sessions[account]?.active;rule(!active,'EVENT_ACTIVITY_ACTIVE');
     const entropy=(key:string,bound:number)=>{const limit=Math.floor(4294967296/bound)*bound;for(let i=0;;i++){const n=createHmac('sha256',Buffer.from(actor!.secret,'hex')).update(key+'/'+i).digest().readUInt32BE(0);if(n<limit)return n%bound;}};const settled=settleElapsedV7(run,now,1000,entropy);run=settled.state;

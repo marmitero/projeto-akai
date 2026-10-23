@@ -1,3 +1,4 @@
+import {warCloseRequiredV19} from './guild-wars-v19.js';
 import {bossCloseRequiredV18,seasonBossRankingV18} from './boss-archive-v18.js';
 import {createHash,randomUUID} from 'node:crypto';
 import type {PoolClient} from 'pg';
@@ -27,6 +28,7 @@ export class SeasonsV17Service {
   const clocks=(await c.query('SELECT clock_ms FROM akai_guild_v16_world UNION ALL SELECT clock_ms FROM akai_arena_v15_world')).rows;
   const now=Math.max(this.clock(),Number(w.clock_ms),...clocks.map(r=>Number(r.clock_ms))),revision=Number(actor.revision)+1;
   let stale=cmd.expectedRevision!==Number(actor.revision)?'STALE_REVISION':cmd.seasonRevision!==Number(w.revision)?'STALE_SEASON_REVISION':null;
+  if(!stale&&w.period&&now>=w.period.end&&await warCloseRequiredV19(c,now,w.period.end))stale='WAR_CLOSE_REQUIRED';
   if(!stale&&w.period&&now>=w.period.end&&await bossCloseRequiredV18(c,now,w.period.end))stale='BOSS_CLOSE_REQUIRED';
   const grants=new Map<string,bigint>();let period=w.period,seasonRevision=Number(w.revision),closed:string|null=null;
   if(!stale){

@@ -156,3 +156,7 @@ GET test-v2/state inclui seasons: calendário atual, período acompanhado, close
 ## Arquivo diário do boss V18
 
 GET test-v2/state inclui bossArchive: sete edições fechadas, necessidade de processamento e própria elegibilidade de vínculo atual. Read-only; não expõe seeds/stats/runs/baseline/joined_at/recibos ou carteiras de terceiros. Os comandos existentes POST test-v2/events (join boss/sync/heartbeat/leave) preservam a edição e creditam XP de guilda no fechamento, com identidade/tempo/dano do servidor. Sem endpoint de XP ou horário escolhido pelo cliente. Guildas/temporadas retornam BOSS_CLOSE_REQUIRED até processar o boss vencido; depois revisar a intenção. O arquivo de temporada possui boss opcional (ranking de dano efetivo), mantendo compatibilidade com arquivosV17. [V18](plans/hunts-builds/boss-archive-v18/IMPLEMENTATION.md).
+
+## V19 — guerra autenticada de teste
+
+POST /api/v1/test-v2/wars com commandId/expectedRevision/warRevision/seasonId/action enroll,sync,attack. Sessão canônica V13, CSRF/origem/gates herdados; alvo/dano/seed/prêmio/tempo não são campos aceitos. GET state.wars puro, oito arquivos/próprios prêmios sem dados privados. [Contrato](plans/hunts-builds/authenticated-guild-wars-v19/IMPLEMENTATION.md).

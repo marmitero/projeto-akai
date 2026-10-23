@@ -81,3 +81,7 @@ Identidade derivada de sessão/pin V13; schema não aceita ator/relógio/prêmio
 ## Boss diário V18 no ensaio canônico
 
 Advisoryguild→realm→runsordenadas→reautorização antes de receipt; membros canônicos bloqueados FORSHARE e disponibilidade revalidada. Fonte de XP deriva de dano efetivo autoritativo e vínculo capturado antes do dia, com mesma entrada atual no fechamento. Baseline exclui dano anterior à instrumentação; reentrada/troca de guilda não recaptura ou transfere XP. Fonte única, archive/binding append-only e rollback na mesma outbox R8. Processamento conserva janelas e cursor nativos,30máximo, sem mudar instante de Jade/qualificação. Guarda de boss pendente antes de gestão/fechamento semanal evita pontos depois do arquivo da semana. GET somente leitura, textContent nos arquivos, sem campos privados de run/seed/estatística/binding/recibos/carteiras alheias. Operação/moderação/retensão pública e anti-alt permanecem gates; sem ativação real.
+
+## Guerra V19
+
+Ator deriva da sessão V13; reautorizar após guildlock/runs antes de receipt. Stats/seed/resultado/alvo autoritativos, vínculo exato e disponibilidade revalidados. DTO público sem stats/seeds/runIDs; textContent. Freeze de gestão e guarda semanal impedem mudança retroativa; outbox falha reverte concessões. Flags de ensaio obrigatórias.

@@ -117,3 +117,7 @@ Calendário de Brasília, acompanhamento explícito sem retroatividade, arquivo 
 ## Boss/guildas/arquivo V18 — ensaio v2
 
 Arquivo diário durável antes do resetR8, com dano efetivo/contribuição/participação separados e fonte própria de XP da guilda. Regra candidata boss-guild-v18-1: max(1,floor(dano efetivo novo×100/HP)), zero sem dano, teto100porconta/edição; vínculo deve anteceder o dia e permanecer até fechar. Baseline impede XP retroativo e dano pós-morte não pontua. Não importar a fórmula legada dano/100 nem o bônus de ataque coletivo. Fechar boss pendente antes de gerir guilda/encerrar semana; pontos datam endMs−1. Ranking semanal soma edições fechadas no intervalo, sem prêmio adicional. Jade e domínio permanecem nas regras nativas. [Contrato/limites V18](plans/hunts-builds/boss-archive-v18/IMPLEMENTATION.md).
+
+## Ensaio de guerra V19
+
+[Contrato nativo v2](plans/hunts-builds/authenticated-guild-wars-v19/IMPLEMENTATION.md): snapshots v2 e dueloV15, desempate racional exato, gestão congelada na janela, prêmios500/250/100Coin somente atacantes elegíveis e100XP guilda vencedora com fonte única. Não importa grants/bônus legados; economia real/monetizaçãooff. Implementação validada no ensaio, PR29,412testes/47arquivosPG16 sem skips e browser dev/preview/Windows aprovados. [Evidências](plans/hunts-builds/authenticated-guild-wars-v19/RESULTS.md).
