@@ -361,3 +361,12 @@ PR30 em rascunho. Observador local de tempo, transições, compras, atividade/ma
 Atraso exato até o máximo:4.870.192ms (81min10,192s). Diferença contábil: mais9h12min em transições externas e cerca de2h59min em perdas de referência/benchmark, com compensações por menos pausas/encontros sem crédito e crédito extra bruto equivalente a3h32min. Não é prova causal isolada de uma compra ou sorteio. Ver docs/plans/hunts-builds/progression-trace-v23/RESULTS.md e IMPLEMENTATION.md. Correção de normalização de zero com sinal no relatório; nenhum replay precisou ser alterado.
 
 Candidata V22 permanece reprovada para integração, runtimeEnabled/balanceApproved/activationReady=false. Próximo: ampliar seeds e janelas de atividade, preservando o caso negativo e critérios prévios antes de outra candidata. Economia real/+16–20/monetização off. Dados completos/traces/checkpoints ficam locais ignorados; somente resumo público. A CI do commit final deve ser conferida na PR30; não confundir os replays locais com a execução pública de CI.
+
+
+## V24 — ampliação de seeds e horários concluída
+
+Painel local ampliado de7para14pares, cinco seeds e casual00h/12h/20h cruzado com17/4213. Todos os14braços novos completaram120dias; os sete pares anteriores foram reauditados, incluindo a seed negativa. Integridade14/14; não regressão7/14 (novos1/7); benefício primário mínimo1% em2/14 (novos0/7). Candidata V22 permanece reprovada para integração; runtimeEnabled/balanceApproved/activationReady=false. Fórmula/taxas/fontes nativas e V23 preservadas; não houve ativação no jogo.
+
+Ver docs/plans/hunts-builds/progression-panel-v24/RESULTS.md e PROTOCOL.md. Auditoria/--verify e rejeição de oito adulterações/arquivo ausente passaram. CI completa do código ada562d080ce7c4819f5c09b1a6650e0ec21c2f8 aprovada (40262379860/40262375705;431testes/49arquivos,5V23,7V24,2calendário; Windows/LAN). Fixture do smoke semanal fixou Date para evitar virada real de calendário; regras e campanhas intactas. Dados completos/séries/traces ficam locais ignorados. Horários mudam criação/idade no corte semanal; não inferir causalidade isolada do evento nem aprovação populacional/social/humana.
+
+Próximo: formular hipótese prévia de recalibração para interação domínio/decisões adaptativas/RNG, decompor novos negativos e repetir o painel completo antes de qualquer consumidor autoritativo. PR30 continua rascunho. Economia real/+16–20/monetizaçãooff.
