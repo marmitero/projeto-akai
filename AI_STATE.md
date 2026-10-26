@@ -402,3 +402,14 @@ Auditoria integral/--verify, identidades de tempo/crédito e teste privado de de
 H26: integridade14/14; não regressão4/14 (V22:7/14); benefício primário mínimo1%2/14; ambos1/14. Balanced4213 melhorou máximo1,6212%, mas caiu de andar1000para959 e não chegou à torre1000. Swift17 ainda atrasou máximo exato7.049.663ms; casual4213/20h perdeu domínio e andar. Não aprovar H26 nem promover sobre V22. Ver docs/plans/hunts-builds/progression-bonus-v26/RESULTS.md e IMPLEMENTATION.md. Todos os14casos/negativos/censuras preservados.
 
 Próximo: rever o desenho do bônus e medir limites de benefício em trajetória fixa separadamente do efeito adaptativo antes de outra candidata; não aumentar percentuais ou mudar critérios para esconder falhas. Sem merge/consumidor autoritativo/ativação. RuntimeEnabled/balanceApproved/activationReady=false; PR30rascunho. Economia real/+16–20/monetizaçãooff.
+
+
+## V27 — revisão do desenho concluída
+
+Analisados os14casos a partir dos28braços H26 completos e reauditados, sem nova fórmula/campanha. Tetos relaxados de domínio nos seis casuais:2,6840% (seed17) e3,0106% (4213), ignorando penalidades/elegibilidade; permitem mas não demonstram1%. Nos oito controles que atingiram máximo, agregados de perdas não identificam antecipação na trajetória fixa. Não converter horas de crédito perdido em dias economizáveis; teste com duas sequências de mesmos agregados demonstra prazos diferentes. Limite global96dias é apenas frouxo, não estimativa específica.
+
+Ponte contábil dos casuais: Δdomínio=extra cotado H26+resíduo de cotações entre trajetórias; cinco resíduos positivos e um negativo. No4213/20h,+1,039446h de extra foi superado por−5,218047h de resíduo, saldo−4,178602h. Não atribuir causalidade isolada a compras/RNG nem chamar o resíduo de efeito adaptativo causal medido. Ver docs/plans/hunts-builds/progression-envelope-v27/RESULTS.md e PROTOCOL.md.
+
+Sete testes unitários, geração/--verify e teste privado completo passaram; rejeitados cinco tipos de adulteração com hashes recalculados e arquivo ausente; round-trip JSON e cópia dos28braços reproduziram o relatório. Conjunto unitário incluído na CI; verificar execução remota do novo commit antes de declarar CI completa. Dados completos/diagnósticos locais ignorados; somente resumo público.
+
+Decisão: não ajustar taxas/critério1% nem promover H26. Próximo ensaio H28 pré-definido em H28.md:14reexecuções nativas com prefixos por vitória e bancos sombra zero/H26/oráculo, sem alimentar combate/política/RNG. Ainda não implementado nem executado. Controle sombra deve reproduzir crédito/carry a cada vitória e campanha completa; registrar modelo compilado e fontes; validar transparência/retomada antes de rodar. Sombra não aprova gate de torre por construção. Reprovações V22/H26 preservadas; runtimeEnabled/balanceApproved/activationReady=false, PR30rascunho, sem merge/ativação. Economia real/+16–20/monetizaçãooff.
