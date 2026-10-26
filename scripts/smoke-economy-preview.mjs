@@ -10,6 +10,8 @@ try{
  browser=await chromium.launch({headless:true,...(process.env.AKAI_CHROMIUM_EXECUTABLE?{executablePath:process.env.AKAI_CHROMIUM_EXECUTABLE}:{}),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
  const page=await browser.newPage({viewport:{width:390,height:844}}),errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('dialog',d=>d.accept());
  async function ready(){await page.locator('#game[data-load-status=ready]').waitFor();if(await page.locator('#nickname-setup').isVisible()){await page.locator('#starting-name').fill('Economia R6');await page.locator('#nickname-setup button').click();}}
+ // Keep this happy-path fixture away from the weekly reset; boundary behavior has a dedicated test.
+ await page.clock.setFixedTime(new Date('2026-10-19T15:00:00Z'));
  await page.goto(origin);await ready();await page.locator('#pause-battle').click();
  const balances=await page.locator('.resource-wallet [data-balance]').allTextContents();const modal=page.locator('#economy-preview');
  async function open(){await page.locator('#more').click();await page.locator('#economy-preview-open').click();await modal.waitFor();}
