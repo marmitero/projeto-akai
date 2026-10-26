@@ -13,7 +13,7 @@ function preMaximum(trace){
  const totals=Object.fromEntries(fields.map(k=>[k,0])),activities={};
  for(const [key,g]of Object.entries(trace.groups))if(key.endsWith('/preMax')){const a=key.split('/')[1];activities[a]??=Object.fromEntries(fields.map(k=>[k,0]));for(const field of fields){totals[field]+=g[field]??0;activities[a][field]+=g[field]??0;}}
  totals.eventMs=trace.eventByPhase.preMax??0;totals.unqualifiedEncounterMs=totals.combatMs+totals.internalTransitionMs-totals.qualifiedVictoryMs;assert.ok(totals.unqualifiedEncounterMs>=0);
- const components={unqualifiedEncounterMs:totals.unqualifiedEncounterMs,externalTransitionMs:totals.externalTransitionMs,pausedMs:totals.pausedMs,unclassifiedMs:totals.unclassifiedMs,eventMs:totals.eventMs,referenceLossMs:totals.referenceLossMs,benchmarkLossMs:totals.benchmarkLossMs,maximumCapLossMs:totals.maximumCapLossMs,directExtraMs:-totals.directExtraMs};
+ const components={unqualifiedEncounterMs:totals.unqualifiedEncounterMs,externalTransitionMs:totals.externalTransitionMs,pausedMs:totals.pausedMs,unclassifiedMs:totals.unclassifiedMs,eventMs:totals.eventMs,referenceLossMs:totals.referenceLossMs,benchmarkLossMs:totals.benchmarkLossMs,maximumCapLossMs:totals.maximumCapLossMs,directExtraMs:totals.directExtraMs===0?0:-totals.directExtraMs};
  totals.wallMs=totals.combatMs+totals.internalTransitionMs+totals.externalTransitionMs+totals.pausedMs+totals.unclassifiedMs+totals.eventMs;
  assert.equal(totals.wallMs-totals.creditMs,Object.values(components).reduce((a,b)=>a+b,0));assert.equal(totals.wallMs,trace.maxReachedAtMs-START);return {totals,activities,components};
 }

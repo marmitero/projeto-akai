@@ -352,3 +352,12 @@ Código isolado publicado na PR30, checkpoint 21f07e493164a445f36b42d531dfb25927
 Próximo: instrumentar tempo qualificado/transições, atividades, compras e RNG; ampliar seeds e janelas online antes de nova candidata e qualquer consumidor autoritativo no ensaio. Guildas/rank são contrafactuais; não houve população acoplada ou playtest humano. Economia real/+16–20/monetização off. Publicar apenas resumo de testes/conclusões e documentação de código; dados completos ficam locais.
 
 CI completa do código 21f07e4: run40031972102 aprovada (431 testes/49 arquivos, PostgreSQL16, sem skips, auditorias e regressões dev/preview); Windows/LAN aprovado no mesmo SHA. Campanhas de120dias e testes Node de métricas/corrupção foram validados localmente, não reexecutados pela CI.
+
+
+## V23 — instrumentação validada (25/10/2026)
+
+PR30 em rascunho. Observador local de tempo, transições, compras, atividade/material e RNG; sem alteração de fórmula, taxas, R6/R7, controlador, carteiras ou endpoints. Duas reexecuções completas de120dias do caso negativo best/swift/seed3735928559 reproduziram exatamente as240linhas diárias e os dois estados semânticos completos finais. Cinco testes do observador passaram e estão na CI; auditoria local, round-trip JSON e rejeição de oito adulterações/arquivo ausente passaram.
+
+Atraso exato até o máximo:4.870.192ms (81min10,192s). Diferença contábil: mais9h12min em transições externas e cerca de2h59min em perdas de referência/benchmark, com compensações por menos pausas/encontros sem crédito e crédito extra bruto equivalente a3h32min. Não é prova causal isolada de uma compra ou sorteio. Ver docs/plans/hunts-builds/progression-trace-v23/RESULTS.md e IMPLEMENTATION.md. Correção de normalização de zero com sinal no relatório; nenhum replay precisou ser alterado.
+
+Candidata V22 permanece reprovada para integração, runtimeEnabled/balanceApproved/activationReady=false. Próximo: ampliar seeds e janelas de atividade, preservando o caso negativo e critérios prévios antes de outra candidata. Economia real/+16–20/monetização off. Dados completos/traces/checkpoints ficam locais ignorados; somente resumo público. A CI do commit final deve ser conferida na PR30; não confundir os replays locais com a execução pública de CI.

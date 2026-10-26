@@ -10,7 +10,7 @@ const source='docs/plans/hunts-builds/progression-trace-v23/local',sha=x=>create
 test('full trace audit rejects missing evidence and source, state, time, credit, purchase and RNG corruption',async()=>{
  const root=await mkdtemp(join(tmpdir(),'akai-v23-'));try{
   for(const mode of ['zero','calendar']){const name=`best-swift-3735928559-${mode}.trace.json`;await copyFile(join(source,name),join(root,name));}
-  const expected=await diagnoseTraceV23();assert.deepEqual(await diagnoseTraceV23(root),expected);
+  const expected=await diagnoseTraceV23();assert.deepEqual(JSON.parse(JSON.stringify(expected)),expected,'Diagnostic report survives JSON round trip');assert.deepEqual(await diagnoseTraceV23(root),expected);
   const path=join(root,'best-swift-3735928559-calendar.trace.json'),original=JSON.parse(await readFile(path,'utf8'));
   for(const mutate of [
    p=>{p.provenance.observerHash='0'.repeat(64);},
