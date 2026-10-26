@@ -35,6 +35,10 @@
     "./progression-bonus-v22": {
       "types": "./dist/progression-bonus-v22/index.d.ts",
       "import": "./dist/progression-bonus-v22/index.js"
+    },
+    "./progression-bonus-v26": {
+      "types": "./dist/progression-bonus-v26/index.d.ts",
+      "import": "./dist/progression-bonus-v26/index.js"
     }
   },
   "scripts": {
