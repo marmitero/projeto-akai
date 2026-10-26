@@ -75,6 +75,8 @@ jobs:
       - run: node --test scripts/tests/progression-trace-v23.test.mjs
       - run: node --test scripts/tests/progression-panel-v24.test.mjs
       - run: node --test scripts/tests/progression-diagnosis-v25.test.mjs
+      - run: node --test scripts/tests/progression-bonus-v26.test.mjs
+      - run: node --test scripts/tests/progression-adapter-v26.test.mjs
       - run: node --test scripts/tests/economy-preview-clock.test.mjs
       - run: node scripts/economy-v2/audit-guild-wars-v19.mjs
       - run: node scripts/economy-v2/audit-guild-boss-v18.mjs

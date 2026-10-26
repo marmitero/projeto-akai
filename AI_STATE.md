@@ -384,3 +384,10 @@ H26 especificada antes de seus resultados em H26.md: recuperação proporcional 
 ## H26 — passo1 concluído
 
 Usuário autorizou os três passos separadamente: implementar, validar invariantes e repetir painel14pares/120dias. Módulo isolado progression-bonus-v26 implementa exatamente H26.md com BigInt/carry e taxas inalteradas, sem consumidor/root/API/SQL/wallet. Build e typecheck do pacote passaram. Passos2/3 ainda pendentes neste checkpoint; não confundir implementação com aprovação de balanceamento. Ver docs/plans/hunts-builds/progression-bonus-v26/IMPLEMENTATION.md. RuntimeEnabled/balanceApproved/activationReady=false. Fontes nativas/V22/V23/V24 congeladas. Dados completos locais ignorados; apenas resumo público. Economia real/+16–20/monetizaçãooff.
+
+
+## H26 — passo2 concluído; passo3 preparado
+
+Sete testes matemáticos e nove do adapter passaram; zero-bônus reproduz mastery nativo em189combinações de carry/nível/Q/referência. Teto temporal, referência quadrática, oráculo racional, fronteiras, elegibilidade/offline, transparência do observador e retomada validados. Dois smokes de um dia, CLI inválida e auditoria V24 --verify passaram. CI inclui ambos os conjuntos novos. Ainda não são resultados longitudinais.
+
+Runner/auditor V26 preparados para os14casos exatos V24 e28braços de120dias; controles serão todos reexecutados com igualdade de cada linha diária e estado completo final às referências arquivadas. Sem reutilização presumida. Fontes/modelo/runner/factory/protocolo/validador congelados antes dos processos. Sessões ativas devem ser registradas em local/execution-sessions.json e retomadas apenas se encerradas, com fontes idênticas. Auditoria final exige28completos e14replays; depois --verify e teste privado de dez adulterações/ausência. Não editar fontes congeladas nem declarar conclusão parcial. Ver IMPLEMENTATION.md. RuntimeEnabled/balanceApproved/activationReady=false; sem merge/ativação. Dados completos locais ignorados; resumo público autorizado.
