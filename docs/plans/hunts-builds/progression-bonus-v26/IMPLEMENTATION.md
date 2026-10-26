@@ -34,3 +34,8 @@ node --test scripts/tests/progression-panel-v26.local-check.mjs
 ```
 
 Publicar somente conclusões agregadas/endpoints/testes. Comparar os14casos com V22 preservando todos os negativos e censuras. Mesmos gates: domínio/andar não menores, máximo/torre observados não atrasados e benefício primário mínimo1% em cada caso. Qualquer falha bloqueia aprovação, mesmo se houver ganhos médios. Não alterar taxas, critérios, controlador ou selecionar casos depois dos resultados. Sem integração/merge/ativação por este ensaio.
+
+
+## Passo3 — concluído, candidata reprovada
+
+Todos os28braços terminaram120dias (3.360dias-conta),14controles com igualdade integral das120linhas diárias e do estado completo arquivado. Auditoria/--verify e teste privado de dez adulterações/arquivo ausente passaram. Não regressão4/14; benefício mínimo1%2/14; ambos1/14. Resultado pior que V22 em não regressão (7/14). Ver RESULTS.md para todos os14casos, censuras e limites. Sem ajuste de taxas/fórmula após resultados nem ativação. CI completa do código545cffe aprovada (40300901477/40300894664 e Windows/LAN); conclusão documental posterior não altera esse código.
