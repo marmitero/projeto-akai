@@ -422,3 +422,14 @@ Usuário autorizou seguir H28. Implementados adapter somente nativo, observer re
 Sete testes passaram (fronteiras/offline, carry/prefixos/hashes, dados inválidos, máximo/censura/piso96dias, observador transparente em janela elegível, retomada JSON/meia-noite/controlador original, onda pendente/fontes compiladas). Ensaio curto casual17/12h1dia e CLI inválida passaram. CI inclui conjunto novo. Código/runner/observer/bancos/fontes/protocolo devem congelar antes das14campanhas120dias; no máximo8simultâneas. Ver docs/plans/hunts-builds/progression-shadow-v28/IMPLEMENTATION.md. Dados completos locais ignorados. Não contar parcial/smoke como conclusão.
 
 Runner deve reproduzir120linhas e estado nativo completo de cada referência, além do trace/digests H26zero. Auditor deve reexecutar cada banco de cada ledger e depois --verify/teste privado de adulteração. Não há conclusão longitudinal H28 ainda. Banco sombra não aprova gate de torre por construção nem promove H26; todos os gates/reprovações anteriores mantidos. RuntimeEnabled/balanceApproved/activationReady=false, PR30rascunho, sem merge/ativação. Economia real/+16–20/monetizaçãooff.
+
+
+## H28 — execuções concluídas; auditoria final bloqueada por ambiente indisponível
+
+Todos os14controles terminaram120dias/1.680dias-conta com exit0, igualdade integral de linhas diárias/estado/trace nativos; zero conferiu crédito/carry a cada vitória. Gerados1.680ledgers privados e2.779.683vitórias. CI completa do código0912cf1c46e6fd41846cecee4d8295efbb4199ec aprovada (40318155128/40318148517;431testes/49arquivos,7novos NodeH28,Windows/LAN).
+
+Auditoria integral e segunda recomputação independente ainda estavam executando na última consulta (sessões97511/1749). O ambiente ficou indisponível; tool retornou No usable execution environment is available. Não foi possível consultar conclusão, comparar relatórios ou executar teste privado final de adulteração. Não declarar H28 concluído/aprovado nem publicar rascunhos de benefício.
+
+Retomar conforme docs/plans/hunts-builds/progression-shadow-v28/STATUS.md: verificar local/summary.json e /tmp/v28-independent-summary.json, logs /tmp/v28-audit.log e /tmp/v28-recheck.log, consultar sessões antes de reiniciar. As14campanhas nativas já terminaram; evitar duplicatas. Comparar recomputações completas e então rodar progression-shadow-v28.local-check.mjs antes de conclusões. Não editar fontes/modelos compilados/hipótese hash vinculada nem reaproveitar dados com fontes diferentes.
+
+Código/fonte congelados0912cf1c; dados completos privados ignorados não foram publicados. H26/V22 continuam reprovadas, todos os negativos/censuras preservados. runtimeEnabled/balanceApproved/activationReady=false; PR30rascunho, sem merge/ativação. Economia real/+16–20/monetizaçãooff.
