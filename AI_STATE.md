@@ -438,3 +438,10 @@ Código/fonte congelados0912cf1c; dados completos privados ignorados não foram 
 ## H28 — validação final retomada (28/10/2026)
 
 Ambiente recuperado; 14 campanhas nativas e ledgers preservados. Sete testes passaram novamente. Auditor atualizado somente para processar até quatro casos em workers isolados, mantendo a ordem e todas as verificações. Duas recomputações completas em andamento; comparar relatórios e executar adulterações/falhas de workers antes de concluir. Tentativas interrompidas não contam como validação. Fontes de campanha/modelos/protocolo congelados em 0912cf1c. Ver progression-shadow-v28/STATUS.md. Ainda sem conclusões de benefício aprovadas; runtimeEnabled/balanceApproved/activationReady=false, sem merge/ativação.
+
+
+## H28 — diagnóstico validado; smoke online em correção (28/10/2026)
+
+Duas recomputações completas passaram e geraram JSON integralmente igual (SHA-256 3a9e59cefb4897eeb610488225d101687ad2864666257a4da1ca9d9c160a9fe6). Quatorze casos/120dias, 2.779.683 vitórias. Sete testes H28 e dois testes privados passaram; rejeitadas 11 adulterações, ledger ausente e limites/falhas do pool. H26 sombra ≥1% em1/14; oráculo9/14. H26 adaptativa permanece reprovada; sombra não aprova torre. Ver RESULTS.md para todos os casos e limites.
+
+CI geral do push40743338134 falhou no smoke do diário online: vitória antiga podia satisfazer a espera antes de a fixture recompensar. Corrigida sincronização do teste com recarga do estado e espera por recompensa/vitória, mantendo asserções de conteúdo/persistência. Nova CI ainda precisa confirmar; não declarar validação geral concluída neste checkpoint. Fontes/modelos/campanhas permanecem congelados0912cf1c; auditor118ce689. H29 documentada somente como proposta de espera externa, ainda não implementada/executada. RuntimeEnabled/balanceApproved/activationReady=false; sem merge/ativação, dados completos privados, monetizaçãooff.
