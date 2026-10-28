@@ -43,3 +43,9 @@ O teste privado usa o painel completo e uma cópia isolada do primeiro caso, man
 Prazo sombra e zero são comparados por timestamps exatos; nos controles censurados, comparar domínio ao final120dias. Diagnóstico da H26 adaptativa também usa timestamp exato quando disponível, mas os gates originais observados H26 permanecem preservados. A torre fica nativa por construção: não aprovar seu gate adaptativo com esse ensaio. Benefício sombra≥1% é somente sinal diagnóstico; não aprova balanceamento, coorte social, playtest ou integração.
 
 runtimeEnabled/balanceApproved/activationReady=false. Sem merge/ativação. Economia real/+16–20/monetizaçãooff.
+
+## Retomada da auditoria em 28/10/2026
+
+As campanhas e suas fontes continuam congeladas em 0912cf1c. O pós-processador foi ajustado para executar até quatro casos em workers isolados por auditoria, com ordem determinística no relatório. Cada lote aguarda todos os workers, inclusive em caso de erro; qualquer rejeição impede a geração de um relatório de sucesso. A função importada mantém execução sequencial por padrão, usada nas adulterações para rejeitar a evidência inválida antes de processar casos posteriores. Nenhuma verificação matemática, fonte de campanha, ledger ou critério foi reduzido.
+
+A retomada usa duas recomputações completas e comparação integral de seus objetos JSON. Isso verifica o relatório independentemente de chamar a opção CLI --verify; registrar a forma efetivamente executada nos resultados. As tentativas anteriores interrompidas para esse ajuste não contam como validações concluídas.

@@ -433,3 +433,8 @@ Auditoria integral e segunda recomputação independente ainda estavam executand
 Retomar conforme docs/plans/hunts-builds/progression-shadow-v28/STATUS.md: verificar local/summary.json e /tmp/v28-independent-summary.json, logs /tmp/v28-audit.log e /tmp/v28-recheck.log, consultar sessões antes de reiniciar. As14campanhas nativas já terminaram; evitar duplicatas. Comparar recomputações completas e então rodar progression-shadow-v28.local-check.mjs antes de conclusões. Não editar fontes/modelos compilados/hipótese hash vinculada nem reaproveitar dados com fontes diferentes.
 
 Código/fonte congelados0912cf1c; dados completos privados ignorados não foram publicados. H26/V22 continuam reprovadas, todos os negativos/censuras preservados. runtimeEnabled/balanceApproved/activationReady=false; PR30rascunho, sem merge/ativação. Economia real/+16–20/monetizaçãooff.
+
+
+## H28 — validação final retomada (28/10/2026)
+
+Ambiente recuperado; 14 campanhas nativas e ledgers preservados. Sete testes passaram novamente. Auditor atualizado somente para processar até quatro casos em workers isolados, mantendo a ordem e todas as verificações. Duas recomputações completas em andamento; comparar relatórios e executar adulterações/falhas de workers antes de concluir. Tentativas interrompidas não contam como validação. Fontes de campanha/modelos/protocolo congelados em 0912cf1c. Ver progression-shadow-v28/STATUS.md. Ainda sem conclusões de benefício aprovadas; runtimeEnabled/balanceApproved/activationReady=false, sem merge/ativação.

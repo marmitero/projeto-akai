@@ -38,3 +38,9 @@ test('complete H28 ledger audit rejects compiled sources, bank/carry/witness/tim
   await rm(lp);await assert.rejects(()=>auditShadowV28(root));
  }finally{await rm(root,{recursive:true,force:true});}
 });
+
+test('audit worker pool rejects invalid limits and missing evidence without a partial success',async()=>{
+ for(const limit of [0,5,1.5])await assert.rejects(()=>auditShadowV28(source,limit),/INVALID_AUDIT_CONCURRENCY/);
+ const root=await mkdtemp(join(tmpdir(),'akai-v28-missing-'));
+ try{await assert.rejects(()=>auditShadowV28(root,4),/ENOENT/);}finally{await rm(root,{recursive:true,force:true});}
+});
