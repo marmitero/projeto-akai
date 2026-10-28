@@ -49,3 +49,9 @@ runtimeEnabled/balanceApproved/activationReady=false. Sem merge/ativação. Econ
 As campanhas e suas fontes continuam congeladas em 0912cf1c. O pós-processador foi ajustado para executar até quatro casos em workers isolados por auditoria, com ordem determinística no relatório. Cada lote aguarda todos os workers, inclusive em caso de erro; qualquer rejeição impede a geração de um relatório de sucesso. A função importada mantém execução sequencial por padrão, usada nas adulterações para rejeitar a evidência inválida antes de processar casos posteriores. Nenhuma verificação matemática, fonte de campanha, ledger ou critério foi reduzido.
 
 A retomada usa duas recomputações completas e comparação integral de seus objetos JSON. Isso verifica o relatório independentemente de chamar a opção CLI --verify; registrar a forma efetivamente executada nos resultados. As tentativas anteriores interrompidas para esse ajuste não contam como validações concluídas.
+
+## Encerramento validado
+
+As duas auditorias completas e a comparação integral passaram; sete testes H28 e dois testes privados passaram. A CI completa do código 26e6a3d foi aprovada no push e na PR, incluindo Windows e navegador dev/preview. Uma corrida de sincronização no smoke online foi corrigida sem alterar código do jogo; detalhes, resultados, hashes e links estão em RESULTS.md. Todas as fontes de campanha permanecem idênticas e os processos foram encerrados.
+
+H28 conclui somente o diagnóstico; H26 continua reprovada e os bônus permanecem desligados. H29.md documenta o próximo experimento proposto, ainda não implementado.
