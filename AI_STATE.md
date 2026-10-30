@@ -339,3 +339,142 @@ Guild41652016→warworld→runs ordenadas→sessão/membros, autorização pós-
 20novos testes (17SQL+3domínio),19Node adicionais, análise19cenários e regressões completas aprovados. Teto conservador500Coin/conta/semana e10000/coorte20 na guerra; comV17,1300/conta e16900/coorte20, sem aprovação de equilíbrio/população. Fixtures de vínculos/builds/placares são técnicas e rotuladas; dano real testado separadamente. Ocorrências corrigidas antes de integrar:83c57a85 passou406/408, duas fixtures falharam por atributo sem orçamento e sessão expirada em35dias; corrigidas com equipamento válido/renovação sintética, sem afrouxar regras. c994f845 teve rodadas substituídas/canceladas;9351eeef passou integralmente. Evidências em docs/plans/hunts-builds/authenticated-guild-wars-v19/RESULTS.md; ADR017/contrato/API/DATA_MODEL/SECURITY/GDD/COMMUNITY/índices/roadmaps atualizados.
 
 Nenhuma decisão obrigatória do usuário. Próximo: bônus de progressão compatíveis com domínio por tempo e calibragem; depois playtest gratuitoPvP/guildas adquirido e análise conjunta de estoques/sinks/concentração. GatesCoin/Força/HP/Jade/refino/liquidez/população/capacidade/retenção/moderação/corte/backup/reconciliação/rollback preservados. Economiareal/+16–20/monetizaçãooff, activationReadyfalse. Sem Android físico, playtest humano ou infraestrutura pública; publicação é código para local/LAN.
+
+## Fase 11 / V20 — bônus compatíveis com domínio (em validação,23/10/2026)
+
+Definição/calibração isoladas: subpath progression-bonus-v20 apenas cotação, sem consumidor, SQL, endpoint ou efeito em personagens. Reduz penalidade de referência até o teto de vitória/benchmark, não multiplica tempo qualificado. Guilda10/7/5/3/1%+evento30%, soma≤40%; integral segmentada e carry.2.007diagnósticos de sete campanhas adquiridas,1.964vitórias/43não vitórias; zero bônus idêntico ao nativo; nominal40% gera15,68%no crédito agregado da amostra, não prazo populacional.9testes novos passaram. CI e campanhas longitudinais pendentes; runtimeEnabled/balanceApproved/activationReadyfalse. Contrato progression-bonus-v20, ADR018. Usuário autorizou validar a etapa e seguir; próximo laboratório de campanhas contrafactuais, sem ativação.
+
+
+## V22 — recalibração experimental concluída (23/10/2026)
+
+Código isolado publicado na PR30, checkpoint 21f07e493164a445f36b42d531dfb25927807a84. Resultado e reprodução em docs/plans/hunts-builds/progression-bonus-v22/RESULTS.md e IMPLEMENTATION.md. Sete campanhas locais completas: integridade aprovada, não regressão em 6/7 e benefício primário experimental mínimo de 1% em 2/7. O caso negativo permanece no painel. Candidata reprovada para integração; runtimeEnabled/balanceApproved/activationReady=false. Jogo, fontes nativas, carteiras, SQL e endpoints preservados.
+
+Próximo: instrumentar tempo qualificado/transições, atividades, compras e RNG; ampliar seeds e janelas online antes de nova candidata e qualquer consumidor autoritativo no ensaio. Guildas/rank são contrafactuais; não houve população acoplada ou playtest humano. Economia real/+16–20/monetização off. Publicar apenas resumo de testes/conclusões e documentação de código; dados completos ficam locais.
+
+CI completa do código 21f07e4: run40031972102 aprovada (431 testes/49 arquivos, PostgreSQL16, sem skips, auditorias e regressões dev/preview); Windows/LAN aprovado no mesmo SHA. Campanhas de120dias e testes Node de métricas/corrupção foram validados localmente, não reexecutados pela CI.
+
+
+## V23 — instrumentação validada (25/10/2026)
+
+PR30 em rascunho. Observador local de tempo, transições, compras, atividade/material e RNG; sem alteração de fórmula, taxas, R6/R7, controlador, carteiras ou endpoints. Duas reexecuções completas de120dias do caso negativo best/swift/seed3735928559 reproduziram exatamente as240linhas diárias e os dois estados semânticos completos finais. Cinco testes do observador passaram e estão na CI; auditoria local, round-trip JSON e rejeição de oito adulterações/arquivo ausente passaram.
+
+Atraso exato até o máximo:4.870.192ms (81min10,192s). Diferença contábil: mais9h12min em transições externas e cerca de2h59min em perdas de referência/benchmark, com compensações por menos pausas/encontros sem crédito e crédito extra bruto equivalente a3h32min. Não é prova causal isolada de uma compra ou sorteio. Ver docs/plans/hunts-builds/progression-trace-v23/RESULTS.md e IMPLEMENTATION.md. Correção de normalização de zero com sinal no relatório; nenhum replay precisou ser alterado.
+
+Candidata V22 permanece reprovada para integração, runtimeEnabled/balanceApproved/activationReady=false. Próximo: ampliar seeds e janelas de atividade, preservando o caso negativo e critérios prévios antes de outra candidata. Economia real/+16–20/monetização off. Dados completos/traces/checkpoints ficam locais ignorados; somente resumo público. A CI do commit final deve ser conferida na PR30; não confundir os replays locais com a execução pública de CI.
+
+
+## V24 — ampliação de seeds e horários concluída
+
+Painel local ampliado de7para14pares, cinco seeds e casual00h/12h/20h cruzado com17/4213. Todos os14braços novos completaram120dias; os sete pares anteriores foram reauditados, incluindo a seed negativa. Integridade14/14; não regressão7/14 (novos1/7); benefício primário mínimo1% em2/14 (novos0/7). Candidata V22 permanece reprovada para integração; runtimeEnabled/balanceApproved/activationReady=false. Fórmula/taxas/fontes nativas e V23 preservadas; não houve ativação no jogo.
+
+Ver docs/plans/hunts-builds/progression-panel-v24/RESULTS.md e PROTOCOL.md. Auditoria/--verify e rejeição de oito adulterações/arquivo ausente passaram. CI completa do código ada562d080ce7c4819f5c09b1a6650e0ec21c2f8 aprovada (40262379860/40262375705;431testes/49arquivos,5V23,7V24,2calendário; Windows/LAN). Fixture do smoke semanal fixou Date para evitar virada real de calendário; regras e campanhas intactas. Dados completos/séries/traces ficam locais ignorados. Horários mudam criação/idade no corte semanal; não inferir causalidade isolada do evento nem aprovação populacional/social/humana.
+
+Próximo: formular hipótese prévia de recalibração para interação domínio/decisões adaptativas/RNG, decompor novos negativos e repetir o painel completo antes de qualquer consumidor autoritativo. PR30 continua rascunho. Economia real/+16–20/monetizaçãooff.
+
+
+## V25 — diagnóstico dos novos pares concluído (26/10/2026)
+
+Leitor local progression-diagnosis-v25.mjs reaudita o painel completo e decompõe os sete pares novos (seis negativos e contraste1337), sem modificar as campanhas. Identidades inteiras de tempo/crédito fecharam nos14braços. Best17 atrasou o máximo exato em12.652.855ms; casual4213/20h perdeu domínio equivalente a6.620.590ms e incluiu6h de salto até retorno offline fora do avanço nativo. Esses componentes são contabilidade de trajetórias distintas, não causalidade isolada de ações/RNG.
+
+Cinco testes unitários e teste local completo passaram; geração/--verify e round-trip JSON passaram. Rejeitados salto de retorno removido, fonte/carteira adulteradas, braço incompleto e arquivo ausente, com hashes recalculados. Novo conjunto unitário incluído na CI; conferir execução remota antes de declarar CI completa deste commit. Dados completos/diagnósticos derivados ficam locais ignorados. Ver docs/plans/hunts-builds/progression-diagnosis-v25/RESULTS.md.
+
+H26 especificada antes de seus resultados em H26.md: recuperação proporcional de déficit de benchmark, preservando penalidade de referência/taxas/janelas/teto por tempo real. É uma hipótese, ainda não implementada nem ensaiada. Próxima etapa: módulo isolado e testes das invariantes, depois painel exato14pares/120dias com controles nativos e os mesmos gates, sem excluir negativos. Não mudar controlador/cadência para favorecer fórmula. V22/V23/V24 e fontes nativas congeladas; candidata V22 continua reprovada (não regressão7/14, benefício1%2/14). runtimeEnabled/balanceApproved/activationReady=false; PR30rascunho. Economia real/+16–20/monetizaçãooff.
+
+
+## H26 — passo1 concluído
+
+Usuário autorizou os três passos separadamente: implementar, validar invariantes e repetir painel14pares/120dias. Módulo isolado progression-bonus-v26 implementa exatamente H26.md com BigInt/carry e taxas inalteradas, sem consumidor/root/API/SQL/wallet. Build e typecheck do pacote passaram. Passos2/3 ainda pendentes neste checkpoint; não confundir implementação com aprovação de balanceamento. Ver docs/plans/hunts-builds/progression-bonus-v26/IMPLEMENTATION.md. RuntimeEnabled/balanceApproved/activationReady=false. Fontes nativas/V22/V23/V24 congeladas. Dados completos locais ignorados; apenas resumo público. Economia real/+16–20/monetizaçãooff.
+
+
+## H26 — passo2 concluído; passo3 preparado
+
+Sete testes matemáticos e nove do adapter passaram; zero-bônus reproduz mastery nativo em189combinações de carry/nível/Q/referência. Teto temporal, referência quadrática, oráculo racional, fronteiras, elegibilidade/offline, transparência do observador e retomada validados. Dois smokes de um dia, CLI inválida e auditoria V24 --verify passaram. CI inclui ambos os conjuntos novos. Ainda não são resultados longitudinais.
+
+Runner/auditor V26 preparados para os14casos exatos V24 e28braços de120dias; controles serão todos reexecutados com igualdade de cada linha diária e estado completo final às referências arquivadas. Sem reutilização presumida. Fontes/modelo/runner/factory/protocolo/validador congelados antes dos processos. Sessões ativas devem ser registradas em local/execution-sessions.json e retomadas apenas se encerradas, com fontes idênticas. Auditoria final exige28completos e14replays; depois --verify e teste privado de dez adulterações/ausência. Não editar fontes congeladas nem declarar conclusão parcial. Ver IMPLEMENTATION.md. RuntimeEnabled/balanceApproved/activationReady=false; sem merge/ativação. Dados completos locais ignorados; resumo público autorizado.
+
+
+## H26 — passo3 concluído; candidata reprovada
+
+Os três passos autorizados foram concluídos separadamente: módulo isolado (d922a7f5), regras/limites e protocolo congelado (545cffe1), painel completo e conclusão. Todos os28braços terminaram120dias/3.360dias-conta; os14controles reproduziram integralmente120linhas diárias e o estado semântico final de suas referências, excluindo só provenance da execução V10. Três encerramentos137 e17pausas foram resolvidos com retomadas/checkpoints e limite8simultâneos; todos terminaram exit0. Nenhuma sessão precisa continuar.
+
+Auditoria integral/--verify, identidades de tempo/crédito e teste privado de dez adulterações/arquivo ausente passaram, inclusive hashes recalculados e round-trip JSON. CI completa do código545cffe1de69668df75222d9964daefbcb612dc5 aprovada (40300901477/40300894664,431testes/49arquivos,16novos NodeH26 e Windows/LAN). Fontes/modelo/runner/adapter/protocolo/validador congelados durante o experimento; conclusão posterior é documental. Dados completos/saldos/séries/snapshots locais ignorados; módulos temporários foram limpos após encerrar todos.
+
+H26: integridade14/14; não regressão4/14 (V22:7/14); benefício primário mínimo1%2/14; ambos1/14. Balanced4213 melhorou máximo1,6212%, mas caiu de andar1000para959 e não chegou à torre1000. Swift17 ainda atrasou máximo exato7.049.663ms; casual4213/20h perdeu domínio e andar. Não aprovar H26 nem promover sobre V22. Ver docs/plans/hunts-builds/progression-bonus-v26/RESULTS.md e IMPLEMENTATION.md. Todos os14casos/negativos/censuras preservados.
+
+Próximo: rever o desenho do bônus e medir limites de benefício em trajetória fixa separadamente do efeito adaptativo antes de outra candidata; não aumentar percentuais ou mudar critérios para esconder falhas. Sem merge/consumidor autoritativo/ativação. RuntimeEnabled/balanceApproved/activationReady=false; PR30rascunho. Economia real/+16–20/monetizaçãooff.
+
+
+## V27 — revisão do desenho concluída
+
+Analisados os14casos a partir dos28braços H26 completos e reauditados, sem nova fórmula/campanha. Tetos relaxados de domínio nos seis casuais:2,6840% (seed17) e3,0106% (4213), ignorando penalidades/elegibilidade; permitem mas não demonstram1%. Nos oito controles que atingiram máximo, agregados de perdas não identificam antecipação na trajetória fixa. Não converter horas de crédito perdido em dias economizáveis; teste com duas sequências de mesmos agregados demonstra prazos diferentes. Limite global96dias é apenas frouxo, não estimativa específica.
+
+Ponte contábil dos casuais: Δdomínio=extra cotado H26+resíduo de cotações entre trajetórias; cinco resíduos positivos e um negativo. No4213/20h,+1,039446h de extra foi superado por−5,218047h de resíduo, saldo−4,178602h. Não atribuir causalidade isolada a compras/RNG nem chamar o resíduo de efeito adaptativo causal medido. Ver docs/plans/hunts-builds/progression-envelope-v27/RESULTS.md e PROTOCOL.md.
+
+Sete testes unitários, geração/--verify e teste privado completo passaram; rejeitados cinco tipos de adulteração com hashes recalculados e arquivo ausente; round-trip JSON e cópia dos28braços reproduziram o relatório. Conjunto unitário incluído na CI; verificar execução remota do novo commit antes de declarar CI completa. Dados completos/diagnósticos locais ignorados; somente resumo público.
+
+Decisão: não ajustar taxas/critério1% nem promover H26. Próximo ensaio H28 pré-definido em H28.md:14reexecuções nativas com prefixos por vitória e bancos sombra zero/H26/oráculo, sem alimentar combate/política/RNG. Ainda não implementado nem executado. Controle sombra deve reproduzir crédito/carry a cada vitória e campanha completa; registrar modelo compilado e fontes; validar transparência/retomada antes de rodar. Sombra não aprova gate de torre por construção. Reprovações V22/H26 preservadas; runtimeEnabled/balanceApproved/activationReady=false, PR30rascunho, sem merge/ativação. Economia real/+16–20/monetizaçãooff.
+
+
+## H28 — implementação validada; painel ainda pendente
+
+Usuário autorizou seguir H28. Implementados adapter somente nativo, observer read-only e bancos sombra zero/H26/oráculo independentes. Ledger diário privado limitado, hashes raw/arquivo e cadeia de prefixos, snapshots e testemunho de máximo na vitória exata. Zero confere crédito/carry a cada vitória; nenhuma sombra alimenta stats/decisões/compras/RNG. Fontes incluem modelo/base compilados e manifesto de todos osJS não temporários do runtime shared, além das fontes/hipótese/protocolo. V22/V23/V24/V26/R6/R7/controlador preservados.
+
+Sete testes passaram (fronteiras/offline, carry/prefixos/hashes, dados inválidos, máximo/censura/piso96dias, observador transparente em janela elegível, retomada JSON/meia-noite/controlador original, onda pendente/fontes compiladas). Ensaio curto casual17/12h1dia e CLI inválida passaram. CI inclui conjunto novo. Código/runner/observer/bancos/fontes/protocolo devem congelar antes das14campanhas120dias; no máximo8simultâneas. Ver docs/plans/hunts-builds/progression-shadow-v28/IMPLEMENTATION.md. Dados completos locais ignorados. Não contar parcial/smoke como conclusão.
+
+Runner deve reproduzir120linhas e estado nativo completo de cada referência, além do trace/digests H26zero. Auditor deve reexecutar cada banco de cada ledger e depois --verify/teste privado de adulteração. Não há conclusão longitudinal H28 ainda. Banco sombra não aprova gate de torre por construção nem promove H26; todos os gates/reprovações anteriores mantidos. RuntimeEnabled/balanceApproved/activationReady=false, PR30rascunho, sem merge/ativação. Economia real/+16–20/monetizaçãooff.
+
+
+## H28 — execuções concluídas; auditoria final bloqueada por ambiente indisponível
+
+Todos os14controles terminaram120dias/1.680dias-conta com exit0, igualdade integral de linhas diárias/estado/trace nativos; zero conferiu crédito/carry a cada vitória. Gerados1.680ledgers privados e2.779.683vitórias. CI completa do código0912cf1c46e6fd41846cecee4d8295efbb4199ec aprovada (40318155128/40318148517;431testes/49arquivos,7novos NodeH28,Windows/LAN).
+
+Auditoria integral e segunda recomputação independente ainda estavam executando na última consulta (sessões97511/1749). O ambiente ficou indisponível; tool retornou No usable execution environment is available. Não foi possível consultar conclusão, comparar relatórios ou executar teste privado final de adulteração. Não declarar H28 concluído/aprovado nem publicar rascunhos de benefício.
+
+Retomar conforme docs/plans/hunts-builds/progression-shadow-v28/STATUS.md: verificar local/summary.json e /tmp/v28-independent-summary.json, logs /tmp/v28-audit.log e /tmp/v28-recheck.log, consultar sessões antes de reiniciar. As14campanhas nativas já terminaram; evitar duplicatas. Comparar recomputações completas e então rodar progression-shadow-v28.local-check.mjs antes de conclusões. Não editar fontes/modelos compilados/hipótese hash vinculada nem reaproveitar dados com fontes diferentes.
+
+Código/fonte congelados0912cf1c; dados completos privados ignorados não foram publicados. H26/V22 continuam reprovadas, todos os negativos/censuras preservados. runtimeEnabled/balanceApproved/activationReady=false; PR30rascunho, sem merge/ativação. Economia real/+16–20/monetizaçãooff.
+
+
+## H28 — validação final retomada (28/10/2026)
+
+Ambiente recuperado; 14 campanhas nativas e ledgers preservados. Sete testes passaram novamente. Auditor atualizado somente para processar até quatro casos em workers isolados, mantendo a ordem e todas as verificações. Duas recomputações completas em andamento; comparar relatórios e executar adulterações/falhas de workers antes de concluir. Tentativas interrompidas não contam como validação. Fontes de campanha/modelos/protocolo congelados em 0912cf1c. Ver progression-shadow-v28/STATUS.md. Ainda sem conclusões de benefício aprovadas; runtimeEnabled/balanceApproved/activationReady=false, sem merge/ativação.
+
+
+## H28 — diagnóstico validado; smoke online em correção (28/10/2026)
+
+Duas recomputações completas passaram e geraram JSON integralmente igual (SHA-256 3a9e59cefb4897eeb610488225d101687ad2864666257a4da1ca9d9c160a9fe6). Quatorze casos/120dias, 2.779.683 vitórias. Sete testes H28 e dois testes privados passaram; rejeitadas 11 adulterações, ledger ausente e limites/falhas do pool. H26 sombra ≥1% em1/14; oráculo9/14. H26 adaptativa permanece reprovada; sombra não aprova torre. Ver RESULTS.md para todos os casos e limites.
+
+CI geral do push40743338134 falhou no smoke do diário online: vitória antiga podia satisfazer a espera antes de a fixture recompensar. Corrigida sincronização do teste com recarga do estado e espera por recompensa/vitória, mantendo asserções de conteúdo/persistência. Nova CI ainda precisa confirmar; não declarar validação geral concluída neste checkpoint. Fontes/modelos/campanhas permanecem congelados0912cf1c; auditor118ce689. H29 documentada somente como proposta de espera externa, ainda não implementada/executada. RuntimeEnabled/balanceApproved/activationReady=false; sem merge/ativação, dados completos privados, monetizaçãooff.
+
+
+## H28 — encerramento validado (28/10/2026)
+
+Etapa concluída como diagnóstico. Quatorze controles nativos de120dias, 1.680ledgers e2.779.683vitórias. Duas auditorias completas com replay por vitória e comparação integral geraram JSON idêntico (SHA-256 3a9e59cefb4897eeb610488225d101687ad2864666257a4da1ca9d9c160a9fe6). Sete testes H28 e dois privados passaram, rejeitando11adulterações/ledger ausente e falhas/limites dos workers. H26 sombra≥1%1/14, oráculo9/14; isso não aprova candidata nem torre adaptativa.
+
+A falha do smoke online anterior foi resolvida em26e6a3d com sincronização da fixture/diário, sem alteração do jogo. CI completa desse código aprovada: Project checks push40746443363/PR40746452497 e Windows push40746443278/PR40746452474.431testes/49arquivos, Node, auditorias/simulações e navegador dev/preview passaram. Smoke corrigido passou nas quatro combinações dev/preview×push/PR. Workflows posteriores de documentação não são presumidos concluídos.
+
+Fontes de campanha/modelos/protocolo congelados0912cf1c, auditor final118ce689; hashes reconferidos após correção/limpeza e idênticos. Processos encerrados, temporários removidos, sem auditoria pendente. Ver progression-shadow-v28/RESULTS.md e STATUS.md. Próximo passo H29: adaptador isolado para reduzir apenas espera externa pós-vitória, mantendo domínio/transições internas; primeiro equivalência zero e invariantes, depois14pares adaptativos/120dias. H29 ainda somente proposta, não implementada/executada. H26/V22 continuam reprovadas; runtimeEnabled/balanceApproved/activationReady=false, sem merge/ativação. Dados completos privados, monetizaçãooff.
+
+
+## H29 — implementação e regras validadas; painel preparado (30/10/2026)
+
+Usuário autorizou seguir H29. Modelo ESM isolado reduz somente a espera externa pós-vitória com trabalho racional BigInt e fronteiras globais exatas. Domínio/carry usam o corpo R6 nativo; sem H26 acumulada, nenhum consumidor/API/SQL/wallet. Primeira aproximação, transições internas de3000ms, derrota/timeout, seleção/pausa, entrada/retorno offline/quota e evento semanal preservados. Offline nativo descarta espera/encontro anterior: não há bônus de evento carregado para ausência.
+
+Sete testes passaram: oráculo racional por ms, fronteiras/ranks/offline, estado nativo em bônus zero e orçamento parcial, domínio/recursos intactos na espera,6000ms internos preservados, cancelamentos nativos, campanha integral, observador transparente, retomada JSON/quota e derrota/timeout explícitos/fontes compiladas. Runner controle1dia+retomada real ao2ºdia e calendário1dia/replay3508eventos passaram. CLI inválida e factoryHash adulterado na retomada rejeitados. CI inclui os sete testes e ainda precisa ser confirmada.
+
+Runner/auditor preparados para14pares/28braços novos de120dias com os mesmos gates/negativos/censuras; todos os controles devem reproduzir cada linha/estado nativo e trace H26zero. Ledger privado por espera com Q/crédito/carry e ciclo de vida; auditor reexecuta todas as esperas/créditos e concilia evidências. Publicar e congelar fontes antes de iniciar, no máximo8campanhas simultâneas; registrar sessões/checkpoints em local/. Ainda não há resultado longitudinal. Ao final: auditar, verificar relatório por recomputação completa e executar teste privado de13adulterações/ausência/pool. Não alterar fonte/taxa/critério para obter aprovação. Ver progression-cadence-v29/PROTOCOL.md e IMPLEMENTATION.md.
+
+H26/V22 permanecem reprovadas; H28 diagnóstico concluído. runtimeEnabled/balanceApproved/activationReady=false; PR30rascunho, sem merge/ativação. Dados completos/saldos/séries/estados/ledgers privados ignorados. Monetizaçãooff.
+
+
+## H29 — checkpoint de interrupção do ambiente (30/10/2026)
+
+Código/protocolo preservados em e2c857d7579a9b5a1d0df3bdf2e46492e3c14053. Implementação e sete testes aprovados; CI completa desse código aprovada: Project checks push41037638520/PR41037645271 e Windows push41037638746/PR41037645488. Isso valida a implementação, não o balanceamento longitudinal.
+
+O painel foi interrompido pelo desaparecimento de arquivos do workspace e posterior indisponibilidade explícita do ambiente. Na última leitura válida:5/28braços completos,989dias-conta acumulados,8ativos/15emfila, zero falhas de integridade observadas até então. Logs confirmaram exit0 para regular-swift-4213-h00-zero, best-swift-3735928559-h00-zero, best-swift-4213-h00-calendar, best-swift-3735928559-h00-calendar e best-swift-4213-h00-zero. Não foi possível reauditar/preservar ou confirmar disponibilidade posterior desses resultados. Outros retornos individuais não foram confirmados; não contar como completos.
+
+Sessões9857(agendador) e47520(validador) encerraram exit1 com FileNotFoundError. Consultas antes da indisponibilidade mostraram .git/fontes e metadados locais ausentes; referências privadas anteriores também estavam incompletas. Causa do desaparecimento não determinada. Nenhuma conclusão de benefício/não regressão H29; auditoria completa/comparação/testes privados finais ainda não executados. Não transformar interrupção de infraestrutura em reprovação/aprovação da candidata.
+
+Retomada: primeiro inventariar/restaurar checkout e referências privadas V24/H26, conferir hashes dos arquivos sobreviventes e processos antes de iniciar qualquer cópia. Não presumir recuperação de dados ausentes, trocar referências por fixtures ou alterar fontes/critério para passar. Se necessário, recomputar referências pelo código apropriado e conferir hashes esperados; preservar cópias privadas duráveis dos checkpoints antes de novos trabalhos longos. Só retomar checkpoint íntegro de processo encerrado com fontes idênticas. Depois completar28braços/120dias, duas auditorias integrais, comparação e13adulterações/ausência/pool. Ver progression-cadence-v29/STATUS.md.
+
+H26/V22 reprovadas, H28 diagnóstico concluído. H29 implementação publicada, validação longitudinal pendente por ambiente indisponível. runtimeEnabled/balanceApproved/activationReady=false; PR30rascunho, sem merge/ativação. Dados completos/saldos/séries/estados/ledgers não publicados. Monetizaçãooff.

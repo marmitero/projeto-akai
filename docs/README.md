@@ -73,3 +73,5 @@ Android: [guia de teste LAN](MOBILE_TEST.md), [implementação/evidências](MOBI
 - [Temporadas autenticadas V17 — contrato e operação](plans/hunts-builds/authenticated-seasons-v17/IMPLEMENTATION.md)
 - [Temporadas V17 — evidências e limites](plans/hunts-builds/authenticated-seasons-v17/RESULTS.md)
 
+
+Etapa em validação: [V20 bônus de domínio](plans/hunts-builds/progression-bonus-v20/IMPLEMENTATION.md), definição/calibração isolada, sem efeito no jogo/ensaio. Campanhas contrafactuais longitudinais são a próxima validação.
