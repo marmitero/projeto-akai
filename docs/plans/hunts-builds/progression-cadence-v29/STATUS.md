@@ -9,3 +9,10 @@ A rotina recover-h29.py recompõe as referências V22/V24/H26 com os programas o
 O manifesto compilado fresco difere do anterior; não serão combinados checkpoints H29 antigos com a nova tentativa. Modelo, taxas, horários, casos e critérios permanecem inalterados. Ainda faltam completar a recuperação, todos os28braços H29/120dias, duas auditorias completas/comparação e os testes privados finais. Não há aprovação de balanceamento H29.
 
 runtimeEnabled=false; balanceApproved=false; activationReady=false. H26/V22 continuam reprovadas, H28 diagnóstico concluído. PR#30emrascunho, sem merge/ativação. Dados completos/saldos/séries/estados/ledgers privados; monetização desligada.
+
+
+## H29 — retomada validada das referências (31/10/2026)
+
+Ambiente novamente acessível; processos antigos não estavam ativos. Retomada pelo checkout 4f7a6b0, sem recompilar ou alterar fontes científicas. Dez testes H29/recuperação passaram novamente. V22 (nove tarefas, incluindo dois controles curtos) e V24 (14 braços) foram reconstruídas e passaram nos auditores originais; backups privados confirmados antes da retomada e após essas auditorias. Não confundir referências legadas com validação H29.
+
+Recuperação H26 em andamento, ainda condicionada ao hash canônico original ff510f7ead1d0a136ea53e09decbbe1b8dac09642f4e16c42c0d524a15fa3f91. Painel H29 completo e duas auditorias/adulterações permanecem pendentes. Sem conclusão de benefício ou aprovação de balanceamento. runtimeEnabled=false; balanceApproved=false; activationReady=false. PR30 rascunho, sem merge/ativação, dados completos privados.
