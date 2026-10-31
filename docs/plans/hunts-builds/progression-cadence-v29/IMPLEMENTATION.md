@@ -37,3 +37,7 @@ node --test scripts/tests/progression-cadence-v29.local-check.mjs
 Alternativamente, duas recomputações completas do mesmo auditor em processos separados, seguidas de comparação integral dos JSON, verificam o mesmo relatório. Registrar a forma realmente executada, sem alegar --verify se não foi chamado. Testes privados preparados para 13 adulterações (incluindo espera calendário com controle completo válido), ledger ausente e limites/falha de workers. Ainda não passaram: precisam do painel completo e validado.
 
 Dados completos/saldos/séries/estados/ledgers ficam em local/ ignorado. Publicar apenas conclusões, endpoints e hashes. Não aprovar por potencial de tempo economizado no agendamento: parte das esperas é cancelada e trajetórias adaptativas podem piorar. H26/V22 continuam reprovadas. runtimeEnabled/balanceApproved/activationReady=false; sem merge/ativação. Monetização desligada.
+
+## Recuperação após manutenção do workspace
+
+Em31/10/2026 foram restaurados checkout e dependências, preservados os dados sobreviventes e validada a reconstrução de um controle com hash idêntico ao original. As referências privadas faltantes precisam ser recompostas pelos runners/auditores congelados antes da H29. A rotina recupera a cadeia e exige o hash H26 original publicado; não reduz gates. Ver RECOVERY.md. Backups privados periódicos passam a ser obrigatórios. A tentativa H29 interrompida não será contada como completa nem retomada sem seu prefixo de ledgers.
