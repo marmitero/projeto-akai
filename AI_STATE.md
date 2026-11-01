@@ -13,3 +13,12 @@ Painel H29 novo em execução: 14 pares/28 braços de 120 dias. Não combinar ch
 Ainda pendentes: completar os 28 braços; duas auditorias com replay integral/comparação byte a byte; testes privados de 13 adulterações/ausência/pool; publicar conclusões sanitizadas e hashes. Dias das referências legadas não contam como validação H29. Não alterar critérios para obter aprovação. Nenhuma conclusão longitudinal H29 nesta leitura.
 
 runtimeEnabled=false; balanceApproved=false; activationReady=false. Sem merge/ativação. Estados, saldos, séries e ledgers privados; publicar somente conclusões/testes/endpoints/hashes autorizados. Monetização desligada. Ao concluir cada etapa, validar, documentar, publicar na branch e verificar SHA remoto, conforme autorização permanente em AGENTS.md.
+
+
+## H29 — painel completo preservado; auditorias interrompidas pelo ambiente
+
+Os 28 braços H29 terminaram com sucesso, totalizando 3.360 dias-conta. Todos os runners retornaram completos, sem falha registrada. O backup privado completo foi confirmado antes de iniciar duas auditorias integrais de replay. Na última leitura válida, ambas ainda estavam em execução, sem relatório final ou erro registrado. Em seguida a conexão do executor falhou e o ambiente foi explicitamente marcado indisponível. Não presumir término posterior, falha científica, comparação aprovada ou processos encerrados.
+
+O backup privado persistente foi confirmado por metadados na versão20. As referências V22/V24/H26 já estavam integralmente restauradas/auditadas, com hash H26 original idêntico. Não repetir toda a reconstrução nem as campanhas completas se os arquivos restaurados passarem nos validadores originais.
+
+Pendentes: confirmar/restaurar os processos e arquivos das auditorias, concluir duas auditorias completas e comparar os JSON byte a byte; executar os testes privados de13 adulterações/ausência/pool; publicar conclusões sanitizadas. Ainda não há aprovação/reprovação longitudinal H29. Antes de restaurar, obter o backup privado mais recente; atualizar a guarda de versão do destino a partir dos metadados atuais, pois o estado arquivado precede o upload. Conferir fontes/manifesto compilado e todos os ledgers; nunca remover guardas para contornar divergências. Ver STATUS.md/RECOVERY.md. runtimeEnabled=false; balanceApproved=false; activationReady=false; PR30 rascunho, sem merge/ativação, dados completos privados.
