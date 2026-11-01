@@ -1,0 +1,4 @@
+import {INHERITED_CASES_V24,NEW_CASES_V24,caseKeyV24} from './progression-panel-v24.mjs';
+export const CASES_V26=Object.freeze([...INHERITED_CASES_V24,...NEW_CASES_V24]);
+export const caseKeyV26=caseKeyV24;
+export const PANEL_PROTOCOL_V26=Object.freeze({version:'progression-panel-v26-1',days:120,cases:CASES_V26,formula:'progression-bonus-v26-1',hypothesis:'Rb=min(1,R*(1+b));Cb=C+(1-C)*b;rate=Rb*Cb',minimumPrimaryBenefit:0.01,controls:'Reexecute all14 native arms; each daily row and complete final semantic campaign must equal the archived native baseline',calendar:'Same global guild boundary Oct26 midnight Brasilia; daily12-18 event online only; creation offset and24h cycles unchanged from V24',criteria:'Unchanged V22/V24 per-case endpoint non-regression and1percent primary benefit; retain every negative and censoring',runtimeEnabled:false,balanceApproved:false,activationReady:false});

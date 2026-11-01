@@ -1,0 +1,123 @@
+{
+  "version": "progression-bonus-v20-1",
+  "sourceHash": "e53da017e142a366cbc7f456332bb76c0d99260c654cc7973de493c4a9916cd5",
+  "nativeCompiledHash": "720452af7e20d1e5096309c499982c2a036d0698b1cc54a8948708e58b424ab3",
+  "modelHash": "8a95f35f587ea514f87cdd98915b7ee5d3b4033532a45a85ca30b7deff370211",
+  "integrityPassed": true,
+  "balanceApproved": false,
+  "activationReady": false,
+  "runtimeEnabled": false,
+  "minimumQualifiedDays": 96,
+  "scope": "Paired native tower/hunt/frontier encounters using acquired daily equipment/attributes from seven V10 campaigns. Zero-bonus quote exactly equals native mastery/carry. Starting carry0 is a diagnostic convention, not recorded daily carry. Guild membership/rank and permanent event overlap are counterfactual. No full boosted campaign, offline schedule segmentation, live wallet or character is modified.",
+  "guildRanks": [
+    {
+      "rank": 1,
+      "bps": 1000
+    },
+    {
+      "rank": 2,
+      "bps": 700
+    },
+    {
+      "rank": 3,
+      "bps": 500
+    },
+    {
+      "rank": 4,
+      "bps": 300
+    },
+    {
+      "rank": 10,
+      "bps": 300
+    },
+    {
+      "rank": 11,
+      "bps": 100
+    }
+  ],
+  "selected": {
+    "guildMaximumBps": 1000,
+    "eventBps": 3000,
+    "additiveCapBps": 4000,
+    "creditCeiling": "min(actual victorious qualified time,native benchmark); only the reference/floor penalty can be reduced"
+  },
+  "observations": 2007,
+  "caseHash": "7ecd72bb0f824c1ea06a27b9b5c2a43e396f223139500ace9dd0b2954e6c345f",
+  "caseArchive": "paired-encounters.json.gz (generated; full deterministic caseHash verified)",
+  "wins": 1964,
+  "failures": 43,
+  "summaries": [
+    {
+      "bonusBps": 0,
+      "baseMs": 15287708,
+      "totalMs": 15287708,
+      "extraMs": 0,
+      "relativeGain": 0,
+      "benefited": 0
+    },
+    {
+      "bonusBps": 100,
+      "baseMs": 15287708,
+      "totalMs": 15362334,
+      "extraMs": 74626,
+      "relativeGain": 0.004881438080842404,
+      "benefited": 1346
+    },
+    {
+      "bonusBps": 300,
+      "baseMs": 15287708,
+      "totalMs": 15505893,
+      "extraMs": 218185,
+      "relativeGain": 0.014271923561072652,
+      "benefited": 1408
+    },
+    {
+      "bonusBps": 500,
+      "baseMs": 15287708,
+      "totalMs": 15642189,
+      "extraMs": 354481,
+      "relativeGain": 0.023187321474219758,
+      "benefited": 1408
+    },
+    {
+      "bonusBps": 700,
+      "baseMs": 15287708,
+      "totalMs": 15775230,
+      "extraMs": 487522,
+      "relativeGain": 0.031889803232767244,
+      "benefited": 1408
+    },
+    {
+      "bonusBps": 1000,
+      "baseMs": 15287708,
+      "totalMs": 15972877,
+      "extraMs": 685169,
+      "relativeGain": 0.044818294540947434,
+      "benefited": 1408
+    },
+    {
+      "bonusBps": 2000,
+      "baseMs": 15287708,
+      "totalMs": 16590855,
+      "extraMs": 1303147,
+      "relativeGain": 0.08524148943713472,
+      "benefited": 1408
+    },
+    {
+      "bonusBps": 3000,
+      "baseMs": 15287708,
+      "totalMs": 17151999,
+      "extraMs": 1864291,
+      "relativeGain": 0.12194705707356523,
+      "benefited": 1408
+    },
+    {
+      "bonusBps": 4000,
+      "baseMs": 15287708,
+      "totalMs": 17684681,
+      "extraMs": 2396973,
+      "relativeGain": 0.15679086753880966,
+      "benefited": 1408
+    }
+  ]
+}

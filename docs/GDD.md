@@ -98,3 +98,7 @@ V18 integra arquivo diário do boss, XP nativo de guilda por dano efetivo elegí
 ## Guerra v2 de ensaio V19
 
 Guerra autenticada tem painel próprio com inscrição/atributos v2 congelados, pareamento semanal, um ataque/participante e arquivo/prêmios únicos. Bônus de domínio não são importados. [Contrato](plans/hunts-builds/authenticated-guild-wars-v19/IMPLEMENTATION.md); balanceamento/playtest e ativação permanecem gates.
+
+## Candidata V20 de eficiência de domínio
+
+Bônus de guilda/evento testados como redução limitada da penalidade de referência; não concedem tempo fictício ou alteram combate/carteira. Somente laboratório, não ativos. [Contrato/calibração](plans/hunts-builds/progression-bonus-v20/IMPLEMENTATION.md).

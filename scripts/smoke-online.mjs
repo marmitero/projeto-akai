@@ -202,8 +202,17 @@ try {
     delete seeded.battle.reportSerial;
     await journalDb.pool.query("UPDATE akai_accounts SET snapshot=$2 WHERE id=$1", [accountId, seeded]);
   } finally { await journalDb.close(); }
+  // Discard the browser's pre-fixture journal before waiting for this seeded fight.
+  // An old victory can otherwise satisfy the wait and pause the new encounter before it rewards.
+  await page.reload();
+  await page.locator('#game[data-mode=online][data-load-status=ready]').waitFor();
   await page.locator('[data-route="battle"]').click();
-  await page.locator('#battle-system-log li[data-kind=victory]').waitFor();
+  await page.waitForFunction(() => {
+    const log = document.querySelector('#battle-system-log');
+    return Boolean(log?.querySelector('li[data-kind=victory]')) &&
+      Array.from(log.querySelectorAll('li[data-kind=reward]')).some(item =>
+        item.textContent.includes('Coins') && item.textContent.includes('XP do guerreiro'));
+  });
   if (!(await state()).snapshot.battle.paused) await page.locator('#pause-battle').click();
   await page.waitForFunction(async () => (await (await fetch('/api/v1/state', {headers:{'X-Akai-Client':'1'}})).json()).snapshot.battle.paused);
   const journalState = await state();
